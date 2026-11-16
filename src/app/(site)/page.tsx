@@ -5,6 +5,7 @@ import { ScienceTeaser } from '@/components/home/ScienceTeaser'
 import { LooksmaxingTeaser } from '@/components/home/LooksmaxingTeaser'
 import { SupplementsTeaser } from '@/components/home/SupplementsTeaser'
 import { FoodExplorer } from '@/components/food/FoodExplorer'
+import { AppCta } from '@/components/home/AppCta'
 
 export default function Home() {
   return (
@@ -20,9 +21,12 @@ export default function Home() {
             Tvoje tělo, <em className="text-cyan">rozluštěné.</em>
           </h1>
           <p className="text-muted mt-2 text-[15px]">Klepněte na orgán a uvidíte, co potřebuje — a proč.</p>
+          <AppCta compact />
         </div>
         <AnatomyExplorer />
       </section>
+
+      <AppCta />
 
       <Section
         id="nutrients"

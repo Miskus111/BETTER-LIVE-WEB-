@@ -71,10 +71,13 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           <form action={deleteAccount} className="border-warn/25 rounded-xl border p-4">
             <p className="text-[14px]">{t('deleteConfirm')}</p>
             <label className="text-muted mt-3 block text-[13px]">
-              Napište / type <code className="text-fg font-mono">DELETE</code>
+              {t.rich('typeToConfirm', {
+                word: () => <code className="text-fg font-mono">{t('confirmWord')}</code>,
+              })}
               <input name="confirm" className="field mt-1.5" autoComplete="off" />
             </label>
-            {del === 'error' && <p className="mt-2 text-[13px] text-[#ff9b9b]">Error</p>}
+            {del === 'confirm' && <p className="mt-2 text-[13px] text-[#ff9b9b]">{t('confirmMismatch')}</p>}
+            {del === 'error' && <p className="mt-2 text-[13px] text-[#ff9b9b]">{t('deleteError')}</p>}
             <button className="btn mt-3 border border-[#ff8b8b]/50 !py-2 text-[#ff9b9b] hover:bg-[#ff8b8b]/10">
               <Trash2 size={15} aria-hidden /> {t('delete')}
             </button>

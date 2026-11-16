@@ -34,7 +34,8 @@
     "supplements": "Supplements",
     "store": "Where to buy",
     "settings": "Settings",
-    "more": "More"
+    "more": "More",
+    "learn": "Body encyclopedia"
   },
   "setup": {
     "title": "Supabase isn't connected yet",
@@ -254,7 +255,11 @@
     "planPro": "You are on Pro. Thank you!",
     "planFree": "Free plan: unlimited training, food diary, mobility and supplements; coach 10 messages a day.",
     "proPrice": "Pro: CZK {month}/month or CZK {year}/year — AI report reading, advanced charts, coach 100 messages a day.",
-    "paymentsSoon": "Payments are coming soon. Until then it costs you nothing."
+    "paymentsSoon": "Payments are coming soon. Until then it costs you nothing.",
+    "typeToConfirm": "Type <word></word> to confirm",
+    "confirmWord": "DELETE",
+    "confirmMismatch": "The confirmation word does not match.",
+    "deleteError": "The account could not be deleted. Please try again."
   },
   "train": {
     "title": "Train",

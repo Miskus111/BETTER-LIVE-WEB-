@@ -93,3 +93,11 @@ test('app routes require sign-in (or show setup when Supabase is not configured)
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Supabase|Přihlášení|Sign in/)
   }
 })
+
+test('home links to the app: nav button and sign-up block', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.getByTestId('nav-app')).toHaveAttribute('href', '/today')
+  const cta = page.getByTestId('cta-signup')
+  await expect(cta).toHaveAttribute('href', '/login?mode=signup')
+  await expect(page.locator('#aplikace')).toContainText('Trénink')
+})

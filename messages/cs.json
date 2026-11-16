@@ -34,7 +34,8 @@
     "supplements": "Doplňky",
     "store": "Kde koupit",
     "settings": "Nastavení",
-    "more": "Další"
+    "more": "Další",
+    "learn": "Encyklopedie těla"
   },
   "setup": {
     "title": "Supabase zatím není připojený",
@@ -254,7 +255,11 @@
     "planPro": "Máte tarif Pro. Děkujeme!",
     "planFree": "Tarif Free: trénink, jídelníček, mobilita a doplňky bez omezení, kouč 10 zpráv denně.",
     "proPrice": "Pro: {month} Kč měsíčně nebo {year} Kč ročně – AI čtení zpráv, pokročilé grafy, kouč 100 zpráv denně.",
-    "paymentsSoon": "Platby připravujeme. Do té doby vás nic nestojí."
+    "paymentsSoon": "Platby připravujeme. Do té doby vás nic nestojí.",
+    "typeToConfirm": "Pro potvrzení napište <word></word>",
+    "confirmWord": "SMAZAT",
+    "confirmMismatch": "Potvrzovací slovo nesouhlasí.",
+    "deleteError": "Účet se nepodařilo smazat. Zkuste to prosím znovu."
   },
   "train": {
     "title": "Trénink",

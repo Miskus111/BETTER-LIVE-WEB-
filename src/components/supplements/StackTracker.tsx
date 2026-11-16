@@ -63,7 +63,8 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
         supplement_id: sup.id,
         dose_amount: Number(dose.replace(',', '.')) || s.dose.min,
         dose_unit: s.dose.unit,
-        timing: timing || s.timing[locale],
+        // empty = use the library's default timing, shown in the reader's language
+        timing: timing.trim() || null,
         reminder_time: reminder || null,
       })
       if (err) setError(err.message)
@@ -123,7 +124,7 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
                   <div className="min-w-0 flex-1">
                     <p className="text-[15px] font-medium">{s?.name[locale] ?? r.slug}</p>
                     <p className="text-subtle text-[13px]">
-                      {r.dose_amount} {s?.dose.unit} · {r.timing}
+                      {r.dose_amount} {s?.dose.unit} · {timingLabel(r.timing, s, locale)}
                       {r.reminder_time && ` · ${r.reminder_time.slice(0, 5)}`}
                     </p>
                   </div>
@@ -291,4 +292,15 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
       </section>
     </div>
   )
+}
+
+/** Custom timing as typed; the library default (stored in either language by older rows) follows the UI language. */
+function timingLabel(
+  stored: string | null,
+  s: { timing: { cs: string; en: string } } | undefined,
+  locale: 'cs' | 'en',
+): string {
+  if (!s) return stored ?? ''
+  if (!stored || stored === s.timing.cs || stored === s.timing.en) return s.timing[locale]
+  return stored
 }

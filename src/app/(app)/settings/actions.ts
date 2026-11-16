@@ -16,7 +16,10 @@ export async function withdrawHealthConsent() {
 export async function deleteAccount(formData: FormData) {
   const s = await getSession()
   if (!s) redirect('/login')
-  if (formData.get('confirm') !== 'DELETE') redirect('/settings?delete=confirm')
+  const word = String(formData.get('confirm') ?? '')
+    .trim()
+    .toUpperCase()
+  if (word !== 'SMAZAT' && word !== 'DELETE') redirect('/settings?delete=confirm')
   const admin = createServiceClient()
   for (const bucket of ['progress-photos', 'lab-reports']) {
     const { data } = await admin.storage.from(bucket).list(s.user.id, { limit: 1000 })

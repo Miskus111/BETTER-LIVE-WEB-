@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Menu, Search, X } from 'lucide-react'
+import { LayoutDashboard, Menu, Search, X } from 'lucide-react'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
 import { Logo } from './Logo'
@@ -78,6 +78,11 @@ export function Nav() {
               ⌘K
             </kbd>
           </button>
+          <Link href="/today" className="btn btn-primary !h-10 !px-4 !py-0 text-[14px]" data-testid="nav-app">
+            <LayoutDashboard size={16} aria-hidden />
+            <span className="hidden sm:inline">Moje aplikace</span>
+            <span className="sm:hidden">Aplikace</span>
+          </Link>
           <button
             type="button"
             className="border-line grid h-10 w-10 place-items-center rounded-full border lg:hidden"

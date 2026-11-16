@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { LogOut } from 'lucide-react'
+import { BookOpen, LogOut, Menu, X } from 'lucide-react'
 import { SECONDARY, TABS, type NavItem } from '@/lib/app-nav'
 import { cx } from '@/lib/format'
 import { Logo } from '@/components/layout/Logo'
@@ -47,6 +48,8 @@ export function Sidebar() {
         {SECONDARY.map((i) => (
           <SideLink key={i.href} item={i} path={path} />
         ))}
+        <div className="border-line my-3 border-t" />
+        <LearnLink />
       </nav>
       <div className="mt-auto flex items-center justify-between gap-2 px-2">
         <LanguageSwitch />
@@ -64,6 +67,9 @@ export function Sidebar() {
 export function MobileNav() {
   const path = usePathname()
   const t = useTranslations('nav')
+  const tc = useTranslations('common')
+  const [open, setOpen] = useState(false)
+  useEffect(() => setOpen(false), [path])
   return (
     <>
       <header className="border-line bg-ink/85 sticky top-0 z-30 flex h-14 items-center justify-between border-b px-4 backdrop-blur-xl lg:hidden">
@@ -72,15 +78,37 @@ export function MobileNav() {
         </Link>
         <div className="flex items-center gap-2">
           <LanguageSwitch />
-          <Link
-            href="/settings"
-            className="text-muted hover:text-fg rounded-full p-2"
-            aria-label={t('settings')}
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+            aria-controls="app-more"
+            className="text-muted hover:text-fg flex items-center gap-1.5 rounded-full p-2 text-[14px]"
           >
-            <SettingsIcon />
-          </Link>
+            {open ? <X size={19} aria-hidden /> : <Menu size={19} aria-hidden />}
+            {t('more')}
+          </button>
         </div>
       </header>
+      {open && (
+        <div
+          id="app-more"
+          className="border-line bg-ink/95 fixed inset-x-0 top-14 bottom-0 z-30 overflow-y-auto border-t px-4 pt-3 pb-24 backdrop-blur-xl lg:hidden"
+        >
+          <nav className="flex flex-col gap-1" aria-label={t('more')}>
+            {SECONDARY.map((i) => (
+              <SideLink key={i.href} item={i} path={path} />
+            ))}
+            <div className="border-line my-3 border-t" />
+            <LearnLink />
+          </nav>
+          <form action={signOut} className="mt-4 px-3">
+            <button type="submit" className="text-muted hover:text-fg flex items-center gap-1.5 text-[15px]">
+              <LogOut size={16} aria-hidden /> {tc('signOut')}
+            </button>
+          </form>
+        </div>
+      )}
       <nav
         aria-label="App"
         className="border-line bg-ink/90 fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t pb-[env(safe-area-inset-bottom)] backdrop-blur-xl lg:hidden"
@@ -107,7 +135,16 @@ export function MobileNav() {
   )
 }
 
-function SettingsIcon() {
-  const Item = SECONDARY.find((i) => i.key === 'settings')!.icon
-  return <Item size={19} aria-hidden />
+/** Back to the public education pages (body, nutrients, foods, supplements). */
+function LearnLink() {
+  const t = useTranslations('nav')
+  return (
+    <Link
+      href="/"
+      className="text-muted hover:text-fg flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] transition hover:bg-white/[0.04]"
+    >
+      <BookOpen size={18} aria-hidden />
+      {t('learn')}
+    </Link>
+  )
 }
