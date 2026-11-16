@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-line bg-ink-2 mt-24 border-t">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-4 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:px-8">
         <div className="max-w-sm">
-          <Logo />
+          <Logo gradientId="logo-g-footer" />
           <p className="text-muted mt-4 text-[14.5px]">
             Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, z jakých potravin to získat a
             které formy doplňků tělo opravdu využije.

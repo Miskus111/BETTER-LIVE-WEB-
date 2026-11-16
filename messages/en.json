@@ -335,7 +335,8 @@
     "setsPerMuscle": "Sets per muscle",
     "savedOffline": "Workout saved on this device — it will upload automatically once you are back online.",
     "backToTrain": "Back to training",
-    "templates": "Templates"
+    "templates": "Templates",
+    "progress": "Progress"
   },
   "muscles": {
     "chest": "Chest",
@@ -648,5 +649,36 @@
     "evidence": "evidence",
     "readMore": "Why it works and which trends are myths",
     "safety": "No mewing, bone-smashing, extreme cutting or sunbeds. If worries about your looks affect your day, talk to a professional."
+  },
+  "progress": {
+    "title": "Progress",
+    "back": "Training",
+    "intro": "How your volume and strength grow. Only working sets count, not warm-ups. Strength is an estimated one-rep max (e1RM) from your sets.",
+    "last4": "Last 4 weeks",
+    "workouts4": "Workouts (4 weeks)",
+    "perWeek": "Per week",
+    "volume4": "Volume (4 weeks)",
+    "volumeVsPrev": "Volume vs. previous 4 weeks",
+    "volumeTitle": "Weekly volume",
+    "volumeHint": "Weight × reps per week, last 12 weeks.",
+    "weekOf": "Week of {date}",
+    "workoutsN": "{n, plural, one {# workout} other {# workouts}}",
+    "setsN": "{n, plural, one {# set} other {# sets}}",
+    "week": "Week",
+    "volume": "Volume",
+    "workouts": "Workouts",
+    "showTable": "Show as table",
+    "emptyVolume": "Nothing here yet. Log your first workout and the chart starts filling in.",
+    "strengthTitle": "Strength by exercise",
+    "strengthHint": "Best estimated max (e1RM) from each workout.",
+    "pickExercise": "Pick an exercise",
+    "e1rmShort": "e1RM",
+    "bestSet": "Best set",
+    "date": "Date",
+    "current": "Latest",
+    "best": "Best",
+    "change": "Change",
+    "emptyStrength": "The strength chart appears once you log a set with weight.",
+    "toRecords": "Personal records for every exercise"
   }
 }

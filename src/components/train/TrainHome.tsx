@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
-import { BookOpen, CheckCircle2, CloudOff, History, Play, Trophy } from 'lucide-react'
+import { BookOpen, CheckCircle2, CloudOff, History, LineChart, Play } from 'lucide-react'
 import { useSession } from '@/lib/train/session-store'
 import { syncQueue } from '@/lib/train/sync'
 import { useHydrated } from '@/lib/useHydrated'
@@ -93,10 +93,10 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
           <History size={19} className="text-cyan" aria-hidden /> {t('history')}
         </Link>
         <Link
-          href="/train/history#prs"
+          href="/train/progress"
           className="card hover:border-cyan/40 flex flex-col items-center gap-1.5 p-3 text-center text-[13.5px] sm:flex-row sm:gap-3 sm:p-4 sm:text-left sm:text-[15px]"
         >
-          <Trophy size={19} className="text-cyan" aria-hidden /> {t('prs')}
+          <LineChart size={19} className="text-cyan" aria-hidden /> {t('progress')}
         </Link>
       </nav>
       <section className="mt-8">

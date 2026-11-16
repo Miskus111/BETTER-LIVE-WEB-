@@ -14,7 +14,10 @@ test('workout can be logged offline and is queued for sync', async ({ page, cont
   await page.getByTestId('pick-barbell-bench-press').click()
   const ex = page.getByTestId('exercise-barbell-bench-press')
   await ex.getByLabel('kg').first().fill('80')
-  await ex.getByLabel(/Opak|Reps/).first().fill('8')
+  await ex
+    .getByLabel(/Opak|Reps/)
+    .first()
+    .fill('8')
 
   await context.setOffline(true)
   await ex.getByTestId('set-done').first().click()
@@ -23,7 +26,9 @@ test('workout can be logged offline and is queued for sync', async ({ page, cont
 
   await page.getByTestId('finish-workout').click()
   await expect(page.getByTestId('saved-offline')).toContainText('1')
-  const queued = await page.evaluate(() => JSON.parse(localStorage.getItem('blwb-session-v1') ?? '{}').state.queue)
+  const queued = await page.evaluate(
+    () => JSON.parse(localStorage.getItem('blwb-session-v1') ?? '{}').state.queue,
+  )
   expect(queued).toHaveLength(1)
   expect(queued[0].exercises[0].sets[0]).toMatchObject({ weightKg: 80, reps: 8, done: true })
   await context.setOffline(false)
@@ -75,7 +80,9 @@ test('labs: pasted results are parsed on-device and must be reviewed before savi
   await page.goto('/preview/labs')
   await expect(page.getByTestId('lab-vitd')).toBeVisible()
   await page.getByRole('tab', { name: /Vložit text|Paste text/ }).click()
-  await page.getByTestId('labs-text').fill('S-Glukóza 6,1 mmol/l 3,9 - 5,6\nFeritin 12 ug/l 30 - 300\nNěco jiného bez čísla')
+  await page
+    .getByTestId('labs-text')
+    .fill('S-Glukóza 6,1 mmol/l 3,9 - 5,6\nFeritin 12 ug/l 30 - 300\nNěco jiného bez čísla')
   await page.getByTestId('labs-parse').click()
   const review = page.getByTestId('labs-review')
   await expect(review).toBeVisible()
@@ -111,4 +118,12 @@ test('looks: habits can be ticked off and survive a reload', async ({ page }) =>
   await expect(habit).toHaveAttribute('aria-pressed', 'true')
   await page.reload()
   await expect(page.getByTestId('habit-spanek')).toHaveAttribute('aria-pressed', 'true')
+})
+
+test('progress: weekly volume and strength charts render with a table view', async ({ page }) => {
+  await page.goto('/preview/progress')
+  await expect(page.getByTestId('volume-chart').locator('.recharts-bar-rectangle').first()).toBeVisible()
+  await expect(page.getByTestId('strength-chart').locator('.recharts-line-curve')).toBeVisible()
+  await page.getByText('Zobrazit jako tabulku').first().click()
+  await expect(page.locator('table').first()).toContainText('kg')
 })

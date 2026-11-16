@@ -1,4 +1,6 @@
 import { LooksHabits } from '@/components/looks/LooksHabits'
+import { ProgressCharts } from '@/components/train/ProgressCharts'
+import { exerciseProgress, weeklyVolume, type ProgressSet } from '@/lib/train/progress'
 import { PILLARS } from '@/data/looksmaxing'
 import { EVIDENCE } from '@/data/sources'
 import { CoachChat } from '@/components/coach/CoachChat'
@@ -61,6 +63,36 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
           ]}
         />
       )
+    case 'progress': {
+      // ten weeks of a slowly progressing squat, three sessions a week
+      const now = new Date()
+      const sets: ProgressSet[] = []
+      for (let w = 9; w >= 0; w--)
+        for (const d of [0, 2, 4]) {
+          const date = new Date(now.getTime() - (w * 7 + d) * 864e5).toISOString()
+          for (let s = 0; s < 3; s++)
+            sets.push({
+              workoutId: `${w}-${d}`,
+              exercise: 'back-squat',
+              date,
+              reps: 5,
+              weightKg: 80 + (9 - w) * 2.5,
+              type: 'normal',
+            })
+        }
+      return (
+        <ProgressCharts
+          weeks={weeklyVolume(sets, 12, now)}
+          exercises={[
+            {
+              slug: 'back-squat',
+              name: 'Dřep s velkou činkou',
+              points: exerciseProgress(sets).get('back-squat')!,
+            },
+          ]}
+        />
+      )
+    }
     case 'looks':
       return (
         <LooksHabits

@@ -1,8 +1,9 @@
-import { useId } from 'react'
-
-export function Logo({ size = 28 }: { size?: number }) {
-  // unique per instance: a hidden copy (e.g. desktop sidebar) must not own the gradient
-  const g = `logo-g-${useId().replace(/:/g, '')}`
+/**
+ * `gradientId` must be unique per page: when two logos share an id and the first one is hidden
+ * (desktop sidebar on a phone), the visible one loses its gradient.
+ */
+export function Logo({ size = 28, gradientId = 'logo-g' }: { size?: number; gradientId?: string }) {
+  const g = gradientId
   return (
     <span className="flex items-center gap-2.5">
       <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden>

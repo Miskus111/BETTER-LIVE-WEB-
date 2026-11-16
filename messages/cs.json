@@ -335,7 +335,8 @@
     "setsPerMuscle": "Série na sval",
     "savedOffline": "Trénink je uložený v zařízení a odešle se automaticky, jakmile budete online.",
     "backToTrain": "Zpět na trénink",
-    "templates": "Šablony"
+    "templates": "Šablony",
+    "progress": "Progres"
   },
   "muscles": {
     "chest": "Prsa",
@@ -648,5 +649,36 @@
     "evidence": "důkazy",
     "readMore": "Proč to funguje a jaké trendy jsou mýtus",
     "safety": "Bez mewingu, bone-smashingu, extrémního hubnutí nebo solárií. Pokud vás vzhled trápí natolik, že to ovlivňuje váš den, promluvte si s odborníkem."
+  },
+  "progress": {
+    "title": "Progres",
+    "back": "Trénink",
+    "intro": "Jak roste váš objem a síla. Počítají se jen pracovní série, rozcvičky ne. Síla je odhad maxima na 1 opakování (e1RM) z vašich sérií.",
+    "last4": "Poslední 4 týdny",
+    "workouts4": "Tréninky (4 týdny)",
+    "perWeek": "Průměr za týden",
+    "volume4": "Objem (4 týdny)",
+    "volumeVsPrev": "Objem vs. předchozí 4 týdny",
+    "volumeTitle": "Týdenní objem",
+    "volumeHint": "Součet váha × opakování za týden, posledních 12 týdnů.",
+    "weekOf": "Týden od {date}",
+    "workoutsN": "{n, plural, one {# trénink} few {# tréninky} other {# tréninků}}",
+    "setsN": "{n, plural, one {# série} few {# série} other {# sérií}}",
+    "week": "Týden",
+    "volume": "Objem",
+    "workouts": "Tréninky",
+    "showTable": "Zobrazit jako tabulku",
+    "emptyVolume": "Zatím tu nic není. Zapište první trénink a graf se začne plnit.",
+    "strengthTitle": "Síla podle cviku",
+    "strengthHint": "Nejlepší odhad maxima (e1RM) z každého tréninku.",
+    "pickExercise": "Vyberte cvik",
+    "e1rmShort": "e1RM",
+    "bestSet": "Nejlepší série",
+    "date": "Datum",
+    "current": "Poslední",
+    "best": "Nejlepší",
+    "change": "Změna",
+    "emptyStrength": "Graf síly se ukáže, jakmile zapíšete sérii s váhou.",
+    "toRecords": "Osobní rekordy u všech cviků"
   }
 }

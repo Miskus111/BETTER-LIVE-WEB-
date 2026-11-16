@@ -74,7 +74,7 @@ export function MobileNav() {
     <>
       <header className="border-line bg-ink/85 sticky top-0 z-30 flex h-14 items-center justify-between border-b px-4 backdrop-blur-xl lg:hidden">
         <Link href="/today" aria-label="Better Live with Biohacking">
-          <Logo size={24} />
+          <Logo size={24} gradientId="logo-g-mobile" />
         </Link>
         <div className="flex items-center gap-2">
           <LanguageSwitch />
