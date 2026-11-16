@@ -79,8 +79,13 @@ export async function POST(req: Request) {
     return NextResponse.json(body)
   }
 
-  const { data: sub } = await s.supabase.from('subscriptions').select('plan').eq('user_id', s.user.id).maybeSingle()
-  if (!hasAccess('labs_ai', (sub?.plan ?? 'free') as Plan)) return NextResponse.json({ error: 'upgrade' }, { status: 402 })
+  const { data: sub } = await s.supabase
+    .from('subscriptions')
+    .select('plan')
+    .eq('user_id', s.user.id)
+    .maybeSingle()
+  if (!hasAccess('labs_ai', (sub?.plan ?? 'free') as Plan))
+    return NextResponse.json({ error: 'upgrade' }, { status: 402 })
   if (file.size > MAX_BYTES) return NextResponse.json({ error: 'too_large' }, { status: 413 })
   if (!(TYPES as readonly string[]).includes(file.type))
     return NextResponse.json({ error: 'unsupported_type' }, { status: 415 })
@@ -138,6 +143,7 @@ export async function POST(req: Request) {
   } catch (e) {
     if (e instanceof Anthropic.RateLimitError)
       return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
+    if (e instanceof Anthropic.APIError) console.error('[labs] Anthropic API error', e.status, e.message)
     if (e instanceof Anthropic.APIError) return NextResponse.json({ error: 'ai_error' }, { status: 502 })
     throw e
   }

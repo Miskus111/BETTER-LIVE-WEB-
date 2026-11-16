@@ -175,6 +175,7 @@ export async function POST(req: Request) {
     }
     return NextResponse.json({ error: 'too_many_steps' }, { status: 500 })
   } catch (e) {
+    if (e instanceof Anthropic.APIError) console.error('[coach] Anthropic API error', e.status, e.message)
     if (e instanceof Anthropic.RateLimitError)
       return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
     if (e instanceof Anthropic.APIError) return NextResponse.json({ error: 'ai_error' }, { status: 502 })
