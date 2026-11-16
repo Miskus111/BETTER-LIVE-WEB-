@@ -1,6 +1,7 @@
-# FLX — Lidské tělo × výživa
+# Better Live with Biohacking (BLWB)
 
-Vzdělávací web v češtině: interaktivní anatomie, co jednotlivé orgány potřebují (s hodnocením důkazů), které
+All-in-one app for living healthier and performing better: nutrition, training for any sport, mobility and pain,
+recovery, healthy appearance and an AI coach — plus the public education pages (interaktivní anatomie, co jednotlivé orgány potřebují (s hodnocením důkazů), které
 potraviny to dodají (vypočteno z USDA), referenční hodnoty EFSA, vstřebatelnost forem doplňků a doporučené produkty
 přes partnerské (affiliate) odkazy. FLX nic neprodává.
 
@@ -21,9 +22,29 @@ npm run dev            # http://localhost:3000
 | `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)              |
 | `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                          |
 | `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                    |
+| `npm test`                 | Vitest unit tests                                                            |
+| `npm run test:rls`         | RLS isolation test against the Supabase project                              |
+| `npm run seed:demo`        | Create/refresh the demo user                                                 |
+| `npm run gen:seed`         | Regenerate `supabase/seed.sql` from `src/data`                               |
 | `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)   |
 
 První běh Playwrightu: `npx playwright install chromium`.
+
+## Supabase setup (EU)
+
+1. Create a project at supabase.com — region **Central EU (Frankfurt)**.
+2. Copy `.env.example` to `.env.local` and fill `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and
+   `SUPABASE_SERVICE_ROLE_KEY` (Project Settings → API).
+3. Apply the schema: SQL Editor → paste `supabase/migrations/*.sql` in order → Run. Then run `supabase/seed.sql`
+   (regenerate with `npm run gen:seed`).
+4. Auth → URL Configuration: Site URL = your domain; add `http://localhost:3000/auth/callback` and
+   `https://<domain>/auth/callback` to Redirect URLs.
+5. Google sign-in (optional): create an OAuth client in Google Cloud Console, enable the Google provider in
+   Supabase → Auth → Providers with its client id/secret.
+6. `npm run seed:demo` (demo user from `DEMO_USER_EMAIL`/`DEMO_USER_PASSWORD`) and `npm run test:rls`
+   (verifies one user can never read or change another user's data).
+
+Without these variables the public pages work and app routes show a setup screen.
 
 ## Affiliate (partnerské odkazy)
 

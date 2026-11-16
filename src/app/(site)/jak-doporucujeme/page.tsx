@@ -40,7 +40,7 @@ export default function HowWeRecommendPage() {
       <p className="eyebrow">Transparentnost</p>
       <h1 className="display mt-3 text-[48px] md:text-[64px]">Jak doporučujeme produkty.</h1>
       <p className="text-muted mt-4 text-[16px]">
-        FLX je vzdělávací web o lidském těle a výživě. Neprodáváme žádné produkty. Web financujeme
+        BLWB je vzdělávací web o lidském těle a výživě. Neprodáváme žádné produkty. Web financujeme
         partnerskými (affiliate) odkazy do obchodů{' '}
         {Object.values(RETAILERS)
           .map((r) => r.name)

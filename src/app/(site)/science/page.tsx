@@ -10,7 +10,7 @@ import { thresholdBasis, thresholdOf } from '@/lib/nutrition'
 export const metadata: Metadata = {
   title: 'Věda a metodika',
   description:
-    'Jak FLX hodnotí důkazy, jak počítá propojení potravin s orgány z dat USDA a proč používá znění zdravotních tvrzení schválených EU.',
+    'Jak BLWB hodnotí důkazy, jak počítá propojení potravin s orgány z dat USDA a proč používá znění zdravotních tvrzení schválených EU.',
   alternates: { canonical: '/science' },
 }
 
@@ -24,7 +24,7 @@ export default function SciencePage() {
       <p className="eyebrow">Věda a metodika</p>
       <h1 className="display mt-3 text-[48px] md:text-[68px]">Jak víme, co tvrdíme.</h1>
       <p className="text-muted mt-4 max-w-3xl text-[16px]">
-        FLX je vzdělávací nástroj. Popisuje normální fyziologii a to, co výzkum výživy podporuje — a otevřeně
+        BLWB je vzdělávací nástroj. Popisuje normální fyziologii a to, co výzkum výživy podporuje — a otevřeně
         říká, co nepodporuje. Není to lékařská rada.
       </p>
 

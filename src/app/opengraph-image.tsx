@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'FLX — Lidské tělo × výživa'
+export const alt = 'Better Live with Biohacking — Žij zdravěji, podávej lepší výkon'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -18,7 +18,7 @@ export default function OG() {
         color: '#eef3f7',
       }}
     >
-      <div style={{ display: 'flex', fontSize: 30, letterSpacing: 12, color: '#5ee7ff' }}>FLX</div>
+      <div style={{ display: 'flex', fontSize: 30, letterSpacing: 12, color: '#5ee7ff' }}>BLWB</div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{ fontSize: 84, lineHeight: 1.02 }}>Tvoje tělo, rozluštěné.</div>
         <div style={{ fontSize: 32, marginTop: 24, color: '#a3b0bd' }}>

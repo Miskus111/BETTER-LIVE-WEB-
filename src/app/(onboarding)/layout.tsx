@@ -1,0 +1,17 @@
+import Link from 'next/link'
+import { Logo } from '@/components/layout/Logo'
+import { LanguageSwitch } from '@/components/app/LanguageSwitch'
+
+export default function OnboardingLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-svh">
+      <header className="flex items-center justify-between px-5 py-4">
+        <Link href="/" aria-label="Better Live with Biohacking">
+          <Logo />
+        </Link>
+        <LanguageSwitch />
+      </header>
+      <main id="main">{children}</main>
+    </div>
+  )
+}

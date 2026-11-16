@@ -1,0 +1,59 @@
+import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
+import { Download, PencilLine, ShieldOff, Trash2 } from 'lucide-react'
+import { requireAppUser } from '@/lib/auth'
+import { LanguageSwitch } from '@/components/app/LanguageSwitch'
+import { signOut } from '@/app/(auth)/actions'
+import { deleteAccount, withdrawHealthConsent } from './actions'
+
+export default async function SettingsPage({ searchParams }: { searchParams: Promise<{ delete?: string }> }) {
+  const { user, profile } = await requireAppUser()
+  const t = await getTranslations('settings')
+  const c = await getTranslations('common')
+  const { delete: del } = await searchParams
+  return (
+    <div className="mx-auto max-w-2xl">
+      <h1 className="display text-[44px]">{t('title')}</h1>
+
+      <section className="card mt-6 p-5">
+        <h2 className="eyebrow mb-3">{t('profile')}</h2>
+        <p className="text-[16px]">{profile?.display_name}</p>
+        <p className="text-muted text-[14px]">{user.email}</p>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <Link href="/onboarding" className="btn btn-ghost !py-2">
+            <PencilLine size={15} aria-hidden /> {t('editOnboarding')}
+          </Link>
+          <LanguageSwitch />
+          <form action={signOut}>
+            <button className="btn btn-ghost !py-2">{c('signOut')}</button>
+          </form>
+        </div>
+      </section>
+
+      <section className="card mt-4 p-5">
+        <h2 className="eyebrow mb-3">{t('privacy')}</h2>
+        <div className="flex flex-col gap-3">
+          <a href="/api/me/export" className="btn btn-ghost justify-start !py-2" download>
+            <Download size={15} aria-hidden /> {t('export')}
+          </a>
+          <form action={withdrawHealthConsent}>
+            <button className="btn btn-ghost w-full justify-start !py-2">
+              <ShieldOff size={15} aria-hidden /> {t('withdraw')} — {t('consent').toLowerCase()}
+            </button>
+          </form>
+          <form action={deleteAccount} className="border-warn/25 rounded-xl border p-4">
+            <p className="text-[14px]">{t('deleteConfirm')}</p>
+            <label className="text-muted mt-3 block text-[13px]">
+              Napište / type <code className="text-fg font-mono">DELETE</code>
+              <input name="confirm" className="field mt-1.5" autoComplete="off" />
+            </label>
+            {del === 'error' && <p className="mt-2 text-[13px] text-[#ff9b9b]">Error</p>}
+            <button className="btn mt-3 border border-[#ff8b8b]/50 !py-2 text-[#ff9b9b] hover:bg-[#ff8b8b]/10">
+              <Trash2 size={15} aria-hidden /> {t('delete')}
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  )
+}

@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.0 — Phase 1: Better Live with Biohacking app foundation (branch `blwb-app`)
+
+- Renamed FLX → **Better Live with Biohacking (BLWB)**; package `better-live-biohacking`.
+- i18n (next-intl): Czech default, English switch; messages in `messages/cs.json` and `messages/en.json`.
+- App shell: bottom tabs (Today · Train · Eat · Body · Coach) on mobile, sidebar with Labs, Mobility, Looks,
+  Supplements, Where to buy and Settings on desktop. Body tab hosts the interactive anatomy.
+- Supabase: SQL migration with all 35 tables, RLS on every table, private storage buckets, new-user trigger and
+  server-side 18+ check; seed generator (USDA foods + affiliate catalogue); demo-user seed; RLS isolation test.
+- Auth: email/password + Google OAuth, session middleware, protected app routes.
+- Onboarding wizard (7 steps) with zod validation, 18+ confirmation and separate GDPR Art. 9 health-data consent.
+- Settings: edit profile, language, data export (JSON), withdraw consent, full account deletion.
+- Draft privacy policy (processors listed) and terms. Vitest unit tests for onboarding validation.
+
 ## 0.3.0 — 2026-11-16
 
 ### Informační web + affiliate místo obchodu

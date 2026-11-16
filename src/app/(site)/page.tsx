@@ -15,7 +15,7 @@ export default function Home() {
           aria-hidden
         />
         <div className="mx-auto max-w-[1440px] px-4 pt-6 md:px-8 lg:hidden">
-          <p className="eyebrow">FLX · Tělo × výživa</p>
+          <p className="eyebrow">BLWB · Tělo × výživa</p>
           <h1 className="display mt-2 text-[44px]">
             Tvoje tělo, <em className="text-cyan">rozluštěné.</em>
           </h1>

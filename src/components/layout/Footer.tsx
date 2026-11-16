@@ -53,7 +53,7 @@ export function Footer() {
       <div className="border-line border-t">
         <div className="text-subtle mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-6 text-[13px] md:flex-row md:items-center md:justify-between md:px-8">
           <p className="max-w-3xl">
-            <strong className="text-muted font-medium">Vzdělávací obsah, ne lékařská rada.</strong> FLX
+            <strong className="text-muted font-medium">Vzdělávací obsah, ne lékařská rada.</strong> BLWB
             vysvětluje obecnou fyziologii a výživovou vědu. Nediagnostikuje, neléčí ani nepředchází nemocem. O
             svém zdraví se poraďte s lékařem nebo nutričním terapeutem. Nutriční hodnoty: USDA FoodData
             Central; znění zdravotních tvrzení: nař. EU 432/2012. Odkazy na obchody jsou partnerské
@@ -63,7 +63,7 @@ export function Footer() {
             </Link>
             .
           </p>
-          <p className="font-mono text-[12px]">© {new Date().getFullYear()} FLX · prototyp</p>
+          <p className="font-mono text-[12px]">© {new Date().getFullYear()} Better Live with Biohacking</p>
         </div>
       </div>
     </footer>

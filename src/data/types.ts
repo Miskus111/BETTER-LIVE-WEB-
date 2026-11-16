@@ -1,5 +1,5 @@
 /**
- * Shared domain types for FLX. All content lives in typed modules under src/data;
+ * Shared domain types for BLWB. All content lives in typed modules under src/data;
  * derived relationships (food → organ, nutrient → food, …) are computed in src/lib/nutrition.ts.
  */
 

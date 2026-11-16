@@ -18,7 +18,7 @@ export function Logo({ size = 28 }: { size?: number }) {
           fill="none"
         />
       </svg>
-      <span className="text-fg font-mono text-[15px] font-semibold tracking-[0.28em]">FLX</span>
+      <span className="text-fg font-mono text-[15px] font-semibold tracking-[0.28em]">BLWB</span>
     </span>
   )
 }

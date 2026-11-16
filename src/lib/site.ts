@@ -13,9 +13,10 @@ function siteUrl() {
 }
 
 export const SITE = {
-  name: 'FLX',
-  tagline: 'Lidské tělo × výživa',
+  name: 'Better Live with Biohacking',
+  short: 'BLWB',
+  tagline: 'Žij zdravěji, podávej lepší výkon',
   description:
-    'Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, které živiny a potraviny jim to dodají, jaké formy doplňků se nejlépe vstřebávají — vše s hodnocením důkazů.',
+    'Výživa, vitamíny, trénink pro jakýkoli sport, mobilita a bolest, regenerace, spánek a vzhled — s AI koučem, který z vašich dat vytvoří osobní plány. Vše s hodnocením důkazů.',
   url: siteUrl(),
 }

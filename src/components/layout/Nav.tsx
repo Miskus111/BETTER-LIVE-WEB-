@@ -44,7 +44,7 @@ export function Nav() {
         className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-4 md:px-8"
         aria-label="Hlavní navigace"
       >
-        <Link href="/" className="flex items-center gap-2.5" aria-label="FLX — domů">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Better Live with Biohacking — domů">
           <Logo />
         </Link>
 

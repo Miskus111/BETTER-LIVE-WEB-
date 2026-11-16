@@ -14,7 +14,6 @@ import type { Art } from '../src/data/types'
 const out = join(process.cwd(), 'public/images')
 mkdirSync(join(out, 'foods'), { recursive: true })
 
-
 function frame(art: Art, id: string) {
   const inner = renderToStaticMarkup(<FoodArt kind={art.kind} a={art.a} b={art.b} />)
     // drop FoodArt's own flat backdrop and shadow — the studio frame below provides lighting

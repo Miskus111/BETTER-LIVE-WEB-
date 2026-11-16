@@ -1,0 +1,228 @@
+{
+  "brand": {
+    "name": "Better Live with Biohacking",
+    "short": "BLWB",
+    "tagline": "Live healthier, perform better"
+  },
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading…",
+    "optional": "optional",
+    "yes": "Yes",
+    "no": "No",
+    "language": "Language",
+    "signOut": "Sign out",
+    "comingSoon": "Coming soon",
+    "comingSoonText": "This module arrives in a later build phase.",
+    "educational": "Educational content, not medical advice."
+  },
+  "nav": {
+    "today": "Today",
+    "train": "Train",
+    "eat": "Eat",
+    "body": "Body",
+    "coach": "Coach",
+    "labs": "Labs",
+    "mobility": "Mobility",
+    "looks": "Looks",
+    "supplements": "Supplements",
+    "store": "Where to buy",
+    "settings": "Settings",
+    "more": "More"
+  },
+  "setup": {
+    "title": "Supabase isn't connected yet",
+    "text": "The app needs a database and sign-in. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to .env.local (see README → Supabase).",
+    "browse": "Meanwhile, browse the public content"
+  },
+  "auth": {
+    "title": "Sign in",
+    "signupTitle": "Create account",
+    "subtitle": "Your body, nutrition and training in one place.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "google": "Continue with Google",
+    "or": "or",
+    "haveAccount": "Already have an account? Sign in",
+    "noAccount": "No account yet? Sign up",
+    "checkEmail": "We sent you an email with a confirmation link.",
+    "error": "Sign-in failed. Check your email and password.",
+    "passwordHint": "At least 8 characters.",
+    "adultsOnly": "This app is for adults only (18+).",
+    "legal": "By continuing you agree to the <terms>terms</terms> and <privacy>privacy policy</privacy>."
+  },
+  "onboarding": {
+    "title": "Set up your profile",
+    "step": "Step {current} of {total}",
+    "finish": "Finish",
+    "saving": "Saving…",
+    "saveError": "Saving failed. Please try again.",
+    "about": {
+      "title": "About you",
+      "subtitle": "We need this to estimate energy needs and keep recommendations safe.",
+      "displayName": "What should we call you?",
+      "birthDate": "Date of birth",
+      "sex": "Sex (for energy estimates)",
+      "sexFemale": "Female",
+      "sexMale": "Male",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "adult": "I confirm I am 18 or older.",
+      "underage": "This app is for adults only (18+)."
+    },
+    "goals": {
+      "title": "Your goals",
+      "subtitle": "Pick all that apply.",
+      "fat_loss": "Fat loss",
+      "muscle": "Muscle",
+      "performance": "Performance",
+      "health": "Health",
+      "longevity": "Longevity",
+      "pain_relief": "Pain relief",
+      "appearance": "Appearance"
+    },
+    "sport": {
+      "title": "Sport and experience",
+      "sports": "Which sports do you do?",
+      "experience": "Experience",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "athlete": "Competitive athlete"
+    },
+    "training": {
+      "title": "Training",
+      "days": "How many days a week can you train?",
+      "minutes": "Minutes per session?",
+      "equipment": "Equipment"
+    },
+    "diet": {
+      "title": "Diet",
+      "type": "Diet type",
+      "allergies": "Allergies and intolerances",
+      "allergiesOther": "Other allergies (comma-separated)",
+      "dislikes": "Foods you dislike (comma-separated)",
+      "budget": "Food budget",
+      "budget_low": "Low",
+      "budget_medium": "Medium",
+      "budget_high": "High"
+    },
+    "health": {
+      "title": "Health and routine",
+      "pain": "Where do you have pain or an injury?",
+      "medications": "Medications you take",
+      "medicationsHint": "Used only for supplement safety checks. Never for advertising.",
+      "sleep": "How many hours do you usually sleep?",
+      "work": "Work pattern"
+    },
+    "consent": {
+      "title": "Consent to process health data",
+      "intro": "Health data (e.g. pain, medications, blood tests, body composition) is a special category of personal data under GDPR (Art. 9). We need your explicit, separate consent.",
+      "points": [
+        "Data is stored in the EU (Frankfurt) and encrypted.",
+        "It is used only to personalise your plans.",
+        "The AI coach receives only the minimum needed; your data is never used to train models.",
+        "You can export your data or delete your account at any time in Settings."
+      ],
+      "health": "I explicitly consent to the processing of my health data to personalise plans in the app.",
+      "terms": "I agree to the terms of use and acknowledge the privacy policy.",
+      "required": "Without consent to process health data we can't personalise plans. You can withdraw consent at any time.",
+      "notMedical": "This app is for education and wellness. It does not diagnose, prescribe or replace a doctor."
+    },
+    "options": {
+      "sports": {
+        "gym": "Gym",
+        "running": "Running",
+        "cycling": "Cycling",
+        "swimming": "Swimming",
+        "martial_arts": "Martial arts",
+        "team_sports": "Team sports",
+        "climbing": "Climbing",
+        "yoga": "Yoga",
+        "tennis": "Tennis",
+        "crossfit": "Functional training",
+        "hiking": "Hiking",
+        "other": "Other"
+      },
+      "equipment": {
+        "none": "No equipment",
+        "dumbbells": "Dumbbells",
+        "barbell": "Barbell",
+        "kettlebell": "Kettlebell",
+        "bands": "Resistance bands",
+        "pullup_bar": "Pull-up bar",
+        "machines": "Machines",
+        "full_gym": "Full gym",
+        "cardio": "Cardio machines"
+      },
+      "diet": {
+        "omnivore": "Omnivore",
+        "vegetarian": "Vegetarian",
+        "vegan": "Vegan",
+        "pescatarian": "Pescatarian",
+        "keto": "Keto / low-carb",
+        "other": "Other"
+      },
+      "allergies": {
+        "gluten": "Gluten",
+        "lactose": "Lactose",
+        "milk": "Milk protein",
+        "eggs": "Eggs",
+        "nuts": "Tree nuts",
+        "peanuts": "Peanuts",
+        "soy": "Soy",
+        "fish": "Fish",
+        "shellfish": "Shellfish",
+        "sesame": "Sesame"
+      },
+      "pain": {
+        "neck": "Neck",
+        "shoulder": "Shoulder",
+        "upper_back": "Upper back",
+        "lower_back": "Lower back",
+        "hip": "Hip",
+        "knee": "Knee",
+        "ankle": "Ankle",
+        "wrist_elbow": "Wrist / elbow",
+        "none": "No pain"
+      },
+      "work": {
+        "desk": "Desk / sitting",
+        "standing": "Standing",
+        "physical": "Physical work",
+        "shift": "Shifts / nights"
+      }
+    }
+  },
+  "today": {
+    "greeting": "Hi, {name}",
+    "subtitle": "Today at a glance",
+    "workout": "Today's workout",
+    "meals": "Meals vs targets",
+    "supplements": "Supplements",
+    "mobility": "Mobility",
+    "water": "Water",
+    "sleep": "Sleep",
+    "steps": "Steps",
+    "pain": "Pain",
+    "coach": "Message from your coach",
+    "coachDefault": "Your profile is set up. Train, Eat and the Coach arrive in the next phases.",
+    "empty": "Nothing yet"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "editOnboarding": "Edit profile and goals",
+    "privacy": "Privacy and data",
+    "export": "Download my data",
+    "delete": "Delete account",
+    "deleteConfirm": "Really delete your account and all data? This cannot be undone.",
+    "consent": "Consent to process health data",
+    "withdraw": "Withdraw consent"
+  }
+}

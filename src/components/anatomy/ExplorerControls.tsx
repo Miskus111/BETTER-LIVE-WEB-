@@ -38,7 +38,7 @@ export function ExplorerControls({
   return (
     <div className="flex flex-col gap-5 lg:py-2">
       <div className="hidden lg:block">
-        <span className="eyebrow">FLX · Tělo × výživa</span>
+        <span className="eyebrow">BLWB · Tělo × výživa</span>
         <Title className="display mt-3 text-[38px] xl:text-[42px]">
           Tvoje tělo,
           <br />

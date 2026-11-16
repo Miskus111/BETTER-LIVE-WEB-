@@ -1,0 +1,228 @@
+{
+  "brand": {
+    "name": "Better Live with Biohacking",
+    "short": "BLWB",
+    "tagline": "Žij zdravěji, podávej lepší výkon"
+  },
+  "common": {
+    "continue": "Pokračovat",
+    "back": "Zpět",
+    "save": "Uložit",
+    "cancel": "Zrušit",
+    "loading": "Načítám…",
+    "optional": "nepovinné",
+    "yes": "Ano",
+    "no": "Ne",
+    "language": "Jazyk",
+    "signOut": "Odhlásit se",
+    "comingSoon": "Připravujeme",
+    "comingSoonText": "Tento modul přibude v další fázi vývoje.",
+    "educational": "Vzdělávací obsah, ne lékařská rada."
+  },
+  "nav": {
+    "today": "Dnes",
+    "train": "Trénink",
+    "eat": "Jídlo",
+    "body": "Tělo",
+    "coach": "Kouč",
+    "labs": "Laboratoř",
+    "mobility": "Mobilita",
+    "looks": "Vzhled",
+    "supplements": "Doplňky",
+    "store": "Kde koupit",
+    "settings": "Nastavení",
+    "more": "Další"
+  },
+  "setup": {
+    "title": "Supabase zatím není připojený",
+    "text": "Aplikace potřebuje databázi a přihlášení. Doplňte NEXT_PUBLIC_SUPABASE_URL a NEXT_PUBLIC_SUPABASE_ANON_KEY do .env.local (viz README → Supabase).",
+    "browse": "Mezitím si prohlédněte veřejný obsah"
+  },
+  "auth": {
+    "title": "Přihlášení",
+    "signupTitle": "Vytvořit účet",
+    "subtitle": "Tvoje tělo, výživa a trénink na jednom místě.",
+    "email": "E-mail",
+    "password": "Heslo",
+    "signIn": "Přihlásit se",
+    "signUp": "Zaregistrovat se",
+    "google": "Pokračovat přes Google",
+    "or": "nebo",
+    "haveAccount": "Už máte účet? Přihlaste se",
+    "noAccount": "Nemáte účet? Zaregistrujte se",
+    "checkEmail": "Poslali jsme vám e-mail s potvrzovacím odkazem.",
+    "error": "Přihlášení se nepovedlo. Zkontrolujte e-mail a heslo.",
+    "passwordHint": "Alespoň 8 znaků.",
+    "adultsOnly": "Aplikace je určena jen pro dospělé (18+).",
+    "legal": "Pokračováním souhlasíte s <terms>podmínkami</terms> a <privacy>zásadami ochrany osobních údajů</privacy>."
+  },
+  "onboarding": {
+    "title": "Nastavení profilu",
+    "step": "Krok {current} z {total}",
+    "finish": "Dokončit",
+    "saving": "Ukládám…",
+    "saveError": "Uložení se nepovedlo. Zkuste to znovu.",
+    "about": {
+      "title": "Něco o vás",
+      "subtitle": "Potřebujeme to k výpočtu energie a k bezpečným doporučením.",
+      "displayName": "Jak vám máme říkat?",
+      "birthDate": "Datum narození",
+      "sex": "Pohlaví (pro výpočet energie)",
+      "sexFemale": "Žena",
+      "sexMale": "Muž",
+      "height": "Výška (cm)",
+      "weight": "Hmotnost (kg)",
+      "adult": "Potvrzuji, že mi je 18 let nebo více.",
+      "underage": "Aplikace je jen pro dospělé (18+)."
+    },
+    "goals": {
+      "title": "Vaše cíle",
+      "subtitle": "Vyberte všechny, které platí.",
+      "fat_loss": "Hubnutí",
+      "muscle": "Svaly",
+      "performance": "Výkon",
+      "health": "Zdraví",
+      "longevity": "Dlouhověkost",
+      "pain_relief": "Úleva od bolesti",
+      "appearance": "Vzhled"
+    },
+    "sport": {
+      "title": "Sport a zkušenosti",
+      "sports": "Jaké sporty děláte?",
+      "experience": "Zkušenost",
+      "beginner": "Začátečník",
+      "intermediate": "Pokročilý",
+      "advanced": "Velmi pokročilý",
+      "athlete": "Závodník"
+    },
+    "training": {
+      "title": "Trénink",
+      "days": "Kolik dní v týdnu můžete trénovat?",
+      "minutes": "Kolik minut na trénink?",
+      "equipment": "Vybavení"
+    },
+    "diet": {
+      "title": "Strava",
+      "type": "Typ stravy",
+      "allergies": "Alergie a intolerance",
+      "allergiesOther": "Další alergie (oddělte čárkou)",
+      "dislikes": "Co nejíte rádi (oddělte čárkou)",
+      "budget": "Rozpočet na jídlo",
+      "budget_low": "Nízký",
+      "budget_medium": "Střední",
+      "budget_high": "Vysoký"
+    },
+    "health": {
+      "title": "Zdraví a režim",
+      "pain": "Kde vás bolí nebo máte zranění?",
+      "medications": "Užívané léky",
+      "medicationsHint": "Použijeme jen ke kontrole bezpečnosti doplňků. Nikdy pro reklamu.",
+      "sleep": "Kolik hodin obvykle spíte?",
+      "work": "Typ práce"
+    },
+    "consent": {
+      "title": "Souhlas se zpracováním údajů o zdraví",
+      "intro": "Údaje o zdraví (např. bolest, léky, krevní testy, složení těla) jsou podle GDPR zvláštní kategorií osobních údajů (čl. 9). Potřebujeme k nim váš výslovný a samostatný souhlas.",
+      "points": [
+        "Údaje ukládáme v EU (Frankfurt) a šifrujeme.",
+        "Používáme je jen k personalizaci vašich plánů.",
+        "AI kouči posíláme jen nezbytné minimum; vaše data se nepoužívají k trénování modelů.",
+        "Kdykoli si data stáhnete nebo účet úplně smažete v Nastavení."
+      ],
+      "health": "Výslovně souhlasím se zpracováním svých údajů o zdraví za účelem personalizace plánů v aplikaci.",
+      "terms": "Souhlasím s podmínkami užívání a beru na vědomí zásady ochrany osobních údajů.",
+      "required": "Bez souhlasu se zpracováním údajů o zdraví nemůžeme personalizovat plány. Svůj souhlas můžete kdykoli odvolat.",
+      "notMedical": "Aplikace slouží ke vzdělávání a wellness. Nediagnostikuje, nepředepisuje a nenahrazuje lékaře."
+    },
+    "options": {
+      "sports": {
+        "gym": "Posilovna",
+        "running": "Běh",
+        "cycling": "Cyklistika",
+        "swimming": "Plavání",
+        "martial_arts": "Bojové sporty",
+        "team_sports": "Týmové sporty",
+        "climbing": "Lezení",
+        "yoga": "Jóga",
+        "tennis": "Tenis",
+        "crossfit": "Funkční trénink",
+        "hiking": "Turistika",
+        "other": "Jiné"
+      },
+      "equipment": {
+        "none": "Bez vybavení",
+        "dumbbells": "Jednoručky",
+        "barbell": "Velká činka",
+        "kettlebell": "Kettlebell",
+        "bands": "Odporové gumy",
+        "pullup_bar": "Hrazda",
+        "machines": "Stroje",
+        "full_gym": "Plně vybavená posilovna",
+        "cardio": "Kardio stroje"
+      },
+      "diet": {
+        "omnivore": "Všežravec",
+        "vegetarian": "Vegetarián",
+        "vegan": "Vegan",
+        "pescatarian": "Pescetarián",
+        "keto": "Keto / low-carb",
+        "other": "Jiné"
+      },
+      "allergies": {
+        "gluten": "Lepek",
+        "lactose": "Laktóza",
+        "milk": "Mléčná bílkovina",
+        "eggs": "Vejce",
+        "nuts": "Ořechy",
+        "peanuts": "Arašídy",
+        "soy": "Sója",
+        "fish": "Ryby",
+        "shellfish": "Korýši",
+        "sesame": "Sezam"
+      },
+      "pain": {
+        "neck": "Krk",
+        "shoulder": "Rameno",
+        "upper_back": "Horní záda",
+        "lower_back": "Bedra",
+        "hip": "Kyčel",
+        "knee": "Koleno",
+        "ankle": "Kotník",
+        "wrist_elbow": "Zápěstí / loket",
+        "none": "Nic mě nebolí"
+      },
+      "work": {
+        "desk": "Kancelář / sezení",
+        "standing": "Ve stoje",
+        "physical": "Fyzická práce",
+        "shift": "Směny / noční"
+      }
+    }
+  },
+  "today": {
+    "greeting": "Ahoj, {name}",
+    "subtitle": "Dnešní přehled",
+    "workout": "Dnešní trénink",
+    "meals": "Jídlo vs. cíle",
+    "supplements": "Doplňky",
+    "mobility": "Mobilita",
+    "water": "Voda",
+    "sleep": "Spánek",
+    "steps": "Kroky",
+    "pain": "Bolest",
+    "coach": "Zpráva od kouče",
+    "coachDefault": "Profil máte nastavený. Další moduly — trénink, jídlo a kouč — přibudou v dalších fázích.",
+    "empty": "Zatím nic"
+  },
+  "settings": {
+    "title": "Nastavení",
+    "profile": "Profil",
+    "editOnboarding": "Upravit profil a cíle",
+    "privacy": "Soukromí a data",
+    "export": "Stáhnout moje data",
+    "delete": "Smazat účet",
+    "deleteConfirm": "Opravdu smazat účet a všechna data? Tuto akci nelze vrátit.",
+    "consent": "Souhlas se zpracováním údajů o zdraví",
+    "withdraw": "Odvolat souhlas"
+  }
+}
