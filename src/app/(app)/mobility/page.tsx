@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { Play } from 'lucide-react'
+import { HeartPulse, Play } from 'lucide-react'
 import { requireAppUser } from '@/lib/auth'
 import { ROUTINES } from '@/data/mobility'
 import type { Region } from '@/lib/pain/red-flags'
@@ -24,7 +24,19 @@ export default async function MobilityPage() {
 
   return (
     <div className="space-y-12">
-      <h1 className="display text-[44px] md:text-[56px]">{t('title')}</h1>
+      <div>
+        <h1 className="display text-[44px] md:text-[56px]">{t('title')}</h1>
+        <a
+          href="#pain"
+          className="card hover:border-cyan/40 mt-5 flex items-center gap-3 p-4 text-[15px] transition"
+        >
+          <HeartPulse size={20} className="text-warn shrink-0" aria-hidden />
+          <span className="flex-1">{t('painJump')}</span>
+          <span className="text-cyan" aria-hidden>
+            →
+          </span>
+        </a>
+      </div>
 
       <section>
         <h2 className="eyebrow mb-4">{t('routines')}</h2>
@@ -38,7 +50,7 @@ export default async function MobilityPage() {
                 <span>
                   <span className="block text-[15.5px] font-medium">{r.name[locale]}</span>
                   <span className="text-subtle font-mono text-[12.5px]">
-                    {r.minutes} {t('min')} · {r.items.length}×
+                    {r.minutes} {t('min')} · {t('exercisesCount', { n: r.items.length })}
                   </span>
                 </span>
                 <Play size={18} className="text-cyan shrink-0" aria-hidden />

@@ -116,7 +116,11 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
                   </span>
                   <span className="flex items-center gap-2">
                     <span className="text-muted font-mono text-[13px]">
-                      {Math.round(Number(r.kcal))} kcal · {Number(r.protein_g)} g P
+                      {Math.round(Number(r.kcal))} kcal ·{' '}
+                      {Number(r.protein_g).toLocaleString(locale === 'en' ? 'en' : 'cs-CZ', {
+                        maximumFractionDigits: 1,
+                      })}{' '}
+                      g {t('proteinShort')}
                     </span>
                     <button
                       type="button"

@@ -102,7 +102,8 @@ export default async function TodayPage() {
       href: '/train',
       icon: Dumbbell,
       label: t('workout'),
-      value: t('workoutsWeek', { done: workouts.length, plan: trainingDays }),
+      value: `${workouts.length} / ${trainingDays}`,
+      unit: t('thisWeek'),
       sub: workouts[0]?.name,
       good: workouts.length >= trainingDays,
     },
@@ -110,7 +111,8 @@ export default async function TodayPage() {
       href: '/eat',
       icon: Apple,
       label: t('meals'),
-      value: tk ? `${kcal} / ${tk.kcal} kcal` : `${kcal} kcal`,
+      value: `${kcal}`,
+      unit: tk ? t('ofKcal', { target: tk.kcal }) : 'kcal',
       sub: tk ? `${protein} / ${tk.proteinG} g ${t('protein')}` : undefined,
     },
     {
@@ -185,7 +187,12 @@ export default async function TodayPage() {
               />
               <span>
                 <span className="text-subtle block text-[13px]">{c.label}</span>
-                <span className="mt-0.5 block font-mono text-[16px]">{c.value}</span>
+                <span className="mt-0.5 block font-mono text-[18px] leading-tight">
+                  {c.value}
+                  {'unit' in c && c.unit && (
+                    <span className="text-subtle ml-1.5 font-sans text-[12.5px]">{c.unit}</span>
+                  )}
+                </span>
                 {c.sub && <span className="text-subtle block truncate text-[12.5px]">{c.sub}</span>}
               </span>
             </Link>

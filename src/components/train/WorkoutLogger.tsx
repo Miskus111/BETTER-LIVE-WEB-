@@ -202,7 +202,7 @@ export function WorkoutLogger({ home = '/train' }: { home?: string }) {
                 <thead className="text-subtle font-mono text-[11.5px] uppercase">
                   <tr>
                     <th className="w-12 py-1 text-left font-normal">{t('set')}</th>
-                    <th className="py-1 text-left font-normal">{t('previous')}</th>
+                    <th className="py-1 pl-1 text-left font-normal">{t('previous')}</th>
                     <th className="w-20 py-1 font-normal">{s.units}</th>
                     <th className="w-16 py-1 font-normal">{t('reps')}</th>
                     <th className="w-14 py-1 font-normal">{t('rpe')}</th>
@@ -218,20 +218,26 @@ export function WorkoutLogger({ home = '/train' }: { home?: string }) {
                     return (
                       <tr key={x.id} className={cx(x.done && 'bg-bio/[0.06]')}>
                         <td className="py-1">
-                          <select
-                            aria-label={t('set')}
-                            value={x.type}
-                            onChange={(ev) => s.updateSet(e.id, x.id, { type: ev.target.value as SetType })}
-                            className="w-11 appearance-none bg-transparent text-center font-mono text-[14px]"
-                          >
-                            {TYPES.map((ty) => (
-                              <option key={ty} value={ty}>
-                                {TYPE_MARK[ty] || (x.type === 'normal' ? working : '•')} {t(`type_${ty}`)}
-                              </option>
-                            ))}
-                          </select>
+                          {/* the closed select shows only the set mark (1, W, D, F); the full name is in the list */}
+                          <span className="relative grid h-9 w-10 place-items-center rounded-lg font-mono text-[14px] hover:bg-white/[0.04]">
+                            <span aria-hidden className={cx(x.type !== 'normal' && 'text-warn')}>
+                              {TYPE_MARK[x.type] || working}
+                            </span>
+                            <select
+                              aria-label={`${t('set')} ${working}: ${t(`type_${x.type}`)}`}
+                              value={x.type}
+                              onChange={(ev) => s.updateSet(e.id, x.id, { type: ev.target.value as SetType })}
+                              className="absolute inset-0 cursor-pointer appearance-none opacity-0"
+                            >
+                              {TYPES.map((ty) => (
+                                <option key={ty} value={ty}>
+                                  {TYPE_MARK[ty] || '•'} {t(`type_${ty}`)}
+                                </option>
+                              ))}
+                            </select>
+                          </span>
                         </td>
-                        <td className="text-subtle py-1 font-mono text-[13px]">
+                        <td className="text-subtle py-1 pl-1 font-mono text-[12.5px] whitespace-nowrap">
                           {p ? `${show(p.weightKg)} × ${p.reps}` : '—'}
                         </td>
                         <td className="py-1">

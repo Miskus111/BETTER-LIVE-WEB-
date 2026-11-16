@@ -238,7 +238,9 @@
     "f_water_ml": "Voda",
     "f_hrv_ms": "HRV",
     "f_resting_hr": "Klidový tep",
-    "f_stress": "Stres"
+    "f_stress": "Stres",
+    "thisWeek": "tento týden",
+    "ofKcal": "z {target} kcal"
   },
   "settings": {
     "title": "Nastavení",
@@ -259,7 +261,8 @@
     "typeToConfirm": "Pro potvrzení napište <word></word>",
     "confirmWord": "SMAZAT",
     "confirmMismatch": "Potvrzovací slovo nesouhlasí.",
-    "deleteError": "Účet se nepodařilo smazat. Zkuste to prosím znovu."
+    "deleteError": "Účet se nepodařilo smazat. Zkuste to prosím znovu.",
+    "withdrawConsent": "Odvolat souhlas se zpracováním údajů o zdraví"
   },
   "train": {
     "title": "Trénink",
@@ -422,7 +425,8 @@
     "supportTitle": "Plán jídla teď nevytvoříme",
     "supportText": "Podle vašich údajů by dieta mohla uškodit. Pokud máte složitý vztah k jídlu, nejste v tom sami — pomoc je dostupná.",
     "supportLinks": "Linka první psychické pomoci 116 123 (nonstop) · anabell.cz — pomoc při poruchách příjmu potravy",
-    "deleteEntry": "Smazat"
+    "deleteEntry": "Smazat",
+    "proteinShort": "bílk."
   },
   "supp": {
     "title": "Doplňky",
@@ -533,7 +537,9 @@
       "sudden_severe_headache": "Náhlá velmi silná bolest hlavy („nejhorší v životě“)",
       "deformity_or_unable_to_bear_weight": "Viditelná deformace nebo nemůžete končetinu zatížit",
       "hot_swollen_joint": "Kloub je červený, horký a oteklý, případně s horečkou"
-    }
+    },
+    "painJump": "Něco vás bolí? Klepněte na místo na těle a dostanete bezpečný plán.",
+    "exercisesCount": "{n, plural, one {# cvik} few {# cviky} other {# cviků}}"
   },
   "labs": {
     "title": "Laboratoř",
@@ -620,13 +626,13 @@
     "placeholder": "Napište zprávu…",
     "send": "Odeslat",
     "thinking": "Kouč přemýšlí a prochází vaše data…",
-    "aiOff": "AI kouč zatím na tomto serveru není zapnutý (chybí ANTHROPIC_API_KEY). Bezpečnostní kontrola zpráv funguje i tak.",
+    "aiOff": "AI kouč se právě spouští a brzy bude k dispozici. Mezitím si můžete zapisovat trénink, jídlo i výsledky — kouč je pak uvidí.",
     "disclaimer": "Kouč je AI a může se mýlit. Nenahrazuje lékaře ani trenéra. Při akutních potížích volejte 155 nebo 112.",
     "err_generic": "Něco se nepovedlo. Zkuste to znovu.",
     "err_limit": "Dnešní limit {limit} zpráv je vyčerpaný. Zítra pokračujeme!",
-    "err_ai_not_configured": "AI kouč není na tomto serveru zapnutý.",
+    "err_ai_not_configured": "AI kouč zatím není spuštěný. Zkuste to prosím později.",
     "err_rate_limited": "Příliš mnoho požadavků, zkuste to za chvíli.",
-    "err_ai_error": "AI služba je teď nedostupná.",
+    "err_ai_error": "AI kouč teď neodpovídá. Zkuste to prosím za chvíli znovu.",
     "err_unauthorized": "Přihlaste se prosím znovu.",
     "err_consent_required": "Kouč potřebuje souhlas se zpracováním zdravotních údajů.",
     "err_upgrade": "Kouč je součástí tarifu Pro.",

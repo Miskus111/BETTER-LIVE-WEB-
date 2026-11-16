@@ -5,14 +5,14 @@ const FEATURES = [
   {
     icon: Dumbbell,
     title: 'Trénink',
-    text: 'Zapisuj série, váhy a osobní rekordy. Funguje i offline v posilovně.',
+    text: 'Zapisujte série, váhy a osobní rekordy. Funguje i offline v posilovně.',
   },
-  { icon: Utensils, title: 'Jídelníček', text: 'Kalorie, bílkoviny a vitamíny proti tvým osobním cílům.' },
-  { icon: Pill, title: 'Doplňky', text: 'Tvůj stack s hlídáním horních limitů a interakcí s léky.' },
+  { icon: Utensils, title: 'Jídelníček', text: 'Kalorie, bílkoviny a vitamíny oproti vašim osobním cílům.' },
+  { icon: Pill, title: 'Doplňky', text: 'Váš stack s hlídáním horních limitů a interakcí s léky.' },
   {
     icon: FlaskConical,
     title: 'Krevní testy',
-    text: 'Vlož výsledky z laboratoře a sleduj, jak se hodnoty mění.',
+    text: 'Vložte výsledky z laboratoře a sledujte, jak se hodnoty mění.',
   },
   {
     icon: Activity,
@@ -22,7 +22,7 @@ const FEATURES = [
   {
     icon: MessageCircle,
     title: 'AI kouč',
-    text: 'Zeptej se na svá data — trénink, jídlo, doplňky i výsledky.',
+    text: 'Zeptejte se na svá data — trénink, jídlo, doplňky i výsledky.',
   },
 ]
 
@@ -52,11 +52,11 @@ export function AppCta({ compact = false }: { compact?: boolean }) {
             <div>
               <p className="eyebrow">Aplikace BLWB · zdarma</p>
               <h2 id="aplikace-title" className="display mt-3 text-[38px] md:text-[54px]">
-                Od teorie k&nbsp;<em className="text-cyan">tvým datům.</em>
+                Od teorie k&nbsp;<em className="text-cyan">vašim datům.</em>
               </h2>
               <p className="text-muted mt-4 max-w-xl text-[15.5px]">
-                Všechno, co se tady naučíš, si můžeš rovnou zapisovat a sledovat. Jeden účet, data uložená
-                v&nbsp;EU, kdykoli si je stáhneš nebo smažeš.
+                Všechno, co se tady dozvíte, si můžete rovnou zapisovat a sledovat. Jeden účet, data uložená
+                v&nbsp;EU, kdykoli si je stáhnete nebo smažete.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/login?mode=signup" className="btn btn-primary" data-testid="cta-signup">

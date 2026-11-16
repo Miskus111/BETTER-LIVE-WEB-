@@ -76,6 +76,29 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
         </Link>
       </div>
 
+      <nav className="mt-6 grid grid-cols-3 gap-2 sm:gap-3" aria-label={t('library')}>
+        <Link
+          href="/train/exercises"
+          className="card hover:border-cyan/40 flex flex-col items-center gap-1.5 p-3 text-center text-[13.5px] sm:flex-row sm:gap-3 sm:p-4 sm:text-left sm:text-[15px]"
+        >
+          <BookOpen size={19} className="text-cyan" aria-hidden />
+          <span>
+            {t('library')} <span className="text-subtle font-mono text-[12px]">({EXERCISES.length})</span>
+          </span>
+        </Link>
+        <Link
+          href="/train/history"
+          className="card hover:border-cyan/40 flex flex-col items-center gap-1.5 p-3 text-center text-[13.5px] sm:flex-row sm:gap-3 sm:p-4 sm:text-left sm:text-[15px]"
+        >
+          <History size={19} className="text-cyan" aria-hidden /> {t('history')}
+        </Link>
+        <Link
+          href="/train/history#prs"
+          className="card hover:border-cyan/40 flex flex-col items-center gap-1.5 p-3 text-center text-[13.5px] sm:flex-row sm:gap-3 sm:p-4 sm:text-left sm:text-[15px]"
+        >
+          <Trophy size={19} className="text-cyan" aria-hidden /> {t('prs')}
+        </Link>
+      </nav>
       <section className="mt-8">
         <h2 className="eyebrow mb-3">{t('templates')}</h2>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -100,21 +123,6 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
           ))}
         </ul>
       </section>
-
-      <nav className="mt-8 grid gap-3 sm:grid-cols-3">
-        <Link href="/train/exercises" className="card hover:border-cyan/40 flex items-center gap-3 p-4">
-          <BookOpen size={19} className="text-cyan" aria-hidden />
-          <span>
-            {t('library')} <span className="text-subtle font-mono text-[12px]">({EXERCISES.length})</span>
-          </span>
-        </Link>
-        <Link href="/train/history" className="card hover:border-cyan/40 flex items-center gap-3 p-4">
-          <History size={19} className="text-cyan" aria-hidden /> {t('history')}
-        </Link>
-        <Link href="/train/history#prs" className="card hover:border-cyan/40 flex items-center gap-3 p-4">
-          <Trophy size={19} className="text-cyan" aria-hidden /> {t('prs')}
-        </Link>
-      </nav>
     </div>
   )
 }

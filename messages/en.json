@@ -238,7 +238,9 @@
     "f_water_ml": "Water",
     "f_hrv_ms": "HRV",
     "f_resting_hr": "Resting HR",
-    "f_stress": "Stress"
+    "f_stress": "Stress",
+    "thisWeek": "this week",
+    "ofKcal": "of {target} kcal"
   },
   "settings": {
     "title": "Settings",
@@ -259,7 +261,8 @@
     "typeToConfirm": "Type <word></word> to confirm",
     "confirmWord": "DELETE",
     "confirmMismatch": "The confirmation word does not match.",
-    "deleteError": "The account could not be deleted. Please try again."
+    "deleteError": "The account could not be deleted. Please try again.",
+    "withdrawConsent": "Withdraw consent to processing health data"
   },
   "train": {
     "title": "Train",
@@ -422,7 +425,8 @@
     "supportTitle": "We won't build a meal plan right now",
     "supportText": "Based on your answers a diet could do harm. If your relationship with food feels difficult, you're not alone — support is available.",
     "supportLinks": "Crisis line (CZ) 116 123 · anabell.cz — eating-disorder support",
-    "deleteEntry": "Delete"
+    "deleteEntry": "Delete",
+    "proteinShort": "protein"
   },
   "supp": {
     "title": "Supplements",
@@ -533,7 +537,9 @@
       "sudden_severe_headache": "Sudden, very severe headache (“worst ever”)",
       "deformity_or_unable_to_bear_weight": "Visible deformity or you can't put weight on the limb",
       "hot_swollen_joint": "A red, hot, swollen joint, possibly with fever"
-    }
+    },
+    "painJump": "Something hurts? Tap the spot on the body map for a safe plan.",
+    "exercisesCount": "{n, plural, one {# exercise} other {# exercises}}"
   },
   "labs": {
     "title": "Labs",
@@ -620,13 +626,13 @@
     "placeholder": "Write a message…",
     "send": "Send",
     "thinking": "The coach is thinking and reviewing your data…",
-    "aiOff": "The AI coach is not enabled on this server yet (ANTHROPIC_API_KEY missing). The message safety check still works.",
+    "aiOff": "The AI coach is launching soon. Meanwhile, log your training, food and results — the coach will see them.",
     "disclaimer": "The coach is an AI and can be wrong. It does not replace a doctor or trainer. In an emergency call 112.",
     "err_generic": "Something went wrong. Please try again.",
     "err_limit": "Today's limit of {limit} messages is used up. See you tomorrow!",
-    "err_ai_not_configured": "The AI coach is not enabled on this server.",
+    "err_ai_not_configured": "The AI coach is not running yet. Please try again later.",
     "err_rate_limited": "Too many requests, try again shortly.",
-    "err_ai_error": "The AI service is unavailable right now.",
+    "err_ai_error": "The AI coach is not responding right now. Please try again in a moment.",
     "err_unauthorized": "Please sign in again.",
     "err_consent_required": "The coach needs health-data consent.",
     "err_upgrade": "The coach is part of the Pro plan.",

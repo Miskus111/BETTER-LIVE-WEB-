@@ -64,8 +64,8 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
             <Download size={15} aria-hidden /> {t('export')}
           </a>
           <form action={withdrawHealthConsent}>
-            <button className="btn btn-ghost w-full justify-start !py-2">
-              <ShieldOff size={15} aria-hidden /> {t('withdraw')} — {t('consent').toLowerCase()}
+            <button className="btn btn-ghost w-full justify-start !py-2 text-left !whitespace-normal">
+              <ShieldOff size={15} className="shrink-0" aria-hidden /> {t('withdrawConsent')}
             </button>
           </form>
           <form action={deleteAccount} className="border-warn/25 rounded-xl border p-4">
