@@ -326,7 +326,8 @@
     "thisWeek": "Tento týden",
     "setsPerMuscle": "Série na sval",
     "savedOffline": "Trénink je uložený v zařízení a odešle se automaticky, jakmile budete online.",
-    "backToTrain": "Zpět na trénink"
+    "backToTrain": "Zpět na trénink",
+    "templates": "Šablony"
   },
   "muscles": {
     "chest": "Prsa",

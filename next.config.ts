@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
       { source: '/cart', destination: '/', permanent: true },
       { source: '/checkout', destination: '/', permanent: true },
       { source: '/our-standard', destination: '/jak-doporucujeme', permanent: true },
+      { source: '/signup', destination: '/login?mode=signup', permanent: false },
+      { source: '/register', destination: '/login?mode=signup', permanent: false },
     ]
   },
   /* config options here */

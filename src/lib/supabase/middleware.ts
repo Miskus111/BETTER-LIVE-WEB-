@@ -1,3 +1,4 @@
+import { safeNext } from '@/lib/safe-next'
 import { NextResponse, type NextRequest } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
 import { isSupabaseConfigured, SUPABASE_ANON_KEY, SUPABASE_URL } from './env'
@@ -46,10 +47,9 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
   if (user && path === '/login') {
-    const url = request.nextUrl.clone()
-    url.pathname = '/today'
-    url.search = ''
-    return NextResponse.redirect(url)
+    const next = request.nextUrl.searchParams.get('next')
+    // keep the page the user asked for (relative in-app paths only)
+    return NextResponse.redirect(new URL(safeNext(next), request.url))
   }
   return response
 }

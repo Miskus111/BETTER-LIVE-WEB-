@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { BookOpen, CheckCircle2, CloudOff, History, Play, Trophy } from 'lucide-react'
 import { useSession } from '@/lib/train/session-store'
@@ -13,6 +13,7 @@ import { TEMPLATES } from '@/data/exercises/templates'
 
 export function TrainHome({ finished, base = '/train' }: { finished: boolean; base?: string }) {
   const t = useTranslations('train')
+  const locale = useLocale() === 'en' ? 'en' : 'cs'
   const router = useRouter()
   const hydrated = useHydrated()
   const { active, queue, start } = useSession()
@@ -76,7 +77,7 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
       </div>
 
       <section className="mt-8">
-        <h2 className="eyebrow mb-3">Šablony · Templates</h2>
+        <h2 className="eyebrow mb-3">{t('templates')}</h2>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {TEMPLATES.map((tpl) => (
             <li key={tpl.id}>
@@ -84,13 +85,13 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
                 type="button"
                 disabled={hydrated && !!active}
                 onClick={() => {
-                  start(tpl.name, tpl.exercises)
+                  start(tpl.name[locale], tpl.exercises)
                   router.push(`${base}/session`)
                 }}
                 className="card hover:border-cyan/40 h-full w-full p-4 text-left transition disabled:opacity-50"
               >
-                <span className="block text-[15.5px] font-medium">{tpl.name}</span>
-                <span className="text-subtle mt-1 block text-[13px]">{tpl.description}</span>
+                <span className="block text-[15.5px] font-medium">{tpl.name[locale]}</span>
+                <span className="text-subtle mt-1 block text-[13px]">{tpl.description[locale]}</span>
                 <span className="text-cyan mt-2 block font-mono text-[12px]">
                   {tpl.exercises.length} {t('exercises')}
                 </span>
