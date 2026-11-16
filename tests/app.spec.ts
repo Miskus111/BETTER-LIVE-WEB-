@@ -127,3 +127,13 @@ test('progress: weekly volume and strength charts render with a table view', asy
   await page.getByText('Zobrazit jako tabulku').first().click()
   await expect(page.locator('table').first()).toContainText('kg')
 })
+
+test('weight: trend chart, stats and entries render from weigh-ins', async ({ page }) => {
+  await page.goto('/preview/weight')
+  await expect(page.getByTestId('weight-chart').locator('.recharts-line-curve')).toBeVisible()
+  await expect(page.getByTestId('waist-chart')).toBeVisible()
+  await expect(page.getByText('Aktuálně (trend)')).toBeVisible()
+  await page.getByRole('button', { name: '30 dní' }).click()
+  await expect(page.getByRole('button', { name: '30 dní' })).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('tbody tr').first()).toContainText('kg')
+})

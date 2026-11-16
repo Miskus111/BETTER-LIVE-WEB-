@@ -1,4 +1,5 @@
 import 'server-only'
+import { trendChange, weeklyRate, withTrend } from '@/lib/body/weight'
 import type Anthropic from '@anthropic-ai/sdk'
 import { z } from 'zod'
 import { profileTargets } from '@/lib/eat/profile-targets'
@@ -70,7 +71,7 @@ export const COACH_TOOLS: Anthropic.Beta.BetaTool[] = [
   {
     name: 'get_body',
     description:
-      'Body-composition measurements (weight, skeletal muscle, body fat %, visceral fat), newest first.',
+      'Body weight trend (7-day average, 30-day change, weekly rate), tape measurements (waist, hips, chest, arm, thigh) and InBody-style body-composition scans, newest first.',
     input_schema: { type: 'object', properties: {}, additionalProperties: false },
   },
   {
@@ -182,12 +183,10 @@ export async function runCoachTool(db: Db, userId: string, name: string, rawInpu
         for (const k of Object.keys(t)) t[k] += Number(r[k] ?? 0)
         totals.set(r.logged_on, t)
       }
-      const daily = [...totals]
-        .sort()
-        .map(([date, t]) => ({
-          date,
-          ...Object.fromEntries(Object.entries(t).map(([k, v]) => [k, Math.round(v)])),
-        }))
+      const daily = [...totals].sort().map(([date, t]) => ({
+        date,
+        ...Object.fromEntries(Object.entries(t).map(([k, v]) => [k, Math.round(v)])),
+      }))
       return JSON.stringify({ days: n, logged_days: daily.length, daily })
     }
     case 'get_supplements': {
@@ -232,13 +231,34 @@ export async function runCoachTool(db: Db, userId: string, name: string, rawInpu
       return JSON.stringify({ latest: [...latest.values()] })
     }
     case 'get_body': {
-      const { data } = await db
-        .from('body_composition')
-        .select('measured_on, weight_kg, skeletal_muscle_kg, body_fat_pct, visceral_fat_level')
-        .eq('confirmed', true)
-        .order('measured_on', { ascending: false })
-        .limit(12)
-      return JSON.stringify({ measurements: data ?? [] })
+      const [{ data }, { data: tape }] = await Promise.all([
+        db
+          .from('body_composition')
+          .select('measured_on, weight_kg, skeletal_muscle_kg, body_fat_pct, visceral_fat_level')
+          .eq('confirmed', true)
+          .order('measured_on', { ascending: false })
+          .limit(12),
+        db
+          .from('body_measurements')
+          .select('measured_at, weight_kg, waist_cm, hips_cm, chest_cm, arm_cm, thigh_cm')
+          .order('measured_at', { ascending: false })
+          .limit(60),
+      ])
+      const weights = withTrend(
+        (tape ?? [])
+          .filter((r: { weight_kg: number | null }) => r.weight_kg !== null)
+          .map((r: { measured_at: string; weight_kg: number }) => ({
+            date: r.measured_at,
+            weightKg: Number(r.weight_kg),
+          })),
+      )
+      return JSON.stringify({
+        body_composition_scans: data ?? [],
+        weight_trend_7d_avg: weights.slice(-1)[0]?.trend ?? null,
+        weight_change_30d_kg: trendChange(weights, 30),
+        weight_rate_kg_per_week: weeklyRate(weights, 28),
+        recent_measurements: (tape ?? []).slice(0, 20),
+      })
     }
     case 'get_pain_and_recovery': {
       const [{ data: pain }, { data: sleep }, { data: rec }] = await Promise.all([

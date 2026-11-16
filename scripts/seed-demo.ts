@@ -72,6 +72,7 @@ async function main() {
     if (error) throw error
   }
   await seedTraining(db, id)
+  await seedWeight(db, id)
   console.log(`✓ demo user ready: ${email}`)
 }
 
@@ -187,6 +188,34 @@ async function seedTraining(db: any, userId: string) {
   const pr = await db.from('personal_records').insert(prs)
   if (pr.error) throw pr.error
   console.log(`✓ demo training: ${session} workouts over 10 weeks`)
+}
+
+/** Ten weeks of morning weigh-ins (most days) drifting slowly down, with day-to-day water noise. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function seedWeight(db: any, userId: string) {
+  await db.from('body_measurements').delete().eq('user_id', userId)
+  const rows = []
+  let seed = 7
+  const noise = () => {
+    seed = (seed * 9301 + 49297) % 233280
+    return seed / 233280 - 0.5
+  }
+  for (let d = 70; d >= 0; d--) {
+    if (d % 7 === 3 || d % 11 === 5) continue // skipped days
+    const date = new Date(Date.now() - d * 864e5).toISOString().slice(0, 10)
+    const weight = 84.6 - (70 - d) * 0.03 + noise() * 1.4
+    rows.push({
+      user_id: userId,
+      measured_at: date,
+      weight_kg: Math.round(weight * 10) / 10,
+      waist_cm: d % 7 === 0 ? Math.round((89 - (70 - d) * 0.035) * 10) / 10 : null,
+    })
+  }
+  const { error } = await db.from('body_measurements').insert(rows)
+  if (error) throw error
+  const latest = rows[rows.length - 1]
+  await db.from('profiles').update({ weight_kg: latest.weight_kg }).eq('id', userId)
+  console.log(`✓ demo weight: ${rows.length} weigh-ins`)
 }
 
 main().catch((e) => {

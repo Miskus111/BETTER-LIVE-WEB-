@@ -92,11 +92,11 @@ export function change(points: { value: number }[]): number | null {
 }
 
 /** Round axis bounds and evenly spaced ticks (1, 2, 2.5 or 5 × 10ⁿ) around the data. */
-export function niceAxis(values: number[]): { lo: number; hi: number; ticks: number[] } {
+export function niceAxis(values: number[], minRel = 0.03): { lo: number; hi: number; ticks: number[] } {
   if (!values.length) return { lo: 0, hi: 10, ticks: [0, 5, 10] }
   const min = Math.min(...values)
   const max = Math.max(...values)
-  const raw = Math.max((max - min) / 4, max * 0.03, 1)
+  const raw = Math.max((max - min) / 4, max * minRel, minRel < 0.03 ? 0.5 : 1)
   const pow = 10 ** Math.floor(Math.log10(raw))
   const step = [1, 2, 2.5, 5, 10].map((m) => m * pow).find((x) => x >= raw) ?? 10 * pow
   const lo = Math.max(0, Math.floor((min - step * 0.5) / step) * step)

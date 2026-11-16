@@ -267,7 +267,7 @@ function DataTable({
   return (
     <details className="mt-2">
       <summary className="text-subtle hover:text-fg cursor-pointer text-[13px]">{label}</summary>
-      <div className="border-line mt-2 overflow-x-auto rounded-xl border">
+      <div className="border-line relative mt-2 overflow-x-auto rounded-xl border">
         <table className="w-full text-left text-[13.5px]">
           <caption className="sr-only">{caption}</caption>
           <thead className="text-subtle bg-white/[0.03] font-mono text-[12px]">

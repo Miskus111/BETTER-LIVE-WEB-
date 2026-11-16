@@ -24,6 +24,7 @@ const PAGES = [
   ['app-coach', '/preview/coach'],
   ['app-looks', '/preview/looks'],
   ['app-progress', '/preview/progress'],
+  ['app-weight', '/preview/weight'],
   ['login', '/login'],
 ] as const
 

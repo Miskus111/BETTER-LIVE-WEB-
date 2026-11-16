@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { Activity, Apple, Bed, Bot, Dumbbell, FlaskConical, Gauge, Pill } from 'lucide-react'
+import { Activity, Apple, Bed, Bot, Dumbbell, FlaskConical, Gauge, Pill, Scale } from 'lucide-react'
 import { requireAppUser } from '@/lib/auth'
 import { profileTargets } from '@/lib/eat/profile-targets'
 import { CheckIn } from '@/components/today/CheckIn'
 import { cx } from '@/lib/format'
+import { trendChange, withTrend } from '@/lib/body/weight'
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 const iso = (d: Date) => d.toISOString().slice(0, 10)
@@ -25,7 +26,7 @@ export default async function TodayPage() {
   const dayStart = new Date(now)
   dayStart.setHours(0, 0, 0, 0)
 
-  const [w, food, stack, taken, pain, sleep, rec, labs, goals, prefs] = await Promise.all([
+  const [w, food, stack, taken, pain, sleep, rec, labs, goals, prefs, bw] = await Promise.all([
     db
       .from('workouts')
       .select('name, started_at')
@@ -53,6 +54,12 @@ export default async function TodayPage() {
       .limit(200),
     db.from('goals').select('goal'),
     db.from('preferences').select('training_days, work_pattern').eq('user_id', user.id).maybeSingle(),
+    db
+      .from('body_measurements')
+      .select('measured_at, weight_kg')
+      .not('weight_kg', 'is', null)
+      .gte('measured_at', iso(new Date(now.getTime() - 60 * 864e5)))
+      .order('measured_at'),
   ])
 
   const workouts = (w.data ?? []) as { name: string; started_at: string }[]
@@ -66,6 +73,15 @@ export default async function TodayPage() {
     (goals.data ?? []).map((g: { goal: string }) => g.goal),
   )
   const tk = target.status === 'ok' ? target.targets : null
+  const wt = await getTranslations('weight')
+  const weights = withTrend(
+    (bw.data ?? []).map((r: { measured_at: string; weight_kg: number }) => ({
+      date: r.measured_at,
+      weightKg: Number(r.weight_kg),
+    })),
+  )
+  const wLast = weights[weights.length - 1]
+  const w30 = trendChange(weights, 30)
   const stackN = (stack.data ?? []).length
   const takenN = new Set((taken.data ?? []).map((r: { user_supplement_id: string }) => r.user_supplement_id))
     .size
@@ -143,6 +159,19 @@ export default async function TodayPage() {
       label: t('steps'),
       value: rc?.steps ? rc.steps.toLocaleString('cs-CZ') : t('empty'),
       sub: rc?.water_ml ? `${(rc.water_ml / 1000).toFixed(1)} l ${t('water').toLowerCase()}` : undefined,
+    },
+    {
+      href: '/body/weight',
+      icon: Scale,
+      label: wt('todayTile'),
+      value: wLast ? `${wLast.trend.toLocaleString('cs-CZ')}` : t('empty'),
+      unit: wLast ? 'kg' : undefined,
+      sub:
+        w30 !== null
+          ? wt('tileWeek', {
+              v: `${w30 > 0 ? '+' : w30 < 0 ? '−' : ''}${Math.abs(w30).toLocaleString('cs-CZ')}`,
+            })
+          : undefined,
     },
     {
       href: '/labs',

@@ -72,3 +72,9 @@ describe('niceAxis', () => {
     expect(niceAxis([]).ticks).toEqual([0, 5, 10])
   })
 })
+
+describe('niceAxis for body weight', () => {
+  it('stays tight around small ranges', () => {
+    expect(niceAxis([81.6, 85.2], 0.005)).toMatchObject({ lo: 81, hi: 86 })
+  })
+})
