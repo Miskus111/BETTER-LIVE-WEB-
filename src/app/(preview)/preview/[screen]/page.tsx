@@ -1,6 +1,7 @@
 import { LooksHabits } from '@/components/looks/LooksHabits'
 import { ProgressCharts } from '@/components/train/ProgressCharts'
 import { WeightTracker } from '@/components/body/WeightTracker'
+import { PhotoJournal } from '@/components/body/PhotoJournal'
 import { exerciseProgress, weeklyVolume, type ProgressSet } from '@/lib/train/progress'
 import { PILLARS } from '@/data/looksmaxing'
 import { EVIDENCE } from '@/data/sources'
@@ -107,6 +108,36 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
         thigh_cm: null,
       }))
       return <WeightTracker rows={rows} today={today} goal="lose" />
+    }
+    case 'photos': {
+      const today = new Date().toISOString().slice(0, 10)
+      const photos = [
+        {
+          id: 'a',
+          taken_at: '2026-09-14',
+          pose: 'front' as const,
+          notes: null,
+          url: '/pwa-icon/512',
+          weightKg: 83.8,
+        },
+        {
+          id: 'b',
+          taken_at: '2026-10-15',
+          pose: 'side' as const,
+          notes: null,
+          url: '/pwa-icon/512',
+          weightKg: 82.9,
+        },
+        {
+          id: 'c',
+          taken_at: '2026-11-16',
+          pose: 'front' as const,
+          notes: 'ráno',
+          url: '/pwa-icon/512',
+          weightKg: 81.8,
+        },
+      ]
+      return <PhotoJournal photos={photos} userId="00000000-0000-4000-8000-000000000000" today={today} />
     }
     case 'looks':
       return (

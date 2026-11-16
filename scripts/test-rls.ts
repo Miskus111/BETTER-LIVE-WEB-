@@ -67,6 +67,36 @@ async function main() {
       .update({ birth_date: `${new Date().getFullYear() - 16}-01-01` })
       .eq('id', a.id)
     check(!!minor.error, 'database rejects birth dates under 18')
+
+    // progress photos: private files in the owner's folder only
+    const path = `${a.id}/00000000-0000-4000-8000-000000000001.jpg`
+    const jpeg = new Blob([new Uint8Array([0xff, 0xd8, 0xff, 0xd9])], { type: 'image/jpeg' })
+    const up = await a.client.storage
+      .from('progress-photos')
+      .upload(path, jpeg, { contentType: 'image/jpeg' })
+    check(!up.error, 'A can upload into own photo folder')
+    await a.client.from('progress_photos').insert({ storage_path: path, pose: 'front' })
+    const bDown = await b.client.storage.from('progress-photos').download(path)
+    check(!!bDown.error, "B cannot download A's photo")
+    const bList = await b.client.storage.from('progress-photos').list(a.id)
+    check((bList.data ?? []).length === 0, "B cannot list A's photos")
+    const bSign = await b.client.storage.from('progress-photos').createSignedUrl(path, 60)
+    check(!!bSign.error, "B cannot create a link to A's photo")
+    const bRow = await b.client.from('progress_photos').select('*')
+    check(
+      !(bRow.data ?? []).some((r: { user_id: string }) => r.user_id === a.id),
+      "B cannot read A's photo rows",
+    )
+    const bUp = await b.client.storage
+      .from('progress-photos')
+      .upload(`${a.id}/00000000-0000-4000-8000-000000000002.jpg`, jpeg, { contentType: 'image/jpeg' })
+    check(!!bUp.error, "B cannot upload into A's folder")
+    await b.client.storage.from('progress-photos').remove([path])
+    const still = await a.client.storage.from('progress-photos').download(path)
+    check(!still.error, "B cannot delete A's photo")
+    const pub = await anon().storage.from('progress-photos').download(path)
+    check(!!pub.error, 'anonymous cannot download photos')
+    await a.client.storage.from('progress-photos').remove([path])
   } finally {
     await db.auth.admin.deleteUser(a.id)
     await db.auth.admin.deleteUser(b.id)

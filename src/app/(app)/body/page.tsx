@@ -1,28 +1,42 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { ArrowRight, Scale } from 'lucide-react'
+import { ArrowRight, Camera, Scale } from 'lucide-react'
 import { AnatomyExplorer } from '@/components/anatomy/AnatomyExplorer'
 
 /** Body tab: the interactive anatomy (muscle heat-map and InBody overlays arrive in later phases). */
 export default async function BodyPage() {
   const t = await getTranslations('nav')
   const w = await getTranslations('weight')
+  const ph = await getTranslations('photos')
+  const links = [
+    { href: '/body/weight', icon: Scale, title: w('bodyLink'), hint: w('bodyLinkHint'), id: 'weight-link' },
+    {
+      href: '/body/photos',
+      icon: Camera,
+      title: ph('bodyLink'),
+      hint: ph('bodyLinkHint'),
+      id: 'photos-link',
+    },
+  ]
   return (
     <div className="-mx-4 md:-mx-8">
       <h1 className="sr-only">{t('body')}</h1>
-      <div className="px-4 pt-1 pb-3 md:px-8">
-        <Link
-          href="/body/weight"
-          className="card hover:border-cyan/40 flex items-center gap-3 p-4 transition"
-          data-testid="weight-link"
-        >
-          <Scale size={20} className="text-cyan shrink-0" aria-hidden />
-          <span className="flex-1">
-            <span className="block text-[15px] font-medium">{w('bodyLink')}</span>
-            <span className="text-subtle block text-[13px]">{w('bodyLinkHint')}</span>
-          </span>
-          <ArrowRight size={17} className="text-cyan" aria-hidden />
-        </Link>
+      <div className="grid gap-3 px-4 pt-1 pb-3 sm:grid-cols-2 md:px-8">
+        {links.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            className="card hover:border-cyan/40 flex items-center gap-3 p-4 transition"
+            data-testid={l.id}
+          >
+            <l.icon size={20} className="text-cyan shrink-0" aria-hidden />
+            <span className="flex-1">
+              <span className="block text-[15px] font-medium">{l.title}</span>
+              <span className="text-subtle block text-[13px]">{l.hint}</span>
+            </span>
+            <ArrowRight size={17} className="text-cyan" aria-hidden />
+          </Link>
+        ))}
       </div>
       <AnatomyExplorer mobilePanel="inline" />
     </div>
