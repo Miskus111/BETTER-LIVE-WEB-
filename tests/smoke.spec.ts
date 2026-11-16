@@ -87,10 +87,9 @@ test('organ panel has a supplements tab; old store URLs redirect', async ({ page
   await expect(page).toHaveURL(/\/doplnky$/)
 })
 
-test('app routes show the setup screen until Supabase is connected', async ({ page }) => {
-  test.skip(!!process.env.NEXT_PUBLIC_SUPABASE_URL, 'Supabase is configured')
-  for (const path of ['/today', '/login', '/onboarding']) {
+test('app routes require sign-in (or show setup when Supabase is not configured)', async ({ page }) => {
+  for (const path of ['/today', '/train', '/onboarding']) {
     await page.goto(path)
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Supabase/)
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Supabase|Přihlášení|Sign in/)
   }
 })

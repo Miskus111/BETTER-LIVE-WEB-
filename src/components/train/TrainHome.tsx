@@ -11,7 +11,7 @@ import { useHydrated } from '@/lib/useHydrated'
 import { EXERCISES } from '@/data/exercises'
 import { TEMPLATES } from '@/data/exercises/templates'
 
-export function TrainHome({ finished }: { finished: boolean }) {
+export function TrainHome({ finished, base = '/train' }: { finished: boolean; base?: string }) {
   const t = useTranslations('train')
   const router = useRouter()
   const hydrated = useHydrated()
@@ -54,7 +54,7 @@ export function TrainHome({ finished }: { finished: boolean }) {
 
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
         {hydrated && active ? (
-          <Link href="/train/session" className="btn btn-primary !py-3" data-testid="resume-workout">
+          <Link href={`${base}/session`} className="btn btn-primary !py-3" data-testid="resume-workout">
             <Play size={17} aria-hidden /> {t('resume')}
           </Link>
         ) : (
@@ -64,7 +64,7 @@ export function TrainHome({ finished }: { finished: boolean }) {
             data-testid="start-workout"
             onClick={() => {
               start()
-              router.push('/train/session')
+              router.push(`${base}/session`)
             }}
           >
             <Play size={17} aria-hidden /> {t('start')}
@@ -85,7 +85,7 @@ export function TrainHome({ finished }: { finished: boolean }) {
                 disabled={hydrated && !!active}
                 onClick={() => {
                   start(tpl.name, tpl.exercises)
-                  router.push('/train/session')
+                  router.push(`${base}/session`)
                 }}
                 className="card hover:border-cyan/40 h-full w-full p-4 text-left transition disabled:opacity-50"
               >

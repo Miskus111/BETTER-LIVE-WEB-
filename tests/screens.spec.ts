@@ -14,6 +14,13 @@ const PAGES = [
   ['jak-doporucujeme', '/jak-doporucujeme'],
   ['looksmaxing', '/looksmaxing'],
   ['science', '/science'],
+  ['app-train', '/preview/train'],
+  ['app-library', '/preview/library'],
+  ['app-eat', '/preview/eat'],
+  ['app-stack', '/preview/stack'],
+  ['app-pain-map', '/preview/pain-map'],
+  ['app-routine', '/preview/routine'],
+  ['login', '/login'],
 ] as const
 
 for (const width of WIDTHS) {

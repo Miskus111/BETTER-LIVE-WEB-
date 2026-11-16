@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffect, useMemo, useState } from 'react'
-import { Calculator, Check, Link2, Plus, Trash2, WifiOff } from 'lucide-react'
+import { Calculator, Check, CloudOff, Link2, Plus, Trash2, WifiOff } from 'lucide-react'
 import { useSession, type SessionExercise, type SessionSet } from '@/lib/train/session-store'
 import { estimate1RM, toKg, toLb, volume, type SetType } from '@/lib/train/strength'
 import { syncQueue } from '@/lib/train/sync'
@@ -33,7 +33,7 @@ function useElapsed(since: string | undefined) {
     : `${m}:${String(s % 60).padStart(2, '0')}`
 }
 
-export function WorkoutLogger() {
+export function WorkoutLogger({ home = '/train' }: { home?: string }) {
   const t = useTranslations('train')
   const hydrated = useHydrated()
   const router = useRouter()
@@ -41,6 +41,7 @@ export function WorkoutLogger() {
   const name = useExerciseName()
   const [picker, setPicker] = useState(false)
   const [plates, setPlates] = useState<number | null>(null)
+  const [savedOffline, setSavedOffline] = useState(false)
   const elapsed = useElapsed(s.active?.startedAt)
   const online = typeof navigator === 'undefined' ? true : navigator.onLine
 
@@ -58,8 +59,24 @@ export function WorkoutLogger() {
   }, [s.active])
 
   useEffect(() => {
-    if (hydrated && !s.active) router.replace('/train')
-  }, [hydrated, s.active, router])
+    if (hydrated && !s.active && !savedOffline) router.replace(home)
+  }, [hydrated, s.active, router, home, savedOffline])
+
+  if (savedOffline) {
+    const pending = s.queue.filter((w) => !w.synced).length
+    return (
+      <div className="card mx-auto mt-10 max-w-md p-6 text-center" role="status" data-testid="saved-offline">
+        <CloudOff size={28} className="text-warn mx-auto" aria-hidden />
+        <p className="mt-3 text-[16px]">{t('savedOffline')}</p>
+        <p className="text-muted mt-1 font-mono text-[13px]">
+          {t('pending')}: {pending}
+        </p>
+        <Link href={home} className="btn btn-ghost mt-5">
+          {t('backToTrain')}
+        </Link>
+      </div>
+    )
+  }
 
   if (!hydrated || !s.active) return <div className="h-64" aria-busy="true" />
   const a = s.active
@@ -82,8 +99,13 @@ export function WorkoutLogger() {
   const finish = async () => {
     const q = s.finish()
     if (!q) return
+    if (!navigator.onLine) {
+      // a route change needs the server; stay here until the connection is back
+      setSavedOffline(true)
+      return
+    }
     await syncQueue()
-    router.replace('/train?finished=1')
+    router.replace(`${home}?finished=1`)
   }
 
   return (
@@ -320,7 +342,7 @@ export function WorkoutLogger() {
         onClick={() => {
           if (confirm(t('discardConfirm'))) {
             s.discard()
-            router.replace('/train')
+            router.replace(home)
           }
         }}
         className="mt-6 text-[14px] text-[#ff9b9b] underline-offset-4 hover:underline"

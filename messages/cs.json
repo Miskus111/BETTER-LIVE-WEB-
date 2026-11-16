@@ -293,7 +293,9 @@
     "save": "Uložit",
     "pace": "Tempo",
     "thisWeek": "Tento týden",
-    "setsPerMuscle": "Série na sval"
+    "setsPerMuscle": "Série na sval",
+    "savedOffline": "Trénink je uložený v zařízení a odešle se automaticky, jakmile budete online.",
+    "backToTrain": "Zpět na trénink"
   },
   "muscles": {
     "chest": "Prsa",

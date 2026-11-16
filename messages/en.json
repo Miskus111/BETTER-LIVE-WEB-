@@ -293,7 +293,9 @@
     "save": "Save",
     "pace": "Pace",
     "thisWeek": "This week",
-    "setsPerMuscle": "Sets per muscle"
+    "setsPerMuscle": "Sets per muscle",
+    "savedOffline": "Workout saved on this device — it will upload automatically once you are back online.",
+    "backToTrain": "Back to training"
   },
   "muscles": {
     "chest": "Chest",
