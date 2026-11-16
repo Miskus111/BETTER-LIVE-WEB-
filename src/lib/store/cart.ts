@@ -49,7 +49,7 @@ export const useCart = create<CartState>()(
     }),
     {
       name: 'flx-cart-v1',
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => window.localStorage),
       // drop lines whose product no longer exists
       merge: (persisted, current) => {
         const p = persisted as Partial<CartState> | undefined
