@@ -6,6 +6,7 @@ import { admin } from './supabase-admin'
 import { FOODS } from '../src/data/foods'
 import { TOPIC_LINKS, WHERE_TO_BUY, type ShopLink } from '../src/data/retailers'
 import { EXERCISES, GENERIC_STEPS } from '../src/data/exercises'
+import { SUPPLEMENTS } from '../src/data/supplement-library'
 
 async function main() {
   const db = admin()
@@ -61,6 +62,20 @@ async function main() {
   }))
   const r3 = await db.from('exercises').upsert(exercises, { onConflict: 'owner_id,slug' })
   if (r3.error) throw r3.error
+  const supps = SUPPLEMENTS.map((x) => ({
+    slug: x.id,
+    name_cs: x.name.cs,
+    name_en: x.name.en,
+    evidence: x.evidence,
+    summary: x.what,
+    typical_dose: x.dose,
+    upper_limit: x.ul ?? null,
+    interactions: x.interactions,
+    avoid_if: x.avoidIf,
+  }))
+  const r4 = await db.from('supplements').upsert(supps, { onConflict: 'slug' })
+  if (r4.error) throw r4.error
+  console.log(`✓ supplements: ${supps.length}`)
   console.log(`✓ reference data: ${foods.length} foods, ${rows.size} products, ${exercises.length} exercises`)
 }
 
