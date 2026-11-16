@@ -13,7 +13,7 @@ Short, dated records of choices made while building. Newest first within each ph
 - **No own store (owner decision).** The spec's organic store was replaced earlier by affiliate links (BrainMarket,
   Vilgain) and the owner chose to keep it that way. "Store" in the sidebar is labelled "Where to buy" and points to the
   affiliate catalogue. `products` holds the affiliate catalogue; `orders` exists but is unused.
-- **Supabase in the cloud (EU, Frankfurt).** Docker/Supabase CLI are not installed on the dev machine, so there is no
+- **Supabase in the cloud (EU, North EU / Stockholm).** Docker/Supabase CLI are not installed on the dev machine, so there is no
   local Supabase. Migrations are plain SQL in `supabase/migrations/` and are applied through the SQL editor (or
   `supabase db push` later). Until env vars are set, app routes show a setup screen instead of failing.
 - **i18n with next-intl, locale in a cookie, no locale in URLs.** Czech is the default; English via the switch (or
@@ -38,3 +38,48 @@ Short, dated records of choices made while building. Newest first within each ph
 - **Unit tests with Vitest** (node environment); e2e stays on Playwright with a separate `.next-test` build folder.
 - **Database types** are hand-written for the tables used so far; regenerate with `supabase gen types` once the
   project is linked.
+
+## Phases 2–8
+
+- **Test-only preview route.** Signed-in screens are rendered with sample data at `/preview/<screen>` so Playwright
+  can test and screenshot them without a real login. It returns 404 unless `ENABLE_PREVIEW=1` (set only in the
+  Playwright web server), and `/api/preview/coach` runs only the safety screen — no model, no database.
+- **Exercise library is code-first** (`src/data/exercises`, 179 exercises) and seeded into `exercises`
+  (`npm run seed:reference`). Technique steps for most exercises are generated from movement patterns; hand-written
+  cues exist for the main lifts. A muscle heat-map on the Body tab is deferred.
+- **Offline workout logger.** The active session lives in a persisted zustand store; finished workouts go to a queue
+  and are upserted with `client_id` (idempotent). If the device is offline when a workout is finished, the logger
+  stays on a "saved on this device" screen instead of navigating (a route change needs the server), and the queue
+  syncs on load and on `online`. The service worker additionally caches visited app pages for offline use.
+- **Food diary** stores a nutrition snapshot per entry. `food_logs.title` holds `name|slug` so the UI can show the
+  localised name for catalogue foods without another join.
+- **Calorie targets** use Mifflin–St Jeor; the target is never below BMR and the deficit never above ~0.75 % body
+  weight per week. Very low BMI or a weight-loss goal with an underweight BMI shows support resources instead of a
+  deficit.
+- **Supplements:** EFSA upper limits, a medication-interaction check on the free-text medication field (regex
+  categories), and a hard exclusion list (steroids, SARMs, DNP, …) that cannot be added.
+- **Pain map:** red-flag screening comes first; any "yes" shows an emergency or see-a-doctor gate and no exercises.
+- **Labs.** A 30-marker catalogue (`src/lib/labs/markers.ts`) with Czech-lab canonical units (µkat/L for liver
+  enzymes, IFCC mmol/mol for HbA1c), unit conversion, flags that prefer the lab's own range, and critical limits.
+  Pasted text is parsed on the device; PDFs and photos are read by Claude with structured outputs (Pro feature when
+  `FREE_MODE` is off). Nothing is stored until the user reviews and confirms each row; uncertain rows start
+  unchecked. Originals go to the private `lab-reports` bucket under the user's id.
+- **AI coach.** `system-prompt.md` holds the rules (no diagnosis, red flags → care, no PEDs, BMR floor, eating-disorder
+  and self-harm handling). Before the model is called, messages are screened: emergencies and self-harm get a fixed,
+  reviewed reply and never reach the model; eating-disorder signals add an instruction for that turn. The model gets
+  read-only tools over the user's own rows through the user's Supabase client (RLS applies); the free-text
+  medication list is never sent, only interaction categories. Requests use the beta endpoint with server-side refusal
+  fallback. Daily caps are counted from the user's own messages (no service key needed); token totals go to
+  `ai_usage` when the service key is present. Replies are not streamed yet (one JSON response per turn).
+- **Model:** `ANTHROPIC_MODEL`, default `claude-opus-5-5`.
+- **Billing:** `FREE_MODE` (default on) unlocks everything. Without it, Free keeps the core app and the coach at
+  10 messages/day; Pro adds AI report reading and 100 messages/day. Payments (Stripe) are not wired yet — Settings
+  says so honestly; `subscriptions` is server-written only.
+- **PWA:** web manifest, generated PNG icons, `public/sw.js` (static assets cache-first; app pages network-first with
+  cached fallback and `/offline`; API, auth and preview routes never cached). The page cache is cleared when the user
+  reaches `/login`, so personal pages do not outlive a sign-out on shared devices. Registered in production only.
+- **Today** shows real data (week's workouts vs. planned days, kcal/protein vs. targets, supplements taken, last pain
+  score, out-of-range labs) with one rule-based nudge, plus a daily sleep/recovery check-in (`sleep_logs`,
+  `recovery_logs`).
+- **Looks** is a daily checklist of the six evidence-based habits from the looksmaxing guide, stored on the device
+  only (it is not health data). Its content is Czech-only for now, like the public education pages.

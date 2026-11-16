@@ -18,7 +18,7 @@ export function hasAccess(feature: Feature, plan: Plan | null | undefined, freeM
 /** Coach messages per day. Free users get a taste; FREE_MODE keeps a generous cap to bound cost. */
 export function coachDailyLimit(plan: Plan | null | undefined, freeMode = isFreeMode()): number {
   if (plan === 'pro') return 100
-  return freeMode ? 40 : 10
+  return freeMode ? Number(process.env.COACH_DAILY_MESSAGE_LIMIT) || 40 : 10
 }
 
 export const PRICES = { pro_month_czk: 199, pro_year_czk: 1690 } as const

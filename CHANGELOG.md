@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.5.0 — Phases 2–8 (branch `blwb-app`)
+
+- **Train:** 179-exercise library with filters, 7 templates, offline-first workout logger (kg/lb, set types, RPE,
+  supersets, rest timer with notification, plate calculator, e1RM), history and personal records, sport sessions.
+- **Eat:** food diary with daily targets (Mifflin–St Jeor, BMR floor, ≤0.75 %/week loss), vitamins/minerals % NRV.
+- **Supplements:** stack tracker with EFSA upper limits, medication interactions, excluded substances, daily check-off.
+- **Mobility:** 37 exercises, 9 routines with a player, pain map with red-flag screening, pain trend chart.
+- **Labs:** paste or upload results (PDF/photo read by Claude), review and confirm, 30-marker catalogue with unit
+  conversion and flags, trends, InBody body composition.
+- **Coach:** AI coach with safety pre-screen, read-only tools over your data, conversation history, daily limits.
+- **Today:** real dashboard + daily sleep/recovery check-in. **Looks:** evidence-based daily habit tracker.
+- **Plans & PWA:** FREE_MODE, plan section in Settings, installable app with offline fallback.
+- Tests: 79 unit tests; Playwright e2e for the logger offline queue, red flags, stack safety, labs review, coach safety
+  reply, looks, PWA; screenshots at 390/768/1440 including app screens.
+
 ## 0.4.0 — Phase 1: Better Live with Biohacking app foundation (branch `blwb-app`)
 
 - Renamed FLX → **Better Live with Biohacking (BLWB)**; package `better-live-biohacking`.
