@@ -1,6 +1,8 @@
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { CommandPalette } from '@/components/layout/CommandPalette'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SITE } from '@/lib/site'
 
 /** Public, indexable educational pages (anatomy, foods, supplements, looksmaxing, science). */
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -12,6 +14,26 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       >
         Přeskočit na obsah
       </a>
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: SITE.name,
+            alternateName: SITE.short,
+            url: SITE.url,
+            logo: `${SITE.url}/pwa-icon/512`,
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: SITE.name,
+            url: SITE.url,
+            inLanguage: 'cs',
+            description: SITE.description,
+          },
+        ]}
+      />
       <Nav />
       <main id="main">{children}</main>
       <Footer />

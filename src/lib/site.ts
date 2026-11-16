@@ -17,6 +17,6 @@ export const SITE = {
   short: 'BLWB',
   tagline: 'Žij zdravěji, podávej lepší výkon',
   description:
-    'Výživa, vitamíny, trénink pro jakýkoli sport, mobilita a bolest, regenerace, spánek a vzhled — s AI koučem, který z vašich dat vytvoří osobní plány. Vše s hodnocením důkazů.',
+    'Výživa, vitamíny, trénink, mobilita, spánek a vzhled podle důkazů — interaktivní mapa těla, průvodci doplňky a aplikace s AI koučem.',
   url: siteUrl(),
 }

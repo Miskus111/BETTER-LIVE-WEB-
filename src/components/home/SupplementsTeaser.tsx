@@ -5,6 +5,7 @@ import { NUTRIENTS } from '@/data/nutrients'
 import { REFERENCE } from '@/data/reference'
 import type { NutrientId } from '@/data/types'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
+import { supplementHref } from '@/data/supplements'
 
 const KEY: NutrientId[] = ['vitD', 'omega3', 'magnesium', 'iron']
 
@@ -20,7 +21,7 @@ export function SupplementsTeaser() {
           return (
             <li key={id}>
               <Link
-                href={`/doplnky#${id}`}
+                href={supplementHref(id)}
                 className="card group hover:border-cyan/40 flex h-full flex-col p-5 transition"
               >
                 <p className="eyebrow">{NUTRIENTS[id].kind}</p>

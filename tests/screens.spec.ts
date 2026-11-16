@@ -28,6 +28,7 @@ const PAGES = [
   ['app-photos', '/preview/photos'],
   ['app-paywall', '/preview/paywall'],
   ['pricing', '/pricing'],
+  ['supplement-guide', '/doplnky/horcik'],
   ['login', '/login'],
 ] as const
 

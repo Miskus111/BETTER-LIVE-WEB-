@@ -2,9 +2,11 @@ import type { MetadataRoute } from 'next'
 import { FOODS } from '@/data/foods'
 import { ORGANS } from '@/data/organs'
 import { SITE } from '@/lib/site'
+import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const u = (p: string) => `${SITE.url}${p}`
+  const lastModified = new Date('2026-11-16')
   return [
     { url: u('/'), priority: 1 },
     { url: u('/doplnky'), priority: 0.8 },
@@ -12,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/looksmaxing'), priority: 0.7 },
     { url: u('/science'), priority: 0.6 },
     { url: u('/pricing'), priority: 0.6 },
+    ...SUPPLEMENT_NUTRIENTS.map((id) => ({ url: u(supplementHref(id)), priority: 0.8 })),
     ...ORGANS.map((o) => ({ url: u(`/organ/${o.id}`), priority: 0.8 })),
     ...FOODS.map((f) => ({ url: u(`/food/${f.id}`), priority: 0.6 })),
-  ]
+  ].map((e) => ({ lastModified, ...e }))
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ORGANS } from '@/data/organs'
 import { NUTRIENTS } from '@/data/nutrients'
-import { SUPPLEMENT_NUTRIENTS } from '@/data/supplements'
+import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'
 import { Logo } from './Logo'
 
 export function Footer() {
@@ -27,7 +27,7 @@ export function Footer() {
             Přehled doplňků
           </Link>
           {SUPPLEMENT_NUTRIENTS.map((id) => (
-            <Link key={id} href={`/doplnky#${id}`} className="hover:text-fg">
+            <Link key={id} href={supplementHref(id)} className="hover:text-fg">
               {NUTRIENTS[id].name}
             </Link>
           ))}

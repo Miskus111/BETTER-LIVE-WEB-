@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { AnatomyExplorer } from '@/components/anatomy/AnatomyExplorer'
 import { Section } from '@/components/home/Section'
 import { NutrientIndex } from '@/components/home/NutrientIndex'
@@ -7,6 +8,10 @@ import { SupplementsTeaser } from '@/components/home/SupplementsTeaser'
 import { FoodExplorer } from '@/components/food/FoodExplorer'
 import { AppCta } from '@/components/home/AppCta'
 
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+}
+
 export default function Home() {
   return (
     <>
@@ -15,13 +20,18 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_30%,rgba(58,168,255,0.09),transparent_70%)]"
           aria-hidden
         />
-        <div className="mx-auto max-w-[1440px] px-4 pt-6 md:px-8 lg:hidden">
-          <p className="eyebrow">BLWB · Tělo × výživa</p>
-          <h1 className="display mt-2 text-[44px]">
+        <div className="mx-auto max-w-[1440px] px-4 pt-6 md:px-8 lg:p-0">
+          <p className="eyebrow lg:hidden">BLWB · Tělo × výživa</p>
+          {/* the one h1 of the page: visible on phones, read by screen readers and search engines on desktop */}
+          <h1 className="display mt-2 text-[44px] lg:sr-only">
             Tvoje tělo, <em className="text-cyan">rozluštěné.</em>
           </h1>
-          <p className="text-muted mt-2 text-[15px]">Klepněte na orgán a uvidíte, co potřebuje — a proč.</p>
-          <AppCta compact />
+          <p className="text-muted mt-2 text-[15px] lg:hidden">
+            Klepněte na orgán a uvidíte, co potřebuje — a proč.
+          </p>
+          <div className="lg:hidden">
+            <AppCta compact />
+          </div>
         </div>
         <AnatomyExplorer />
       </section>

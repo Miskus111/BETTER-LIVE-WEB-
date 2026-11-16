@@ -118,7 +118,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
           onSystem={setSystem}
           layers={layers}
           onLayers={setLayers}
-          titleAs={urlMode === 'path' ? 'p' : 'h1'}
+          titleAs="p"
         />
       </div>
 

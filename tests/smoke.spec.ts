@@ -117,3 +117,32 @@ test('paywall explains Pro and links to pricing', async ({ page }) => {
   await expect(p).toContainText('Fotky pokroku jsou v Pro')
   await expect(p.getByRole('link', { name: 'Zobrazit tarify' })).toHaveAttribute('href', '/pricing')
 })
+
+test('supplement guide pages: own URL, one h1, FAQ and structured data; listed in the sitemap', async ({
+  page,
+  request,
+}) => {
+  await page.goto('/doplnky/vitamin-d')
+  await expect(page).toHaveTitle(/Vitamín D — nejlepší forma, dávka a referenční hodnoty/)
+  await expect(page.locator('h1')).toHaveCount(1)
+  await expect(page.getByRole('heading', { name: 'Časté otázky' })).toBeVisible()
+  const types = await page
+    .locator('script[type="application/ld+json"]')
+    .evaluateAll((els) =>
+      els.flatMap((e) =>
+        [JSON.parse(e.textContent || '[]')].flat().map((x: { '@type': string }) => x['@type']),
+      ),
+    )
+  expect(types).toEqual(expect.arrayContaining(['Article', 'FAQPage', 'BreadcrumbList']))
+  await page.goto('/doplnky')
+  await page.getByRole('link', { name: 'Hořčík' }).first().click()
+  await expect(page).toHaveURL(/\/doplnky\/horcik$/)
+  const sitemap = await (await request.get('/sitemap.xml')).text()
+  expect(sitemap).toContain('/doplnky/omega-3')
+  expect((await request.get('/doplnky/neexistuje')).status()).toBe(404)
+})
+
+test('homepage has exactly one h1', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('h1')).toHaveCount(1)
+})

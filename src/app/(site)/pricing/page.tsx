@@ -6,7 +6,11 @@ import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('billing')
-  return { title: t('pricingTitle'), description: t('pricingIntro') }
+  return {
+    title: 'Ceník — tarify Zdarma a Pro',
+    description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
+    alternates: { canonical: '/pricing' },
+  }
 }
 
 type Cell = boolean | string

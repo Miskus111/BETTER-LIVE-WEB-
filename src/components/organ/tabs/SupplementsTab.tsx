@@ -6,6 +6,7 @@ import { WHERE_TO_BUY, type ShopLink } from '@/data/retailers'
 import type { Organ } from '@/data/types'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
 import { WhereToBuy } from '@/components/ui/WhereToBuy'
+import { supplementHref } from '@/data/supplements'
 
 /** Nejlépe vstřebatelné formy živin, na kterých orgán závisí, + doporučené produkty. */
 export function SupplementsTab({ organ }: { organ: Organ }) {
@@ -36,7 +37,10 @@ export function SupplementsTab({ organ }: { organ: Organ }) {
             <li key={on.id} className="card p-4">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-[15.5px] font-medium">{NUTRIENTS[on.id].name}</p>
-                <Link href={`/doplnky#${on.id}`} className="link inline-flex items-center gap-1 text-[13px]">
+                <Link
+                  href={supplementHref(on.id)}
+                  className="link inline-flex items-center gap-1 text-[13px]"
+                >
                   Detail <ArrowRight size={13} aria-hidden />
                 </Link>
               </div>

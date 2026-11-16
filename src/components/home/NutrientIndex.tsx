@@ -13,6 +13,7 @@ import { ReferenceValues } from '@/components/ui/ReferenceValues'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
 import { fmtAmount, organsForNutrient, pctRef, thresholdBasis, topFoodsFor } from '@/lib/nutrition'
 import { cx } from '@/lib/format'
+import { supplementHref } from '@/data/supplements'
 
 const KINDS: (NutrientKind | 'Vše')[] = [
   'Vše',
@@ -115,7 +116,7 @@ export function NutrientIndex() {
                 </li>
               ))}
             </ul>
-            <Link href={`/doplnky#${active}`} className="link mt-2 inline-block text-[13.5px]">
+            <Link href={supplementHref(active)} className="link mt-2 inline-block text-[13.5px]">
               Všechny formy, dávky a tipy →
             </Link>
           </section>
