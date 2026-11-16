@@ -22,6 +22,7 @@
     "seed:reference": "tsx --tsconfig scripts/tsconfig.json scripts/seed-reference.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.0",
     "@tanstack/react-query": "^5.107.1",

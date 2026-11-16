@@ -1,3 +1,5 @@
+import { CoachChat } from '@/components/coach/CoachChat'
+import { LabsClient } from '@/components/labs/LabsClient'
 import { notFound } from 'next/navigation'
 import { TrainHome } from '@/components/train/TrainHome'
 import { WorkoutLogger } from '@/components/train/WorkoutLogger'
@@ -39,6 +41,23 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
           rows={[
             { id: 'a', slug: 'omega-3', dose_amount: 1000, timing: 'S večeří', reminder_time: '19:00:00', takenToday: true },
             { id: 'b', slug: 'vitamin-d3', dose_amount: 125, timing: 'Ráno', reminder_time: null, takenToday: false },
+          ]}
+        />
+      )
+    case 'coach':
+      return <CoachChat conversations={[]} conversationId={null} initial={[]} aiEnabled endpoint="/api/preview/coach" />
+    case 'labs':
+      return (
+        <LabsClient
+          aiEnabled={false}
+          reports={[{ id: 'r1', kind: 'blood', taken_on: '2026-10-02', lab_name: 'Synlab' }]}
+          comps={[{ measured_on: '2026-10-05', weight_kg: 82.4, skeletal_muscle_kg: 37.1, body_fat_pct: 17.8, visceral_fat_level: 6 }]}
+          values={[
+            { marker: 'vitd', value: 38, unit: 'nmol/L', flag: 'low', taken_on: '2026-03-01', ref_low: 75, ref_high: 250 },
+            { marker: 'vitd', value: 71, unit: 'nmol/L', flag: 'low', taken_on: '2026-10-02', ref_low: 75, ref_high: 250 },
+            { marker: 'ferritin', value: 84, unit: 'µg/L', flag: 'normal', taken_on: '2026-10-02', ref_low: 30, ref_high: 300 },
+            { marker: 'glucose', value: 5.1, unit: 'mmol/L', flag: 'normal', taken_on: '2026-10-02', ref_low: 3.9, ref_high: 5.6 },
+            { marker: 'ldl', value: 3.4, unit: 'mmol/L', flag: 'high', taken_on: '2026-10-02', ref_low: null, ref_high: 3.0 },
           ]}
         />
       )

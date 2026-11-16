@@ -20,6 +20,8 @@ const PAGES = [
   ['app-stack', '/preview/stack'],
   ['app-pain-map', '/preview/pain-map'],
   ['app-routine', '/preview/routine'],
+  ['app-labs', '/preview/labs'],
+  ['app-coach', '/preview/coach'],
   ['login', '/login'],
 ] as const
 

@@ -4,6 +4,8 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
 const nextConfig: NextConfig = {
+  // the coach reads its system prompt from the repo root at runtime
+  outputFileTracingIncludes: { '/api/coach': ['./system-prompt.md'] },
   // separate build folder for Playwright so tests don't clobber a running `npm run dev`
   distDir: process.env.NEXT_DIST_DIR || '.next',
   // the store was removed (v0.3) — keep old links working

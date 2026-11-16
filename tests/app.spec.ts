@@ -70,3 +70,23 @@ test('mobility routine player steps through exercises', async ({ page }) => {
   await page.getByTestId('routine-next').click()
   await expect(page.locator('h2').first()).toBeVisible()
 })
+
+test('labs: pasted results are parsed on-device and must be reviewed before saving', async ({ page }) => {
+  await page.goto('/preview/labs')
+  await expect(page.getByTestId('lab-vitd')).toBeVisible()
+  await page.getByRole('tab', { name: /Vložit text|Paste text/ }).click()
+  await page.getByTestId('labs-text').fill('S-Glukóza 6,1 mmol/l 3,9 - 5,6\nFeritin 12 ug/l 30 - 300\nNěco jiného bez čísla')
+  await page.getByTestId('labs-parse').click()
+  const review = page.getByTestId('labs-review')
+  await expect(review).toBeVisible()
+  await expect(review.locator('tbody tr')).toHaveCount(2)
+  await expect(review).toContainText(/vysoké|high/)
+  await expect(review).toContainText(/nízké|low/)
+})
+
+test('coach: emergency messages get a fixed safety reply', async ({ page }) => {
+  await page.goto('/preview/coach')
+  await page.getByTestId('coach-input').fill('Mám silnou bolest na hrudi při běhu')
+  await page.getByTestId('coach-input').press('Enter')
+  await expect(page.getByTestId('msg-assistant')).toContainText('112')
+})
