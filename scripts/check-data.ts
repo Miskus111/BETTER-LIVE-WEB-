@@ -5,12 +5,14 @@
  */
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { FOOD_BY_ID, FOODS } from '../src/data/foods'
+import { FOODS } from '../src/data/foods'
 import { NUTRIENTS } from '../src/data/nutrients'
 import { ORGANS } from '../src/data/organs'
-import { PRODUCTS, SHOP_CATEGORIES } from '../src/data/products'
-import type { OrganId } from '../src/data/types'
-import { foodsForOrgan, productNutrition, productOrgans, thresholdOf } from '../src/lib/nutrition'
+import { ABSORPTION } from '../src/data/absorption'
+import { REFERENCE } from '../src/data/reference'
+import { WHERE_TO_BUY } from '../src/data/retailers'
+import { SUPPLEMENT_NUTRIENTS } from '../src/data/supplements'
+import { foodsForOrgan, thresholdOf } from '../src/lib/nutrition'
 
 const errors: string[] = []
 const warn: string[] = []
@@ -24,7 +26,6 @@ const checkCopy = (where: string, text: string | undefined) => {
     fail(`${where}: banned claim wording "${text.match(BANNED)![0]}" in: ${text}`)
 }
 
-const organIds = new Set<OrganId>(ORGANS.map((o) => o.id))
 const publicDir = join(process.cwd(), 'public')
 
 // ── Nutrients ──
@@ -73,49 +74,24 @@ for (const f of FOODS) {
     warn.push(`food ${f.id}: fermented but liveCultures unset`)
 }
 
-// ── Products ──
-const productIds = new Set<string>()
-for (const p of PRODUCTS) {
-  const where = `product ${p.id}`
-  if (productIds.has(p.id)) fail(`${where}: duplicate id`)
-  productIds.add(p.id)
-  const c = p.certification
-
-  // Organic rules (hard requirement)
-  if (c.status === 'eu-bio') {
-    if (c.verified !== true) fail(`${where}: claims EU organic but verified !== true`)
-    if (!c.controlBody || !/^[A-Z]{2}-(BIO|ÖKO|ECO|ORG|EKO|BIO-\w+)-\d{3}$/.test(c.controlBody))
-      fail(`${where}: claims EU organic without a valid control-body code (got "${c.controlBody ?? ''}")`)
-  } else {
-    if (c.verified) fail(`${where}: non-organic product must not be marked verified organic`)
-    if (c.controlBody) fail(`${where}: non-organic product must not show an organic control-body code`)
+// ── Reference values, absorption and recommendations ──
+for (const id of SUPPLEMENT_NUTRIENTS) {
+  if (!NUTRIENTS[id]) fail(`supplements: unknown nutrient ${id}`)
+  if (!ABSORPTION[id]) fail(`supplements: ${id} has no absorption data`)
+  if (!NUTRIENTS[id].qualitative && !REFERENCE[id]?.efsa)
+    fail(`supplements: ${id} has no EFSA reference value`)
+}
+for (const [id, a] of Object.entries(ABSORPTION)) {
+  if (!a.forms.length) fail(`absorption ${id}: no forms`)
+  if (!a.sources.length) fail(`absorption ${id}: no sources`)
+  ;[a.when, ...a.tips, ...a.forms.map((f) => f.note)].forEach((t) => checkCopy(`absorption ${id}`, t))
+}
+for (const [id, links] of Object.entries(WHERE_TO_BUY)) {
+  if (!(id in NUTRIENTS)) fail(`retailers: unknown nutrient ${id}`)
+  for (const l of links ?? []) {
+    if (!/^https:\/\//.test(l.url)) fail(`retailers ${id}: link must be https (${l.url})`)
+    if (l.why) checkCopy(`retailers ${id}`, l.why)
   }
-  if (c.status === 'wild' && p.food && FOOD_BY_ID[p.food]?.category !== 'Ryby a mořské plody')
-    fail(`${where}: "wild" status is reserved for wild-caught fish`)
-  if (/\bnatural\b/i.test(p.name)) warn.push(`${where}: avoid "natural" in names — say what it is instead`)
-  // Organic-ingredient marking: an EU organic product's ingredient list must mark organic ingredients with *
-  if (c.status === 'eu-bio' && !p.ingredients.includes('*'))
-    fail(`${where}: organic ingredients not marked with *`)
-  if (p.pasture === 'verified' && c.status !== 'eu-bio')
-    fail(`${where}: pasture claim only allowed on independently verified (EU organic) products`)
-
-  // Integrity
-  if (!p.origin || !p.processing) fail(`${where}: origin and processing are required`)
-  if (!(p.price > 0)) fail(`${where}: invalid price`)
-  for (const cat of p.categories)
-    if (!SHOP_CATEGORIES.includes(cat)) fail(`${where}: unknown category ${cat}`)
-  if (p.food && !FOOD_BY_ID[p.food]) fail(`${where}: unknown food ${p.food}`)
-  if (p.blend) {
-    const sum = p.blend.reduce((s, b) => s + b.share, 0)
-    if (Math.abs(sum - 1) > 0.001) fail(`${where}: blend shares sum to ${sum}`)
-    for (const b of p.blend) if (!FOOD_BY_ID[b.food]) fail(`${where}: unknown blend food ${b.food}`)
-  }
-  for (const o of p.organs ?? []) if (!organIds.has(o)) fail(`${where}: unknown organ ${o}`)
-  if (!productNutrition(p)) fail(`${where}: no nutrition (needs food, blend or manual nutrition)`)
-  if (!productOrgans(p).length) fail(`${where}: not linked to any organ`)
-  for (const src of p.images)
-    if (!existsSync(join(publicDir, src))) fail(`${where}: image missing at public${src}`)
-  ;[p.description, p.shortDescription, ...p.highlights].forEach((t) => checkCopy(where, t))
 }
 
 if (process.argv.includes('--verbose')) {
@@ -125,7 +101,6 @@ if (process.argv.includes('--verbose')) {
         .map((x) => x.food.id)
         .join(', ')}`,
     )
-  for (const p of PRODUCTS) console.log(`${p.id.padEnd(15)} organs: ${productOrgans(p).join(', ')}`)
 }
 
 warn.forEach((w) => console.warn(`warn  ${w}`))
@@ -135,5 +110,5 @@ if (errors.length) {
   process.exit(1)
 }
 console.log(
-  `✓ check:data passed — ${ORGANS.length} organs, ${Object.keys(NUTRIENTS).length} nutrients, ${FOODS.length} foods, ${PRODUCTS.length} products`,
+  `✓ check:data passed — ${ORGANS.length} organs, ${Object.keys(NUTRIENTS).length} nutrients, ${FOODS.length} foods, ${Object.keys(ABSORPTION).length} absorption profiles`,
 )

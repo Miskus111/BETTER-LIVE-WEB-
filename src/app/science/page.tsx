@@ -99,16 +99,20 @@ export default function SciencePage() {
         <FermentationExplainer />
       </Block>
 
-      <Block title="5 · Nutriční data a obchody">
+      <Block title="5 · Nutriční data a doplňky">
         <p className="text-fg/90 text-[15px]">
           Hodnoty na 100 g jedlého podílu pocházejí z USDA FoodData Central (SR Legacy / Foundation Foods) a
           jsou zaokrouhlené. Sledujeme jen živiny relevantní pro model orgánů; chybějící hodnota znamená
           „nesledováno“, ne nulu. Jód v mléce a rybách silně kolísá podle krmiva, sezóny a zpracování.
         </p>
         <p className="text-fg/90 mt-3 text-[15px]">
-          Odkazy na BrainMarket a Vilgain jsou ukázky, kde lze živiny koupit. Nejsme partnery těchto obchodů a
-          jejich produkty jsme nehodnotili. Doplněk stravy má smysl hlavně tam, kde strava nestačí — typicky
-          vitamín D v zimě, B12 při veganské stravě nebo omega-3, když nejíte ryby.
+          Doporučené produkty vybíráme podle vstřebatelnosti formy, dávky vůči doporučení EFSA a horního
+          limitu (viz{' '}
+          <Link href="/jak-doporucujeme" className="link">
+            Jak doporučujeme
+          </Link>
+          ); odkazy jsou partnerské. Doplněk stravy má smysl hlavně tam, kde strava nestačí — typicky vitamín
+          D v zimě, B12 při veganské stravě nebo omega-3, když nejíte ryby.
         </p>
       </Block>
 

@@ -1,8 +1,7 @@
-import { FOOD_BY_ID, FOODS } from '@/data/foods'
+import { FOODS } from '@/data/foods'
 import { NUTRIENTS } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
-import { PRODUCTS } from '@/data/products'
-import type { Food, NutrientId, Organ, OrganId, Product, ProductNutrition } from '@/data/types'
+import type { Food, NutrientId, Organ } from '@/data/types'
 
 /** Amount of a nutrient per 100 g, or undefined if the food does not supply / we do not track it. */
 export function amountOf(
@@ -118,81 +117,3 @@ export function topFoodsFor(id: NutrientId, k = 5): { food: Food; v: number }[] 
 export function organsForNutrient(id: NutrientId): Organ[] {
   return ORGANS.filter((o) => o.nutrients.some((n) => n.id === id))
 }
-
-// ── Products ────────────────────────────────────────────────────────────────
-
-/** Per-100 g nutrition of a product: reference food, weighted blend, or manual values. */
-export function productNutrition(p: Product): ProductNutrition | undefined {
-  if (p.nutrition) return p.nutrition
-  if (p.food) {
-    const f = FOOD_BY_ID[p.food]
-    return {
-      kcal: f.kcal,
-      ...f.macros,
-      micros: f.micros,
-      basis: `Referenční potravina USDA: ${f.name}, ${f.basis}`,
-    }
-  }
-  if (p.blend) {
-    const out: ProductNutrition = { kcal: 0, protein: 0, fat: 0, carbs: 0, fiber: 0, micros: {}, basis: '' }
-    for (const { food, share } of p.blend) {
-      const f = FOOD_BY_ID[food]
-      out.kcal += f.kcal * share
-      out.protein += f.macros.protein * share
-      out.fat += f.macros.fat * share
-      out.carbs += f.macros.carbs * share
-      out.fiber += f.macros.fiber * share
-      for (const [k, v] of Object.entries(f.micros) as [NutrientId, number][]) {
-        out.micros[k] = (out.micros[k] ?? 0) + v * share
-      }
-    }
-    out.kcal = Math.round(out.kcal)
-    out.basis = `Vypočteno z receptury: ${p.blend.map((b) => `${Math.round(b.share * 100)} % ${FOOD_BY_ID[b.food].name.toLowerCase()}`).join(', ')} (referenční hodnoty USDA)`
-    return out
-  }
-  return undefined
-}
-
-/** Pseudo-food used to run the same "source of" logic on product nutrition. */
-function productAsFood(p: Product): Food | undefined {
-  if (p.food) return FOOD_BY_ID[p.food]
-  const n = productNutrition(p)
-  if (!n) return undefined
-  return {
-    id: p.id,
-    name: p.name,
-    category: 'Obiloviny a oleje',
-    basis: n.basis,
-    fdc: n.basis,
-    kcal: n.kcal,
-    macros: { protein: n.protein, fat: n.fat, carbs: n.carbs, fiber: n.fiber },
-    micros: n.micros,
-    liveCultures: p.liveCultures,
-    image: p.images[0],
-    art: p.art,
-  }
-}
-
-/** Organs a product is relevant to (best match first) — computed from its nutrition, else the manual list. */
-export function productOrgans(p: Product): OrganId[] {
-  const asFood = productAsFood(p)
-  const computed = asFood ? organsForFood(asFood).map((x) => x.organ.id) : []
-  return computed.length ? computed : (p.organs ?? [])
-}
-
-export function productsForOrgan(id: OrganId): Product[] {
-  return PRODUCTS.filter((p) => productOrgans(p).includes(id))
-}
-
-export function productsForFood(foodId: string): Product[] {
-  return PRODUCTS.filter((p) => p.food === foodId || p.blend?.some((b) => b.food === foodId))
-}
-
-export function productFoods(p: Product): Food[] {
-  if (p.food) return [FOOD_BY_ID[p.food]]
-  return (p.blend ?? []).map((b) => FOOD_BY_ID[b.food])
-}
-
-/** Organic badge is shown ONLY for verified EU organic products. */
-export const isVerifiedOrganic = (p: Product) =>
-  p.certification.status === 'eu-bio' && p.certification.verified === true && !!p.certification.controlBody

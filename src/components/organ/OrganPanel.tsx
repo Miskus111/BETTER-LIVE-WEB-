@@ -9,10 +9,10 @@ import { cx } from '@/lib/format'
 import { OverviewTab } from './tabs/OverviewTab'
 import { NutrientsTab } from './tabs/NutrientsTab'
 import { FoodsTab } from './tabs/FoodsTab'
-import { ProductsTab } from './tabs/ProductsTab'
+import { SupplementsTab } from './tabs/SupplementsTab'
 import { ScienceTab } from './tabs/ScienceTab'
 
-export const ORGAN_TABS = ['Přehled', 'Živiny', 'Potraviny', 'Produkty', 'Věda'] as const
+export const ORGAN_TABS = ['Přehled', 'Živiny', 'Potraviny', 'Doplňky', 'Věda'] as const
 export type OrganTab = (typeof ORGAN_TABS)[number]
 
 interface Props {
@@ -141,7 +141,7 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
             {t === 'Přehled' && <OverviewTab organ={organ} goTo={setTab} />}
             {t === 'Živiny' && <NutrientsTab organ={organ} />}
             {t === 'Potraviny' && <FoodsTab organ={organ} />}
-            {t === 'Produkty' && <ProductsTab organ={organ} />}
+            {t === 'Doplňky' && <SupplementsTab organ={organ} />}
             {t === 'Věda' && <ScienceTab organ={organ} />}
           </div>
         ))}

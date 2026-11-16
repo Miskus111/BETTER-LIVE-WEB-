@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Apple, Atom, CornerDownLeft, FileText, HeartPulse, Package, Search, X } from 'lucide-react'
+import { Apple, Atom, CornerDownLeft, FileText, HeartPulse, Search, X } from 'lucide-react'
 import { search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
@@ -11,10 +11,9 @@ const ICON: Record<SearchKind, typeof Apple> = {
   Orgán: HeartPulse,
   Živina: Atom,
   Potravina: Apple,
-  Produkt: Package,
   Stránka: FileText,
 }
-const SUGGESTED = ['brain', 'intestines', 'omega3', 'choline', 'kefir', 'looksmaxing'] as const
+const SUGGESTED = ['brain', 'intestines', 'omega3', 'choline', 'doplnky', 'looksmaxing'] as const
 
 export function CommandPalette() {
   const router = useRouter()

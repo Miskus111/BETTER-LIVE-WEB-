@@ -10,21 +10,16 @@ const PAGES = [
   ['home-heart', '/?organ=heart'],
   ['organ-intestines', '/organ/intestines'],
   ['food-kefir', '/food/kefir'],
-  ['shop', '/shop'],
-  ['product-kefir', '/product/kefir'],
+  ['doplnky', '/doplnky'],
+  ['jak-doporucujeme', '/jak-doporucujeme'],
   ['looksmaxing', '/looksmaxing'],
   ['science', '/science'],
-  ['standard', '/our-standard'],
-  ['cart', '/cart'],
-  ['checkout', '/checkout'],
 ] as const
 
 for (const width of WIDTHS) {
   test(`screens @${width}px`, async ({ page }) => {
     test.setTimeout(120_000)
     await page.setViewportSize({ width, height: width < 768 ? 844 : width < 1440 ? 1024 : 900 })
-    await page.goto('/shop')
-    await page.getByTestId('add-sauerkraut').click()
     for (const [name, path] of PAGES) {
       await page.goto(path)
       await page.waitForLoadState('networkidle')

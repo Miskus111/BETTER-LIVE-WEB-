@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { ORGANS } from '@/data/organs'
-import { SHOP_CATEGORIES } from '@/data/products'
+import { NUTRIENTS } from '@/data/nutrients'
+import { SUPPLEMENT_NUTRIENTS } from '@/data/supplements'
 import { Logo } from './Logo'
-import { SampleDataLabel } from './SampleDataLabel'
 
 export function Footer() {
   return (
@@ -11,10 +11,9 @@ export function Footer() {
         <div className="max-w-sm">
           <Logo />
           <p className="text-muted mt-4 text-[14.5px]">
-            Interaktivní mapa lidského těla a živin, na kterých jednotlivé orgány závisí — s bio potravinami
-            vybranými podle stejně přísných důkazů.
+            Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, z jakých potravin to získat a
+            které formy doplňků tělo opravdu využije.
           </p>
-          <SampleDataLabel className="mt-5" />
         </div>
         <FooterCol title="Tělo">
           {ORGANS.map((o) => (
@@ -23,13 +22,13 @@ export function Footer() {
             </Link>
           ))}
         </FooterCol>
-        <FooterCol title="Obchod">
-          <Link href="/shop" className="hover:text-fg">
-            Všechny produkty
+        <FooterCol title="Doplňky">
+          <Link href="/doplnky" className="hover:text-fg">
+            Přehled doplňků
           </Link>
-          {SHOP_CATEGORIES.map((c) => (
-            <Link key={c} href={`/shop?category=${encodeURIComponent(c)}`} className="hover:text-fg">
-              {c}
+          {SUPPLEMENT_NUTRIENTS.map((id) => (
+            <Link key={id} href={`/doplnky#${id}`} className="hover:text-fg">
+              {NUTRIENTS[id].name}
             </Link>
           ))}
         </FooterCol>
@@ -37,8 +36,8 @@ export function Footer() {
           <Link href="/science" className="hover:text-fg">
             Věda a důkazy
           </Link>
-          <Link href="/our-standard" className="hover:text-fg">
-            Náš standard
+          <Link href="/jak-doporucujeme" className="hover:text-fg">
+            Jak doporučujeme
           </Link>
           <Link href="/looksmaxing" className="hover:text-fg">
             Looksmaxing
@@ -49,9 +48,6 @@ export function Footer() {
           <Link href="/#nutrients" className="hover:text-fg">
             Přehled živin
           </Link>
-          <Link href="/cart" className="hover:text-fg">
-            Košík
-          </Link>
         </FooterCol>
       </div>
       <div className="border-line border-t">
@@ -60,8 +56,12 @@ export function Footer() {
             <strong className="text-muted font-medium">Vzdělávací obsah, ne lékařská rada.</strong> FLX
             vysvětluje obecnou fyziologii a výživovou vědu. Nediagnostikuje, neléčí ani nepředchází nemocem. O
             svém zdraví se poraďte s lékařem nebo nutričním terapeutem. Nutriční hodnoty: USDA FoodData
-            Central; znění zdravotních tvrzení: nař. EU 432/2012. Odkazy na obchody jsou ukázkové, nejsme
-            jejich partnery.
+            Central; znění zdravotních tvrzení: nař. EU 432/2012. Odkazy na obchody jsou partnerské
+            (affiliate) —{' '}
+            <Link href="/jak-doporucujeme" className="hover:text-fg underline underline-offset-2">
+              jak doporučujeme
+            </Link>
+            .
           </p>
           <p className="font-mono text-[12px]">© {new Date().getFullYear()} FLX · prototyp</p>
         </div>

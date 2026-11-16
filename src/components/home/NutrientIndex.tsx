@@ -8,6 +8,9 @@ import type { NutrientId, NutrientKind } from '@/data/types'
 import { OrganLink } from '@/components/ui/OrganLink'
 import { WhereToBuy } from '@/components/ui/WhereToBuy'
 import { WHERE_TO_BUY } from '@/data/retailers'
+import { ABSORPTION } from '@/data/absorption'
+import { ReferenceValues } from '@/components/ui/ReferenceValues'
+import { RatingBadge } from '@/components/ui/AbsorptionCard'
 import { fmtAmount, organsForNutrient, pctRef, thresholdBasis, topFoodsFor } from '@/lib/nutrition'
 import { cx } from '@/lib/format'
 
@@ -93,18 +96,30 @@ export function NutrientIndex() {
         <h3 className="display mt-2 text-[38px]">{n.name}</h3>
         <p className="text-fg/90 mt-2 text-[15px]">{n.blurb}</p>
 
-        <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="border-line rounded-xl border p-3.5">
-            <dt className="text-subtle font-mono text-[12px]">Denní referenční hodnota</dt>
-            <dd className="mt-1 text-[15px]">
-              {n.ref ? `${n.ref.value} ${n.unit} · ${n.ref.kind}` : 'Nestanovena'}
-            </dd>
-          </div>
-          <div className="border-line rounded-xl border p-3.5">
-            <dt className="text-subtle font-mono text-[12px]">Pravidlo „zdroj“</dt>
-            <dd className="text-muted mt-1 text-[13.5px]">{thresholdBasis(active)}</dd>
-          </div>
-        </dl>
+        <ReferenceValues id={active} className="mt-5" />
+        <p className="text-subtle mt-2 text-[12.5px]">
+          Pravidlo „zdroj“ v tomto webu: {thresholdBasis(active)}
+        </p>
+
+        {ABSORPTION[active] && (
+          <section className="mt-6">
+            <h4 className="eyebrow mb-2.5">Nejlépe vstřebatelná forma</h4>
+            <ul className="space-y-2">
+              {ABSORPTION[active]!.forms.slice(0, 2).map((f) => (
+                <li key={f.name} className="flex flex-wrap items-start gap-2 text-[14.5px]">
+                  <RatingBadge rating={f.rating} />
+                  <span>
+                    <span className="font-medium">{f.name}</span>
+                    <span className="text-muted"> — {f.note}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <Link href={`/doplnky#${active}`} className="link mt-2 inline-block text-[13.5px]">
+              Všechny formy, dávky a tipy →
+            </Link>
+          </section>
+        )}
 
         <section className="mt-6">
           <h4 className="eyebrow mb-2.5">Zdravotní tvrzení schválená EU</h4>

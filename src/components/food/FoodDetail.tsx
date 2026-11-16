@@ -5,9 +5,8 @@ import type { Food, NutrientId } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
 import { NrvBar } from '@/components/ui/NrvBar'
 import { OrganLink } from '@/components/ui/OrganLink'
-import { CertBadge } from '@/components/shop/CertBadge'
-import { organsForFood, pctRef, productsForFood } from '@/lib/nutrition'
-import { czk, shortNutrient } from '@/lib/format'
+import { organsForFood, pctRef } from '@/lib/nutrition'
+import { shortNutrient } from '@/lib/format'
 import { MacroSplitBar } from './MacroSplitBar'
 
 /** Full food detail — used in the homepage explorer and on /food/[id]. */
@@ -25,7 +24,6 @@ export function FoodDetail({
     .filter(([id]) => NUTRIENTS[id])
     .sort((a, b) => (pctRef(b[0], b[1]) ?? 0) - (pctRef(a[0], a[1]) ?? 0))
   const organs = organsForFood(food)
-  const products = productsForFood(food.id)
 
   return (
     <article className="grid grid-cols-1 gap-6" data-testid="food-detail">
@@ -57,7 +55,7 @@ export function FoodDetail({
           <div key={k as string} className="border-line rounded-xl border p-2.5 text-center">
             <dt className="text-subtle font-mono text-[12px]">{k}</dt>
             <dd className="mt-0.5 text-[16px] font-medium">
-              {String(v).replace(".", ",")}
+              {String(v).replace('.', ',')}
               <span className="text-muted text-[12px]">{u && ` ${u}`}</span>
             </dd>
           </div>
@@ -120,36 +118,6 @@ export function FoodDetail({
           </p>
         )}
       </section>
-
-      {products.length > 0 && (
-        <section>
-          <h4 className="eyebrow mb-3">V obchodě</h4>
-          <ul className="grid grid-cols-1 gap-2">
-            {products.map((p) => (
-              <li key={p.id}>
-                <Link
-                  href={`/product/${p.id}`}
-                  className="border-line hover:border-line-strong flex items-center gap-3 rounded-xl border p-2.5 transition"
-                >
-                  <Thumb
-                    src={p.images[0]}
-                    alt=""
-                    ratio="aspect-square"
-                    className="w-12 shrink-0 rounded-lg"
-                  />
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-[14.5px]">{p.name}</span>
-                    <span className="mt-0.5 block">
-                      <CertBadge product={p} />
-                    </span>
-                  </span>
-                  <span className="font-mono text-[14px]">{czk(p.price)}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
     </article>
   )
 }

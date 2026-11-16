@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { CommandPalette } from '@/components/layout/CommandPalette'
-import { Toaster } from '@/components/layout/Toaster'
 import { SITE } from '@/lib/site'
 import './globals.css'
 
@@ -46,7 +45,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <Footer />
         <CommandPalette />
-        <Toaster />
       </body>
     </html>
   )

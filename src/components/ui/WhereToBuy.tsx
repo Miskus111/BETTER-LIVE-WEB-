@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { ArrowUpRight, Info, Store } from 'lucide-react'
+import { AFFILIATE_DISCLOSURE, affiliateUrl } from '@/data/affiliate'
 import { RETAILERS, type ShopLink } from '@/data/retailers'
 import { cx } from '@/lib/format'
 
@@ -8,7 +10,10 @@ const KIND: Record<ShopLink['kind'], string> = {
   potravina: 'Potravina',
 }
 
-/** Ukázkové odkazy na české obchody (BrainMarket, Vilgain). Odkazy jsou nofollow, bez provizí. */
+/**
+ * Doporučené produkty v českých obchodech. Odkazy jsou partnerské (affiliate) → rel="sponsored",
+ * u každého bloku je viditelné upozornění.
+ */
 export function WhereToBuy({
   links,
   title = 'Kde koupit',
@@ -31,10 +36,11 @@ export function WhereToBuy({
         {links.map((l) => (
           <li key={l.url}>
             <a
-              href={l.url}
+              href={affiliateUrl(l.url, l.retailer)}
               target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="group border-line hover:border-cyan/40 flex items-center gap-3 rounded-xl border bg-white/[0.02] px-3 py-2.5 transition hover:bg-white/[0.04]"
+              rel="sponsored noopener noreferrer"
+              data-retailer={l.retailer}
+              className="group border-line hover:border-cyan/40 flex h-full items-center gap-3 rounded-xl border bg-white/[0.02] px-3 py-2.5 transition hover:bg-white/[0.04]"
             >
               <span
                 className={cx(
@@ -46,10 +52,11 @@ export function WhereToBuy({
                 {l.retailer === 'brainmarket' ? 'BM' : 'VG'}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block truncate text-[14px]">{l.label}</span>
+                <span className="block text-[14px] leading-snug">{l.label}</span>
                 <span className="text-subtle block text-[12px]">
                   {RETAILERS[l.retailer].name} · {KIND[l.kind]}
                 </span>
+                {l.why && <span className="text-muted mt-0.5 block text-[12.5px] leading-snug">{l.why}</span>}
               </span>
               <ArrowUpRight
                 size={15}
@@ -66,9 +73,11 @@ export function WhereToBuy({
           {n}
         </p>
       ))}
-      <p className="text-subtle mt-2 text-[12px]">
-        Ukázkové odkazy, nejsme partnery obchodů. Ceny a složení ověřte u prodejce. Doplněk stravy nenahrazuje
-        pestrou stravu.
+      <p className="text-subtle mt-2 text-[12px]" data-testid="affiliate-disclosure">
+        {AFFILIATE_DISCLOSURE}{' '}
+        <Link href="/jak-doporucujeme" className="hover:text-fg underline underline-offset-2">
+          Jak vybíráme
+        </Link>
       </p>
     </div>
   )

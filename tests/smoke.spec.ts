@@ -42,7 +42,7 @@ test.describe('anatomy', () => {
   })
 })
 
-test('search finds organs, foods and products', async ({ page }) => {
+test('search finds organs, nutrients, foods and pages', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Hledat orgány/ }).click()
   const box = page.getByRole('combobox')
@@ -52,47 +52,7 @@ test('search finds organs, foods and products', async ({ page }) => {
   await box.fill('kefir')
   await expect(page.getByRole('option').first()).toContainText('Kefír')
   await box.press('Enter')
-  await expect(page).toHaveURL(/\/(food|product)\/kefir/)
-})
-
-test('add to cart persists across reload', async ({ page }) => {
-  await page.goto('/shop')
-  await page.getByTestId('add-kefir').click()
-  await expect(page.getByTestId('cart-count')).toHaveText('1')
-  await expect(page.getByRole('status').first()).toContainText('Přidáno do košíku')
-  await page.reload()
-  await expect(page.getByTestId('cart-count')).toHaveText('1')
-  await page.goto('/cart')
-  await expect(page.getByTestId('cart-lines')).toContainText('Kefír z plnotučného mléka')
-  await page.getByRole('button', { name: 'Zvýšit množství' }).click()
-  await expect(page.getByTestId('subtotal')).toHaveText(/138\s*Kč/)
-})
-
-test('EU BIO filter hides conventional and wild products', async ({ page }) => {
-  await page.goto('/shop')
-  await expect(page.locator('[data-cert="wild"]').first()).toBeVisible()
-  await page.getByTestId('bio-only').click()
-  await expect(page.getByTestId('bio-only')).toBeChecked()
-  await expect(page).toHaveURL(/bio=1/)
-  await expect(page.locator('[data-cert="wild"]')).toHaveCount(0)
-  await expect(page.locator('[data-cert="conventional"]')).toHaveCount(0)
-})
-
-test('checkout demo end to end', async ({ page }) => {
-  await page.goto('/product/eggs')
-  await page.getByTestId('add-eggs').click()
-  await page.goto('/checkout')
-  await page.getByTestId('place-order').click()
-  await expect(page.getByText('Zadejte jméno a příjmení.')).toBeVisible()
-  await page.getByLabel('Jméno a příjmení').fill('Test Person')
-  await page.getByLabel('E-mail').fill('test@example.com')
-  await page.getByLabel('Ulice a číslo popisné').fill('Testovací 1')
-  await page.getByLabel('PSČ').fill('110 00')
-  await page.getByLabel('Město').fill('Praha')
-  await page.getByTestId('place-order').click()
-  await expect(page.getByTestId('order-confirmation')).toBeVisible()
-  await expect(page.getByTestId('order-number')).toHaveText(/^FLX-DEMO-[A-Z0-9]{6}$/)
-  await expect(page.getByTestId('cart-count')).toHaveCount(0)
+  await expect(page).toHaveURL(/\/food\/kefir/)
 })
 
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
@@ -102,5 +62,27 @@ test('looksmaxing page shows evidence and warns about harmful trends', async ({ 
   await expect(page.getByText(/Bone smashing/).first()).toBeVisible()
   const shop = page.locator('a[href^="https://www.brainmarket.cz"], a[href^="https://vilgain.cz"]')
   expect(await shop.count()).toBeGreaterThan(2)
-  await expect(shop.first()).toHaveAttribute('rel', /nofollow/)
+  await expect(shop.first()).toHaveAttribute('rel', /sponsored/)
+})
+
+test('supplements page: reference values, absorption forms and affiliate disclosure', async ({ page }) => {
+  await page.goto('/doplnky')
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Správná forma')
+  const table = page.getByRole('table')
+  await expect(table).toContainText('Vitamín D')
+  await expect(table).toContainText('100 µg (4 000 IU)')
+  const vitD = page.locator('section#vitD')
+  await expect(vitD).toContainText('Vitamín D3 (cholekalciferol)')
+  await expect(vitD).toContainText('Nejlepší volba')
+  const link = vitD.locator('a[data-retailer]').first()
+  await expect(link).toHaveAttribute('rel', /sponsored/)
+  await expect(vitD.getByTestId('affiliate-disclosure')).toContainText('provizi')
+})
+
+test('organ panel has a supplements tab; old store URLs redirect', async ({ page }) => {
+  await page.goto('/organ/bones')
+  await page.getByRole('tab', { name: 'Doplňky' }).click()
+  await expect(page.getByTestId('organ-panel')).toContainText('Vitamín D')
+  await page.goto('/shop')
+  await expect(page).toHaveURL(/\/doplnky$/)
 })

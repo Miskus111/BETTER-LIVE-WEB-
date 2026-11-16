@@ -146,8 +146,8 @@ export default function LooksmaxingPage() {
       </aside>
 
       <p className="text-subtle mt-8 text-[13px]">
-        Vzdělávací obsah, ne lékařská rada. Odkazy na obchody jsou ukázkové; doplňky stravy nenahrazují
-        spánek, pohyb ani pestrou stravu.
+        Vzdělávací obsah, ne lékařská rada. Odkazy na obchody jsou partnerské (affiliate); doplňky stravy
+        nenahrazují spánek, pohyb ani pestrou stravu.
       </p>
     </div>
   )

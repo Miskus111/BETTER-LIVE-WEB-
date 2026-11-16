@@ -1,9 +1,8 @@
 import { FOODS } from '@/data/foods'
 import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
-import { PRODUCTS } from '@/data/products'
 
-export type SearchKind = 'Orgán' | 'Živina' | 'Potravina' | 'Produkt' | 'Stránka'
+export type SearchKind = 'Orgán' | 'Živina' | 'Potravina' | 'Stránka'
 
 export interface SearchItem {
   kind: SearchKind
@@ -22,6 +21,14 @@ export const SEARCH_INDEX: SearchItem[] = [
     subtitle: 'Spánek, slunce, trénink, pleť, vlasy · mýty',
     href: '/looksmaxing',
     text: 'looksmaxing vzhled pleť vlasy čelist mewing bone smashing kreatin kolagen spánek SPF',
+  },
+  {
+    kind: 'Stránka',
+    id: 'doplnky',
+    title: 'Doplňky stravy — formy a dávky',
+    subtitle: 'Vstřebatelnost, referenční hodnoty, kde koupit',
+    href: '/doplnky',
+    text: 'doplňky stravy vstřebatelnost forma dávka bisglycinát D3 omega-3 hořčík zinek železo B12 horní limit',
   },
   {
     kind: 'Stránka',
@@ -54,14 +61,6 @@ export const SEARCH_INDEX: SearchItem[] = [
     subtitle: `${f.category} · ${f.kcal} kcal / 100 g`,
     href: `/food/${f.id}`,
     text: `${f.name} ${f.category} ${f.basis}`,
-  })),
-  ...PRODUCTS.map((p) => ({
-    kind: 'Produkt' as const,
-    id: p.id,
-    title: p.name,
-    subtitle: `${p.origin} · ${p.size}`,
-    href: `/product/${p.id}`,
-    text: `${p.name} ${p.categories.join(' ')} ${p.shortDescription} ${p.origin}`,
   })),
 ]
 

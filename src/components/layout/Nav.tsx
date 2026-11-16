@@ -3,10 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Menu, Search, ShoppingBag, X } from 'lucide-react'
-import { cartCount, useCart } from '@/lib/store/cart'
+import { Menu, Search, X } from 'lucide-react'
 import { useUi } from '@/lib/store/ui'
-import { useHydrated } from '@/lib/useHydrated'
 import { cx } from '@/lib/format'
 import { Logo } from './Logo'
 
@@ -14,17 +12,13 @@ const LINKS = [
   { href: '/#body', label: 'Tělo' },
   { href: '/#nutrients', label: 'Živiny' },
   { href: '/#foods', label: 'Potraviny' },
-  { href: '/shop', label: 'Obchod' },
+  { href: '/doplnky', label: 'Doplňky' },
   { href: '/looksmaxing', label: 'Looksmaxing' },
   { href: '/science', label: 'Věda' },
-  { href: '/our-standard', label: 'Náš standard' },
 ]
 
 export function Nav() {
   const pathname = usePathname()
-  const lines = useCart((s) => s.lines)
-  const hydrated = useHydrated()
-  const count = hydrated ? cartCount(lines) : 0
   const setSearch = useUi((s) => s.setSearch)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -84,21 +78,6 @@ export function Nav() {
               ⌘K
             </kbd>
           </button>
-          <Link
-            href="/cart"
-            className="border-line text-fg hover:border-cyan/50 hover:text-cyan relative grid h-10 w-10 place-items-center rounded-full border transition"
-            aria-label={`Košík, počet položek: ${count}`}
-          >
-            <ShoppingBag size={17} />
-            {count > 0 && (
-              <span
-                data-testid="cart-count"
-                className="bg-cyan text-ink absolute -top-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full px-1 font-mono text-[12px] font-semibold"
-              >
-                {count}
-              </span>
-            )}
-          </Link>
           <button
             type="button"
             className="border-line grid h-10 w-10 place-items-center rounded-full border lg:hidden"

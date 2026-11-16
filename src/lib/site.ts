@@ -16,6 +16,6 @@ export const SITE = {
   name: 'FLX',
   tagline: 'Lidské tělo × výživa',
   description:
-    'Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, které živiny a potraviny jim to dodají — s hodnocením důkazů a bio potravinami vybranými podle stejného měřítka.',
+    'Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, které živiny a potraviny jim to dodají, jaké formy doplňků se nejlépe vstřebávají — vše s hodnocením důkazů.',
   url: siteUrl(),
 }

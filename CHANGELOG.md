@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.3.0 — 2026-11-16
+
+### Informační web + affiliate místo obchodu
+
+- Odstraněn obchod: produkty, košík, pokladna, commerce vrstva, produktové obrázky. Staré adresy se přesměrovávají.
+- Nová stránka `/doplnky`: tabulka referenčních hodnot pro dospělé (RHP z etiket · doporučení EFSA PRI/AI pro muže a
+  ženy · horní limit UL včetně aktualizací EFSA 2023–2024: B6 12,5 mg, železo bezpečná úroveň 40 mg) a u 16 živin
+  formy seřazené podle vstřebatelnosti (D3 vs D2, bisglycinát vs oxid hořčíku, citrát/glukonát vs oxid zinku,
+  železo obden…), kdy má doplněk smysl, tipy k užívání a studie (Tripkovic 2012, Stoffel 2017, Wegmüller 2014,
+  Heaney 1999, NIH ODS, EFSA).
+- Doporučené produkty (BrainMarket, Vilgain) vybrané podle formy a dávky, s affiliate parametry z env proměnných,
+  `rel="sponsored"` a viditelným upozorněním; nová stránka `/jak-doporucujeme`.
+- Záložka „Doplňky“ u orgánů, referenční hodnoty a nejlepší forma v přehledu živin, sekce Doplňky na úvodu.
+- `check:data` kontroluje formy, reference a odkazy; testy pokrývají /doplnky a přesměrování.
+
 ## 0.2.0 — 2026-11-16
 
 ### Czech version, looksmaxing, where to buy, graphics
