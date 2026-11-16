@@ -214,8 +214,30 @@
     "steps": "Steps",
     "pain": "Pain",
     "coach": "Message from your coach",
-    "coachDefault": "Your profile is set up. Train, Eat and the Coach arrive in the next phases.",
-    "empty": "Nothing yet"
+    "coachDefault": "Ask the coach about training, food, supplements or blood results.",
+    "empty": "Nothing yet",
+    "askCoach": "Ask the coach",
+    "workoutsWeek": "{done} / {plan} this week",
+    "protein": "protein",
+    "none": "no pain",
+    "labsOut": "{n} out of range",
+    "tipLabs": "{n} of your lab values are outside the reference range. Review them in Labs and discuss them with your doctor if needed.",
+    "tipSleep": "You slept under 6 hours last night. Pick a lighter session today and aim for an earlier bedtime — sleep drives recovery.",
+    "tipProtein": "You are about {left} g short of today's protein target. Add it to dinner or a snack.",
+    "tipTrain": "You have done {done} of {plan} planned workouts this week.",
+    "tipDefault": "Everything looks on track. A 10-minute mobility routine today will keep your joints happy.",
+    "checkin": "Daily check-in",
+    "checkinHint": "Last night's sleep and today's recovery. Fill in only what you know.",
+    "checkinSave": "Save",
+    "checkinSaved": "Saved.",
+    "checkinError": "Could not save.",
+    "f_sleep_hours": "Sleep",
+    "f_sleep_quality": "Sleep quality",
+    "f_steps": "Steps",
+    "f_water_ml": "Water",
+    "f_hrv_ms": "HRV",
+    "f_resting_hr": "Resting HR",
+    "f_stress": "Stress"
   },
   "settings": {
     "title": "Settings",
@@ -605,5 +627,14 @@
     "err_invalid": "The message is empty or too long.",
     "err_too_many_steps": "The answer could not be completed, try a simpler question.",
     "err_db": "Could not save the conversation."
+  },
+  "looks": {
+    "title": "Looks",
+    "intro": "Six habits that demonstrably affect how you look. Tick them off every day — consistency beats any “hack”.",
+    "progress": "Today {done} of {total}",
+    "streak": "{n}-day streak",
+    "evidence": "evidence",
+    "readMore": "Why it works and which trends are myths",
+    "safety": "No mewing, bone-smashing, extreme cutting or sunbeds. If worries about your looks affect your day, talk to a professional."
   }
 }

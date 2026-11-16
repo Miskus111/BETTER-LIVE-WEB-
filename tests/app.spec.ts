@@ -101,3 +101,14 @@ test('PWA: manifest, icons and offline page are served', async ({ request, page 
   await page.goto('/offline')
   await expect(page.getByRole('heading', { level: 1 })).toContainText(/offline/i)
 })
+
+test('looks: habits can be ticked off and survive a reload', async ({ page }) => {
+  await page.goto('/preview/looks')
+  await page.evaluate(() => localStorage.removeItem('blwb-looks-v1'))
+  await page.reload()
+  const habit = page.getByTestId('habit-spanek')
+  await habit.click()
+  await expect(habit).toHaveAttribute('aria-pressed', 'true')
+  await page.reload()
+  await expect(page.getByTestId('habit-spanek')).toHaveAttribute('aria-pressed', 'true')
+})

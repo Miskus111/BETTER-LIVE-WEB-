@@ -214,8 +214,30 @@
     "steps": "Kroky",
     "pain": "Bolest",
     "coach": "Zpráva od kouče",
-    "coachDefault": "Profil máte nastavený. Další moduly — trénink, jídlo a kouč — přibudou v dalších fázích.",
-    "empty": "Zatím nic"
+    "coachDefault": "Zeptejte se kouče na trénink, jídlo, doplňky nebo výsledky krve.",
+    "empty": "Zatím nic",
+    "askCoach": "Zeptat se kouče",
+    "workoutsWeek": "{done} / {plan} tento týden",
+    "protein": "bílkovin",
+    "none": "bez bolesti",
+    "labsOut": "{n} mimo rozmezí",
+    "tipLabs": "Máte {n} laboratorní hodnoty mimo referenční rozmezí. Podívejte se na ně v Laboratoři a případně je proberte s lékařem.",
+    "tipSleep": "V noci jste spali méně než 6 hodin. Dnes zvolte lehčí trénink a zkuste jít spát dřív – spánek je základ regenerace.",
+    "tipProtein": "Do denního cíle bílkovin vám chybí ještě asi {left} g. Přidejte je do večeře nebo svačiny.",
+    "tipTrain": "Tento týden máte za sebou {done} z {plan} plánovaných tréninků.",
+    "tipDefault": "Všechno vypadá v pořádku. Krátká mobilita na 10 minut dnes udělá radost kloubům.",
+    "checkin": "Denní check-in",
+    "checkinHint": "Spánek za poslední noc a dnešní regenerace. Vyplňte jen to, co znáte.",
+    "checkinSave": "Uložit",
+    "checkinSaved": "Uloženo.",
+    "checkinError": "Uložení se nepovedlo.",
+    "f_sleep_hours": "Spánek",
+    "f_sleep_quality": "Kvalita spánku",
+    "f_steps": "Kroky",
+    "f_water_ml": "Voda",
+    "f_hrv_ms": "HRV",
+    "f_resting_hr": "Klidový tep",
+    "f_stress": "Stres"
   },
   "settings": {
     "title": "Nastavení",
@@ -605,5 +627,14 @@
     "err_invalid": "Zpráva je prázdná nebo příliš dlouhá.",
     "err_too_many_steps": "Odpověď se nepodařilo dokončit, zkuste otázku zjednodušit.",
     "err_db": "Nepodařilo se uložit konverzaci."
+  },
+  "looks": {
+    "title": "Vzhled",
+    "intro": "Šest návyků, které na vzhled prokazatelně působí. Odškrtávejte je každý den – víc než jakýkoli „hack“ rozhoduje pravidelnost.",
+    "progress": "Dnes {done} z {total}",
+    "streak": "série {n} dní",
+    "evidence": "důkazy",
+    "readMore": "Proč to funguje a jaké trendy jsou mýtus",
+    "safety": "Bez mewingu, bone-smashingu, extrémního hubnutí nebo solárií. Pokud vás vzhled trápí natolik, že to ovlivňuje váš den, promluvte si s odborníkem."
   }
 }
