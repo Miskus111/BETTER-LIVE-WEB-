@@ -17,7 +17,10 @@
     "signOut": "Odhlásit se",
     "comingSoon": "Připravujeme",
     "comingSoonText": "Tento modul přibude v další fázi vývoje.",
-    "educational": "Vzdělávací obsah, ne lékařská rada."
+    "educational": "Vzdělávací obsah, ne lékařská rada.",
+    "offlineTitle": "Jste offline",
+    "offlineBody": "Tahle stránka zatím není uložená v zařízení. Trénink můžete zapisovat i bez připojení – odešle se, až budete online.",
+    "offlineTrain": "Otevřít trénink"
   },
   "nav": {
     "today": "Dnes",
@@ -223,7 +226,13 @@
     "delete": "Smazat účet",
     "deleteConfirm": "Opravdu smazat účet a všechna data? Tuto akci nelze vrátit.",
     "consent": "Souhlas se zpracováním údajů o zdraví",
-    "withdraw": "Odvolat souhlas"
+    "withdraw": "Odvolat souhlas",
+    "plan": "Tarif",
+    "freeMode": "Během bety je vše odemčené a zdarma – včetně AI kouče a čtení laboratorních zpráv.",
+    "planPro": "Máte tarif Pro. Děkujeme!",
+    "planFree": "Tarif Free: trénink, jídelníček, mobilita a doplňky bez omezení, kouč 10 zpráv denně.",
+    "proPrice": "Pro: {month} Kč měsíčně nebo {year} Kč ročně – AI čtení zpráv, pokročilé grafy, kouč 100 zpráv denně.",
+    "paymentsSoon": "Platby připravujeme. Do té doby vás nic nestojí."
   },
   "train": {
     "title": "Trénink",
@@ -566,7 +575,8 @@
     "err_consent_required": "Pro zpracování zdravotních údajů je potřeba souhlas.",
     "err_not_lab": "Tohle nevypadá jako laboratorní zpráva ani InBody.",
     "err_nothing": "Nenašli jsme žádné známé ukazatele – vyberte je v tabulce ručně.",
-    "disclaimer": "Výsledky slouží pro váš přehled a nenahrazují vyhodnocení lékařem. Referenční rozmezí se liší podle laboratoře, věku a pohlaví – rozhoduje rozmezí uvedené ve vaší zprávě."
+    "disclaimer": "Výsledky slouží pro váš přehled a nenahrazují vyhodnocení lékařem. Referenční rozmezí se liší podle laboratoře, věku a pohlaví – rozhoduje rozmezí uvedené ve vaší zprávě.",
+    "err_upgrade": "Čtení PDF a fotek pomocí AI je součástí tarifu Pro. Text výsledků můžete vložit zdarma."
   },
   "coach": {
     "title": "Kouč",

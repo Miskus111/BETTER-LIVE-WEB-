@@ -90,3 +90,14 @@ test('coach: emergency messages get a fixed safety reply', async ({ page }) => {
   await page.getByTestId('coach-input').press('Enter')
   await expect(page.getByTestId('msg-assistant')).toContainText('112')
 })
+
+test('PWA: manifest, icons and offline page are served', async ({ request, page }) => {
+  const m = await (await request.get('/manifest.webmanifest')).json()
+  expect(m.short_name).toBe('BLWB')
+  expect(m.start_url).toBe('/today')
+  const icon = await request.get('/pwa-icon/192')
+  expect(icon.headers()['content-type']).toContain('image/png')
+  expect((await request.get('/sw.js')).ok()).toBe(true)
+  await page.goto('/offline')
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(/offline/i)
+})

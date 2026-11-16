@@ -3,6 +3,7 @@ import { z } from 'zod/v4'
 import Anthropic from '@anthropic-ai/sdk'
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod'
 import { getSession } from '@/lib/auth'
+import { hasAccess, type Plan } from '@/lib/billing'
 import { AI_MODEL, fallbackParams, getAnthropic } from '@/lib/ai/client'
 import { normalizeRow, type LabCandidate } from '@/lib/labs/markers'
 import { parseLabText } from '@/lib/labs/parse-text'
@@ -78,6 +79,8 @@ export async function POST(req: Request) {
     return NextResponse.json(body)
   }
 
+  const { data: sub } = await s.supabase.from('subscriptions').select('plan').eq('user_id', s.user.id).maybeSingle()
+  if (!hasAccess('labs_ai', (sub?.plan ?? 'free') as Plan)) return NextResponse.json({ error: 'upgrade' }, { status: 402 })
   if (file.size > MAX_BYTES) return NextResponse.json({ error: 'too_large' }, { status: 413 })
   if (!(TYPES as readonly string[]).includes(file.type))
     return NextResponse.json({ error: 'unsupported_type' }, { status: 415 })

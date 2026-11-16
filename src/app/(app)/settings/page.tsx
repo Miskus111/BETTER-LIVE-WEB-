@@ -1,13 +1,21 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { Download, PencilLine, ShieldOff, Trash2 } from 'lucide-react'
+import { Download, PencilLine, ShieldOff, Sparkles, Trash2 } from 'lucide-react'
+import { isFreeMode, PRICES, type Plan } from '@/lib/billing'
 import { requireAppUser } from '@/lib/auth'
 import { LanguageSwitch } from '@/components/app/LanguageSwitch'
 import { signOut } from '@/app/(auth)/actions'
 import { deleteAccount, withdrawHealthConsent } from './actions'
 
 export default async function SettingsPage({ searchParams }: { searchParams: Promise<{ delete?: string }> }) {
-  const { user, profile } = await requireAppUser()
+  const { user, profile, supabase } = await requireAppUser()
+  const { data: sub } = await (supabase as unknown as { from: (t: string) => any }) // eslint-disable-line @typescript-eslint/no-explicit-any
+    .from('subscriptions')
+    .select('plan, current_period_end')
+    .eq('user_id', user.id)
+    .maybeSingle()
+  const plan = (sub?.plan ?? 'free') as Plan
+  const free = isFreeMode()
   const t = await getTranslations('settings')
   const c = await getTranslations('common')
   const { delete: del } = await searchParams
@@ -28,6 +36,25 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
             <button className="btn btn-ghost !py-2">{c('signOut')}</button>
           </form>
         </div>
+      </section>
+
+      <section className="card mt-4 p-5" data-testid="plan">
+        <h2 className="eyebrow mb-3">{t('plan')}</h2>
+        {free ? (
+          <p className="flex gap-2 text-[15px]">
+            <Sparkles size={17} className="text-cyan mt-0.5 shrink-0" aria-hidden /> {t('freeMode')}
+          </p>
+        ) : plan === 'pro' ? (
+          <p className="text-[15px]">{t('planPro')}</p>
+        ) : (
+          <>
+            <p className="text-[15px]">{t('planFree')}</p>
+            <p className="text-muted mt-1 text-[14px]">
+              {t('proPrice', { month: PRICES.pro_month_czk, year: PRICES.pro_year_czk })}
+            </p>
+            <p className="text-subtle mt-3 text-[13px]">{t('paymentsSoon')}</p>
+          </>
+        )}
       </section>
 
       <section className="card mt-4 p-5">

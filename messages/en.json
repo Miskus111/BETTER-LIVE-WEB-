@@ -17,7 +17,10 @@
     "signOut": "Sign out",
     "comingSoon": "Coming soon",
     "comingSoonText": "This module arrives in a later build phase.",
-    "educational": "Educational content, not medical advice."
+    "educational": "Educational content, not medical advice.",
+    "offlineTitle": "You are offline",
+    "offlineBody": "This page is not saved on this device yet. You can still log workouts without a connection — they upload once you are back online.",
+    "offlineTrain": "Open training"
   },
   "nav": {
     "today": "Today",
@@ -223,7 +226,13 @@
     "delete": "Delete account",
     "deleteConfirm": "Really delete your account and all data? This cannot be undone.",
     "consent": "Consent to process health data",
-    "withdraw": "Withdraw consent"
+    "withdraw": "Withdraw consent",
+    "plan": "Plan",
+    "freeMode": "During the beta everything is unlocked and free — including the AI coach and lab-report reading.",
+    "planPro": "You are on Pro. Thank you!",
+    "planFree": "Free plan: unlimited training, food diary, mobility and supplements; coach 10 messages a day.",
+    "proPrice": "Pro: CZK {month}/month or CZK {year}/year — AI report reading, advanced charts, coach 100 messages a day.",
+    "paymentsSoon": "Payments are coming soon. Until then it costs you nothing."
   },
   "train": {
     "title": "Train",
@@ -566,7 +575,8 @@
     "err_consent_required": "Health-data consent is required.",
     "err_not_lab": "This does not look like a lab report or InBody sheet.",
     "err_nothing": "No known markers found — pick them manually in the table.",
-    "disclaimer": "Results are for your overview and do not replace a doctor’s assessment. Reference ranges differ by lab, age and sex — the range printed on your report applies."
+    "disclaimer": "Results are for your overview and do not replace a doctor’s assessment. Reference ranges differ by lab, age and sex — the range printed on your report applies.",
+    "err_upgrade": "AI reading of PDFs and photos is part of Pro. Pasting results as text is free."
   },
   "coach": {
     "title": "Coach",
