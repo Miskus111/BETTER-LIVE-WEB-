@@ -1,0 +1,56 @@
+# Changelog
+
+## 0.1.0 — 2026-11-16
+
+Ported the Vite prototype (`flx-source.zip`) to a Next.js App Router app and completed the brief.
+
+### Phase 1 — Scaffold and data
+
+- Next.js 15, TypeScript strict, Tailwind v4, ESLint + Prettier, Zustand, lucide, Instrument Serif / Geist / Geist Mono.
+- Typed data modules for 11 organs, 25 nutrients, 32 foods (USDA FDC per 100 g) and 20 sample products.
+- New certification model (`status`, `controlBody`, `verified`), `pasture`, `liveCultures`, `origin`, `processing`,
+  `*`-marked organic ingredients, recipe blends for mixed products.
+- All relationships computed in `lib/nutrition.ts`; "source of" thresholds from EU rules (15 % NRV, fibre 3 g,
+  omega-3 40 mg / 0.3 g) with documented app rules for protein and lutein.
+- `npm run check:data` validation and `npm run gen:placeholders` image generator.
+
+### Phase 2 — Anatomy and organ panel
+
+- SVG body with skin outline, skeleton, muscles and 8 internal organs; glow, scan line, beating heart, breathing lungs
+  (all off under `prefers-reduced-motion`).
+- Hover leader labels, click-to-zoom with animated viewBox, drag pan, double-click and ⌘/Ctrl-wheel zoom, ± buttons,
+  Full body reset, prev/next, system filter, layer toggles, Tab/Enter keyboard access.
+- Organ panel tabs: Overview, Nutrients (evidence badges, top sources with amounts and %), Foods, Products (add to
+  cart), Science (research, "what research does NOT show", legend, sources). Intestines include the fermentation
+  explainer (fermented food vs live cultures vs probiotic; heat-treated products contain no live cultures).
+- Shareable `/organ/[id]` pages; `?organ=` deep links on the homepage; mobile bottom sheet.
+
+### Phase 3 — Foods and nutrients
+
+- Food explorer with 10 categories, macros, energy split, %NRV bars, live-culture and sodium notes, relevant organs
+  (select on the body) and store products; `/food/[id]` pages.
+- Nutrient index with reference values, source-of rules, EU-authorised claims (or an explicit "no claim"), organs and
+  top sources; `/#nutrient-<id>` deep links. ⌘K / "/" search across organs, nutrients, foods and products.
+
+### Phase 4 — Store, cart, checkout, content
+
+- `/shop` with URL-synced category, EU BIO only and sorting; product cards with certification, control body, origin,
+  processing, highlights and organ dots; `/product/[id]` with gallery, quantity, nutrition per 100 g, organs,
+  ingredients and certification block; JSON-LD.
+- Persisted cart with quantity controls, remove, clear, toasts, €4.90 shipping free from €49 with progress bar.
+- Validated demo checkout through a `CommerceProvider` interface (mock → Stripe/Shopify later) with demo order number.
+- `/science`, `/our-standard`, homepage sections, sitemap, robots, Open Graph image, 404, footer disclaimer and
+  "Prototype · sample data" labels.
+
+### Phase 5 — Polish and tests
+
+- Playwright smoke tests (organ select/keyboard/prev-next/reset, system filter, search, cart persistence, EU BIO filter,
+  checkout) and screenshot pass at 390 / 768 / 1440 px with a horizontal-overflow assertion.
+- Fixed mobile overflow (grid and fieldset min-content sizing), padded organ zoom, kept the zoomed organ visible above
+  the mobile sheet, moved placeholder labels clear of badges.
+
+### Scientific corrections vs the prototype
+
+- Food–organ links are computed, not hand-listed; nutrients an organ only absorbs/stores/activates no longer link foods.
+- Stomach–zinc link downgraded from established to plausible; brain copy no longer uses "boosting".
+- "Natural Live Yogurt" renamed "Plain Live Yogurt".

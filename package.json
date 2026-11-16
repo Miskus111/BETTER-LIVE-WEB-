@@ -11,7 +11,8 @@
     "gen:placeholders": "tsx --tsconfig scripts/tsconfig.json scripts/gen-placeholders.tsx",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "images:todo": "tsx --tsconfig scripts/tsconfig.json scripts/images-todo.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
