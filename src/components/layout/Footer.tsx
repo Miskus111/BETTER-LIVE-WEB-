@@ -33,6 +33,9 @@ export function Footer() {
           ))}
         </FooterCol>
         <FooterCol title="O webu">
+          <Link href="/jak-funguje-telo" className="hover:text-fg">
+            Jak funguje tělo
+          </Link>
           <Link href="/science" className="hover:text-fg">
             Věda a důkazy
           </Link>

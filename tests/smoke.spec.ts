@@ -146,3 +146,27 @@ test('homepage has exactly one h1', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('h1')).toHaveCount(1)
 })
+
+test('body guides: hub lists all topics; a guide has TL;DR, evidence levels, myths and sources', async ({
+  page,
+}) => {
+  await page.goto('/jak-funguje-telo')
+  await expect(page.getByTestId('guides').locator('li')).toHaveCount(8)
+  await page.getByRole('link', { name: /Spánek: noční servis těla/ }).click()
+  await expect(page).toHaveURL(/\/jak-funguje-telo\/spanek$/)
+  await expect(page.getByTestId('tldr')).toContainText('7 a více hodin')
+  await expect(page.getByText('Prokázané').first()).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Mýty' })).toBeVisible()
+  await expect(page.getByRole('link', { name: /Watson a kol\. \(2015\)/ })).toHaveAttribute('href', /pubmed/)
+})
+
+test('non-vitamin supplements: overview section and an honest compound page', async ({ page }) => {
+  await page.goto('/doplnky#latky')
+  await expect(page.locator('#latky')).toContainText('Kreatin')
+  await page.goto('/doplnky/ashwagandha')
+  await expect(page.locator('h1')).toHaveText('Ashwagandha')
+  await expect(page.getByTestId('verdict')).toContainText('bezpečnost')
+  await expect(page.getByText(/Dánsko ji v roce 2023/)).toBeVisible()
+  await page.goto('/doplnky/kreatin')
+  await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
+})

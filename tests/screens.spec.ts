@@ -29,6 +29,9 @@ const PAGES = [
   ['app-paywall', '/preview/paywall'],
   ['pricing', '/pricing'],
   ['supplement-guide', '/doplnky/horcik'],
+  ['compound', '/doplnky/kreatin'],
+  ['guides', '/jak-funguje-telo'],
+  ['guide', '/jak-funguje-telo/dopamin-a-mobil'],
   ['login', '/login'],
 ] as const
 

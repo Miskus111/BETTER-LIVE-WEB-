@@ -11,13 +11,18 @@ import { NutrientGuide } from '@/components/supplements/NutrientGuide'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
+import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
+import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
 
 const UPDATED = '2026-11-16'
 
 export function generateStaticParams() {
-  return SUPPLEMENT_NUTRIENTS.filter((id) => SUPPLEMENT_SLUGS[id]).map((id) => ({
-    slug: SUPPLEMENT_SLUGS[id]!,
-  }))
+  return [
+    ...SUPPLEMENT_NUTRIENTS.filter((id) => SUPPLEMENT_SLUGS[id]).map((id) => ({
+      slug: SUPPLEMENT_SLUGS[id]!,
+    })),
+    ...COMPOUNDS.map((c) => ({ slug: c.slug })),
+  ]
 }
 
 const clip = (s: string, n = 155) => (s.length <= n ? s : `${s.slice(0, s.lastIndexOf(' ', n - 1))}…`)
@@ -39,7 +44,19 @@ function describe(id: NutrientId) {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const id = nutrientBySlug((await params).slug)
+  const slug = (await params).slug
+  const c = COMPOUND_BY_SLUG[slug]
+  if (c) {
+    const title = compoundTitle(c)
+    const description = c.verdict.length > 155 ? `${c.verdict.slice(0, 152)}…` : c.verdict
+    return {
+      title,
+      description,
+      alternates: { canonical: `/doplnky/${c.slug}` },
+      openGraph: { title, description, url: `/doplnky/${c.slug}`, type: 'article' },
+    }
+  }
+  const id = nutrientBySlug(slug)
   if (!id) return {}
   const n = NUTRIENTS[id]
   const title = `${n.name} — nejlepší forma, dávka a referenční hodnoty`
@@ -54,7 +71,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function SupplementPage({ params }: { params: Promise<{ slug: string }> }) {
-  const id = nutrientBySlug((await params).slug)
+  const slug = (await params).slug
+  if (COMPOUND_BY_SLUG[slug]) return <CompoundArticle c={COMPOUND_BY_SLUG[slug]} />
+  const id = nutrientBySlug(slug)
   if (!id) notFound()
   const n = NUTRIENTS[id]
   const a = ABSORPTION[id]

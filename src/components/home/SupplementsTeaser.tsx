@@ -6,6 +6,7 @@ import { REFERENCE } from '@/data/reference'
 import type { NutrientId } from '@/data/types'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
 import { supplementHref } from '@/data/supplements'
+import { COMPOUNDS } from '@/data/compounds'
 
 const KEY: NutrientId[] = ['vitD', 'omega3', 'magnesium', 'iron']
 
@@ -55,6 +56,17 @@ export function SupplementsTeaser() {
           )
         })}
       </ul>
+      <p className="text-muted mt-6 text-center text-[15px]">
+        Víc než vitamíny:{' '}
+        {COMPOUNDS.map((c, i) => (
+          <span key={c.id}>
+            <Link href={`/doplnky/${c.slug}`} className="link">
+              {c.name}
+            </Link>
+            {i < COMPOUNDS.length - 1 ? ', ' : ''}
+          </span>
+        ))}
+      </p>
       <div className="mt-6 flex justify-center">
         <Link href="/doplnky" className="btn btn-primary">
           Všechny doplňky a referenční hodnoty <ArrowRight size={15} aria-hidden />

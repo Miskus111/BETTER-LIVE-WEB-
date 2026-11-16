@@ -4,6 +4,7 @@ import { NUTRIENTS } from '@/data/nutrients'
 import { REF_SRC, REFERENCE } from '@/data/reference'
 import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'
 import { NutrientGuide } from './NutrientGuide'
+import { CompoundsSection } from './CompoundsSection'
 
 /** Shared by the public /doplnky page and the in-app Supplements module. */
 export function SupplementsGuide({ inApp }: { inApp?: boolean }) {
@@ -24,6 +25,12 @@ export function SupplementsGuide({ inApp }: { inApp?: boolean }) {
             — u většiny lidí v ČR typicky vitamín D v zimě, B12 u veganů, omega-3 u těch, kdo nejedí ryby, a
             železo jen při prokázaném nedostatku.
           </span>
+        </p>
+        <p className="mt-4 text-[15px]">
+          Hledáte kreatin, kofein, L-theanin, melatonin nebo ashwagandhu?{' '}
+          <a href="#latky" className="link">
+            Látky nad rámec vitamínů ↓
+          </a>
         </p>
       </header>
 
@@ -102,6 +109,10 @@ export function SupplementsGuide({ inApp }: { inApp?: boolean }) {
         {SUPPLEMENT_NUTRIENTS.map((id) => (
           <NutrientGuide key={id} id={id} />
         ))}
+      </div>
+
+      <div className="mt-16">
+        <CompoundsSection />
       </div>
 
       <aside className="border-warn/25 bg-warn/[0.04] mt-10 flex gap-3 rounded-2xl border p-5 text-[14px]">

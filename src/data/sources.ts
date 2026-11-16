@@ -7,11 +7,11 @@ export const SRC = {
   },
   claimsReg: {
     title: 'Nařízení (ES) 1924/2006 — výživová tvrzení („zdroj“, „vysoký obsah“)',
-    url: 'https://czk-lex.europa.eu/eli/reg/2006/1924/oj',
+    url: 'https://eur-lex.europa.eu/eli/reg/2006/1924/oj',
   },
   fic: {
     title: 'Nařízení (EU) 1169/2011, příloha XIII — referenční hodnoty příjmu',
-    url: 'https://czk-lex.europa.eu/eli/reg/2011/1169/oj',
+    url: 'https://eur-lex.europa.eu/eli/reg/2011/1169/oj',
   },
   ods: {
     title: 'NIH Office of Dietary Supplements — přehledy živin',
@@ -32,7 +32,7 @@ export const SRC = {
   },
   organicReg: {
     title: 'Pravidla ekologické produkce EU — nařízení (EU) 2018/848',
-    url: 'https://czk-lex.europa.eu/eli/reg/2018/848/oj',
+    url: 'https://eur-lex.europa.eu/eli/reg/2018/848/oj',
   },
 } satisfies Record<string, Source>
 

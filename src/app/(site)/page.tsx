@@ -7,6 +7,7 @@ import { LooksmaxingTeaser } from '@/components/home/LooksmaxingTeaser'
 import { SupplementsTeaser } from '@/components/home/SupplementsTeaser'
 import { FoodExplorer } from '@/components/food/FoodExplorer'
 import { AppCta } from '@/components/home/AppCta'
+import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -35,6 +36,19 @@ export default function Home() {
         </div>
         <AnatomyExplorer />
       </section>
+
+      <Section
+        id="jak-funguje-telo"
+        eyebrow="Jak funguje tělo"
+        title={
+          <>
+            Manuál k tělu pro <em className="text-cyan">dnešní svět.</em>
+          </>
+        }
+        intro="Spánek a mobil, kofein a odpolední propad, stres, dopamin, sezení u počítače. Co se v těle děje, co reálně pomáhá a které mýty pustit z hlavy."
+      >
+        <GuidesTeaser />
+      </Section>
 
       <AppCta />
 

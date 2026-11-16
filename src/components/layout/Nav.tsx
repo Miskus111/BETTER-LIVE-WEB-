@@ -10,11 +10,11 @@ import { Logo } from './Logo'
 
 const LINKS = [
   { href: '/#body', label: 'Tělo' },
+  { href: '/jak-funguje-telo', label: 'Jak funguje tělo' },
   { href: '/#nutrients', label: 'Živiny' },
   { href: '/#foods', label: 'Potraviny' },
   { href: '/doplnky', label: 'Doplňky' },
   { href: '/looksmaxing', label: 'Looksmaxing' },
-  { href: '/science', label: 'Věda' },
   { href: '/pricing', label: 'Ceník' },
 ]
 
