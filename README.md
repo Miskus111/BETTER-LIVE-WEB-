@@ -24,6 +24,10 @@ npm run dev            # http://localhost:3000
 | `npm run test:e2e`                | Playwright: smoke tests + screenshots at 390/768/1440 px (builds and serves on :3100) |
 | `npm run format`                  | Prettier                                                                              |
 
+### Deploy to Vercel
+
+Import the GitHub repository in Vercel (Framework preset: Next.js, default build settings). No environment variables are required; optionally set `NEXT_PUBLIC_SITE_URL` (e.g. `https://example.com`) when using a custom domain.
+
 First Playwright run: `npx playwright install chromium`. Screenshots land in `test-results/screens/`.
 
 ## Stack
@@ -131,7 +135,7 @@ that interface.
 - **Algae omega-3 nutrition**: manual sample values — replace with the manufacturer's analysis.
 - **Images**: every food and product image is a generated SVG placeholder — see [`IMAGES_TODO.md`](IMAGES_TODO.md).
 - **USDA FDC IDs**: `fdc` currently describes the matched entry by name; add the numeric FDC IDs and re-verify values.
-- **Site URL**: set `NEXT_PUBLIC_SITE_URL` for correct canonical URLs, sitemap and OG tags.
+- **Site URL**: on Vercel the production domain is picked up automatically; set `NEXT_PUBLIC_SITE_URL` to use a custom domain for canonical URLs, sitemap and OG tags.
 - **Legal**: imprint, privacy policy, terms, cookie notice and an EU-compliant checkout are not included.
 - **Medical/regulatory review**: have a registered dietitian and a food-law specialist review copy and claims.
 
