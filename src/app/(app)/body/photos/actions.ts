@@ -3,6 +3,7 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { getSession } from '@/lib/auth'
 import { isOwnPhotoPath } from '@/lib/body/photo'
+import { gate } from '@/lib/plan'
 
 const Photo = z.object({
   path: z.string().max(120),
@@ -20,6 +21,10 @@ export async function savePhoto(input: PhotoInput): Promise<{ ok: boolean; error
   if (!s?.healthConsent) return { ok: false, error: 'unauthorized' }
   const p = Photo.safeParse(input)
   if (!p.success || !isOwnPhotoPath(p.data.path, s.user.id)) return { ok: false, error: 'invalid' }
+  if (!(await gate(s.supabase, s.user.id, 'photos')).allowed) {
+    await s.supabase.storage.from('progress-photos').remove([p.data.path])
+    return { ok: false, error: 'upgrade' }
+  }
   const { error } = await (s.supabase as unknown as Db).from('progress_photos').insert({
     user_id: s.user.id,
     storage_path: p.data.path,

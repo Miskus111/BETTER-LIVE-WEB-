@@ -83,3 +83,16 @@ Short, dated records of choices made while building. Newest first within each ph
   `recovery_logs`).
 - **Looks** is a daily checklist of the six evidence-based habits from the looksmaxing guide, stored on the device
   only (it is not health data). Its content is Czech-only for now, like the public education pages.
+
+## Plans: Free and Pro (2026-11-16)
+
+- **One place decides access:** `src/lib/billing.ts` (`PRO_FEATURES`, `hasAccess`, `coachDailyLimit`, `PRICES`);
+  `src/lib/plan.ts` (`getPlan`, `gate`) reads the user's `subscriptions` row server-side.
+- **Free forever:** encyclopedia, training log, food diary, supplements, pain/mobility, weight & measurements,
+  manual lab results, data export. **Pro (199 Kč/month, 1 690 Kč/year incl. VAT):** AI coach without a daily
+  limit (free: 5/day), AI lab-report reading, training progress charts, progress photos.
+- **Beta:** `FREE_MODE` defaults to true, so everything is open; pages show "PRO" badges and `/pricing` explains
+  the plans with a beta banner. Setting `FREE_MODE=false` turns on the paywall (`components/app/Paywall.tsx`)
+  on gated pages and 402 responses in the AI routes. Locked users keep all their data.
+- **Not built yet:** a payment provider. Planned: Stripe Checkout + Customer Portal writing `subscriptions`
+  via webhook (service role). Nothing is charged automatically when payments launch — users opt in.

@@ -2,6 +2,7 @@ import { LooksHabits } from '@/components/looks/LooksHabits'
 import { ProgressCharts } from '@/components/train/ProgressCharts'
 import { WeightTracker } from '@/components/body/WeightTracker'
 import { PhotoJournal } from '@/components/body/PhotoJournal'
+import { Paywall } from '@/components/app/Paywall'
 import { exerciseProgress, weeklyVolume, type ProgressSet } from '@/lib/train/progress'
 import { PILLARS } from '@/data/looksmaxing'
 import { EVIDENCE } from '@/data/sources'
@@ -139,6 +140,8 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
       ]
       return <PhotoJournal photos={photos} userId="00000000-0000-4000-8000-000000000000" today={today} />
     }
+    case 'paywall':
+      return <Paywall feature="photos" />
     case 'looks':
       return (
         <LooksHabits

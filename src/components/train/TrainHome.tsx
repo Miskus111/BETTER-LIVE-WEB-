@@ -10,6 +10,7 @@ import { syncQueue } from '@/lib/train/sync'
 import { useHydrated } from '@/lib/useHydrated'
 import { EXERCISES } from '@/data/exercises'
 import { TEMPLATES } from '@/data/exercises/templates'
+import { ProBadge } from '@/components/app/ProBadge'
 
 export function TrainHome({ finished, base = '/train' }: { finished: boolean; base?: string }) {
   const t = useTranslations('train')
@@ -96,7 +97,10 @@ export function TrainHome({ finished, base = '/train' }: { finished: boolean; ba
           href="/train/progress"
           className="card hover:border-cyan/40 flex flex-col items-center gap-1.5 p-3 text-center text-[13.5px] sm:flex-row sm:gap-3 sm:p-4 sm:text-left sm:text-[15px]"
         >
-          <LineChart size={19} className="text-cyan" aria-hidden /> {t('progress')}
+          <LineChart size={19} className="text-cyan" aria-hidden />
+          <span>
+            {t('progress')} <ProBadge className="align-middle" />
+          </span>
         </Link>
       </nav>
       <section className="mt-8">

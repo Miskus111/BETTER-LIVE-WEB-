@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { ArrowLeft, Trophy } from 'lucide-react'
 import { requireAppUser } from '@/lib/auth'
+import { gate } from '@/lib/plan'
+import { Paywall } from '@/components/app/Paywall'
 import { EXERCISE_BY_SLUG } from '@/data/exercises'
 import { exerciseProgress, weeklyVolume, type ProgressSet } from '@/lib/train/progress'
 import { ProgressCharts, Stat, type ExerciseSeries } from '@/components/train/ProgressCharts'
@@ -16,9 +18,17 @@ export async function generateMetadata() {
 const WEEKS = 12
 
 export default async function ProgressPage() {
-  const { supabase } = await requireAppUser()
+  const { supabase, user } = await requireAppUser()
   const db = supabase as unknown as Db
   const t = await getTranslations('progress')
+  const access = await gate(supabase, user.id, 'progress')
+  if (!access.allowed)
+    return (
+      <div className="space-y-8">
+        <h1 className="display text-[44px] md:text-[56px]">{t('title')}</h1>
+        <Paywall feature="progress" />
+      </div>
+    )
   const locale = (await getLocale()) as 'cs' | 'en'
   const since = new Date(Date.now() - 26 * 7 * 864e5).toISOString()
 

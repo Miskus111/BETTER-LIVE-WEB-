@@ -15,6 +15,7 @@ const LINKS = [
   { href: '/doplnky', label: 'Doplňky' },
   { href: '/looksmaxing', label: 'Looksmaxing' },
   { href: '/science', label: 'Věda' },
+  { href: '/pricing', label: 'Ceník' },
 ]
 
 export function Nav() {

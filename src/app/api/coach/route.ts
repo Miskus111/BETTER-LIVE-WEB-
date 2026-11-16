@@ -4,8 +4,9 @@ import { NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { z } from 'zod'
 import { getSession } from '@/lib/auth'
+import { getPlan } from '@/lib/plan'
 import { AI_MODEL, fallbackParams, getAnthropic } from '@/lib/ai/client'
-import { coachDailyLimit, hasAccess, type Plan } from '@/lib/billing'
+import { coachDailyLimit, hasAccess } from '@/lib/billing'
 import { EATING_INSTRUCTION, FIXED_REPLY, screenMessage } from '@/lib/coach/safety'
 import { COACH_TOOLS, runCoachTool } from '@/lib/coach/tools'
 import { createServiceClient } from '@/lib/supabase/server'
@@ -33,8 +34,7 @@ export async function POST(req: Request) {
   const { message, locale } = parsed.data
   const db = s.supabase as unknown as Db
 
-  const { data: sub } = await db.from('subscriptions').select('plan').eq('user_id', s.user.id).maybeSingle()
-  const plan = (sub?.plan ?? 'free') as Plan
+  const plan = await getPlan(s.supabase, s.user.id)
   if (!hasAccess('coach', plan)) return NextResponse.json({ error: 'upgrade' }, { status: 402 })
 
   // daily cap, counted from the user's own messages (RLS-visible, no service key needed)

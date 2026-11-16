@@ -16,6 +16,7 @@ import type { ExtractResponse } from '@/app/api/labs/extract/route'
 import { parseLabText } from '@/lib/labs/parse-text'
 import { deleteLabReport, saveLabReport } from '@/app/(app)/labs/actions'
 import { cx } from '@/lib/format'
+import { ProBadge } from '@/components/app/ProBadge'
 
 export interface LabValue {
   marker: string
@@ -236,6 +237,7 @@ export function LabsClient({
               )}
             >
               <Icon size={14} aria-hidden /> {t(`mode_${m}`)}
+              {m === 'upload' && <ProBadge className="ml-0.5" />}
             </button>
           ))}
         </div>

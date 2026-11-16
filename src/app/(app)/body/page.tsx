@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { ArrowRight, Camera, Scale } from 'lucide-react'
+import { ProBadge } from '@/components/app/ProBadge'
 import { AnatomyExplorer } from '@/components/anatomy/AnatomyExplorer'
 
 /** Body tab: the interactive anatomy (muscle heat-map and InBody overlays arrive in later phases). */
@@ -9,7 +10,14 @@ export default async function BodyPage() {
   const w = await getTranslations('weight')
   const ph = await getTranslations('photos')
   const links = [
-    { href: '/body/weight', icon: Scale, title: w('bodyLink'), hint: w('bodyLinkHint'), id: 'weight-link' },
+    {
+      href: '/body/weight',
+      icon: Scale,
+      title: w('bodyLink'),
+      hint: w('bodyLinkHint'),
+      id: 'weight-link',
+      pro: false,
+    },
     {
       href: '/body/photos',
       icon: Camera,
@@ -31,7 +39,9 @@ export default async function BodyPage() {
           >
             <l.icon size={20} className="text-cyan shrink-0" aria-hidden />
             <span className="flex-1">
-              <span className="block text-[15px] font-medium">{l.title}</span>
+              <span className="block text-[15px] font-medium">
+                {l.title} {l.pro && <ProBadge className="ml-1 align-middle" />}
+              </span>
               <span className="text-subtle block text-[13px]">{l.hint}</span>
             </span>
             <ArrowRight size={17} className="text-cyan" aria-hidden />

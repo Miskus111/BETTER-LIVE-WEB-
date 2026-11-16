@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { ArrowLeft } from 'lucide-react'
 import { requireAppUser } from '@/lib/auth'
+import { gate } from '@/lib/plan'
+import { Paywall } from '@/components/app/Paywall'
 import { PhotoJournal, type PhotoItem, type Pose } from '@/components/body/PhotoJournal'
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -26,6 +28,14 @@ export default async function PhotosPage() {
   const s = await requireAppUser()
   const db = s.supabase as unknown as Db
   const t = await getTranslations('photos')
+  const access = await gate(s.supabase, s.user.id, 'photos')
+  if (!access.allowed)
+    return (
+      <div className="space-y-8">
+        <h1 className="display text-[44px] md:text-[56px]">{t('title')}</h1>
+        <Paywall feature="photos" />
+      </div>
+    )
   const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Prague' })
 
   const [{ data: rows }, { data: weights }] = await Promise.all([

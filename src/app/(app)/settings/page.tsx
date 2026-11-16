@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { Download, PencilLine, ShieldOff, Sparkles, Trash2 } from 'lucide-react'
-import { isFreeMode, PRICES, type Plan } from '@/lib/billing'
+import { isFreeMode, PRICES } from '@/lib/billing'
+import { getPlan } from '@/lib/plan'
 import { requireAppUser } from '@/lib/auth'
 import { LanguageSwitch } from '@/components/app/LanguageSwitch'
 import { signOut } from '@/app/(auth)/actions'
@@ -9,12 +10,7 @@ import { deleteAccount, withdrawHealthConsent } from './actions'
 
 export default async function SettingsPage({ searchParams }: { searchParams: Promise<{ delete?: string }> }) {
   const { user, profile, supabase } = await requireAppUser()
-  const { data: sub } = await (supabase as unknown as { from: (t: string) => any }) // eslint-disable-line @typescript-eslint/no-explicit-any
-    .from('subscriptions')
-    .select('plan, current_period_end')
-    .eq('user_id', user.id)
-    .maybeSingle()
-  const plan = (sub?.plan ?? 'free') as Plan
+  const plan = await getPlan(supabase, user.id)
   const free = isFreeMode()
   const t = await getTranslations('settings')
   const c = await getTranslations('common')
@@ -50,11 +46,17 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
           <>
             <p className="text-[15px]">{t('planFree')}</p>
             <p className="text-muted mt-1 text-[14px]">
-              {t('proPrice', { month: PRICES.pro_month_czk, year: PRICES.pro_year_czk })}
+              {t('proPrice', {
+                month: new Intl.NumberFormat('cs-CZ').format(PRICES.pro_month_czk),
+                year: new Intl.NumberFormat('cs-CZ').format(PRICES.pro_year_czk),
+              })}
             </p>
             <p className="text-subtle mt-3 text-[13px]">{t('paymentsSoon')}</p>
           </>
         )}
+        <Link href="/pricing" className="link mt-3 inline-block text-[14px]">
+          {t('seePricing')} →
+        </Link>
       </section>
 
       <section className="card mt-4 p-5">

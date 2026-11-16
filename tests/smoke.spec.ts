@@ -101,3 +101,19 @@ test('home links to the app: nav button and sign-up block', async ({ page }) => 
   await expect(cta).toHaveAttribute('href', '/login?mode=signup')
   await expect(page.locator('#aplikace')).toContainText('Trénink')
 })
+
+test('pricing: free and Pro plans, beta banner and comparison table', async ({ page }) => {
+  await page.goto('/pricing')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Jednoduché ceny')
+  await expect(page.getByTestId('beta-banner')).toBeVisible()
+  await expect(page.getByTestId('plan-pro')).toContainText('199')
+  await expect(page.getByTestId('plan-pro')).toContainText('1 690')
+  await expect(page.locator('table')).toContainText('Fotky pokroku')
+})
+
+test('paywall explains Pro and links to pricing', async ({ page }) => {
+  await page.goto('/preview/paywall')
+  const p = page.getByTestId('paywall')
+  await expect(p).toContainText('Fotky pokroku jsou v Pro')
+  await expect(p.getByRole('link', { name: 'Zobrazit tarify' })).toHaveAttribute('href', '/pricing')
+})
