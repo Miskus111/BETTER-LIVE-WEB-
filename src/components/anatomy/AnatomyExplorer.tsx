@@ -5,6 +5,7 @@ import { ChevronUp } from 'lucide-react'
 import { ORGAN_BY_ID, ORGAN_IDS } from '@/data/organs'
 import type { OrganId, SystemId } from '@/data/types'
 import { OrganPanel } from '@/components/organ/OrganPanel'
+import { ORGAN_EVENT } from '@/lib/organEvents'
 import { cx } from '@/lib/format'
 import { BodyCanvas } from './BodyCanvas'
 import type { Layers } from './BodySvg'
@@ -52,6 +53,13 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
     },
     [urlMode],
   )
+
+  // cross-links elsewhere on the page (food explorer, nutrient index) select organs via an event
+  useEffect(() => {
+    const on = (e: Event) => select((e as CustomEvent<OrganId>).detail)
+    window.addEventListener(ORGAN_EVENT, on)
+    return () => window.removeEventListener(ORGAN_EVENT, on)
+  }, [select])
 
   const step = useCallback(
     (dir: 1 | -1) => {
