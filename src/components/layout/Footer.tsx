@@ -11,21 +11,21 @@ export function Footer() {
         <div className="max-w-sm">
           <Logo />
           <p className="text-muted mt-4 text-[14.5px]">
-            An interactive map of the human body and the nutrients each organ depends on — with organic food
-            chosen to the same standard of evidence.
+            Interaktivní mapa lidského těla a živin, na kterých jednotlivé orgány závisí — s bio potravinami
+            vybranými podle stejně přísných důkazů.
           </p>
           <SampleDataLabel className="mt-5" />
         </div>
-        <FooterCol title="Body">
+        <FooterCol title="Tělo">
           {ORGANS.map((o) => (
             <Link key={o.id} href={`/organ/${o.id}`} className="hover:text-fg">
               {o.shortName}
             </Link>
           ))}
         </FooterCol>
-        <FooterCol title="Shop">
+        <FooterCol title="Obchod">
           <Link href="/shop" className="hover:text-fg">
-            All products
+            Všechny produkty
           </Link>
           {SHOP_CATEGORIES.map((c) => (
             <Link key={c} href={`/shop?category=${encodeURIComponent(c)}`} className="hover:text-fg">
@@ -33,33 +33,37 @@ export function Footer() {
             </Link>
           ))}
         </FooterCol>
-        <FooterCol title="About">
+        <FooterCol title="O webu">
           <Link href="/science" className="hover:text-fg">
-            Science &amp; evidence
+            Věda a důkazy
           </Link>
           <Link href="/our-standard" className="hover:text-fg">
-            Our standard
+            Náš standard
+          </Link>
+          <Link href="/looksmaxing" className="hover:text-fg">
+            Looksmaxing
           </Link>
           <Link href="/#foods" className="hover:text-fg">
-            Food explorer
+            Průvodce potravinami
           </Link>
           <Link href="/#nutrients" className="hover:text-fg">
-            Nutrient index
+            Přehled živin
           </Link>
           <Link href="/cart" className="hover:text-fg">
-            Cart
+            Košík
           </Link>
         </FooterCol>
       </div>
       <div className="border-line border-t">
         <div className="text-subtle mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-6 text-[13px] md:flex-row md:items-center md:justify-between md:px-8">
           <p className="max-w-3xl">
-            <strong className="text-muted font-medium">Educational content, not medical advice.</strong> FLX
-            explains general physiology and nutrition science. It does not diagnose, treat or prevent disease.
-            Talk to a doctor or registered dietitian about your own health. Nutrient values: USDA FoodData
-            Central; health-claim wording: EU Reg. 432/2012.
+            <strong className="text-muted font-medium">Vzdělávací obsah, ne lékařská rada.</strong> FLX
+            vysvětluje obecnou fyziologii a výživovou vědu. Nediagnostikuje, neléčí ani nepředchází nemocem. O
+            svém zdraví se poraďte s lékařem nebo nutričním terapeutem. Nutriční hodnoty: USDA FoodData
+            Central; znění zdravotních tvrzení: nař. EU 432/2012. Odkazy na obchody jsou ukázkové, nejsme
+            jejich partnery.
           </p>
-          <p className="font-mono text-[12px]">© {new Date().getFullYear()} FLX · prototype</p>
+          <p className="font-mono text-[12px]">© {new Date().getFullYear()} FLX · prototyp</p>
         </div>
       </div>
     </footer>

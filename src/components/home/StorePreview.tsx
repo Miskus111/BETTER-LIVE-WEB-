@@ -4,13 +4,13 @@ import { PRODUCTS, SHOP_CATEGORIES } from '@/data/products'
 import type { ShopCategory } from '@/data/types'
 
 const ICONS: Record<ShopCategory, typeof Bone> = {
-  'Gut health': Microscope,
-  'Brain nutrition': Brain,
-  'Heart health': HeartPulse,
-  'Bone health': Bone,
-  'Muscle nutrition': Dumbbell,
-  'Skin nutrition': ScanFace,
-  'General nutrition': Sprout,
+  'Zdraví střev': Microscope,
+  'Výživa mozku': Brain,
+  'Zdraví srdce': HeartPulse,
+  'Zdraví kostí': Bone,
+  'Výživa svalů': Dumbbell,
+  'Výživa pokožky': ScanFace,
+  'Obecná výživa': Sprout,
 }
 
 export function StorePreview() {
@@ -29,7 +29,7 @@ export function StorePreview() {
               <span>
                 <span className="block text-[15px] font-medium">{c}</span>
                 <span className="text-subtle mt-0.5 flex items-center justify-between font-mono text-[12px]">
-                  {n} products{' '}
+                  {n} produktů{' '}
                   <ArrowRight
                     size={13}
                     className="group-hover:text-cyan transition group-hover:translate-x-0.5"

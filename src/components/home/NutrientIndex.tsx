@@ -6,29 +6,31 @@ import { BadgeCheck, CircleSlash } from 'lucide-react'
 import { NUTRIENT_LIST, NUTRIENTS } from '@/data/nutrients'
 import type { NutrientId, NutrientKind } from '@/data/types'
 import { OrganLink } from '@/components/ui/OrganLink'
+import { WhereToBuy } from '@/components/ui/WhereToBuy'
+import { WHERE_TO_BUY } from '@/data/retailers'
 import { fmtAmount, organsForNutrient, pctRef, thresholdBasis, topFoodsFor } from '@/lib/nutrition'
 import { cx } from '@/lib/format'
 
-const KINDS: (NutrientKind | 'All')[] = [
-  'All',
-  'Vitamin',
-  'Mineral',
-  'Fatty acid',
-  'Protein & amino acids',
-  'Other',
+const KINDS: (NutrientKind | 'Vše')[] = [
+  'Vše',
+  'Vitamín',
+  'Minerální látka',
+  'Mastná kyselina',
+  'Bílkoviny a aminokyseliny',
+  'Ostatní',
 ]
 
 export function NutrientIndex() {
-  const [kind, setKind] = useState<NutrientKind | 'All'>('All')
+  const [kind, setKind] = useState<NutrientKind | 'Vše'>('Vše')
   const [active, setActive] = useState<NutrientId>('omega3')
-  const list = kind === 'All' ? NUTRIENT_LIST : NUTRIENT_LIST.filter((n) => n.kind === kind)
+  const list = kind === 'Vše' ? NUTRIENT_LIST : NUTRIENT_LIST.filter((n) => n.kind === kind)
 
   // deep links: /#nutrient-<id> (used by search and organ panels)
   useEffect(() => {
     const sync = () => {
       const m = window.location.hash.match(/^#nutrient-(\w+)$/)
       if (m && m[1] in NUTRIENTS) {
-        setKind('All')
+        setKind('Vše')
         setActive(m[1] as NutrientId)
         document.getElementById('nutrients')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
@@ -48,7 +50,7 @@ export function NutrientIndex() {
         <div
           className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 md:mx-0 md:flex-wrap md:px-0"
           role="group"
-          aria-label="Filter by kind"
+          aria-label="Filtrovat podle druhu"
         >
           {KINDS.map((k) => (
             <button
@@ -62,7 +64,7 @@ export function NutrientIndex() {
             </button>
           ))}
         </div>
-        <ul className="mt-4 grid grid-cols-1 gap-1 sm:grid-cols-2" aria-label="Nutrients">
+        <ul className="mt-4 grid grid-cols-1 gap-1 sm:grid-cols-2" aria-label="Živiny">
           {list.map((x) => (
             <li key={x.id} id={`nutrient-${x.id}`} className="scroll-mt-24">
               <button
@@ -78,7 +80,7 @@ export function NutrientIndex() {
               >
                 <span className="text-[14.5px]">{x.name}</span>
                 <span className="text-subtle font-mono text-[12px]">
-                  {organsForNutrient(x.id).length} organs
+                  orgány: {organsForNutrient(x.id).length}
                 </span>
               </button>
             </li>
@@ -93,19 +95,19 @@ export function NutrientIndex() {
 
         <dl className="mt-5 grid gap-3 sm:grid-cols-2">
           <div className="border-line rounded-xl border p-3.5">
-            <dt className="text-subtle font-mono text-[12px]">Daily reference</dt>
+            <dt className="text-subtle font-mono text-[12px]">Denní referenční hodnota</dt>
             <dd className="mt-1 text-[15px]">
-              {n.ref ? `${n.ref.value} ${n.unit} · ${n.ref.kind}` : 'None set'}
+              {n.ref ? `${n.ref.value} ${n.unit} · ${n.ref.kind}` : 'Nestanovena'}
             </dd>
           </div>
           <div className="border-line rounded-xl border p-3.5">
-            <dt className="text-subtle font-mono text-[12px]">&ldquo;Source of&rdquo; rule</dt>
+            <dt className="text-subtle font-mono text-[12px]">Pravidlo „zdroj“</dt>
             <dd className="text-muted mt-1 text-[13.5px]">{thresholdBasis(active)}</dd>
           </div>
         </dl>
 
         <section className="mt-6">
-          <h4 className="eyebrow mb-2.5">EU-authorised claims</h4>
+          <h4 className="eyebrow mb-2.5">Zdravotní tvrzení schválená EU</h4>
           {n.functions.length ? (
             <ul className="space-y-1.5">
               {n.functions.map((f) => (
@@ -118,13 +120,13 @@ export function NutrientIndex() {
           ) : (
             <p className="text-warn flex gap-2 text-[14.5px]">
               <CircleSlash size={16} className="mt-0.5 shrink-0" aria-hidden />
-              No EU-authorised health claim exists for {n.name.toLowerCase()}.
+              Pro tuto živinu ({n.name.toLowerCase()}) neexistuje zdravotní tvrzení schválené EU.
             </p>
           )}
         </section>
 
         <section className="mt-6">
-          <h4 className="eyebrow mb-2.5">Organs in the model</h4>
+          <h4 className="eyebrow mb-2.5">Orgány v modelu</h4>
           <ul className="flex flex-wrap gap-2">
             {organs.map((o) => (
               <li key={o.id}>
@@ -133,13 +135,13 @@ export function NutrientIndex() {
             ))}
           </ul>
           <p className="text-subtle mt-2 text-[12.5px]">
-            Listed organs are examples — every cell uses most nutrients.
+            Uvedené orgány jsou příklady — většinu živin využívá každá buňka.
           </p>
         </section>
 
         {active !== 'water' && top.length > 0 && (
           <section className="mt-6">
-            <h4 className="eyebrow mb-2.5">Top sources · per 100 g</h4>
+            <h4 className="eyebrow mb-2.5">Nejlepší zdroje · na 100 g</h4>
             <ul className="divide-line divide-y">
               {top.map(({ food, v }) => {
                 const p = pctRef(active, v)
@@ -163,6 +165,7 @@ export function NutrientIndex() {
             </ul>
           </section>
         )}
+        <WhereToBuy links={WHERE_TO_BUY[active]} className="border-line mt-6 border-t pt-5" />
       </article>
     </div>
   )

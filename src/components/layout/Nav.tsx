@@ -11,12 +11,13 @@ import { cx } from '@/lib/format'
 import { Logo } from './Logo'
 
 const LINKS = [
-  { href: '/#body', label: 'Body' },
-  { href: '/#nutrients', label: 'Nutrients' },
-  { href: '/#foods', label: 'Foods' },
-  { href: '/shop', label: 'Shop' },
-  { href: '/science', label: 'Science' },
-  { href: '/our-standard', label: 'Our standard' },
+  { href: '/#body', label: 'Tělo' },
+  { href: '/#nutrients', label: 'Živiny' },
+  { href: '/#foods', label: 'Potraviny' },
+  { href: '/shop', label: 'Obchod' },
+  { href: '/looksmaxing', label: 'Looksmaxing' },
+  { href: '/science', label: 'Věda' },
+  { href: '/our-standard', label: 'Náš standard' },
 ]
 
 export function Nav() {
@@ -45,8 +46,11 @@ export function Nav() {
         scrolled || open ? 'border-line bg-ink/80 border-b backdrop-blur-xl' : 'border-b border-transparent',
       )}
     >
-      <nav className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-4 md:px-8" aria-label="Main">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="FLX home">
+      <nav
+        className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-4 md:px-8"
+        aria-label="Hlavní navigace"
+      >
+        <Link href="/" className="flex items-center gap-2.5" aria-label="FLX — domů">
           <Logo />
         </Link>
 
@@ -72,10 +76,10 @@ export function Nav() {
             type="button"
             onClick={() => setSearch(true)}
             className="border-line text-muted hover:border-line-strong hover:text-fg flex h-10 items-center gap-2 rounded-full border px-3 text-[14px] transition"
-            aria-label="Search organs, nutrients, foods and products"
+            aria-label="Hledat orgány, živiny, potraviny a produkty"
           >
             <Search size={16} />
-            <span className="hidden sm:inline">Search</span>
+            <span className="hidden sm:inline">Hledat</span>
             <kbd className="border-line text-subtle hidden rounded border px-1.5 font-mono text-[12px] sm:inline">
               ⌘K
             </kbd>
@@ -83,7 +87,7 @@ export function Nav() {
           <Link
             href="/cart"
             className="border-line text-fg hover:border-cyan/50 hover:text-cyan relative grid h-10 w-10 place-items-center rounded-full border transition"
-            aria-label={`Cart, ${count} item${count === 1 ? '' : 's'}`}
+            aria-label={`Košík, počet položek: ${count}`}
           >
             <ShoppingBag size={17} />
             {count > 0 && (
@@ -100,7 +104,7 @@ export function Nav() {
             className="border-line grid h-10 w-10 place-items-center rounded-full border lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? 'Zavřít menu' : 'Otevřít menu'}
             onClick={() => setOpen((o) => !o)}
           >
             {open ? <X size={18} /> : <Menu size={18} />}

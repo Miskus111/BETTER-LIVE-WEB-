@@ -4,23 +4,23 @@ import { Factory, Fish, Leaf, Sprout } from 'lucide-react'
 const POINTS = [
   {
     icon: Leaf,
-    t: 'Certified EU organic first',
-    d: 'Dairy, eggs, meat, vegetables and fruit carry the EU organic logo — with the control-body code on every product.',
+    t: 'Nejdřív certifikované bio EU',
+    d: 'Mléčné výrobky, vejce, maso, zelenina i ovoce nesou logo EU pro ekologické zemědělství — s kódem kontrolního subjektu u každého produktu.',
   },
   {
     icon: Sprout,
-    t: 'Pasture — only when verified',
-    d: 'We say “pasture-raised” or “grass-fed” only where it is checked at inspection.',
+    t: 'Pastva — jen když je ověřená',
+    d: '„Z pastvy“ nebo „krmeno trávou“ říkáme jen tam, kde se to kontroluje při inspekci.',
   },
   {
     icon: Factory,
-    t: 'Minimal processing',
-    d: 'Natural fermentation, traditional preparation; no artificial colours, sweeteners or unnecessary additives.',
+    t: 'Minimální zpracování',
+    d: 'Přirozená fermentace, tradiční postupy; bez umělých barviv, sladidel a zbytečných přísad.',
   },
   {
     icon: Fish,
-    t: 'Honest labels',
-    d: 'Wild fish cannot be organic, so we say exactly that. Anything not certified is labelled “Conventional”.',
+    t: 'Poctivé označení',
+    d: 'Divoká ryba nemůže být bio, a tak to i píšeme. Co nemá certifikaci, je označené „Konvenční“.',
   },
 ]
 
@@ -40,9 +40,9 @@ export function StandardTeaser() {
         ))}
       </div>
       <div className="border-line flex flex-wrap items-center justify-between gap-3 border-t p-5">
-        <p className="text-muted text-[14px]">Read how we choose — and what we refuse to claim.</p>
+        <p className="text-muted text-[14px]">Přečtěte si, jak vybíráme — a co odmítáme tvrdit.</p>
         <Link href="/our-standard" className="btn btn-ghost">
-          Our standard
+          Náš standard
         </Link>
       </div>
     </div>

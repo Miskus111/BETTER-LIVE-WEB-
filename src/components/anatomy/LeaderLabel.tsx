@@ -72,7 +72,7 @@ export function LeaderLabel({
         strokeWidth={3 * k}
         strokeOpacity={0.7}
       >
-        {selected ? 'SELECTED' : 'CLICK TO EXPLORE'}
+        {selected ? 'VYBRÁNO' : 'KLIKNĚTE PRO DETAIL'}
       </text>
     </g>
   )

@@ -7,7 +7,8 @@
 export type Evidence = 'established' | 'plausible' | 'preliminary'
 
 // ── Nutrients ───────────────────────────────────────────────────────────────
-export type NutrientKind = 'Vitamin' | 'Mineral' | 'Fatty acid' | 'Protein & amino acids' | 'Other'
+export type NutrientKind =
+  'Vitamín' | 'Minerální látka' | 'Mastná kyselina' | 'Bílkoviny a aminokyseliny' | 'Ostatní'
 export type Unit = 'g' | 'mg' | 'µg'
 
 export type NutrientId =
@@ -37,7 +38,8 @@ export type NutrientId =
   | 'cultures'
   | 'water'
 
-export type RefKind = 'EU NRV' | 'EU RI' | 'EFSA AI' | 'EU claim basis'
+/** RHP = referenční hodnota příjmu (EU NRV, nař. 1169/2011); AI EFSA = adekvátní příjem dle EFSA */
+export type RefKind = 'RHP' | 'AI EFSA' | 'dle tvrzení EU'
 
 export interface Nutrient {
   id: NutrientId
@@ -115,16 +117,16 @@ export interface Organ {
 
 // ── Foods ───────────────────────────────────────────────────────────────────
 export type FoodCategory =
-  | 'Meat'
-  | 'Fish & seafood'
-  | 'Eggs'
-  | 'Dairy'
-  | 'Fermented'
-  | 'Fruits'
-  | 'Vegetables'
-  | 'Nuts & seeds'
-  | 'Legumes'
-  | 'Grains & oils'
+  | 'Maso'
+  | 'Ryby a mořské plody'
+  | 'Vejce'
+  | 'Mléčné výrobky'
+  | 'Fermentované'
+  | 'Ovoce'
+  | 'Zelenina'
+  | 'Ořechy a semínka'
+  | 'Luštěniny'
+  | 'Obiloviny a oleje'
 
 export type ArtKind =
   | 'steak'
@@ -177,13 +179,13 @@ export interface Food {
 
 // ── Products ────────────────────────────────────────────────────────────────
 export type ShopCategory =
-  | 'Gut health'
-  | 'Brain nutrition'
-  | 'Heart health'
-  | 'Bone health'
-  | 'Muscle nutrition'
-  | 'Skin nutrition'
-  | 'General nutrition'
+  | 'Zdraví střev'
+  | 'Výživa mozku'
+  | 'Zdraví srdce'
+  | 'Zdraví kostí'
+  | 'Výživa svalů'
+  | 'Výživa pokožky'
+  | 'Obecná výživa'
 
 /** eu-bio: certified organic (EU leaf). conventional: not organic. wild: wild-caught, not eligible for organic. */
 export type CertStatus = 'eu-bio' | 'conventional' | 'wild'
@@ -211,7 +213,7 @@ export interface Product {
   id: string
   name: string
   size: string
-  /** EUR, sample prices */
+  /** Kč, ukázkové ceny */
   price: number
   categories: ShopCategory[]
   shortDescription: string

@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0 — 2026-11-16
+
+### Czech version, looksmaxing, where to buy, graphics
+
+- Whole site translated to Czech (UI, organs, nutrients, foods, products, science pages); EU health-claim wording uses
+  the official Czech text; prices in CZK (shipping 99 Kč, free from 1 200 Kč); Czech number formatting.
+- New `/looksmaxing` page and homepage section: six evidence-graded levers (sun protection, sleep, muscle and protein
+  incl. creatine, skin, hair and nails, posture), myths and risks (bone smashing, mewing, sunbeds/melanotan,
+  steroids/SARMs, extreme cutting) and a mental-health note with Czech helplines.
+- "Kde koupit" — example links to BrainMarket and Vilgain products/categories (`src/data/retailers.ts`), shown in the
+  nutrient index, organ Products tab and looksmaxing page, with dose/safety notes; `npm run check:links` verifies them.
+- Graphics: per-organ gradient shading, animated blood vessels, holographic floor ring and particles on the body;
+  studio-lit food and product illustrations.
+- Clarity: compact hero controls, "how it works" intro panel instead of a duplicate organ list, decluttered product
+  cards, compact food list, tighter section spacing.
+- `check:data` also rejects Czech banned claim words; Playwright builds into `.next-test` so it never breaks `npm run dev`.
+
 ## 0.1.0 — 2026-11-16
 
 Ported the Vite prototype (`flx-source.zip`) to a Next.js App Router app and completed the brief.

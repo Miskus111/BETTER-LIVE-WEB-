@@ -8,10 +8,10 @@ import { cx } from '@/lib/format'
 import { FoodDetail } from './FoodDetail'
 
 export function FoodExplorer() {
-  const [cat, setCat] = useState<FoodCategory | 'All'>('All')
+  const [cat, setCat] = useState<FoodCategory | 'Vše'>('Vše')
   const [selectedId, setSelectedId] = useState(FOODS[0].id)
   const detail = useRef<HTMLDivElement>(null)
-  const foods = cat === 'All' ? FOODS : FOODS.filter((f) => f.category === cat)
+  const foods = cat === 'Vše' ? FOODS : FOODS.filter((f) => f.category === cat)
   const selected = FOODS.find((f) => f.id === selectedId)!
 
   // keep the selection inside the visible category
@@ -29,10 +29,10 @@ export function FoodExplorer() {
     <div>
       <div
         role="tablist"
-        aria-label="Food categories"
+        aria-label="Kategorie potravin"
         className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:px-0"
       >
-        {(['All', ...FOOD_CATEGORIES] as const).map((c) => (
+        {(['Vše', ...FOOD_CATEGORIES] as const).map((c) => (
           <button
             key={c}
             type="button"
@@ -43,14 +43,14 @@ export function FoodExplorer() {
           >
             {c}
             <span className="font-mono text-[12px] opacity-70">
-              {c === 'All' ? FOODS.length : FOODS.filter((f) => f.category === c).length}
+              {c === 'Vše' ? FOODS.length : FOODS.filter((f) => f.category === c).length}
             </span>
           </button>
         ))}
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
-        <ul className="grid grid-cols-2 content-start gap-3 sm:grid-cols-3 xl:grid-cols-4" aria-label="Foods">
+        <ul className="grid grid-cols-1 content-start gap-2 sm:grid-cols-2" aria-label="Potraviny">
           {foods.map((f) => (
             <li key={f.id}>
               <button
@@ -59,17 +59,17 @@ export function FoodExplorer() {
                 aria-pressed={f.id === selectedId}
                 data-testid={`food-${f.id}`}
                 className={cx(
-                  'card group block w-full overflow-hidden text-left transition',
+                  'card group flex w-full items-center gap-3 overflow-hidden p-2 text-left transition',
                   f.id === selectedId
                     ? '!border-cyan/60 shadow-[0_0_30px_-12px_rgba(94,231,255,0.6)]'
                     : 'hover:border-line-strong',
                 )}
               >
-                <Thumb src={f.image} alt="" ratio="aspect-[4/3]" />
-                <span className="block p-3">
+                <Thumb src={f.image} alt="" ratio="aspect-square" className="w-14 shrink-0 rounded-lg" />
+                <span className="min-w-0 flex-1">
                   <span className="block truncate text-[14.5px] font-medium">{f.name}</span>
-                  <span className="text-subtle block font-mono text-[12px]">
-                    {f.kcal} kcal · {f.macros.protein} g protein
+                  <span className="text-subtle block truncate font-mono text-[12px]">
+                    {f.kcal} kcal · {String(f.macros.protein).replace('.', ',')} g bílkovin
                   </span>
                 </span>
               </button>

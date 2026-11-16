@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params
   const f = FOOD_BY_ID[id]
   if (!f) return {}
-  const title = `${f.name} — nutrition per 100 g`
-  const description = `${f.name} (${f.basis}): ${f.kcal} kcal, ${f.macros.protein} g protein per 100 g. Vitamins, minerals and the organs they support.`
+  const title = `${f.name} — nutriční hodnoty na 100 g`
+  const description = `${f.name} (${f.basis}): ${f.kcal} kcal, ${f.macros.protein} g bílkovin na 100 g. Vitamíny, minerály a orgány, které podporují.`
   return {
     title,
     description,
@@ -35,12 +35,12 @@ export default async function FoodPage({ params }: Params) {
   return (
     <div className="mx-auto max-w-4xl px-4 pt-8 md:px-8">
       <Link href="/#foods" className="link inline-flex items-center gap-1 text-[14px]">
-        <ChevronLeft size={15} aria-hidden /> Food explorer
+        <ChevronLeft size={15} aria-hidden /> Průvodce potravinami
       </Link>
       <div className="card mt-5 p-5 md:p-8">
         <FoodDetail food={food} headingLevel="h1" />
       </div>
-      <nav className="mt-6 flex justify-between gap-4 text-[14.5px]" aria-label="More foods">
+      <nav className="mt-6 flex justify-between gap-4 text-[14.5px]" aria-label="Další potraviny">
         <Link href={`/food/${prev.id}`} className="link">
           ← {prev.name}
         </Link>

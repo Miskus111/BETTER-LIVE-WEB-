@@ -8,9 +8,9 @@ import { FermentationExplainer } from '@/components/organ/FermentationExplainer'
 import { thresholdBasis, thresholdOf } from '@/lib/nutrition'
 
 export const metadata: Metadata = {
-  title: 'Science & methodology',
+  title: 'Věda a metodika',
   description:
-    'How FLX grades evidence, computes food–organ relevance from USDA data and uses EU-authorised health-claim wording.',
+    'Jak FLX hodnotí důkazy, jak počítá propojení potravin s orgány z dat USDA a proč používá znění zdravotních tvrzení schválených EU.',
   alternates: { canonical: '/science' },
 }
 
@@ -21,39 +21,39 @@ export default function SciencePage() {
   }, {})
   return (
     <div className="mx-auto max-w-5xl px-4 pt-12 md:px-8">
-      <p className="eyebrow">Science &amp; methodology</p>
-      <h1 className="display mt-3 text-[48px] md:text-[68px]">How we know what we say.</h1>
+      <p className="eyebrow">Věda a metodika</p>
+      <h1 className="display mt-3 text-[48px] md:text-[68px]">Jak víme, co tvrdíme.</h1>
       <p className="text-muted mt-4 max-w-3xl text-[16px]">
-        FLX is an educational tool. It describes normal physiology and what nutrition research supports — and
-        is explicit about what it does not. It is not medical advice.
+        FLX je vzdělávací nástroj. Popisuje normální fyziologii a to, co výzkum výživy podporuje — a otevřeně
+        říká, co nepodporuje. Není to lékařská rada.
       </p>
 
-      <Block title="1 · Evidence levels">
+      <Block title="1 · Úrovně důkazů">
         <EvidenceLegend />
         <p className="text-muted mt-4 text-[14px]">
-          Across the {ORGANS.length} organs in the model there are {counts.established ?? 0} established,{' '}
-          {counts.plausible ?? 0} plausible and {counts.preliminary ?? 0} preliminary nutrient links. A
-          nutrient the organ only absorbs, stores or activates (e.g. vitamin D in the kidneys) is shown as
-          physiology, but never used to link foods.
+          U {ORGANS.length} orgánů v modelu je {counts.established ?? 0} prokázaných, {counts.plausible ?? 0}{' '}
+          pravděpodobných a {counts.preliminary ?? 0} předběžných propojení živin. Živinu, kterou orgán jen
+          vstřebává, ukládá nebo aktivuje (např. vitamín D v ledvinách), ukazujeme jako fyziologii, ale nikdy
+          ji nepoužíváme k propojení s potravinami.
         </p>
       </Block>
 
-      <Block title="2 · When is a food relevant to an organ?">
+      <Block title="2 · Kdy je potravina pro orgán relevantní?">
         <p className="text-fg/90 text-[15px]">
-          A food is linked to an organ only if 100 g supplies at least the EU &ldquo;source of&rdquo; level of
-          a nutrient that organ depends on — 15 % of the Nutrient Reference Value for vitamins and minerals
-          (Reg. 1924/2006). Links that rest only on preliminary evidence are dropped. Everything is computed
-          from the data at build time; nothing is hand-picked.
+          Potravina je s orgánem propojená, jen pokud 100 g dodá alespoň úroveň „zdroj“ podle EU u živiny, na
+          které orgán závisí — u vitamínů a minerálů 15 % referenční hodnoty příjmu (nař. 1924/2006).
+          Propojení, která stojí jen na předběžných důkazech, vyřazujeme. Vše se počítá z dat při sestavení
+          webu; nic se nevybírá ručně.
         </p>
         <div className="border-line mt-5 overflow-x-auto rounded-2xl border">
           <table className="w-full min-w-[640px] text-left text-[14px]">
-            <caption className="sr-only">Reference values and source-of thresholds</caption>
+            <caption className="sr-only">Referenční hodnoty a prahy „zdroj“</caption>
             <thead className="text-subtle bg-white/[0.03] font-mono text-[12px]">
               <tr>
-                <th className="px-4 py-3 font-normal">Nutrient</th>
-                <th className="px-4 py-3 font-normal">Reference / day</th>
-                <th className="px-4 py-3 font-normal">Threshold / 100 g</th>
-                <th className="px-4 py-3 font-normal">Rule</th>
+                <th className="px-4 py-3 font-normal">Živina</th>
+                <th className="px-4 py-3 font-normal">Reference / den</th>
+                <th className="px-4 py-3 font-normal">Práh / 100 g</th>
+                <th className="px-4 py-3 font-normal">Pravidlo</th>
               </tr>
             </thead>
             <tbody className="divide-line divide-y">
@@ -70,7 +70,7 @@ export default function SciencePage() {
                       {n.ref ? `${n.ref.value} ${n.unit} (${n.ref.kind})` : '—'}
                     </td>
                     <td className="px-4 py-2.5 font-mono text-[13px]">
-                      {n.qualitative ? 'qualitative' : t !== undefined ? `${+t.toFixed(3)} ${n.unit}` : '—'}
+                      {n.qualitative ? 'kvalitativně' : t !== undefined ? `${+t.toFixed(3)} ${n.unit}` : '—'}
                     </td>
                     <td className="text-muted px-4 py-2.5 text-[13px]">{thresholdBasis(n.id)}</td>
                   </tr>
@@ -81,13 +81,12 @@ export default function SciencePage() {
         </div>
       </Block>
 
-      <Block title="3 · Health-claim wording">
+      <Block title="3 · Znění zdravotních tvrzení">
         <p className="text-fg/90 text-[15px]">
-          Where the EU has authorised a health claim (Reg. 432/2012) we use its wording — e.g. &ldquo;Vitamin
-          C contributes to normal collagen formation for the normal function of skin&rdquo;. Where none exists
-          we say so, for example for lutein: its role in the macular pigment is real physiology, but
-          supplement benefit has only been shown in people with intermediate age-related macular degeneration
-          (AREDS2).
+          Kde EU schválila zdravotní tvrzení (nař. 432/2012), používáme jeho znění — např. „Vitamín C přispívá
+          k normální tvorbě kolagenu pro normální funkci kůže“. Kde žádné neexistuje, píšeme to. Příklad:
+          lutein. Jeho role v makulárním pigmentu je skutečná fyziologie, ale přínos doplňku byl prokázán jen
+          u lidí se středně pokročilou věkem podmíněnou makulární degenerací (AREDS2).
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           <EvidenceBadge level="established" />
@@ -96,19 +95,24 @@ export default function SciencePage() {
         </div>
       </Block>
 
-      <Block title="4 · Fermented foods, live cultures, probiotics">
+      <Block title="4 · Fermentované potraviny, živé kultury, probiotika">
         <FermentationExplainer />
       </Block>
 
-      <Block title="5 · Nutrient data">
+      <Block title="5 · Nutriční data a obchody">
         <p className="text-fg/90 text-[15px]">
-          Values per 100 g edible portion from USDA FoodData Central (SR Legacy / Foundation Foods), rounded.
-          Only nutrients relevant to the organ model are tracked; a missing value means &ldquo;not
-          tracked&rdquo;, not zero. Iodine in milk and fish varies widely with feed, season and processing.
+          Hodnoty na 100 g jedlého podílu pocházejí z USDA FoodData Central (SR Legacy / Foundation Foods) a
+          jsou zaokrouhlené. Sledujeme jen živiny relevantní pro model orgánů; chybějící hodnota znamená
+          „nesledováno“, ne nulu. Jód v mléce a rybách silně kolísá podle krmiva, sezóny a zpracování.
+        </p>
+        <p className="text-fg/90 mt-3 text-[15px]">
+          Odkazy na BrainMarket a Vilgain jsou ukázky, kde lze živiny koupit. Nejsme partnery těchto obchodů a
+          jejich produkty jsme nehodnotili. Doplněk stravy má smysl hlavně tam, kde strava nestačí — typicky
+          vitamín D v zimě, B12 při veganské stravě nebo omega-3, když nejíte ryby.
         </p>
       </Block>
 
-      <Block title="Sources">
+      <Block title="Zdroje">
         <ul className="space-y-2">
           {ALL_SOURCES.map((s) => (
             <li key={s.url}>

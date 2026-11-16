@@ -19,9 +19,9 @@ interface Props {
 }
 
 const LAYERS: { key: keyof Layers; label: string; icon: typeof Bone }[] = [
-  { key: 'organs', label: 'Organs', icon: HeartPulse },
-  { key: 'skeleton', label: 'Skeleton', icon: Bone },
-  { key: 'muscles', label: 'Muscles', icon: Dumbbell },
+  { key: 'organs', label: 'Orgány', icon: HeartPulse },
+  { key: 'skeleton', label: 'Kostra', icon: Bone },
+  { key: 'muscles', label: 'Svaly', icon: Dumbbell },
 ]
 
 export function ExplorerControls({
@@ -36,24 +36,24 @@ export function ExplorerControls({
   const Title = titleAs
   const organs = system ? ORGANS.filter((o) => o.system === system) : ORGANS
   return (
-    <div className="flex flex-col gap-6 lg:py-2">
+    <div className="flex flex-col gap-5 lg:py-2">
       <div className="hidden lg:block">
-        <span className="eyebrow">FLX · Body × Nutrition</span>
-        <Title className="display mt-3 text-[40px] xl:text-[46px]">
-          Your body,
+        <span className="eyebrow">FLX · Tělo × výživa</span>
+        <Title className="display mt-3 text-[38px] xl:text-[42px]">
+          Tvoje tělo,
           <br />
-          <em className="text-cyan">decoded.</em>
+          <em className="text-cyan">rozluštěné.</em>
         </Title>
-        <p className="text-muted mt-3 text-[14.5px]">
-          What each organ does, the nutrients it depends on, and the foods that supply them.
+        <p className="text-muted mt-2 text-[14.5px]">
+          Co který orgán dělá, co potřebuje a které potraviny mu to dodají.
         </p>
       </div>
 
       <fieldset className="min-w-0">
-        <legend className="eyebrow !text-subtle mb-2.5">System</legend>
-        <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-col lg:gap-1 lg:px-0">
+        <legend className="eyebrow !text-subtle mb-2.5">Soustava</legend>
+        <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-wrap lg:gap-1.5 lg:overflow-visible lg:px-0">
           <SysBtn active={!system} onClick={() => onSystem(null)}>
-            All systems
+            Všechny soustavy
           </SysBtn>
           {SYSTEMS.map((s) => (
             <SysBtn
@@ -68,7 +68,7 @@ export function ExplorerControls({
       </fieldset>
 
       <fieldset className="min-w-0">
-        <legend className="eyebrow !text-subtle mb-2.5">Layers</legend>
+        <legend className="eyebrow !text-subtle mb-2.5">Vrstvy</legend>
         <div className="flex flex-wrap gap-2">
           {LAYERS.map(({ key, label, icon: Icon }) => (
             <button
@@ -86,7 +86,7 @@ export function ExplorerControls({
       </fieldset>
 
       <fieldset className="min-w-0">
-        <legend className="eyebrow !text-subtle mb-2.5">Organs{system && ` · ${organs.length}`}</legend>
+        <legend className="eyebrow !text-subtle mb-2.5">Orgány{system && ` · ${organs.length}`}</legend>
         <ul className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:grid lg:grid-cols-2 lg:px-0">
           {organs.map((o) => (
             <li key={o.id} className="shrink-0">
@@ -96,7 +96,7 @@ export function ExplorerControls({
                 aria-current={selected === o.id}
                 data-testid={`organ-btn-${o.id}`}
                 className={cx(
-                  'flex w-full items-center gap-2 rounded-xl border px-3 py-2 text-left text-[14px] transition',
+                  'flex w-full items-center gap-2 rounded-lg border px-3 py-1.5 text-left text-[13.5px] transition',
                   selected === o.id
                     ? 'border-cyan/60 bg-cyan/10 text-fg'
                     : 'border-line text-muted hover:border-line-strong hover:text-fg',
@@ -132,10 +132,10 @@ function SysBtn({
       aria-pressed={active}
       onClick={onClick}
       className={cx(
-        'shrink-0 rounded-full border px-3.5 py-1.5 text-left text-[14px] transition lg:rounded-lg lg:border-transparent lg:px-3',
+        'shrink-0 rounded-full border px-3 py-1.5 text-[13.5px] transition',
         active
-          ? 'border-cyan bg-cyan text-ink lg:bg-cyan/12 lg:text-cyan'
-          : 'border-line text-muted hover:text-fg lg:hover:bg-white/[0.03]',
+          ? 'border-cyan bg-cyan text-ink'
+          : 'border-line text-muted hover:border-line-strong hover:text-fg',
       )}
     >
       {children}

@@ -12,6 +12,7 @@ const PAGES = [
   ['food-kefir', '/food/kefir'],
   ['shop', '/shop'],
   ['product-kefir', '/product/kefir'],
+  ['looksmaxing', '/looksmaxing'],
   ['science', '/science'],
   ['standard', '/our-standard'],
   ['cart', '/cart'],

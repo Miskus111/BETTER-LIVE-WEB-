@@ -28,9 +28,8 @@ export function thresholdBasis(id: NutrientId): string {
   const n = NUTRIENTS[id]
   if (n.qualitative) return n.qualitative.rule
   if (n.threshold) return n.threshold.basis
-  if (n.ref)
-    return `15 % of the ${n.ref.kind} (${n.ref.value} ${n.unit}) per 100 g — the EU "source of" level.`
-  return 'Not ranked.'
+  if (n.ref) return `15 % ${n.ref.kind} (${n.ref.value} ${n.unit}) na 100 g — úroveň „zdroj“ podle EU.`
+  return 'Neřadí se.'
 }
 
 export function isSource(food: Food, id: NutrientId): boolean {
@@ -49,13 +48,10 @@ export function pctRef(id: NutrientId, v: number): number | undefined {
 }
 
 export function fmtAmount(v: number, unit: string) {
-  const s =
-    v >= 100
-      ? Math.round(v).toLocaleString('en')
-      : v >= 10
-        ? v.toFixed(1).replace(/\.0$/, '')
-        : v.toFixed(2).replace(/0$/, '').replace(/\.0$/, '')
-  return `${s} ${unit}`
+  // české formátování: mezera jako oddělovač tisíců, desetinná čárka
+  const digits = v >= 100 ? 0 : v >= 10 ? 1 : 2
+  const s = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: digits }).format(v)
+  return `${s}\u00a0${unit}`
 }
 
 /** Share of energy from protein / fat / carbs (Atwater 4/9/4, fibre at 2 kcal/g counted under carbs). */
@@ -130,7 +126,12 @@ export function productNutrition(p: Product): ProductNutrition | undefined {
   if (p.nutrition) return p.nutrition
   if (p.food) {
     const f = FOOD_BY_ID[p.food]
-    return { kcal: f.kcal, ...f.macros, micros: f.micros, basis: `USDA reference: ${f.name}, ${f.basis}` }
+    return {
+      kcal: f.kcal,
+      ...f.macros,
+      micros: f.micros,
+      basis: `Referenční potravina USDA: ${f.name}, ${f.basis}`,
+    }
   }
   if (p.blend) {
     const out: ProductNutrition = { kcal: 0, protein: 0, fat: 0, carbs: 0, fiber: 0, micros: {}, basis: '' }
@@ -146,7 +147,7 @@ export function productNutrition(p: Product): ProductNutrition | undefined {
       }
     }
     out.kcal = Math.round(out.kcal)
-    out.basis = `Calculated from recipe: ${p.blend.map((b) => `${Math.round(b.share * 100)} % ${FOOD_BY_ID[b.food].name.toLowerCase()}`).join(', ')} (USDA reference values)`
+    out.basis = `Vypočteno z receptury: ${p.blend.map((b) => `${Math.round(b.share * 100)} % ${FOOD_BY_ID[b.food].name.toLowerCase()}`).join(', ')} (referenční hodnoty USDA)`
     return out
   }
   return undefined
@@ -160,7 +161,7 @@ function productAsFood(p: Product): Food | undefined {
   return {
     id: p.id,
     name: p.name,
-    category: 'Grains & oils',
+    category: 'Obiloviny a oleje',
     basis: n.basis,
     fdc: n.basis,
     kcal: n.kcal,

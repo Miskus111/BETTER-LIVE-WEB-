@@ -20,15 +20,47 @@ mkdirSync(join(out, 'products'), { recursive: true })
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 function frame(art: Art, id: string) {
-  const inner = renderToStaticMarkup(<FoodArt kind={art.kind} a={art.a} b={art.b} />).replace(
-    '<svg',
-    '<svg x="0" y="40" width="800" height="640"',
-  )
+  const inner = renderToStaticMarkup(<FoodArt kind={art.kind} a={art.a} b={art.b} />)
+    // drop FoodArt's own flat backdrop and shadow — the studio frame below provides lighting
+    .replace(/<rect width="200" height="160"[^>]*\/>/, '')
+    .replace('<svg', '<svg x="60" y="120" width="680" height="544"')
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720">
-<defs><radialGradient id="bg-${id}" cx="50%" cy="45%" r="75%"><stop offset="0%" stop-color="#16202b"/><stop offset="100%" stop-color="#0a0e13"/></radialGradient></defs>
+<defs>
+  <radialGradient id="bg-${id}" cx="50%" cy="38%" r="80%">
+    <stop offset="0%" stop-color="${art.a}" stop-opacity="0.28"/>
+    <stop offset="45%" stop-color="#121a24"/>
+    <stop offset="100%" stop-color="#06080b"/>
+  </radialGradient>
+  <linearGradient id="beam-${id}" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="slab-${id}" cx="50%" cy="35%" r="65%">
+    <stop offset="0%" stop-color="#2a3644"/>
+    <stop offset="70%" stop-color="#151c25"/>
+    <stop offset="100%" stop-color="#0c1117"/>
+  </radialGradient>
+  <radialGradient id="shadow-${id}" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#000" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig-${id}" cx="50%" cy="45%" r="75%">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+  </radialGradient>
+  <filter id="grain-${id}"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/></filter>
+  <filter id="soft-${id}" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
 <rect width="800" height="720" fill="url(#bg-${id})"/>
+<path d="M250,0 L550,0 L700,720 L100,720 Z" fill="url(#beam-${id})"/>
+<ellipse cx="400" cy="560" rx="330" ry="78" fill="url(#slab-${id})"/>
+<ellipse cx="400" cy="548" rx="330" ry="70" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+<ellipse cx="400" cy="560" rx="230" ry="34" fill="url(#shadow-${id})"/>
+<ellipse cx="400" cy="380" rx="220" ry="150" fill="${art.a}" opacity="0.18" filter="url(#soft-${id})"/>
 ${inner}
-<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" letter-spacing="3" fill="#6f8294">PLACEHOLDER · REPLACE WITH PHOTO</text>
+<rect width="800" height="720" fill="url(#vig-${id})"/>
+<rect width="800" height="720" filter="url(#grain-${id})" opacity="0.6"/>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="3" fill="#5f7183">ILUSTRACE · NAHRADIT FOTOGRAFIÍ</text>
 </svg>`
 }
 
@@ -43,7 +75,7 @@ ${lines.map((l, i) => `<text x="400" y="${360 + i * 40}" text-anchor="middle" fo
 <text x="400" y="${380 + lines.length * 40}" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#9fb3c4">${esc(size)}</text>
 <text x="400" y="200" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="26" letter-spacing="8" fill="#0b1016" opacity="0.8">FLX</text>
 ${organic ? '<text x="400" y="590" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="16" letter-spacing="3" fill="#0b1016" opacity="0.7">EU ORGANIC · SAMPLE</text>' : ''}
-<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" letter-spacing="3" fill="#6f8294">PLACEHOLDER · PACKSHOT</text>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" letter-spacing="3" fill="#6f8294">ILUSTRACE · OBAL</text>
 </svg>`
 }
 

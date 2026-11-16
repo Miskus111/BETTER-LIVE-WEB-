@@ -88,11 +88,11 @@ export default async function ProductPage({ params }: Params) {
   return (
     <div className="mx-auto max-w-[1280px] px-4 pt-6 md:px-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <nav aria-label="Breadcrumb">
+      <nav aria-label="Drobečková navigace">
         <ol className="text-subtle flex flex-wrap items-center gap-1 font-mono text-[12px]">
           <li>
             <Link href="/shop" className="hover:text-fg">
-              Shop
+              Obchod
             </Link>
           </li>
           <ChevronRight size={12} aria-hidden />
@@ -138,7 +138,7 @@ export default async function ProductPage({ params }: Params) {
           <section className="card mt-6 p-5" aria-labelledby="cert-h">
             <div className="flex items-center justify-between gap-2">
               <h2 id="cert-h" className="eyebrow flex items-center gap-2">
-                <ShieldCheck size={14} aria-hidden /> Certification
+                <ShieldCheck size={14} aria-hidden /> Certifikace
               </h2>
               <SampleDataLabel />
             </div>
@@ -146,24 +146,24 @@ export default async function ProductPage({ params }: Params) {
               <dt className="text-subtle">Status</dt>
               <dd>
                 {verified
-                  ? 'Certified organic (EU)'
+                  ? 'Certifikované bio (EU)'
                   : p.certification.status === 'wild'
-                    ? 'Wild-caught · not eligible for organic certification'
-                    : 'Conventional — not organic certified'}
+                    ? 'Divoký úlovek · nelze certifikovat jako bio'
+                    : 'Konvenční — bez certifikace bio'}
               </dd>
-              <dt className="text-subtle">Control body</dt>
+              <dt className="text-subtle">Kontrolní subjekt</dt>
               <dd className="font-mono">{verified ? p.certification.controlBody : '—'}</dd>
-              <dt className="text-subtle">Origin</dt>
+              <dt className="text-subtle">Původ</dt>
               <dd>{p.origin}</dd>
-              <dt className="text-subtle">Processing</dt>
+              <dt className="text-subtle">Zpracování</dt>
               <dd className="flex items-start gap-1.5">
                 <Factory size={14} className="text-subtle mt-1 shrink-0" aria-hidden />
                 {p.processing}
               </dd>
               {p.pasture === 'verified' && (
                 <>
-                  <dt className="text-subtle">Pasture</dt>
-                  <dd>Pasture access verified at inspection</dd>
+                  <dt className="text-subtle">Pastva</dt>
+                  <dd>Přístup na pastvu ověřen při kontrole</dd>
                 </>
               )}
             </dl>
@@ -171,7 +171,7 @@ export default async function ProductPage({ params }: Params) {
           </section>
 
           <section className="mt-6">
-            <h2 className="eyebrow mb-2.5">Ingredients</h2>
+            <h2 className="eyebrow mb-2.5">Složení</h2>
             <Ingredients text={p.ingredients} />
           </section>
         </div>
@@ -180,15 +180,15 @@ export default async function ProductPage({ params }: Params) {
       <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <section className="card p-5 md:p-6" aria-labelledby="nutri-h">
           <h2 id="nutri-h" className="eyebrow">
-            Nutrition per 100 g
+            Nutriční hodnoty na 100 g
           </h2>
           <dl className="mt-4 grid grid-cols-5 gap-2">
             {[
               ['kcal', n.kcal],
-              ['Protein', n.protein.toFixed(1)],
-              ['Fat', n.fat.toFixed(1)],
-              ['Carbs', n.carbs.toFixed(1)],
-              ['Fibre', n.fiber.toFixed(1)],
+              ['Bílkoviny', n.protein.toFixed(1).replace('.', ',')],
+              ['Tuky', n.fat.toFixed(1).replace('.', ',')],
+              ['Sacharidy', n.carbs.toFixed(1).replace('.', ',')],
+              ['Vláknina', n.fiber.toFixed(1).replace('.', ',')],
             ].map(([k, v]) => (
               <div key={k} className="border-line rounded-xl border p-2.5 text-center">
                 <dt className="text-subtle font-mono text-[12px]">{k}</dt>
@@ -211,7 +211,7 @@ export default async function ProductPage({ params }: Params) {
 
         <div className="space-y-6">
           <section className="card p-5 md:p-6">
-            <h2 className="eyebrow mb-3">Relevant organs</h2>
+            <h2 className="eyebrow mb-3">Související orgány</h2>
             <ul className="flex flex-wrap gap-2">
               {organs.map((o) => (
                 <li key={o}>
@@ -220,13 +220,13 @@ export default async function ProductPage({ params }: Params) {
               ))}
             </ul>
             <p className="text-subtle mt-3 text-[12.5px]">
-              Computed from nutrition: at least one nutrient the organ depends on reaches the EU &ldquo;source
-              of&rdquo; level per 100 g.
+              Vypočteno z nutričních hodnot: alespoň jedna živina, na které orgán závisí, dosahuje na 100 g
+              úrovně „zdroj“ podle EU.
             </p>
           </section>
           {foods.length > 0 && (
             <section className="card p-5 md:p-6">
-              <h2 className="eyebrow mb-3">Reference foods</h2>
+              <h2 className="eyebrow mb-3">Referenční potraviny</h2>
               <ul className="flex flex-wrap gap-2">
                 {foods.map((f) => (
                   <li key={f.id}>
@@ -237,7 +237,7 @@ export default async function ProductPage({ params }: Params) {
                 ))}
               </ul>
               <p className="text-subtle mt-3 text-[12.5px]">
-                {NUTRIENTS.cultures.name}: {p.liveCultures ? 'yes — keep refrigerated' : 'no'}
+                {NUTRIENTS.cultures.name}: {p.liveCultures ? 'ano — skladujte v chladu' : 'ne'}
               </p>
             </section>
           )}
@@ -247,7 +247,7 @@ export default async function ProductPage({ params }: Params) {
       {related.length > 0 && (
         <section className="mt-16" aria-labelledby="rel-h">
           <h2 id="rel-h" className="display text-[34px]">
-            Related products
+            Související produkty
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((r) => (

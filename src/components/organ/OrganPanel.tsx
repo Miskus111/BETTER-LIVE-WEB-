@@ -12,7 +12,7 @@ import { FoodsTab } from './tabs/FoodsTab'
 import { ProductsTab } from './tabs/ProductsTab'
 import { ScienceTab } from './tabs/ScienceTab'
 
-export const ORGAN_TABS = ['Overview', 'Nutrients', 'Foods', 'Products', 'Science'] as const
+export const ORGAN_TABS = ['Přehled', 'Živiny', 'Potraviny', 'Produkty', 'Věda'] as const
 export type OrganTab = (typeof ORGAN_TABS)[number]
 
 interface Props {
@@ -25,13 +25,13 @@ interface Props {
 }
 
 export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }: Props) {
-  const [tab, setTab] = useState<OrganTab>('Overview')
+  const [tab, setTab] = useState<OrganTab>('Přehled')
   const body = useRef<HTMLDivElement>(null)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   // new organ → back to overview, scroll to top
   useEffect(() => {
-    setTab('Overview')
+    setTab('Přehled')
     body.current?.scrollTo({ top: 0 })
   }, [organ.id])
 
@@ -48,7 +48,7 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
 
   return (
     <section
-      aria-label={`${organ.shortName} details`}
+      aria-label={`${organ.shortName} — detail`}
       className="flex h-full min-h-0 flex-col"
       style={{ ['--accent' as string]: organ.accent } as React.CSSProperties}
       data-testid="organ-panel"
@@ -59,20 +59,20 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
             className="h-2 w-2 rounded-full"
             style={{ background: organ.accent, boxShadow: `0 0 12px ${organ.accent}` }}
           />
-          <span className="eyebrow !text-muted">{system} system</span>
+          <span className="eyebrow !text-muted">Soustava: {system}</span>
           <div className="ml-auto flex items-center gap-1">
             {onPrev && (
-              <IconBtn label="Previous organ" onClick={onPrev}>
+              <IconBtn label="Předchozí orgán" onClick={onPrev}>
                 <ChevronLeft size={16} />
               </IconBtn>
             )}
             {onNext && (
-              <IconBtn label="Next organ" onClick={onNext}>
+              <IconBtn label="Další orgán" onClick={onNext}>
                 <ChevronRight size={16} />
               </IconBtn>
             )}
             {onClose && (
-              <IconBtn label="Close panel" onClick={onClose}>
+              <IconBtn label="Zavřít panel" onClick={onClose}>
                 <X size={16} />
               </IconBtn>
             )}
@@ -89,13 +89,13 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
             href={`/organ/${organ.id}`}
             className="link mt-2 inline-flex items-center gap-1 text-[13.5px]"
           >
-            Open shareable page <ExternalLink size={13} aria-hidden />
+            Otevřít stránku ke sdílení <ExternalLink size={13} aria-hidden />
           </Link>
         )}
 
         <div
           role="tablist"
-          aria-label="Organ information"
+          aria-label="Informace o orgánu"
           className="no-scrollbar -mx-1 mt-4 flex gap-1 overflow-x-auto"
         >
           {ORGAN_TABS.map((t, i) => (
@@ -138,11 +138,11 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
             hidden={tab !== t}
             className={tab === t ? 'fade-up' : undefined}
           >
-            {t === 'Overview' && <OverviewTab organ={organ} goTo={setTab} />}
-            {t === 'Nutrients' && <NutrientsTab organ={organ} />}
-            {t === 'Foods' && <FoodsTab organ={organ} />}
-            {t === 'Products' && <ProductsTab organ={organ} />}
-            {t === 'Science' && <ScienceTab organ={organ} />}
+            {t === 'Přehled' && <OverviewTab organ={organ} goTo={setTab} />}
+            {t === 'Živiny' && <NutrientsTab organ={organ} />}
+            {t === 'Potraviny' && <FoodsTab organ={organ} />}
+            {t === 'Produkty' && <ProductsTab organ={organ} />}
+            {t === 'Věda' && <ScienceTab organ={organ} />}
           </div>
         ))}
       </div>

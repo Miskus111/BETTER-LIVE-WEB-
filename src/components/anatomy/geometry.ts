@@ -237,3 +237,39 @@ export const ORGAN_SHAPES = {
   },
   eyes: { l: [183, 104] as P, r: [217, 104] as P },
 }
+
+/** Major vessels (arteries red, veins blue) — decorative, animated "flow" along the paths. */
+const ART = '#ff6b7d'
+const VEIN = '#6aa8ff'
+export const VESSELS: { d: string; c: string; w: number }[] = [
+  // aorta: arch from the heart, descending along the spine, splitting into the legs
+  {
+    d: 'M214,252 C214,232 206,222 198,226 C190,230 194,250 198,270 L199,500 C196,520 180,540 176,600 L172,760 L170,880',
+    c: ART,
+    w: 3.2,
+  },
+  { d: 'M199,500 C202,520 220,540 224,600 L228,760 L230,880', c: ART, w: 3.2 },
+  // carotids to the head
+  { d: 'M200,228 C196,210 190,190 188,160 C186,140 190,124 194,110', c: ART, w: 2.2 },
+  { d: 'M204,228 C208,210 212,190 212,160 C214,140 210,124 206,110', c: ART, w: 2.2 },
+  // subclavian → arms
+  { d: 'M196,224 C176,212 140,206 118,218 C104,240 100,300 96,350 L86,470', c: ART, w: 2 },
+  { d: 'M206,224 C226,212 260,206 282,218 C296,240 300,300 304,350 L314,470', c: ART, w: 2 },
+  // vena cava and leg veins
+  { d: 'M222,256 L208,300 L206,500 C210,522 230,544 232,600 L236,760 L238,880', c: VEIN, w: 2.6 },
+  { d: 'M206,500 C202,522 186,544 184,600 L180,760 L178,880', c: VEIN, w: 2.6 },
+  // jugular
+  { d: 'M216,240 C220,210 222,180 218,150 C216,130 212,120 210,112', c: VEIN, w: 1.8 },
+]
+
+/** Faint "dust" particles around the figure (deterministic so SSR and client match). */
+export const PARTICLES: [number, number, number][] = Array.from({ length: 26 }, (_, i) => {
+  const a = (i * 137.508 * Math.PI) / 180
+  const r = 150 + ((i * 53) % 140)
+  // rounded: Math.cos/sin can differ in the last bits between server and browser → hydration mismatch
+  return [
+    Math.round(200 + Math.cos(a) * r * 0.9),
+    Math.round(430 + Math.sin(a) * r * 1.5),
+    0.8 + (i % 3) * 0.6,
+  ]
+})

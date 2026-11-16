@@ -3,7 +3,7 @@ import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
 import { PRODUCTS } from '@/data/products'
 
-export type SearchKind = 'Organ' | 'Nutrient' | 'Food' | 'Product'
+export type SearchKind = 'Orgán' | 'Živina' | 'Potravina' | 'Produkt' | 'Stránka'
 
 export interface SearchItem {
   kind: SearchKind
@@ -15,8 +15,24 @@ export interface SearchItem {
 }
 
 export const SEARCH_INDEX: SearchItem[] = [
+  {
+    kind: 'Stránka',
+    id: 'looksmaxing',
+    title: 'Looksmaxing bez mýtů',
+    subtitle: 'Spánek, slunce, trénink, pleť, vlasy · mýty',
+    href: '/looksmaxing',
+    text: 'looksmaxing vzhled pleť vlasy čelist mewing bone smashing kreatin kolagen spánek SPF',
+  },
+  {
+    kind: 'Stránka',
+    id: 'science',
+    title: 'Věda a metodika',
+    subtitle: 'Úrovně důkazů, prahy, zdroje',
+    href: '/science',
+    text: 'věda metodika důkazy zdroje tvrzení EU',
+  },
   ...ORGANS.map((o) => ({
-    kind: 'Organ' as const,
+    kind: 'Orgán' as const,
     id: o.id,
     title: o.shortName,
     subtitle: o.tagline,
@@ -24,7 +40,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     text: `${o.name} ${o.system} ${o.what}`,
   })),
   ...NUTRIENT_LIST.map((n) => ({
-    kind: 'Nutrient' as const,
+    kind: 'Živina' as const,
     id: n.id,
     title: n.name,
     subtitle: n.kind,
@@ -32,7 +48,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     text: `${n.name} ${n.kind} ${n.blurb}`,
   })),
   ...FOODS.map((f) => ({
-    kind: 'Food' as const,
+    kind: 'Potravina' as const,
     id: f.id,
     title: f.name,
     subtitle: `${f.category} · ${f.kcal} kcal / 100 g`,
@@ -40,7 +56,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     text: `${f.name} ${f.category} ${f.basis}`,
   })),
   ...PRODUCTS.map((p) => ({
-    kind: 'Product' as const,
+    kind: 'Produkt' as const,
     id: p.id,
     title: p.name,
     subtitle: `${p.origin} · ${p.size}`,
@@ -60,7 +76,7 @@ export function search(query: string, limit = 24): SearchItem[] {
     const all = `${title} ${norm(item.text)}`
     if (!tokens.every((t) => all.includes(t))) return null
     const score = tokens.reduce(
-      (s, t) => s + (title.startsWith(t) ? 6 : title.includes(t) ? 3 : 1) + (item.kind === 'Organ' ? 0.5 : 0),
+      (s, t) => s + (title.startsWith(t) ? 6 : title.includes(t) ? 3 : 1) + (item.kind === 'Orgán' ? 0.5 : 0),
       0,
     )
     return { item, score }

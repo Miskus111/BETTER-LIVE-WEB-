@@ -2,18 +2,19 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Apple, Atom, CornerDownLeft, HeartPulse, Package, Search, X } from 'lucide-react'
+import { Apple, Atom, CornerDownLeft, FileText, HeartPulse, Package, Search, X } from 'lucide-react'
 import { search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
 
 const ICON: Record<SearchKind, typeof Apple> = {
-  Organ: HeartPulse,
-  Nutrient: Atom,
-  Food: Apple,
-  Product: Package,
+  Orgán: HeartPulse,
+  Živina: Atom,
+  Potravina: Apple,
+  Produkt: Package,
+  Stránka: FileText,
 }
-const SUGGESTED = ['brain', 'intestines', 'omega3', 'choline', 'kefir', 'eggs'] as const
+const SUGGESTED = ['brain', 'intestines', 'omega3', 'choline', 'kefir', 'looksmaxing'] as const
 
 export function CommandPalette() {
   const router = useRouter()
@@ -79,7 +80,7 @@ export function CommandPalette() {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Search"
+        aria-label="Hledání"
         className="glass fade-up bg-ink-3/95 w-full max-w-xl overflow-hidden rounded-2xl shadow-2xl shadow-black/60"
       >
         <div className="border-line flex items-center gap-3 border-b px-4">
@@ -101,7 +102,7 @@ export function CommandPalette() {
               } else if (e.key === 'Enter' && results[active]) go(results[active])
               else if (e.key === 'Escape') setSearch(false)
             }}
-            placeholder="Search organs, nutrients, foods, products…"
+            placeholder="Hledat orgány, živiny, potraviny, produkty…"
             className="placeholder:text-subtle h-14 flex-1 bg-transparent text-[16px] outline-none"
             role="combobox"
             aria-expanded="true"
@@ -111,18 +112,18 @@ export function CommandPalette() {
           <button
             type="button"
             onClick={() => setSearch(false)}
-            aria-label="Close search"
+            aria-label="Zavřít hledání"
             className="text-subtle hover:text-fg"
           >
             <X size={18} />
           </button>
         </div>
         <p className="text-subtle px-4 pt-3 font-mono text-[12px] tracking-wider uppercase">
-          {q.trim() ? `${results.length} result${results.length === 1 ? '' : 's'}` : 'Suggested'}
+          {q.trim() ? `Výsledků: ${results.length}` : 'Doporučujeme'}
         </p>
         <ul id="search-results" ref={list} role="listbox" className="max-h-[50vh] overflow-y-auto p-2">
           {results.length === 0 && (
-            <li className="text-muted px-3 py-6 text-center">No matches for “{q}”.</li>
+            <li className="text-muted px-3 py-6 text-center">Pro „{q}“ jsme nic nenašli.</li>
           )}
           {results.map((r, i) => {
             const Icon = ICON[r.kind]

@@ -7,15 +7,15 @@ import type { OrganTab } from '../OrganPanel'
 export function OverviewTab({ organ, goTo }: { organ: Organ; goTo: (t: OrganTab) => void }) {
   return (
     <div className="space-y-6">
-      <Block title="What it does">{organ.what}</Block>
-      <Block title="How it works">{organ.how}</Block>
-      <Block title="Why nutrition matters">{organ.why}</Block>
+      <Block title="Co dělá">{organ.what}</Block>
+      <Block title="Jak funguje">{organ.how}</Block>
+      <Block title="Proč na výživě záleží">{organ.why}</Block>
       <div>
-        <h3 className="eyebrow mb-3">Key nutrients</h3>
+        <h3 className="eyebrow mb-3">Klíčové živiny</h3>
         <ul className="flex flex-wrap gap-2">
           {organ.nutrients.map((n) => (
             <li key={n.id}>
-              <button type="button" onClick={() => goTo('Nutrients')} className="chip">
+              <button type="button" onClick={() => goTo('Živiny')} className="chip">
                 {NUTRIENTS[n.id].name}
                 <EvidenceDot level={n.level} />
               </button>
@@ -23,7 +23,7 @@ export function OverviewTab({ organ, goTo }: { organ: Organ; goTo: (t: OrganTab)
           ))}
         </ul>
         <p className="text-subtle mt-3 text-[13px]">
-          These nutrients matter throughout the body — none is needed by this organ alone.
+          Tyto živiny potřebuje celé tělo — žádnou z nich nepotřebuje jen tento orgán.
         </p>
       </div>
       {organ.fermentation && <FermentationExplainer />}
@@ -36,8 +36,8 @@ function EvidenceDot({ level }: { level: Evidence }) {
     <span
       className="h-1.5 w-1.5 rounded-full"
       style={{ background: EVIDENCE[level].color }}
-      title={`Evidence: ${EVIDENCE[level].label}`}
-      aria-label={`evidence ${EVIDENCE[level].label}`}
+      title={`Důkazy: ${EVIDENCE[level].label}`}
+      aria-label={`důkazy: ${EVIDENCE[level].label}`}
     />
   )
 }

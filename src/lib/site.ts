@@ -14,8 +14,8 @@ function siteUrl() {
 
 export const SITE = {
   name: 'FLX',
-  tagline: 'Human body × nutrition',
+  tagline: 'Lidské tělo × výživa',
   description:
-    'Explore an interactive map of the human body, the nutrients each organ depends on — graded by evidence — and certified organic food chosen to the same standard.',
+    'Interaktivní mapa lidského těla: co jednotlivé orgány potřebují, které živiny a potraviny jim to dodají — s hodnocením důkazů a bio potravinami vybranými podle stejného měřítka.',
   url: siteUrl(),
 }

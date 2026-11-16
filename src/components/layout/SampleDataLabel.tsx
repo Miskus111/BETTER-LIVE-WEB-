@@ -9,10 +9,10 @@ export function SampleDataLabel({ className }: { className?: string }) {
         'border-warn/25 bg-warn/[0.06] text-warn/90 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[12px] tracking-wide',
         className,
       )}
-      title="Products, prices, producers and control-body codes are placeholders for this prototype."
+      title="Produkty, ceny, výrobci a kódy kontrolních subjektů jsou v tomto prototypu jen ukázkové."
     >
       <FlaskConical size={12} aria-hidden />
-      Prototype · sample data
+      Prototyp · ukázková data
     </span>
   )
 }

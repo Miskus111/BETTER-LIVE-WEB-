@@ -1,9 +1,9 @@
 import { energySplit } from '@/lib/nutrition'
 
 const PARTS = [
-  { key: 'protein', label: 'Protein', color: '#5ee7ff' },
-  { key: 'fat', label: 'Fat', color: '#f5c46a' },
-  { key: 'carbs', label: 'Carbs', color: '#a5beff' },
+  { key: 'protein', label: 'Bílkoviny', color: '#5ee7ff' },
+  { key: 'fat', label: 'Tuky', color: '#f5c46a' },
+  { key: 'carbs', label: 'Sacharidy', color: '#a5beff' },
 ] as const
 
 /** Share of energy from protein, fat and carbohydrate. */
@@ -15,7 +15,7 @@ export function MacroSplitBar({
   const split = energySplit(macros)
   return (
     <div>
-      <p className="eyebrow mb-2">Energy split</p>
+      <p className="eyebrow mb-2">Podíl energie</p>
       <div
         className="flex h-2.5 overflow-hidden rounded-full bg-white/[0.06]"
         role="img"

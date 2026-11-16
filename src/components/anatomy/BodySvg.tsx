@@ -1,9 +1,18 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { ORGAN_BY_ID } from '@/data/organs'
+import { ORGAN_BY_ID, ORGANS } from '@/data/organs'
 import type { OrganId, SystemId, ViewBox } from '@/data/types'
-import { BODY_PATH, BONES_HALF, MUSCLES_HALF, ORGAN_SHAPES as S, RIBS, VERTEBRAE } from './geometry'
+import {
+  BODY_PATH,
+  BONES_HALF,
+  MUSCLES_HALF,
+  ORGAN_SHAPES as S,
+  PARTICLES,
+  RIBS,
+  VERTEBRAE,
+  VESSELS,
+} from './geometry'
 import { LeaderLabel } from './LeaderLabel'
 
 export interface Layers {
@@ -60,7 +69,7 @@ export function BodySvg({
   const interactive = (id: OrganId) => ({
     role: 'button' as const,
     tabIndex: 0,
-    'aria-label': `${ORGAN_BY_ID[id].shortName}${selected === id ? ' (selected)' : ''}`,
+    'aria-label': `${ORGAN_BY_ID[id].shortName}${selected === id ? ' (vybráno)' : ''}`,
     'aria-pressed': selected === id,
     'data-organ': id,
     onClick: (e: React.MouseEvent) => {
@@ -79,7 +88,10 @@ export function BodySvg({
     onFocus: () => onHover(id),
     onBlur: () => onHover(null),
     className: `organ cursor-pointer organ-${state(id)}`,
-    style: { ['--c' as string]: ORGAN_BY_ID[id].accent } as React.CSSProperties,
+    style: {
+      ['--c' as string]: ORGAN_BY_ID[id].accent,
+      ['--g' as string]: `url(#og-${id})`,
+    } as React.CSSProperties,
   })
 
   // organs in the active system paint last so they sit on top
@@ -184,7 +196,7 @@ export function BodySvg({
       onClick={() => onActivate(null)}
       onDoubleClick={onDoubleClick}
       role="group"
-      aria-label="Interactive human body. Use Tab to move between organs and Enter to select."
+      aria-label="Interaktivní lidské tělo. Klávesou Tab přecházíte mezi orgány, Enterem orgán vyberete."
     >
       <defs>
         <radialGradient id="aura" cx="50%" cy="38%" r="60%">
@@ -218,11 +230,65 @@ export function BodySvg({
         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
           <path d="M20,0 L0,0 0,20" fill="none" stroke="#9fdcff" strokeOpacity="0.05" strokeWidth="0.5" />
         </pattern>
+        {ORGANS.map((o) => (
+          <radialGradient key={o.id} id={`og-${o.id}`} cx="40%" cy="35%" r="75%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
+            <stop offset="35%" stopColor={o.accent} stopOpacity="0.9" />
+            <stop offset="100%" stopColor={o.accent} stopOpacity="0.25" />
+          </radialGradient>
+        ))}
+        <linearGradient id="rim-g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#bff6ff" />
+          <stop offset="55%" stopColor="#5ee7ff" />
+          <stop offset="100%" stopColor="#3a7bff" />
+        </linearGradient>
+        <radialGradient id="floor-g" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#5ee7ff" stopOpacity="0.35" />
+          <stop offset="60%" stopColor="#3aa8ff" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#3aa8ff" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
       {/* backdrop */}
       <rect x={-600} y={-600} width={1600} height={2200} fill="url(#grid)" />
       <ellipse cx={200} cy={360} rx={260} ry={420} fill="url(#aura)" />
+      <g aria-hidden className="pointer-events-none">
+        <ellipse cx={200} cy={912} rx={150} ry={26} fill="url(#floor-g)" />
+        <ellipse
+          cx={200}
+          cy={912}
+          rx={120}
+          ry={18}
+          fill="none"
+          stroke="#5ee7ff"
+          strokeOpacity="0.35"
+          strokeWidth={0.8}
+        />
+        <ellipse
+          cx={200}
+          cy={912}
+          rx={86}
+          ry={12}
+          fill="none"
+          stroke="#5ee7ff"
+          strokeOpacity="0.5"
+          strokeWidth={0.8}
+          strokeDasharray="3 5"
+          className="floor-spin"
+        />
+        {PARTICLES.map(([x, y, r], i) => (
+          <circle
+            key={i}
+            cx={x}
+            cy={y}
+            r={r}
+            fill="#9fe9ff"
+            opacity={0.18 + (i % 4) * 0.08}
+            className="twinkle"
+            style={{ animationDelay: `${(i % 7) * 0.6}s` }}
+          />
+        ))}
+      </g>
       <g fill="none" stroke="#5ee7ff" strokeOpacity="0.12" className="hud" aria-hidden>
         <circle cx={200} cy={290} r={150} strokeDasharray="2 6" />
         <circle cx={200} cy={290} r={176} strokeOpacity="0.06" />
@@ -256,8 +322,8 @@ export function BodySvg({
         <path
           d={BODY_PATH}
           fill="none"
-          stroke={skinLit ? '#ffd4b8' : '#8fe9ff'}
-          strokeOpacity={skinLit ? 0.95 : 0.42}
+          stroke={skinLit ? '#ffd4b8' : 'url(#rim-g)'}
+          strokeOpacity={skinLit ? 0.95 : 0.55}
           strokeWidth={skinState === 'sel' ? 1.8 : 1.1}
           pointerEvents="none"
         />
@@ -305,6 +371,44 @@ export function BodySvg({
         />
       </g>
 
+      {layers.organs && (
+        <g
+          aria-hidden
+          className="pointer-events-none transition-opacity duration-300"
+          opacity={
+            system && system !== 'cardio'
+              ? 0.15
+              : selected && selected !== 'heart' && selected !== 'lungs'
+                ? 0.35
+                : 0.9
+          }
+          clipPath="url(#body-clip)"
+        >
+          {VESSELS.map((v, i) => (
+            <g key={i}>
+              <path
+                d={v.d}
+                fill="none"
+                stroke={v.c}
+                strokeOpacity={0.28}
+                strokeWidth={v.w}
+                strokeLinecap="round"
+              />
+              <path
+                d={v.d}
+                fill="none"
+                stroke={v.c}
+                strokeOpacity={0.75}
+                strokeWidth={v.w * 0.6}
+                strokeLinecap="round"
+                strokeDasharray="4 22"
+                className="flow"
+                style={{ animationDelay: `${i * 0.35}s` }}
+              />
+            </g>
+          ))}
+        </g>
+      )}
       {layers.organs && <g>{order.map((id) => organNode[id])}</g>}
 
       {label && (

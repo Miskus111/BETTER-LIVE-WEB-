@@ -1,4 +1,4 @@
-import { eur } from '@/lib/format'
+import { czk } from '@/lib/format'
 import { FREE_SHIPPING_FROM, SHIPPING_FEE } from '@/lib/commerce/pricing'
 
 export function OrderSummary({
@@ -13,24 +13,24 @@ export function OrderSummary({
   return (
     <dl className="grid grid-cols-1 gap-2 text-[14.5px]">
       <div className="flex justify-between">
-        <dt className="text-muted">Subtotal</dt>
+        <dt className="text-muted">Mezisoučet</dt>
         <dd className="font-mono" data-testid="subtotal">
-          {eur(subtotal)}
+          {czk(subtotal)}
         </dd>
       </div>
       <div className="flex justify-between">
         <dt className="text-muted">
-          Shipping{' '}
+          Doprava{' '}
           <span className="text-subtle text-[12.5px]">
-            ({eur(SHIPPING_FEE)}, free from {eur(FREE_SHIPPING_FROM)})
+            ({czk(SHIPPING_FEE)}, od {czk(FREE_SHIPPING_FROM)} zdarma)
           </span>
         </dt>
-        <dd className="font-mono">{shipping === 0 ? 'Free' : eur(shipping)}</dd>
+        <dd className="font-mono">{shipping === 0 ? 'Zdarma' : czk(shipping)}</dd>
       </div>
       <div className="border-line mt-1 flex justify-between border-t pt-3 text-[16px] font-medium">
-        <dt>Total</dt>
+        <dt>Celkem</dt>
         <dd className="font-mono" data-testid="total">
-          {eur(total)}
+          {czk(total)}
         </dd>
       </div>
     </dl>

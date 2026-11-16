@@ -7,7 +7,7 @@ export function FermentationExplainer() {
       <div className="text-cyan flex items-center gap-2">
         <FlaskConical size={16} aria-hidden />
         <h3 id="ferment-title" className="eyebrow">
-          Fermentation, decoded
+          Fermentace bez mýtů
         </h3>
       </div>
       <p className="text-fg/90 mt-3 text-[14.5px]">{FERMENTATION.intro}</p>

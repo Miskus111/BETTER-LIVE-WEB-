@@ -15,7 +15,7 @@ export function OrganDots({
   const shown = ids.slice(0, max)
   const rest = ids.length - shown.length
   return (
-    <ul className="flex flex-wrap items-center gap-1.5" aria-label="Relevant organs">
+    <ul className="flex flex-wrap items-center gap-1.5" aria-label="Související orgány">
       {shown.map((id) => {
         const o = ORGAN_BY_ID[id]
         const inner = (

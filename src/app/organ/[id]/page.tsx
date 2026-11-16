@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params
   const o = ORGAN_BY_ID[id as OrganId]
   if (!o) return {}
-  const title = `${o.shortName} — function and nutrition`
+  const title = `${o.shortName} — funkce a výživa`
   return {
     title,
     description: `${o.what} ${o.why}`.slice(0, 158),
@@ -31,17 +31,17 @@ export default async function OrganPage({ params }: Params) {
   if (!organ) notFound()
   return (
     <>
-      <nav aria-label="Breadcrumb" className="mx-auto max-w-[1440px] px-4 pt-4 md:px-8">
+      <nav aria-label="Drobečková navigace" className="mx-auto max-w-[1440px] px-4 pt-4 md:px-8">
         <ol className="text-subtle flex items-center gap-1 font-mono text-[12px]">
           <li>
             <Link href="/" className="hover:text-fg">
-              Home
+              Domů
             </Link>
           </li>
           <ChevronRight size={12} aria-hidden />
           <li>
             <Link href="/#body" className="hover:text-fg">
-              Body
+              Tělo
             </Link>
           </li>
           <ChevronRight size={12} aria-hidden />

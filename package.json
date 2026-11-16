@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "images:todo": "tsx --tsconfig scripts/tsconfig.json scripts/images-todo.ts"
+    "images:todo": "tsx --tsconfig scripts/tsconfig.json scripts/images-todo.ts",
+    "check:links": "tsx --tsconfig scripts/tsconfig.json scripts/check-links.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",

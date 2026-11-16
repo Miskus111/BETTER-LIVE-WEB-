@@ -7,7 +7,7 @@ import { cx } from '@/lib/format'
 export function AddToCartButton({
   id,
   qty = 1,
-  label = 'Add to cart',
+  label = 'Do košíku',
   compact,
   className,
 }: {

@@ -34,7 +34,7 @@ export function Toaster() {
           <button
             type="button"
             onClick={() => dismiss(t.id)}
-            aria-label="Dismiss notification"
+            aria-label="Zavřít oznámení"
             className="text-subtle hover:text-fg"
           >
             <X size={16} />

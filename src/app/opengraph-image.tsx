@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'FLX — Human body × nutrition'
+export const alt = 'FLX — Lidské tělo × výživa'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -20,9 +20,9 @@ export default function OG() {
     >
       <div style={{ display: 'flex', fontSize: 30, letterSpacing: 12, color: '#5ee7ff' }}>FLX</div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontSize: 84, lineHeight: 1.02 }}>Your body, decoded.</div>
+        <div style={{ fontSize: 84, lineHeight: 1.02 }}>Tvoje tělo, rozluštěné.</div>
         <div style={{ fontSize: 32, marginTop: 24, color: '#a3b0bd' }}>
-          Interactive anatomy · evidence-graded nutrition · organic food
+          Interaktivní anatomie · výživa podle důkazů · bio potraviny
         </div>
       </div>
     </div>,

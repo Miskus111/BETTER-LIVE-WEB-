@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: u('/'), priority: 1 },
     { url: u('/shop'), priority: 0.8 },
+    { url: u('/looksmaxing'), priority: 0.7 },
     { url: u('/science'), priority: 0.6 },
     { url: u('/our-standard'), priority: 0.6 },
     ...ORGANS.map((o) => ({ url: u(`/organ/${o.id}`), priority: 0.8 })),

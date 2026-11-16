@@ -141,7 +141,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
             type="button"
             onClick={() => setSheetExpanded((x) => !x)}
             className="flex w-full shrink-0 flex-col items-center gap-1 pt-2 lg:hidden"
-            aria-label={sheetExpanded ? 'Collapse panel' : 'Expand panel'}
+            aria-label={sheetExpanded ? 'Sbalit panel' : 'Rozbalit panel'}
             aria-expanded={sheetExpanded}
           >
             <span className="h-1 w-10 rounded-full bg-white/25" />

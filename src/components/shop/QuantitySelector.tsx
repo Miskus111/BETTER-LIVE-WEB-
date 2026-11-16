@@ -6,7 +6,7 @@ import { MAX_QTY } from '@/lib/store/cart'
 export function QuantitySelector({
   value,
   onChange,
-  label = 'Quantity',
+  label = 'Množství',
 }: {
   value: number
   onChange: (n: number) => void
@@ -22,7 +22,7 @@ export function QuantitySelector({
         type="button"
         onClick={() => onChange(Math.max(1, value - 1))}
         disabled={value <= 1}
-        aria-label="Decrease quantity"
+        aria-label="Snížit množství"
         className="text-muted hover:text-fg grid h-10 w-10 place-items-center rounded-full disabled:opacity-30"
       >
         <Minus size={15} />
@@ -34,7 +34,7 @@ export function QuantitySelector({
         type="button"
         onClick={() => onChange(Math.min(MAX_QTY, value + 1))}
         disabled={value >= MAX_QTY}
-        aria-label="Increase quantity"
+        aria-label="Zvýšit množství"
         className="text-muted hover:text-fg grid h-10 w-10 place-items-center rounded-full disabled:opacity-30"
       >
         <Plus size={15} />

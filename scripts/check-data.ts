@@ -18,7 +18,7 @@ const fail = (m: string) => errors.push(m)
 
 // Words that must never appear in claim-bearing copy. Negated "what research does NOT show" lists are exempt.
 const BANNED =
-  /\b(cure[sd]?|curing|detox\w*|heal(s|ing|ed)?|repair(s|ing|ed)?|cleans(e|es|ing)|boost(s|ing)?|miracle|superfood)\b/i
+  /(?<!\p{L})(cure[sd]?|curing|detox\p{L}*|heal(s|ing|ed)?|repair(s|ing|ed)?|cleans(e|es|ing)|boost\p{L}*|miracle|superfood|vyléč\p{L}*|léčí|detoxik\p{L}*|očist\p{L}*|zázra\p{L}*|superpotravin\p{L}*)(?!\p{L})/iu
 const checkCopy = (where: string, text: string | undefined) => {
   if (text && BANNED.test(text))
     fail(`${where}: banned claim wording "${text.match(BANNED)![0]}" in: ${text}`)
@@ -69,7 +69,7 @@ for (const f of FOODS) {
   for (const k of Object.keys(f.micros)) if (!(k in NUTRIENTS)) fail(`food ${f.id}: unknown nutrient ${k}`)
   if (!existsSync(join(publicDir, f.image))) fail(`food ${f.id}: image missing at public${f.image}`)
   checkCopy(`food ${f.id} note`, f.note)
-  if (f.category === 'Fermented' && f.liveCultures === undefined)
+  if (f.category === 'Fermentované' && f.liveCultures === undefined)
     warn.push(`food ${f.id}: fermented but liveCultures unset`)
 }
 
@@ -90,7 +90,7 @@ for (const p of PRODUCTS) {
     if (c.verified) fail(`${where}: non-organic product must not be marked verified organic`)
     if (c.controlBody) fail(`${where}: non-organic product must not show an organic control-body code`)
   }
-  if (c.status === 'wild' && p.food && FOOD_BY_ID[p.food]?.category !== 'Fish & seafood')
+  if (c.status === 'wild' && p.food && FOOD_BY_ID[p.food]?.category !== 'Ryby a mořské plody')
     fail(`${where}: "wild" status is reserved for wild-caught fish`)
   if (/\bnatural\b/i.test(p.name)) warn.push(`${where}: avoid "natural" in names — say what it is instead`)
   // Organic-ingredient marking: an EU organic product's ingredient list must mark organic ingredients with *

@@ -9,8 +9,8 @@ export function FoodsTab({ organ }: { organ: Organ }) {
   return (
     <div>
       <p className="text-muted mb-4 text-[14px]">
-        Foods where 100 g supplies at least the EU &ldquo;source of&rdquo; level (≥ 15 % of the reference
-        value) of a nutrient this organ depends on. Ranked by evidence and amount — computed from USDA data.
+        Potraviny, ve kterých 100 g dosáhne alespoň úrovně „zdroj“ podle EU (≥ 15 % referenční hodnoty) u
+        živiny, na které orgán závisí. Řazeno podle síly důkazů a množství — vypočteno z dat USDA.
       </p>
       <ul className="grid grid-cols-2 gap-3">
         {foods.map(({ food, via }) => (

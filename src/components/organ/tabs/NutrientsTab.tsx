@@ -19,7 +19,7 @@ export function NutrientsTab({ organ }: { organ: Organ }) {
                 </Link>
                 <p className="text-subtle font-mono text-[12px]">
                   {n.kind}
-                  {on.relation === 'handles' && ' · handled by this organ'}
+                  {on.relation === 'handles' && ' · tento orgán ji zpracovává'}
                 </p>
               </div>
               <EvidenceBadge level={on.level} />
@@ -27,13 +27,13 @@ export function NutrientsTab({ organ }: { organ: Organ }) {
             <p className="text-fg/90 mt-2.5 text-[14.5px]">{on.role}</p>
             {n.functions.length === 0 && (
               <p className="text-warn/90 mt-2 text-[13px]">
-                No EU-authorised health claim exists for this nutrient.
+                Pro tuto živinu neexistuje zdravotní tvrzení schválené EU.
               </p>
             )}
             {top.length > 0 && on.id !== 'water' && (
               <div className="border-line mt-3 border-t pt-3">
                 <p className="text-subtle mb-2 font-mono text-[12px] tracking-wider uppercase">
-                  Top food sources · per 100 g
+                  Nejlepší zdroje · na 100 g
                 </p>
                 <ul className="flex flex-wrap gap-2">
                   {top.map(({ food, v }) => {
@@ -57,7 +57,7 @@ export function NutrientsTab({ organ }: { organ: Organ }) {
             )}
             {on.id === 'water' && (
               <p className="text-subtle mt-3 text-[13px]">
-                Drinks supply most water; foods such as fruit, vegetables and soups add roughly a fifth.
+                Většinu vody dodávají nápoje; potraviny jako ovoce, zelenina a polévky přidají zhruba pětinu.
               </p>
             )}
           </li>

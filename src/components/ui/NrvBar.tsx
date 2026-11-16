@@ -16,7 +16,7 @@ export function NrvBar({ id, value }: { id: NutrientId; value: number }) {
           {fmtAmount(value, n.unit)}
           {pct !== undefined && (
             <span className={source ? 'text-cyan ml-2' : 'text-subtle ml-2'}>
-              {pct}% {n.ref?.kind === 'EU NRV' ? 'NRV' : n.ref?.kind}
+              {pct} % {n.ref?.kind}
             </span>
           )}
         </span>

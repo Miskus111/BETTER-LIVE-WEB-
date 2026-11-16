@@ -8,42 +8,43 @@ import { commerce, type Address, type Order } from '@/lib/commerce'
 import { useCart } from '@/lib/store/cart'
 import { useCartTotals } from '@/lib/store/useCartTotals'
 import { useHydrated } from '@/lib/useHydrated'
-import { eur } from '@/lib/format'
+import { czk } from '@/lib/format'
 import { OrderSummary } from './OrderSummary'
 
 type Errors = Partial<Record<keyof Address, string>>
 
 const FIELDS: { key: keyof Address; label: string; type?: string; autoComplete: string; span?: boolean }[] = [
-  { key: 'name', label: 'Full name', autoComplete: 'name', span: true },
-  { key: 'email', label: 'Email', type: 'email', autoComplete: 'email', span: true },
-  { key: 'street', label: 'Street and number', autoComplete: 'street-address', span: true },
-  { key: 'postcode', label: 'Postcode', autoComplete: 'postal-code' },
-  { key: 'city', label: 'City', autoComplete: 'address-level2' },
+  { key: 'name', label: 'Jméno a příjmení', autoComplete: 'name', span: true },
+  { key: 'email', label: 'E-mail', type: 'email', autoComplete: 'email', span: true },
+  { key: 'street', label: 'Ulice a číslo popisné', autoComplete: 'street-address', span: true },
+  { key: 'postcode', label: 'PSČ', autoComplete: 'postal-code' },
+  { key: 'city', label: 'Město', autoComplete: 'address-level2' },
 ]
 
 const COUNTRIES = [
-  'Austria',
-  'Belgium',
-  'Czechia',
-  'Denmark',
-  'France',
-  'Germany',
-  'Ireland',
-  'Italy',
-  'Netherlands',
-  'Poland',
-  'Slovakia',
-  'Spain',
+  'Česko',
+  'Slovensko',
+  'Rakousko',
+  'Německo',
+  'Polsko',
+  'Maďarsko',
+  'Belgie',
+  'Dánsko',
+  'Francie',
+  'Irsko',
+  'Itálie',
+  'Nizozemsko',
+  'Španělsko',
 ]
 
 export function validate(a: Address): Errors {
   const e: Errors = {}
-  if (a.name.trim().length < 2) e.name = 'Enter your full name.'
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(a.email.trim())) e.email = 'Enter a valid email address.'
-  if (a.street.trim().length < 3) e.street = 'Enter your street and house number.'
-  if (!/^[A-Za-z0-9][A-Za-z0-9 -]{2,9}$/.test(a.postcode.trim())) e.postcode = 'Enter a valid postcode.'
-  if (a.city.trim().length < 2) e.city = 'Enter your city.'
-  if (!COUNTRIES.includes(a.country)) e.country = 'Choose a country.'
+  if (a.name.trim().length < 2) e.name = 'Zadejte jméno a příjmení.'
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(a.email.trim())) e.email = 'Zadejte platný e-mail.'
+  if (a.street.trim().length < 3) e.street = 'Zadejte ulici a číslo popisné.'
+  if (!/^[A-Za-z0-9][A-Za-z0-9 -]{2,9}$/.test(a.postcode.trim())) e.postcode = 'Zadejte platné PSČ.'
+  if (a.city.trim().length < 2) e.city = 'Zadejte město.'
+  if (!COUNTRIES.includes(a.country)) e.country = 'Vyberte zemi.'
   return e
 }
 
@@ -57,7 +58,7 @@ export function CheckoutForm() {
     street: '',
     city: '',
     postcode: '',
-    country: 'Czechia',
+    country: 'Česko',
   })
   const [errors, setErrors] = useState<Errors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof Address, boolean>>>({})
@@ -71,9 +72,9 @@ export function CheckoutForm() {
   if (!items.length)
     return (
       <div className="card p-10 text-center">
-        <p className="text-[17px]">Your cart is empty.</p>
+        <p className="text-[17px]">Košík je prázdný.</p>
         <Link href="/shop" className="btn btn-primary mt-5">
-          Browse the store
+          Procházet obchod
         </Link>
       </div>
     )
@@ -122,12 +123,12 @@ export function CheckoutForm() {
         >
           <Lock size={15} className="text-warn mt-0.5 shrink-0" aria-hidden />
           <span>
-            <strong className="font-medium">Demo checkout.</strong> No payment is taken and nothing will be
-            shipped. Please do not enter real personal data.
+            <strong className="font-medium">Ukázková pokladna.</strong> Nic se neplatí ani neodesílá.
+            Nezadávejte prosím skutečné osobní údaje.
           </span>
         </p>
         <fieldset className="min-w-0">
-          <legend className="eyebrow mb-4">Delivery details</legend>
+          <legend className="eyebrow mb-4">Doručovací údaje</legend>
           <div className="grid gap-4 sm:grid-cols-2">
             {FIELDS.map((f) => (
               <div key={f.key} className={f.span ? 'sm:col-span-2' : undefined}>
@@ -159,7 +160,7 @@ export function CheckoutForm() {
             ))}
             <div className="sm:col-span-2">
               <label htmlFor="f-country" className="text-muted mb-1.5 block text-[14px]">
-                Country
+                Země
               </label>
               <select
                 id="f-country"
@@ -176,16 +177,16 @@ export function CheckoutForm() {
         </fieldset>
 
         <fieldset className="mt-8 min-w-0">
-          <legend className="eyebrow mb-3">Payment</legend>
+          <legend className="eyebrow mb-3">Platba</legend>
           <p className="border-line text-muted rounded-xl border p-4 text-[14px]">
-            Payment is disabled in this prototype. A payment provider (e.g. Stripe or Shopify Checkout) plugs
-            in via <code className="text-fg font-mono text-[13px]">src/lib/commerce</code>.
+            Platba je v tomto prototypu vypnutá. Platební bránu (např. Stripe nebo Shopify Checkout) lze
+            připojit přes <code className="text-fg font-mono text-[13px]">src/lib/commerce</code>.
           </p>
         </fieldset>
 
         {status === 'error' && (
           <p role="alert" className="mt-5 text-[14px] text-[#ff9b9b]">
-            Something went wrong placing the demo order. Please try again.
+            Ukázkovou objednávku se nepodařilo odeslat. Zkuste to prosím znovu.
           </p>
         )}
 
@@ -197,29 +198,29 @@ export function CheckoutForm() {
         >
           {status === 'submitting' ? (
             <>
-              <Loader2 size={16} className="animate-spin" aria-hidden /> Placing demo order…
+              <Loader2 size={16} className="animate-spin" aria-hidden /> Odesílám ukázkovou objednávku…
             </>
           ) : (
-            `Place demo order · ${eur(total)}`
+            `Odeslat ukázkovou objednávku · ${czk(total)}`
           )}
         </button>
       </form>
 
-      <aside className="card h-fit p-5 lg:sticky lg:top-20" aria-label="Order summary">
-        <h2 className="eyebrow mb-4">Your order</h2>
+      <aside className="card h-fit p-5 lg:sticky lg:top-20" aria-label="Souhrn objednávky">
+        <h2 className="eyebrow mb-4">Vaše objednávka</h2>
         <ul className="mb-5 space-y-2 text-[14px]">
           {items.map((i) => (
             <li key={i.id} className="flex justify-between gap-3">
               <span className="min-w-0 truncate">
                 {i.qty} × {i.product.name}
               </span>
-              <span className="font-mono">{eur(i.qty * i.product.price)}</span>
+              <span className="font-mono">{czk(i.qty * i.product.price)}</span>
             </li>
           ))}
         </ul>
         <OrderSummary subtotal={subtotal} shipping={shipping} total={total} />
         <Link href="/cart" className="link mt-4 inline-block text-[13.5px]">
-          Edit cart
+          Upravit košík
         </Link>
       </aside>
     </div>
@@ -230,11 +231,11 @@ function Confirmation({ order }: { order: Order }) {
   return (
     <div className="card fade-up mx-auto max-w-xl p-8 text-center" data-testid="order-confirmation">
       <CheckCircle2 size={40} className="text-cyan mx-auto" aria-hidden />
-      <h2 className="display mt-4 text-[38px]">Demo order placed</h2>
+      <h2 className="display mt-4 text-[38px]">Ukázková objednávka odeslána</h2>
       <p className="text-muted mt-2">
-        Thank you, {order.address.name.split(' ')[0]}. This was a demonstration — no payment was taken.
+        Děkujeme, {order.address.name.split(' ')[0]}. Šlo jen o ukázku — nic se nezaplatilo.
       </p>
-      <p className="text-subtle mt-6 font-mono text-[13px]">Order number</p>
+      <p className="text-subtle mt-6 font-mono text-[13px]">Číslo objednávky</p>
       <p className="text-cyan font-mono text-[22px] tracking-wider" data-testid="order-number">
         {order.id}
       </p>
@@ -244,20 +245,20 @@ function Confirmation({ order }: { order: Order }) {
             <dt className="text-muted">
               {l.qty} × {PRODUCT_BY_ID[l.productId]?.name ?? l.productId}
             </dt>
-            <dd className="font-mono">{eur(l.qty * l.unitPrice)}</dd>
+            <dd className="font-mono">{czk(l.qty * l.unitPrice)}</dd>
           </div>
         ))}
         <div className="border-line mt-2 flex justify-between border-t pt-2 font-medium">
-          <dt>Total</dt>
-          <dd className="font-mono">{eur(order.total)}</dd>
+          <dt>Celkem</dt>
+          <dd className="font-mono">{czk(order.total)}</dd>
         </div>
       </dl>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link href="/shop" className="btn btn-primary">
-          Continue shopping
+          Pokračovat v nákupu
         </Link>
         <Link href="/" className="btn btn-ghost">
-          Back to the body
+          Zpět na tělo
         </Link>
       </div>
     </div>

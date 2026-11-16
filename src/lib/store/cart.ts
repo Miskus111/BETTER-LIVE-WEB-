@@ -32,9 +32,9 @@ export const useCart = create<CartState>()(
           : [...get().lines, { id, qty: Math.min(MAX_QTY, qty) }]
         set({ lines })
         toast({
-          title: 'Added to cart',
+          title: 'Přidáno do košíku',
           body: `${qty} × ${p.name}`,
-          action: { label: 'View cart', href: '/cart' },
+          action: { label: 'Zobrazit košík', href: '/cart' },
         })
       },
       setQty: (id, qty) =>

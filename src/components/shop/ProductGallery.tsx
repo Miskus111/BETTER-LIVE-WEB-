@@ -11,18 +11,18 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
       <div className="card overflow-hidden">
         <img
           src={images[i]}
-          alt={`${name} — image ${i + 1} of ${images.length} (placeholder)`}
+          alt={`${name} — obrázek ${i + 1} z ${images.length} (ilustrační)`}
           className="aspect-[10/9] w-full object-cover"
         />
       </div>
       {images.length > 1 && (
-        <ul className="mt-3 flex gap-2" aria-label="Choose image">
+        <ul className="mt-3 flex gap-2" aria-label="Vybrat obrázek">
           {images.map((src, k) => (
             <li key={src}>
               <button
                 type="button"
                 onClick={() => setI(k)}
-                aria-label={`Show image ${k + 1}`}
+                aria-label={`Zobrazit obrázek ${k + 1}`}
                 aria-current={i === k}
                 className={cx(
                   'block w-20 overflow-hidden rounded-xl border-2 transition',

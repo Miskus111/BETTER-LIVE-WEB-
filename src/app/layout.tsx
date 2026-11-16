@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
-    locale: 'en_GB',
+    locale: 'cs_CZ',
   },
   twitter: { card: 'summary_large_image' },
 }
@@ -34,13 +34,13 @@ export const viewport: Viewport = { themeColor: '#07090c', colorScheme: 'dark' }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable} ${serif.variable}`}>
+    <html lang="cs" className={`${geist.variable} ${geistMono.variable} ${serif.variable}`}>
       <body>
         <a
           href="#main"
           className="bg-cyan text-ink sr-only z-[80] rounded-full px-4 py-2 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
-          Skip to content
+          Přeskočit na obsah
         </a>
         <Nav />
         <main id="main">{children}</main>

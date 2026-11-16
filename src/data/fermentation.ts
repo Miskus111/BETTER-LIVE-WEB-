@@ -1,22 +1,22 @@
-/** Content for the intestines "fermentation" explainer, following the ISAPP consensus (Marco et al. 2021). */
+/** Obsah vysvětlivky „fermentace“ u střev podle konsenzu ISAPP (Marco a kol. 2021). */
 export const FERMENTATION = {
   intro:
-    'Fermentation is a process, not a health claim. Microbes convert sugars into acids, gas or alcohol — which preserves food and changes flavour. What reaches your gut afterwards depends on how the food was handled.',
+    'Fermentace je proces, ne zdravotní tvrzení. Mikroby přeměňují cukry na kyseliny, plyn nebo alkohol — tím potravinu konzervují a mění její chuť. Co se nakonec dostane do střev, záleží na tom, jak se s potravinou dál zacházelo.',
   terms: [
     {
-      term: 'Fermented food',
-      def: 'Made through desired microbial growth and enzymatic conversion. Bread, wine, most soy sauce and canned sauerkraut are fermented foods — but contain no live microbes by the time you eat them.',
+      term: 'Fermentovaná potravina',
+      def: 'Vzniká žádoucím růstem mikrobů a enzymatickou přeměnou. Chléb, víno, většina sójové omáčky i sterilované kysané zelí jsou fermentované potraviny — v době konzumace ale žádné živé mikroby neobsahují.',
     },
     {
-      term: 'Live cultures',
-      def: 'The fermenting microbes are still alive when eaten, e.g. yoghurt or kefir that has not been heat-treated after fermentation, or refrigerated raw sauerkraut and kimchi.',
+      term: 'Živé kultury',
+      def: 'Fermentační mikroby jsou při konzumaci stále živé — např. jogurt nebo kefír, které po fermentaci nebyly tepelně ošetřeny, nebo chlazené syrové kysané zelí a kimči.',
     },
     {
-      term: 'Probiotic',
-      def: 'Defined, characterised strains shown in human studies to confer a health benefit at a stated dose. Benefits are strain-specific and cannot be transferred to "fermented foods" in general. "Probiotic" is not a permitted claim on EU food labels.',
+      term: 'Probiotikum',
+      def: 'Definované, charakterizované kmeny, u nichž studie na lidech prokázaly přínos pro zdraví v uvedené dávce. Účinky jsou kmenově specifické a nelze je přenést na „fermentované potraviny“ obecně. „Probiotikum“ není na etiketách potravin v EU povolené tvrzení.',
     },
   ],
-  heat: 'Pasteurised, canned, baked or shelf-stable products contain no live cultures, even if they were fermented. Look for "unpasteurised", "live cultures" and refrigerated storage.',
+  heat: 'Pasterované, sterilované, pečené nebo trvanlivé výrobky živé kultury neobsahují, i když byly fermentované. Hledejte „nepasterováno“, „živé kultury“ a skladování v chladu.',
   claim:
-    'The only EU-authorised claim for live cultures: live yoghurt cultures improve lactose digestion in individuals with difficulty digesting lactose.',
+    'Jediné schválené tvrzení EU pro živé kultury: živé kultury v jogurtu zlepšují trávení laktózy u osob, které mají potíže s jejím trávením.',
 } as const

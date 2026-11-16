@@ -16,7 +16,7 @@ export default defineConfig({
   ],
   webServer: {
     // production build: what users get, and it does not collide with a running `npm run dev`
-    command: `npm run build && npx next start -p ${PORT}`,
+    command: `NEXT_DIST_DIR=.next-test npm run build && NEXT_DIST_DIR=.next-test npx next start -p ${PORT}`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: true,
     timeout: 300_000,

@@ -91,14 +91,14 @@ export function BodyCanvas({
         className="absolute right-3 bottom-3 flex flex-col gap-1.5"
         onPointerDown={(e) => e.stopPropagation()}
       >
-        <CtrlBtn label="Zoom in" onClick={() => zoomBy(0.7)}>
+        <CtrlBtn label="Přiblížit" onClick={() => zoomBy(0.7)}>
           <Plus size={16} />
         </CtrlBtn>
-        <CtrlBtn label="Zoom out" onClick={() => zoomBy(1.4)}>
+        <CtrlBtn label="Oddálit" onClick={() => zoomBy(1.4)}>
           <Minus size={16} />
         </CtrlBtn>
         <CtrlBtn
-          label="Full body"
+          label="Celé tělo"
           onClick={() => {
             onSelect(null)
             onReset()
@@ -113,19 +113,19 @@ export function BodyCanvas({
         className="border-line bg-ink/70 absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full border p-1 backdrop-blur-md"
         onPointerDown={(e) => e.stopPropagation()}
       >
-        <CtrlBtn label="Previous organ" onClick={onPrev} round>
+        <CtrlBtn label="Předchozí orgán" onClick={onPrev} round>
           <ChevronLeft size={17} />
         </CtrlBtn>
         <span className="text-muted min-w-[92px] px-1 text-center font-mono text-[12px] tracking-wider uppercase">
-          {selected ? ORGAN_BY_ID[selected].shortName : 'Full body'}
+          {selected ? ORGAN_BY_ID[selected].shortName : 'Celé tělo'}
         </span>
-        <CtrlBtn label="Next organ" onClick={onNext} round>
+        <CtrlBtn label="Další orgán" onClick={onNext} round>
           <ChevronRight size={17} />
         </CtrlBtn>
       </div>
 
       <p className="text-subtle pointer-events-none absolute top-3 left-3 hidden items-center gap-1.5 font-mono text-[12px] md:flex">
-        <Move size={12} aria-hidden /> Drag to pan · double-click to zoom
+        <Move size={12} aria-hidden /> Tažením posunete · dvojklikem přiblížíte
       </p>
     </div>
   )

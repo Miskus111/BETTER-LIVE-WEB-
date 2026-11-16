@@ -6,58 +6,58 @@ some margin (cards crop to 4:3 and 5:4), then update the path in `src/data` if t
 
 ## Foods — `public/images/foods/`
 
-- [ ] `beef.svg` — Lean beef (raw, 95% lean mince)
-- [ ] `beef-liver.svg` — Beef liver (raw)
-- [ ] `chicken.svg` — Chicken breast (raw, skinless)
-- [ ] `pork.svg` — Pork tenderloin (raw)
-- [ ] `salmon.svg` — Atlantic salmon (raw, farmed)
-- [ ] `sardines.svg` — Sardines (canned in oil, drained, with bones)
-- [ ] `mackerel.svg` — Atlantic mackerel (raw)
-- [ ] `cod.svg` — Atlantic cod (raw)
-- [ ] `egg.svg` — Whole egg (raw, ≈ 2 eggs)
-- [ ] `greek-yogurt.svg` — Greek yogurt (plain, whole milk)
-- [ ] `yogurt.svg` — Natural yogurt (plain, whole milk)
-- [ ] `milk.svg` — Whole milk (3.3% fat)
-- [ ] `emmental.svg` — Emmental cheese (hard cheese)
-- [ ] `kefir.svg` — Kefir (plain, whole milk)
-- [ ] `sauerkraut.svg` — Sauerkraut (raw, unpasteurised)
-- [ ] `kimchi.svg` — Kimchi (traditional, unpasteurised)
-- [ ] `banana.svg` — Banana (raw)
-- [ ] `orange.svg` — Orange (raw)
-- [ ] `blueberries.svg` — Blueberries (raw)
-- [ ] `strawberries.svg` — Strawberries (raw)
-- [ ] `spinach.svg` — Spinach (raw)
-- [ ] `kale.svg` — Kale (raw)
-- [ ] `carrot.svg` — Carrot (raw)
-- [ ] `potato.svg` — Potato (baked, with skin)
-- [ ] `pumpkin-seeds.svg` — Pumpkin seeds (hulled, dried)
-- [ ] `almonds.svg` — Almonds (raw)
-- [ ] `walnuts.svg` — Walnuts (raw)
-- [ ] `lentils.svg` — Lentils (cooked)
-- [ ] `black-beans.svg` — Black beans (cooked)
-- [ ] `chickpeas.svg` — Chickpeas (cooked)
-- [ ] `oats.svg` — Rolled oats (dry)
-- [ ] `olive-oil.svg` — Extra virgin olive oil (100 ml ≈ 92 g)
+- [ ] `beef.svg` — Libové hovězí (syrové, mleté 95 % libové)
+- [ ] `beef-liver.svg` — Hovězí játra (syrová)
+- [ ] `chicken.svg` — Kuřecí prsa (syrová, bez kůže)
+- [ ] `pork.svg` — Vepřová panenka (syrová)
+- [ ] `salmon.svg` — Losos obecný (syrový, z chovu)
+- [ ] `sardines.svg` — Sardinky (v oleji, okapané, s kostmi)
+- [ ] `mackerel.svg` — Makrela obecná (syrová)
+- [ ] `cod.svg` — Treska obecná (syrová)
+- [ ] `egg.svg` — Vejce (syrová, ≈ 2 vejce)
+- [ ] `greek-yogurt.svg` — Řecký jogurt (bílý, z plnotučného mléka)
+- [ ] `yogurt.svg` — Bílý jogurt (bílý, z plnotučného mléka)
+- [ ] `milk.svg` — Plnotučné mléko (3,3 % tuku)
+- [ ] `emmental.svg` — Ementál (tvrdý sýr)
+- [ ] `kefir.svg` — Kefír (bílý, z plnotučného mléka)
+- [ ] `sauerkraut.svg` — Kysané zelí (syrové, nepasterované)
+- [ ] `kimchi.svg` — Kimči (tradiční, nepasterované)
+- [ ] `banana.svg` — Banán (syrový)
+- [ ] `orange.svg` — Pomeranč (syrový)
+- [ ] `blueberries.svg` — Borůvky (syrové)
+- [ ] `strawberries.svg` — Jahody (syrové)
+- [ ] `spinach.svg` — Špenát (syrový)
+- [ ] `kale.svg` — Kadeřávek (syrový)
+- [ ] `carrot.svg` — Mrkev (syrová)
+- [ ] `potato.svg` — Brambory (pečené ve slupce)
+- [ ] `pumpkin-seeds.svg` — Dýňová semínka (loupaná, sušená)
+- [ ] `almonds.svg` — Mandle (syrové)
+- [ ] `walnuts.svg` — Vlašské ořechy (syrové)
+- [ ] `lentils.svg` — Čočka (vařená)
+- [ ] `black-beans.svg` — Černé fazole (vařené)
+- [ ] `chickpeas.svg` — Cizrna (vařená)
+- [ ] `oats.svg` — Ovesné vločky (suché)
+- [ ] `olive-oil.svg` — Extra panenský olivový olej (100 ml ≈ 92 g)
 
 ## Products — `public/images/products/` (main image + packshot)
 
-- [ ] `kefir.svg`, `kefir-label.svg` — Whole-Milk Kefir, 500 ml
-- [ ] `greek-yogurt.svg`, `greek-yogurt-label.svg` — Strained Greek-Style Yogurt 10 %, 400 g
-- [ ] `yogurt.svg`, `yogurt-label.svg` — Plain Live Yogurt 3.5 %, 500 g
-- [ ] `eggs.svg`, `eggs-label.svg` — Pasture-Raised Eggs, 10 pcs · size M
-- [ ] `sockeye.svg`, `sockeye-label.svg` — Wild Sockeye Salmon Fillets, 2 × 125 g · frozen
-- [ ] `organic-salmon.svg`, `organic-salmon-label.svg` — Organic Atlantic Salmon, 250 g · chilled
-- [ ] `sardines.svg`, `sardines-label.svg` — Sardines in Organic Olive Oil, 120 g tin
-- [ ] `olive-oil.svg`, `olive-oil-label.svg` — Early-Harvest Extra Virgin Olive Oil, 500 ml
-- [ ] `pumpkin-seeds.svg`, `pumpkin-seeds-label.svg` — Styrian Pumpkin Seeds, 250 g
-- [ ] `sauerkraut.svg`, `sauerkraut-label.svg` — Raw Sauerkraut, 500 g jar
-- [ ] `kimchi.svg`, `kimchi-label.svg` — Napa Cabbage Kimchi, 300 g jar
-- [ ] `almonds.svg`, `almonds-label.svg` — Raw Almonds, 200 g
-- [ ] `oats.svg`, `oats-label.svg` — Wholegrain Rolled Oats, 1 kg
-- [ ] `lentils.svg`, `lentils-label.svg` — Red Lentils, 500 g
-- [ ] `beef.svg`, `beef-label.svg` — Grass-Fed Beef Mince, 400 g
-- [ ] `carrots.svg`, `carrots-label.svg` — Bunched Carrots, 1 kg
-- [ ] `kale.svg`, `kale-label.svg` — Curly Kale, 250 g
-- [ ] `blueberries.svg`, `blueberries-label.svg` — Wild Blueberries, 500 g · frozen
-- [ ] `seed-mix.svg`, `seed-mix-label.svg` — Magnesium-Rich Seed & Nut Mix, 300 g
-- [ ] `algae-omega3.svg`, `algae-omega3-label.svg` — Algae Omega-3 Oil, 100 ml
+- [ ] `kefir.svg`, `kefir-label.svg` — Kefír z plnotučného mléka, 500 ml
+- [ ] `greek-yogurt.svg`, `greek-yogurt-label.svg` — Cezený jogurt řeckého typu 10 %, 400 g
+- [ ] `yogurt.svg`, `yogurt-label.svg` — Bílý jogurt se živými kulturami 3,5 %, 500 g
+- [ ] `eggs.svg`, `eggs-label.svg` — Vejce z pastevního chovu, 10 ks · velikost M
+- [ ] `sockeye.svg`, `sockeye-label.svg` — Divoký losos nerka — filety, 2 × 125 g · mražené
+- [ ] `organic-salmon.svg`, `organic-salmon-label.svg` — Bio losos obecný, 250 g · chlazený
+- [ ] `sardines.svg`, `sardines-label.svg` — Sardinky v bio olivovém oleji, 120 g plechovka
+- [ ] `olive-oil.svg`, `olive-oil-label.svg` — Extra panenský olivový olej z rané sklizně, 500 ml
+- [ ] `pumpkin-seeds.svg`, `pumpkin-seeds-label.svg` — Štýrská dýňová semínka, 250 g
+- [ ] `sauerkraut.svg`, `sauerkraut-label.svg` — Syrové kysané zelí, 500 g sklenice
+- [ ] `kimchi.svg`, `kimchi-label.svg` — Kimči z pekingského zelí, 300 g sklenice
+- [ ] `almonds.svg`, `almonds-label.svg` — Syrové mandle, 200 g
+- [ ] `oats.svg`, `oats-label.svg` — Celozrnné ovesné vločky, 1 kg
+- [ ] `lentils.svg`, `lentils-label.svg` — Červená čočka, 500 g
+- [ ] `beef.svg`, `beef-label.svg` — Mleté hovězí z pastvy, 400 g
+- [ ] `carrots.svg`, `carrots-label.svg` — Svazková mrkev, 1 kg
+- [ ] `kale.svg`, `kale-label.svg` — Kadeřávek, 250 g
+- [ ] `blueberries.svg`, `blueberries-label.svg` — Lesní borůvky, 500 g · mražené
+- [ ] `seed-mix.svg`, `seed-mix-label.svg` — Směs semínek a ořechů bohatá na hořčík, 300 g
+- [ ] `algae-omega3.svg`, `algae-omega3-label.svg` — Omega-3 olej z řas, 100 ml

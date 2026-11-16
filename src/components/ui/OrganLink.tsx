@@ -27,7 +27,7 @@ export function OrganLink({ id, detail }: { id: OrganId; detail?: string }) {
         type="button"
         className={cls}
         onClick={() => focusOrgan(id)}
-        aria-label={`Show ${o.shortName} on the body`}
+        aria-label={`Ukázat na těle: ${o.shortName}`}
       >
         {inner}
       </button>

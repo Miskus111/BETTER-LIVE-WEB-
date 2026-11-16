@@ -2,21 +2,25 @@ import Link from 'next/link'
 import { EvidenceLegend } from '@/components/ui/EvidenceBadge'
 
 const RULES = [
-  { k: '01', t: 'No cures', d: 'No food cures, detoxes or repairs an organ. We never say it does.' },
+  {
+    k: '01',
+    t: 'Žádné zázraky',
+    d: 'Žádná potravina orgán neléčí, nedetoxikuje ani neopravuje. Nikdy to netvrdíme.',
+  },
   {
     k: '02',
-    t: 'Graded evidence',
-    d: 'Every nutrient–organ link carries an evidence level, using EU-authorised claim wording where it exists.',
+    t: 'Hodnocené důkazy',
+    d: 'Každé propojení živiny s orgánem má úroveň důkazů a tam, kde existuje, používá znění schválené EU.',
   },
   {
     k: '03',
-    t: 'Computed, not curated',
-    d: 'A food is linked to an organ only if 100 g supplies ≥ 15 % of the reference value — calculated from USDA data.',
+    t: 'Vypočteno, ne vybráno',
+    d: 'Potravina je s orgánem propojená, jen pokud 100 g dodá ≥ 15 % referenční hodnoty — spočítáno z dat USDA.',
   },
   {
     k: '04',
-    t: 'Shared nutrients',
-    d: 'No nutrient serves a single organ. The body map shows examples, not exclusive needs.',
+    t: 'Sdílené živiny',
+    d: 'Žádná živina neslouží jen jednomu orgánu. Mapa těla ukazuje příklady, ne výlučné potřeby.',
   },
 ]
 
@@ -33,10 +37,10 @@ export function ScienceTeaser() {
         ))}
       </ol>
       <div className="card flex flex-col p-6">
-        <h3 className="eyebrow mb-4">Evidence legend</h3>
+        <h3 className="eyebrow mb-4">Úrovně důkazů</h3>
         <EvidenceLegend />
         <Link href="/science" className="btn btn-ghost mt-auto self-start">
-          Methodology &amp; sources
+          Metodika a zdroje
         </Link>
       </div>
     </div>

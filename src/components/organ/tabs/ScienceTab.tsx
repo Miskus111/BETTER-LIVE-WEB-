@@ -7,7 +7,7 @@ export function ScienceTab({ organ }: { organ: Organ }) {
     <div className="space-y-7">
       <section>
         <h3 className="eyebrow mb-3 flex items-center gap-2">
-          <FlaskRound size={14} aria-hidden /> What research says
+          <FlaskRound size={14} aria-hidden /> Co říká výzkum
         </h3>
         <ul className="space-y-3">
           {organ.science.points.map((p) => (
@@ -19,7 +19,7 @@ export function ScienceTab({ organ }: { organ: Organ }) {
       </section>
       <section>
         <h3 className="eyebrow !text-warn mb-3 flex items-center gap-2">
-          <CircleSlash size={14} aria-hidden /> What research does NOT show
+          <CircleSlash size={14} aria-hidden /> Co výzkum NEPROKÁZAL
         </h3>
         <ul className="space-y-3">
           {organ.science.notShown.map((p) => (
@@ -30,11 +30,11 @@ export function ScienceTab({ organ }: { organ: Organ }) {
         </ul>
       </section>
       <section>
-        <h3 className="eyebrow mb-3">Evidence levels</h3>
+        <h3 className="eyebrow mb-3">Úrovně důkazů</h3>
         <EvidenceLegend />
       </section>
       <section>
-        <h3 className="eyebrow mb-3">Sources</h3>
+        <h3 className="eyebrow mb-3">Zdroje</h3>
         <ul className="space-y-2">
           {organ.science.sources.map((s) => (
             <li key={s.url}>

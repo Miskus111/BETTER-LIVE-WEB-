@@ -7,28 +7,28 @@ import { SampleDataLabel } from '@/components/layout/SampleDataLabel'
 import { isVerifiedOrganic } from '@/lib/nutrition'
 
 export const metadata: Metadata = {
-  title: 'Our standard — organic first',
+  title: 'Náš standard — nejdřív bio',
   description:
-    'Why FLX prioritises certified EU organic food, when we say pasture-raised, and how every product is labelled.',
+    'Proč FLX upřednostňuje certifikované bio potraviny EU, kdy píšeme „z pastvy“ a jak označujeme každý produkt.',
   alternates: { canonical: '/our-standard' },
 }
 
 const PRINCIPLES = [
   {
-    t: 'Certified EU organic wherever it exists',
-    d: 'Dairy, eggs, meat, vegetables and fruit are sourced certified organic under Regulation (EU) 2018/848: no synthetic pesticides, no routine antibiotics, outdoor access for animals, organic feed and annual inspection.',
+    t: 'Certifikované bio EU všude, kde existuje',
+    d: 'Mléčné výrobky, vejce, maso, zeleninu a ovoce nakupujeme certifikované podle nařízení (EU) 2018/848: bez syntetických pesticidů, bez rutinních antibiotik, s výběhem pro zvířata, bio krmivem a každoroční kontrolou.',
   },
   {
-    t: 'Pasture-raised and grass-fed — only when verified',
-    d: 'These words have no legal definition, so we use them only when grazing is checked at the annual inspection and recorded in the product data (pasture: verified).',
+    t: '„Z pastvy“ a „krmeno trávou“ — jen když je to ověřené',
+    d: 'Tyto pojmy nemají právní definici, a tak je používáme jen tam, kde se pastva kontroluje při každoroční inspekci a je zaznamenaná v datech produktu.',
   },
   {
-    t: 'Natural fermentation, traditional preparation',
-    d: 'Fermented foods are made by fermentation — not acidified with vinegar — and labelled “live cultures” only when unpasteurised after fermentation.',
+    t: 'Přirozená fermentace, tradiční postupy',
+    d: 'Fermentované potraviny vznikají fermentací — ne okyselením octem — a „živé kultury“ píšeme jen u výrobků, které po fermentaci nebyly pasterované.',
   },
   {
-    t: 'Nothing unnecessary',
-    d: 'No artificial colours, no sweeteners, no thickeners in dairy, no excessive processing. Every product lists how it was processed.',
+    t: 'Nic zbytečného',
+    d: 'Žádná umělá barviva, sladidla ani zahušťovadla v mléčných výrobcích, žádné přehnané zpracování. U každého produktu uvádíme, jak byl zpracován.',
   },
 ]
 
@@ -36,14 +36,14 @@ export default function StandardPage() {
   const organic = PRODUCTS.filter(isVerifiedOrganic).length
   return (
     <div className="mx-auto max-w-5xl px-4 pt-12 md:px-8">
-      <p className="eyebrow">Our standard</p>
-      <h1 className="display mt-3 text-[48px] md:text-[68px]">Organic first. Honest always.</h1>
+      <p className="eyebrow">Náš standard</p>
+      <h1 className="display mt-3 text-[48px] md:text-[68px]">Nejdřív bio. Vždy poctivě.</h1>
       <p className="text-muted mt-4 max-w-3xl text-[16px]">
-        Organic certification is not a health claim. It is a verifiable production standard — and the most
-        reliable one Europe has. That is why we start there, and why we label everything else plainly.
+        Certifikace bio není zdravotní tvrzení. Je to ověřitelný standard výroby — a ten nejspolehlivější,
+        jaký Evropa má. Proto u něj začínáme a všechno ostatní označujeme bez přikrášlování.
       </p>
       <p className="text-subtle mt-4 font-mono text-[13px]">
-        {organic} of {PRODUCTS.length} products in the current range are certified EU organic.
+        Certifikovaných bio EU je {organic} z {PRODUCTS.length} produktů v aktuální nabídce.
       </p>
 
       <ol className="mt-12 grid gap-4 md:grid-cols-2">
@@ -57,30 +57,30 @@ export default function StandardPage() {
       </ol>
 
       <section className="border-line mt-16 border-t pt-8">
-        <h2 className="display text-[34px]">How products are labelled</h2>
-        <ul className="mt-6 grid grid-cols-1 gap-3">
+        <h2 className="display text-[34px]">Jak produkty označujeme</h2>
+        <ul className="mt-6 grid gap-3">
           <Label icon={<Leaf size={18} className="text-bio" />} name="EU BIO">
-            Shown only when certification is verified and a control-body code is on record (e.g. CZ-BIO-000).
-            Organic ingredients are marked with * in the ingredient list.
+            Jen pokud je certifikace ověřená a máme kód kontrolního subjektu (např. CZ-BIO-000). Bio suroviny
+            jsou ve složení označené hvězdičkou *.
           </Label>
           <Label
             icon={<Fish size={18} className="text-[#9cc9ff]" />}
-            name="Wild-caught · not eligible for organic certification"
+            name="Divoký úlovek · nelze certifikovat jako bio"
           >
-            EU rules allow organic aquaculture, but wild fish cannot be certified. We say so rather than imply
-            otherwise.
+            Pravidla EU povolují bio akvakulturu, divoké ryby ale certifikovat nelze. Píšeme to rovnou, místo
+            abychom naznačovali opak.
           </Label>
-          <Label icon={<Tag size={18} className="text-muted" />} name="Conventional">
-            Anything not certified organic — including products that contain some organic ingredients. Never
-            &ldquo;natural&rdquo;.
+          <Label icon={<Tag size={18} className="text-muted" />} name="Konvenční">
+            Vše, co nemá certifikaci bio — včetně výrobků, které obsahují jen některé bio suroviny. Nikdy
+            „přírodní“.
           </Label>
         </ul>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <SampleDataLabel />
           <p className="text-subtle text-[13.5px]">
-            Producers, prices and control-body codes in this prototype are placeholders. An automated check (
-            <code className="font-mono">npm run check:data</code>) blocks any product that claims organic
-            without a verified code.
+            Výrobci, ceny a kódy kontrolních subjektů jsou v tomto prototypu ukázkové. Automatická kontrola (
+            <code className="font-mono">npm run check:data</code>) zablokuje každý produkt, který tvrdí bio
+            bez ověřeného kódu.
           </p>
         </div>
       </section>
@@ -90,7 +90,7 @@ export default function StandardPage() {
           {SRC.organicReg.title}
         </a>
         <Link href="/shop?bio=1" className="btn btn-primary">
-          Shop EU BIO products
+          Nakupovat EU BIO produkty
         </Link>
       </section>
     </div>

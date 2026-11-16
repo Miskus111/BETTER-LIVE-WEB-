@@ -7,7 +7,7 @@ import { NrvBar } from '@/components/ui/NrvBar'
 import { OrganLink } from '@/components/ui/OrganLink'
 import { CertBadge } from '@/components/shop/CertBadge'
 import { organsForFood, pctRef, productsForFood } from '@/lib/nutrition'
-import { eur } from '@/lib/format'
+import { czk, shortNutrient } from '@/lib/format'
 import { MacroSplitBar } from './MacroSplitBar'
 
 /** Full food detail — used in the homepage explorer and on /food/[id]. */
@@ -30,17 +30,17 @@ export function FoodDetail({
   return (
     <article className="grid grid-cols-1 gap-6" data-testid="food-detail">
       <div className="grid gap-5 sm:grid-cols-[200px_1fr] sm:items-start">
-        <Thumb src={food.image} alt={`${food.name} (placeholder illustration)`} className="rounded-2xl" />
+        <Thumb src={food.image} alt={`${food.name} (ilustrační obrázek)`} className="rounded-2xl" />
         <div>
           <p className="eyebrow">{food.category}</p>
           <H className="display mt-2 text-[36px] md:text-[42px]">{food.name}</H>
-          <p className="text-muted mt-1 font-mono text-[13px]">Per 100 g · {food.basis}</p>
+          <p className="text-muted mt-1 font-mono text-[13px]">Na 100 g · {food.basis}</p>
           {showPageLink && (
             <Link
               href={`/food/${food.id}`}
               className="link mt-2 inline-flex items-center gap-1 text-[13.5px]"
             >
-              Open food page <ArrowUpRight size={13} aria-hidden />
+              Otevřít stránku potraviny <ArrowUpRight size={13} aria-hidden />
             </Link>
           )}
         </div>
@@ -49,15 +49,15 @@ export function FoodDetail({
       <dl className="grid grid-cols-5 gap-2">
         {[
           ['kcal', food.kcal, ''],
-          ['Protein', food.macros.protein, 'g'],
-          ['Fat', food.macros.fat, 'g'],
-          ['Carbs', food.macros.carbs, 'g'],
-          ['Fibre', food.macros.fiber, 'g'],
+          ['Bílkoviny', food.macros.protein, 'g'],
+          ['Tuky', food.macros.fat, 'g'],
+          ['Sacharidy', food.macros.carbs, 'g'],
+          ['Vláknina', food.macros.fiber, 'g'],
         ].map(([k, v, u]) => (
           <div key={k as string} className="border-line rounded-xl border p-2.5 text-center">
             <dt className="text-subtle font-mono text-[12px]">{k}</dt>
             <dd className="mt-0.5 text-[16px] font-medium">
-              {v}
+              {String(v).replace(".", ",")}
               <span className="text-muted text-[12px]">{u && ` ${u}`}</span>
             </dd>
           </div>
@@ -70,14 +70,15 @@ export function FoodDetail({
         <ul className="grid grid-cols-1 gap-2">
           {food.liveCultures && (
             <Note icon={<Microscope size={15} />}>
-              Contains live cultures when not heat-treated after fermentation. Pasteurised or shelf-stable
-              versions do not.
+              Obsahuje živé kultury, pokud nebyl po fermentaci tepelně ošetřen. Pasterované nebo trvanlivé
+              verze je neobsahují.
             </Note>
           )}
           {food.sodiumMg !== undefined && (
             <Note icon={<Waves size={15} />} tone="warn">
-              Sodium: {food.sodiumMg} mg per 100 g (≈ {((food.sodiumMg * 2.5) / 1000).toFixed(1)} g salt) —
-              salt is part of the preservation; portion size matters.
+              Sodík: {food.sodiumMg} mg na 100 g (≈{' '}
+              {((food.sodiumMg * 2.5) / 1000).toFixed(1).replace('.', ',')} g soli) — sůl je součástí
+              konzervace; záleží na velikosti porce.
             </Note>
           )}
           {food.note && <Note icon={<Info size={15} />}>{food.note}</Note>}
@@ -86,43 +87,43 @@ export function FoodDetail({
 
       {micros.length > 0 && (
         <section>
-          <h4 className="eyebrow mb-3">Vitamins, minerals &amp; more · % of daily reference</h4>
+          <h4 className="eyebrow mb-3">Vitamíny, minerály a další · % denní referenční hodnoty</h4>
           <div className="grid gap-3.5 sm:grid-cols-2 sm:gap-x-6">
             {micros.map(([id, v]) => (
               <NrvBar key={id} id={id} value={v} />
             ))}
           </div>
           <p className="text-subtle mt-3 text-[12.5px]">
-            Highlighted values reach the EU &ldquo;source of&rdquo; level (≥ 15 % NRV). Source: USDA FoodData
-            Central — {food.fdc}.
+            Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU (≥ 15 % RHP). Zdroj: USDA FoodData Central —{' '}
+            {food.fdc}.
           </p>
         </section>
       )}
 
       <section>
-        <h4 className="eyebrow mb-3">Relevant organs</h4>
+        <h4 className="eyebrow mb-3">Související orgány</h4>
         {organs.length ? (
           <ul className="flex flex-wrap gap-2">
             {organs.map(({ organ, via }) => (
               <li key={organ.id}>
                 <OrganLink
                   id={organ.id}
-                  detail={via.map((v) => NUTRIENTS[v].name.split(' ')[0]).join(', ')}
+                  detail={via.map((v) => shortNutrient(NUTRIENTS[v].name)).join(', ')}
                 />
               </li>
             ))}
           </ul>
         ) : (
           <p className="text-muted text-[14px]">
-            100 g does not reach the &ldquo;source of&rdquo; level for any nutrient in the organ model. That
-            says nothing about whether the food belongs in a varied diet.
+            100 g nedosáhne úrovně „zdroj“ u žádné živiny v modelu orgánů. To nic neříká o tom, zda potravina
+            patří do pestré stravy.
           </p>
         )}
       </section>
 
       {products.length > 0 && (
         <section>
-          <h4 className="eyebrow mb-3">In the store</h4>
+          <h4 className="eyebrow mb-3">V obchodě</h4>
           <ul className="grid grid-cols-1 gap-2">
             {products.map((p) => (
               <li key={p.id}>
@@ -142,7 +143,7 @@ export function FoodDetail({
                       <CertBadge product={p} />
                     </span>
                   </span>
-                  <span className="font-mono text-[14px]">{eur(p.price)}</span>
+                  <span className="font-mono text-[14px]">{czk(p.price)}</span>
                 </Link>
               </li>
             ))}
