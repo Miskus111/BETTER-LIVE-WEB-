@@ -1,7 +1,5 @@
-import { getTranslations } from 'next-intl/server'
-import { ComingSoon } from '@/components/app/ComingSoon'
+import { SupplementsGuide } from '@/components/supplements/SupplementsGuide'
 
-export default async function SupplementsPage() {
-  const t = await getTranslations('nav')
-  return <ComingSoon title={t('supplements')} related={[{ href: '/doplnky', label: t('supplements') }]} />
+export default function SupplementsAppPage() {
+  return <SupplementsGuide inApp />
 }

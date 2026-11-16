@@ -1,6 +1,6 @@
 -- ════════════════════════════════════════════════════════════════════════════
 -- Better Live with Biohacking — initial schema
--- Region: EU (Central EU / Frankfurt). RLS is enabled on EVERY table.
+-- Region: EU (North EU / Stockholm, eu-north-1). RLS is enabled on EVERY table.
 -- Health data (GDPR Art. 9) lives only in user-owned tables protected by RLS;
 -- Supabase encrypts storage at rest (AES-256).
 -- ════════════════════════════════════════════════════════════════════════════

@@ -18,7 +18,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed:demo": "tsx --tsconfig scripts/tsconfig.json scripts/seed-demo.ts",
-    "test:rls": "tsx --tsconfig scripts/tsconfig.json scripts/test-rls.ts"
+    "test:rls": "tsx --tsconfig scripts/tsconfig.json scripts/test-rls.ts",
+    "seed:reference": "tsx --tsconfig scripts/tsconfig.json scripts/seed-reference.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
