@@ -1,0 +1,130 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { Menu, Search, ShoppingBag, X } from 'lucide-react'
+import { cartCount, useCart } from '@/lib/store/cart'
+import { useUi } from '@/lib/store/ui'
+import { useHydrated } from '@/lib/useHydrated'
+import { cx } from '@/lib/format'
+import { Logo } from './Logo'
+
+const LINKS = [
+  { href: '/#body', label: 'Body' },
+  { href: '/#nutrients', label: 'Nutrients' },
+  { href: '/#foods', label: 'Foods' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/science', label: 'Science' },
+  { href: '/our-standard', label: 'Our standard' },
+]
+
+export function Nav() {
+  const pathname = usePathname()
+  const lines = useCart((s) => s.lines)
+  const hydrated = useHydrated()
+  const count = hydrated ? cartCount(lines) : 0
+  const setSearch = useUi((s) => s.setSearch)
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 8)
+    on()
+    window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
+  useEffect(() => setOpen(false), [pathname])
+
+  const isActive = (href: string) => !href.startsWith('/#') && pathname.startsWith(href)
+
+  return (
+    <header
+      className={cx(
+        'sticky top-0 z-40 transition-colors duration-300',
+        scrolled || open ? 'border-line bg-ink/80 border-b backdrop-blur-xl' : 'border-b border-transparent',
+      )}
+    >
+      <nav className="mx-auto flex h-16 max-w-[1440px] items-center gap-4 px-4 md:px-8" aria-label="Main">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="FLX home">
+          <Logo />
+        </Link>
+
+        <ul className="ml-6 hidden items-center gap-1 lg:flex">
+          {LINKS.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                aria-current={isActive(l.href) ? 'page' : undefined}
+                className={cx(
+                  'rounded-full px-3 py-1.5 text-[14.5px] transition-colors',
+                  isActive(l.href) ? 'text-fg' : 'text-muted hover:text-fg',
+                )}
+              >
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setSearch(true)}
+            className="border-line text-muted hover:border-line-strong hover:text-fg flex h-10 items-center gap-2 rounded-full border px-3 text-[14px] transition"
+            aria-label="Search organs, nutrients, foods and products"
+          >
+            <Search size={16} />
+            <span className="hidden sm:inline">Search</span>
+            <kbd className="border-line text-subtle hidden rounded border px-1.5 font-mono text-[12px] sm:inline">
+              ⌘K
+            </kbd>
+          </button>
+          <Link
+            href="/cart"
+            className="border-line text-fg hover:border-cyan/50 hover:text-cyan relative grid h-10 w-10 place-items-center rounded-full border transition"
+            aria-label={`Cart, ${count} item${count === 1 ? '' : 's'}`}
+          >
+            <ShoppingBag size={17} />
+            {count > 0 && (
+              <span
+                data-testid="cart-count"
+                className="bg-cyan text-ink absolute -top-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full px-1 font-mono text-[12px] font-semibold"
+              >
+                {count}
+              </span>
+            )}
+          </Link>
+          <button
+            type="button"
+            className="border-line grid h-10 w-10 place-items-center rounded-full border lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+      </nav>
+
+      {open && (
+        <div id="mobile-menu" className="border-line border-t px-4 pb-5 lg:hidden">
+          <ul className="flex flex-col py-2">
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="border-line text-fg block border-b py-3.5 text-[17px]"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+  )
+}

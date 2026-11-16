@@ -1,0 +1,173 @@
+'use client'
+
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import { ChevronLeft, ChevronRight, ExternalLink, X } from 'lucide-react'
+import { SYSTEMS } from '@/data/sources'
+import type { Organ } from '@/data/types'
+import { cx } from '@/lib/format'
+import { OverviewTab } from './tabs/OverviewTab'
+import { NutrientsTab } from './tabs/NutrientsTab'
+import { FoodsTab } from './tabs/FoodsTab'
+import { ProductsTab } from './tabs/ProductsTab'
+import { ScienceTab } from './tabs/ScienceTab'
+
+export const ORGAN_TABS = ['Overview', 'Nutrients', 'Foods', 'Products', 'Science'] as const
+export type OrganTab = (typeof ORGAN_TABS)[number]
+
+interface Props {
+  organ: Organ
+  onClose?: () => void
+  onPrev?: () => void
+  onNext?: () => void
+  /** 'panel' = homepage hero (h2 + link to the shareable page); 'page' = organ page (h1) */
+  variant?: 'panel' | 'page'
+}
+
+export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }: Props) {
+  const [tab, setTab] = useState<OrganTab>('Overview')
+  const body = useRef<HTMLDivElement>(null)
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+
+  // new organ → back to overview, scroll to top
+  useEffect(() => {
+    setTab('Overview')
+    body.current?.scrollTo({ top: 0 })
+  }, [organ.id])
+
+  const onTabKey = (e: React.KeyboardEvent, i: number) => {
+    const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0
+    if (!dir) return
+    e.preventDefault()
+    const next = (i + dir + ORGAN_TABS.length) % ORGAN_TABS.length
+    setTab(ORGAN_TABS[next])
+    tabRefs.current[next]?.focus()
+  }
+
+  const system = SYSTEMS.find((s) => s.id === organ.system)?.name
+
+  return (
+    <section
+      aria-label={`${organ.shortName} details`}
+      className="flex h-full min-h-0 flex-col"
+      style={{ ['--accent' as string]: organ.accent } as React.CSSProperties}
+      data-testid="organ-panel"
+    >
+      <header className="border-line shrink-0 border-b px-5 pt-5 pb-0 md:px-6">
+        <div className="flex items-center gap-2">
+          <span
+            className="h-2 w-2 rounded-full"
+            style={{ background: organ.accent, boxShadow: `0 0 12px ${organ.accent}` }}
+          />
+          <span className="eyebrow !text-muted">{system} system</span>
+          <div className="ml-auto flex items-center gap-1">
+            {onPrev && (
+              <IconBtn label="Previous organ" onClick={onPrev}>
+                <ChevronLeft size={16} />
+              </IconBtn>
+            )}
+            {onNext && (
+              <IconBtn label="Next organ" onClick={onNext}>
+                <ChevronRight size={16} />
+              </IconBtn>
+            )}
+            {onClose && (
+              <IconBtn label="Close panel" onClick={onClose}>
+                <X size={16} />
+              </IconBtn>
+            )}
+          </div>
+        </div>
+        {variant === 'panel' ? (
+          <h2 className="display mt-2 text-[38px]">{organ.name}</h2>
+        ) : (
+          <h1 className="display mt-2 text-[44px] md:text-[56px]">{organ.name}</h1>
+        )}
+        <p className="text-muted mt-1 font-mono text-[13px]">{organ.tagline}</p>
+        {variant === 'panel' && (
+          <Link
+            href={`/organ/${organ.id}`}
+            className="link mt-2 inline-flex items-center gap-1 text-[13.5px]"
+          >
+            Open shareable page <ExternalLink size={13} aria-hidden />
+          </Link>
+        )}
+
+        <div
+          role="tablist"
+          aria-label="Organ information"
+          className="no-scrollbar -mx-1 mt-4 flex gap-1 overflow-x-auto"
+        >
+          {ORGAN_TABS.map((t, i) => (
+            <button
+              key={t}
+              ref={(el) => {
+                tabRefs.current[i] = el
+              }}
+              role="tab"
+              id={`tab-${organ.id}-${t}`}
+              aria-selected={tab === t}
+              aria-controls={`panel-${organ.id}-${t}`}
+              tabIndex={tab === t ? 0 : -1}
+              onClick={() => setTab(t)}
+              onKeyDown={(e) => onTabKey(e, i)}
+              className={cx(
+                'relative shrink-0 px-3 pt-1 pb-3 text-[14.5px] transition-colors',
+                tab === t ? 'text-fg' : 'text-muted hover:text-fg',
+              )}
+            >
+              {t}
+              {tab === t && (
+                <span
+                  className="absolute inset-x-2 bottom-0 h-0.5 rounded-full"
+                  style={{ background: organ.accent }}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+      </header>
+
+      <div ref={body} className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-6 md:px-6">
+        {ORGAN_TABS.map((t) => (
+          <div
+            key={t}
+            role="tabpanel"
+            id={`panel-${organ.id}-${t}`}
+            aria-labelledby={`tab-${organ.id}-${t}`}
+            hidden={tab !== t}
+            className={tab === t ? 'fade-up' : undefined}
+          >
+            {t === 'Overview' && <OverviewTab organ={organ} goTo={setTab} />}
+            {t === 'Nutrients' && <NutrientsTab organ={organ} />}
+            {t === 'Foods' && <FoodsTab organ={organ} />}
+            {t === 'Products' && <ProductsTab organ={organ} />}
+            {t === 'Science' && <ScienceTab organ={organ} />}
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function IconBtn({
+  label,
+  onClick,
+  children,
+}: {
+  label: string
+  onClick: () => void
+  children: React.ReactNode
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      title={label}
+      onClick={onClick}
+      className="border-line text-muted hover:border-line-strong hover:text-fg grid h-8 w-8 place-items-center rounded-full border transition"
+    >
+      {children}
+    </button>
+  )
+}

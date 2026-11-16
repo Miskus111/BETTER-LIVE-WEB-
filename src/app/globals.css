@@ -1,26 +1,362 @@
 @import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ink: #07090c;
+  --color-ink-2: #0b0f14;
+  --color-ink-3: #10161d;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.16);
+  --color-fg: #eef3f7;
+  --color-muted: #a3b0bd;
+  --color-subtle: #7f8e9c;
+  --color-cyan: #5ee7ff;
+  --color-cyan-2: #2fc7f0;
+  --color-blue: #4aa3ff;
+  --color-bio: #8fd16a;
+  --color-warn: #f5c46a;
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, Menlo, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+
+  --text-xs: 0.75rem; /* 12px minimum */
+  --text-sm: 0.90625rem; /* 14.5px body minimum */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: rgb(94 231 255 / 0.3);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass {
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.02));
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.6rem 1.1rem;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      border-color 0.2s,
+      box-shadow 0.2s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--color-cyan);
+    color: #031016;
+    box-shadow: 0 0 0 0 rgb(94 231 255 / 0);
+  }
+  .btn-primary:hover {
+    background: #8cf0ff;
+    box-shadow: 0 0 28px -4px rgb(94 231 255 / 0.55);
+  }
+  .btn-ghost {
+    border: 1px solid var(--color-line-strong);
+    color: var(--color-fg);
+  }
+  .btn-ghost:hover {
+    border-color: rgb(94 231 255 / 0.5);
+    color: var(--color-cyan);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-line);
+    padding: 0.3rem 0.75rem;
+    font-size: 13px;
+    color: var(--color-muted);
+    transition: all 0.2s;
+  }
+  .chip:hover {
+    color: var(--color-fg);
+    border-color: var(--color-line-strong);
+  }
+  .chip[aria-pressed='true'],
+  .chip[aria-selected='true'],
+  .chip[aria-current='true'] {
+    color: #031016;
+    background: var(--color-cyan);
+    border-color: var(--color-cyan);
+  }
+  .card {
+    border-radius: 1.25rem;
+    border: 1px solid var(--color-line);
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.035), rgb(255 255 255 / 0.012));
+  }
+  .link {
+    color: var(--color-cyan);
+    text-underline-offset: 3px;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line-strong);
+    background: rgb(255 255 255 / 0.03);
+    padding: 0.7rem 0.9rem;
+    font-size: 15px;
+    color: var(--color-fg);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 0 3px rgb(94 231 255 / 0.18);
+  }
+  .field[aria-invalid='true'] {
+    border-color: #ff8b8b;
+  }
+}
+
+/* ── Anatomy viewer ─────────────────────────────────────────────── */
+.organ .o-fill {
+  fill: var(--c);
+  fill-opacity: 0.2;
+  stroke: var(--c);
+  stroke-opacity: 0.75;
+  stroke-width: 1.1;
+  transition:
+    fill-opacity 0.3s,
+    stroke-opacity 0.3s,
+    opacity 0.3s;
+}
+.organ .o-line {
+  fill: none;
+  stroke: var(--c);
+  stroke-opacity: 0.55;
+  stroke-width: 0.9;
+  stroke-linecap: round;
+}
+.organ .o-tube {
+  fill: none;
+  stroke: var(--c);
+  stroke-opacity: 0.38;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke-opacity 0.3s;
+}
+.organ .o-hit {
+  fill: transparent;
+}
+.organ {
+  transition: opacity 0.35s;
+}
+.organ:focus-visible {
+  outline: none;
+}
+.organ-hov .o-fill,
+.organ:focus-visible .o-fill {
+  fill-opacity: 0.45;
+  stroke-opacity: 1;
+}
+.organ-hov .o-tube,
+.organ:focus-visible .o-tube {
+  stroke-opacity: 0.7;
+}
+.organ-hov,
+.organ-sel,
+.organ:focus-visible {
+  filter: url(#glow);
+}
+.organ-sel .o-fill {
+  fill-opacity: 0.55;
+  stroke-opacity: 1;
+  stroke-width: 1.5;
+}
+.organ-sel .o-tube {
+  stroke-opacity: 0.85;
+}
+.organ-dim {
+  opacity: 0.22;
+}
+.bone path,
+.bone ellipse,
+.bone rect,
+.bone circle {
+  fill: none;
+  stroke: #dfefff;
+  stroke-opacity: 0.38;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.organ-hov .bone path,
+.organ-hov .bone ellipse,
+.organ-hov .bone rect,
+.organ-hov .bone circle,
+.organ-sel .bone path,
+.organ-sel .bone ellipse,
+.organ-sel .bone rect,
+.organ-sel .bone circle {
+  stroke-opacity: 0.85;
+  stroke: #f2f8ff;
+}
+.m-fill {
+  fill-opacity: 0.11 !important;
+  stroke-opacity: 0.35 !important;
+}
+.organ-hov .m-fill,
+.organ-sel .m-fill {
+  fill-opacity: 0.32 !important;
+  stroke-opacity: 0.8 !important;
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.06);
+  }
+  24% {
+    transform: scale(0.99);
+  }
+  36% {
+    transform: scale(1.035);
+  }
+}
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.035, 1.045);
+  }
+}
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1080px);
+  }
+}
+@keyframes ping {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.beat {
+  transform-box: fill-box;
+  transform-origin: 45% 55%;
+  animation: beat 1.05s ease-in-out infinite;
+}
+.breathe {
+  transform-box: fill-box;
+  transform-origin: 50% 20%;
+  animation: breathe 4.6s ease-in-out infinite;
+}
+.scan {
+  animation: scan 6.5s linear infinite;
+}
+.ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ping 1.8s ease-out infinite;
+}
+.hud {
+  transform-box: view-box;
+  transform-origin: 200px 290px;
+  animation: spin 90s linear infinite;
+}
+.fade-up {
+  animation: fade-up 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .beat,
+  .breathe,
+  .scan,
+  .ping,
+  .hud {
+    animation: none !important;
+  }
+  .scan {
+    display: none;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
 }
