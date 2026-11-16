@@ -68,19 +68,23 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
       <h1 className="display text-[46px]">{mode === 'signin' ? t('title') : t('signupTitle')}</h1>
       <p className="text-muted mt-2 text-[15px]">{t('subtitle')}</p>
 
-      <button
-        type="button"
-        onClick={google}
-        className="btn btn-ghost mt-8 w-full"
-        data-testid="google-signin"
-      >
-        <GoogleMark /> {t('google')}
-      </button>
-      <div className="text-subtle my-6 flex items-center gap-3 font-mono text-[12px] uppercase">
-        <span className="bg-line h-px flex-1" />
-        {t('or')}
-        <span className="bg-line h-px flex-1" />
-      </div>
+      {process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && (
+        <>
+          <button
+            type="button"
+            onClick={google}
+            className="btn btn-ghost mt-8 w-full"
+            data-testid="google-signin"
+          >
+            <GoogleMark /> {t('google')}
+          </button>
+          <div className="text-subtle my-6 flex items-center gap-3 font-mono text-[12px] uppercase">
+            <span className="bg-line h-px flex-1" />
+            {t('or')}
+            <span className="bg-line h-px flex-1" />
+          </div>
+        </>
+      )}
 
       <form onSubmit={submit} className="grid gap-4" noValidate>
         <label className="grid gap-1.5">
