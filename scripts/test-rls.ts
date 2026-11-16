@@ -28,7 +28,9 @@ async function main() {
   const b = await makeUser('b')
   try {
     // A writes health data
-    await a.client.from('preferences').upsert({ user_id: a.id, medications: 'test-secret', pain_areas: ['knee'] })
+    await a.client
+      .from('preferences')
+      .upsert({ user_id: a.id, medications: 'test-secret', pain_areas: ['knee'] })
     const wo = await a.client.from('workouts').insert({ name: 'A workout' }).select('id').single()
     await a.client.from('pain_reports').insert({ region: 'knee', score: 6 })
     await a.client.from('consents').insert({ kind: 'health_data', granted: true, version: 'test' })
@@ -36,7 +38,9 @@ async function main() {
     // B tries to read everything A has
     for (const t of ['profiles', 'preferences', 'workouts', 'pain_reports', 'consents', 'subscriptions']) {
       const r = await b.client.from(t).select('*')
-      const leaked = (r.data ?? []).some((row: Record<string, unknown>) => row.user_id === a.id || row.id === a.id)
+      const leaked = (r.data ?? []).some(
+        (row: Record<string, unknown>) => row.user_id === a.id || row.id === a.id,
+      )
       check(!leaked, `B cannot read A's ${t}`)
     }
     // B tries to write as A
@@ -58,7 +62,10 @@ async function main() {
     const own = await a.client.from('preferences').select('medications').single()
     check(own.data?.medications === 'test-secret', 'A can read own preferences')
     // minors are rejected server-side
-    const minor = await a.client.from('profiles').update({ birth_date: `${new Date().getFullYear() - 16}-01-01` }).eq('id', a.id)
+    const minor = await a.client
+      .from('profiles')
+      .update({ birth_date: `${new Date().getFullYear() - 16}-01-01` })
+      .eq('id', a.id)
     check(!!minor.error, 'database rejects birth dates under 18')
   } finally {
     await db.auth.admin.deleteUser(a.id)

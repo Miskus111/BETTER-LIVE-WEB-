@@ -1,7 +1,6 @@
-import { getTranslations } from 'next-intl/server'
-import { ComingSoon } from '@/components/app/ComingSoon'
+import { TrainHome } from '@/components/train/TrainHome'
 
-export default async function TrainPage() {
-  const t = await getTranslations('nav')
-  return <ComingSoon title={t('train')} related={[{ href: '/organ/muscles', label: t('body') }]} />
+export default async function TrainPage({ searchParams }: { searchParams: Promise<{ finished?: string }> }) {
+  const { finished } = await searchParams
+  return <TrainHome finished={finished === '1'} />
 }

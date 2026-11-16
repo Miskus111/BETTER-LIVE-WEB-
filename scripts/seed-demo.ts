@@ -22,15 +22,18 @@ async function main() {
   const id = user.id
 
   const steps = [
-    db.from('profiles').update({
-      display_name: 'Demo',
-      birth_date: '1994-04-12',
-      sex: 'male',
-      height_cm: 181,
-      weight_kg: 82,
-      experience: 'intermediate',
-      onboarded_at: new Date().toISOString(),
-    }).eq('id', id),
+    db
+      .from('profiles')
+      .update({
+        display_name: 'Demo',
+        birth_date: '1994-04-12',
+        sex: 'male',
+        height_cm: 181,
+        weight_kg: 82,
+        experience: 'intermediate',
+        onboarded_at: new Date().toISOString(),
+      })
+      .eq('id', id),
     db.from('preferences').upsert({
       user_id: id,
       sports: ['gym', 'running'],
@@ -53,7 +56,11 @@ async function main() {
     if (error) throw error
   }
   const inserts = [
-    db.from('goals').insert(['muscle', 'performance', 'pain_relief'].map((goal, i) => ({ user_id: id, goal, priority: i + 1 }))),
+    db
+      .from('goals')
+      .insert(
+        ['muscle', 'performance', 'pain_relief'].map((goal, i) => ({ user_id: id, goal, priority: i + 1 })),
+      ),
     db.from('consents').insert([
       { user_id: id, kind: 'health_data', granted: true, version: CONSENT_VERSION },
       { user_id: id, kind: 'terms', granted: true, version: CONSENT_VERSION },

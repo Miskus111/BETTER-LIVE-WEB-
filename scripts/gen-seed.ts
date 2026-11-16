@@ -6,6 +6,7 @@
 import { writeFileSync } from 'node:fs'
 import { FOODS } from '../src/data/foods'
 import { WHERE_TO_BUY, TOPIC_LINKS, type ShopLink } from '../src/data/retailers'
+import { EXERCISES, GENERIC_STEPS } from '../src/data/exercises'
 
 const q = (v: unknown) =>
   v === null || v === undefined
@@ -42,5 +43,13 @@ for (const [s, { l, nutrient }] of rows) {
   )
 }
 
+lines.push('', '-- exercise library')
+const arr = (a: string[]) => `array[${a.map(q).join(',')}]::text[]`
+for (const e of EXERCISES) {
+  lines.push(
+    `insert into public.exercises (owner_id, slug, name_cs, name_en, category, primary_muscles, secondary_muscles, equipment, instructions, mistakes, regressions, progressions, unilateral) values (null, ${q(e.slug)}, ${q(e.name.cs)}, ${q(e.name.en)}, ${q(e.category)}, ${arr(e.primary)}, ${arr(e.secondary)}, ${arr(e.equipment)}, ${j({ cs: [...GENERIC_STEPS.cs, e.cue.cs], en: [...GENERIC_STEPS.en, e.cue.en] })}, ${j({ cs: [e.mistake.cs], en: [e.mistake.en] })}, ${arr(e.regressions)}, ${arr(e.progressions)}, ${e.unilateral ? 'true' : 'false'}) on conflict (owner_id, slug) do update set name_cs = excluded.name_cs, name_en = excluded.name_en, primary_muscles = excluded.primary_muscles, secondary_muscles = excluded.secondary_muscles, equipment = excluded.equipment, instructions = excluded.instructions, mistakes = excluded.mistakes;`,
+  )
+}
+
 writeFileSync('supabase/seed.sql', lines.join('\n') + '\n')
-console.log(`supabase/seed.sql: ${FOODS.length} foods, ${rows.size} products`)
+console.log(`supabase/seed.sql: ${FOODS.length} foods, ${rows.size} products, ${EXERCISES.length} exercises`)
