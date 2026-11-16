@@ -1,12 +1,13 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronUp } from 'lucide-react'
 import { ORGAN_BY_ID, ORGAN_IDS } from '@/data/organs'
 import type { OrganId, SystemId } from '@/data/types'
 import { OrganPanel } from '@/components/organ/OrganPanel'
 import { ORGAN_EVENT } from '@/lib/organEvents'
 import { cx } from '@/lib/format'
+import { useMediaQuery } from '@/lib/useMediaQuery'
 import { BodyCanvas } from './BodyCanvas'
 import type { Layers } from './BodySvg'
 import { ExplorerControls } from './ExplorerControls'
@@ -26,6 +27,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
   const [layers, setLayers] = useState<Layers>({ organs: true, skeleton: true, muscles: false })
   const [resetKey, setResetKey] = useState(0)
   const [sheetExpanded, setSheetExpanded] = useState(false)
+  const frameRef = useRef<HTMLDivElement>(null)
 
   // homepage: restore ?organ= on load (shareable state)
   useEffect(() => {
@@ -38,6 +40,9 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
     (id: OrganId | null) => {
       setSelected(id)
       setSheetExpanded(false)
+      // mobile: bring the body frame to the top so the organ is visible above the bottom sheet
+      if (id && mobilePanel === 'sheet' && !window.matchMedia('(min-width: 1024px)').matches)
+        frameRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
       if (id) {
         const layer = ORGAN_BY_ID[id].layer
         if (layer === 'skeleton' || layer === 'muscles' || layer === 'organs')
@@ -51,7 +56,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
       } else if (id) url.pathname = `/organ/${id}`
       window.history.replaceState(window.history.state, '', url)
     },
-    [urlMode],
+    [urlMode, mobilePanel],
   )
 
   // cross-links elsewhere on the page (food explorer, nutrient index) select organs via an event
@@ -80,11 +85,17 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
 
   const organ = selected ? ORGAN_BY_ID[selected] : null
   const sheet = mobilePanel === 'sheet'
+  const desktop = useMediaQuery('(min-width: 1024px)')
+  // the collapsed sheet covers ~52 % of the viewport; the body frame is ~72 %, so ≈ 45 % of the frame
+  const bottomInset = sheet && organ && !desktop ? (sheetExpanded ? 0.8 : 0.45) : 0
 
   return (
-    <div className="mx-auto grid max-w-[1440px] gap-4 px-4 md:px-8 lg:h-[calc(100svh-64px)] lg:min-h-[700px] lg:grid-cols-[250px_minmax(0,1fr)_420px] lg:gap-6 lg:py-4 xl:grid-cols-[270px_minmax(0,1fr)_460px]">
+    <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-4 px-4 md:px-8 lg:h-[calc(100svh-64px)] lg:min-h-[700px] lg:grid-cols-[250px_minmax(0,1fr)_420px] lg:gap-6 lg:py-4 xl:grid-cols-[270px_minmax(0,1fr)_460px]">
       {/* body — first on mobile */}
-      <div className="relative order-1 h-[72svh] min-h-[480px] lg:order-2 lg:h-auto lg:min-h-0">
+      <div
+        ref={frameRef}
+        className="relative order-1 h-[72svh] min-h-[480px] scroll-mt-16 lg:order-2 lg:h-auto lg:min-h-0"
+      >
         <BodyCanvas
           selected={selected}
           system={system}
@@ -94,6 +105,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
           onNext={() => step(1)}
           resetKey={resetKey}
           onReset={() => setResetKey((k) => k + 1)}
+          bottomInset={bottomInset}
         />
       </div>
 

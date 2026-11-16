@@ -58,7 +58,7 @@ export default function StandardPage() {
 
       <section className="border-line mt-16 border-t pt-8">
         <h2 className="display text-[34px]">How products are labelled</h2>
-        <ul className="mt-6 grid gap-3">
+        <ul className="mt-6 grid grid-cols-1 gap-3">
           <Label icon={<Leaf size={18} className="text-bio" />} name="EU BIO">
             Shown only when certification is verified and a control-body code is on record (e.g. CZ-BIO-000).
             Organic ingredients are marked with * in the ingredient list.

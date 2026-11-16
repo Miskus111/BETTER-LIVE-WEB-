@@ -28,7 +28,7 @@ function frame(art: Art, id: string) {
 <defs><radialGradient id="bg-${id}" cx="50%" cy="45%" r="75%"><stop offset="0%" stop-color="#16202b"/><stop offset="100%" stop-color="#0a0e13"/></radialGradient></defs>
 <rect width="800" height="720" fill="url(#bg-${id})"/>
 ${inner}
-<text x="28" y="44" font-family="ui-monospace, Menlo, monospace" font-size="18" letter-spacing="2" fill="#7f93a6">PLACEHOLDER · REPLACE WITH PHOTO</text>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" letter-spacing="3" fill="#6f8294">PLACEHOLDER · REPLACE WITH PHOTO</text>
 </svg>`
 }
 
@@ -43,7 +43,7 @@ ${lines.map((l, i) => `<text x="400" y="${360 + i * 40}" text-anchor="middle" fo
 <text x="400" y="${380 + lines.length * 40}" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="18" fill="#9fb3c4">${esc(size)}</text>
 <text x="400" y="200" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="26" letter-spacing="8" fill="#0b1016" opacity="0.8">FLX</text>
 ${organic ? '<text x="400" y="590" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="16" letter-spacing="3" fill="#0b1016" opacity="0.7">EU ORGANIC · SAMPLE</text>' : ''}
-<text x="28" y="44" font-family="ui-monospace, Menlo, monospace" font-size="18" letter-spacing="2" fill="#7f93a6">PLACEHOLDER · PACKSHOT</text>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="17" letter-spacing="3" fill="#6f8294">PLACEHOLDER · PACKSHOT</text>
 </svg>`
 }
 

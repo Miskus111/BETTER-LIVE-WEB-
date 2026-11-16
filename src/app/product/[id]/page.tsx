@@ -108,7 +108,7 @@ export default async function ProductPage({ params }: Params) {
         </ol>
       </nav>
 
-      <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
+      <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
         <ProductGallery images={p.images} name={p.name} />
 
         <div>
@@ -177,7 +177,7 @@ export default async function ProductPage({ params }: Params) {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+      <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
         <section className="card p-5 md:p-6" aria-labelledby="nutri-h">
           <h2 id="nutri-h" className="eyebrow">
             Nutrition per 100 g

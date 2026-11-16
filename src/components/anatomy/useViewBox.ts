@@ -16,9 +16,18 @@ function clamp([x, y, w, h]: ViewBox): ViewBox {
   return [Math.max(-120, Math.min(400 - nw + 120, x)), Math.max(-80, Math.min(920 - nh + 80, y)), nw, nh]
 }
 
-/** Expand a target box so it matches the frame's aspect ratio (centred). */
-export function fit(t: ViewBox, aspect: number): ViewBox {
-  let [x, y, w, h] = t
+/**
+ * Expand a target box so it matches the frame's aspect ratio (centred), with breathing room around it.
+ * `bottomInset` (0–1) is the share of the frame covered by an overlay (mobile bottom sheet): the target is
+ * fitted into the visible top part instead.
+ */
+export function fit(t: ViewBox, aspect: number, { pad = 1, bottomInset = 0 } = {}): ViewBox {
+  const visible = 1 - bottomInset
+  const [tx, ty, tw, th] = t
+  const pw = Math.max(tw * pad, 150)
+  const ph = th * (pw / tw)
+  let [x, y, w, h] = [tx - (pw - tw) / 2, ty - (ph - th) / 2, pw, ph]
+  aspect = aspect / visible
   if (w / h > aspect) {
     const nh = w / aspect
     y -= (nh - h) / 2
@@ -28,7 +37,7 @@ export function fit(t: ViewBox, aspect: number): ViewBox {
     x -= (nw - w) / 2
     w = nw
   }
-  return [x, y, w, h]
+  return [x, y, w, h / visible]
 }
 
 const prefersReducedMotion = () =>

@@ -18,18 +18,31 @@ interface Props {
   /** bumping this number forces the view back to the selected organ (or full body) */
   resetKey: number
   onReset: () => void
+  /** share of the frame hidden behind the mobile bottom sheet */
+  bottomInset?: number
 }
 
-export function BodyCanvas({ selected, system, layers, onSelect, onPrev, onNext, resetKey, onReset }: Props) {
+export function BodyCanvas({
+  selected,
+  system,
+  layers,
+  onSelect,
+  onPrev,
+  onNext,
+  resetKey,
+  onReset,
+  bottomInset = 0,
+}: Props) {
   const frame = useRef<HTMLDivElement>(null)
   const { vb, aspect, unitsPerPx, animateTo, zoomBy, toBody, pointer, justDragged } = useViewBox(frame)
   const [hover, setHover] = useState<OrganId | null>(null)
 
   // zoom to the selected organ (or full body); re-fit on resize
   useEffect(() => {
-    const target = selected ? ORGAN_BY_ID[selected].zoom : FULL
-    animateTo(fit(target, aspect))
-  }, [selected, aspect, resetKey, animateTo])
+    animateTo(
+      selected ? fit(ORGAN_BY_ID[selected].zoom, aspect, { pad: 1.45, bottomInset }) : fit(FULL, aspect),
+    )
+  }, [selected, aspect, resetKey, animateTo, bottomInset])
 
   const activate = (id: OrganId | null) => {
     if (justDragged.current) return

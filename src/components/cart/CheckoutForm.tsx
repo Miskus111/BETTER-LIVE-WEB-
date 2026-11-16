@@ -108,7 +108,7 @@ export function CheckoutForm() {
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
       <form
         onSubmit={submit}
         noValidate
@@ -126,7 +126,7 @@ export function CheckoutForm() {
             shipped. Please do not enter real personal data.
           </span>
         </p>
-        <fieldset>
+        <fieldset className="min-w-0">
           <legend className="eyebrow mb-4">Delivery details</legend>
           <div className="grid gap-4 sm:grid-cols-2">
             {FIELDS.map((f) => (
@@ -175,7 +175,7 @@ export function CheckoutForm() {
           </div>
         </fieldset>
 
-        <fieldset className="mt-8">
+        <fieldset className="mt-8 min-w-0">
           <legend className="eyebrow mb-3">Payment</legend>
           <p className="border-line text-muted rounded-xl border p-4 text-[14px]">
             Payment is disabled in this prototype. A payment provider (e.g. Stripe or Shopify Checkout) plugs

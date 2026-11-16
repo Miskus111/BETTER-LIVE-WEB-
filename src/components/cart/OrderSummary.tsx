@@ -11,7 +11,7 @@ export function OrderSummary({
   total: number
 }) {
   return (
-    <dl className="grid gap-2 text-[14.5px]">
+    <dl className="grid grid-cols-1 gap-2 text-[14.5px]">
       <div className="flex justify-between">
         <dt className="text-muted">Subtotal</dt>
         <dd className="font-mono" data-testid="subtotal">

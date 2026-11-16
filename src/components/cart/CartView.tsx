@@ -37,7 +37,7 @@ export function CartView() {
     )
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
       <section aria-label="Cart items">
         <div className="mb-3 flex items-center justify-between">
           <p className="text-subtle font-mono text-[13px]">

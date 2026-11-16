@@ -22,7 +22,7 @@ const RULES = [
 
 export function ScienceTeaser() {
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_1fr]">
       <ol className="grid gap-3 sm:grid-cols-2">
         {RULES.map((r) => (
           <li key={r.k} className="card p-5">

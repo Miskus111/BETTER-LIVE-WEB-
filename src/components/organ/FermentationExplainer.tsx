@@ -11,7 +11,7 @@ export function FermentationExplainer() {
         </h3>
       </div>
       <p className="text-fg/90 mt-3 text-[14.5px]">{FERMENTATION.intro}</p>
-      <dl className="mt-4 grid gap-3">
+      <dl className="mt-4 grid grid-cols-1 gap-3">
         {FERMENTATION.terms.map((t, i) => (
           <div key={t.term} className="border-line rounded-xl border bg-white/[0.02] p-3.5">
             <dt className="flex items-center gap-2 font-medium">

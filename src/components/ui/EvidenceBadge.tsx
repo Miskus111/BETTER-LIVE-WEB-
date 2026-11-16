@@ -17,7 +17,7 @@ export function EvidenceBadge({ level, className = '' }: { level: Evidence; clas
 
 export function EvidenceLegend() {
   return (
-    <dl className="grid gap-3">
+    <dl className="grid grid-cols-1 gap-3">
       {(Object.keys(EVIDENCE) as Evidence[]).map((k) => (
         <div key={k} className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:gap-3">
           <dt className="sm:w-32">

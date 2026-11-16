@@ -28,7 +28,7 @@ export function FoodDetail({
   const products = productsForFood(food.id)
 
   return (
-    <article className="grid gap-6" data-testid="food-detail">
+    <article className="grid grid-cols-1 gap-6" data-testid="food-detail">
       <div className="grid gap-5 sm:grid-cols-[200px_1fr] sm:items-start">
         <Thumb src={food.image} alt={`${food.name} (placeholder illustration)`} className="rounded-2xl" />
         <div>
@@ -67,7 +67,7 @@ export function FoodDetail({
       <MacroSplitBar macros={food.macros} />
 
       {(food.liveCultures || food.sodiumMg || food.note) && (
-        <ul className="grid gap-2">
+        <ul className="grid grid-cols-1 gap-2">
           {food.liveCultures && (
             <Note icon={<Microscope size={15} />}>
               Contains live cultures when not heat-treated after fermentation. Pasteurised or shelf-stable
@@ -123,7 +123,7 @@ export function FoodDetail({
       {products.length > 0 && (
         <section>
           <h4 className="eyebrow mb-3">In the store</h4>
-          <ul className="grid gap-2">
+          <ul className="grid grid-cols-1 gap-2">
             {products.map((p) => (
               <li key={p.id}>
                 <Link

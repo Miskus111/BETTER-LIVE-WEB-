@@ -49,7 +49,7 @@ export function ExplorerControls({
         </p>
       </div>
 
-      <fieldset>
+      <fieldset className="min-w-0">
         <legend className="eyebrow !text-subtle mb-2.5">System</legend>
         <div className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:flex-col lg:gap-1 lg:px-0">
           <SysBtn active={!system} onClick={() => onSystem(null)}>
@@ -67,7 +67,7 @@ export function ExplorerControls({
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="min-w-0">
         <legend className="eyebrow !text-subtle mb-2.5">Layers</legend>
         <div className="flex flex-wrap gap-2">
           {LAYERS.map(({ key, label, icon: Icon }) => (
@@ -85,7 +85,7 @@ export function ExplorerControls({
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="min-w-0">
         <legend className="eyebrow !text-subtle mb-2.5">Organs{system && ` · ${organs.length}`}</legend>
         <ul className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 lg:mx-0 lg:grid lg:grid-cols-2 lg:px-0">
           {organs.map((o) => (
