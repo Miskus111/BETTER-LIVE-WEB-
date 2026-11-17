@@ -24,6 +24,12 @@ export interface BodyGuide {
     | 'sun'
     | 'heart'
     | 'graduation'
+    | 'scale'
+    | 'candy'
+    | 'package'
+    | 'cloud'
+    | 'bone'
+    | 'ear'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -127,6 +133,53 @@ const SOURCES = {
     'Ophir a kol. (2009) Kognitivní kontrola u lidí, kteří často dělají více věcí najednou, PNAS',
   ),
   pashler: pm(26162104, 'Pashler a kol. (2008) Učební styly: pojmy a důkazy, Psychol Sci Public Interest'),
+  levine: pm(9880251, 'Levine a kol. (1999) Pohyb mimo cvičení (NEAT) a odolnost proti přibírání, Science'),
+  pontzer: pm(34385400, 'Pontzer a kol. (2021) Denní energetický výdej během života, Science'),
+  hallEnergy: pm(21872751, 'Hall a kol. (2011) Jak energetická nerovnováha mění tělesnou hmotnost, Lancet'),
+  dpp: pm(
+    11832527,
+    'Diabetes Prevention Program (2002) Snížení výskytu cukrovky 2. typu změnou životního stylu, N Engl J Med',
+  ),
+  glucotypes: pm(
+    30040822,
+    'Hall a kol. (2018) Glukotypy — vzorce kolísání glukózy u lidí bez cukrovky, PLoS Biol',
+  ),
+  wolraich: pm(7474248, 'Wolraich a kol. (1995) Cukr a chování dětí — metaanalýza, JAMA'),
+  whoSugar: {
+    title: 'WHO (2015) Doporučení pro příjem cukrů u dospělých a dětí',
+    url: 'https://www.who.int/publications/i/item/9789241549028',
+  },
+  hallUpf: pm(
+    31105044,
+    'Hall a kol. (2019) Ultrazpracovaná strava vede k vyššímu příjmu energie — randomizovaná studie, Cell Metab',
+  ),
+  lane: pm(
+    38418082,
+    'Lane a kol. (2024) Ultrazpracované potraviny a zdraví — zastřešující přehled metaanalýz, BMJ',
+  ),
+  whoTobacco: {
+    title: 'WHO — Tabák (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/tobacco',
+  },
+  lindson: pm(38189560, 'Lindson a kol. (2024) Elektronické cigarety k odvykání kouření, Cochrane'),
+  hartvigsen: pm(
+    29573870,
+    'Hartvigsen a kol. (2018) Co je bolest dolní části zad a proč jí věnovat pozornost, Lancet',
+  ),
+  foster: pm(29573872, 'Foster a kol. (2018) Prevence a léčba bolesti dolní části zad, Lancet'),
+  slater: pm(31366294, 'Slater a kol. (2019) „Seď rovně!“ — čas to přehodnotit, J Orthop Sports Phys Ther'),
+  whoBack: {
+    title: 'WHO — Bolest dolní části zad (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/low-back-pain',
+  },
+  dillard: pm(
+    36379592,
+    'Dillard a kol. (2022) Nebezpečné poslouchání u dospívajících a mladých dospělých, BMJ Glob Health',
+  ),
+  whoHearing: {
+    title: 'WHO — Hluchota a ztráta sluchu (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss',
+  },
 }
 
 export const BODY_GUIDES: BodyGuide[] = [
@@ -977,6 +1030,367 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Mozek v mapě těla', href: '/organ/brain' },
     ],
     sources: [SOURCES.cepeda, SOURCES.roediger, SOURCES.walker, SOURCES.ophir, SOURCES.pashler],
+  },
+  {
+    slug: 'hubnuti-a-energie',
+    title: 'Hubnutí a energie: co se děje, když tělo dostane méně',
+    short: 'Hubnutí',
+    icon: 'scale',
+    hook: 'Proč hubnutí časem zpomalí, proč metabolismus po třicítce neodchází a proč tolik záleží na pohybu mimo posilovnu.',
+    tldr: [
+      'Tuk ubývá, když tělo dlouhodobě dostává méně energie, než spotřebuje — jinou cestu příroda nevymyslela.',
+      'Metabolismus je mezi 20 a 60 lety v podstatě stabilní; zpomalovat začíná až později.',
+      'Velkou část rozdílů mezi lidmi dělá pohyb mimo cvičení — chůze, stání, schody.',
+    ],
+    numbers: [
+      { value: '20–60', label: 'let stabilní metabolismus' },
+      { value: '0,5–1 %', label: 'hmotnosti týdně: rozumné tempo' },
+    ],
+    how: [
+      {
+        title: 'Energetická bilance',
+        text: 'Energie z jídla se spotřebuje na základní chod těla, trávení a pohyb. Když jí přijde méně, tělo sáhne do zásob — hlavně tuku, ale při rychlém hubnutí i svalů.',
+      },
+      {
+        title: 'Proč hubnutí zpomalí',
+        text: 'S nižší váhou tělo potřebuje méně energie a trochu šetří. Populární pravidlo „7 700 kcal = 1 kg“ proto dlouhodobě přeceňuje, kolik zhubnete.',
+      },
+      {
+        title: 'Pohyb mimo trénink',
+        text: 'Hodina v posilovně je malá část dne. Chůze, stání a běžný pohyb (NEAT) se mezi lidmi liší o stovky kalorií denně.',
+      },
+    ],
+    today: [
+      'Jídlo je dostupné všude a pořád, často v kaloricky hustých a velkých porcích.',
+      'Sedavý den výrazně snižuje výdej energie — i když chodíte cvičit.',
+      'Sociální sítě slibují rychlé výsledky a „spalovače“, které nefungují.',
+    ],
+    helps: [
+      { text: 'Mírný a udržitelný kalorický deficit místo drastických diet.', level: 'established' },
+      { text: 'Dost bílkovin a vlákniny — déle zasytí a pomáhají udržet svaly.', level: 'plausible' },
+      { text: 'Silový trénink, aby ubýval tuk, ne svaly.', level: 'established' },
+      { text: 'Víc chůze během dne (kroky, schody, pěšky místo MHD).', level: 'plausible' },
+      { text: 'Dostatek spánku — nedostatek zvyšuje hlad a chuť na kalorická jídla.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Po třicítce se metabolismus zpomalí.',
+        fact: 'Velká studie ukázala, že je mezi 20 a 60 lety po zohlednění svalové hmoty stabilní.',
+      },
+      {
+        myth: 'Jídlo po šesté večer se ukládá do tuku.',
+        fact: 'Rozhoduje celkový příjem za den, ne hodina na hodinkách.',
+      },
+      {
+        myth: 'Spalovače tuků fungují.',
+        fact: 'Žádný doplněk neudělá měřitelný rozdíl bez změny jídla a pohybu.',
+      },
+    ],
+    related: [
+      { label: 'Bílkoviny', href: '/doplnky/bilkoviny' },
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+    ],
+    sources: [SOURCES.hallEnergy, SOURCES.pontzer, SOURCES.levine],
+  },
+  {
+    slug: 'cukr-a-inzulin',
+    title: 'Cukr a inzulin: co dělá hladina glukózy po jídle',
+    short: 'Cukr a inzulin',
+    icon: 'candy',
+    hook: 'Glukózové špičky jsou nové téma na sítích. Co je normální, co už ne a co doopravdy snižuje riziko cukrovky.',
+    tldr: [
+      'Po jídle hladina cukru v krvi stoupne a inzulin ho pomůže dostat do svalů a jater — to je normální.',
+      'Problém je, když buňky na inzulin přestávají reagovat (inzulinová rezistence).',
+      'Změna životního stylu snížila výskyt cukrovky 2. typu u lidí s prediabetem o 58 %.',
+    ],
+    numbers: [
+      { value: '58 %', label: 'méně cukrovky díky změně životního stylu' },
+      { value: '<10 %', label: 'energie z volných cukrů (WHO)' },
+    ],
+    how: [
+      {
+        title: 'Inzulin jako klíč',
+        text: 'Slinivka po jídle vyplaví inzulin. Ten „odemkne“ buňky, aby si glukózu vzaly — svaly ji spálí nebo uloží, játra si ji schovají na později.',
+      },
+      {
+        title: 'Inzulinová rezistence',
+        text: 'Při nadváze (hlavně tuku na břiše), nedostatku pohybu a spánku buňky reagují hůř. Slinivka musí vyrábět víc inzulinu — a jednou to nestačí.',
+      },
+      {
+        title: 'Svaly jako odběratel',
+        text: 'Pracující svaly berou glukózu i bez velkého množství inzulinu. Proto po jídle pomáhá i krátká procházka.',
+      },
+    ],
+    today: [
+      'Sladké nápoje a energetické tyčinky přinášejí hodně cukru bez sytosti.',
+      'Kontinuální glukometry se prodávají i zdravým lidem — u nich ale zatím není jasné, jestli sledování špiček přinese zdravotní užitek.',
+    ],
+    helps: [
+      {
+        text: 'Méně volných cukrů a sladkých nápojů (WHO: pod 10 % energie, ideálně pod 5 %).',
+        level: 'established',
+      },
+      {
+        text: 'Pohyb a při nadváze zhubnout zhruba 5–7 % hmotnosti — klíčové pro prevenci cukrovky.',
+        level: 'established',
+      },
+      { text: 'Krátká procházka po jídle.', level: 'plausible' },
+      { text: 'Vláknina, bílkoviny a tuky v jídle zmírní vzestup cukru.', level: 'plausible' },
+      { text: 'Při rodinné zátěži nebo nadváze si nechat změřit glukózu u lékaře.', level: 'established' },
+    ],
+    myths: [
+      {
+        myth: 'Cukr dělá z dětí hyperaktivní.',
+        fact: 'Metaanalýza studií to nepotvrdila — rodiče to ale často vnímají kvůli očekávání.',
+      },
+      {
+        myth: 'Každá glukózová špička je škodlivá.',
+        fact: 'Vzestup po jídle je normální. Důležité je, jak rychle se hladina vrátí a jaký je dlouhodobý průměr.',
+      },
+      {
+        myth: 'Ovoce je kvůli cukru špatné.',
+        fact: 'Celé ovoce obsahuje vlákninu a souvisí s lepším zdravím. Jiné je to u džusů a sladkých nápojů.',
+      },
+    ],
+    related: [
+      { label: 'Vláknina', href: '/doplnky/vlaknina' },
+      { label: 'Hubnutí', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+    ],
+    sources: [SOURCES.dpp, SOURCES.whoSugar, SOURCES.glucotypes, SOURCES.wolraich],
+  },
+  {
+    slug: 'ultrazpracovane-potraviny',
+    title: 'Ultrazpracované potraviny: proč se jich sní víc',
+    short: 'Ultrazpracované jídlo',
+    icon: 'package',
+    hook: 'Ve studii lidé na ultrazpracované stravě snědli zhruba o 500 kcal denně víc — a přibrali. Proč, a co s tím.',
+    tldr: [
+      'Ultrazpracované potraviny jsou průmyslové výrobky z rafinovaných složek a přídatných látek — chipsy, sladké cereálie, uzeniny, hotová jídla.',
+      'V přísně kontrolované studii lidé při takové stravě jedli víc a přibírali.',
+      'Vysoký příjem souvisí s vyšším rizikem řady nemocí — ale ne každý balený výrobek je stejný.',
+    ],
+    numbers: [
+      { value: '~500 kcal', label: 'denně navíc při ultrazpracované stravě' },
+      { value: '2 týdny', label: 'trvání studie' },
+    ],
+    how: [
+      {
+        title: 'Snadno se jí',
+        text: 'Měkké, kaloricky husté a dochucené jídlo se jí rychle. Tělo nestihne včas poslat signál sytosti.',
+      },
+      {
+        title: 'Málo vlákniny a bílkovin',
+        text: 'Právě ty nejvíc zasytí. Rafinované složky jich obsahují málo.',
+      },
+    ],
+    today: [
+      'Ultrazpracované potraviny tvoří v mnoha zemích velkou část jídelníčku — jsou levné, rychlé a všude.',
+      'Marketing „fit“ a „protein“ výrobků často zakrývá, že jde pořád o ultrazpracovanou potravinu.',
+    ],
+    helps: [
+      {
+        text: 'Postavit jídla na základních potravinách: maso, ryby, vejce, luštěniny, zelenina, ovoce, obiloviny.',
+        level: 'plausible',
+      },
+      {
+        text: 'Vařit jednoduchá jídla do zásoby, aby zdravá volba byla i ta nejrychlejší.',
+        level: 'plausible',
+      },
+      { text: 'Číst složení: dlouhý seznam přísad, které doma nemáte, je vodítko.', level: 'preliminary' },
+      {
+        text: 'Nehledat dokonalost — nejvíc pomůže omezit sladké nápoje, sladkosti a uzeniny.',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Všechno balené je ultrazpracované.',
+        fact: 'Mražená zelenina, bílý jogurt nebo celozrnné pečivo jsou zpracované minimálně.',
+      },
+      {
+        myth: 'Je to jen o kaloriích.',
+        fact: 'Kalorie rozhodují o váze, ale ultrazpracovaná strava ovlivňuje, kolik jich sníte.',
+      },
+    ],
+    related: [
+      { label: 'Hubnutí', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Střeva a mikrobiom', href: '/jak-funguje-telo/streva-a-mikrobiom' },
+      { label: 'Vláknina', href: '/doplnky/vlaknina' },
+    ],
+    sources: [SOURCES.hallUpf, SOURCES.lane],
+  },
+  {
+    slug: 'nikotin-a-vaping',
+    title: 'Nikotin a vaping: co dělá s mozkem a srdcem',
+    short: 'Nikotin a vaping',
+    icon: 'cloud',
+    hook: 'Vape není „jen pára“ a nikotinové sáčky nejsou bonbóny. Kdy je e-cigareta pomocník a kdy nová závislost.',
+    tldr: [
+      'Nikotin je silně návykový a zvyšuje tep i tlak; mozek dospívajících je k závislosti citlivější.',
+      'Nejvíc škodí kouření — tabák zabíjí ročně přes 8 milionů lidí.',
+      'Pro kuřáky jsou e-cigarety s nikotinem účinnou cestou k odvykání. Pro nekuřáky jsou jen nová závislost.',
+    ],
+    numbers: [{ value: '8+ mil.', label: 'úmrtí na tabák ročně (WHO)' }],
+    how: [
+      {
+        title: 'Rychlá odměna',
+        text: 'Nikotin se během pár sekund dostane do mozku a uvolní dopamin. Mozek si spojí situaci s odměnou — a chce ji znovu.',
+      },
+      {
+        title: 'Abstinence',
+        text: 'Když hladina klesne, přijde neklid a nesoustředěnost. Další dávka je „uleví“ — tak vzniká pocit, že nikotin uklidňuje.',
+      },
+      {
+        title: 'Kouř vs. aerosol',
+        text: 'Většinu nemocí z kouření způsobují látky ze spalování tabáku. E-cigarety nehoří, ale aerosol obsahuje nikotin a další látky; dlouhodobé účinky zatím nejsou známé.',
+      },
+    ],
+    today: [
+      'Vapy s ovocnými příchutěmi a nikotinové sáčky cílí na mladé lidi.',
+      'Vysoké dávky nikotinu v jednorázových vapech znamenají rychlou závislost.',
+    ],
+    helps: [
+      { text: 'Přestat kouřit — přínos má v jakémkoli věku.', level: 'established' },
+      { text: 'Kombinovat odvykání s podporou (lékař, linka) a náhradou nikotinu.', level: 'established' },
+      {
+        text: 'Kuřákům, kterým jiné cesty nefungují, pomáhají přestat e-cigarety s nikotinem.',
+        level: 'established',
+      },
+      { text: 'Pokud nekouříte ani nevapujete — nezačínat.', level: 'established' },
+    ],
+    myths: [
+      { myth: 'Vape je jen vodní pára.', fact: 'Je to aerosol s nikotinem, rozpouštědly a dalšími látkami.' },
+      { myth: 'Nikotin mě uklidňuje.', fact: 'Většinou jen tlumí abstinenční neklid, který sám způsobil.' },
+      {
+        myth: 'Rakovinu způsobuje hlavně nikotin.',
+        fact: 'Hlavní příčinou jsou látky z hořícího tabáku. Nikotin je ale návykový a zatěžuje srdce.',
+      },
+    ],
+    related: [
+      { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+      { label: 'Plíce v mapě těla', href: '/organ/lungs' },
+    ],
+    sources: [SOURCES.whoTobacco, SOURCES.lindson],
+  },
+  {
+    slug: 'bolest-zad',
+    title: 'Bolest zad: proč „seď rovně“ není řešení',
+    short: 'Bolest zad',
+    icon: 'bone',
+    hook: 'Bolest dolní části zad je celosvětově nejčastější příčina omezení v běžném životě. Většinou se ale zlepší — a pomáhá pohyb, ne klid.',
+    tldr: [
+      'Většina bolestí zad nemá jednu jasnou příčinu a během několika týdnů se zlepší.',
+      'Zůstat v pohybu pomáhá víc než klid na lůžku.',
+      'Žádné jedno „správné“ držení těla neexistuje — nejlepší poloha je ta další.',
+    ],
+    numbers: [
+      { value: '#1', label: 'příčina let života s omezením (svět)' },
+      { value: 'týdny', label: 'obvyklá doba zlepšení akutní bolesti' },
+    ],
+    how: [
+      {
+        title: 'Nespecifická bolest',
+        text: 'U většiny lidí nejde určit konkrétní poškození. Bolest ovlivňují svaly, klouby, ale i spánek, stres a obavy.',
+      },
+      {
+        title: 'Snímky klamou',
+        text: 'Vyklenuté ploténky a „opotřebení“ na magnetické rezonanci má i spousta lidí, které záda vůbec nebolí. Snímek proto bez varovných příznaků obvykle nepomůže.',
+      },
+    ],
+    today: [
+      'Celý den v sedě a málo pohybu snižuje odolnost zad.',
+      'Strach z pohybu („abych si neublížil“) může bolest prodloužit.',
+    ],
+    helps: [
+      {
+        text: 'Zůstat aktivní a pokračovat v běžných činnostech, jak to bolest dovolí.',
+        level: 'established',
+      },
+      {
+        text: 'Při dlouhodobé bolesti cvičení a postupné zatěžování, ideálně s fyzioterapeutem.',
+        level: 'established',
+      },
+      { text: 'Střídat polohy a dělat přestávky v sezení.', level: 'plausible' },
+      {
+        text: 'Okamžitě k lékaři při znecitlivění v rozkroku, potížích s močením či stolicí, horečce nebo po úrazu.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Musím sedět rovně, jinak si zničím záda.',
+        fact: 'Pro jedno „správné“ držení těla chybí důkazy. Pomáhá polohu měnit.',
+      },
+      { myth: 'Při bolesti zad je nejlepší ležet.', fact: 'Klid na lůžku zotavení spíš zpomaluje.' },
+      {
+        myth: 'Magnetická rezonance ukáže příčinu.',
+        fact: 'Často ukáže změny, které jsou normální i u lidí bez bolesti.',
+      },
+    ],
+    related: [
+      { label: 'Mapa bolesti a mobilita v aplikaci', href: '/login?mode=signup' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+      { label: 'Kosti v mapě těla', href: '/organ/bones' },
+    ],
+    sources: [SOURCES.hartvigsen, SOURCES.foster, SOURCES.slater, SOURCES.whoBack],
+  },
+  {
+    slug: 'sluch-a-sluchatka',
+    title: 'Sluch a sluchátka: poškození, které se nevrátí',
+    short: 'Sluch a sluchátka',
+    icon: 'ear',
+    hook: 'Zhruba miliarda mladých lidí poslouchá tak nahlas, že riskuje trvalou ztrátu sluchu. Pískání po koncertu je varování.',
+    tldr: [
+      'Ve vnitřním uchu jsou smyslové buňky, které se po poškození neobnoví.',
+      'Rozhoduje hlasitost × čas: čím hlasitěji, tím kratší bezpečná doba.',
+      'Studie odhaduje, že nebezpečně poslouchá hudbu zhruba čtvrtina mladých lidí.',
+    ],
+    numbers: [
+      { value: '~1 mld.', label: 'mladých lidí v ohrožení (odhad)' },
+      { value: '~60 %', label: 'hlasitosti jako rozumný strop' },
+    ],
+    how: [
+      {
+        title: 'Vláskové buňky',
+        text: 'Zvuk rozkmitá drobné vláskové buňky v hlemýždi a ty ho převedou na signál pro mozek. Příliš hlasitý zvuk je přetíží a poškodí — a tyto buňky u člověka nedorostou.',
+      },
+      {
+        title: 'Dávka hluku',
+        text: 'Nejde jen o hlasitost, ale o dobu. Hlasitější zvuk zvládne ucho bezpečně jen kratší čas.',
+      },
+      {
+        title: 'Varovné signály',
+        text: 'Pískání v uších (tinnitus) nebo zastřený sluch po koncertě znamenají, že ucho bylo přetížené. Opakované přetížení se sčítá.',
+      },
+    ],
+    today: [
+      'Sluchátka celý den — v MHD, při učení, při sportu.',
+      'V hlučném prostředí lidé zesilují, aby přehlušili okolí.',
+    ],
+    helps: [
+      { text: 'Hlasitost ve sluchátkách nejvýš kolem 60 % a dělat přestávky.', level: 'plausible' },
+      { text: 'Sluchátka s potlačením hluku — umožní poslouchat potichu.', level: 'plausible' },
+      { text: 'Špunty do uší na koncerty, festivaly a do klubů.', level: 'established' },
+      { text: 'Při pískání v uších nebo zhoršeném sluchu jít na vyšetření.', level: 'established' },
+    ],
+    myths: [
+      {
+        myth: 'Po koncertě se to vždycky spraví.',
+        fact: 'Krátkodobě ano, ale poškození se sčítá a jednou už se sluch nevrátí.',
+      },
+      {
+        myth: 'Ztráta sluchu je problém starých lidí.',
+        fact: 'Hlukem poškozený sluch se objevuje i u mladých a je trvalý.',
+      },
+    ],
+    related: [
+      { label: 'Mozek a učení', href: '/jak-funguje-telo/mozek-a-uceni' },
+      { label: 'Mozek v mapě těla', href: '/organ/brain' },
+    ],
+    sources: [SOURCES.dillard, SOURCES.whoHearing],
   },
 ]
 

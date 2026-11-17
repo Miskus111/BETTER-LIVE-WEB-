@@ -1,5 +1,11 @@
 import {
   Activity,
+  Bone,
+  Candy,
+  Cloud,
+  Ear,
+  Package,
+  Scale,
   Brain,
   Droplet,
   Dumbbell,
@@ -31,6 +37,12 @@ const ICONS = {
   sun: Sun,
   heart: Heart,
   graduation: GraduationCap,
+  scale: Scale,
+  candy: Candy,
+  package: Package,
+  cloud: Cloud,
+  bone: Bone,
+  ear: Ear,
 } as const
 
 export function GuideIcon({

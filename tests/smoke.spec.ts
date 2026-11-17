@@ -151,7 +151,7 @@ test('body guides: hub lists all topics; a guide has TL;DR, evidence levels, myt
   page,
 }) => {
   await page.goto('/jak-funguje-telo')
-  await expect(page.getByTestId('guides').locator('li')).toHaveCount(14)
+  await expect(page.getByTestId('guides').locator('li')).toHaveCount(20)
   await page.getByRole('link', { name: /Spánek: noční servis těla/ }).click()
   await expect(page).toHaveURL(/\/jak-funguje-telo\/spanek$/)
   await expect(page.getByTestId('tldr')).toContainText('7 a více hodin')
