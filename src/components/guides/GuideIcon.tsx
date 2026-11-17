@@ -1,4 +1,19 @@
-import { Activity, Brain, Droplet, Dumbbell, Footprints, Moon, Sprout, Zap } from 'lucide-react'
+import {
+  Activity,
+  Brain,
+  Droplet,
+  Dumbbell,
+  Eye,
+  Footprints,
+  GraduationCap,
+  Heart,
+  Moon,
+  Shield,
+  Sprout,
+  Sun,
+  Wine,
+  Zap,
+} from 'lucide-react'
 import type { BodyGuide } from '@/data/body-guides'
 
 const ICONS = {
@@ -10,6 +25,12 @@ const ICONS = {
   footprints: Footprints,
   sprout: Sprout,
   droplet: Droplet,
+  wine: Wine,
+  shield: Shield,
+  eye: Eye,
+  sun: Sun,
+  heart: Heart,
+  graduation: GraduationCap,
 } as const
 
 export function GuideIcon({

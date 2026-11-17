@@ -6,6 +6,9 @@ import { ORGANS } from './organs'
 
 const internal = new Set<string>([
   '/login?mode=signup',
+  '/looksmaxing',
+  '/doplnky',
+  '/science',
   ...COMPOUNDS.map((c) => `/doplnky/${c.slug}`),
   ...Object.values(SUPPLEMENT_SLUGS).map((s) => `/doplnky/${s}`),
   ...BODY_GUIDES.map((g) => `/jak-funguje-telo/${g.slug}`),

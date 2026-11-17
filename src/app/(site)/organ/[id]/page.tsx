@@ -5,6 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import { ORGAN_BY_ID, ORGANS } from '@/data/organs'
 import type { OrganId } from '@/data/types'
 import { AnatomyExplorer } from '@/components/anatomy/AnatomyExplorer'
+import { RelatedGuides } from '@/components/guides/RelatedGuides'
 
 type Params = { params: Promise<{ id: string }> }
 
@@ -51,6 +52,7 @@ export default async function OrganPage({ params }: Params) {
         </ol>
       </nav>
       <AnatomyExplorer key={organ.id} initial={organ.id} urlMode="path" mobilePanel="inline" />
+      <RelatedGuides href={`/organ/${organ.id}`} className="mx-auto max-w-[1440px] px-4 pt-10 pb-4 md:px-8" />
     </>
   )
 }

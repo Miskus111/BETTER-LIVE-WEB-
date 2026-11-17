@@ -11,6 +11,7 @@ import { NutrientGuide } from '@/components/supplements/NutrientGuide'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
+import { RelatedGuides } from '@/components/guides/RelatedGuides'
 import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
 import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
 
@@ -238,6 +239,8 @@ export default async function SupplementPage({ params }: { params: Promise<{ slu
           ))}
         </nav>
       )}
+
+      <RelatedGuides href={supplementHref(id)} className="mt-10" />
 
       <section className="mt-10" aria-labelledby="all">
         <h2 id="all" className="eyebrow mb-3">

@@ -5,6 +5,7 @@ import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
+import { RelatedGuides } from '@/components/guides/RelatedGuides'
 
 const UPDATED = '2026-11-16'
 
@@ -182,6 +183,8 @@ export function CompoundArticle({ c }: { c: Compound }) {
           poraďte s lékařem či lékárníkem. Aktualizováno {new Date(UPDATED).toLocaleDateString('cs-CZ')}.
         </p>
       </section>
+
+      <RelatedGuides href={`/doplnky/${c.slug}`} className="mt-10" />
 
       <section className="mt-10" aria-labelledby="more">
         <h2 id="more" className="eyebrow mb-3">

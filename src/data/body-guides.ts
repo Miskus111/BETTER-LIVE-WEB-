@@ -9,7 +9,21 @@ export interface BodyGuide {
   title: string
   /** krátký nadpis pro karty a menu */
   short: string
-  icon: 'moon' | 'zap' | 'activity' | 'brain' | 'dumbbell' | 'footprints' | 'sprout' | 'droplet'
+  icon:
+    | 'moon'
+    | 'zap'
+    | 'activity'
+    | 'brain'
+    | 'dumbbell'
+    | 'footprints'
+    | 'sprout'
+    | 'droplet'
+    | 'wine'
+    | 'shield'
+    | 'eye'
+    | 'sun'
+    | 'heart'
+    | 'graduation'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -68,6 +82,51 @@ const SOURCES = {
     url: 'https://doi.org/10.2903/j.efsa.2010.1459',
   },
   popkin: pm(20646222, 'Popkin a kol. (2010) Voda, hydratace a zdraví, Nutr Rev'),
+  gbd: pm(30146330, 'GBD 2016 Alcohol Collaborators (2018) Alkohol a zátěž nemocemi ve 195 zemích, Lancet'),
+  ebrahim: pm(23347102, 'Ebrahim a kol. (2013) Alkohol a spánek, Alcohol Clin Exp Res'),
+  whoAlcohol: {
+    title: 'WHO Evropa (2023) Žádná míra pití alkoholu není pro zdraví bezpečná',
+    url: 'https://www.who.int/europe/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health',
+  },
+  prather: pm(26118561, 'Prather a kol. (2015) Délka spánku a náchylnost k nachlazení, Sleep'),
+  nieman: pm(31193280, 'Nieman a Wentz (2019) Pohybová aktivita a obranyschopnost těla, J Sport Health Sci'),
+  martineau: pm(28202713, 'Martineau a kol. (2017) Vitamín D a prevence akutních respiračních infekcí, BMJ'),
+  hemila: pm(23440782, 'Hemilä a Chalker (2013) Vitamín C na prevenci a léčbu nachlazení, Cochrane'),
+  he: pm(26372583, 'He a kol. (2015) Čas venku ve škole a vznik krátkozrakosti u dětí, JAMA'),
+  holden: pm(
+    26875007,
+    'Holden a kol. (2016) Celosvětový výskyt krátkozrakosti a výhled do roku 2050, Ophthalmology',
+  ),
+  sheppard: pm(29963645, 'Sheppard a Wolffsohn (2018) Digitální únava očí, BMJ Open Ophthalmol'),
+  singh: pm(37593770, 'Singh a kol. (2023) Brýle filtrující modré světlo, Cochrane'),
+  hughes: pm(
+    23732711,
+    'Hughes a kol. (2013) Opalovací krém a stárnutí pleti — randomizovaná studie, Ann Intern Med',
+  ),
+  green: pm(
+    21135266,
+    'Green a kol. (2011) Méně melanomů po pravidelném používání opalovacího krému, J Clin Oncol',
+  ),
+  iarc: pm(19655431, 'El Ghissassi a kol. (2009) Karcinogeny pro člověka — záření (IARC), Lancet Oncol'),
+  whoHypertension: {
+    title: 'WHO — Vysoký krevní tlak (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/hypertension',
+  },
+  whoSodium: {
+    title: 'WHO — Snížení příjmu soli (sodíku)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/sodium-reduction',
+  },
+  cepeda: pm(16719566, 'Cepeda a kol. (2006) Rozložené opakování a zapamatování — metaanalýza, Psychol Bull'),
+  roediger: pm(
+    16507066,
+    'Roediger a Karpicke (2006) Testování zlepšuje dlouhodobé zapamatování, Psychol Sci',
+  ),
+  walker: pm(15450165, 'Walker a Stickgold (2004) Spánek, učení a upevňování paměti, Neuron'),
+  ophir: pm(
+    19706386,
+    'Ophir a kol. (2009) Kognitivní kontrola u lidí, kteří často dělají více věcí najednou, PNAS',
+  ),
+  pashler: pm(26162104, 'Pashler a kol. (2008) Učební styly: pojmy a důkazy, Psychol Sci Public Interest'),
 }
 
 export const BODY_GUIDES: BodyGuide[] = [
@@ -552,8 +611,379 @@ export const BODY_GUIDES: BodyGuide[] = [
     related: [{ label: 'Kofein', href: '/doplnky/kofein' }],
     sources: [SOURCES.efsaWater, SOURCES.popkin],
   },
+  {
+    slug: 'alkohol',
+    title: 'Alkohol: co se v těle děje po pár pivech',
+    short: 'Alkohol',
+    icon: 'wine',
+    hook: 'Proč po večírku spíte hůř, odkud je kocovina a proč „sklenka vína denně“ už jako rada neplatí.',
+    tldr: [
+      'Podle WHO neexistuje míra pití, která by byla pro zdraví bezpečná — méně je lépe.',
+      'Alkohol pomáhá usnout, ale zhoršuje druhou polovinu noci a ubírá REM spánek.',
+      'Játra ho odbourávají tempem, které nezrychlíte — káva ani sprcha nepomohou.',
+    ],
+    numbers: [
+      { value: '0', label: 'bezpečná míra podle WHO' },
+      { value: '7+', label: 'druhů rakoviny spojených s alkoholem' },
+    ],
+    how: [
+      {
+        title: 'Cesta alkoholu',
+        text: 'Alkohol se vstřebá hlavně v tenkém střevě a za pár desítek minut je v krvi. Většinu zpracují játra — nejdřív na acetaldehyd, který je jedovatý a karcinogenní, a pak na neškodný acetát.',
+      },
+      {
+        title: 'Mozek',
+        text: 'Alkohol tlumí nervovou soustavu: nejdřív uvolní zábrany, ve vyšších dávkách zpomalí reakce, rovnováhu a úsudek. Proto řídit nelze ani po „jednom“.',
+      },
+      {
+        title: 'Kocovina',
+        text: 'Je to kombinace špatného spánku, ztráty tekutin, podráždění žaludku a zánětlivé reakce. Spolehlivý lék neexistuje — jen čas.',
+      },
+    ],
+    today: [
+      'Pití je pro mnoho lidí součástí každého víkendu; nárazové velké množství („binge“) je pro tělo nejhorší kombinace.',
+      'Starší studie o „zdravé sklence vína“ porovnávaly pijáky s abstinenty, mezi kterými byli i nemocní — moderní analýzy ochranný efekt nepotvrzují.',
+    ],
+    helps: [
+      { text: 'Pít méně a mít v týdnu dny úplně bez alkoholu.', level: 'established' },
+      { text: 'Nikdy neřídit po pití — ani po malém množství.', level: 'established' },
+      {
+        text: 'Najíst se předem a mezi drinky pít vodu — zpomalí vstřebávání a pomůže s tekutinami.',
+        level: 'plausible',
+      },
+      { text: 'Poslední drink pár hodin před spaním, aby měl spánek šanci.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Sklenka vína denně je zdravá.',
+        fact: 'Podle současných analýz nejmenší riziko pro zdraví znamená nepít vůbec.',
+      },
+      {
+        myth: 'Káva mě vystřízliví.',
+        fact: 'Budete bdělejší, ale stejně opilí. Hladinu alkoholu snižuje jen čas.',
+      },
+      {
+        myth: 'Po alkoholu se dobře spí.',
+        fact: 'Usnete rychleji, ale spánek je mělčí, přerušovaný a s méně REM fází.',
+      },
+    ],
+    related: [
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Játra v mapě těla', href: '/organ/liver' },
+    ],
+    sources: [SOURCES.whoAlcohol, SOURCES.gbd, SOURCES.ebrahim],
+  },
+  {
+    slug: 'imunita',
+    title: 'Imunita: jak se tělo brání a co ji opravdu „posílí“',
+    short: 'Imunita',
+    icon: 'shield',
+    hook: 'Na „booster imunity“ v tabletce věřit nemusíte. Na spánek a pohyb ano.',
+    tldr: [
+      'Imunita má dvě vrstvy: rychlou obecnou obranu a pomalejší, cílenou, která si pamatuje.',
+      'Lidé, kteří spí méně než 6 hodin, chytají nachlazení výrazně častěji.',
+      'Vitamín C nachlazení u běžných lidí nezabrání; vitamín D pomáhá hlavně těm, kdo ho mají málo.',
+    ],
+    numbers: [
+      { value: '4×', label: 'častější nachlazení při spánku pod 6 h' },
+      { value: '<6 h', label: 'hranice, kde riziko roste' },
+    ],
+    how: [
+      {
+        title: 'Vrozená imunita',
+        text: 'První linie: kůže, sliznice, horečka a buňky, které „sežerou“ cokoli podezřelého. Reaguje během minut až hodin, ale nerozlišuje přesně.',
+      },
+      {
+        title: 'Získaná imunita',
+        text: 'Lymfocyty se naučí poznat konkrétního vetřelce a vytvoří protilátky. Trvá to dny, ale tělo si to pamatuje — na tom stojí očkování.',
+      },
+      {
+        title: 'Horečka a únava',
+        text: 'Nejsou chyba, ale součást obrany. Tělo šetří energii pro boj s infekcí.',
+      },
+    ],
+    today: [
+      'Málo spánku a chronický stres oslabují obranyschopnost.',
+      'Trh s „boostery imunity“ slibuje víc, než dokáže doložit — silná imunita navíc neznamená „víc“, ale „vyváženě“.',
+    ],
+    helps: [
+      { text: 'Spát 7 a více hodin.', level: 'established' },
+      { text: 'Očkování podle doporučení.', level: 'established' },
+      { text: 'Mytí rukou, hlavně před jídlem a po cestě MHD.', level: 'established' },
+      { text: 'Pravidelný středně intenzivní pohyb.', level: 'plausible' },
+      { text: 'Vitamín D v zimě, hlavně pokud ho máte málo.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Vitamín C mě ochrání před nachlazením.',
+        fact: 'U běžné populace ne. Pravidelné užívání může nemoc o trochu zkrátit.',
+      },
+      {
+        myth: 'Nachladil jsem se, protože mi byla zima.',
+        fact: 'Nachlazení způsobují viry. V zimě se jen víc šíří, protože jsme víc uvnitř.',
+      },
+      {
+        myth: 'Na chřipku pomůžou antibiotika.',
+        fact: 'Antibiotika na viry nefungují — zbytečné užívání zvyšuje odolnost bakterií.',
+      },
+    ],
+    related: [
+      { label: 'Vitamín D', href: '/doplnky/vitamin-d' },
+      { label: 'Vitamín C', href: '/doplnky/vitamin-c' },
+      { label: 'Zinek', href: '/doplnky/zinek' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+    ],
+    sources: [SOURCES.prather, SOURCES.nieman, SOURCES.martineau, SOURCES.hemila],
+  },
+  {
+    slug: 'oci-a-obrazovky',
+    title: 'Oči a obrazovky: proč přibývá krátkozrakých',
+    short: 'Oči a obrazovky',
+    icon: 'eye',
+    hook: 'Do roku 2050 může být krátkozraká polovina lidí na světě. Na vině není jen mobil — chybí denní světlo.',
+    tldr: [
+      'Krátkozrakost celosvětově rychle přibývá; odhad pro rok 2050 je zhruba polovina populace.',
+      'Čas venku chrání dětské oči před rozvojem krátkozrakosti.',
+      'Unavené oči od obrazovky jsou hlavně z méně častého mrkání a dlouhého zaostření na blízko — brýle proti modrému světlu podle přehledu Cochrane nejspíš nepomáhají.',
+    ],
+    numbers: [
+      { value: '~50 %', label: 'krátkozrakých lidí v roce 2050 (odhad)' },
+      { value: '20-20-20', label: 'pravidlo pauz pro oči' },
+    ],
+    how: [
+      {
+        title: 'Zaostřování',
+        text: 'Při pohledu na blízko se v oku stahuje sval, který mění tvar čočky. Hodiny u mobilu znamenají hodiny bez uvolnění.',
+      },
+      {
+        title: 'Krátkozrakost',
+        text: 'Oční bulva se během dětství a dospívání prodlouží víc, než má. Denní světlo venku tento růst pravděpodobně brzdí — proto pomáhá čas venku, ne jen méně obrazovek.',
+      },
+      {
+        title: 'Mrkání',
+        text: 'Při soustředění na obrazovku mrkáme výrazně méně. Oko osychá, pálí a únava přichází rychleji.',
+      },
+    ],
+    today: [
+      'Děti tráví víc času uvnitř a na blízko než kdykoli dřív.',
+      'Celý den přes obrazovky — práce, škola i odpočinek — znamená bez přestávky zaostřené oči.',
+    ],
+    helps: [
+      { text: 'Pro děti víc času venku na denním světle každý den.', level: 'established' },
+      {
+        text: 'Pravidlo 20-20-20: každých 20 minut se 20 sekund dívat do dálky (aspoň 6 m).',
+        level: 'plausible',
+      },
+      { text: 'Vědomě mrkat, obrazovku mít kousek pod úrovní očí a nepřesvítit ji.', level: 'plausible' },
+      { text: 'Pravidelná kontrola zraku u dětí i dospělých.', level: 'established' },
+    ],
+    myths: [
+      {
+        myth: 'Brýle proti modrému světlu chrání oči.',
+        fact: 'Přehled Cochrane nenašel přínos pro únavu očí; vliv na spánek je nejistý.',
+      },
+      {
+        myth: 'Obrazovky poškozují sítnici.',
+        fact: 'Není důkaz, že by běžné obrazovky poškozovaly sítnici. Unavují hlavně zaostřování a mrkání.',
+      },
+    ],
+    related: [
+      { label: 'Oči v mapě těla', href: '/organ/eyes' },
+      { label: 'Spánek a obrazovky', href: '/jak-funguje-telo/spanek' },
+    ],
+    sources: [SOURCES.holden, SOURCES.he, SOURCES.sheppard, SOURCES.singh],
+  },
+  {
+    slug: 'kuze-a-slunce',
+    title: 'Kůže a slunce: nejlepší „anti-aging“ je opalovací krém',
+    short: 'Kůže a slunce',
+    icon: 'sun',
+    hook: 'Většinu viditelného stárnutí pleti dělá slunce. A solárium je oficiálně karcinogen.',
+    tldr: [
+      'UV záření stárne kůži a zvyšuje riziko rakoviny kůže.',
+      'V randomizované studii lidé s denním opalovacím krémem po 4,5 letech nevykazovali měřitelné zhoršení stárnutí pleti; jiná studie ukázala dlouhodobě méně melanomů.',
+      'Solária jsou zařazena mezi karcinogeny nejvyšší skupiny, stejně jako tabák.',
+    ],
+    numbers: [
+      { value: 'SPF 30+', label: 'doporučený opalovací krém' },
+      { value: '2 h', label: 'po kolika krém obnovit' },
+    ],
+    how: [
+      {
+        title: 'UVB a UVA',
+        text: 'UVB spaluje povrch kůže a poškozuje DNA. UVA proniká hlouběji, rozkládá kolagen a elastin — vrásky, skvrny, ztráta pružnosti. Projde i mraky a oknem.',
+      },
+      {
+        title: 'Opálení je obrana',
+        text: 'Hnědnutí je reakce na poškození DNA. Krém „proti spálení“ nestačí, pokud nechrání i před UVA.',
+      },
+      {
+        title: 'Vitamín D',
+        text: 'Kůže ho ze slunce vytváří, ale v ČR to od podzimu do jara nestačí — a k jeho tvorbě nepotřebujete spálení.',
+      },
+    ],
+    today: [
+      'Sociální sítě propagují opálení, „base tan“ a solária — přitom právě ty kůži stárnou nejvíc.',
+      'Hodně péče o pleť jde do drahých sér; nejlépe doložený je přitom levný opalovací krém.',
+    ],
+    helps: [
+      {
+        text: 'Opalovací krém SPF 30+ s ochranou UVA denně na obličej, obnovovat po 2 hodinách a po plavání.',
+        level: 'established',
+      },
+      { text: 'Stín a oblečení kolem poledne (zhruba 11–15 h).', level: 'established' },
+      { text: 'Žádná solária.', level: 'established' },
+      { text: 'Nekouřit — kouření urychluje stárnutí pleti.', level: 'established' },
+      {
+        text: 'Při akné k dermatologovi; vliv stravy (sladké, mléčné) je zatím jen předběžný.',
+        level: 'preliminary',
+      },
+    ],
+    myths: [
+      { myth: 'Za mraku se spálit nedá.', fact: 'Velká část UV záření projde i mraky.' },
+      {
+        myth: 'Solárium „připraví“ kůži na léto.',
+        fact: 'Opálení ze solária chrání jen minimálně a riziko melanomu zvyšuje.',
+      },
+      {
+        myth: 'Opalovací krém způsobí nedostatek vitamínu D.',
+        fact: 'Při běžném používání to studie nepotvrzují. Na zimu stejně pomůže spíš doplněk.',
+      },
+    ],
+    related: [
+      { label: 'Looksmaxing bez mýtů', href: '/looksmaxing' },
+      { label: 'Kolagen', href: '/doplnky/kolagen' },
+      { label: 'Kůže v mapě těla', href: '/organ/skin' },
+    ],
+    sources: [SOURCES.hughes, SOURCES.green, SOURCES.iarc],
+  },
+  {
+    slug: 'srdce-a-tlak',
+    title: 'Srdce a tlak: tichý problém, který se dá změřit',
+    short: 'Srdce a tlak',
+    icon: 'heart',
+    hook: 'Vysoký tlak obvykle nebolí. Proto o něm spousta lidí neví — i těch mladých.',
+    tldr: [
+      'Vysoký krevní tlak má víc než miliarda dospělých na světě a často nemá žádné příznaky.',
+      'Dospělí by měli sníst méně než 5 g soli denně; průměr je zhruba dvojnásobný.',
+      'Pohyb, méně soli a alkoholu a nekouření tlak měřitelně snižují.',
+    ],
+    numbers: [
+      { value: '<5 g', label: 'soli denně podle WHO' },
+      { value: '120/80', label: 'ideální tlak (mmHg) zhruba pod' },
+    ],
+    how: [
+      {
+        title: 'Pumpa a hadice',
+        text: 'Srdce každým stahem vytlačí krev do tepen. Tlak je síla, kterou krev tlačí na jejich stěny — horní číslo při stahu, dolní při uvolnění.',
+      },
+      {
+        title: 'Proč vadí vysoký tlak',
+        text: 'Dlouhodobě vysoký tlak poškozuje cévy, srdce, ledviny i mozek — zvyšuje riziko infarktu a mrtvice. Často roky bez varovných příznaků.',
+      },
+      {
+        title: 'Sůl a tlak',
+        text: 'Sodík zadržuje v těle vodu a u mnoha lidí zvyšuje tlak. Většinu soli přitom sníme v pečivu, uzeninách a hotových jídlech, ne ze slánky.',
+      },
+    ],
+    today: [
+      'Sezení, ultrazpracované jídlo, stres a málo spánku tlak zvyšují.',
+      'Energetické nápoje a nikotin krátkodobě zvyšují tep i tlak.',
+    ],
+    helps: [
+      {
+        text: 'Změřit si tlak — v lékárně, u lékaře nebo doma — i když se cítíte dobře.',
+        level: 'established',
+      },
+      { text: 'Méně soli: méně uzenin, hotových jídel a slaného pečiva.', level: 'established' },
+      { text: 'Pravidelný pohyb, hlavně vytrvalostní.', level: 'established' },
+      { text: 'Nekouřit a omezit alkohol.', level: 'established' },
+      { text: 'Víc zeleniny, ovoce a luštěnin (draslík).', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Vysoký tlak bych poznal.',
+        fact: 'Většinou ne — proto se mu říká tichý zabiják. Jediná jistota je měření.',
+      },
+      {
+        myth: 'Mladých lidí se to netýká.',
+        fact: 'Riziko s věkem roste, ale vysoký tlak mívají i lidé pod 40.',
+      },
+    ],
+    related: [
+      { label: 'Srdce v mapě těla', href: '/organ/heart' },
+      { label: 'Omega-3', href: '/doplnky/omega-3' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+    ],
+    sources: [SOURCES.whoHypertension, SOURCES.whoSodium],
+  },
+  {
+    slug: 'mozek-a-uceni',
+    title: 'Mozek a učení: jak si věci zapamatovat napoprvé',
+    short: 'Mozek a učení',
+    icon: 'graduation',
+    hook: 'Čtení poznámek dokola je jedna z nejméně účinných metod. Co funguje lépe — a proč na to potřebujete spát.',
+    tldr: [
+      'Mozek si pamatuje lépe, když učení rozložíte do více dní, místo jednoho bifování.',
+      'Zkoušet se (vybavovat si) funguje lépe než znovu číst.',
+      'Spánek po učení paměť upevňuje — noc před zkouškou bez spánku se nevyplatí.',
+    ],
+    numbers: [],
+    how: [
+      {
+        title: 'Spoje mezi neurony',
+        text: 'Učení mění spojení mezi nervovými buňkami. Co si opakovaně vybavujete, to se posiluje; co nepoužíváte, slábne.',
+      },
+      {
+        title: 'Zapomínání pomáhá',
+        text: 'Když si vzpomínáte na něco, co už napůl zapomínáte, mozek se namáhá — a právě to paměť zpevní. Proto fungují rozložené opakování a testy.',
+      },
+      {
+        title: 'Spánek jako ukládání',
+        text: 'Během spánku mozek přehrává a třídí, co se přes den naučil. Bez spánku se nové vzpomínky ukládají hůř.',
+      },
+    ],
+    today: [
+      'Notifikace a přepínání mezi aplikacemi trhají pozornost. Lidé, kteří často dělají víc věcí najednou, se v jedné studii hůř bránili rozptýlení.',
+      'Učení z krátkých videí dává pocit, že něčemu rozumíte, ale bez vlastního vybavování se málo zapamatuje.',
+    ],
+    helps: [
+      { text: 'Rozložit učení do více kratších bloků v různých dnech.', level: 'established' },
+      {
+        text: 'Zkoušet se: kartičky, otázky, vysvětlit látku vlastními slovy bez poznámek.',
+        level: 'established',
+      },
+      { text: 'Vyspat se po učení a před zkouškou.', level: 'plausible' },
+      { text: 'Mobil mimo dosah a vypnuté notifikace při práci.', level: 'plausible' },
+      { text: 'Pravidelný pohyb — zlepšuje náladu, spánek i soustředění.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Používáme jen 10 % mozku.',
+        fact: 'Nesmysl — zobrazovací metody ukazují aktivitu v celém mozku, jen ne všude najednou.',
+      },
+      {
+        myth: 'Jsem vizuální typ, tak se učím jen z obrázků.',
+        fact: 'Pro „učební styly“ chybí důkazy. Všem pomáhají stejné metody — opakování a vybavování.',
+      },
+      {
+        myth: 'Multitasking zvládám.',
+        fact: 'Mozek mezi úkoly rychle přepíná a při každém přepnutí ztrácí čas a přesnost.',
+      },
+    ],
+    related: [
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
+      { label: 'Mozek v mapě těla', href: '/organ/brain' },
+    ],
+    sources: [SOURCES.cepeda, SOURCES.roediger, SOURCES.walker, SOURCES.ophir, SOURCES.pashler],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
   BODY_GUIDES.map((g) => [g.slug, g]),
 )
+
+/** Guides that link to a given page — used for "read also" boxes on organ and supplement pages. */
+export const guidesLinkingTo = (href: string): BodyGuide[] =>
+  BODY_GUIDES.filter((g) => g.related.some((r) => r.href === href))
