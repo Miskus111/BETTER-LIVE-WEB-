@@ -71,7 +71,7 @@ export function Nav() {
             type="button"
             onClick={() => setSearch(true)}
             className="border-line text-muted hover:border-line-strong hover:text-fg flex h-10 items-center gap-2 rounded-full border px-3 text-[14px] transition"
-            aria-label="Hledat orgány, živiny, potraviny a produkty"
+            aria-label="Hledat průvodce, doplňky, orgány a potraviny"
           >
             <Search size={16} />
             <span className="hidden sm:inline">Hledat</span>

@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { BODY_GUIDES } from '@/data/body-guides'
+import { Suspense } from 'react'
 import { GuideIcon } from '@/components/guides/GuideIcon'
+import { GuidesBrowser } from '@/components/guides/GuidesBrowser'
 import { EvidenceLegend } from '@/components/ui/EvidenceBadge'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
@@ -41,25 +43,10 @@ export default function BodyGuidesHub() {
         </p>
       </header>
 
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-testid="guides">
-        {BODY_GUIDES.map((g) => (
-          <li key={g.slug}>
-            <Link
-              href={`/jak-funguje-telo/${g.slug}`}
-              className="card hover:border-cyan/40 group flex h-full flex-col p-5 transition"
-            >
-              <span className="bg-cyan/10 text-cyan grid h-10 w-10 place-items-center rounded-xl">
-                <GuideIcon icon={g.icon} />
-              </span>
-              <span className="mt-4 text-[17px] leading-snug font-medium">{g.title}</span>
-              <span className="text-muted mt-2 text-[14px]">{g.hook}</span>
-              <span className="text-cyan mt-auto inline-flex items-center gap-1 pt-4 text-[13.5px]">
-                Číst <ArrowRight size={14} className="transition group-hover:translate-x-0.5" aria-hidden />
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {/* the full list is rendered on the server inside Suspense fallback, so search engines see every guide */}
+      <Suspense fallback={<StaticList />}>
+        <GuidesBrowser />
+      </Suspense>
 
       <section className="card mt-12 p-5 md:p-6" aria-labelledby="levels">
         <h2 id="levels" className="text-[18px] font-medium">
@@ -70,5 +57,29 @@ export default function BodyGuidesHub() {
         </div>
       </section>
     </div>
+  )
+}
+
+function StaticList() {
+  return (
+    <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {BODY_GUIDES.map((g) => (
+        <li key={g.slug}>
+          <Link
+            href={`/jak-funguje-telo/${g.slug}`}
+            className="card hover:border-cyan/40 flex h-full flex-col p-5 transition"
+          >
+            <span className="bg-cyan/10 text-cyan grid h-10 w-10 place-items-center rounded-xl">
+              <GuideIcon icon={g.icon} />
+            </span>
+            <span className="mt-4 text-[17px] leading-snug font-medium">{g.title}</span>
+            <span className="text-muted mt-2 text-[14px]">{g.hook}</span>
+            <span className="text-cyan mt-auto inline-flex items-center gap-1 pt-4 text-[13.5px]">
+              Číst <ArrowRight size={14} aria-hidden />
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
   )
 }

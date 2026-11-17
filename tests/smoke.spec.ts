@@ -44,7 +44,7 @@ test.describe('anatomy', () => {
 
 test('search finds organs, nutrients, foods and pages', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: /Hledat orgány/ }).click()
+  await page.getByRole('button', { name: /Hledat průvodce/ }).click()
   const box = page.getByRole('combobox')
   await box.press('Escape')
   await expect(box).toHaveCount(0)
@@ -53,6 +53,30 @@ test('search finds organs, nutrients, foods and pages', async ({ page }) => {
   await expect(page.getByRole('option').first()).toContainText('Kefír')
   await box.press('Enter')
   await expect(page).toHaveURL(/\/food\/kefir/)
+  // guides and non-vitamin supplements are searchable too, without diacritics
+  await page.keyboard.press('ControlOrMeta+k')
+  await box.fill('spanek')
+  await expect(page.getByRole('option').first()).toContainText('Spánek')
+  await box.fill('kreatin')
+  await expect(page.getByRole('option').first()).toContainText('Kreatin')
+  await box.press('Enter')
+  await expect(page).toHaveURL(/\/doplnky\/kreatin/)
+})
+
+test('guides page: search, category filter and shareable URL', async ({ page }) => {
+  await page.goto('/jak-funguje-telo')
+  const box = page.getByTestId('guides-search')
+  await box.fill('kofein')
+  await expect(page.getByTestId('guides-count')).toContainText('z 26')
+  await expect(page.getByTestId('guides').locator('a').first()).toHaveAttribute('href', /energie-a-kofein/)
+  await expect(page).toHaveURL(/q=kofein/)
+  await page.goto('/jak-funguje-telo?q=mobil&k=mysl')
+  await expect(page.getByTestId('guides-search')).toHaveValue('mobil')
+  await expect(page.getByRole('button', { name: /Mozek a psychika/ })).toHaveAttribute('aria-pressed', 'true')
+  await page.getByTestId('guides-search').fill('xyzqq')
+  await expect(page.getByTestId('guides-empty')).toBeVisible()
+  await page.getByRole('button', { name: 'kofein' }).click()
+  await expect(page.getByTestId('guides').locator('li')).not.toHaveCount(0)
 })
 
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {

@@ -1825,3 +1825,44 @@ export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
 /** Guides that link to a given page — used for "read also" boxes on organ and supplement pages. */
 export const guidesLinkingTo = (href: string): BodyGuide[] =>
   BODY_GUIDES.filter((g) => g.related.some((r) => r.href === href))
+
+export type GuideCategory = 'mysl' | 'spanek' | 'jidlo' | 'pohyb' | 'prevence' | 'navyky'
+
+export const GUIDE_CATEGORIES: { id: GuideCategory; label: string }[] = [
+  { id: 'mysl', label: 'Mozek a psychika' },
+  { id: 'spanek', label: 'Spánek a energie' },
+  { id: 'jidlo', label: 'Jídlo a metabolismus' },
+  { id: 'pohyb', label: 'Pohyb a tělo' },
+  { id: 'prevence', label: 'Prevence a zdraví' },
+  { id: 'navyky', label: 'Návyky a závislosti' },
+]
+
+/** Category of each guide (one per guide; the content test checks none is missing). */
+export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
+  spanek: 'spanek',
+  'energie-a-kofein': 'spanek',
+  stres: 'mysl',
+  'dopamin-a-mobil': 'mysl',
+  'svaly-a-metabolismus': 'pohyb',
+  'pohyb-a-sezeni': 'pohyb',
+  'streva-a-mikrobiom': 'jidlo',
+  'pitny-rezim': 'jidlo',
+  alkohol: 'navyky',
+  imunita: 'prevence',
+  'oci-a-obrazovky': 'prevence',
+  'kuze-a-slunce': 'prevence',
+  'srdce-a-tlak': 'prevence',
+  'mozek-a-uceni': 'mysl',
+  'hubnuti-a-energie': 'jidlo',
+  'cukr-a-inzulin': 'jidlo',
+  'ultrazpracovane-potraviny': 'jidlo',
+  'nikotin-a-vaping': 'navyky',
+  'bolest-zad': 'pohyb',
+  'sluch-a-sluchatka': 'prevence',
+  'sauna-a-chlad': 'navyky',
+  'menstruacni-cyklus': 'prevence',
+  'nalada-a-uzkost': 'mysl',
+  'zuby-a-usta': 'prevence',
+  kosti: 'pohyb',
+  dychani: 'spanek',
+}

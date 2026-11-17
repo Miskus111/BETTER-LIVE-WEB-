@@ -1,8 +1,11 @@
 import { FOODS } from '@/data/foods'
 import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
+import { BODY_GUIDES } from '@/data/body-guides'
+import { COMPOUNDS, GOALS } from '@/data/compounds'
+import { SUPPLEMENT_SLUGS } from '@/data/supplements'
 
-export type SearchKind = 'Orgán' | 'Živina' | 'Potravina' | 'Stránka'
+export type SearchKind = 'Orgán' | 'Živina' | 'Potravina' | 'Stránka' | 'Průvodce' | 'Doplněk'
 
 export interface SearchItem {
   kind: SearchKind
@@ -38,6 +41,30 @@ export const SEARCH_INDEX: SearchItem[] = [
     href: '/science',
     text: 'věda metodika důkazy zdroje tvrzení EU',
   },
+  {
+    kind: 'Stránka',
+    id: 'jak-funguje-telo',
+    title: 'Jak funguje tělo',
+    subtitle: 'Průvodci: spánek, stres, dopamin, svaly, střeva…',
+    href: '/jak-funguje-telo',
+    text: 'jak funguje tělo průvodci manuál zdraví věda',
+  },
+  ...BODY_GUIDES.map((g) => ({
+    kind: 'Průvodce' as const,
+    id: `guide-${g.slug}`,
+    title: g.short,
+    subtitle: g.title,
+    href: `/jak-funguje-telo/${g.slug}`,
+    text: `${g.title} ${g.hook} ${g.tldr.join(' ')} ${g.myths.map((m) => m.myth).join(' ')}`,
+  })),
+  ...COMPOUNDS.map((c) => ({
+    kind: 'Doplněk' as const,
+    id: `compound-${c.id}`,
+    title: c.name,
+    subtitle: `${GOALS[c.goal].label} · ${c.verdict}`,
+    href: `/doplnky/${c.slug}`,
+    text: `${c.name} ${c.aka ?? ''} ${c.what} ${GOALS[c.goal].label}`,
+  })),
   ...ORGANS.map((o) => ({
     kind: 'Orgán' as const,
     id: o.id,
@@ -51,7 +78,8 @@ export const SEARCH_INDEX: SearchItem[] = [
     id: n.id,
     title: n.name,
     subtitle: n.kind,
-    href: `/#nutrient-${n.id}`,
+    // nutrients with a supplement guide open that page; the rest jump to the nutrient index
+    href: SUPPLEMENT_SLUGS[n.id] ? `/doplnky/${SUPPLEMENT_SLUGS[n.id]}` : `/#nutrient-${n.id}`,
     text: `${n.name} ${n.kind} ${n.blurb}`,
   })),
   ...FOODS.map((f) => ({

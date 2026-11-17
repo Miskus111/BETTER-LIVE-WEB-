@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Apple, Atom, CornerDownLeft, FileText, HeartPulse, Search, X } from 'lucide-react'
+import { Apple, Atom, BookOpen, CornerDownLeft, FileText, HeartPulse, Pill, Search, X } from 'lucide-react'
 import { search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
@@ -12,8 +12,17 @@ const ICON: Record<SearchKind, typeof Apple> = {
   Živina: Atom,
   Potravina: Apple,
   Stránka: FileText,
+  Průvodce: BookOpen,
+  Doplněk: Pill,
 }
-const SUGGESTED = ['brain', 'intestines', 'omega3', 'choline', 'doplnky', 'looksmaxing'] as const
+const SUGGESTED = [
+  'guide-spanek',
+  'guide-dopamin-a-mobil',
+  'compound-creatine',
+  'brain',
+  'omega3',
+  'jak-funguje-telo',
+] as const
 
 export function CommandPalette() {
   const router = useRouter()
@@ -101,7 +110,7 @@ export function CommandPalette() {
               } else if (e.key === 'Enter' && results[active]) go(results[active])
               else if (e.key === 'Escape') setSearch(false)
             }}
-            placeholder="Hledat orgány, živiny, potraviny, produkty…"
+            placeholder="Hledat průvodce, doplňky, orgány…"
             className="placeholder:text-subtle h-14 flex-1 bg-transparent text-[16px] outline-none"
             role="combobox"
             aria-expanded="true"
