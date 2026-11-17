@@ -551,7 +551,7 @@
     "mode_upload": "Nahrát PDF / foto",
     "mode_paste": "Vložit text",
     "mode_inbody": "InBody ručně",
-    "aiOff": "Čtení PDF a fotek pomocí AI není na tomto serveru zapnuté (chybí ANTHROPIC_API_KEY). Použijte „Vložit text“.",
+    "aiOff": "Čtení PDF a fotek pomocí AI se brzy spustí. Zatím výsledky vložte jako text — tlačítko „Vložit text“.",
     "uploadCta": "Vyberte PDF nebo fotku výsledků",
     "uploadHint": "PDF, JPG, PNG nebo WebP · max. 10 MB",
     "aiPrivacy": "Soubor se uloží do vašeho soukromého úložiště (EU) a k přečtení se pošle AI modelu Claude (Anthropic). Model data nepoužívá k trénování.",

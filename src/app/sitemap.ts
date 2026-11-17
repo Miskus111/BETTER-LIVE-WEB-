@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/looksmaxing'), priority: 0.7 },
     { url: u('/science'), priority: 0.6 },
     { url: u('/pricing'), priority: 0.6 },
+    { url: u('/privacy'), priority: 0.2 },
+    { url: u('/terms'), priority: 0.2 },
     ...SUPPLEMENT_NUTRIENTS.map((id) => ({ url: u(supplementHref(id)), priority: 0.8 })),
     ...COMPOUNDS.map((c) => ({ url: u(`/doplnky/${c.slug}`), priority: 0.8 })),
     ...ORGANS.map((o) => ({ url: u(`/organ/${o.id}`), priority: 0.8 })),

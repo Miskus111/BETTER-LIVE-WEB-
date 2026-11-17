@@ -101,6 +101,21 @@ test('guide page: reading time, table of contents and prev/next', async ({ page 
   await expect(page.locator('a[rel=next]')).toHaveAttribute('href', /\/jak-funguje-telo\/energie-a-kofein$/)
 })
 
+test('legal pages name the operator and are linked from the footer', async ({ page }) => {
+  for (const path of ['/privacy', '/terms']) {
+    await page.goto(path)
+    await expect(page.getByTestId('operator')).toContainText('Michal Major')
+    await expect(page.getByText('Pracovní verze')).toHaveCount(0)
+  }
+  await page.goto('/')
+  const legal = page.getByRole('navigation', { name: 'Právní informace' })
+  await expect(legal.getByRole('link', { name: 'Ochrana osobních údajů' })).toHaveAttribute(
+    'href',
+    '/privacy',
+  )
+  await expect(legal.getByRole('link', { name: 'Podmínky' })).toHaveAttribute('href', '/terms')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')

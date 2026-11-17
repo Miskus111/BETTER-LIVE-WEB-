@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale } from 'next-intl/server'
 import { Providers } from '@/components/providers/Providers'
+import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '@/lib/site'
 import './globals.css'
 
@@ -44,6 +45,8 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <NextIntlClientProvider>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
+        {/* cookieless page-view counts (no personal data, no consent banner needed) */}
+        <Analytics />
       </body>
     </html>
   )

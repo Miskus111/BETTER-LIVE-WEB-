@@ -20,3 +20,14 @@ export const SITE = {
     'Výživa, vitamíny, trénink, mobilita, spánek a vzhled podle důkazů — interaktivní mapa těla, průvodci doplňky a aplikace s AI koučem.',
   url: siteUrl(),
 }
+
+/**
+ * Provozovatel webu a správce osobních údajů (GDPR čl. 13). Zobrazuje se v zásadách, podmínkách a patičce.
+ * `id` = IČO, pokud existuje; `address` = sídlo nebo doručovací adresa.
+ */
+export const OPERATOR = {
+  name: 'Michal Major',
+  id: '',
+  address: '',
+  email: 'miskusmajor@gmail.com',
+}

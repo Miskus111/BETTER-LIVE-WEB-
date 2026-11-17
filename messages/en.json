@@ -551,7 +551,7 @@
     "mode_upload": "Upload PDF / photo",
     "mode_paste": "Paste text",
     "mode_inbody": "InBody manually",
-    "aiOff": "AI reading of PDFs and photos is not enabled on this server (ANTHROPIC_API_KEY missing). Use “Paste text”.",
+    "aiOff": "AI reading of PDFs and photos is coming soon. For now, paste your results as text using “Paste text”.",
     "uploadCta": "Choose a PDF or photo of your results",
     "uploadHint": "PDF, JPG, PNG or WebP · max 10 MB",
     "aiPrivacy": "The file is stored in your private storage (EU) and sent to the Claude AI model (Anthropic) to be read. The model does not train on your data.",

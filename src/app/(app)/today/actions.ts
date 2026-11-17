@@ -39,20 +39,18 @@ export async function saveCheckIn(input: CheckInInput): Promise<{ ok: boolean; e
     )
     if (error) return { ok: false, error: error.message }
   }
-  const { error } = await db
-    .from('recovery_logs')
-    .upsert(
-      {
-        user_id: s.user.id,
-        logged_on: d.date,
-        steps: d.steps,
-        water_ml: d.water_ml,
-        hrv_ms: d.hrv_ms,
-        resting_hr: d.resting_hr,
-        stress: d.stress,
-      },
-      { onConflict: 'user_id,logged_on' },
-    )
+  const { error } = await db.from('recovery_logs').upsert(
+    {
+      user_id: s.user.id,
+      logged_on: d.date,
+      steps: d.steps,
+      water_ml: d.water_ml,
+      hrv_ms: d.hrv_ms,
+      resting_hr: d.resting_hr,
+      stress: d.stress,
+    },
+    { onConflict: 'user_id,logged_on' },
+  )
   if (error) return { ok: false, error: error.message }
   revalidatePath('/today')
   return { ok: true }

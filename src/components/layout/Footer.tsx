@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ORGANS } from '@/data/organs'
 import { NUTRIENTS } from '@/data/nutrients'
 import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'
+import { OPERATOR } from '@/lib/site'
 import { Logo } from './Logo'
 
 export function Footer() {
@@ -66,7 +67,22 @@ export function Footer() {
             </Link>
             .
           </p>
-          <p className="font-mono text-[12px]">© {new Date().getFullYear()} Better Live with Biohacking</p>
+          <div className="flex shrink-0 flex-col gap-2 md:items-end">
+            <nav aria-label="Právní informace" className="flex flex-wrap gap-x-4 gap-y-1">
+              <Link href="/privacy" className="hover:text-fg">
+                Ochrana osobních údajů
+              </Link>
+              <Link href="/terms" className="hover:text-fg">
+                Podmínky
+              </Link>
+              {OPERATOR.email && (
+                <a href={`mailto:${OPERATOR.email}`} className="hover:text-fg">
+                  Kontakt
+                </a>
+              )}
+            </nav>
+            <p className="font-mono text-[12px]">© {new Date().getFullYear()} Better Live with Biohacking</p>
+          </div>
         </div>
       </div>
     </footer>

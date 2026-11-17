@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { isAiConfigured } from '@/lib/ai/client'
 import { Activity, ArrowRight, Dumbbell, FlaskConical, MessageCircle, Pill, Utensils } from 'lucide-react'
 
 const FEATURES = [
@@ -74,7 +75,14 @@ export function AppCta({ compact = false }: { compact?: boolean }) {
               {FEATURES.map(({ icon: Icon, title, text }) => (
                 <li key={title} className="border-line rounded-2xl border p-4">
                   <Icon size={18} className="text-cyan" aria-hidden />
-                  <p className="mt-2 text-[15px] font-medium">{title}</p>
+                  <p className="mt-2 flex items-center gap-2 text-[15px] font-medium">
+                    {title}
+                    {title === 'AI kouč' && !isAiConfigured() && (
+                      <span className="border-line text-subtle rounded-full border px-2 py-0.5 font-mono text-[11px]">
+                        brzy
+                      </span>
+                    )}
+                  </p>
                   <p className="text-muted mt-1 text-[13.5px]">{text}</p>
                 </li>
               ))}

@@ -20,7 +20,8 @@ const nextConfig: NextConfig = {
       { source: '/register', destination: '/login?mode=signup', permanent: false },
     ]
   },
-  /* config options here */
+  // metadata (title, description, og:image) always in <head> — every link-preview bot finds it
+  htmlLimitedBots: /.*/,
 }
 
 export default withNextIntl(nextConfig)
