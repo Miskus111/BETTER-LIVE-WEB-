@@ -37,6 +37,12 @@ export interface BodyGuide {
     | 'tooth'
     | 'skeleton'
     | 'wind'
+    | 'sparkles'
+    | 'storm'
+    | 'timer'
+    | 'users'
+    | 'move'
+    | 'mars'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -233,6 +239,74 @@ const SOURCES = {
     'Zaccaro a kol. (2018) Pomalé dýchání a jeho účinky — systematický přehled, Front Hum Neurosci',
   ),
   rhee: pm(40397877, 'Rhee a kol. (2025) Přelepování úst na spaní — systematický přehled, PLoS One'),
+  reynoldsAcne: pm(38300170, 'Reynolds a kol. (2024) Doporučení pro léčbu akné, J Am Acad Dermatol'),
+  juhlDairy: pm(
+    30096883,
+    'Juhl a kol. (2018) Mléčné výrobky a akné — systematický přehled a metaanalýza, Nutrients',
+  ),
+  smithGL: pm(
+    17616769,
+    'Smith a kol. (2007) Strava s nízkou glykemickou náloží u akné — RCT, Am J Clin Nutr',
+  ),
+  tanAcne: pm(25597339, 'Tan a Bhate (2015) Celosvětová epidemiologie akné, Br J Dermatol'),
+  whoHeadache: {
+    title: 'WHO — Poruchy s bolestí hlavy (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/headache-disorders',
+  },
+  ashinaMigraine: pm(33773613, 'Ashina a kol. (2021) Migréna: epidemiologie a péče, Lancet'),
+  ashinaMOH: pm(36732518, 'Ashina a kol. (2023) Bolest hlavy z nadužívání léků, Nat Rev Dis Primers'),
+  loweTRE: pm(
+    32986097,
+    'Lowe a kol. (2020) Jídlo v časovém okně 16:8 a hubnutí — RCT TREAT, JAMA Intern Med',
+  ),
+  liuTRE: pm(
+    35443107,
+    'Liu a kol. (2022) Omezení kalorií s časovým oknem i bez něj — roční RCT, N Engl J Med',
+  ),
+  decabo: pm(
+    31881139,
+    'de Cabo a Mattson (2019) Přerušovaný půst, zdraví a stárnutí — přehled, N Engl J Med',
+  ),
+  holtLunstad: pm(20668659, 'Holt-Lunstad a kol. (2010) Vztahy a riziko úmrtí — metaanalýza, PLoS Med'),
+  holtLunstad24: pm(
+    39279411,
+    'Holt-Lunstad (2024) Sociální propojení jako faktor duševního i fyzického zdraví, World Psychiatry',
+  ),
+  whoSocial: {
+    title: 'WHO (2025) — Komise pro sociální propojení: osamělost a zdraví',
+    url: 'https://www.who.int/news/item/30-06-2025-social-connection-linked-to-improved-heath-and-reduced-risk-of-early-death',
+  },
+  herbertStretch: pm(21735398, 'Herbert a kol. (2011) Protahování a svalová bolest po cvičení, Cochrane'),
+  lauersen: pm(
+    24100287,
+    'Lauersen a kol. (2014) Cvičení jako prevence sportovních zranění — metaanalýza, Br J Sports Med',
+  ),
+  behm: pm(
+    26642915,
+    'Behm a kol. (2016) Akutní účinky protahování na výkon a rozsah pohybu, Appl Physiol Nutr Metab',
+  ),
+  warneke: pm(
+    40513717,
+    'Warneke a kol. (2025) Praktická doporučení k protahování — Delphi konsenzus expertů, J Sport Health Sci',
+  ),
+  leproult: pm(21632481, 'Leproult a Van Cauter (2011) Týden zkráceného spánku a testosteron, JAMA'),
+  coronaWeight: pm(
+    23482592,
+    'Corona a kol. (2013) Hubnutí a nízký testosteron u obezity — metaanalýza, Eur J Endocrinol',
+  ),
+  clemesha: pm(
+    31385468,
+    'Clemesha a kol. (2020) „Testosteronové boostery“: složení a tvrzení bez opory ve výzkumu, World J Mens Health',
+  ),
+  bhasin: pm(
+    29562364,
+    'Bhasin a kol. (2018) Léčba testosteronem u hypogonadismu — doporučení Endocrine Society',
+  ),
+  reedSoy: pm(
+    33383165,
+    'Reed a kol. (2021) Sója a izoflavony neovlivňují mužské hormony — metaanalýza, Reprod Toxicol',
+  ),
+  sievert: pm(30700403, 'Sievert a kol. (2019) Snídaně, hmotnost a příjem energie — metaanalýza RCT, BMJ'),
 }
 
 export const BODY_GUIDES: BodyGuide[] = [
@@ -1816,6 +1890,395 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.zaccaro, SOURCES.rhee, SOURCES.benjafield],
   },
+  {
+    slug: 'akne-a-plet',
+    title: 'Akné: co ho způsobuje a co na něj opravdu platí',
+    short: 'Akné',
+    icon: 'sparkles',
+    hook: 'Akné není ze špíny ani z lenosti. Je to běžné onemocnění kůže — a dá se dobře léčit.',
+    tldr: [
+      'Akné vzniká v mazové žláze: víc mazu, ucpaný vývod, bakterie a zánět.',
+      'Nejlépe ověřená léčba je benzoylperoxid a retinoidy na kůži; u těžšího akné tablety od lékaře.',
+      'Strava hraje menší roli, než tvrdí internet — u části lidí může přitížit mléko a sladké.',
+    ],
+    numbers: [
+      { value: '~9 %', label: 'lidí na světě má akné (odhad)' },
+      { value: '2–3 měsíce', label: 'na plný účinek léčby' },
+    ],
+    how: [
+      {
+        title: 'Hormony a maz',
+        text: 'V pubertě hormony (androgeny) rozjedou mazové žlázy. Mazu je víc a kůže ve vývodu se snáz ucpe — vznikne černá nebo bílá tečka.',
+      },
+      {
+        title: 'Bakterie a zánět',
+        text: 'V ucpaném vývodu se množí bakterie, které na kůži žijí běžně. Imunita zareaguje zánětem — z tečky je červený pupínek.',
+      },
+      {
+        title: 'Jizvy a skvrny',
+        text: 'Hluboký zánět nebo mačkání může poškodit kůži. Zůstanou tmavé skvrny nebo jizvy — proto se vyplatí léčit včas.',
+      },
+    ],
+    today: [
+      'Na TikToku se šíří „hacky“ jako zubní pasta na pupínek nebo drhnutí kůže. Kůži spíš podráždí.',
+      'Filtry a retuš na sítích vytvářejí dojem, že normální kůže nemá póry ani pupínky.',
+    ],
+    helps: [
+      {
+        text: 'Benzoylperoxid nebo retinoid (adapalen) na kůži — pravidelně a aspoň 2–3 měsíce.',
+        level: 'established',
+      },
+      {
+        text: 'U středního a těžkého akné nebo jizev zajít k lékaři; existují účinné tablety včetně isotretinoinu.',
+        level: 'established',
+      },
+      { text: 'Jemné mytí 2× denně a nekomedogenní kosmetika místo drhnutí.', level: 'plausible' },
+      {
+        text: 'Zkusit méně mléka a sladkého, pokud máte pocit, že vám přitěžují.',
+        level: 'preliminary',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Akné je ze špinavé pleti.',
+        fact: 'Vzniká uvnitř mazové žlázy. Časté drhnutí a agresivní přípravky kůži spíš podráždí.',
+      },
+      {
+        myth: 'Pupínek je nejlepší vymáčknout.',
+        fact: 'Mačkání zanese zánět hlouběji a zvyšuje riziko skvrn a jizev.',
+      },
+      {
+        myth: 'Zubní pasta pupínek vysuší.',
+        fact: 'Pasta není lék na kůži a často ji podráždí. Účinné látky jsou jiné — benzoylperoxid nebo retinoidy.',
+      },
+    ],
+    related: [
+      { label: 'Kůže a slunce', href: '/jak-funguje-telo/kuze-a-slunce' },
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Looksmaxing', href: '/looksmaxing' },
+    ],
+    sources: [SOURCES.reynoldsAcne, SOURCES.tanAcne, SOURCES.juhlDairy, SOURCES.smithGL],
+  },
+  {
+    slug: 'bolest-hlavy',
+    title: 'Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři',
+    short: 'Bolest hlavy',
+    icon: 'storm',
+    hook: 'Bolest hlavy má skoro polovina lidí. Většinou není nebezpečná — ale příliš mnoho prášků ji umí zhoršit.',
+    tldr: [
+      'Nejčastější je tenzní bolest hlavy a migréna; vážná příčina je vzácná.',
+      'Prášky proti bolesti brané příliš často (zhruba 10–15 a víc dní v měsíci) samy vyvolávají bolest hlavy.',
+      'Častou migrénu jde léčit i preventivně — nemusíte ji jen „přetrpět“.',
+    ],
+    numbers: [
+      { value: '~40 %', label: 'lidí na světě má poruchu s bolestí hlavy (WHO)' },
+      { value: '4–72 h', label: 'trvá neléčený záchvat migrény' },
+    ],
+    how: [
+      {
+        title: 'Tenzní bolest',
+        text: 'Tlaková bolest „jako obruč“ po obou stranách hlavy. Bývá spojená se stresem, únavou a napětím v šíji.',
+      },
+      {
+        title: 'Migréna',
+        text: 'Onemocnění mozku, ne jen silnější bolest. Pulzující bolest často na jedné straně, nevolnost, citlivost na světlo a zvuk. Někdy jí předchází aura — mžitky nebo brnění.',
+      },
+      {
+        title: 'Bolest z nadužívání léků',
+        text: 'Když se prášky proti bolesti berou skoro denně, mozek se jim přizpůsobí a bolest se vrací častěji. Pomáhá řízené vysazení s lékařem.',
+      },
+    ],
+    today: [
+      'Dlouhé sezení u obrazovky, málo spánku a vynechané jídlo patří k častým spouštěčům.',
+      'Lidé si běžně kupují prášky bez receptu a neví, že jejich časté užívání bolest prodlužuje.',
+    ],
+    helps: [
+      {
+        text: 'Prášky proti bolesti brát nejvýš pár dní v měsíci; při častější bolesti řešit prevenci s lékařem.',
+        level: 'established',
+      },
+      {
+        text: 'Okamžitě k lékaři při náhlé „nejhorší bolesti v životě“, horečce se ztuhlou šíjí, poruše řeči nebo hybnosti či bolesti po úrazu.',
+        level: 'established',
+      },
+      { text: 'Pravidelný spánek a jídlo, dost tekutin a pohyb.', level: 'plausible' },
+      { text: 'Deník bolesti hlavy — pomůže najít spouštěče a lékaři zvolit léčbu.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Migréna je jen silnější bolest hlavy.',
+        fact: 'Je to neurologické onemocnění s nevolností, citlivostí na světlo a někdy aurou. Patří mezi hlavní příčiny let prožitých s postižením.',
+      },
+      {
+        myth: 'Víc prášků znamená míň bolesti.',
+        fact: 'Časté užívání vede k bolesti hlavy z nadužívání léků — bolest se pak vrací častěji.',
+      },
+      {
+        myth: 'Častá bolest hlavy znamená nádor.',
+        fact: 'Velmi vzácně. Pozor si dejte na varovné příznaky — ty patří k lékaři hned.',
+      },
+    ],
+    related: [
+      { label: 'Stres', href: '/jak-funguje-telo/stres' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Oči a obrazovky', href: '/jak-funguje-telo/oci-a-obrazovky' },
+    ],
+    sources: [SOURCES.whoHeadache, SOURCES.ashinaMigraine, SOURCES.ashinaMOH],
+  },
+  {
+    slug: 'prerusovany-pust',
+    title: 'Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?',
+    short: 'Přerušovaný půst',
+    icon: 'timer',
+    hook: 'Jíst jen v osmihodinovém okně je hit sociálních sítí. Studie ukazují, že kouzlo je hlavně v tom, že sníte méně.',
+    tldr: [
+      'Přerušovaný půst je způsob, jak jíst méně — ne zvláštní „spalovací“ režim.',
+      'V ročních studiích lidé s časovým oknem zhubli podobně jako s běžným omezením kalorií.',
+      'Hodí se tomu, komu vyhovuje. Pro dospívající, těhotné, lidi s poruchou příjmu potravy nebo na lécích na cukrovku jen po poradě s lékařem.',
+    ],
+    numbers: [
+      { value: '16:8', label: '16 h bez jídla, 8 h okno' },
+      { value: '12 měsíců', label: 'trvala studie bez rozdílu proti dietě' },
+    ],
+    how: [
+      {
+        title: 'Co se děje během půstu',
+        text: 'Po několika hodinách bez jídla tělo víc sahá po tuku a játra začnou tvořit ketolátky. Do jisté míry se to ale děje i přes noc.',
+      },
+      {
+        title: 'Proč se hubne',
+        text: 'Kratší okno obvykle znamená méně jídla. Tuk ubývá, když energie dlouhodobě chybí — časové okno je jen nástroj, jak toho dosáhnout.',
+      },
+      {
+        title: 'Co ukázaly studie',
+        text: 'Ve studii TREAT lidé s oknem 16:8 nezhubli o nic významně víc než kontrolní skupina. V roční studii v NEJM časové okno nepřidalo nic navíc k obyčejnému omezení kalorií.',
+      },
+    ],
+    today: [
+      'Influenceři slibují „autofagii“ a „reset metabolismu“. U lidí to studie jako přínos pro hubnutí nepotvrdily.',
+      'Snídaně se vynechává z pohodlí — a pak se večer dojídá.',
+    ],
+    helps: [
+      {
+        text: 'Pokud vám okno pomáhá jíst méně a vydržíte ho, je to stejně dobrá cesta jako jiná.',
+        level: 'established',
+      },
+      { text: 'V okně jíst plnohodnotně: bílkoviny, zelenina, vláknina.', level: 'plausible' },
+      { text: 'Při silném hladu, točení hlavy nebo přejídání v okně režim nedržet.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Přerušovaný půst spaluje tuk lépe než jiné diety.',
+        fact: 'Při stejném příjmu kalorií studie velký rozdíl nenašly.',
+      },
+      {
+        myth: 'Snídaně je nejdůležitější jídlo dne.',
+        fact: 'Metaanalýza randomizovaných studií nezjistila, že by snídaně pomáhala hubnout. Rozhoduje celková strava.',
+      },
+    ],
+    related: [
+      { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+    ],
+    sources: [SOURCES.loweTRE, SOURCES.liuTRE, SOURCES.decabo, SOURCES.sievert],
+  },
+  {
+    slug: 'samota-a-vztahy',
+    title: 'Samota a vztahy: proč jsou lidé kolem vás zdraví',
+    short: 'Samota a vztahy',
+    icon: 'users',
+    hook: 'Jsme propojení víc než kdy dřív, a přesto se cítí osamělý každý šestý člověk. Nejvíc mladí.',
+    tldr: [
+      'Dobré vztahy souvisí s delším životem podobně silně jako známé faktory, třeba kouření.',
+      'Osamělost je pocit, že vám chybí blízkost — můžete ji cítit i mezi lidmi.',
+      'Podle WHO se cítí osamělých 17–21 % lidí ve věku 13–29 let, nejvíc teenageři.',
+    ],
+    numbers: [
+      { value: '1 z 6', label: 'lidí na světě se cítí osamělý (WHO)' },
+      { value: '871 000', label: 'úmrtí ročně spojených s osamělostí (odhad WHO)' },
+    ],
+    how: [
+      {
+        title: 'Osamělost jako alarm',
+        text: 'Podobně jako hlad říká „najez se“, osamělost říká „vyhledej lidi“. Když trvá dlouho, tělo je ve stálé pohotovosti — hůř se spí a víc se stresuje.',
+      },
+      {
+        title: 'Vztahy a zdraví',
+        text: 'Metaanalýza 148 studií zjistila, že lidé se silnějšími vztahy měli zhruba o polovinu vyšší šanci přežít sledované období.',
+      },
+      {
+        title: 'Kvalita víc než počet',
+        text: 'Nejde o počet sledujících. Rozhoduje, jestli máte pár lidí, kterým můžete zavolat, když je zle.',
+      },
+    ],
+    today: [
+      'WHO upozorňuje na nadměrný čas u obrazovky a negativní interakce online jako na riziko pro duševní zdraví mladých.',
+      'Hodně kontaktu probíhá přes zprávy, méně tváří v tvář.',
+    ],
+    helps: [
+      {
+        text: 'Pravidelný kontakt s lidmi, na kterých vám záleží — i krátká zpráva nebo hovor.',
+        level: 'plausible',
+      },
+      {
+        text: 'Při rozhovoru odložit mobil a věnovat se naplno.',
+        level: 'plausible',
+      },
+      {
+        text: 'Kroužek, sport, dobrovolnictví nebo skupina se stejným koníčkem — lidi se nejsnáz potkávají u společné činnosti.',
+        level: 'plausible',
+      },
+      {
+        text: 'Když osamělost trvá a přidá se smutek nebo beznaděj, říct si o pomoc (psycholog, linka důvěry).',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Osamělost se týká hlavně starých lidí.',
+        fact: 'Podle WHO jsou nejvíc zasažení mladí, nejvíc teenageři.',
+      },
+      {
+        myth: 'Kdo je osamělý, je prostě sám.',
+        fact: 'Osamělost je pocit. Můžete být sami a spokojení — nebo mezi lidmi a osamělí.',
+      },
+    ],
+    related: [
+      { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
+      { label: 'Stres', href: '/jak-funguje-telo/stres' },
+      { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
+    ],
+    sources: [SOURCES.whoSocial, SOURCES.holtLunstad, SOURCES.holtLunstad24],
+  },
+  {
+    slug: 'protahovani',
+    title: 'Protahování: na co je dobré a na co ne',
+    short: 'Protahování',
+    icon: 'move',
+    hook: 'Protáhnout se před sportem, aby se nic nestalo? Studie ukazují, že před zraněním chrání spíš posilování.',
+    tldr: [
+      'Protahování spolehlivě zvětšuje rozsah pohybu.',
+      'Svalovou bolest po tréninku skoro nezmírní a samo zranění nepředchází.',
+      'Krátké protažení před výkonem nevadí; před výbušným sportem je lepší dynamická rozcvička.',
+    ],
+    numbers: [
+      { value: '< 60 s', label: 'statického protažení na sval výkon prakticky neovlivní' },
+      { value: '~1/3', label: 'zranění oproti kontrolám při posilování (metaanalýza)' },
+    ],
+    how: [
+      {
+        title: 'Proč se zvětší rozsah',
+        text: 'Hlavně proto, že si nervový systém zvykne na tah a snese ho víc. Změny ve svalu samotném přicházejí pomaleji.',
+      },
+      {
+        title: 'Protahování a zranění',
+        text: 'V metaanalýze sportovních studií posilování snížilo zranění zhruba na třetinu. Samotné protahování přínos neukázalo.',
+      },
+      {
+        title: 'Protahování a bolest svalů',
+        text: 'Přehled Cochrane zjistil, že protahování před ani po cvičení bolest svalů v dalších dnech prakticky nesníží.',
+      },
+    ],
+    today: [
+      'Celý den sezení zkracuje rozsah, ve kterém se běžně hýbeme.',
+      'Na sítích se prodávají „mobility“ programy jako řešení všeho.',
+    ],
+    helps: [
+      {
+        text: 'Pravidelné protahování, když chcete větší rozsah — třeba do dřepu nebo pro jógu.',
+        level: 'established',
+      },
+      {
+        text: 'Před sportem dynamická rozcvička: zahřátí a pohyby, které ve sportu děláte.',
+        level: 'established',
+      },
+      {
+        text: 'Posilování jako hlavní prevence zranění.',
+        level: 'established',
+      },
+      { text: 'Protahovat se, protože je vám to příjemné — to je taky dobrý důvod.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Protažení před sportem zabrání zranění.',
+        fact: 'Samotné protahování v metaanalýze zranění nesnížilo. Posilování ano.',
+      },
+      {
+        myth: 'Protažení po tréninku zabrání svalové horečce.',
+        fact: 'Efekt je podle přehledu Cochrane tak malý, že ho skoro nepoznáte.',
+      },
+    ],
+    related: [
+      { label: 'Bolest zad', href: '/jak-funguje-telo/bolest-zad' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+    ],
+    sources: [SOURCES.lauersen, SOURCES.herbertStretch, SOURCES.behm, SOURCES.warneke],
+  },
+  {
+    slug: 'testosteron',
+    title: 'Testosteron: co ho opravdu zvedá a co je jen marketing',
+    short: 'Testosteron',
+    icon: 'mars',
+    hook: '„Low T“ je oblíbené téma sítí. Největší vliv má spánek a váha — ne boostery z e-shopu.',
+    tldr: [
+      'Testosteron přirozeně snižuje nedostatek spánku a obezita; hubnutí ho zvyšuje.',
+      'Většina „testosteronových boosterů“ nemá pro svá tvrzení oporu ve výzkumu.',
+      'Léčba testosteronem patří jen k lékaři při prokázaném nedostatku — a může vypnout tvorbu spermií.',
+    ],
+    numbers: [
+      { value: '10–15 %', label: 'pokles po týdnu spánku 5 h za noc (studie)' },
+      { value: '~25 %', label: 'složek boosterů mělo data o zvýšení testosteronu' },
+    ],
+    how: [
+      {
+        title: 'Řízení z mozku',
+        text: 'Mozek (hypotalamus a hypofýza) dává varlatům signál, kolik testosteronu tvořit. Když ho dodáte zvenku, mozek signál ztlumí — a varlata utlumí i tvorbu spermií.',
+      },
+      {
+        title: 'Spánek',
+        text: 'Velká část testosteronu se tvoří ve spánku. Mladým mužům, kteří týden spali 5 hodin, klesl během dne o 10–15 %.',
+      },
+      {
+        title: 'Váha',
+        text: 'Tukové tkáně přeměňují testosteron na estrogen a obezita tlumí jeho tvorbu. Zhubnutí podle metaanalýzy hladinu zvyšuje — tím víc, čím víc kil dolů.',
+      },
+    ],
+    today: [
+      'Sítě a e-shopy prodávají boostery, „TRT kliniky“ a strach z „nízkého T“.',
+      'Krátký spánek a málo pohybu jsou u mladých běžné.',
+    ],
+    helps: [
+      { text: 'Spát 7 a více hodin.', level: 'established' },
+      { text: 'Při nadváze zhubnout.', level: 'established' },
+      { text: 'Pravidelný pohyb a posilování.', level: 'plausible' },
+      {
+        text: 'Při únavě, poklesu libida nebo erekce zajít k lékaři — měří se ráno nalačno a opakovaně.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Testosteronové boostery fungují.',
+        fact: 'Analýza 50 produktů ukázala, že jen asi čtvrtina složek má data o zvýšení testosteronu a část dokonce opačný efekt.',
+      },
+      {
+        myth: 'Sója snižuje testosteron.',
+        fact: 'Metaanalýza klinických studií vliv sóji ani izoflavonů na mužské hormony nenašla.',
+      },
+      {
+        myth: 'Testosteron na předpis je bezpečná zkratka ke svalům.',
+        fact: 'Bez prokázaného nedostatku se nedoporučuje. Tlumí tvorbu spermií a vyžaduje lékařské sledování.',
+      },
+    ],
+    related: [
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Looksmaxing', href: '/looksmaxing' },
+    ],
+    sources: [SOURCES.leproult, SOURCES.coronaWeight, SOURCES.clemesha, SOURCES.bhasin, SOURCES.reedSoy],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -1865,4 +2328,10 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',
   dychani: 'spanek',
+  'akne-a-plet': 'prevence',
+  'bolest-hlavy': 'prevence',
+  'prerusovany-pust': 'jidlo',
+  'samota-a-vztahy': 'mysl',
+  protahovani: 'pohyb',
+  testosteron: 'prevence',
 }

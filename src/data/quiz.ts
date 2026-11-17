@@ -128,6 +128,35 @@ export const QUIZ: QuizItem[] = [
     explain: 'Extrémní množství vody může být naopak nebezpečné — klesne hladina sodíku v krvi.',
   },
 
+  {
+    id: 'mackani-pupinku',
+    guide: 'akne-a-plet',
+    statement: 'Pupínek je nejlepší vymáčknout.',
+    fact: false,
+    explain: 'Mačkání zanese zánět hlouběji a zvyšuje riziko tmavých skvrn a jizev.',
+  },
+  {
+    id: 'boostery',
+    guide: 'testosteron',
+    statement: 'Testosteronové boostery z e-shopu spolehlivě zvednou testosteron.',
+    fact: false,
+    explain: 'Jen asi čtvrtina jejich složek má data o zvýšení testosteronu, část dokonce opačný efekt.',
+  },
+  {
+    id: 'protazeni-zraneni',
+    guide: 'protahovani',
+    statement: 'Protažení před sportem zabrání zranění.',
+    fact: false,
+    explain: 'Samotné protahování v metaanalýze zranění nesnížilo. Posilování je snížilo zhruba na třetinu.',
+  },
+  {
+    id: 'pust-spaluje',
+    guide: 'prerusovany-pust',
+    statement: 'Přerušovaný půst spaluje tuk lépe než obyčejná dieta se stejnými kaloriemi.',
+    fact: false,
+    explain: 'V roční studii v NEJM časové okno nepřidalo k omezení kalorií nic navíc.',
+  },
+
   // ——— fakta ———
   {
     id: 'spanek-7h',
@@ -245,6 +274,26 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Bakterie v plaku z cukru vyrábějí kyselinu, která rozpouští sklovinu — při každém „přísunu“ znovu.',
   },
+  {
+    id: 'prasky-hlava',
+    guide: 'bolest-hlavy',
+    statement: 'Prášky proti bolesti hlavy brané skoro denně můžou bolest hlavy samy vyvolávat.',
+    fact: true,
+    explain: 'Říká se tomu bolest hlavy z nadužívání léků. Pomáhá řízené vysazení s lékařem.',
+  },
+  {
+    id: 'osamelost-teenageri',
+    guide: 'samota-a-vztahy',
+    statement: 'Nejvíc osamělých lidí je podle WHO mezi teenagery.',
+    fact: true,
+    explain: 'Osamělých se cítí 17–21 % lidí ve věku 13–29 let, nejvíc dospívající.',
+  },
+  {
+    id: 'spanek-testosteron',
+    guide: 'testosteron',
+    statement: 'Po týdnu spánku 5 hodin za noc klesl mladým mužům testosteron o 10–15 %.',
+    fact: true,
+    explain: 'Velká část testosteronu se tvoří ve spánku. Ukázala to studie v časopise JAMA.',
+  },
 ]
-
 export const QUIZ_LENGTH = 10

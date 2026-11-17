@@ -10,6 +10,12 @@ import {
   Smile,
   Stethoscope,
   Wind,
+  Sparkles,
+  CloudLightning,
+  Timer,
+  Users,
+  Move,
+  Mars,
   Package,
   Scale,
   Brain,
@@ -55,6 +61,12 @@ const ICONS = {
   tooth: Stethoscope,
   skeleton: PersonStanding,
   wind: Wind,
+  sparkles: Sparkles,
+  storm: CloudLightning,
+  timer: Timer,
+  users: Users,
+  move: Move,
+  mars: Mars,
 } as const
 
 export function GuideIcon({
