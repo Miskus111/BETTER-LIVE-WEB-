@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/'), priority: 1 },
     { url: u('/doplnky'), priority: 0.8 },
     { url: u('/jak-funguje-telo'), priority: 0.9 },
+    { url: u('/jak-funguje-telo/kviz'), priority: 0.7 },
     ...BODY_GUIDES.map((g) => ({ url: u(`/jak-funguje-telo/${g.slug}`), priority: 0.8 })),
     { url: u('/jak-doporucujeme'), priority: 0.4 },
     { url: u('/looksmaxing'), priority: 0.7 },

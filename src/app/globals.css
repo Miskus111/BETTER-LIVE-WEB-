@@ -391,3 +391,7 @@
 .no-scrollbar {
   scrollbar-width: none;
 }
+/* in-page anchors (guide table of contents) land below the sticky header */
+h2[id] {
+  scroll-margin-top: 5rem;
+}

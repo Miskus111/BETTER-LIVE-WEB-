@@ -79,6 +79,28 @@ test('guides page: search, category filter and shareable URL', async ({ page }) 
   await expect(page.getByTestId('guides').locator('li')).not.toHaveCount(0)
 })
 
+test('myth quiz: play a full round to the result', async ({ page }) => {
+  await page.goto('/jak-funguje-telo')
+  await page.getByTestId('quiz-link').click()
+  await expect(page).toHaveURL(/\/jak-funguje-telo\/kviz$/)
+  await page.getByTestId('quiz-start').click()
+  for (let i = 0; i < 10; i++) {
+    await page.getByRole('button', { name: i % 2 ? 'Mýtus' : 'Fakt', exact: true }).click()
+    await expect(page.getByTestId('quiz-explain')).toBeVisible()
+    await page.getByTestId('quiz-next').click()
+  }
+  await expect(page.getByTestId('quiz-result')).toContainText('/ 10')
+})
+
+test('guide page: reading time, table of contents and prev/next', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/spanek')
+  await expect(page.getByTestId('reading-time')).toContainText('min čtení')
+  await page.getByTestId('toc').getByRole('link', { name: 'Mýty' }).click()
+  await expect(page).toHaveURL(/#myths$/)
+  await expect(page.locator('a[rel=prev]')).toHaveAttribute('href', /\/jak-funguje-telo\/dychani$/)
+  await expect(page.locator('a[rel=next]')).toHaveAttribute('href', /\/jak-funguje-telo\/energie-a-kofein$/)
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')

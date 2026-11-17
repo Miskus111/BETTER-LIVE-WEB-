@@ -49,14 +49,14 @@ export function Nav() {
           <Logo />
         </Link>
 
-        <ul className="ml-6 hidden items-center gap-1 lg:flex">
+        <ul className="ml-2 hidden items-center gap-0.5 lg:flex xl:ml-6 xl:gap-1">
           {LINKS.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
                 aria-current={isActive(l.href) ? 'page' : undefined}
                 className={cx(
-                  'rounded-full px-3 py-1.5 text-[14.5px] transition-colors',
+                  'rounded-full px-2 py-1.5 text-[14px] whitespace-nowrap transition-colors xl:px-3 xl:text-[14.5px]',
                   isActive(l.href) ? 'text-fg' : 'text-muted hover:text-fg',
                 )}
               >

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, HelpCircle } from 'lucide-react'
 import { BODY_GUIDES } from '@/data/body-guides'
 import { Suspense } from 'react'
 import { GuideIcon } from '@/components/guides/GuideIcon'
@@ -41,6 +41,18 @@ export default function BodyGuidesHub() {
           Proč po kávě přijde propad, co dělá mobil s mozkem, kolik kroků je dost a proč spánek nejde dohnat o
           víkendu. Krátce, bez strašení a se zdroji — u každé rady vidíte, jak silné jsou důkazy.
         </p>
+        <Link
+          href="/jak-funguje-telo/kviz"
+          className="border-cyan/30 bg-cyan/[0.05] hover:border-cyan/60 mt-6 inline-flex items-center gap-3 rounded-2xl border px-4 py-3 transition"
+          data-testid="quiz-link"
+        >
+          <HelpCircle size={20} className="text-cyan shrink-0" aria-hidden />
+          <span>
+            <span className="block text-[15px] font-medium">Mýtus, nebo fakt?</span>
+            <span className="text-muted block text-[13.5px]">Otestujte se v kvízu na 10 otázek</span>
+          </span>
+          <ArrowRight size={16} className="text-cyan" aria-hidden />
+        </Link>
       </header>
 
       {/* the full list is rendered on the server inside Suspense fallback, so search engines see every guide */}

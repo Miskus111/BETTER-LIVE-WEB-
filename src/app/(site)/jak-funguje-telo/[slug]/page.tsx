@@ -1,15 +1,43 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowRight, ChevronRight, Lightbulb } from 'lucide-react'
-import { BODY_GUIDES, BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
+import { ArrowLeft, ArrowRight, ChevronRight, Clock, HelpCircle, Lightbulb } from 'lucide-react'
+import {
+  BODY_GUIDES,
+  BODY_GUIDE_BY_SLUG,
+  GUIDE_CATEGORIES,
+  GUIDE_CATEGORY,
+  type BodyGuide,
+} from '@/data/body-guides'
 import { GuideIcon } from '@/components/guides/GuideIcon'
+import { ShareButton } from '@/components/guides/ShareButton'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
 const UPDATED = '2026-11-16'
+
+/** ~200 words per minute for Czech non-fiction on a phone */
+function readingMinutes(g: BodyGuide) {
+  const text = [
+    g.hook,
+    ...g.tldr,
+    ...g.how.flatMap((h) => [h.title, h.text]),
+    ...g.today,
+    ...g.helps.map((h) => h.text),
+    ...g.myths.flatMap((m) => [m.myth, m.fact]),
+  ].join(' ')
+  return Math.max(1, Math.round(text.split(/\s+/).length / 200))
+}
+
+const TOC = [
+  { id: 'how', label: 'Jak to funguje' },
+  { id: 'today', label: 'Dnešní svět' },
+  { id: 'helps', label: 'Co pomáhá' },
+  { id: 'myths', label: 'Mýty' },
+  { id: 'sources', label: 'Zdroje' },
+]
 
 export function generateStaticParams() {
   return BODY_GUIDES.map((g) => ({ slug: g.slug }))
@@ -33,6 +61,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const url = `${SITE.url}/jak-funguje-telo/${g.slug}`
   const i = BODY_GUIDES.indexOf(g)
   const next = BODY_GUIDES[(i + 1) % BODY_GUIDES.length]
+  const prev = BODY_GUIDES[(i - 1 + BODY_GUIDES.length) % BODY_GUIDES.length]
+  const minutes = readingMinutes(g)
+  const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
   return (
     <article className="mx-auto max-w-[900px] px-4 pt-8 pb-10 md:px-8 md:pt-12">
@@ -45,6 +76,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             description: g.hook,
             inLanguage: 'cs',
             dateModified: UPDATED,
+            timeRequired: `PT${minutes}M`,
             mainEntityOfPage: url,
             publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             citation: g.sources.map((s) => s.url),
@@ -89,7 +121,37 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         </span>
         <h1 className="display mt-4 text-[40px] leading-[1.05] md:text-[60px]">{g.title}</h1>
         <p className="text-muted mt-3 text-[17px]">{g.hook}</p>
+        <div className="text-subtle mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13.5px]">
+          <span className="inline-flex items-center gap-1.5" data-testid="reading-time">
+            <Clock size={14} aria-hidden /> {minutes} min čtení
+          </span>
+          {category && (
+            <Link href={`/jak-funguje-telo?k=${category.id}`} className="hover:text-fg">
+              {category.label}
+            </Link>
+          )}
+          <span>
+            {g.sources.length} {g.sources.length === 1 ? 'zdroj' : g.sources.length < 5 ? 'zdroje' : 'zdrojů'}
+          </span>
+          <ShareButton
+            title={g.title}
+            text={g.hook}
+            className="hover:text-fg inline-flex items-center gap-1.5"
+          />
+        </div>
       </header>
+
+      <nav
+        aria-label="Na této stránce"
+        className="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0"
+        data-testid="toc"
+      >
+        {TOC.map((t) => (
+          <a key={t.id} href={`#${t.id}`} className="chip shrink-0">
+            {t.label}
+          </a>
+        ))}
+      </nav>
 
       <section className="card border-cyan/30 mt-8 p-5" aria-labelledby="tldr" data-testid="tldr">
         <h2 id="tldr" className="eyebrow">
@@ -209,19 +271,41 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </section>
 
       <Link
-        href={`/jak-funguje-telo/${next.slug}`}
-        className="card hover:border-cyan/40 mt-10 flex items-center gap-4 p-5 transition"
-        rel="next"
+        href="/jak-funguje-telo/kviz"
+        className="border-cyan/30 bg-cyan/[0.05] hover:border-cyan/60 mt-10 flex items-center gap-3 rounded-2xl border p-4 transition"
       >
-        <span className="bg-cyan/10 text-cyan grid h-10 w-10 shrink-0 place-items-center rounded-xl">
-          <GuideIcon icon={next.icon} />
+        <HelpCircle size={20} className="text-cyan shrink-0" aria-hidden />
+        <span className="flex-1 text-[15px]">
+          <strong className="font-medium">Mýtus, nebo fakt?</strong>{' '}
+          <span className="text-muted">Vyzkoušejte, co si z průvodců pamatujete.</span>
         </span>
-        <span className="flex-1">
-          <span className="text-subtle block text-[12.5px]">Další průvodce</span>
-          <span className="block text-[16px] font-medium">{next.title}</span>
-        </span>
-        <ArrowRight size={18} className="text-cyan" aria-hidden />
+        <ArrowRight size={16} className="text-cyan shrink-0" aria-hidden />
       </Link>
+
+      <nav aria-label="Další průvodci" className="mt-4 grid gap-3 sm:grid-cols-2">
+        <Link
+          href={`/jak-funguje-telo/${prev.slug}`}
+          className="card hover:border-cyan/40 flex items-center gap-3 p-4 transition"
+          rel="prev"
+        >
+          <ArrowLeft size={18} className="text-cyan shrink-0" aria-hidden />
+          <span className="min-w-0 flex-1">
+            <span className="text-subtle block text-[12.5px]">Předchozí</span>
+            <span className="block truncate text-[15px] font-medium">{prev.short}</span>
+          </span>
+        </Link>
+        <Link
+          href={`/jak-funguje-telo/${next.slug}`}
+          className="card hover:border-cyan/40 flex items-center gap-3 p-4 text-right transition"
+          rel="next"
+        >
+          <span className="min-w-0 flex-1">
+            <span className="text-subtle block text-[12.5px]">Další průvodce</span>
+            <span className="block truncate text-[15px] font-medium">{next.short}</span>
+          </span>
+          <ArrowRight size={18} className="text-cyan shrink-0" aria-hidden />
+        </Link>
+      </nav>
 
       <div className="-mx-4 md:-mx-8">
         <AppCta />
