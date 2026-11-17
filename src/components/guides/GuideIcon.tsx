@@ -4,6 +4,12 @@ import {
   Candy,
   Cloud,
   Ear,
+  Flame,
+  Flower2,
+  PersonStanding,
+  Smile,
+  Stethoscope,
+  Wind,
   Package,
   Scale,
   Brain,
@@ -43,6 +49,12 @@ const ICONS = {
   cloud: Cloud,
   bone: Bone,
   ear: Ear,
+  flame: Flame,
+  flower: Flower2,
+  smile: Smile,
+  tooth: Stethoscope,
+  skeleton: PersonStanding,
+  wind: Wind,
 } as const
 
 export function GuideIcon({

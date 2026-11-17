@@ -1,4 +1,5 @@
 import type { Evidence, Source } from './types'
+import { SRC } from './sources'
 
 /**
  * „Jak funguje tělo“ — krátké, srozumitelné průvodce pro dnešní svět (obrazovky, kofein, sezení, stres).
@@ -30,6 +31,12 @@ export interface BodyGuide {
     | 'cloud'
     | 'bone'
     | 'ear'
+    | 'flame'
+    | 'flower'
+    | 'smile'
+    | 'tooth'
+    | 'skeleton'
+    | 'wind'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -180,6 +187,52 @@ const SOURCES = {
     title: 'WHO — Hluchota a ztráta sluchu (přehled)',
     url: 'https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss',
   },
+  laukkanen: pm(25705824, 'Laukkanen a kol. (2015) Sauna a úmrtnost na srdeční choroby, JAMA Intern Med'),
+  roberts: pm(26174323, 'Roberts a kol. (2015) Ledová lázeň po tréninku tlumí nárůst svalů, J Physiol'),
+  esperland: pm(
+    36137565,
+    'Esperland a kol. (2022) Zdravotní účinky dobrovolného pobytu ve studené vodě, Int J Circumpolar Health',
+  ),
+  mcnulty: pm(
+    32661839,
+    'McNulty a kol. (2020) Fáze menstruačního cyklu a sportovní výkon — metaanalýza, Sports Med',
+  ),
+  whoAnaemia: {
+    title: 'WHO — Anémie (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/anaemia',
+  },
+  whoMental: {
+    title: 'WHO — Duševní poruchy (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/mental-disorders',
+  },
+  noetel: pm(38355154, 'Noetel a kol. (2024) Cvičení u deprese — síťová metaanalýza, BMJ'),
+  singhPA: pm(
+    36796860,
+    'Singh a kol. (2023) Pohyb u deprese, úzkosti a stresu — přehled přehledů, Br J Sports Med',
+  ),
+  walshFluoride: pm(30829399, 'Walsh a kol. (2019) Fluoridové zubní pasty a prevence zubního kazu, Cochrane'),
+  worthington: pm(30968949, 'Worthington a kol. (2019) Čištění mezizubních prostor doma, Cochrane'),
+  whoOral: {
+    title: 'WHO — Zdraví ústní dutiny (přehled)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/oral-health',
+  },
+  weaver: pm(
+    26856587,
+    'Weaver a kol. (2016) Vrchol kostní hmoty a životní styl — systematický přehled, Osteoporos Int',
+  ),
+  watson: pm(
+    28975661,
+    'Watson a kol. (2018) Intenzivní silový a dopadový trénink zlepšuje hustotu kostí (LIFTMOR), J Bone Miner Res',
+  ),
+  benjafield: pm(
+    31300334,
+    'Benjafield a kol. (2019) Celosvětový výskyt obstrukční spánkové apnoe, Lancet Respir Med',
+  ),
+  zaccaro: pm(
+    30245619,
+    'Zaccaro a kol. (2018) Pomalé dýchání a jeho účinky — systematický přehled, Front Hum Neurosci',
+  ),
+  rhee: pm(40397877, 'Rhee a kol. (2025) Přelepování úst na spaní — systematický přehled, PLoS One'),
 }
 
 export const BODY_GUIDES: BodyGuide[] = [
@@ -1391,6 +1444,377 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Mozek v mapě těla', href: '/organ/brain' },
     ],
     sources: [SOURCES.dillard, SOURCES.whoHearing],
+  },
+  {
+    slug: 'sauna-a-chlad',
+    title: 'Sauna a otužování: co je věda a co trend',
+    short: 'Sauna a chlad',
+    icon: 'flame',
+    hook: 'Ledové lázně a saunování jsou všude na sítích. Co z toho má oporu ve výzkumu a na co si dát pozor.',
+    tldr: [
+      'Častá sauna souvisí s nižší úmrtností na srdeční choroby — ale jde o pozorování, ne o důkaz příčiny.',
+      'Ledová lázeň hned po posilování může tlumit nárůst svalů.',
+      'Studená voda je pro tělo stres: první minuty prudce zrychlí dech a tep. Opatrně a nikdy sami.',
+    ],
+    numbers: [
+      { value: '4–7×', label: 'sauna týdně v nejznámější studii' },
+      { value: '1–3 min', label: 'nejrizikovější první fáze ve studené vodě' },
+    ],
+    how: [
+      {
+        title: 'Teplo',
+        text: 'V sauně se rozšíří cévy, zrychlí tep a tělo se potí, aby se ochladilo. Pro srdce je to podobná zátěž jako lehký pohyb.',
+      },
+      {
+        title: 'Chladový šok',
+        text: 'Po ponoření do studené vody přijde prudký nádech, zrychlené dýchání a skok tlaku. Proto je nebezpečné skákat do studené vody nebo být ve vodě sám.',
+      },
+      {
+        title: 'Zvykání',
+        text: 'Při pravidelném otužování se chladový šok zmírní. Většina dalších slibovaných účinků ale stojí na malých studiích.',
+      },
+    ],
+    today: [
+      'Ledové lázně se prodávají jako univerzální regenerace — přitom u silového tréninku můžou část přínosu vzít.',
+      'Saunu a chlad lidé často kombinují s alkoholem, který riziko výrazně zvyšuje.',
+    ],
+    helps: [
+      {
+        text: 'Sauna pravidelně, pokud vám dělá dobře — bez alkoholu a s dostatkem tekutin.',
+        level: 'plausible',
+      },
+      {
+        text: 'Chcete-li nabírat svaly, ledovou lázeň dejte s odstupem od posilování, ne hned po něm.',
+        level: 'plausible',
+      },
+      {
+        text: 'Otužovat postupně, s doprovodem a krátce; při nemoci srdce se nejdřív poradit s lékařem.',
+        level: 'established',
+      },
+      { text: 'Lepší nálada a pocit svěžesti po chladu — zatím jen malé studie.', level: 'preliminary' },
+    ],
+    myths: [
+      {
+        myth: 'V sauně se „vypotí toxiny“.',
+        fact: 'Potem odchází hlavně voda a soli. Odpadní látky odstraňují játra a ledviny.',
+      },
+      { myth: 'Otužování spolehlivě posílí imunitu.', fact: 'Důkazy jsou slabé a nejednoznačné.' },
+    ],
+    related: [
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+      { label: 'Stres', href: '/jak-funguje-telo/stres' },
+    ],
+    sources: [SOURCES.laukkanen, SOURCES.roberts, SOURCES.esperland],
+  },
+  {
+    slug: 'menstruacni-cyklus',
+    title: 'Menstruační cyklus: co se v těle děje každý měsíc',
+    short: 'Menstruační cyklus',
+    icon: 'flower',
+    hook: 'Hormony, energie, trénink a železo. Bez tabu a bez „cycle syncing“ mýtů.',
+    tldr: [
+      'Cyklus řídí hlavně estrogen a progesteron; běžná délka je zhruba 21–35 dní.',
+      'Vliv fáze cyklu na sportovní výkon je v průměru malý a u každé ženy jiný.',
+      'Menstruace je častou příčinou nedostatku železa — anémii má podle WHO asi třetina žen v plodném věku.',
+    ],
+    numbers: [
+      { value: '21–35', label: 'dní: běžná délka cyklu' },
+      { value: '~30 %', label: 'žen 15–49 let s anémií (WHO, svět)' },
+    ],
+    how: [
+      {
+        title: 'První polovina',
+        text: 'Po menstruaci roste estrogen a ve vaječníku dozrává vajíčko. Kolem poloviny cyklu nastává ovulace.',
+      },
+      {
+        title: 'Druhá polovina',
+        text: 'Po ovulaci stoupá progesteron, mírně se zvýší tělesná teplota. Pokud nedojde k otěhotnění, hormony klesnou a začne menstruace.',
+      },
+      {
+        title: 'PMS',
+        text: 'Pár dní před menstruací může přijít únava, podrážděnost, napětí v prsou nebo chuť na jídlo. Je to časté — silné potíže ale stojí za návštěvu lékaře.',
+      },
+    ],
+    today: [
+      'Aplikace a sítě doporučují plánovat jídlo i trénink podle fáze cyklu („cycle syncing“) — pevné důkazy pro to chybí.',
+      'Silné bolesti se často zlehčují, přitom můžou mít léčitelnou příčinu (např. endometriózu).',
+    ],
+    helps: [
+      {
+        text: 'Cvičit podle toho, jak se cítíte — menstruace sama o sobě není důvod netrénovat.',
+        level: 'plausible',
+      },
+      {
+        text: 'Jíst dost železa a při únavě a silném krvácení si nechat změřit krevní obraz a feritin.',
+        level: 'established',
+      },
+      { text: 'Na bolest pomáhají běžné protizánětlivé léky a teplo.', level: 'established' },
+      {
+        text: 'K lékaři při velmi silném krvácení, bolesti, která omezuje běžný život, nebo při vynechání menstruace.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Při menstruaci se nemá cvičit.',
+        fact: 'Není k tomu zdravotní důvod. Mnoha ženám pohyb dokonce uleví.',
+      },
+      {
+        myth: 'Trénink se musí řídit fází cyklu.',
+        fact: 'Rozdíly ve výkonu jsou v průměru malé. Víc záleží na tom, jak se cítíte vy.',
+      },
+      {
+        myth: 'Silná bolest je normální.',
+        fact: 'Bolest, která vás vyřadí z běžného dne, normální není a patří k lékaři.',
+      },
+    ],
+    related: [
+      { label: 'Železo', href: '/doplnky/zelezo' },
+      { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
+    ],
+    sources: [SOURCES.mcnulty, SOURCES.whoAnaemia],
+  },
+  {
+    slug: 'nalada-a-uzkost',
+    title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
+    short: 'Nálada a úzkost',
+    icon: 'smile',
+    hook: 'Smutek a nervozita patří k životu. Když ale trvají týdny a berou vám radost, je to zdravotní problém — a dá se léčit.',
+    tldr: [
+      'Duševní poruchou žije podle WHO zhruba každý osmý člověk; nejčastější jsou úzkost a deprese.',
+      'Pohyb je účinná součást léčby deprese — chůze, běh, jóga i posilování.',
+      'Psychoterapie a léky fungují. Říct si o pomoc je síla, ne selhání.',
+    ],
+    numbers: [
+      { value: '1 z 8', label: 'lidí žije s duševní poruchou (WHO)' },
+      { value: '116 123', label: 'Linka první psychické pomoci' },
+    ],
+    how: [
+      {
+        title: 'Úzkost',
+        text: 'Je to poplašný systém mozku — užitečný, když hrozí nebezpečí. U úzkostné poruchy se spouští příliš často a silně, i když hrozba není.',
+      },
+      {
+        title: 'Deprese',
+        text: 'Není to jen smutek. Patří k ní ztráta radosti a zájmu, únava, změny spánku a chuti k jídlu, pocit viny nebo beznaděje — trvající aspoň dva týdny.',
+      },
+      {
+        title: 'Tělo a mysl',
+        text: 'Spánek, pohyb, alkohol i vztahy ovlivňují náladu přímo přes mozek a hormony. Proto pomáhá i to, co na první pohled „psychické“ není.',
+      },
+    ],
+    today: [
+      'Srovnávání na sítích, stálá dostupnost a nejistota (škola, práce, bydlení) zvyšují tlak.',
+      'Mladí lidé častěji mluví o duševním zdraví otevřeně — a to je dobře.',
+    ],
+    helps: [
+      { text: 'Pravidelný pohyb — prokazatelně snižuje příznaky deprese a úzkosti.', level: 'established' },
+      {
+        text: 'Psychoterapie (např. kognitivně-behaviorální) a při potřebě léky od lékaře.',
+        level: 'established',
+      },
+      { text: 'Pravidelný spánek a méně alkoholu.', level: 'plausible' },
+      { text: 'Mluvit s někým blízkým; nebýt s tím sám.', level: 'plausible' },
+      {
+        text: 'V krizi volat: Linka první psychické pomoci 116 123, Linka bezpečí 116 111 (do 26 let), v ohrožení života 155 nebo 112.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Stačí se vzchopit.',
+        fact: 'Deprese není lenost ani slabá vůle. Je to nemoc, která potřebuje léčbu jako jakákoli jiná.',
+      },
+      {
+        myth: 'Psycholog je jen pro „blázny“.',
+        fact: 'Psychologa navštěvuje spousta lidí s běžnými problémy — stresem, vztahy, úzkostí.',
+      },
+      {
+        myth: 'Antidepresiva si můžu kdykoli vysadit.',
+        fact: 'Vysazovat je potřeba postupně a po domluvě s lékařem, jinak můžou přijít nepříjemné příznaky.',
+      },
+    ],
+    related: [
+      { label: 'Stres', href: '/jak-funguje-telo/stres' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
+    ],
+    sources: [SOURCES.whoMental, SOURCES.noetel, SOURCES.singhPA],
+  },
+  {
+    slug: 'zuby-a-usta',
+    title: 'Zuby a ústa: kaz není o cukru, ale o tom, jak často',
+    short: 'Zuby',
+    icon: 'tooth',
+    hook: 'Proč je horší celý den usrkávat limonádu než sníst jeden dezert, a co doopravdy dělá fluorid.',
+    tldr: [
+      'Bakterie v plaku z cukru vyrábějí kyselinu, která rozpouští sklovinu — rozhoduje hlavně, jak často cukr přijde.',
+      'Pasta s fluoridem (aspoň 1 000 ppm) prokazatelně chrání před kazem.',
+      'Nemoci zubů a dásní má podle WHO zhruba 3,5 miliardy lidí — jsou nejčastější nepřenosné nemoci na světě.',
+    ],
+    numbers: [
+      { value: '2× denně', label: 'čistit 2 minuty' },
+      { value: '1 000+ ppm', label: 'fluoridu v pastě pro dospělé' },
+      { value: '3,5 mld.', label: 'lidí s nemocí zubů či dásní (WHO)' },
+    ],
+    how: [
+      {
+        title: 'Kyselý útok',
+        text: 'Po každém sladkém jídle nebo pití je v ústech zhruba půl hodiny kyselo. Sliny pak zuby znovu „opraví“ — pokud mají čas.',
+      },
+      {
+        title: 'Fluorid',
+        text: 'Pomáhá sklovině se opravovat a dělá ji odolnější proti kyselinám.',
+      },
+      {
+        title: 'Dásně',
+        text: 'Plak u dásní způsobí zánět — krvácení při čištění. Neléčený může vést až k uvolnění zubů.',
+      },
+    ],
+    today: [
+      'Energetické a sportovní nápoje a slazená káva během celého dne znamenají kyselý útok za útokem.',
+      'Sítě propagují „přírodní“ pasty bez fluoridu a s aktivním uhlím, které můžou sklovinu obrušovat.',
+    ],
+    helps: [
+      { text: 'Čistit 2× denně fluoridovou pastou.', level: 'established' },
+      {
+        text: 'Po čištění pastu vyplivnout, nevyplachovat vodou — fluorid zůstane déle.',
+        level: 'plausible',
+      },
+      { text: 'Sladké a kyselé nápoje omezit a nepít je po douškách celý den.', level: 'established' },
+      {
+        text: 'Mezizubní kartáčky nebo nit — přínos pro dásně je spíš malý, ale pravděpodobný.',
+        level: 'preliminary',
+      },
+      { text: 'Preventivní prohlídky u zubaře a dentální hygiena.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Pasta bez fluoridu je zdravější.',
+        fact: 'Fluorid v pastě je bezpečný a jedna z nejlépe ověřených ochran proti kazu.',
+      },
+      {
+        myth: 'Krvácení dásní je normální.',
+        fact: 'Je to známka zánětu. Lepší čištění u dásní ho obvykle během pár týdnů zlepší.',
+      },
+    ],
+    related: [
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Energie a kofein', href: '/jak-funguje-telo/energie-a-kofein' },
+    ],
+    sources: [SOURCES.walshFluoride, SOURCES.worthington, SOURCES.whoOral, SOURCES.whoSugar],
+  },
+  {
+    slug: 'kosti',
+    title: 'Kosti: banka, do které se ukládá do třiceti',
+    short: 'Kosti',
+    icon: 'skeleton',
+    hook: 'Kost je živá tkáň, která se pořád přestavuje. Kolik si jí „naspoříte“ v mládí, rozhoduje o zlomeninách ve stáří.',
+    tldr: [
+      'Nejvíc kostní hmoty mají lidé zhruba ve 25–30 letech; potom už jde hlavně o její udržení.',
+      'Kosti posiluje zátěž — skoky, běh a posilování. Plavání a kolo méně.',
+      'Vápník, vitamín D a bílkoviny jsou stavební materiál; kouření a alkohol kostem škodí.',
+    ],
+    numbers: [{ value: '~25–30', label: 'let: vrchol kostní hmoty' }],
+    how: [
+      {
+        title: 'Stálá přestavba',
+        text: 'Jedny buňky kost odbourávají, jiné ji stavějí. V mládí převažuje stavba, ve stáří odbourávání.',
+      },
+      {
+        title: 'Zátěž jako signál',
+        text: 'Kost reaguje na náraz a tah svalů — kde je zátěž, tam zesílí. Bez zátěže (sezení, kosmonauti) slábne.',
+      },
+      {
+        title: 'Materiál',
+        text: 'Vápník dodává pevnost, vitamín D pomáhá ho vstřebat, bílkoviny tvoří kostní kostru.',
+      },
+    ],
+    today: [
+      'Málo pohybu v dětství a dospívání znamená nižší „úspory“ kostní hmoty na celý život.',
+      'Velmi nízký příjem energie (přísné diety, vytrvalostní sport bez dost jídla) může kosti oslabit.',
+    ],
+    helps: [
+      { text: 'Skoky, běh, sporty s míčem a posilování — hlavně v dětství a mládí.', level: 'established' },
+      {
+        text: 'Silový a dopadový trénink pomáhá i v dospělosti — i u žen po menopauze s řídnutím kostí, pod vedením.',
+        level: 'plausible',
+      },
+      { text: 'Dost vápníku a vitamínu D (v zimě doplněk) a bílkovin.', level: 'established' },
+      { text: 'Nekouřit a omezit alkohol.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Pro kosti stačí pít mléko.',
+        fact: 'Vápník je potřeba, ale bez zátěže kost nezesílí. Vápník lze získat i z jiných potravin.',
+      },
+      { myth: 'Řídnutí kostí je jen problém babiček.', fact: 'Základ se buduje v mládí a týká se i mužů.' },
+    ],
+    related: [
+      { label: 'Vápník', href: '/doplnky/vapnik' },
+      { label: 'Vitamín D', href: '/doplnky/vitamin-d' },
+      { label: 'Kosti v mapě těla', href: '/organ/bones' },
+    ],
+    sources: [SOURCES.weaver, SOURCES.watson, SRC.euRegister],
+  },
+  {
+    slug: 'dychani',
+    title: 'Dýchání: nos, pomalý výdech a proč nepřelepovat pusu',
+    short: 'Dýchání',
+    icon: 'wind',
+    hook: 'Breathwork a přelepování úst na spaní jsou trend. Co dýchání opravdu umí a kdy je chrápání varování.',
+    tldr: [
+      'Nos vzduch ohřeje, zvlhčí a přefiltruje; dýchání nosem je pro běžný den přirozené.',
+      'Pomalé dýchání (kolem 6 dechů za minutu) v malých studiích uklidňuje.',
+      'Přelepování úst na spaní nemá dobré důkazy — a při spánkové apnoe může být nebezpečné.',
+    ],
+    numbers: [
+      { value: '~6/min', label: 'pomalé dýchání ve studiích' },
+      { value: '~1 mld.', label: 'lidí se spánkovou apnoí (odhad)' },
+    ],
+    how: [
+      {
+        title: 'Řízení dechu',
+        text: 'Dýchání řídí hlavně hladina oxidu uhličitého v krvi, ne kyslíku. Proto zrychlené „hluboké“ dýchání může způsobit točení hlavy a brnění.',
+      },
+      {
+        title: 'Dech a nervy',
+        text: 'Pomalý a delší výdech posiluje „uklidňující“ část nervové soustavy — tep se zpomalí a kolísá víc.',
+      },
+      {
+        title: 'Spánková apnoe',
+        text: 'Při ní se v noci opakovaně zavírají dýchací cesty. Projevuje se hlasitým chrápáním, zástavami dechu a únavou přes den — a souvisí s vysokým tlakem.',
+      },
+    ],
+    today: [
+      'Na sítích se prodávají pásky na pusu a dechová cvičení jako lék na všechno.',
+      'Mnoho lidí se spánkovou apnoí o ní neví.',
+    ],
+    helps: [
+      { text: 'Pár minut pomalého dýchání s delším výdechem při stresu.', level: 'preliminary' },
+      { text: 'Při ucpaném nosu nebo alergii řešit příčinu (lékař, lékárna).', level: 'plausible' },
+      {
+        text: 'Při hlasitém chrápání, zástavách dechu a denní únavě jít k lékaři — apnoe se dá léčit.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Přelepená pusa zlepší spánek.',
+        fact: 'Přehled studií nenašel přesvědčivý přínos; u apnoe může dýchání zhoršit.',
+      },
+      {
+        myth: 'Čím hlouběji a rychleji dýchám, tím víc kyslíku.',
+        fact: 'Krev je kyslíkem nasycená i normálně. Rychlé dýchání spíš sníží oxid uhličitý a může vyvolat závrať.',
+      },
+    ],
+    related: [
+      { label: 'Stres', href: '/jak-funguje-telo/stres' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Plíce v mapě těla', href: '/organ/lungs' },
+    ],
+    sources: [SOURCES.zaccaro, SOURCES.rhee, SOURCES.benjafield],
   },
 ]
 
