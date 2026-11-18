@@ -15,6 +15,11 @@ export const metadata: Metadata = {
 
 const GROUPS: { id: GlossaryTerm['group']; label: string; intro: string }[] = [
   { id: 'telo', label: 'Tělo a mozek', intro: 'Co se děje uvnitř: hormony, orgány, imunita, učení.' },
+  {
+    id: 'organy',
+    label: 'Orgány a buňky',
+    intro: 'Stavební kameny těla — slova, která potkáte u jednotlivých orgánů.',
+  },
   { id: 'jidlo', label: 'Jídlo', intro: 'Pojmy, které potkáte na obalech i v diskuzích o stravě.' },
   { id: 'pohyb', label: 'Pohyb', intro: 'Jak svaly a klouby reagují na zátěž.' },
   {

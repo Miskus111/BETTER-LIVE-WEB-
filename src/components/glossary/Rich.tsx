@@ -1,14 +1,11 @@
-import { splitTerms } from '@/data/glossary'
+import { splitTerms, type Piece } from '@/data/glossary'
 import { Term } from './Term'
 
-/**
- * Text with glossary terms underlined. Pass one `seen` set per page so each term is explained
- * once (at its first appearance), not on every mention.
- */
-export function Rich({ text, seen, here }: { text: string; seen: Set<string>; here?: string }) {
+/** Render pre-split text (plain strings + glossary terms). */
+export function Pieces({ pieces, here }: { pieces: Piece[]; here?: string }) {
   return (
     <>
-      {splitTerms(text, seen).map((p, i) =>
+      {pieces.map((p, i) =>
         typeof p === 'string' ? (
           p
         ) : (
@@ -19,4 +16,14 @@ export function Rich({ text, seen, here }: { text: string; seen: Set<string>; he
       )}
     </>
   )
+}
+
+/**
+ * Text with glossary terms underlined. Pass one `seen` set per page so each term is explained
+ * once (at its first appearance), not on every mention. Server components only — client
+ * components render twice in development, so they should split with `splitTerms` in a useMemo
+ * and render <Pieces>.
+ */
+export function Rich({ text, seen, here }: { text: string; seen: Set<string>; here?: string }) {
+  return <Pieces pieces={splitTerms(text, seen)} here={here} />
 }

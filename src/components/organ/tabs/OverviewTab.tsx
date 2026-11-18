@@ -3,13 +3,26 @@ import { EVIDENCE } from '@/data/sources'
 import type { Evidence, Organ } from '@/data/types'
 import { FermentationExplainer } from '../FermentationExplainer'
 import type { OrganTab } from '../OrganPanel'
+import { useMemo } from 'react'
+import { Pieces } from '@/components/glossary/Rich'
+import { splitTerms } from '@/data/glossary'
 
 export function OverviewTab({ organ, goTo }: { organ: Organ; goTo: (t: OrganTab) => void }) {
+  const [what, how, why] = useMemo(() => {
+    const seen = new Set<string>()
+    return [organ.what, organ.how, organ.why].map((t) => splitTerms(t, seen))
+  }, [organ])
   return (
     <div className="space-y-6">
-      <Block title="Co dělá">{organ.what}</Block>
-      <Block title="Jak funguje">{organ.how}</Block>
-      <Block title="Proč na výživě záleží">{organ.why}</Block>
+      <Block title="Co dělá">
+        <Pieces pieces={what} />
+      </Block>
+      <Block title="Jak funguje">
+        <Pieces pieces={how} />
+      </Block>
+      <Block title="Proč na výživě záleží">
+        <Pieces pieces={why} />
+      </Block>
       <div>
         <h3 className="eyebrow mb-3">Klíčové živiny</h3>
         <ul className="flex flex-wrap gap-2">
