@@ -37,6 +37,7 @@ export interface BodyGuide {
     | 'tooth'
     | 'skeleton'
     | 'wind'
+    | 'apple'
     | 'sparkles'
     | 'storm'
     | 'timer'
@@ -207,6 +208,18 @@ const SOURCES = {
   eggs: pm(
     32132002,
     'Drouin-Chartier a kol. (2020) Vejce a riziko nemocí srdce — kohorty a metaanalýza, BMJ',
+  ),
+  blackFord: pm(
+    29996755,
+    'Black a Ford (2018) Chronická zácpa u dospělých: výskyt, příčiny a léčba, Med J Aust',
+  ),
+  schootFoods: pm(
+    37905980,
+    'van der Schoot a kol. (2024) Potraviny a nápoje u chronické zácpy — metaanalýza, Aliment Pharmacol Ther',
+  ),
+  bdaConstipation: pm(
+    41081513,
+    'Britská dietologická asociace (2025) Doporučení pro stravu u chronické zácpy, J Hum Nutr Diet',
   ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
@@ -2392,6 +2405,70 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.escLipids, SOURCES.ferenceLdl, SOURCES.cttStatins, SOURCES.hooperSatFat, SOURCES.eggs],
   },
+  {
+    slug: 'traveni-a-zacpa',
+    title: 'Trávení a zácpa: co je normální a co opravdu pomáhá',
+    short: 'Trávení a zácpa',
+    icon: 'apple',
+    hook: 'Zácpa trápí asi každého sedmého člověka. Pomáhají překvapivě obyčejné věci — kiwi, švestky a žitný chléb.',
+    tldr: [
+      'Normální je chodit na stolici od třikrát denně po třikrát týdně — denně nemusíte.',
+      'Nejlépe ověřená je vláknina (hlavně jako doplněk psyllium), kiwi, sušené švestky a žitný chléb.',
+      'Krev ve stolici, nevysvětlitelné hubnutí nebo náhlá změna po padesátce patří k lékaři.',
+    ],
+    numbers: [
+      { value: '~14 %', label: 'lidí na světě má chronickou zácpu' },
+      { value: '3× týdně–3× denně', label: 'běžný rozsah četnosti stolice' },
+    ],
+    how: [
+      {
+        title: 'Cesta potravy',
+        text: 'Tenké střevo vstřebá živiny, tlusté střevo pak hlavně vodu. Čím déle tam obsah zůstane, tím víc vody ztratí a tím je stolice tvrdší.',
+      },
+      {
+        title: 'Proč pomáhá vláknina',
+        text: 'Vláknina váže vodu a zvětšuje objem stolice, takže je měkčí a střevo ji snáz posouvá. Část z ní navíc živí střevní bakterie.',
+      },
+      {
+        title: 'Co zácpu zhoršuje',
+        text: 'Málo vlákniny a pohybu, odkládání nutkání, některé léky (např. na bolest s opioidy, železo) a změny režimu, třeba na cestách.',
+      },
+    ],
+    today: [
+      'Bílé pečivo, ultrazpracované jídlo a celý den vsedě — kombinace, která střevu nepomáhá.',
+      'Projímadla a „detoxy“ se prodávají jako řešení všeho, příčinu ale neřeší.',
+    ],
+    helps: [
+      {
+        text: 'Doplněk vlákniny — nejlépe ověřené je psyllium; dávku přidávejte postupně a zapíjejte.',
+        level: 'established',
+      },
+      { text: 'Dvě kiwi denně nebo hrst sušených švestek.', level: 'plausible' },
+      { text: 'Žitný chléb místo bílého pečiva.', level: 'preliminary' },
+      { text: 'Minerální voda s vyšším obsahem hořčíku.', level: 'preliminary' },
+      { text: 'Pohyb a neodkládat nutkání jít na záchod.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Na stolici se musí chodit každý den.',
+        fact: 'Normální rozsah je od třikrát denně po třikrát týdně. Rozhoduje, jestli je to pro vás obvyklé a bez potíží.',
+      },
+      {
+        myth: 'Stačí pít víc vody.',
+        fact: 'Pomůže hlavně tomu, kdo pije málo. Samotná voda bez vlákniny zácpu většinou nevyřeší.',
+      },
+      {
+        myth: 'Projímadla z lékárny jsou bezpečná na pořád.',
+        fact: 'Při dlouhodobých potížích patří léčba k lékaři — je potřeba vyloučit příčiny jako nemoci štítné žlázy nebo léky.',
+      },
+    ],
+    related: [
+      { label: 'Střeva a mikrobiom', href: '/jak-funguje-telo/streva-a-mikrobiom' },
+      { label: 'Pitný režim', href: '/jak-funguje-telo/pitny-rezim' },
+      { label: 'Střeva v mapě těla', href: '/organ/intestines' },
+    ],
+    sources: [SOURCES.blackFord, SOURCES.schootFoods, SOURCES.bdaConstipation],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2448,4 +2525,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   protahovani: 'pohyb',
   testosteron: 'prevence',
   cholesterol: 'prevence',
+  'traveni-a-zacpa': 'jidlo',
 }

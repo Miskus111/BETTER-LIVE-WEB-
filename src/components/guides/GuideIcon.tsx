@@ -1,5 +1,6 @@
 import {
   Activity,
+  Apple,
   Bone,
   Candy,
   Cloud,
@@ -61,6 +62,7 @@ const ICONS = {
   tooth: Stethoscope,
   skeleton: PersonStanding,
   wind: Wind,
+  apple: Apple,
   sparkles: Sparkles,
   storm: CloudLightning,
   timer: Timer,
