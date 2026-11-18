@@ -336,9 +336,9 @@ export const PELVIS = {
     [188, 414],
     [176, 405],
     [160, 403],
-    [146, 408],
-    [138, 420],
-    [139, 434],
+    [142, 407],
+    [133, 419],
+    [134, 434],
     [146, 446],
     [152, 456],
     [158, 464],
@@ -628,6 +628,18 @@ export const LIMB_BONES = [
     false,
   ),
 ]
+/** shoulder blades: lie on the back of ribs 2–7, so they show through the rib cage */
+export const SCAPULAE = both([
+  [124, 206],
+  [140, 203],
+  [166, 206],
+  [170, 214],
+  [160, 250],
+  [150, 284],
+  [142, 280],
+  [132, 250],
+  [126, 224],
+])
 export const PATELLAE = both([
   [166, 654],
   [172, 652],

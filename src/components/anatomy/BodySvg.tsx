@@ -17,6 +17,7 @@ import {
   PELVIS,
   RIBS,
   SACRUM,
+  SCAPULAE,
   SKULL,
   STERNUM,
   SUPPORT_ORGANS,
@@ -387,6 +388,9 @@ export function BodySvg({
                 <rect key={y} x={200 - w} y={y} width={w * 2} height={h} rx={1.6} />
               ))}
               <path d={SACRUM} />
+              {SCAPULAE.map((d, i) => (
+                <path key={'sc' + i} d={d} className="behind" />
+              ))}
               {[...STERNUM, ...CLAVICLES, ...COSTAL_MARGIN].map((d, i) => (
                 <path key={'t' + i} d={d} />
               ))}
