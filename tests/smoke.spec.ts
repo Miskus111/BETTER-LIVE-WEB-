@@ -67,7 +67,7 @@ test('guides page: search, category filter and shareable URL', async ({ page }) 
   await page.goto('/jak-funguje-telo')
   const box = page.getByTestId('guides-search')
   await box.fill('kofein')
-  await expect(page.getByTestId('guides-count')).toContainText('z 37')
+  await expect(page.getByTestId('guides-count')).toContainText('z 38')
   await expect(page.getByTestId('guides').locator('a').first()).toHaveAttribute('href', /energie-a-kofein/)
   await expect(page).toHaveURL(/q=kofein/)
   await page.goto('/jak-funguje-telo?q=mobil&k=mysl')
@@ -97,7 +97,7 @@ test('guide page: reading time, table of contents and prev/next', async ({ page 
   await expect(page.getByTestId('reading-time')).toContainText('min čtení')
   await page.getByTestId('toc').getByRole('link', { name: 'Mýty' }).click()
   await expect(page).toHaveURL(/#myths$/)
-  await expect(page.locator('a[rel=prev]')).toHaveAttribute('href', /\/jak-funguje-telo\/alergie-a-pyl$/)
+  await expect(page.locator('a[rel=prev]')).toHaveAttribute('href', /\/jak-funguje-telo\/marihuana-a-thc$/)
   await expect(page.locator('a[rel=next]')).toHaveAttribute('href', /\/jak-funguje-telo\/energie-a-kofein$/)
 })
 
@@ -298,7 +298,7 @@ test('body guides: hub lists all topics; a guide has TL;DR, evidence levels, myt
   page,
 }) => {
   await page.goto('/jak-funguje-telo')
-  await expect(page.getByTestId('guides').locator('li')).toHaveCount(37)
+  await expect(page.getByTestId('guides').locator('li')).toHaveCount(38)
   await page.getByRole('link', { name: /Spánek: noční servis těla/ }).click()
   await expect(page).toHaveURL(/\/jak-funguje-telo\/spanek$/)
   await expect(page.getByTestId('tldr')).toContainText('7 a více hodin')

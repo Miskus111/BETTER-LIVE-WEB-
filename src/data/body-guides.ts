@@ -39,6 +39,7 @@ export interface BodyGuide {
     | 'wind'
     | 'apple'
     | 'clock'
+    | 'leaf'
     | 'sparkles'
     | 'storm'
     | 'timer'
@@ -253,6 +254,11 @@ const SOURCES = {
   honeyRct: pm(
     11868925,
     'Rajan a kol. (2002) Med a příznaky senné rýmy — randomizovaná studie, Ann Allergy Asthma Immunol',
+  ),
+  volkowCannabis: pm(24897085, 'Volkow a kol. (2014) Nepříznivé zdravotní účinky marihuany, N Engl J Med'),
+  diFortiPsychosis: pm(
+    30902669,
+    'Di Forti a kol. (2019) Užívání konopí a výskyt psychóz v Evropě (EU-GEI), Lancet Psychiatry',
   ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
@@ -2702,6 +2708,75 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.bousquetAr, SOURCES.ariaGuideline, SOURCES.honeyRct],
   },
+  {
+    slug: 'marihuana-a-thc',
+    title: 'Marihuana a THC: co dělá s mozkem, hlavně v mladém věku',
+    short: 'Marihuana a THC',
+    icon: 'leaf',
+    hook: 'Není to ani nevinná bylinka, ani ďábelská droga. Rozhoduje, jak často, jak silná — a v kolika letech.',
+    tldr: [
+      'THC působí na systém, který v mozku ladí paměť, náladu, chuť k jídlu i vnímání času.',
+      'Závislost vznikne asi u 9 % uživatelů; u těch, kdo začnou v dospívání, zhruba u každého šestého.',
+      'Denní užívání silné marihuany souvisí s téměř pětkrát vyšší šancí psychózy.',
+    ],
+    numbers: [
+      { value: '~1 z 6', label: 'kdo začne v dospívání, se stane závislým' },
+      { value: '~5×', label: 'vyšší šance psychózy při denním užívání silné trávy' },
+    ],
+    how: [
+      {
+        title: 'Endokanabinoidy',
+        text: 'Mozek má vlastní „konopné“ látky, které jemně ladí přenos signálů. THC se naváže na stejné receptory, ale mnohem silněji a déle.',
+      },
+      {
+        title: 'Mozek v dospívání',
+        text: 'Mozek dozrává zhruba do pětadvacítky — naposledy oblasti pro plánování a sebeovládání. Pravidelné THC v tomto období ovlivňuje paměť a učení víc než u dospělých.',
+      },
+      {
+        title: 'Silnější než dřív',
+        text: 'Obsah THC v dnešní marihuaně je výrazně vyšší než před desítkami let. Čím silnější tráva a častější užívání, tím vyšší riziko závislosti i psychických potíží.',
+      },
+    ],
+    today: [
+      'Vedle trávy se prodávají vapy a jedlé výrobky s THC a jeho syntetickými příbuznými, často s neznámou silou.',
+      'Jedlé výrobky působí až za hodinu i později — lidé si pak přidávají a dávku přeženou.',
+    ],
+    helps: [
+      { text: 'Po užití neřídit — THC zhoršuje reakce a koordinaci.', level: 'established' },
+      {
+        text: 'Čím později a méně často, tím menší riziko závislosti a dopadů na mozek.',
+        level: 'plausible',
+      },
+      {
+        text: 'Při psychóze nebo schizofrenii v rodině se THC vyhnout úplně.',
+        level: 'plausible',
+      },
+      {
+        text: 'Když užívání přerůstá přes hlavu, obrátit se na praktického lékaře nebo adiktologickou ambulanci — závislost se dá léčit.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Je to přírodní, takže to neškodí.',
+        fact: 'Přírodní neznamená bezpečné. Riziko závislosti i psychóz je doložené, hlavně u silné trávy a častého užívání.',
+      },
+      {
+        myth: 'Na trávu závislost nevzniká.',
+        fact: 'Vzniká — asi u 9 % uživatelů, u těch, kdo začali v dospívání, zhruba u každého šestého.',
+      },
+      {
+        myth: 'Jedlé výrobky jsou bezpečnější než kouření.',
+        fact: 'Plíce šetří, ale účinek nastupuje pozdě a nepředvídatelně, takže se snadno přejí.',
+      },
+    ],
+    related: [
+      { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
+      { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
+      { label: 'Mozek a učení', href: '/jak-funguje-telo/mozek-a-uceni' },
+    ],
+    sources: [SOURCES.volkowCannabis, SOURCES.diFortiPsychosis],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2762,4 +2837,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   chronotyp: 'spanek',
   'posilovani-pro-zacatecniky': 'pohyb',
   'alergie-a-pyl': 'prevence',
+  'marihuana-a-thc': 'navyky',
 }
