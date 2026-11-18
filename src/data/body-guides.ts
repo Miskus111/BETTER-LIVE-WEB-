@@ -233,6 +233,18 @@ const SOURCES = {
   roenneberg2012: pm(22578422, 'Roenneberg a kol. (2012) Sociální jet lag a obezita, Curr Biol'),
   kalmbach: pm(28364486, 'Kalmbach a kol. (2017) Genetický základ chronotypu, Sleep'),
   iarcShift: pm(31281097, 'IARC (2019) Karcinogenita noční práce na směny, Lancet Oncol'),
+  acsmProgression: pm(
+    19204579,
+    'ACSM (2009) Stanovisko: modely progrese v silovém tréninku, Med Sci Sports Exerc',
+  ),
+  schoenfeldFreq: pm(
+    27102172,
+    'Schoenfeld a kol. (2016) Frekvence posilování a růst svalů — metaanalýza, Sports Med',
+  ),
+  schoenfeldVolume: pm(
+    27433992,
+    'Schoenfeld a kol. (2017) Týdenní objem tréninku a nárůst svalů — metaanalýza, J Sports Sci',
+  ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
     url: 'https://doi.org/10.2903/j.efsa.2012.2557',
@@ -2552,6 +2564,69 @@ export const BODY_GUIDES: BodyGuide[] = [
       SOURCES.iarcShift,
     ],
   },
+  {
+    slug: 'posilovani-pro-zacatecniky',
+    title: 'Posilování pro začátečníky: kolik, jak často a jak přidávat',
+    short: 'Posilování od nuly',
+    icon: 'dumbbell',
+    hook: 'Nepotřebujete složitý plán ani hodiny v posilovně. Stačí dvakrát týdně celé tělo — a postupně přidávat.',
+    tldr: [
+      'Každou velkou svalovou skupinu trénujte aspoň 2× týdně — přináší to víc než jednou týdně.',
+      'Začněte 1–3 sériemi po 8–12 opakováních s vahou, která je na konci série opravdu těžká.',
+      'Klíč je postupné přidávání: když zvládnete o 1–2 opakování víc, přidejte zhruba 2–10 % váhy.',
+    ],
+    numbers: [
+      { value: '2×', label: 'týdně na každou svalovou skupinu' },
+      { value: '8–12', label: 'opakování v sérii na začátek' },
+      { value: '10+', label: 'sérií na sval týdně pro výraznější růst' },
+    ],
+    how: [
+      {
+        title: 'Proč svaly rostou',
+        text: 'Sval dostane signál k růstu, když pracuje proti zátěži blízko svého limitu. Bez postupného přidávání si na zátěž zvykne a přestane se měnit.',
+      },
+      {
+        title: 'Objem a frekvence',
+        text: 'Víc sérií za týden znamená v průměru víc svalů — u začátečníků ale stačí málo. Rozdělit trénink do dvou dnů funguje líp než všechno najednou.',
+      },
+      {
+        title: 'Technika před váhou',
+        text: 'Prvních pár týdnů se učí hlavně nervový systém: zlepšuje koordinaci a sílu ještě dřív, než svaly viditelně narostou.',
+      },
+    ],
+    today: [
+      'Na sítích se prodávají „ideální“ plány — pro začátek ale funguje jakýkoli rozumný plán, který vydržíte.',
+      'Mnoho lidí trénuje měsíce se stejnou vahou, protože si nezapisuje, co zvedli minule.',
+    ],
+    helps: [
+      {
+        text: 'Celé tělo 2× týdně: dřep nebo leg press, tlak (kliky, bench), přítah (veslování), mrtvý tah nebo hip thrust, core.',
+        level: 'established',
+      },
+      {
+        text: 'Zapisovat váhu a opakování — a přidat, když zvládnete o 1–2 opakování víc než plán.',
+        level: 'established',
+      },
+      { text: 'Série končit 1–3 opakování před selháním, ne vždy do úplného vyčerpání.', level: 'plausible' },
+      { text: 'Dost bílkovin a spánku — růst probíhá při odpočinku.', level: 'established' },
+    ],
+    myths: [
+      {
+        myth: 'Bez bolesti druhý den to nebyl dobrý trénink.',
+        fact: 'Svalová bolest neukazuje, jak dobrý byl trénink. Rozhoduje postupné přidávání zátěže.',
+      },
+      {
+        myth: 'Začátečník potřebuje trénovat každý den.',
+        fact: 'Dvakrát až třikrát týdně celé tělo stačí — svaly rostou mezi tréninky.',
+      },
+    ],
+    related: [
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+      { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
+      { label: 'Zapisovat trénink v aplikaci', href: '/login?mode=signup' },
+    ],
+    sources: [SOURCES.acsmProgression, SOURCES.schoenfeldFreq, SOURCES.schoenfeldVolume, SOURCES.who],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2610,4 +2685,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   cholesterol: 'prevence',
   'traveni-a-zacpa': 'jidlo',
   chronotyp: 'spanek',
+  'posilovani-pro-zacatecniky': 'pohyb',
 }
