@@ -423,3 +423,44 @@ h2[id] {
 .organ-sel .m-fibre {
   stroke-opacity: 0.55;
 }
+
+/* ── Glossary terms in running text ─────────────────────────────── */
+.term {
+  display: inline;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: rgb(94 231 255 / 0.6);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.term:hover,
+.term[aria-expanded='true'] {
+  text-decoration-color: var(--color-cyan);
+  color: var(--color-fg);
+}
+.term-card {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  display: block;
+  width: min(300px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border: 1px solid rgb(94 231 255 / 0.28);
+  border-radius: 14px;
+  background: var(--color-ink-2, #0d1117);
+  box-shadow: 0 18px 40px -12px rgb(0 0 0 / 0.7);
+  text-align: left;
+  white-space: normal;
+  isolation: isolate;
+  animation: term-in 0.15s ease-out both;
+}
+@keyframes term-in {
+  from {
+    opacity: 0;
+  }
+}

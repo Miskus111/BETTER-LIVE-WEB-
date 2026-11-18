@@ -11,6 +11,7 @@ import {
 } from '@/data/body-guides'
 import { GuideIcon } from '@/components/guides/GuideIcon'
 import { ShareButton } from '@/components/guides/ShareButton'
+import { Rich } from '@/components/glossary/Rich'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -63,6 +64,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const next = BODY_GUIDES[(i + 1) % BODY_GUIDES.length]
   const prev = BODY_GUIDES[(i - 1 + BODY_GUIDES.length) % BODY_GUIDES.length]
   const minutes = readingMinutes(g)
+  // each glossary term is explained at its first appearance on the page
+  const seen = new Set<string>()
   const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
   return (
@@ -160,7 +163,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <ul className="mt-3 grid gap-2 text-[15.5px]">
           {g.tldr.map((t) => (
             <li key={t} className="flex gap-2">
-              <span className="bg-cyan mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" aria-hidden /> {t}
+              <span className="bg-cyan mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" aria-hidden />{' '}
+              <span>
+                <Rich text={t} seen={seen} here={g.slug} />
+              </span>
             </li>
           ))}
         </ul>
@@ -189,7 +195,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               </span>
               <div>
                 <h3 className="text-[17px] font-medium">{h.title}</h3>
-                <p className="text-muted mt-1 text-[15px]">{h.text}</p>
+                <p className="text-muted mt-1 text-[15px]">
+                  <Rich text={h.text} seen={seen} here={g.slug} />
+                </p>
               </div>
             </li>
           ))}
@@ -203,7 +211,10 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <ul className="mt-4 grid gap-3">
           {g.today.map((t) => (
             <li key={t} className="flex gap-3 text-[15px]">
-              <Lightbulb size={18} className="text-warn mt-0.5 shrink-0" aria-hidden /> {t}
+              <Lightbulb size={18} className="text-warn mt-0.5 shrink-0" aria-hidden />{' '}
+              <span>
+                <Rich text={t} seen={seen} here={g.slug} />
+              </span>
             </li>
           ))}
         </ul>
@@ -217,7 +228,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           {g.helps.map((h) => (
             <li key={h.text} className="card flex flex-col gap-2 p-4 sm:flex-row sm:items-start sm:gap-4">
               <EvidenceBadge level={h.level} className="self-start" />
-              <span className="text-[15px]">{h.text}</span>
+              <span className="text-[15px]">
+                <Rich text={h.text} seen={seen} here={g.slug} />
+              </span>
             </li>
           ))}
         </ul>
@@ -231,7 +244,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           {g.myths.map((m) => (
             <li key={m.myth} className="card p-4">
               <p className="text-[15px] font-medium line-through decoration-[#ff9b9b]/60">„{m.myth}“</p>
-              <p className="text-muted mt-1.5 text-[14.5px]">{m.fact}</p>
+              <p className="text-muted mt-1.5 text-[14.5px]">
+                <Rich text={m.fact} seen={seen} here={g.slug} />
+              </p>
             </li>
           ))}
         </ul>

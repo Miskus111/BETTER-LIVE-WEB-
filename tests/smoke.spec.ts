@@ -116,6 +116,19 @@ test('legal pages name the operator and are linked from the footer', async ({ pa
   await expect(legal.getByRole('link', { name: 'Podmínky' })).toHaveAttribute('href', '/terms')
 })
 
+test('glossary: terms open an explanation in the text and have their own page', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/energie-a-kofein')
+  const term = page.locator('[data-term="adenosin"]').first()
+  await term.click()
+  await expect(page.getByRole('tooltip')).toContainText('tlak spánku')
+  await page.keyboard.press('Escape')
+  await expect(page.getByRole('tooltip')).toHaveCount(0)
+  await page.goto('/jak-funguje-telo')
+  await page.getByTestId('glossary-link').click()
+  await expect(page).toHaveURL(/\/jak-funguje-telo\/slovnik$/)
+  expect(await page.getByTestId('glossary-term').count()).toBeGreaterThan(40)
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')

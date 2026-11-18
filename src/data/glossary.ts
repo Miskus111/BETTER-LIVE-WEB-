@@ -1,0 +1,553 @@
+/**
+ * Slovník pojmů — krátká vysvětlení odborných slov, která se v textech objevují.
+ * `match` jsou kmeny slov (bez koncovek), aby se našly i skloňované tvary:
+ * „adenosin“ najde adenosin, adenosinu, adenosinem. Delší pojmy mají přednost (inzulinová
+ * rezistence před inzulinem). Definice jsou zjednodušené, ale fakticky přesné.
+ */
+export interface GlossaryTerm {
+  id: string
+  term: string
+  /** 1–2 věty, srozumitelně */
+  def: string
+  match: string[]
+  /** průvodce, kde je téma vysvětlené víc */
+  guide?: string
+  group: 'telo' | 'jidlo' | 'pohyb' | 'veda'
+}
+
+export const GLOSSARY: GlossaryTerm[] = [
+  // ——— tělo a hormony ———
+  {
+    id: 'adenosin',
+    term: 'Adenosin',
+    def: 'Látka, která se v mozku hromadí, čím déle jste vzhůru, a vytváří „tlak spánku“. Kofein obsadí jeho receptory, a tím únavu na čas zamaskuje.',
+    match: ['adenosin'],
+    guide: 'energie-a-kofein',
+    group: 'telo',
+  },
+  {
+    id: 'cirkadianni-rytmus',
+    term: 'Cirkadiánní rytmus',
+    def: 'Vnitřní hodiny s periodou zhruba 24 hodin. Řídí spánek, hormony i teplotu těla a nejvíc je nastavuje světlo — hlavně ranní.',
+    match: ['cirkadiánn', 'vnitřní hodin'],
+    guide: 'spanek',
+    group: 'telo',
+  },
+  {
+    id: 'melatonin',
+    term: 'Melatonin',
+    def: 'Hormon tmy. Tělo ho začne uvolňovat večer a signalizuje mozku, že je noc. Světlo, i z obrazovky, jeho nástup oddaluje.',
+    match: ['melatonin'],
+    guide: 'spanek',
+    group: 'telo',
+  },
+  {
+    id: 'rem',
+    term: 'REM spánek',
+    def: 'Fáze spánku s rychlými pohyby očí, kdy se nejvíc zdá. Souvisí se zpracováním emocí a paměti; přibývá ho k ránu.',
+    match: ['REM'],
+    guide: 'spanek',
+    group: 'telo',
+  },
+  {
+    id: 'apnoe',
+    term: 'Spánková apnoe',
+    def: 'Porucha, při které se ve spánku opakovaně uzavírají dýchací cesty a dech se na chvíli zastaví. Typické je hlasité chrápání a únava přes den; dá se léčit.',
+    match: ['apnoe', 'apnoí'],
+    guide: 'dychani',
+    group: 'telo',
+  },
+  {
+    id: 'kortizol',
+    term: 'Kortizol',
+    def: 'Hlavní stresový hormon z nadledvin. Ráno vás pomáhá probudit a při zátěži dodá energii; škodí, až když je zvýšený dlouhodobě.',
+    match: ['kortizol'],
+    guide: 'stres',
+    group: 'telo',
+  },
+  {
+    id: 'dopamin',
+    term: 'Dopamin',
+    def: 'Nervový přenašeč, který mozek učí, co stojí za to opakovat. Nejsilněji reaguje na nečekanou odměnu — ne na samotné potěšení.',
+    match: ['dopamin'],
+    guide: 'dopamin-a-mobil',
+    group: 'telo',
+  },
+  {
+    id: 'inzulinova-rezistence',
+    term: 'Inzulinová rezistence',
+    def: 'Stav, kdy buňky reagují na inzulin slaběji, takže ho tělo musí tvořit víc, aby udrželo cukr v krvi v normě. Často předchází cukrovce 2. typu.',
+    match: ['inzulinov\\S* rezisten'],
+    guide: 'cukr-a-inzulin',
+    group: 'telo',
+  },
+  {
+    id: 'inzulin',
+    term: 'Inzulin',
+    def: 'Hormon ze slinivky, který po jídle pomáhá dostat cukr z krve do svalů, jater a tuku.',
+    match: ['inzulin'],
+    guide: 'cukr-a-inzulin',
+    group: 'telo',
+  },
+  {
+    id: 'glukoza',
+    term: 'Glukóza',
+    def: 'Cukr v krvi — hlavní palivo pro mozek a svaly. Po jídle stoupne a inzulin ho pomůže uložit nebo spotřebovat.',
+    match: ['glukóz'],
+    guide: 'cukr-a-inzulin',
+    group: 'telo',
+  },
+  {
+    id: 'prediabetes',
+    term: 'Prediabetes',
+    def: 'Hladina cukru v krvi vyšší než normální, ale ještě ne tak vysoká, aby šlo o cukrovku. Změnou životního stylu se dá často zvrátit.',
+    match: ['prediabet'],
+    guide: 'cukr-a-inzulin',
+    group: 'telo',
+  },
+  {
+    id: 'ketolatky',
+    term: 'Ketolátky',
+    def: 'Náhradní palivo, které játra tvoří z tuku, když je málo sacharidů — třeba při delším půstu. Mírně jich přibývá i přes noc.',
+    match: ['ketolát'],
+    guide: 'prerusovany-pust',
+    group: 'telo',
+  },
+  {
+    id: 'autofagie',
+    term: 'Autofagie',
+    def: 'Úklidový proces, při kterém buňka rozkládá a recykluje vlastní opotřebované části. U lidí zatím není prokázané, že by se dala půstem „zapnout“ se zdravotním přínosem.',
+    match: ['autofagi'],
+    guide: 'prerusovany-pust',
+    group: 'telo',
+  },
+  {
+    id: 'zanet',
+    term: 'Zánět',
+    def: 'Obranná reakce imunity na poranění nebo infekci. Krátký zánět léčí; dlouhodobý mírný zánět souvisí s řadou civilizačních nemocí.',
+    match: ['zánět'],
+    guide: 'imunita',
+    group: 'telo',
+  },
+  {
+    id: 'protilatky',
+    term: 'Protilátky',
+    def: 'Bílkoviny, které imunita vyrobí proti konkrétnímu viru nebo bakterii a které si „pamatuje“ — díky nim funguje očkování.',
+    match: ['protilát'],
+    guide: 'imunita',
+    group: 'telo',
+  },
+  {
+    id: 'antibioticka-rezistence',
+    term: 'Odolnost bakterií',
+    def: 'Bakterie, které přežijí antibiotika, se množí dál. Zbytečné užívání antibiotik (třeba na virovou chřipku) tak snižuje jejich účinnost pro všechny.',
+    match: ['odolnost bakterií'],
+    guide: 'imunita',
+    group: 'telo',
+  },
+  {
+    id: 'krevni-tlak',
+    term: 'Krevní tlak',
+    def: 'Síla, kterou krev tlačí na stěny tepen. Udává se dvěma čísly: horní (při stahu srdce) a dolní (při jeho uvolnění), např. 120/80 mmHg.',
+    match: ['krevn\\S* tlak'],
+    guide: 'srdce-a-tlak',
+    group: 'telo',
+  },
+  {
+    id: 'ldl',
+    term: 'LDL cholesterol',
+    def: 'Částice, které nesou cholesterol do tkání. Když je jich dlouhodobě moc, ukládají se do stěn tepen — proto se mu říká „zlý“ cholesterol.',
+    match: ['LDL'],
+    guide: 'srdce-a-tlak',
+    group: 'telo',
+  },
+  {
+    id: 'mikrobiom',
+    term: 'Mikrobiom',
+    def: 'Společenství bilionů bakterií a dalších mikrobů ve střevě. Rozkládá vlákninu, tvoří některé vitamíny a komunikuje s imunitou.',
+    match: ['mikrobiom'],
+    guide: 'streva-a-mikrobiom',
+    group: 'telo',
+  },
+  {
+    id: 'androgeny',
+    term: 'Androgeny',
+    def: 'Skupina „mužských“ hormonů včetně testosteronu. Mají je muži i ženy; v pubertě mimo jiné rozjedou mazové žlázy.',
+    match: ['androgen'],
+    guide: 'akne-a-plet',
+    group: 'telo',
+  },
+  {
+    id: 'testosteron',
+    term: 'Testosteron',
+    def: 'Hlavní mužský pohlavní hormon (ženy ho mají v menším množství). Ovlivňuje svaly, kosti, libido a tvorbu spermií.',
+    match: ['testosteron'],
+    guide: 'testosteron',
+    group: 'telo',
+  },
+  {
+    id: 'estrogen',
+    term: 'Estrogen',
+    def: 'Hlavní ženský pohlavní hormon. Řídí první polovinu menstruačního cyklu a chrání kosti; v menším množství ho mají i muži.',
+    match: ['estrogen'],
+    guide: 'menstruacni-cyklus',
+    group: 'telo',
+  },
+  {
+    id: 'progesteron',
+    term: 'Progesteron',
+    def: 'Hormon druhé poloviny menstruačního cyklu, který připravuje děložní sliznici na možné těhotenství.',
+    match: ['progesteron'],
+    guide: 'menstruacni-cyklus',
+    group: 'telo',
+  },
+  {
+    id: 'hypotalamus',
+    term: 'Hypotalamus a hypofýza',
+    def: 'Řídicí centrum hormonů na spodině mozku. Hypotalamus dává pokyny hypofýze a ta řídí štítnou žlázu, nadledviny i pohlavní žlázy.',
+    match: ['hypotalam', 'hypofýz'],
+    guide: 'testosteron',
+    group: 'telo',
+  },
+  {
+    id: 'anemie',
+    term: 'Anémie (chudokrevnost)',
+    def: 'Nedostatek červených krvinek nebo hemoglobinu, takže krev nese méně kyslíku. Nejčastější příčinou je nedostatek železa.',
+    match: ['anémi', 'chudokrevn'],
+    guide: 'menstruacni-cyklus',
+    group: 'telo',
+  },
+  {
+    id: 'kratkozrakost',
+    term: 'Krátkozrakost',
+    def: 'Oko je příliš dlouhé, takže dobře vidí zblízka, ale do dálky rozmazaně. U dětí jí pomáhá předcházet čas venku.',
+    match: ['krátkozrak'],
+    guide: 'oci-a-obrazovky',
+    group: 'telo',
+  },
+  {
+    id: 'uv',
+    term: 'UV záření',
+    def: 'Neviditelná část slunečního světla. UVB pálí a tvoří vitamín D, UVA proniká hlouběji a stárne kůži; obě poškozují DNA kožních buněk.',
+    match: ['UV'],
+    guide: 'kuze-a-slunce',
+    group: 'telo',
+  },
+  {
+    id: 'melanom',
+    term: 'Melanom',
+    def: 'Nejnebezpečnější typ rakoviny kůže, vzniká z pigmentových buněk. Riziko zvyšuje spálení a solárium; včas zachycený je dobře léčitelný.',
+    match: ['melanom'],
+    guide: 'kuze-a-slunce',
+    group: 'telo',
+  },
+  {
+    id: 'sklovina',
+    term: 'Sklovina',
+    def: 'Nejtvrdší tkáň v těle, která kryje zuby. Kyseliny z bakterií v plaku ji rozpouštějí; fluorid jí pomáhá obnovit minerály.',
+    match: ['sklovin'],
+    guide: 'zuby-a-usta',
+    group: 'telo',
+  },
+  {
+    id: 'plak',
+    term: 'Zubní plak',
+    def: 'Lepivý povlak bakterií na zubech. Z cukru vyrábí kyselinu, která narušuje sklovinu, a dráždí dásně.',
+    match: ['plak(?:u|em|y)?(?![\\p{L}])'],
+    guide: 'zuby-a-usta',
+    group: 'telo',
+  },
+  {
+    id: 'osteoporoza',
+    term: 'Osteoporóza (řídnutí kostí)',
+    def: 'Úbytek kostní hmoty, kvůli kterému se kosti snáz zlomí. Základ prevence se buduje v mládí pohybem se zátěží.',
+    match: ['osteoporóz', 'řídnutí kost'],
+    guide: 'kosti',
+    group: 'telo',
+  },
+  {
+    id: 'migrena-aura',
+    term: 'Aura',
+    def: 'Přechodné příznaky před záchvatem migrény — nejčastěji mžitky nebo klikaté čáry v zorném poli, někdy brnění. Trvají obvykle do hodiny.',
+    match: ['aur(?:a|ou|y)(?![\\p{L}])'],
+    guide: 'bolest-hlavy',
+    group: 'telo',
+  },
+  {
+    id: 'tenzni-bolest',
+    term: 'Tenzní bolest hlavy',
+    def: 'Nejčastější typ bolesti hlavy: tlaková, oboustranná, „jako obruč“. Bývá spojená se stresem, únavou a napětím v šíji.',
+    match: ['tenzní'],
+    guide: 'bolest-hlavy',
+    group: 'telo',
+  },
+  {
+    id: 'adrenalin',
+    term: 'Adrenalin',
+    def: 'Hormon rychlé stresové reakce. Během sekund zrychlí srdce a dech a uvolní energii — tělo je připravené „bojovat, nebo utéct“.',
+    match: ['adrenalin'],
+    guide: 'stres',
+    group: 'telo',
+  },
+  {
+    id: 'neurony',
+    term: 'Neurony',
+    def: 'Nervové buňky, které si předávají signály elektricky a chemicky. Učení posiluje spojení mezi těmi, které spolu často „pálí“.',
+    match: ['neuron'],
+    guide: 'mozek-a-uceni',
+    group: 'telo',
+  },
+  {
+    id: 'deprese',
+    term: 'Deprese',
+    def: 'Nemoc, ne slabost: dlouhodobý smutek nebo ztráta radosti, často s poruchami spánku, energie a soustředění. Dobře se léčí psychoterapií, léky i pohybem.',
+    match: ['depres(?!iv)'],
+    guide: 'nalada-a-uzkost',
+    group: 'telo',
+  },
+  {
+    id: 'smyslove-bunky',
+    term: 'Vláskové buňky',
+    def: 'Smyslové buňky ve vnitřním uchu, které mění vibrace zvuku na nervový signál. Hlukem se ničí a u lidí se neobnovují.',
+    match: ['smyslové buňky'],
+    guide: 'sluch-a-sluchatka',
+    group: 'telo',
+  },
+  {
+    id: 'tinnitus',
+    term: 'Tinnitus',
+    def: 'Pískání nebo šumění v uších bez vnějšího zvuku. Po hlasité hudbě bývá varováním, že sluch dostal zabrat.',
+    match: ['tinnitus'],
+    guide: 'sluch-a-sluchatka',
+    group: 'telo',
+  },
+  {
+    id: 'plotenka',
+    term: 'Meziobratlová ploténka',
+    def: 'Pružný „polštářek“ mezi obratli, který tlumí nárazy. Změny na ploténkách jsou s věkem běžné i u lidí, které záda nebolí.',
+    match: ['ploténk'],
+    guide: 'bolest-zad',
+    group: 'telo',
+  },
+  {
+    id: 'mri',
+    term: 'Magnetická rezonance',
+    def: 'Vyšetření, které bez rentgenového záření zobrazí měkké tkáně. U běžné bolesti zad často najde nálezy, které bolest nezpůsobují.',
+    match: ['magnetick\\S* rezonanc'],
+    guide: 'bolest-zad',
+    group: 'telo',
+  },
+  {
+    id: 'kostni-hmota',
+    term: 'Kostní hmota',
+    def: 'Množství minerálů (hlavně vápníku) v kostech, které určuje jejich pevnost. Nejvíc jí máme kolem 25–30 let.',
+    match: ['kostní hmot'],
+    guide: 'kosti',
+    group: 'telo',
+  },
+
+  // ——— jídlo ———
+  {
+    id: 'vlaknina',
+    term: 'Vláknina',
+    def: 'Části rostlin, které nestrávíme sami — živí ale střevní bakterie, zasytí a zpomalí vstřebání cukru. Je v zelenině, luštěninách, ovoci a celozrnném pečivu.',
+    match: ['vláknin'],
+    guide: 'streva-a-mikrobiom',
+    group: 'jidlo',
+  },
+  {
+    id: 'probiotika',
+    term: 'Probiotika',
+    def: 'Živé mikroorganismy, které mohou při dostatečném množství prospět zdraví. Účinek závisí na konkrétním kmeni — nejsou všechna stejná.',
+    match: ['probiotik'],
+    guide: 'streva-a-mikrobiom',
+    group: 'jidlo',
+  },
+  {
+    id: 'fermentovane',
+    term: 'Fermentované potraviny',
+    def: 'Potraviny, které „prošly“ prací mikrobů: jogurt, kefír, kysané zelí, kimči. Často obsahují živé kultury.',
+    match: ['fermentovan'],
+    guide: 'streva-a-mikrobiom',
+    group: 'jidlo',
+  },
+  {
+    id: 'glykemicka-naloz',
+    term: 'Glykemický index a nálož',
+    def: 'Jak rychle a jak moc jídlo zvedne cukr v krvi. Index porovnává potraviny, nálož počítá i s velikostí porce.',
+    match: ['glykemick'],
+    guide: 'cukr-a-inzulin',
+    group: 'jidlo',
+  },
+  {
+    id: 'ultrazpracovane',
+    term: 'Ultrazpracované potraviny',
+    def: 'Průmyslové výrobky z rafinovaných složek a přídatných látek, které doma běžně nemáte — sladké cereálie, chipsy, uzeniny, sladké nápoje.',
+    match: ['ultrazpracovan'],
+    guide: 'ultrazpracovane-potraviny',
+    group: 'jidlo',
+  },
+  {
+    id: 'deficit',
+    term: 'Energetický deficit',
+    def: 'Když tělo dlouhodobě dostává méně energie (kalorií), než spotřebuje. Je to jediná cesta, jak ubývá tuk — dieta jen určuje, jak ho dosáhnout.',
+    match: ['deficit'],
+    guide: 'hubnuti-a-energie',
+    group: 'jidlo',
+  },
+  {
+    id: 'izoflavony',
+    term: 'Izoflavony',
+    def: 'Rostlinné látky hlavně ze sóji, které se trochu podobají estrogenu. Klinické studie nenašly vliv na mužské hormony.',
+    match: ['izoflavon'],
+    guide: 'testosteron',
+    group: 'jidlo',
+  },
+  {
+    id: 'adaptogeny',
+    term: 'Adaptogeny',
+    def: 'Marketingový název pro byliny, které mají „pomáhat tělu zvládat stres“ (ashwagandha, rhodiola). Důkazy jsou zatím slabé.',
+    match: ['adaptogen'],
+    guide: 'stres',
+    group: 'jidlo',
+  },
+
+  // ——— pohyb ———
+  {
+    id: 'pretizeni',
+    term: 'Progresivní přetížení',
+    def: 'Princip, díky kterému svaly rostou a sílí: zátěž postupně zvyšujete (váha, opakování, série), aby tělo mělo důvod se přizpůsobit.',
+    match: ['progresivn\\S* přetížen', 'postupně zatěžujete'],
+    guide: 'svaly-a-metabolismus',
+    group: 'pohyb',
+  },
+  {
+    id: 'neat',
+    term: 'Pohyb mimo cvičení (NEAT)',
+    def: 'Energie, kterou spálíte běžným pohybem — chůzí, stáním, schody, domácími pracemi. U různých lidí se liší o stovky kalorií denně.',
+    match: ['pohyb mimo cvičení', 'NEAT'],
+    guide: 'hubnuti-a-energie',
+    group: 'pohyb',
+  },
+  {
+    id: 'stredni-intenzita',
+    term: 'Středně intenzivní pohyb',
+    def: 'Pohyb, při kterém se zadýcháte a zahřejete, ale ještě zvládnete mluvit — třeba svižná chůze nebo jízda na kole po rovině.',
+    match: ['středně intenzivn'],
+    guide: 'pohyb-a-sezeni',
+    group: 'pohyb',
+  },
+  {
+    id: 'sedave',
+    term: 'Sedavé chování',
+    def: 'Čas vsedě nebo vleže, kdy skoro nevydáváte energii — u počítače, v autě, u telefonu. Jde o něco jiného než „málo cvičit“.',
+    match: ['sedav'],
+    guide: 'pohyb-a-sezeni',
+    group: 'pohyb',
+  },
+  {
+    id: 'rozlozene-opakovani',
+    term: 'Rozložené opakování',
+    def: 'Učit se stejnou látku v několika kratších blocích s pauzami mezi nimi. Paměť to upevní líp než jedno dlouhé „bifování“.',
+    match: ['rozložen\\S* opakov', 'rozložíte'],
+    guide: 'mozek-a-uceni',
+    group: 'telo',
+  },
+  {
+    id: 'vybavovani',
+    term: 'Vybavování',
+    def: 'Učení tím, že si látku zkoušíte vybavit z hlavy (kartičky, testy), místo abyste ji znovu četli. Patří k nejlépe ověřeným metodám učení.',
+    match: ['vybavov'],
+    guide: 'mozek-a-uceni',
+    group: 'telo',
+  },
+  {
+    id: 'rozsah-pohybu',
+    term: 'Rozsah pohybu',
+    def: 'Jak daleko se kloub dokáže ohnout nebo natáhnout. Zvětšuje ho hlavně pravidelné protahování a cvičení v plném rozsahu.',
+    match: ['rozsah\\S* pohybu'],
+    guide: 'protahovani',
+    group: 'pohyb',
+  },
+
+  // ——— věda a důkazy ———
+  {
+    id: 'rct',
+    term: 'Randomizovaná studie',
+    def: 'Pokus, kde se lidé náhodně rozdělí do skupin (např. lék vs. placebo). Díky náhodě se skupiny liší jen zkoumanou věcí, takže studie umí ukázat příčinu.',
+    match: ['randomizovan', 'RCT'],
+    group: 'veda',
+  },
+  {
+    id: 'metaanalyza',
+    term: 'Metaanalýza',
+    def: 'Studie, která statisticky spojí výsledky mnoha studií na stejnou otázku. Dává spolehlivější odpověď než jedna studie — pokud jsou kvalitní ty původní.',
+    match: ['metaanalýz'],
+    group: 'veda',
+  },
+  {
+    id: 'prehled',
+    term: 'Systematický přehled',
+    def: 'Shrnutí všech dostupných studií k jedné otázce podle předem daných pravidel. Cochrane je organizace, která se na ně specializuje.',
+    match: ['systematick\\S* přehled', 'Cochrane'],
+    group: 'veda',
+  },
+  {
+    id: 'pozorovani',
+    term: 'Observační studie',
+    def: 'Výzkum, který lidi jen sleduje, nic jim nemění. Umí najít souvislost, ale ne dokázat příčinu — lidé se mohou lišit i v jiných věcech.',
+    match: ['observačn', 'jde o pozorování'],
+    group: 'veda',
+  },
+  {
+    id: 'placebo',
+    term: 'Placebo',
+    def: 'Neúčinná náhražka (třeba tableta bez účinné látky), se kterou se lék porovnává. Už samotné očekávání zlepšení umí ovlivnit, jak se cítíme.',
+    match: ['placeb'],
+    group: 'veda',
+  },
+  {
+    id: 'efsa',
+    term: 'EFSA',
+    def: 'Evropský úřad pro bezpečnost potravin. Stanovuje doporučené dávky živin a posuzuje, která zdravotní tvrzení smějí výrobci používat.',
+    match: ['EFSA'],
+    group: 'veda',
+  },
+]
+
+export const GLOSSARY_BY_ID: Record<string, GlossaryTerm> = Object.fromEntries(GLOSSARY.map((t) => [t.id, t]))
+
+/** One regex for all terms; longer patterns first so "inzulinová rezistence" wins over "inzulin". */
+const ENTRIES = GLOSSARY.flatMap((t) => t.match.map((m) => ({ id: t.id, m }))).sort(
+  (a, b) => b.m.length - a.m.length,
+)
+const CASE_SENSITIVE = /^[A-Z]{2,}$/ // acronyms like REM, LDL, UV must match in capitals only
+const source = (m: string) => {
+  if (CASE_SENSITIVE.test(m)) return `${m}(?![\\p{L}])`
+  const body = m.replace(/^(\p{Ll})/u, (c) => `[${c}${c.toUpperCase()}]`)
+  return m.includes('(?') ? body : `${body}\\p{L}*`
+}
+const PATTERN = new RegExp(ENTRIES.map(({ m }, i) => `(?<g${i}>(?<![\\p{L}])${source(m)})`).join('|'), 'gu')
+
+export type Piece = string | { id: string; text: string }
+
+/**
+ * Split text into plain strings and glossary hits. Only the first hit of each term per `seen`
+ * set is returned as a term, so a page underlines every concept once, not everywhere.
+ */
+export function splitTerms(text: string, seen: Set<string>): Piece[] {
+  const out: Piece[] = []
+  let last = 0
+  for (const m of text.matchAll(PATTERN)) {
+    const key = Object.entries(m.groups ?? {}).find(([, v]) => v !== undefined)?.[0]
+    if (!key) continue
+    const id = ENTRIES[Number(key.slice(1))].id
+    if (seen.has(id)) continue
+    seen.add(id)
+    if (m.index! > last) out.push(text.slice(last, m.index))
+    out.push({ id, text: m[0] })
+    last = m.index! + m[0].length
+  }
+  if (last < text.length) out.push(text.slice(last))
+  return out
+}

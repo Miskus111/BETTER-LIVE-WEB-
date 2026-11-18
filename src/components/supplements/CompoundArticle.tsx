@@ -6,6 +6,7 @@ import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
+import { Rich } from '@/components/glossary/Rich'
 
 const UPDATED = '2026-11-16'
 
@@ -19,6 +20,7 @@ export function CompoundArticle({ c }: { c: Compound }) {
     { q: `${c.name}: kolik a kdy užívat?`, a: `${c.dose} ${c.timing}` },
     { q: `${c.name}: je to bezpečné?`, a: c.caution.join(' ') },
   ]
+  const seen = new Set<string>()
   const sameGoal = COMPOUNDS.filter((x) => x.goal === c.goal && x.id !== c.id)
   const others = COMPOUNDS.filter((x) => x.goal !== c.goal)
 
@@ -85,9 +87,11 @@ export function CompoundArticle({ c }: { c: Compound }) {
           data-testid="verdict"
         >
           <strong className="font-medium">Verdikt: </strong>
-          {c.verdict}
+          <Rich text={c.verdict} seen={seen} />
         </p>
-        <p className="text-muted mt-4 text-[15.5px]">{c.what}</p>
+        <p className="text-muted mt-4 text-[15.5px]">
+          <Rich text={c.what} seen={seen} />
+        </p>
       </header>
 
       <section className="mt-10" aria-labelledby="effects">
@@ -98,7 +102,9 @@ export function CompoundArticle({ c }: { c: Compound }) {
           {c.effects.map((e) => (
             <li key={e.text} className="card flex flex-col gap-2 p-4 sm:flex-row sm:items-start sm:gap-4">
               <EvidenceBadge level={e.level} className="self-start" />
-              <span className="text-[15px]">{e.text}</span>
+              <span className="text-[15px]">
+                <Rich text={e.text} seen={seen} />
+              </span>
             </li>
           ))}
         </ul>
@@ -138,7 +144,10 @@ export function CompoundArticle({ c }: { c: Compound }) {
         <ul className="mt-3 grid gap-2 text-[14.5px]">
           {c.caution.map((x) => (
             <li key={x} className="flex gap-2">
-              <span className="bg-warn mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" aria-hidden /> {x}
+              <span className="bg-warn mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" aria-hidden />{' '}
+              <span>
+                <Rich text={x} seen={seen} />
+              </span>
             </li>
           ))}
         </ul>
@@ -158,7 +167,9 @@ export function CompoundArticle({ c }: { c: Compound }) {
             {c.myths.map((m) => (
               <li key={m.myth} className="card p-4">
                 <p className="text-[15px] font-medium line-through decoration-[#ff9b9b]/60">„{m.myth}“</p>
-                <p className="text-muted mt-1.5 text-[14.5px]">{m.fact}</p>
+                <p className="text-muted mt-1.5 text-[14.5px]">
+                  <Rich text={m.fact} seen={seen} />
+                </p>
               </li>
             ))}
           </ul>
