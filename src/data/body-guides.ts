@@ -100,6 +100,7 @@ const SOURCES = {
     title: 'EFSA (2010) Referenční hodnoty příjmu vody, EFSA Journal 8(3):1459',
     url: 'https://doi.org/10.2903/j.efsa.2010.1459',
   },
+  acsmFluid: pm(17277604, 'ACSM (2007) Stanovisko: cvičení a doplňování tekutin, Med Sci Sports Exerc'),
   popkin: pm(20646222, 'Popkin a kol. (2010) Voda, hydratace a zdraví, Nutr Rev'),
   gbd: pm(30146330, 'GBD 2016 Alcohol Collaborators (2018) Alkohol a zátěž nemocemi ve 195 zemích, Lancet'),
   ebrahim: pm(23347102, 'Ebrahim a kol. (2013) Alkohol a spánek, Alcohol Clin Exp Res'),
@@ -807,7 +808,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
     ],
     related: [{ label: 'Kofein', href: '/doplnky/kofein' }],
-    sources: [SOURCES.efsaWater, SOURCES.popkin],
+    sources: [SOURCES.efsaWater, SOURCES.popkin, SOURCES.acsmFluid],
   },
   {
     slug: 'alkohol',

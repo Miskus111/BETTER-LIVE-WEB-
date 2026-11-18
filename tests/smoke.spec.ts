@@ -177,6 +177,20 @@ test('blood pressure check uses ESC 2024 categories and the higher of both numbe
   await expect(bp.getByTestId('bp-result')).toContainText('Nezvýšený')
 })
 
+test('water calculator: EFSA totals and sweat loss from weighing', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/pitny-rezim')
+  const w = page.getByTestId('water-calc')
+  await expect(w.getByTestId('water-total')).toHaveText('2 l')
+  await w.getByRole('button', { name: 'Kojím' }).click()
+  await expect(w.getByTestId('water-total')).toHaveText('2,7 l')
+  await w.getByRole('button', { name: 'Muž' }).click()
+  await expect(w.getByTestId('water-total')).toHaveText('2,5 l')
+  await w.getByTestId('water-before').fill('80')
+  await w.getByTestId('water-after').fill('78')
+  await expect(w.getByTestId('water-sweat')).toContainText('2 l')
+  await expect(w.getByTestId('water-sweat')).toContainText('nad 2 %')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')
