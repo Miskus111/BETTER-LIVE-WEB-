@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, BookA, HelpCircle } from 'lucide-react'
+import { ArrowRight, BookA, Calculator, HelpCircle } from 'lucide-react'
 import { BODY_GUIDES } from '@/data/body-guides'
 import { Suspense } from 'react'
 import { GuideIcon } from '@/components/guides/GuideIcon'
@@ -51,6 +51,17 @@ export default function BodyGuidesHub() {
             <span>
               <span className="block text-[15px] font-medium">Mýtus, nebo fakt?</span>
               <span className="text-muted block text-[13.5px]">Otestujte se v kvízu na 10 otázek</span>
+            </span>
+            <ArrowRight size={16} className="text-cyan" aria-hidden />
+          </Link>
+          <Link
+            href="/nastroje"
+            className="border-line hover:border-cyan/40 inline-flex items-center gap-3 rounded-2xl border px-4 py-3 transition"
+          >
+            <Calculator size={20} className="text-cyan shrink-0" aria-hidden />
+            <span>
+              <span className="block text-[15px] font-medium">Kalkulačky</span>
+              <span className="text-muted block text-[13.5px]">Kofein, tlak, bílkoviny, voda</span>
             </span>
             <ArrowRight size={16} className="text-cyan" aria-hidden />
           </Link>

@@ -191,6 +191,17 @@ test('water calculator: EFSA totals and sweat loss from weighing', async ({ page
   await expect(w.getByTestId('water-sweat')).toContainText('nad 2 %')
 })
 
+test('tools: homepage teaser leads to all calculators, each opens inside its guide', async ({ page }) => {
+  await page.goto('/')
+  await page.getByTestId('all-tools').click()
+  await expect(page).toHaveURL(/\/nastroje$/)
+  const cards = page.getByTestId('tool-cards').getByRole('link')
+  await expect(cards).toHaveCount(5)
+  await cards.first().click()
+  await expect(page).toHaveURL(/\/jak-funguje-telo\/energie-a-kofein#try$/)
+  await expect(page.getByTestId('caffeine-calc')).toBeVisible()
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')

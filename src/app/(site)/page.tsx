@@ -8,6 +8,9 @@ import { SupplementsTeaser } from '@/components/home/SupplementsTeaser'
 import { FoodExplorer } from '@/components/food/FoodExplorer'
 import { AppCta } from '@/components/home/AppCta'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
+import { ToolCards } from '@/components/guides/ToolCards'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -48,6 +51,24 @@ export default function Home() {
         intro="Spánek a mobil, kofein a odpolední propad, stres, dopamin, sezení u počítače. Co se v těle děje, co reálně pomáhá a které mýty pustit z hlavy."
       >
         <GuidesTeaser />
+      </Section>
+
+      <Section
+        id="kalkulacky"
+        eyebrow="Kalkulačky"
+        title={
+          <>
+            Spočítejte si to <em className="text-cyan">na sobě.</em>
+          </>
+        }
+        intro="Kolik kofeinu vám zbude do spánku, co znamená váš tlak, kolik bílkovin a vody potřebujete. Každý výpočet stojí na ověřeném zdroji."
+      >
+        <ToolCards limit={3} />
+        <div className="mt-6 flex justify-center">
+          <Link href="/nastroje" className="btn btn-ghost" data-testid="all-tools">
+            Všechny kalkulačky <ArrowRight size={15} aria-hidden />
+          </Link>
+        </div>
       </Section>
 
       <AppCta />

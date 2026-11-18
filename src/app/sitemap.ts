@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/jak-funguje-telo'), priority: 0.9 },
     { url: u('/jak-funguje-telo/kviz'), priority: 0.7 },
     { url: u('/jak-funguje-telo/slovnik'), priority: 0.7 },
+    { url: u('/nastroje'), priority: 0.8 },
     ...BODY_GUIDES.map((g) => ({ url: u(`/jak-funguje-telo/${g.slug}`), priority: 0.8 })),
     { url: u('/jak-doporucujeme'), priority: 0.4 },
     { url: u('/looksmaxing'), priority: 0.7 },
