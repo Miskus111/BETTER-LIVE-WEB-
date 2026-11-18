@@ -545,7 +545,8 @@ export function LabsClient({
                           <span className="min-w-0 flex-1">{label(k)}</span>
                           <Spark points={hist.map((h) => h.value)} />
                           <span className="font-mono">
-                            {last.value} <span className="text-subtle text-[12px]">{last.unit}</span>
+                            {Number(last.value).toLocaleString(locale === 'en' ? 'en' : 'cs-CZ')}{' '}
+                            <span className="text-subtle text-[12px]">{last.unit}</span>
                           </span>
                           {last.flag && (
                             <span

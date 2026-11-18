@@ -1,5 +1,7 @@
 'use client'
 
+import { cx } from '@/lib/format'
+
 import { useLocale, useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 import {
@@ -222,14 +224,31 @@ function ExerciseSummary({ points, nf }: { points: ExercisePoint[]; nf: Intl.Num
   )
 }
 
-export function Stat({ label, value, tone }: { label: string; value: string; tone?: 'up' | 'down' }) {
+/**
+ * `tone` says whether the change is good ('up') or bad ('down') for the user; `dir` is the actual
+ * direction of the number (defaults to `tone`, which fits strength where higher is better).
+ */
+export function Stat({
+  label,
+  value,
+  tone,
+  dir = tone,
+}: {
+  label: string
+  value: string
+  tone?: 'up' | 'down'
+  dir?: 'up' | 'down'
+}) {
   return (
     <div className="card p-3 sm:p-4">
       <dt className="text-subtle text-[12.5px]">{label}</dt>
       <dd className="mt-0.5 font-mono text-[17px]">
-        {tone && (
-          <span aria-hidden className={tone === 'up' ? 'text-bio mr-1' : 'text-warn mr-1'}>
-            {tone === 'up' ? '▲' : '▼'}
+        {dir && (
+          <span
+            aria-hidden
+            className={cx('mr-1', tone === 'up' ? 'text-bio' : tone === 'down' ? 'text-warn' : 'text-subtle')}
+          >
+            {dir === 'up' ? '▲' : '▼'}
           </span>
         )}
         {value}

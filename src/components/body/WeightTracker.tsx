@@ -107,6 +107,7 @@ export function WeightTracker({
   // direction that counts as progress for this user's goal
   const tone = (v: number | null) =>
     v === null || v === 0 || goal === 'keep' ? undefined : (goal === 'lose') === v < 0 ? 'up' : 'down'
+  const dir = (v: number | null) => (v === null || v === 0 ? undefined : v > 0 ? 'up' : 'down')
   const signed = (v: number | null, unit: string) =>
     v === null ? '—' : `${v > 0 ? '+' : v < 0 ? '−' : ''}${nf.format(Math.abs(v))} ${unit}`
 
@@ -191,9 +192,9 @@ export function WeightTracker({
       {all.length > 0 && (
         <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
           <Stat label={t('current')} value={`${nf.format(last.trend)} kg`} />
-          <Stat label={t('change30')} value={signed(ch30, 'kg')} tone={tone(ch30)} />
-          <Stat label={t('perWeek')} value={signed(rate, 'kg')} tone={tone(rate)} />
-          <Stat label={t('sinceStart')} value={signed(total, 'kg')} tone={tone(total)} />
+          <Stat label={t('change30')} value={signed(ch30, 'kg')} tone={tone(ch30)} dir={dir(ch30)} />
+          <Stat label={t('perWeek')} value={signed(rate, 'kg')} tone={tone(rate)} dir={dir(rate)} />
+          <Stat label={t('sinceStart')} value={signed(total, 'kg')} tone={tone(total)} dir={dir(total)} />
         </dl>
       )}
 

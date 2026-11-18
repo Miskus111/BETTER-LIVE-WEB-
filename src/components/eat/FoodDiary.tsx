@@ -110,18 +110,17 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
                   key={r.id}
                   className="border-line flex items-center justify-between gap-3 border-t py-2 first:border-t-0"
                 >
-                  <span className="text-[14.5px]">
-                    {r.title.split('|')[0]}{' '}
-                    <span className="text-subtle font-mono text-[12.5px]">{Number(r.grams)} g</span>
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <span className="text-muted font-mono text-[13px]">
-                      {Math.round(Number(r.kcal))} kcal ·{' '}
+                  <span className="min-w-0">
+                    <span className="block truncate text-[14.5px]">{r.title.split('|')[0]}</span>
+                    <span className="text-subtle block font-mono text-[12.5px]">
+                      {Number(r.grams)} g · {Math.round(Number(r.kcal))} kcal ·{' '}
                       {Number(r.protein_g).toLocaleString(locale === 'en' ? 'en' : 'cs-CZ', {
                         maximumFractionDigits: 1,
                       })}{' '}
                       g {t('proteinShort')}
                     </span>
+                  </span>
+                  <span className="flex shrink-0 items-center">
                     <button
                       type="button"
                       aria-label={t('deleteEntry')}

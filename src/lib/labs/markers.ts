@@ -266,7 +266,7 @@ export const MARKERS: Marker[] = [
   },
   {
     key: 'vitd',
-    cs: 'Vitamin D (25-OH)',
+    cs: 'Vitamín D (25-OH)',
     en: 'Vitamin D (25-OH)',
     unit: 'nmol/L',
     category: 'vitamins',
@@ -287,7 +287,7 @@ export const MARKERS: Marker[] = [
   },
   {
     key: 'b12',
-    cs: 'Vitamin B12',
+    cs: 'Vitamín B12',
     en: 'Vitamin B12',
     unit: 'pmol/L',
     category: 'vitamins',
