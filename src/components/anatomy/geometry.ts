@@ -123,15 +123,15 @@ const HALF_OUTLINE: P[] = [
   [140, 338],
   [141, 358],
   [140, 376],
-  [137, 396],
-  [133, 418],
-  [130, 442],
-  // thigh (outer)
-  [130, 468],
-  [131, 496],
-  [134, 528],
-  [139, 562],
-  [145, 598],
+  [136, 396],
+  [130, 418],
+  [124, 442],
+  // thigh (outer) — bitrochanteric breadth ≈ 0.19 × stature
+  [121, 468],
+  [123, 496],
+  [128, 528],
+  [135, 562],
+  [143, 598],
   [150, 632],
   // knee
   [154, 658],
@@ -176,6 +176,19 @@ const HALF_OUTLINE: P[] = [
 ]
 
 export const BODY_PATH = symmetric(HALF_OUTLINE)
+
+/** Key landmarks in body units (floor y = 920, crown y = 33) — checked against anthropometric ratios in tests. */
+export const STATURE = { crown: 33, floor: 920 }
+export const LANDMARKS = {
+  chin: 150,
+  shoulder: 196, // acromion
+  elbow: 364,
+  wrist: 478,
+  hipJoint: 470, // centre of the femoral head
+  knee: 668,
+  ankle: 880,
+}
+export const HALF_OUTLINE_POINTS = HALF_OUTLINE
 export const FULL: ViewBox = [0, 0, 400, 920]
 
 // ── Skeleton ──────────────────────────────────────────────────────────
