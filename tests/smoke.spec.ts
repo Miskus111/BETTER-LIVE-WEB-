@@ -166,6 +166,17 @@ test('protein calculator: EFSA minimum, training target and a plate tally', asyn
   await expect(calc.getByTestId('protein-total')).toHaveText('96 g')
 })
 
+test('blood pressure check uses ESC 2024 categories and the higher of both numbers', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/srdce-a-tlak')
+  const bp = page.getByTestId('bp-check')
+  await expect(bp.getByTestId('bp-result')).toContainText('Zvýšený tlak') // default 128/82
+  await bp.getByTestId('bp-sys').fill('118')
+  await bp.getByTestId('bp-dia').fill('92')
+  await expect(bp.getByTestId('bp-result')).toContainText('Hypertenze')
+  await bp.getByTestId('bp-dia').fill('68')
+  await expect(bp.getByTestId('bp-result')).toContainText('Nezvýšený')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')

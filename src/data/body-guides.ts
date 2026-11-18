@@ -189,6 +189,10 @@ const SOURCES = {
     36379592,
     'Dillard a kol. (2022) Nebezpečné poslouchání u dospívajících a mladých dospělých, BMJ Glob Health',
   ),
+  escHypertension: pm(
+    39210715,
+    'McEvoy a kol. (2024) Doporučení ESC pro léčbu zvýšeného tlaku a hypertenze, Eur Heart J',
+  ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
     url: 'https://doi.org/10.2903/j.efsa.2012.2557',
@@ -1064,7 +1068,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     numbers: [
       { value: '<5 g', label: 'soli denně podle WHO' },
-      { value: '120/80', label: 'ideální tlak (mmHg) zhruba pod' },
+      { value: '<120/70', label: 'nezvýšený tlak podle ESC 2024 (mmHg)' },
     ],
     how: [
       {
@@ -1109,7 +1113,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Omega-3', href: '/doplnky/omega-3' },
       { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
     ],
-    sources: [SOURCES.whoHypertension, SOURCES.whoSodium],
+    sources: [SOURCES.whoHypertension, SOURCES.whoSodium, SOURCES.escHypertension],
   },
   {
     slug: 'mozek-a-uceni',
