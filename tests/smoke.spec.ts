@@ -129,6 +129,18 @@ test('glossary: terms open an explanation in the text and have their own page', 
   expect(await page.getByTestId('glossary-term').count()).toBeGreaterThan(40)
 })
 
+test('pricing shows what Pro looks like, price per day and a fuller FAQ', async ({ page }) => {
+  await page.goto('/pricing')
+  await expect(page.getByTestId('pro-preview').getByRole('figure')).toHaveCount(4)
+  await expect(page.getByTestId('per-day')).toContainText('Kč denně')
+  await expect(page.locator('details')).toHaveCount(7)
+})
+
+test('guide page highlights one first step', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/spanek')
+  await expect(page.getByTestId('first-step')).toContainText('stejnou dobu')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')
@@ -182,7 +194,7 @@ test('pricing: free and Pro plans, beta banner and comparison table', async ({ p
   await expect(page.getByTestId('beta-banner')).toBeVisible()
   await expect(page.getByTestId('plan-pro')).toContainText('199')
   await expect(page.getByTestId('plan-pro')).toContainText('1 690')
-  await expect(page.locator('table')).toContainText('Fotky pokroku')
+  await expect(page.locator('section[aria-labelledby=compare-plans] table')).toContainText('Fotky pokroku')
 })
 
 test('paywall explains Pro and links to pricing', async ({ page }) => {

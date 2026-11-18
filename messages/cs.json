@@ -825,6 +825,12 @@
     "q3": "Jak se bude platit?",
     "a3": "Kartou, Apple Pay nebo Google Pay přes zabezpečenou platební bránu. Údaje o kartě neukládáme.",
     "q4": "Je cena včetně DPH?",
-    "a4": "Ano, ceny jsou konečné včetně DPH."
+    "a4": "Ano, uvedené ceny jsou konečné — nic se k nim nepřipočítává.",
+    "q5": "Proč není všechno zdarma?",
+    "a5": "Vzdělávací web, průvodci a zapisování zůstanou zdarma. Pro platí provoz AI a další vývoj — díky předplatnému nemusíme web zaplnit reklamou ani prodávat data.",
+    "q6": "Nahradí mi BLWB lékaře nebo trenéra?",
+    "a6": "Ne. Pomůže vám rozumět tělu a sledovat, co děláte. Diagnózu a léčbu patří k lékaři; u výsledků krve vždy upozorníme, kdy je dobré se poradit.",
+    "q7": "Co když mi Pro nebude k ničemu?",
+    "a7": "Během bety si ho vyzkoušíte zdarma. Až spustíme placení, předplatné zrušíte kdykoli a další období se už nestrhne."
   }
 }

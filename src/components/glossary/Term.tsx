@@ -53,6 +53,10 @@ export function Term({
 
   if (!t) return <>{children}</>
 
+  const toggle = () => {
+    setShift(0)
+    setOpen((o) => !o)
+  }
   const hover = (v: boolean) => {
     clearTimeout(hoverTimer.current)
     hoverTimer.current = setTimeout(() => setOpen(v), v ? 180 : 220)
@@ -65,19 +69,23 @@ export function Term({
       onPointerEnter={(e) => e.pointerType === 'mouse' && hover(true)}
       onPointerLeave={(e) => e.pointerType === 'mouse' && hover(false)}
     >
-      <button
-        type="button"
+      <span
+        role="button"
+        tabIndex={0}
         className="term"
         aria-expanded={open}
         aria-describedby={open ? tipId : undefined}
-        onClick={() => {
-          setShift(0)
-          setOpen((o) => !o)
+        onClick={toggle}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            toggle()
+          }
         }}
         data-term={id}
       >
         {children}
-      </button>
+      </span>
       {open && (
         <span ref={card} id={tipId} role="tooltip" className="term-card" style={{ marginLeft: shift }}>
           <span className="text-fg block text-[14px] font-medium">{t.term}</span>

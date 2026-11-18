@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { Check, Minus, Sparkles } from 'lucide-react'
+import { Ban, Check, Lock, MapPin, Minus, Sparkles, Undo2 } from 'lucide-react'
+import { ProPreview } from '@/components/billing/ProPreview'
+import { isAiConfigured } from '@/lib/ai/client'
 import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -19,6 +21,9 @@ export default async function PricingPage() {
   const t = await getTranslations('billing')
   const beta = isFreeMode()
   const nf = new Intl.NumberFormat('cs-CZ')
+  const nf1 = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 })
+  const coachLive = isAiConfigured()
+  const perDay = PRICES.pro_year_czk / 365
 
   const rows: [string, Cell, Cell][] = [
     [t('f_education'), true, true],
@@ -29,7 +34,7 @@ export default async function PricingPage() {
     [t('f_weight'), true, true],
     [t('f_labs_manual'), true, true],
     [t('f_export'), true, true],
-    [t('f_coach'), t('f_coach_free'), t('f_coach_pro')],
+    [t('f_coach'), coachLive ? t('f_coach_free') : 'brzy', coachLive ? t('f_coach_pro') : 'brzy'],
     [t('f_labs_ai'), false, true],
     [t('f_progress'), false, true],
     [t('f_photos'), false, true],
@@ -99,6 +104,9 @@ export default async function PricingPage() {
             {t('yearly')}: {nf.format(PRICES.pro_year_czk)} {t('perYear')} ·{' '}
             <span className="text-bio">{t('save', { pct: yearlySaving() })}</span>
           </p>
+          <p className="text-muted mt-1 text-[13.5px]" data-testid="per-day">
+            Při ročním placení {nf1.format(perDay)} Kč denně.
+          </p>
           <ul className="mt-5 grid gap-2 text-[14.5px]">
             {(['perk_coach', 'perk_labs', 'perk_progress', 'perk_photos'] as const).map((p) => (
               <li key={p} className="flex items-start gap-2">
@@ -119,6 +127,32 @@ export default async function PricingPage() {
           </div>
         </section>
       </div>
+
+      <ul className="text-muted mt-6 grid gap-3 text-[14px] sm:grid-cols-4" aria-label="Na čem stavíme">
+        {[
+          { icon: Ban, text: 'Bez reklam' },
+          { icon: MapPin, text: 'Data uložená v EU' },
+          { icon: Lock, text: 'Vaše data neprodáváme' },
+          { icon: Undo2, text: 'Zrušíte kdykoli' },
+        ].map(({ icon: Icon, text }) => (
+          <li key={text} className="flex items-center gap-2">
+            <Icon size={16} className="text-cyan shrink-0" aria-hidden /> {text}
+          </li>
+        ))}
+      </ul>
+
+      <section className="mt-14" aria-labelledby="pro-what">
+        <h2 id="pro-what" className="display text-[32px] md:text-[42px]">
+          Co v Pro uvidíte
+        </h2>
+        <p className="text-muted mt-2 max-w-2xl text-[15.5px]">
+          Zapisování je zdarma. Pro z těch zápisů dělá odpovědi: roste síla, mění se postava, jak jsou na tom
+          výsledky krve.
+        </p>
+        <div className="mt-6">
+          <ProPreview coachLive={coachLive} />
+        </div>
+      </section>
 
       <section className="mt-14" aria-labelledby="compare-plans">
         <h2 id="compare-plans" className="text-[22px] font-medium">
@@ -151,7 +185,7 @@ export default async function PricingPage() {
           {t('faqTitle')}
         </h2>
         <div className="mt-4 grid gap-3">
-          {(['1', '2', '3', '4'] as const).map((n) => (
+          {(['1', '2', '3', '4', '5', '6', '7'] as const).map((n) => (
             <details key={n} className="card group p-4">
               <summary className="cursor-pointer text-[15.5px] font-medium">{t(`q${n}`)}</summary>
               <p className="text-muted mt-2 text-[14.5px]">{t(`a${n}`)}</p>

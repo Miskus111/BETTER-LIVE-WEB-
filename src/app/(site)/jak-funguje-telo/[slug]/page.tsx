@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight, ChevronRight, Clock, HelpCircle, Lightbulb } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ChevronRight, Clock, HelpCircle, Lightbulb, Target } from 'lucide-react'
 import {
   BODY_GUIDES,
   BODY_GUIDE_BY_SLUG,
@@ -66,6 +66,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const minutes = readingMinutes(g)
   // each glossary term is explained at its first appearance on the page
   const seen = new Set<string>()
+  // one concrete, best-supported step to take this week
+  const firstStep = g.helps.find((h) => h.level === 'established') ?? g.helps[0]
   const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
   return (
@@ -172,11 +174,27 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         </ul>
       </section>
 
+      {firstStep && (
+        <aside
+          className="border-warn/30 bg-warn/[0.05] mt-4 flex gap-3 rounded-2xl border p-4"
+          aria-label="Začněte tímhle"
+          data-testid="first-step"
+        >
+          <Target size={20} className="text-warn mt-0.5 shrink-0" aria-hidden />
+          <div>
+            <p className="text-[13px] font-medium tracking-wide text-[#ffd27a] uppercase">Začněte tímhle</p>
+            <p className="mt-1 text-[15.5px]">{firstStep.text}</p>
+          </div>
+        </aside>
+      )}
+
       {g.numbers.length > 0 && (
-        <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
+        <dl
+          className={`mt-6 grid gap-3 ${g.numbers.length === 3 ? 'grid-cols-3' : 'grid-cols-2 sm:grid-cols-3'}`}
+        >
           {g.numbers.map((n) => (
-            <div key={n.label} className="card p-4">
-              <dd className="font-mono text-[24px]">{n.value}</dd>
+            <div key={n.label} className="card p-3 sm:p-4">
+              <dd className="font-mono text-[19px] sm:text-[24px]">{n.value}</dd>
               <dt className="text-subtle mt-1 text-[13px]">{n.label}</dt>
             </div>
           ))}
