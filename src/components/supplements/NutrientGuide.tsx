@@ -39,7 +39,7 @@ export function NutrientGuide({ id, standalone = false }: { id: NutrientId; stan
       <ReferenceValues id={id} className="mt-5" />
 
       <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <AbsorptionCard id={id} />
+        <AbsorptionCard id={id} hideWhen={standalone} />
         <div className="space-y-6">
           {!n.qualitative && foods.length > 0 && (
             <div>

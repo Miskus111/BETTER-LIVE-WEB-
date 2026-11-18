@@ -23,18 +23,29 @@ export function RatingBadge({ rating }: { rating: FormRating }) {
 }
 
 /** Formy živiny seřazené podle vstřebatelnosti + praktické tipy. */
-export function AbsorptionCard({ id, compact }: { id: NutrientId; compact?: boolean }) {
+export function AbsorptionCard({
+  id,
+  compact,
+  hideWhen,
+}: {
+  id: NutrientId
+  compact?: boolean
+  /** the page already shows "when a supplement makes sense" prominently */
+  hideWhen?: boolean
+}) {
   const a = ABSORPTION[id]
   if (!a) return null
   return (
     <div className="grid gap-5">
-      <p className="text-fg/90 flex gap-2 text-[14.5px]">
-        <CircleHelp size={17} className="text-cyan mt-0.5 shrink-0" aria-hidden />
-        <span>
-          <strong className="font-medium">Kdy má doplněk smysl: </strong>
-          {a.when}
-        </span>
-      </p>
+      {!hideWhen && (
+        <p className="text-fg/90 flex gap-2 text-[14.5px]">
+          <CircleHelp size={17} className="text-cyan mt-0.5 shrink-0" aria-hidden />
+          <span>
+            <strong className="font-medium">Kdy má doplněk smysl: </strong>
+            {a.when}
+          </span>
+        </p>
+      )}
       <div>
         <p className="eyebrow mb-2.5">Formy podle vstřebatelnosti</p>
         <ul className="divide-line border-line divide-y rounded-xl border">
