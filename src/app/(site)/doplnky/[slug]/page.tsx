@@ -12,6 +12,7 @@ import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
+import { Rich } from '@/components/glossary/Rich'
 import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
 import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
 
@@ -78,6 +79,7 @@ export default async function SupplementPage({ params }: { params: Promise<{ slu
   if (!id) notFound()
   const n = NUTRIENTS[id]
   const a = ABSORPTION[id]
+  const seen = new Set<string>()
   const r = REFERENCE[id]
   const url = `${SITE.url}${supplementHref(id)}`
   const best = a?.forms.filter((f) => f.rating === 'nejlepší') ?? []
@@ -163,13 +165,15 @@ export default async function SupplementPage({ params }: { params: Promise<{ slu
       <header className="mt-5 max-w-3xl">
         <p className="eyebrow">{n.kind}</p>
         <h1 className="display mt-3 text-[44px] md:text-[64px]">{n.name}</h1>
-        <p className="text-muted mt-3 text-[16.5px]">{n.blurb}</p>
+        <p className="text-muted mt-3 text-[16.5px]">
+          <Rich text={n.blurb} seen={seen} />
+        </p>
         {a?.when && (
           <p className="border-bio/25 bg-bio/[0.05] mt-5 flex gap-2 rounded-xl border p-3.5 text-[14.5px]">
             <Salad size={17} className="text-bio mt-0.5 shrink-0" aria-hidden />
             <span>
               <strong className="font-medium">Kdy má doplněk smysl: </strong>
-              {a.when}
+              <Rich text={a.when} seen={seen} />
             </span>
           </p>
         )}

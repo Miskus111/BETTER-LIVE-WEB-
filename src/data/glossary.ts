@@ -591,9 +591,9 @@ export const GLOSSARY: GlossaryTerm[] = [
   },
   {
     id: 'koenzym',
-    term: 'Koenzymy',
-    def: 'Pomocné molekuly, bez kterých enzymy nefungují. Mnoho vitamínů skupiny B je stavebním kamenem koenzymů.',
-    match: ['koenzym'],
+    term: 'Koenzymy a kofaktory',
+    def: 'Pomocné molekuly a minerály, bez kterých enzymy nefungují. Mnoho vitamínů skupiny B je stavebním kamenem koenzymů; hořčík nebo zinek fungují jako kofaktory.',
+    match: ['koenzym', 'kofaktor'],
     group: 'organy',
   },
 

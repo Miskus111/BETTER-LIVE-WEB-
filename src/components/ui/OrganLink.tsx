@@ -23,13 +23,10 @@ export function OrganLink({ id, detail }: { id: OrganId; detail?: string }) {
   )
   if (pathname === '/')
     return (
-      <button
-        type="button"
-        className={cls}
-        onClick={() => focusOrgan(id)}
-        aria-label={`Ukázat na těle: ${o.shortName}`}
-      >
+      <button type="button" className={cls} onClick={() => focusOrgan(id)}>
         {inner}
+        {/* accessible name starts with the visible text (WCAG 2.5.3 label in name) */}
+        <span className="sr-only"> — ukázat na těle</span>
       </button>
     )
   return (

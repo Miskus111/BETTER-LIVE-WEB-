@@ -17,7 +17,7 @@ export const SITE = {
   short: 'BLWB',
   tagline: 'Žij zdravěji, podávej lepší výkon',
   description:
-    'Výživa, vitamíny, trénink, mobilita, spánek a vzhled podle důkazů — interaktivní mapa těla, průvodci doplňky a aplikace s AI koučem.',
+    'Jak funguje tělo, srozumitelně a podle důkazů: interaktivní mapa těla, průvodci o spánku, stresu, výživě a pohybu, doplňky stravy bez marketingu a aplikace na trénink a jídlo.',
   url: siteUrl(),
 }
 
