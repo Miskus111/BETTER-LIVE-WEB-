@@ -38,6 +38,7 @@ export interface BodyGuide {
     | 'skeleton'
     | 'wind'
     | 'apple'
+    | 'clock'
     | 'sparkles'
     | 'storm'
     | 'timer'
@@ -221,6 +222,17 @@ const SOURCES = {
     41081513,
     'Britská dietologická asociace (2025) Doporučení pro stravu u chronické zácpy, J Hum Nutr Diet',
   ),
+  roenneberg2004: pm(
+    15620633,
+    'Roenneberg a kol. (2004) Ukazatel konce dospívání — chronotyp podle věku, Curr Biol',
+  ),
+  wittmann: pm(
+    16687322,
+    'Wittmann a kol. (2006) Sociální jet lag: nesoulad biologického a společenského času, Chronobiol Int',
+  ),
+  roenneberg2012: pm(22578422, 'Roenneberg a kol. (2012) Sociální jet lag a obezita, Curr Biol'),
+  kalmbach: pm(28364486, 'Kalmbach a kol. (2017) Genetický základ chronotypu, Sleep'),
+  iarcShift: pm(31281097, 'IARC (2019) Karcinogenita noční práce na směny, Lancet Oncol'),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
     url: 'https://doi.org/10.2903/j.efsa.2012.2557',
@@ -2469,6 +2481,77 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.blackFord, SOURCES.schootFoods, SOURCES.bdaConstipation],
   },
+  {
+    slug: 'chronotyp',
+    title: 'Ranní ptáče, nebo sova? Chronotyp a sociální jet lag',
+    short: 'Chronotyp',
+    icon: 'clock',
+    hook: 'Pozdní usínání u mladých není lenost — vnitřní hodiny se v dospívání opravdu posouvají. Jen škola a práce začínají pořád stejně.',
+    tldr: [
+      'Chronotyp je přirozený sklon chodit spát dřív, nebo později. Je zčásti dědičný a mění se s věkem.',
+      'Nejvíc „sovy“ jsme kolem 20 let; potom se vnitřní hodiny zase posouvají dřív.',
+      'Sociální jet lag je rozdíl mezi spánkem ve všední dny a o víkendu — souvisí s únavou a ve studiích i s vyšší hmotností.',
+    ],
+    numbers: [
+      { value: '~20 let', label: 'věk, kdy jsme největší sovy' },
+      { value: '2A', label: 'IARC: noční práce je pravděpodobně karcinogenní' },
+    ],
+    how: [
+      {
+        title: 'Vnitřní hodiny',
+        text: 'Centrum v mozku nastavuje 24hodinový rytmus spánku, hormonů a teploty. Hlavně podle světla — ranní světlo hodiny posouvá dřív, večerní později.',
+      },
+      {
+        title: 'Proč se lidé liší',
+        text: 'Chronotyp ovlivňují geny, věk i to, kolik denního světla dostanete. V dospívání se rytmus posouvá později a zhruba po dvacítce se zase vrací.',
+      },
+      {
+        title: 'Sociální jet lag',
+        text: 'Když budík ve všední dny „přetáčí“ vaše vnitřní hodiny a o víkendu spíte podle nich, tělo každý týden cestuje přes časová pásma. Výsledkem je chronický spánkový dluh.',
+      },
+    ],
+    today: [
+      'Večerní obrazovky a málo denního světla přes den posouvají vnitřní hodiny ještě později.',
+      'Škola a práce začínají brzy — nejvíc to odnesou dospívající a mladí dospělí.',
+    ],
+    helps: [
+      {
+        text: 'Ranní denní světlo — ideálně venku, hned po probuzení. Je to nejsilnější „seřizovač“ vnitřních hodin.',
+        level: 'established',
+      },
+      { text: 'Tlumené světlo a méně obrazovek večer.', level: 'plausible' },
+      {
+        text: 'Vstávat zhruba ve stejnou dobu i o víkendu — klidně o hodinu později, ne o čtyři.',
+        level: 'plausible',
+      },
+      {
+        text: 'Při nočních směnách: stálý rozvrh, zatemněná a tichá ložnice na spánek přes den, pravidelné prohlídky.',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Kdo ráno nevstane, je líný.',
+        fact: 'Chronotyp je zčásti biologie a genetika. Sovy nejsou líné — jen žijí v rozvrhu nastaveném pro skřivany.',
+      },
+      {
+        myth: 'O víkendu si to prospím a je to v pořádku.',
+        fact: 'Velký posun o víkendu zvětšuje sociální jet lag. V pondělí se pak spí ještě hůř.',
+      },
+    ],
+    related: [
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Oči a obrazovky', href: '/jak-funguje-telo/oci-a-obrazovky' },
+      { label: 'Energie a kofein', href: '/jak-funguje-telo/energie-a-kofein' },
+    ],
+    sources: [
+      SOURCES.wittmann,
+      SOURCES.roenneberg2004,
+      SOURCES.roenneberg2012,
+      SOURCES.kalmbach,
+      SOURCES.iarcShift,
+    ],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2526,4 +2609,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   testosteron: 'prevence',
   cholesterol: 'prevence',
   'traveni-a-zacpa': 'jidlo',
+  chronotyp: 'spanek',
 }

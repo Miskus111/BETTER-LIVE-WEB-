@@ -1,6 +1,7 @@
 import {
   Activity,
   Apple,
+  Clock,
   Bone,
   Candy,
   Cloud,
@@ -63,6 +64,7 @@ const ICONS = {
   skeleton: PersonStanding,
   wind: Wind,
   apple: Apple,
+  clock: Clock,
   sparkles: Sparkles,
   storm: CloudLightning,
   timer: Timer,
