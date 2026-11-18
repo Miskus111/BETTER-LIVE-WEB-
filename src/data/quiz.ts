@@ -172,6 +172,14 @@ export const QUIZ: QuizItem[] = [
     explain: 'Nárůst svalů přestává přibývat zhruba u 1,6 g bílkovin na kg denně; víc už skoro nepřidá.',
   },
 
+  {
+    id: 'vejce-srdce',
+    guide: 'cholesterol',
+    statement: 'Jedno vejce denně zvyšuje riziko nemocí srdce.',
+    fact: false,
+    explain: 'Velká analýza kohortních studií u jednoho vejce denně vyšší riziko nenašla.',
+  },
+
   // ——— fakta ———
   {
     id: 'spanek-7h',

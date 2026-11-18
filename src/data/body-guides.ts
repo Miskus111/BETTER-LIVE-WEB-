@@ -194,6 +194,20 @@ const SOURCES = {
     39210715,
     'McEvoy a kol. (2024) Doporučení ESC pro léčbu zvýšeného tlaku a hypertenze, Eur Heart J',
   ),
+  escLipids: pm(31504418, 'Mach a kol. (2020) Doporučení ESC/EAS pro léčbu dyslipidemií, Eur Heart J'),
+  ferenceLdl: pm(
+    28444290,
+    'Ference a kol. (2017) LDL způsobují aterosklerotická onemocnění — konsenzus EAS, Eur Heart J',
+  ),
+  cttStatins: pm(
+    21067804,
+    'Cholesterol Treatment Trialists (2010) Snižování LDL — metaanalýza 26 studií se 170 000 lidmi, Lancet',
+  ),
+  hooperSatFat: pm(32428300, 'Hooper a kol. (2020) Méně nasycených tuků a nemoci srdce, Cochrane'),
+  eggs: pm(
+    32132002,
+    'Drouin-Chartier a kol. (2020) Vejce a riziko nemocí srdce — kohorty a metaanalýza, BMJ',
+  ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
     url: 'https://doi.org/10.2903/j.efsa.2012.2557',
@@ -2304,6 +2318,80 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.leproult, SOURCES.coronaWeight, SOURCES.clemesha, SOURCES.bhasin, SOURCES.reedSoy],
   },
+  {
+    slug: 'cholesterol',
+    title: 'Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo',
+    short: 'Cholesterol',
+    icon: 'heart',
+    hook: 'Cholesterol nebolí a nejde vidět. O to víc stojí za to rozumět, co znamená „zlý“ LDL a co ho opravdu snižuje.',
+    tldr: [
+      'Cholesterol tělo potřebuje — většinu si vyrobí samo v játrech.',
+      'Škodí, když je v krvi dlouhodobě moc LDL: ukládá se do stěn tepen a zužuje je.',
+      'LDL snižuje méně nasycených tuků, víc vlákniny a pohyb; když to nestačí, léky (statiny) prokazatelně chrání srdce.',
+    ],
+    numbers: [
+      { value: '−22 %', label: 'infarktů a mrtvic na každý 1 mmol/l nižšího LDL' },
+      { value: '<3,0', label: 'cílový LDL (mmol/l) u lidí s nízkým rizikem (ESC)' },
+    ],
+    how: [
+      {
+        title: 'K čemu je cholesterol',
+        text: 'Je součástí každé buněčné membrány a tělo z něj vyrábí hormony, vitamín D a žluč. Většinu si játra vyrobí sama, menší část přijde z jídla.',
+      },
+      {
+        title: 'LDL a HDL',
+        text: 'Cholesterol se ve vodnaté krvi nerozpustí, proto ho vozí balíčky — lipoproteiny. LDL ho rozváží do tkání; když je ho dlouhodobě moc, proniká do stěny tepen. HDL ho naopak odvádí zpět do jater.',
+      },
+      {
+        title: 'Jak vzniká ateroskleróza',
+        text: 'V tepně se z LDL a zánětlivých buněk tvoří plát. Roky nic nebolí — dokud plát nepraskne a nevznikne sraženina. Pak přijde infarkt nebo mrtvice.',
+      },
+    ],
+    today: [
+      'Vysoký cholesterol mívají i štíhlí a mladí lidé — někdy je vrozený a strava ho sama nesrovná.',
+      'Na sítích koluje, že cholesterol „nevadí“. Genetické, populační i klinické studie se shodují, že LDL ateroskleróze přímo napomáhá.',
+    ],
+    helps: [
+      {
+        text: 'Méně nasycených tuků (tučné maso, uzeniny, máslo, sýry) a místo nich rostlinné oleje, ořechy a ryby.',
+        level: 'established',
+      },
+      {
+        text: 'Víc rozpustné vlákniny — ovesné vločky, luštěniny, ovoce. Schválené tvrzení EU: 3 g beta-glukanů z ovsa denně snižují cholesterol.',
+        level: 'established',
+      },
+      { text: 'Pravidelný pohyb, nekouřit a při nadváze zhubnout.', level: 'established' },
+      {
+        text: 'Když doporučí lékař, užívat statiny — patří k nejlépe prozkoumaným lékům vůbec.',
+        level: 'established',
+      },
+      {
+        text: 'Nechat si cholesterol změřit — i v mladém věku, hlavně když měl někdo v rodině brzy infarkt.',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Vejce zvyšují riziko nemocí srdce.',
+        fact: 'Velká analýza nenašla u jednoho vejce denně vyšší riziko. Víc rozhoduje celkové složení stravy.',
+      },
+      {
+        myth: 'Cholesterol je jen problém starých a obézních.',
+        fact: 'Plát se v tepnách tvoří desítky let. Vysoký LDL mají i mladí a štíhlí — někdy vrozeně.',
+      },
+      {
+        myth: 'Statiny jsou zbytečná chemie.',
+        fact: 'Ve studiích se 170 000 lidmi snížení LDL o 1 mmol/l ubralo zhruba pětinu infarktů a mrtvic.',
+      },
+    ],
+    related: [
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+      { label: 'Ultrazpracované potraviny', href: '/jak-funguje-telo/ultrazpracovane-potraviny' },
+      { label: 'Srdce v mapě těla', href: '/organ/heart' },
+      { label: 'Játra v mapě těla', href: '/organ/liver' },
+    ],
+    sources: [SOURCES.escLipids, SOURCES.ferenceLdl, SOURCES.cttStatins, SOURCES.hooperSatFat, SOURCES.eggs],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2359,4 +2447,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'samota-a-vztahy': 'mysl',
   protahovani: 'pohyb',
   testosteron: 'prevence',
+  cholesterol: 'prevence',
 }
