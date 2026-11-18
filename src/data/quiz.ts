@@ -188,6 +188,28 @@ export const QUIZ: QuizItem[] = [
     explain: 'Normální rozsah je od třikrát denně po třikrát týdně.',
   },
 
+  {
+    id: 'med-alergie',
+    guide: 'alergie-a-pyl',
+    statement: 'Lžíce místního medu denně zmírní sennou rýmu.',
+    fact: false,
+    explain: 'V randomizované studii med příznaky nezmírnil víc než sladký sirup s medovou příchutí.',
+  },
+  {
+    id: 'trava-zavislost',
+    guide: 'marihuana-a-thc',
+    statement: 'Na marihuanu nevzniká závislost.',
+    fact: false,
+    explain: 'Vzniká asi u 9 % uživatelů; u těch, kdo začnou v dospívání, zhruba u každého šestého.',
+  },
+  {
+    id: 'svalovice',
+    guide: 'posilovani-pro-zacatecniky',
+    statement: 'Když vás druhý den nebolí svaly, trénink nebyl dobrý.',
+    fact: false,
+    explain: 'Svalová bolest neukazuje kvalitu tréninku. Rozhoduje postupné přidávání zátěže.',
+  },
+
   // ——— fakta ———
   {
     id: 'spanek-7h',
@@ -349,5 +371,13 @@ export const QUIZ: QuizItem[] = [
     fact: true,
     explain: 'V dospívání se vnitřní hodiny posouvají později a zhruba po dvacítce se zase vracejí dřív.',
   },
+  {
+    id: 'frekvence-2x',
+    guide: 'posilovani-pro-zacatecniky',
+    statement: 'Posilovat každý sval dvakrát týdně přináší víc než jednou týdně.',
+    fact: true,
+    explain: 'Metaanalýza ukázala větší nárůst svalů při frekvenci aspoň dvakrát týdně.',
+  },
 ]
+
 export const QUIZ_LENGTH = 10
