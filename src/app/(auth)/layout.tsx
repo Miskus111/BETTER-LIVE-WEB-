@@ -10,7 +10,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(58,168,255,0.12),transparent_70%)]"
       />
       <header className="relative flex items-center justify-between px-5 py-4">
-        <Link href="/" aria-label="Better Live with Biohacking">
+        <Link href="/" aria-label="BLWB — Better Live with Biohacking">
           <Logo />
         </Link>
         <LanguageSwitch />

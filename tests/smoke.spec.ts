@@ -7,7 +7,7 @@ test.describe('anatomy', () => {
     await expect(panel).toHaveCount(0)
 
     await page.locator('[data-organ="heart"]').click()
-    await expect(panel.getByRole('heading', { name: 'Srdce' })).toBeVisible()
+    await expect(panel.getByRole('heading', { name: 'Srdce', exact: true })).toBeVisible()
     await expect(page).toHaveURL(/\?organ=heart/)
 
     await panel.getByRole('tab', { name: 'Živiny' }).click()
@@ -15,12 +15,12 @@ test.describe('anatomy', () => {
     await expect(panel.getByTestId('organ-nutrients')).toContainText('Prokázané')
 
     await panel.getByRole('button', { name: 'Další orgán' }).click()
-    await expect(panel.getByRole('heading', { name: 'Plíce' })).toBeVisible()
+    await expect(panel.getByRole('heading', { name: 'Plíce', exact: true })).toBeVisible()
 
     // keyboard: focus the brain and press Enter
     await page.locator('[data-organ="brain"]').focus()
     await page.keyboard.press('Enter')
-    await expect(panel.getByRole('heading', { name: 'Mozek' })).toBeVisible()
+    await expect(panel.getByRole('heading', { name: 'Mozek', exact: true })).toBeVisible()
 
     // full-body reset clears the selection
     await page.getByRole('button', { name: 'Celé tělo' }).click()

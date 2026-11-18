@@ -37,7 +37,7 @@ export function Sidebar() {
   const t = useTranslations('common')
   return (
     <aside className="border-line bg-ink-2/60 sticky top-0 hidden h-svh w-64 shrink-0 flex-col border-r px-4 py-5 lg:flex">
-      <Link href="/today" className="px-2" aria-label="Better Live with Biohacking">
+      <Link href="/today" className="px-2" aria-label="BLWB — Better Live with Biohacking">
         <Logo />
       </Link>
       <nav className="mt-8 flex flex-col gap-1" aria-label="App">
@@ -77,7 +77,7 @@ export function MobileNav() {
   return (
     <>
       <header className="border-line bg-ink/85 sticky top-0 z-30 flex h-14 items-center justify-between border-b px-4 backdrop-blur-xl lg:hidden">
-        <Link href="/today" aria-label="Better Live with Biohacking">
+        <Link href="/today" aria-label="BLWB — Better Live with Biohacking">
           <Logo size={24} gradientId="logo-g-mobile" />
         </Link>
         <div className="flex items-center gap-2">

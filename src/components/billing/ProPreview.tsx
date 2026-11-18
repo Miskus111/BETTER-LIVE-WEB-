@@ -175,6 +175,13 @@ function LabTable() {
   ]
   return (
     <table className="w-full font-mono text-[12px]" aria-label="Ukázka přečtených výsledků">
+      <thead className="sr-only">
+        <tr>
+          <th scope="col">Ukazatel</th>
+          <th scope="col">Hodnota</th>
+          <th scope="col">Referenční rozmezí</th>
+        </tr>
+      </thead>
       <tbody className="divide-line divide-y">
         {rows.map(([name, val, ref, st]) => (
           <tr key={name}>

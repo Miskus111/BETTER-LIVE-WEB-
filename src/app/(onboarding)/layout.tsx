@@ -6,7 +6,7 @@ export default function OnboardingLayout({ children }: { children: React.ReactNo
   return (
     <div className="min-h-svh">
       <header className="flex items-center justify-between px-5 py-4">
-        <Link href="/" aria-label="Better Live with Biohacking">
+        <Link href="/" aria-label="BLWB — Better Live with Biohacking">
           <Logo />
         </Link>
         <LanguageSwitch />

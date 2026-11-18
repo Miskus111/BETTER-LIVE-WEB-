@@ -142,6 +142,10 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
             hidden={tab !== t}
             className={tab === t ? 'fade-up' : undefined}
           >
+            {/* keeps the heading outline h1/h2 → h2 → h3 for screen readers */}
+            <h2 className="sr-only">
+              {organ.shortName}: {t}
+            </h2>
             {t === 'Přehled' && <OverviewTab organ={organ} goTo={setTab} />}
             {t === 'Živiny' && <NutrientsTab organ={organ} />}
             {t === 'Potraviny' && <FoodsTab organ={organ} />}
