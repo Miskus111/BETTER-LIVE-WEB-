@@ -245,6 +245,15 @@ const SOURCES = {
     27433992,
     'Schoenfeld a kol. (2017) Týdenní objem tréninku a nárůst svalů — metaanalýza, J Sports Sci',
   ),
+  bousquetAr: pm(33273461, 'Bousquet a kol. (2020) Alergická rýma — přehled, Nat Rev Dis Primers'),
+  ariaGuideline: pm(
+    28602936,
+    'Brożek a kol. (2017) Doporučení ARIA pro léčbu alergické rýmy, J Allergy Clin Immunol',
+  ),
+  honeyRct: pm(
+    11868925,
+    'Rajan a kol. (2002) Med a příznaky senné rýmy — randomizovaná studie, Ann Allergy Asthma Immunol',
+  ),
   efsaProtein: {
     title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
     url: 'https://doi.org/10.2903/j.efsa.2012.2557',
@@ -2627,6 +2636,72 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     sources: [SOURCES.acsmProgression, SOURCES.schoenfeldFreq, SOURCES.schoenfeldVolume, SOURCES.who],
   },
+  {
+    slug: 'alergie-a-pyl',
+    title: 'Alergie a pyl: proč tělo bojuje s neškodnými věcmi',
+    short: 'Alergie a pyl',
+    icon: 'flower',
+    hook: 'Kýchání, ucpaný nos a svědící oči každé jaro. Alergie se dá dobře léčit — jen ne medem z farmářských trhů.',
+    tldr: [
+      'Alergie je přehnaná reakce imunity na něco neškodného, třeba pyl, roztoče nebo srst.',
+      'Alergická rýma patří k nejčastějším chronickým nemocem a často jde ruku v ruce s astmatem.',
+      'Nejlépe fungují léky: antihistaminika a nosní spreje s kortikoidem; při dlouhodobých potížích imunoterapie od alergologa.',
+    ],
+    numbers: [],
+    how: [
+      {
+        title: 'Imunita si splete nepřítele',
+        text: 'Při prvním setkání si tělo proti pylu vytvoří protilátky IgE. Ty se usadí na buňkách v nose a očích a při dalším kontaktu spustí poplach.',
+      },
+      {
+        title: 'Histamin',
+        text: 'Buňky uvolní histamin a další látky — sliznice oteče, teče z nosu, svědí oči a kýcháte. Antihistaminika blokují právě tenhle signál.',
+      },
+      {
+        title: 'Nos a plíce spolu souvisejí',
+        text: 'Neléčená alergická rýma zhoršuje spánek a soustředění a často se spojuje s astmatem. Proto má smysl ji léčit, ne jen přetrpět.',
+      },
+    ],
+    today: [
+      'Pylová sezóna se s teplejšími roky prodlužuje.',
+      'Na sítích se doporučuje „místní med“ nebo detoxy — výzkum je nepotvrdil.',
+    ],
+    helps: [
+      {
+        text: 'Nosní sprej s kortikoidem — pravidelně, účinek nastupuje během několika dní.',
+        level: 'established',
+      },
+      { text: 'Antihistaminika novější generace, která málo uspávají.', level: 'established' },
+      {
+        text: 'Při potížích, které trvají roky, alergenová imunoterapie od alergologa — „očkování“ proti alergii.',
+        level: 'established',
+      },
+      {
+        text: 'Sledovat pylové zpravodajství, po návratu zvenku se osprchovat a převléct, větrat při nízké koncentraci pylu.',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Místní med alergii vyléčí.',
+        fact: 'V randomizované studii med příznaky nezmírnil o nic víc než sladký sirup s medovou příchutí.',
+      },
+      {
+        myth: 'Alergie je jen nepříjemnost, léčit se nemusí.',
+        fact: 'Neléčená rýma zhoršuje spánek, školu i práci a souvisí s astmatem.',
+      },
+      {
+        myth: 'Léky na alergii vždycky uspávají.',
+        fact: 'To platí hlavně pro starší antihistaminika. Novější uspávají jen málo.',
+      },
+    ],
+    related: [
+      { label: 'Imunita', href: '/jak-funguje-telo/imunita' },
+      { label: 'Dýchání', href: '/jak-funguje-telo/dychani' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+    ],
+    sources: [SOURCES.bousquetAr, SOURCES.ariaGuideline, SOURCES.honeyRct],
+  },
 ]
 
 export const BODY_GUIDE_BY_SLUG: Record<string, BodyGuide> = Object.fromEntries(
@@ -2686,4 +2761,5 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'traveni-a-zacpa': 'jidlo',
   chronotyp: 'spanek',
   'posilovani-pro-zacatecniky': 'pohyb',
+  'alergie-a-pyl': 'prevence',
 }
