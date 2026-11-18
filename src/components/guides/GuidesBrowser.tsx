@@ -22,17 +22,20 @@ export function GuidesBrowser() {
     GUIDE_CATEGORIES.some((c) => c.id === initialK) ? (initialK as GuideCategory) : 'all',
   )
 
-  // keep the URL in sync without adding history entries on every keystroke
+  // keep the URL in sync without adding history entries on every keystroke — and only when the
+  // filters actually changed, so a pending update can never pull the reader back after they click a link
+  const current = params.toString()
   useEffect(() => {
+    const sp = new URLSearchParams()
+    if (q.trim()) sp.set('q', q.trim())
+    if (cat !== 'all') sp.set('k', cat)
+    if (sp.toString() === current) return
     const t = setTimeout(() => {
-      const sp = new URLSearchParams()
-      if (q.trim()) sp.set('q', q.trim())
-      if (cat !== 'all') sp.set('k', cat)
-      const next = sp.toString() ? `${pathname}?${sp}` : pathname
-      router.replace(next, { scroll: false })
+      if (window.location.pathname !== pathname) return
+      router.replace(sp.toString() ? `${pathname}?${sp}` : pathname, { scroll: false })
     }, 250)
     return () => clearTimeout(t)
-  }, [q, cat, pathname, router])
+  }, [q, cat, pathname, router, current])
 
   const matches = useMemo(() => searchGuides(BODY_GUIDES, q), [q])
   const shown = matches.filter((g) => cat === 'all' || GUIDE_CATEGORY[g.slug] === cat)
