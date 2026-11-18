@@ -5,11 +5,20 @@ import { ORGAN_BY_ID, ORGANS } from '@/data/organs'
 import type { OrganId, SystemId, ViewBox } from '@/data/types'
 import {
   BODY_PATH,
-  BONES_HALF,
-  MUSCLES_HALF,
+  CLAVICLES,
+  COSTAL_MARGIN,
+  DIAPHRAGM,
+  LIMB_BONES,
+  MUSCLES,
+  MUSCLE_FIBRES,
   ORGAN_SHAPES as S,
   PARTICLES,
+  PATELLAE,
+  PELVIS,
   RIBS,
+  SACRUM,
+  SKULL,
+  STERNUM,
   VERTEBRAE,
   VESSELS,
 } from './geometry'
@@ -114,9 +123,9 @@ export function BodySvg({
       <g key="eyes" {...interactive('eyes')}>
         {[S.eyes.l, S.eyes.r].map(([x, y], i) => (
           <g key={i}>
-            <circle cx={x} cy={y} r={11} className="o-hit" />
-            <circle cx={x} cy={y} r={8} className="o-fill" />
-            <circle cx={x} cy={y} r={3.2} className="o-line" />
+            <circle cx={x} cy={y} r={10} className="o-hit" />
+            <ellipse cx={x} cy={y} rx={7} ry={5.6} className="o-fill" />
+            <circle cx={x} cy={y} r={2.8} className="o-line" />
           </g>
         ))}
       </g>
@@ -134,6 +143,9 @@ export function BodySvg({
     heart: (
       <g key="heart" {...interactive('heart')}>
         <g className="beat">
+          {S.heart.vessels.map((v, i) => (
+            <path key={'v' + i} d={v.d} className="o-tube" strokeWidth={v.w} />
+          ))}
           <path d={S.heart.hit} className="o-fill" />
           {S.heart.detail.map((d, i) => (
             <path key={i} d={d} className="o-line" />
@@ -168,22 +180,15 @@ export function BodySvg({
     intestines: (
       <g key="intestines" {...interactive('intestines')}>
         <path d={S.intestines.hit} className="o-hit" />
-        <path d={S.intestines.tube} className="o-tube" strokeWidth={12} />
         <path d={S.intestines.coil} className="o-tube" strokeWidth={6} />
+        <path d={S.intestines.coil} className="o-line" strokeWidth={0.5} />
+        <path d={S.intestines.colon} className="o-tube" strokeWidth={11} />
+        <path d={S.intestines.colon} className="o-line haustra" strokeWidth={11} />
+        <path d={S.intestines.appendix} className="o-tube" strokeWidth={3} />
       </g>
     ),
   }
 
-  const boneHalf = (
-    <>
-      {BONES_HALF.map((d, i) => (
-        <path key={i} d={d} />
-      ))}
-      {RIBS.map((d, i) => (
-        <path key={'r' + i} d={d} />
-      ))}
-    </>
-  )
   const skinState = state('skin')
   const skinLit = skinState === 'sel' || skinState === 'hov'
   const label = hover ?? selected
@@ -232,8 +237,8 @@ export function BodySvg({
         </pattern>
         {ORGANS.map((o) => (
           <radialGradient key={o.id} id={`og-${o.id}`} cx="40%" cy="35%" r="75%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
-            <stop offset="35%" stopColor={o.accent} stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
+            <stop offset="40%" stopColor={o.accent} stopOpacity="0.85" />
             <stop offset="100%" stopColor={o.accent} stopOpacity="0.25" />
           </radialGradient>
         ))}
@@ -253,10 +258,10 @@ export function BodySvg({
       <rect x={-600} y={-600} width={1600} height={2200} fill="url(#grid)" />
       <ellipse cx={200} cy={360} rx={260} ry={420} fill="url(#aura)" />
       <g aria-hidden className="pointer-events-none">
-        <ellipse cx={200} cy={912} rx={150} ry={26} fill="url(#floor-g)" />
+        <ellipse cx={200} cy={922} rx={150} ry={26} fill="url(#floor-g)" />
         <ellipse
           cx={200}
-          cy={912}
+          cy={922}
           rx={120}
           ry={18}
           fill="none"
@@ -266,7 +271,7 @@ export function BodySvg({
         />
         <ellipse
           cx={200}
-          cy={912}
+          cy={922}
           rx={86}
           ry={12}
           fill="none"
@@ -294,12 +299,35 @@ export function BodySvg({
         <circle cx={200} cy={290} r={176} strokeOpacity="0.06" />
         <path d="M200,110 L200,124 M200,456 L200,470 M20,290 L34,290 M366,290 L380,290" strokeOpacity="0.3" />
       </g>
-      <g fill="#7fd8ff" fillOpacity="0.4" fontSize={7} fontFamily="var(--font-geist-mono)" aria-hidden>
-        {[0, 200, 400, 600, 800].map((y) => (
-          <text key={y} x={6} y={y + 40}>
-            {`${String(Math.round((y / 920) * 180)).padStart(3, '0')} cm`}
-          </text>
-        ))}
+      {/* height ruler: the figure is 178 cm tall, floor at y = 920, crown at y = 33 */}
+      <g aria-hidden fontFamily="var(--font-geist-mono)">
+        {Array.from({ length: 8 }, (_, i) => i * 25).map((h) => {
+          const y = 920 - (h / 178) * 887
+          const major = h % 50 === 0
+          return (
+            <g key={h}>
+              <line
+                x1={major ? 30 : 34}
+                x2={40}
+                y1={y}
+                y2={y}
+                stroke="#7fd8ff"
+                strokeOpacity={major ? 0.45 : 0.25}
+                strokeWidth={0.6}
+              />
+              {major && (
+                <text x={6} y={y + 2.4} fontSize={7} fill="#7fd8ff" fillOpacity={0.45}>
+                  {h} cm
+                </text>
+              )}
+            </g>
+          )
+        })}
+        <line x1={40} x2={40} y1={33} y2={920} stroke="#7fd8ff" strokeOpacity={0.15} strokeWidth={0.6} />
+        <line x1={30} x2={40} y1={33} y2={33} stroke="#7fd8ff" strokeOpacity={0.45} strokeWidth={0.6} />
+        <text x={6} y={35.4} fontSize={7} fill="#7fd8ff" fillOpacity={0.45}>
+          178 cm
+        </text>
       </g>
 
       {/* skin silhouette (fill is decorative; the outline is the hit target) */}
@@ -332,32 +360,59 @@ export function BodySvg({
       <g clipPath="url(#body-clip)">
         {layers.muscles && (
           <g {...interactive('muscles')}>
-            <g>
-              {MUSCLES_HALF.map((d, i) => (
-                <path key={i} d={d} className="o-fill m-fill" />
-              ))}
-            </g>
-            <g transform="translate(400,0) scale(-1,1)">
-              {MUSCLES_HALF.map((d, i) => (
-                <path key={i} d={d} className="o-fill m-fill" />
-              ))}
-            </g>
+            {MUSCLES.map((d, i) => (
+              <path key={i} d={d} className="o-fill m-fill" />
+            ))}
+            {[false, true].map((mirror) => (
+              <g key={String(mirror)} transform={mirror ? 'translate(400,0) scale(-1,1)' : undefined}>
+                {MUSCLE_FIBRES.map((d, i) => (
+                  <path key={i} d={d} className="m-fibre" />
+                ))}
+              </g>
+            ))}
           </g>
         )}
         {layers.skeleton && (
           <g {...interactive('bones')}>
             <g className="bone">
-              <ellipse cx={200} cy={86} rx={38} ry={46} />
-              <path d="M174,118 Q200,152 226,118" />
-              <path d="M200,200 L200,300" strokeWidth={5} />
-              <path d="M184,512 Q200,522 216,512" />
-              {VERTEBRAE.map((y) => (
-                <rect key={y} x={195} y={y} width={10} height={7} rx={2} />
+              <path d={SKULL.cranium} />
+              <path d={SKULL.mandible} />
+              {[...SKULL.orbits, ...SKULL.cheek].map((d, i) => (
+                <path key={'s' + i} d={d} />
               ))}
-              {boneHalf}
-              <g transform="translate(400,0) scale(-1,1)">{boneHalf}</g>
-              <circle cx={172} cy={762} r={6} />
-              <circle cx={228} cy={762} r={6} />
+              <path d={SKULL.nose} />
+              <path d={SKULL.teeth} className="fine" />
+              {VERTEBRAE.map(([y, w, h]) => (
+                <rect key={y} x={200 - w} y={y} width={w * 2} height={h} rx={1.6} />
+              ))}
+              <path d={SACRUM} />
+              {[...STERNUM, ...CLAVICLES, ...COSTAL_MARGIN].map((d, i) => (
+                <path key={'t' + i} d={d} />
+              ))}
+              {RIBS.map((r, i) => (
+                <g key={'r' + i}>
+                  <path d={r.back} className="behind" />
+                  <path d={r.back} className="behind" transform="translate(400,0) scale(-1,1)" />
+                  <path d={r.front} />
+                  <path d={r.front} transform="translate(400,0) scale(-1,1)" />
+                  {r.cartilage && (
+                    <>
+                      <path d={r.cartilage} className="fine" />
+                      <path d={r.cartilage} className="fine" transform="translate(400,0) scale(-1,1)" />
+                    </>
+                  )}
+                </g>
+              ))}
+              {[
+                ...PELVIS.ilium,
+                ...PELVIS.pubis,
+                ...PELVIS.obturator,
+                ...PELVIS.acetabulum,
+                ...LIMB_BONES,
+                ...PATELLAE,
+              ].map((d, i) => (
+                <path key={'l' + i} d={d} />
+              ))}
             </g>
           </g>
         )}
@@ -408,6 +463,18 @@ export function BodySvg({
             </g>
           ))}
         </g>
+      )}
+      {layers.organs && (
+        <path
+          d={DIAPHRAGM}
+          fill="none"
+          stroke="#9fdcff"
+          strokeOpacity={system || selected ? 0.06 : 0.16}
+          strokeWidth={0.9}
+          strokeDasharray="3 3"
+          className="pointer-events-none"
+          aria-hidden
+        />
       )}
       {layers.organs && <g>{order.map((id) => organNode[id])}</g>}
 

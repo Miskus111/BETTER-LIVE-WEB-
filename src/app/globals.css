@@ -232,8 +232,8 @@
 .bone circle {
   fill: none;
   stroke: #dfefff;
-  stroke-opacity: 0.38;
-  stroke-width: 2.2;
+  stroke-opacity: 0.24;
+  stroke-width: 1.3;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -245,7 +245,7 @@
 .organ-sel .bone ellipse,
 .organ-sel .bone rect,
 .organ-sel .bone circle {
-  stroke-opacity: 0.85;
+  stroke-opacity: 0.7;
   stroke: #f2f8ff;
 }
 .m-fill {
@@ -394,4 +394,32 @@
 /* in-page anchors (guide table of contents) land below the sticky header */
 h2[id] {
   scroll-margin-top: 5rem;
+}
+/* skeleton detail: ribs seen through the chest, cartilage and teeth in finer lines */
+.bone path.behind {
+  stroke-opacity: 0.16;
+  stroke-width: 1.4;
+}
+.bone path.fine {
+  stroke-opacity: 0.26;
+  stroke-width: 1;
+}
+/* colon haustra: short dark bands across the tube */
+.organ .haustra {
+  stroke: #07090c;
+  stroke-opacity: 0.45;
+  stroke-dasharray: 1.2 7;
+  stroke-linecap: butt;
+}
+.organ .m-fibre {
+  fill: none;
+  stroke: var(--c);
+  stroke-opacity: 0.22;
+  stroke-width: 0.45;
+  stroke-linecap: round;
+  transition: stroke-opacity 0.3s;
+}
+.organ-hov .m-fibre,
+.organ-sel .m-fibre {
+  stroke-opacity: 0.55;
 }

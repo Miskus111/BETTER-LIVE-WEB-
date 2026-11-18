@@ -7,14 +7,14 @@ import type { Region } from '@/lib/pain/red-flags'
 
 /** Tap points on the front silhouette (body coordinates 400 × 920). */
 const POINTS: { region: Region; x: number; y: number }[] = [
-  { region: 'neck', x: 200, y: 165 },
-  { region: 'shoulder', x: 118, y: 205 },
+  { region: 'neck', x: 200, y: 166 },
+  { region: 'shoulder', x: 106, y: 212 },
   { region: 'upper_back', x: 200, y: 240 },
-  { region: 'lower_back', x: 200, y: 400 },
-  { region: 'hip', x: 150, y: 470 },
-  { region: 'knee', x: 162, y: 665 },
-  { region: 'ankle', x: 166, y: 855 },
-  { region: 'wrist_elbow', x: 92, y: 360 },
+  { region: 'lower_back', x: 200, y: 392 },
+  { region: 'hip', x: 148, y: 466 },
+  { region: 'knee', x: 170, y: 668 },
+  { region: 'ankle', x: 174, y: 878 },
+  { region: 'wrist_elbow', x: 96, y: 366 },
 ]
 
 export function PainMap({ latest }: { latest: Partial<Record<Region, number>> }) {
