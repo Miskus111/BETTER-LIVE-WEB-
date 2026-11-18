@@ -4,6 +4,7 @@ import { requireAppUser } from '@/lib/auth'
 import { EXERCISE_BY_SLUG } from '@/data/exercises'
 import { setsPerMuscle, volume, type LoggedSet } from '@/lib/train/strength'
 import { MuscleSetsChart } from '@/components/train/MuscleSetsChart'
+import { isoDaysAgo } from '@/lib/dates'
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -12,7 +13,7 @@ export default async function HistoryPage() {
   const db = supabase as unknown as Db
   const t = await getTranslations('train')
   const locale = (await getLocale()) as 'cs' | 'en'
-  const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString()
+  const weekAgo = isoDaysAgo(7)
 
   const [{ data: workouts }, { data: sets }, { data: prs }, { data: sports }, { data: ex }] =
     await Promise.all([

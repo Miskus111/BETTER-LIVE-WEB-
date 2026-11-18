@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { BookOpen, LogOut, Menu, X } from 'lucide-react'
 import { SECONDARY, TABS, type NavItem } from '@/lib/app-nav'
@@ -69,7 +69,11 @@ export function MobileNav() {
   const t = useTranslations('nav')
   const tc = useTranslations('common')
   const [open, setOpen] = useState(false)
-  useEffect(() => setOpen(false), [path])
+  const [menuPath, setMenuPath] = useState(path)
+  if (menuPath !== path) {
+    setMenuPath(path)
+    setOpen(false)
+  }
   return (
     <>
       <header className="border-line bg-ink/85 sticky top-0 z-30 flex h-14 items-center justify-between border-b px-4 backdrop-blur-xl lg:hidden">

@@ -49,10 +49,16 @@ export function CommandPalette() {
     return () => window.removeEventListener('keydown', onKey)
   }, [setSearch])
 
-  useEffect(() => {
+  const [wasOpen, setWasOpen] = useState(open)
+  if (wasOpen !== open) {
+    setWasOpen(open)
     if (open) {
       setQ('')
       setActive(0)
+    }
+  }
+  useEffect(() => {
+    if (open) {
       requestAnimationFrame(() => input.current?.focus())
       document.body.style.overflow = 'hidden'
     } else document.body.style.overflow = ''

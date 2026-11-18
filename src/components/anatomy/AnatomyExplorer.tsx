@@ -33,6 +33,8 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
   useEffect(() => {
     if (urlMode !== 'query') return
     const id = new URLSearchParams(window.location.search).get('organ') as OrganId | null
+    // reading the URL is only possible after hydration; this syncs from an external source once
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (id && ORGAN_BY_ID[id]) setSelected(id)
   }, [urlMode])
 

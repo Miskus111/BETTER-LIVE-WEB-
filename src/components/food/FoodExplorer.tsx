@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { FOOD_CATEGORIES, FOODS } from '@/data/foods'
 import type { FoodCategory } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
@@ -12,12 +12,9 @@ export function FoodExplorer() {
   const [selectedId, setSelectedId] = useState(FOODS[0].id)
   const detail = useRef<HTMLDivElement>(null)
   const foods = cat === 'Vše' ? FOODS : FOODS.filter((f) => f.category === cat)
-  const selected = FOODS.find((f) => f.id === selectedId)!
-
-  // keep the selection inside the visible category
-  useEffect(() => {
-    if (!foods.some((f) => f.id === selectedId)) setSelectedId(foods[0].id)
-  }, [foods, selectedId])
+  // the selection always stays inside the visible category
+  const shownId = foods.some((f) => f.id === selectedId) ? selectedId : foods[0].id
+  const selected = FOODS.find((f) => f.id === shownId)!
 
   const pick = (id: string) => {
     setSelectedId(id)
@@ -56,11 +53,11 @@ export function FoodExplorer() {
               <button
                 type="button"
                 onClick={() => pick(f.id)}
-                aria-pressed={f.id === selectedId}
+                aria-pressed={f.id === shownId}
                 data-testid={`food-${f.id}`}
                 className={cx(
                   'card group flex w-full items-center gap-3 overflow-hidden p-2 text-left transition',
-                  f.id === selectedId
+                  f.id === shownId
                     ? '!border-cyan/60 shadow-[0_0_30px_-12px_rgba(94,231,255,0.6)]'
                     : 'hover:border-line-strong',
                 )}

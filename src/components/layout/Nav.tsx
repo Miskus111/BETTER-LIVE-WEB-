@@ -30,7 +30,12 @@ export function Nav() {
     window.addEventListener('scroll', on, { passive: true })
     return () => window.removeEventListener('scroll', on)
   }, [])
-  useEffect(() => setOpen(false), [pathname])
+  // close the mobile menu when the route changes
+  const [menuPath, setMenuPath] = useState(pathname)
+  if (menuPath !== pathname) {
+    setMenuPath(pathname)
+    setOpen(false)
+  }
 
   const isActive = (href: string) => !href.startsWith('/#') && pathname.startsWith(href)
 

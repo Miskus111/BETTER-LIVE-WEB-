@@ -98,18 +98,17 @@ export function useViewBox(frame: React.RefObject<HTMLElement | null>) {
     [animateTo],
   )
 
-  const toBody = useCallback(
-    (clientX: number, clientY: number) => {
-      const r = frame.current!.getBoundingClientRect()
-      const [x, y, w, h] = vbRef.current
-      // preserveAspectRatio="xMidYMid meet" — account for letterboxing
-      const scale = Math.min(r.width / w, r.height / h)
-      const ox = (r.width - w * scale) / 2
-      const oy = (r.height - h * scale) / 2
-      return [x + (clientX - r.left - ox) / scale, y + (clientY - r.top - oy) / scale] as const
-    },
-    [frame],
-  )
+  // used only inside event handlers, so it needs no memoization
+  const toBody = (clientX: number, clientY: number) => {
+    const [x, y, w, h] = vbRef.current
+    const r = frame.current?.getBoundingClientRect()
+    if (!r) return [x + w / 2, y + h / 2] as const
+    // preserveAspectRatio="xMidYMid meet" — account for letterboxing
+    const scale = Math.min(r.width / w, r.height / h)
+    const ox = (r.width - w * scale) / 2
+    const oy = (r.height - h * scale) / 2
+    return [x + (clientX - r.left - ox) / scale, y + (clientY - r.top - oy) / scale] as const
+  }
 
   const pointer = {
     onPointerDown: (e: React.PointerEvent) => {

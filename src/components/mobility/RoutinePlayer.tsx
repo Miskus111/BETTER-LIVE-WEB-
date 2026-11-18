@@ -15,19 +15,24 @@ export function RoutinePlayer({ routine }: { routine: Routine }) {
   const done = i >= routine.items.length
   const m = done ? null : MOBILITY_BY_SLUG[routine.items[i]]
 
-  useEffect(() => {
+  // new exercise → reset the timer (adjusted during render)
+  const [shownI, setShownI] = useState(i)
+  if (shownI !== i) {
+    setShownI(i)
     setLeft(m?.seconds ?? null)
     setRunning(false)
-  }, [i, m?.seconds])
+  }
 
+  // countdown: the tick that reaches zero also stops the timer
   useEffect(() => {
-    if (!running || left === null) return
-    if (left <= 0) {
-      navigator.vibrate?.(150)
-      setRunning(false)
-      return
-    }
-    const id = setTimeout(() => setLeft((x) => (x ?? 1) - 1), 1000)
+    if (!running || left === null || left <= 0) return
+    const id = setTimeout(() => {
+      if (left <= 1) {
+        navigator.vibrate?.(150)
+        setRunning(false)
+      }
+      setLeft(left - 1)
+    }, 1000)
     return () => clearTimeout(id)
   }, [running, left])
 

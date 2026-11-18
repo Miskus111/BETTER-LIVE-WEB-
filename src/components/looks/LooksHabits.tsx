@@ -22,6 +22,8 @@ export function LooksHabits({ habits }: { habits: Habit[] }) {
   const [done, setDone] = useState<Record<string, string[]>>({})
   useEffect(() => {
     try {
+      // localStorage exists only in the browser: read it once after hydration
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDone(JSON.parse(localStorage.getItem(KEY) ?? '{}'))
     } catch {
       /* private mode */

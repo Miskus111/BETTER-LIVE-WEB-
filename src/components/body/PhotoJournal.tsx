@@ -35,7 +35,6 @@ export function PhotoJournal({
   const router = useRouter()
   const [pending, start] = useTransition()
   const [file, setFile] = useState<File | null>(null)
-  const [preview, setPreview] = useState<string | null>(null)
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null)
   const [filter, setFilter] = useState<Pose | 'all'>('all')
   const [picking, setPicking] = useState(false)
@@ -43,12 +42,8 @@ export function PhotoJournal({
   const [open, setOpen] = useState<PhotoItem | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => {
-    if (!file) return setPreview(null)
-    const u = URL.createObjectURL(file)
-    setPreview(u)
-    return () => URL.revokeObjectURL(u)
-  }, [file])
+  const preview = useMemo(() => (file ? URL.createObjectURL(file) : null), [file])
+  useEffect(() => () => (preview ? URL.revokeObjectURL(preview) : undefined), [preview])
 
   const df = (iso: string) =>
     new Date(`${iso}T12:00:00Z`).toLocaleDateString(locale === 'en' ? 'en-GB' : 'cs-CZ', {

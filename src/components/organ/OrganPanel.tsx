@@ -29,9 +29,13 @@ export function OrganPanel({ organ, onClose, onPrev, onNext, variant = 'panel' }
   const body = useRef<HTMLDivElement>(null)
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
-  // new organ → back to overview, scroll to top
-  useEffect(() => {
+  // new organ → back to overview (adjusted during render, not in an effect) and scroll to top
+  const [shownId, setShownId] = useState(organ.id)
+  if (shownId !== organ.id) {
+    setShownId(organ.id)
     setTab('Přehled')
+  }
+  useEffect(() => {
     body.current?.scrollTo({ top: 0 })
   }, [organ.id])
 

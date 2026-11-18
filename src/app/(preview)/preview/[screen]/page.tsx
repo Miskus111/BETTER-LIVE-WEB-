@@ -21,6 +21,7 @@ import { TargetsCard } from '@/components/eat/TargetsCard'
 import { SportForm } from '@/components/train/SportForm'
 import { ROUTINES } from '@/data/mobility'
 import { targetsFor } from '@/lib/eat/targets'
+import { dayDaysAgo } from '@/lib/dates'
 
 export const dynamic = 'force-dynamic'
 
@@ -97,10 +98,10 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
       )
     }
     case 'weight': {
-      const today = new Date().toISOString().slice(0, 10)
+      const today = dayDaysAgo(0)
       const rows = Array.from({ length: 40 }, (_, i) => ({
         id: `00000000-0000-4000-8000-${String(i).padStart(12, '0')}`,
-        measured_at: new Date(Date.now() - (39 - i) * 864e5).toISOString().slice(0, 10),
+        measured_at: dayDaysAgo(39 - i),
         weight_kg: Math.round((84 - i * 0.04 + ((i * 7) % 5) * 0.2) * 10) / 10,
         waist_cm: i % 7 === 0 ? 89 - i * 0.05 : null,
         hips_cm: null,

@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Plus, X } from 'lucide-react'
 import { cx } from '@/lib/format'
 
@@ -54,11 +54,8 @@ export function CaffeineCalculator() {
   const atBed = Math.round(amountAt(bedMin, intakes, half))
   const espressos = atBed / 80
 
-  const curve = useMemo(() => {
-    const pts: [number, number][] = []
-    for (let m = start; m <= end; m += 10) pts.push([m, amountAt(m, intakes, half)])
-    return pts
-  }, [intakes, half, start, end])
+  const curve: [number, number][] = []
+  for (let m = start; m <= end; m += 10) curve.push([m, amountAt(m, intakes, half)])
 
   const W = 380
   const H = 170

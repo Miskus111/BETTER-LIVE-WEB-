@@ -7,6 +7,7 @@ import { Paywall } from '@/components/app/Paywall'
 import { EXERCISE_BY_SLUG } from '@/data/exercises'
 import { exerciseProgress, weeklyVolume, type ProgressSet } from '@/lib/train/progress'
 import { ProgressCharts, Stat, type ExerciseSeries } from '@/components/train/ProgressCharts'
+import { isoDaysAgo } from '@/lib/dates'
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -30,7 +31,7 @@ export default async function ProgressPage() {
       </div>
     )
   const locale = (await getLocale()) as 'cs' | 'en'
-  const since = new Date(Date.now() - 26 * 7 * 864e5).toISOString()
+  const since = isoDaysAgo(26 * 7)
 
   const [{ data: rows }, { data: ex }] = await Promise.all([
     db
