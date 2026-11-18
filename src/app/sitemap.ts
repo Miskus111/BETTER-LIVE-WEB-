@@ -8,7 +8,7 @@ import { BODY_GUIDES } from '@/data/body-guides'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const u = (p: string) => `${SITE.url}${p}`
-  const lastModified = new Date('2026-11-16')
+  const lastModified = new Date('2026-11-18')
   return [
     { url: u('/'), priority: 1 },
     { url: u('/doplnky'), priority: 0.8 },

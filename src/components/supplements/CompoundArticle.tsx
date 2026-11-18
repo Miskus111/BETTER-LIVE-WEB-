@@ -8,7 +8,7 @@ import { SITE } from '@/lib/site'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
 import { Rich } from '@/components/glossary/Rich'
 
-const UPDATED = '2026-11-16'
+const UPDATED = '2026-11-18'
 
 export const compoundTitle = (c: Compound) => `${c.name} — co opravdu umí, dávka a bezpečnost`
 

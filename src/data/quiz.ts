@@ -185,12 +185,13 @@ export const QUIZ: QuizItem[] = [
     guide: 'alkohol',
     statement: 'Alkohol pomáhá usnout, ale zhoršuje druhou polovinu noci.',
     fact: true,
-    explain: 'Spánek je po něm mělčí, přerušovaný a s méně REM fází.',
+    explain:
+      'V první půlce noci spíte tvrdě, ve druhé se spánek rozpadá — častěji se budíte a máte méně REM fáze.',
   },
   {
     id: 'spanek-nachlazeni',
     guide: 'imunita',
-    statement: 'Lidé, kteří spí méně než 6 hodin, chytají nachlazení častěji.',
+    statement: 'Kdo spí méně než 6 hodin, snáz chytí nachlazení.',
     fact: true,
     explain: 'Ukázala to studie, ve které lidé dostali virus nachlazení přímo do nosu.',
   },

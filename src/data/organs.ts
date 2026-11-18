@@ -243,7 +243,7 @@ export const ORGANS: Organ[] = [
     tagline: 'pH 1,5–3,5',
     what: 'Uchovává a promíchává potravu, zahajuje trávení bílkovin a postupně posílá tráveninu do tenkého střeva.',
     how: 'Krycí buňky vylučují kyselinu chlorovodíkovou a vnitřní faktor; hlavní buňky uvolňují pepsinogen. Svalové stahy rozmělní potravu na polotekutou kaši.',
-    why: 'Žaludeční kyselina pomáhá uvolnit B12 z bílkovin potravy a vnitřní faktor, který se tu tvoří, je nutný pro pozdější vstřebání B12 v kyčelníku.',
+    why: 'Žaludeční kyselina pomáhá uvolnit B12 z bílkovin potravy a vnitřní faktor, který se tu tvoří, je potřeba pro vstřebání většiny B12 v kyčelníku.',
     nutrients: [
       {
         id: 'b12',
@@ -288,7 +288,7 @@ export const ORGANS: Organ[] = [
     tagline: '≈ 30 m² vstřebávací plochy · biliony mikrobů',
     what: 'Tenké střevo tráví a vstřebává většinu živin; tlusté střevo vstřebává vodu a elektrolyty a hostí většinu střevní mikrobioty.',
     how: 'Klky a mikroklky mnohonásobně zvětšují plochu tenkého střeva. V tlustém střevě bakterie fermentují vlákninu, kterou tělo nestráví, na mastné kyseliny s krátkým řetězcem, například butyrát — hlavní palivo buněk tlustého střeva.',
-    why: 'Vláknina živí bakterie tlustého střeva a zvětšuje objem stolice; konečná část tenkého střeva je jediné místo vstřebávání B12; sliznice se obnovuje každých pár dní a závisí na dělení buněk, které potřebuje zinek.',
+    why: 'Vláknina živí bakterie tlustého střeva a zvětšuje objem stolice; konečná část tenkého střeva je hlavní místo vstřebávání B12; sliznice se obnovuje každých pár dní a závisí na dělení buněk, které potřebuje zinek.',
     nutrients: [
       {
         id: 'fiber',

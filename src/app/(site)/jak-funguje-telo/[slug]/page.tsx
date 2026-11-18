@@ -18,7 +18,7 @@ import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
-const UPDATED = '2026-11-16'
+const UPDATED = '2026-11-18'
 
 /** ~200 words per minute for Czech non-fiction on a phone */
 function readingMinutes(g: BodyGuide) {

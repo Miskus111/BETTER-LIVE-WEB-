@@ -16,7 +16,7 @@ import { Rich } from '@/components/glossary/Rich'
 import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
 import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
 
-const UPDATED = '2026-11-16'
+const UPDATED = '2026-11-18'
 
 export function generateStaticParams() {
   return [

@@ -92,7 +92,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     id: 'glukoza',
     term: 'Glukóza',
-    def: 'Cukr v krvi — hlavní palivo pro mozek a svaly. Po jídle stoupne a inzulin ho pomůže uložit nebo spotřebovat.',
+    def: 'Cukr v krvi — hlavní palivo pro mozek a důležité palivo pro svaly při zátěži. Po jídle stoupne a inzulin ho pomůže uložit nebo spotřebovat.',
     match: ['glukóz'],
     guide: 'cukr-a-inzulin',
     group: 'telo',
@@ -132,7 +132,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     id: 'protilatky',
     term: 'Protilátky',
-    def: 'Bílkoviny, které imunita vyrobí proti konkrétnímu viru nebo bakterii a které si „pamatuje“ — díky nim funguje očkování.',
+    def: 'Bílkoviny, které imunita vyrobí proti konkrétnímu viru nebo bakterii. Paměťové buňky si pak pamatují, jak je vyrobit znovu — díky tomu funguje očkování.',
     match: ['protilát'],
     guide: 'imunita',
     group: 'telo',
@@ -340,7 +340,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     id: 'kostni-hmota',
     term: 'Kostní hmota',
-    def: 'Množství minerálů (hlavně vápníku) v kostech, které určuje jejich pevnost. Nejvíc jí máme kolem 25–30 let.',
+    def: 'Množství minerálů (hlavně vápníku) v kostech, které výrazně ovlivňuje jejich pevnost. Nejvíc jí máme kolem 25–30 let.',
     match: ['kostní hmot'],
     guide: 'kosti',
     group: 'telo',
@@ -464,7 +464,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     id: 'vnitrni-faktor',
     term: 'Vnitřní faktor',
-    def: 'Bílkovina ze žaludku, bez které se vitamín B12 ve střevě nevstřebá. Proto lidé po některých operacích žaludku potřebují B12 injekčně.',
+    def: 'Bílkovina ze žaludku, bez které se vitamín B12 ve střevě nevstřebá. Proto lidé po některých operacích žaludku potřebují B12 injekčně nebo ve vysokých dávkách v tabletách.',
     match: ['vnitřní\\S* faktor'],
     group: 'organy',
   },
@@ -494,7 +494,7 @@ export const GLOSSARY: GlossaryTerm[] = [
   {
     id: 'kycelnik',
     term: 'Kyčelník',
-    def: 'Poslední úsek tenkého střeva (ileum). Jako jediné místo v těle vstřebává vitamín B12 a znovu nasává žlučové kyseliny.',
+    def: 'Poslední úsek tenkého střeva (ileum). Je hlavním místem, kde se vstřebává vitamín B12 a kde se zpět nasávají žlučové kyseliny.',
     match: ['kyčelník'],
     group: 'organy',
   },

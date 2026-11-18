@@ -355,7 +355,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         text: 'Denní světlo ráno (venku i při zatažené obloze je mnohem jasněji než uvnitř).',
         level: 'established',
       },
-      { text: 'Poslední kofein 8 a více hodin před spaním.', level: 'established' },
+      {
+        text: 'Poslední kofein nejméně 6 hodin před spaním, ideálně ještě dřív — citlivější lidé klidně 8 hodin.',
+        level: 'established',
+      },
       { text: 'Tlumené světlo a méně obrazovek hodinu před spaním; mobil mimo postel.', level: 'plausible' },
       { text: 'Chladnější, tmavá a tichá ložnice.', level: 'plausible' },
       {
@@ -392,12 +395,12 @@ export const BODY_GUIDES: BodyGuide[] = [
     hook: 'Co se v mozku děje po kávě a energeťáku — a proč vás „vypne“, když účinek odezní.',
     tldr: [
       'Kofein únavu neodstraní, jen zablokuje signál únavy (adenosin).',
-      'Bezpečně pro dospělé do 400 mg denně, do 200 mg najednou.',
+      'Zdraví dospělí bezpečně do 400 mg denně a do 200 mg najednou; těhotné a kojící ženy do 200 mg denně.',
       'Účinek v těle přetrvává hodiny — odpolední kofein zhoršuje spánek, i když usnete.',
     ],
     numbers: [
       { value: '400 mg', label: 'bezpečně za den (dospělí)' },
-      { value: '~5 h', label: 'průměrný poločas kofeinu' },
+      { value: '~4–5 h', label: 'průměrný poločas kofeinu (u někoho 2–8 h)' },
       { value: '~80 mg', label: 'energetický nápoj 250 ml' },
     ],
     how: [
@@ -419,7 +422,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Káva místo snídaně a spánku vytváří kruh: málo spánku → víc kofeinu → horší spánek.',
     ],
     helps: [
-      { text: 'Poslední kofein ideálně 8 a více hodin před spaním.', level: 'established' },
+      {
+        text: 'Poslední kofein nejméně 6 hodin před spaním, ideálně ještě dřív — citlivější lidé klidně 8 hodin.',
+        level: 'established',
+      },
       { text: 'Na výkon stačí 3 mg na kg tělesné hmotnosti zhruba hodinu předem.', level: 'established' },
       {
         text: 'Na odpolední útlum: krátká procházka venku nebo 10–20 minut spánku místo další kávy.',
@@ -468,7 +474,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       {
         title: 'Když alarm neutichne',
-        text: 'Mozek nerozlišuje medvěda od e-mailu od šéfa. Když stres běží dlouhodobě, tělo platí „opotřebením“: horší spánek, podrážděnost, vyšší tlak a chuť na sladké.',
+        text: 'Stresová reakce se spouští podobně u medvěda jako u e-mailu od šéfa. Když stres běží dlouhodobě, tělo platí „opotřebením“: horší spánek, podrážděnost, vyšší tlak a chuť na sladké.',
       },
     ],
     today: [
@@ -581,7 +587,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     tldr: [
       'Svaly rostou, když je postupně zatěžujete víc, než jsou zvyklé, a máte dost bílkovin.',
       'WHO doporučuje silový trénink aspoň 2× týdně pro všechny dospělé.',
-      'Na bílkoviny stačí zhruba 1,6 g na kg tělesné hmotnosti denně — víc nárůst svalů dál nezvyšuje.',
+      'Na bílkoviny většině lidí stačí zhruba 1,6 g na kg denně; nad tuto hranici je další přínos pro svaly už malý (pro jistotu se uvádí až 2,2 g/kg).',
     ],
     numbers: [
       { value: '2×', label: 'silový trénink týdně (WHO)' },
@@ -590,7 +596,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     how: [
       {
         title: 'Podnět a obnova',
-        text: 'Trénink sval „poškodí“ a dá mu signál k adaptaci. Růst probíhá až během odpočinku — s dostatkem bílkovin a spánku.',
+        text: 'Trénink sval zatíží a dá mu signál k adaptaci. Růst probíhá až během odpočinku — s dostatkem bílkovin a spánku.',
       },
       {
         title: 'Postupné přetížení',
@@ -641,12 +647,12 @@ export const BODY_GUIDES: BodyGuide[] = [
     tldr: [
       'WHO: 150–300 minut středně intenzivního pohybu týdně + 2× posilování.',
       'Přínos kroků roste zhruba do 8–10 tisíc denně u lidí pod 60 let a do 6–8 tisíc u starších.',
-      'Dost pohybu (asi hodina denně) dokáže vyvážit rizika dlouhého sezení.',
+      'Hodina svižného pohybu denně podle dat výrazně tlumí rizika dlouhého sezení.',
     ],
     numbers: [
       { value: '150–300', label: 'minut pohybu týdně' },
       { value: '8–10 tis.', label: 'kroků, kde se přínos vyrovnává (pod 60 let)' },
-      { value: '60–75 min', label: 'pohybu denně vyváží dlouhé sezení' },
+      { value: '60–75 min', label: 'svižného pohybu denně tlumí rizika sezení' },
     ],
     how: [
       {
@@ -668,8 +674,8 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'established',
       },
       {
-        text: 'Při hodně sezení se hýbat víc — kolem 60–75 minut denně vyváží rizika.',
-        level: 'established',
+        text: 'Při hodně sezení se hýbat víc — u lidí s 60–75 minutami svižného pohybu denně už dlouhé sezení nebylo spojené s vyšším rizikem úmrtí.',
+        level: 'plausible',
       },
       { text: 'Krátké přestávky v sezení (každých 30–60 minut se projít).', level: 'plausible' },
       { text: 'Chůze i po menších dávkách: každý pohyb se počítá.', level: 'established' },
@@ -813,7 +819,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     how: [
       {
         title: 'Cesta alkoholu',
-        text: 'Alkohol se vstřebá hlavně v tenkém střevě a za pár desítek minut je v krvi. Většinu zpracují játra — nejdřív na acetaldehyd, který je jedovatý a karcinogenní, a pak na neškodný acetát.',
+        text: 'Alkohol se vstřebá hlavně v tenkém střevě; v krvi je už za pár minut a nejvyšší hladiny dosáhne zhruba za 30–90 minut. Většinu zpracují játra — nejdřív na acetaldehyd, který je jedovatý a karcinogenní, a pak na neškodný acetát.',
       },
       {
         title: 'Mozek',
@@ -848,7 +854,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       {
         myth: 'Po alkoholu se dobře spí.',
-        fact: 'Usnete rychleji, ale spánek je mělčí, přerušovaný a s méně REM fází.',
+        fact: 'Usnete rychleji, ale ve druhé polovině noci se spánek rozpadá — častěji se budíte a máte méně REM fáze.',
       },
     ],
     related: [
@@ -865,11 +871,11 @@ export const BODY_GUIDES: BodyGuide[] = [
     hook: 'Na „booster imunity“ v tabletce věřit nemusíte. Na spánek a pohyb ano.',
     tldr: [
       'Imunita má dvě vrstvy: rychlou obecnou obranu a pomalejší, cílenou, která si pamatuje.',
-      'Lidé, kteří spí méně než 6 hodin, chytají nachlazení výrazně častěji.',
+      'Ve studii, kde dobrovolníci dostali do nosu virus nachlazení, onemocněli ti, kdo spali méně než 6 hodin, výrazně častěji než ti, kdo spali přes 7 hodin.',
       'Vitamín C nachlazení u běžných lidí nezabrání; vitamín D pomáhá hlavně těm, kdo ho mají málo.',
     ],
     numbers: [
-      { value: '4×', label: 'častější nachlazení při spánku pod 6 h' },
+      { value: '~4×', label: 'vyšší šance nachlazení při spánku pod 6 h (v experimentu)' },
       { value: '<6 h', label: 'hranice, kde riziko roste' },
     ],
     how: [
@@ -985,7 +991,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     hook: 'Většinu viditelného stárnutí pleti dělá slunce. A solárium je oficiálně karcinogen.',
     tldr: [
       'UV záření stárne kůži a zvyšuje riziko rakoviny kůže.',
-      'V randomizované studii lidé s denním opalovacím krémem po 4,5 letech nevykazovali měřitelné zhoršení stárnutí pleti; jiná studie ukázala dlouhodobě méně melanomů.',
+      'V randomizované studii lidé s denním opalovacím krémem po 4,5 letech nevykazovali měřitelné zhoršení stárnutí pleti; v dlouhodobém sledování stejné studie měli méně melanomů, i když šlo o malý počet případů.',
       'Solária jsou zařazena mezi karcinogeny nejvyšší skupiny, stejně jako tabák.',
     ],
     numbers: [
@@ -1206,7 +1212,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     myths: [
       {
         myth: 'Po třicítce se metabolismus zpomalí.',
-        fact: 'Velká studie ukázala, že je mezi 20 a 60 lety po zohlednění svalové hmoty stabilní.',
+        fact: 'Velká studie ukázala, že je mezi 20 a 60 lety po zohlednění beztukové hmoty (svaly, orgány, kosti) stabilní.',
       },
       {
         myth: 'Jídlo po šesté večer se ukládá do tuku.',
@@ -1304,7 +1310,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     numbers: [
       { value: '~500 kcal', label: 'denně navíc při ultrazpracované stravě' },
-      { value: '2 týdny', label: 'trvání studie' },
+      { value: '2 týdny', label: 'na každé stravě (20 dospělých, celkem 4 týdny)' },
     ],
     how: [
       {
@@ -1312,8 +1318,8 @@ export const BODY_GUIDES: BodyGuide[] = [
         text: 'Měkké, kaloricky husté a dochucené jídlo se jí rychle. Tělo nestihne včas poslat signál sytosti.',
       },
       {
-        title: 'Málo vlákniny a bílkovin',
-        text: 'Právě ty nejvíc zasytí. Rafinované složky jich obsahují málo.',
+        title: 'Snadno se jich sní víc',
+        text: 'Ultrazpracované výrobky mívají málo vlákniny a bílkovin, které nejvíc zasytí. Ve zmíněné studii ale lidé jedli víc, i když strava měla stejně vlákniny i bílkovin — roli hraje i něco dalšího, třeba rychlost jedení.',
       },
     ],
     today: [
@@ -1338,7 +1344,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     myths: [
       {
         myth: 'Všechno balené je ultrazpracované.',
-        fact: 'Mražená zelenina, bílý jogurt nebo celozrnné pečivo jsou zpracované minimálně.',
+        fact: 'Mražená zelenina nebo bílý jogurt jsou zpracované minimálně. Pečivo jen z mouky, vody, soli a kvasu je zpracované, ale ne ultrazpracované.',
       },
       {
         myth: 'Je to jen o kaloriích.',
@@ -1360,10 +1366,10 @@ export const BODY_GUIDES: BodyGuide[] = [
     hook: 'Vape není „jen pára“ a nikotinové sáčky nejsou bonbóny. Kdy je e-cigareta pomocník a kdy nová závislost.',
     tldr: [
       'Nikotin je silně návykový a zvyšuje tep i tlak; mozek dospívajících je k závislosti citlivější.',
-      'Nejvíc škodí kouření — tabák zabíjí ročně přes 8 milionů lidí.',
+      'Nejvíc škodí kouření — tabák zabíjí ročně přes 7 milionů lidí, z toho 1,6 milionu nekuřáků vystavených kouři.',
       'Pro kuřáky jsou e-cigarety s nikotinem účinnou cestou k odvykání. Pro nekuřáky jsou jen nová závislost.',
     ],
-    numbers: [{ value: '8+ mil.', label: 'úmrtí na tabák ročně (WHO)' }],
+    numbers: [{ value: '7+ mil.', label: 'úmrtí na tabák ročně (WHO)' }],
     how: [
       {
         title: 'Rychlá odměna',
@@ -1477,7 +1483,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     tldr: [
       'Ve vnitřním uchu jsou smyslové buňky, které se po poškození neobnoví.',
       'Rozhoduje hlasitost × čas: čím hlasitěji, tím kratší bezpečná doba.',
-      'Studie odhaduje, že nebezpečně poslouchá hudbu zhruba čtvrtina mladých lidí.',
+      'Studie odhaduje, že nebezpečně hlasitě poslouchá ve sluchátkách zhruba čtvrtina mladých lidí — a na koncertech a v klubech téměř polovina.',
     ],
     numbers: [
       { value: '~1 mld.', label: 'mladých lidí v ohrožení (odhad)' },
@@ -1567,7 +1573,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       {
         text: 'Otužovat postupně, s doprovodem a krátce; při nemoci srdce se nejdřív poradit s lékařem.',
-        level: 'established',
+        level: 'plausible',
       },
       { text: 'Lepší nálada a pocit svěžesti po chladu — zatím jen malé studie.', level: 'preliminary' },
     ],
@@ -1660,12 +1666,12 @@ export const BODY_GUIDES: BodyGuide[] = [
     icon: 'smile',
     hook: 'Smutek a nervozita patří k životu. Když ale trvají týdny a berou vám radost, je to zdravotní problém — a dá se léčit.',
     tldr: [
-      'Duševní poruchou žije podle WHO zhruba každý osmý člověk; nejčastější jsou úzkost a deprese.',
+      'Duševní poruchou žije podle WHO téměř každý sedmý člověk; nejčastější jsou úzkost a deprese.',
       'Pohyb je účinná součást léčby deprese — chůze, běh, jóga i posilování.',
       'Psychoterapie a léky fungují. Říct si o pomoc je síla, ne selhání.',
     ],
     numbers: [
-      { value: '1 z 8', label: 'lidí žije s duševní poruchou (WHO)' },
+      { value: '1 ze 7', label: 'lidí žije s duševní poruchou (WHO)' },
       { value: '116 123', label: 'Linka první psychické pomoci' },
     ],
     how: [
@@ -1687,7 +1693,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Mladí lidé častěji mluví o duševním zdraví otevřeně — a to je dobře.',
     ],
     helps: [
-      { text: 'Pravidelný pohyb — prokazatelně snižuje příznaky deprese a úzkosti.', level: 'established' },
+      {
+        text: 'Pravidelný pohyb — v mnoha studiích snižuje příznaky deprese a úzkosti.',
+        level: 'established',
+      },
       {
         text: 'Psychoterapie (např. kognitivně-behaviorální) a při potřebě léky od lékaře.',
         level: 'established',
@@ -1729,12 +1738,12 @@ export const BODY_GUIDES: BodyGuide[] = [
     tldr: [
       'Bakterie v plaku z cukru vyrábějí kyselinu, která rozpouští sklovinu — rozhoduje hlavně, jak často cukr přijde.',
       'Pasta s fluoridem (aspoň 1 000 ppm) prokazatelně chrání před kazem.',
-      'Nemoci zubů a dásní má podle WHO zhruba 3,5 miliardy lidí — jsou nejčastější nepřenosné nemoci na světě.',
+      'Nemoci zubů a dásní má podle WHO téměř 3,7 miliardy lidí — neléčený zubní kaz je nejčastější zdravotní potíž na světě.',
     ],
     numbers: [
       { value: '2× denně', label: 'čistit 2 minuty' },
       { value: '1 000+ ppm', label: 'fluoridu v pastě pro dospělé' },
-      { value: '3,5 mld.', label: 'lidí s nemocí zubů či dásní (WHO)' },
+      { value: '3,7 mld.', label: 'lidí s nemocí zubů či dásní (WHO)' },
     ],
     how: [
       {
@@ -1762,7 +1771,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Sladké a kyselé nápoje omezit a nepít je po douškách celý den.', level: 'established' },
       {
-        text: 'Mezizubní kartáčky nebo nit — přínos pro dásně je spíš malý, ale pravděpodobný.',
+        text: 'Mezizubní kartáčky nebo nit — můžou trochu pomoct dásním, ale důkazy jsou zatím slabé.',
         level: 'preliminary',
       },
       { text: 'Preventivní prohlídky u zubaře a dentální hygiena.', level: 'plausible' },
@@ -1845,11 +1854,11 @@ export const BODY_GUIDES: BodyGuide[] = [
     tldr: [
       'Nos vzduch ohřeje, zvlhčí a přefiltruje; dýchání nosem je pro běžný den přirozené.',
       'Pomalé dýchání (kolem 6 dechů za minutu) v malých studiích uklidňuje.',
-      'Přelepování úst na spaní nemá dobré důkazy — a při spánkové apnoe může být nebezpečné.',
+      'Přelepování úst na spaní nemá dobré důkazy — a při ucpaném nosu může být nebezpečné.',
     ],
     numbers: [
       { value: '~6/min', label: 'pomalé dýchání ve studiích' },
-      { value: '~1 mld.', label: 'lidí se spánkovou apnoí (odhad)' },
+      { value: '~1 mld.', label: 'dospělých ve věku 30–69 let se spánkovou apnoí (odhad)' },
     ],
     how: [
       {
@@ -1880,7 +1889,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     myths: [
       {
         myth: 'Přelepená pusa zlepší spánek.',
-        fact: 'Přehled studií nenašel přesvědčivý přínos; u apnoe může dýchání zhoršit.',
+        fact: 'Přehled 10 malých studií přesvědčivý přínos nenašel. Při ucpaném nosu hrozí, že se nebudete moct pořádně nadechnout — a neléčenou apnoe páska nevyřeší.',
       },
       {
         myth: 'Čím hlouběji a rychleji dýchám, tím víc kyslíku.',
@@ -1968,10 +1977,10 @@ export const BODY_GUIDES: BodyGuide[] = [
     title: 'Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři',
     short: 'Bolest hlavy',
     icon: 'storm',
-    hook: 'Bolest hlavy má skoro polovina lidí. Většinou není nebezpečná — ale příliš mnoho prášků ji umí zhoršit.',
+    hook: 'Poruchou s bolestí hlavy trpí asi 40 % lidí. Většinou není nebezpečná — ale příliš mnoho prášků ji umí zhoršit.',
     tldr: [
       'Nejčastější je tenzní bolest hlavy a migréna; vážná příčina je vzácná.',
-      'Prášky proti bolesti brané příliš často (zhruba 10–15 a víc dní v měsíci) samy vyvolávají bolest hlavy.',
+      'U lidí, kteří bolestmi hlavy trpí, může časté užívání prášků (zhruba 10–15 a víc dní v měsíci déle než 3 měsíce) bolest hlavy samo vyvolávat.',
       'Častou migrénu jde léčit i preventivně — nemusíte ji jen „přetrpět“.',
     ],
     numbers: [
@@ -2047,7 +2056,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     how: [
       {
         title: 'Co se děje během půstu',
-        text: 'Po několika hodinách bez jídla tělo víc sahá po tuku a játra začnou tvořit ketolátky. Do jisté míry se to ale děje i přes noc.',
+        text: 'Zhruba po 12 a více hodinách bez jídla tělo víc sahá po tuku a játra tvoří víc ketolátek. Mírně se to děje už přes noc.',
       },
       {
         title: 'Proč se hubne',
@@ -2109,7 +2118,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       {
         title: 'Vztahy a zdraví',
-        text: 'Metaanalýza 148 studií zjistila, že lidé se silnějšími vztahy měli zhruba o polovinu vyšší šanci přežít sledované období.',
+        text: 'Metaanalýza 148 studií zjistila, že lidé se silnějšími vztahy měli výrazně vyšší naději, že sledované období přežijí (poměr šancí 1,5).',
       },
       {
         title: 'Kvalita víc než počet',
@@ -2163,7 +2172,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     hook: 'Protáhnout se před sportem, aby se nic nestalo? Studie ukazují, že před zraněním chrání spíš posilování.',
     tldr: [
       'Protahování spolehlivě zvětšuje rozsah pohybu.',
-      'Svalovou bolest po tréninku skoro nezmírní a samo zranění nepředchází.',
+      'Svalovou bolest po tréninku skoro nezmírní a jako samostatná prevence zranění se neosvědčilo.',
       'Krátké protažení před výkonem nevadí; před výbušným sportem je lepší dynamická rozcvička.',
     ],
     numbers: [
@@ -2199,7 +2208,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       {
         text: 'Posilování jako hlavní prevence zranění.',
-        level: 'established',
+        level: 'plausible',
       },
       { text: 'Protahovat se, protože je vám to příjemné — to je taky dobrý důvod.', level: 'plausible' },
     ],
@@ -2254,7 +2263,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Krátký spánek a málo pohybu jsou u mladých běžné.',
     ],
     helps: [
-      { text: 'Spát 7 a více hodin.', level: 'established' },
+      {
+        text: 'Spát 7 a více hodin — v malé studii týden krátkého spánku testosteron snížil.',
+        level: 'plausible',
+      },
       { text: 'Při nadváze zhubnout.', level: 'established' },
       { text: 'Pravidelný pohyb a posilování.', level: 'plausible' },
       {

@@ -151,7 +151,7 @@ export const COMPOUNDS: Compound[] = [
     ],
     dose: 'Bezpečně pro dospělé do 400 mg denně a do 200 mg najednou. V těhotenství do 200 mg denně. Espresso má zhruba 60–80 mg, plechovka energetického nápoje (250 ml) asi 80 mg.',
     timing:
-      'Poslední kofein ideálně 8 a více hodin před spaním. Poločas rozpadu je v průměru kolem 5 hodin, u různých lidí ale velmi kolísá.',
+      'Poslední kofein nejméně 6 hodin před spaním, citlivější lidé klidně 8 hodin. Poločas je v průměru kolem 4–5 hodin, u různých lidí ale kolísá zhruba mezi 2 a 8 hodinami.',
     forWhom:
       'Většina zdravých dospělých. Výrazně citliví lidé, lidé s úzkostí nebo s poruchami srdečního rytmu by měli být opatrnější.',
     caution: [
