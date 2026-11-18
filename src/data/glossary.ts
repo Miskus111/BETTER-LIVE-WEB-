@@ -597,6 +597,31 @@ export const GLOSSARY: GlossaryTerm[] = [
     group: 'organy',
   },
 
+  {
+    id: 'chronotyp',
+    term: 'Chronotyp',
+    def: 'Přirozený sklon chodit spát a vstávat dřív („skřivan“), nebo později („sova“). Je zčásti dědičný a mění se s věkem.',
+    match: ['chronotyp'],
+    guide: 'chronotyp',
+    group: 'telo',
+  },
+  {
+    id: 'socialni-jet-lag',
+    term: 'Sociální jet lag',
+    def: 'Rozdíl mezi časem spánku ve všední dny a o víkendu. Tělo pak každý týden „cestuje přes časová pásma“, aniž by se hnulo z místa.',
+    match: ['sociáln\\S* jet lag'],
+    guide: 'chronotyp',
+    group: 'telo',
+  },
+  {
+    id: 'psyllium',
+    term: 'Psyllium',
+    def: 'Rozpustná vláknina ze slupek semen jitrocele. Váže vodu, změkčuje stolici a mírně snižuje cholesterol; zapíjí se dostatkem tekutin.',
+    match: ['psyllium'],
+    guide: 'traveni-a-zacpa',
+    group: 'jidlo',
+  },
+
   // ——— jídlo ———
   {
     id: 'vlaknina',

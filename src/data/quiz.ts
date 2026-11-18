@@ -180,6 +180,14 @@ export const QUIZ: QuizItem[] = [
     explain: 'Velká analýza kohortních studií u jednoho vejce denně vyšší riziko nenašla.',
   },
 
+  {
+    id: 'stolice-denne',
+    guide: 'traveni-a-zacpa',
+    statement: 'Na stolici se musí chodit každý den, jinak je to zácpa.',
+    fact: false,
+    explain: 'Normální rozsah je od třikrát denně po třikrát týdně.',
+  },
+
   // ——— fakta ———
   {
     id: 'spanek-7h',
@@ -334,6 +342,12 @@ export const QUIZ: QuizItem[] = [
     fact: true,
     explain: 'Podle WHO lze 80 dB poslouchat až 40 hodin týdně, ale 90 dB jen 4 hodiny.',
   },
+  {
+    id: 'sovy-20',
+    guide: 'chronotyp',
+    statement: 'Nejvíc „sovy“ jsou lidé kolem dvacítky.',
+    fact: true,
+    explain: 'V dospívání se vnitřní hodiny posouvají později a zhruba po dvacítce se zase vracejí dřív.',
+  },
 ]
-
 export const QUIZ_LENGTH = 10
