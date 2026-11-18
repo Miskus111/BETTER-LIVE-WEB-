@@ -189,6 +189,10 @@ const SOURCES = {
     36379592,
     'Dillard a kol. (2022) Nebezpečné poslouchání u dospívajících a mladých dospělých, BMJ Glob Health',
   ),
+  whoSafeListening: {
+    title: 'WHO — Bezpečný poslech: otázky a odpovědi',
+    url: 'https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening',
+  },
   whoHearing: {
     title: 'WHO — Hluchota a ztráta sluchu (přehled)',
     url: 'https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss',
@@ -1517,7 +1521,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Mozek a učení', href: '/jak-funguje-telo/mozek-a-uceni' },
       { label: 'Mozek v mapě těla', href: '/organ/brain' },
     ],
-    sources: [SOURCES.dillard, SOURCES.whoHearing],
+    sources: [SOURCES.dillard, SOURCES.whoHearing, SOURCES.whoSafeListening],
   },
   {
     slug: 'sauna-a-chlad',

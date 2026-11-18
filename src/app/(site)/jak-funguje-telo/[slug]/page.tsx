@@ -12,6 +12,7 @@ import {
 import { GuideIcon } from '@/components/guides/GuideIcon'
 import { ShareButton } from '@/components/guides/ShareButton'
 import { Rich } from '@/components/glossary/Rich'
+import { GUIDE_TOOLS } from '@/components/guides/tools'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -67,6 +68,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   // each glossary term is explained at its first appearance on the page
   const seen = new Set<string>()
   // one concrete, best-supported step to take this week
+  const Tool = GUIDE_TOOLS[g.slug]
   const firstStep = g.helps.find((h) => h.level === 'established') ?? g.helps[0]
   const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
@@ -221,6 +223,17 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ))}
         </ol>
       </section>
+
+      {Tool && (
+        <section className="mt-12" aria-labelledby="try">
+          <h2 id="try" className="display text-[32px] md:text-[40px]">
+            Vyzkoušejte si
+          </h2>
+          <div className="mt-4">
+            <Tool />
+          </div>
+        </section>
+      )}
 
       <section className="mt-12" aria-labelledby="today">
         <h2 id="today" className="display text-[32px] md:text-[40px]">

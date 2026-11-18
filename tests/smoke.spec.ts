@@ -141,6 +141,21 @@ test('guide page highlights one first step', async ({ page }) => {
   await expect(page.getByTestId('first-step')).toContainText('stejnou dobu')
 })
 
+test('guide tools: caffeine left at bedtime and WHO safe listening time', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/energie-a-kofein')
+  const calc = page.getByTestId('caffeine-calc')
+  // default: 90 mg at 8:00 + 80 mg at 15:30, bed 23:00, half-life 5 h → ~40 mg
+  await expect(calc.getByTestId('caffeine-at-bed')).toContainText('40 mg')
+  await calc.getByRole('button', { name: /rychle/ }).click()
+  await expect(calc.getByTestId('caffeine-at-bed')).not.toContainText('40 mg')
+  await page.goto('/jak-funguje-telo/sluch-a-sluchatka')
+  const ear = page.getByTestId('safe-listening')
+  await ear.getByRole('button', { name: /Hlasitá hudba v pokoji/ }).click()
+  await expect(ear.getByTestId('safe-week')).toContainText('40 h')
+  await ear.getByRole('button', { name: /Sluchátka na maximum/ }).click()
+  await expect(ear.getByTestId('safe-week')).toContainText('min')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')
