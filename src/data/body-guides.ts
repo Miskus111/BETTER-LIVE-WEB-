@@ -189,6 +189,10 @@ const SOURCES = {
     36379592,
     'Dillard a kol. (2022) Nebezpečné poslouchání u dospívajících a mladých dospělých, BMJ Glob Health',
   ),
+  efsaProtein: {
+    title: 'EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557',
+    url: 'https://doi.org/10.2903/j.efsa.2012.2557',
+  },
   whoSafeListening: {
     title: 'WHO — Bezpečný poslech: otázky a odpovědi',
     url: 'https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening',
@@ -636,7 +640,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Bílkoviny', href: '/doplnky/bilkoviny' },
       { label: 'Zapisovat trénink v aplikaci', href: '/login?mode=signup' },
     ],
-    sources: [SOURCES.morton, SOURCES.who],
+    sources: [SOURCES.morton, SOURCES.who, SOURCES.efsaProtein],
   },
   {
     slug: 'pohyb-a-sezeni',

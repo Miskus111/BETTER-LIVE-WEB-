@@ -156,6 +156,16 @@ test('guide tools: caffeine left at bedtime and WHO safe listening time', async 
   await expect(ear.getByTestId('safe-week')).toContainText('min')
 })
 
+test('protein calculator: EFSA minimum, training target and a plate tally', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/svaly-a-metabolismus')
+  const calc = page.getByTestId('protein-calc')
+  await expect(calc.getByTestId('protein-health')).toHaveText('58 g') // 70 kg × 0.83
+  await expect(calc.getByTestId('protein-muscle')).toHaveText('112 g') // 70 kg × 1.6
+  await expect(calc.getByTestId('protein-total')).toHaveText('65 g') // chicken 34 + eggs 13 + yogurt 18
+  await calc.getByRole('button', { name: 'Přidat porci: Losos' }).click()
+  await expect(calc.getByTestId('protein-total')).toHaveText('96 g')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')
