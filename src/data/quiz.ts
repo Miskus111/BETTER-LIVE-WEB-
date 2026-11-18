@@ -157,6 +157,21 @@ export const QUIZ: QuizItem[] = [
     explain: 'V roční studii v NEJM časové okno nepřidalo k omezení kalorií nic navíc.',
   },
 
+  {
+    id: 'cista-voda',
+    guide: 'pitny-rezim',
+    statement: 'Do pitného režimu se počítá jen čistá voda.',
+    fact: false,
+    explain: 'Počítá se i čaj, káva, polévka nebo mléko — a zhruba pětinu vody dodá jídlo.',
+  },
+  {
+    id: 'vic-bilkovin-vic-svalu',
+    guide: 'svaly-a-metabolismus',
+    statement: 'Čím víc bílkovin sníte, tím víc svalů naroste.',
+    fact: false,
+    explain: 'Nárůst svalů přestává přibývat zhruba u 1,6 g bílkovin na kg denně; víc už skoro nepřidá.',
+  },
+
   // ——— fakta ———
   {
     id: 'spanek-7h',
@@ -296,5 +311,21 @@ export const QUIZ: QuizItem[] = [
     fact: true,
     explain: 'Velká část testosteronu se tvoří ve spánku. Ukázala to studie v časopise JAMA.',
   },
+  {
+    id: 'tlak-130',
+    guide: 'srdce-a-tlak',
+    statement: 'Tlak 130/85 už podle evropských doporučení není v pásmu „nezvýšený“.',
+    fact: true,
+    explain:
+      'Podle ESC 2024 je tlak 120–139 / 70–89 „zvýšený“ — ještě ne nemoc, ale signál začít s prevencí.',
+  },
+  {
+    id: 'hlasitost-90',
+    guide: 'sluch-a-sluchatka',
+    statement: 'Při hlasitosti 90 dB je bezpečný poslech jen asi 4 hodiny týdně.',
+    fact: true,
+    explain: 'Podle WHO lze 80 dB poslouchat až 40 hodin týdně, ale 90 dB jen 4 hodiny.',
+  },
 ]
+
 export const QUIZ_LENGTH = 10
