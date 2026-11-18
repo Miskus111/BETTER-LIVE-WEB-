@@ -19,6 +19,7 @@ import {
   SACRUM,
   SKULL,
   STERNUM,
+  SUPPORT_ORGANS,
   VERTEBRAE,
   VESSELS,
 } from './geometry'
@@ -475,6 +476,39 @@ export function BodySvg({
           className="pointer-events-none"
           aria-hidden
         />
+      )}
+      {layers.organs && (
+        <g
+          aria-hidden
+          className="pointer-events-none transition-opacity duration-300"
+          opacity={system && system !== 'digestive' ? 0.25 : selected ? 0.35 : 1}
+        >
+          {SUPPORT_ORGANS.map((o) =>
+            o.tube ? (
+              <path
+                key={o.id}
+                d={o.d}
+                fill="none"
+                stroke={o.color}
+                strokeOpacity={0.4}
+                strokeWidth={o.tube}
+                strokeLinecap="round"
+              />
+            ) : (
+              <path
+                key={o.id}
+                d={o.d}
+                fill={o.color}
+                fillOpacity={0.16}
+                stroke={o.color}
+                strokeOpacity={0.5}
+                strokeWidth={0.9}
+              >
+                <title>{o.label}</title>
+              </path>
+            ),
+          )}
+        </g>
       )}
       {layers.organs && <g>{order.map((id) => organNode[id])}</g>}
 

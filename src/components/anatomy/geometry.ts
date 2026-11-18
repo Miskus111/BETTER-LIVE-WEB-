@@ -1452,3 +1452,59 @@ const half = [
 ]
 /** person's-right half; the renderer mirrors it for the left side */
 export const MUSCLE_FIBRES = half
+
+/**
+ * Supporting organs drawn faintly behind the interactive ones (not selectable): spleen behind the
+ * stomach on the left, pancreas across the back of the abdomen (head in the duodenal "C", tail at the
+ * spleen), the duodenum from the pylorus to the jejunum, and the thyroid wrapped around the trachea.
+ */
+export const SUPPORT_ORGANS: { id: string; label: string; d: string; color: string; tube?: number }[] = [
+  {
+    id: 'spleen',
+    label: 'Slezina',
+    color: '#c77d9b',
+    d: spline([
+      [262, 330],
+      [270, 334],
+      [274, 346],
+      [272, 362],
+      [266, 374],
+      [259, 372],
+      [256, 358],
+      [256, 342],
+    ]),
+  },
+  {
+    id: 'pancreas',
+    label: 'Slinivka břišní',
+    color: '#e8c27a',
+    d: spline([
+      [188, 388],
+      [196, 382],
+      [212, 380],
+      [232, 374],
+      [250, 366],
+      [260, 364],
+      [262, 370],
+      [250, 376],
+      [232, 384],
+      [214, 390],
+      [202, 398],
+      [190, 400],
+      [186, 394],
+    ]),
+  },
+  {
+    id: 'duodenum',
+    label: 'Dvanáctník',
+    color: '#ffd166',
+    tube: 5,
+    d: 'M204,388 C196,390 184,394 184,404 C184,414 196,418 208,414 C212,412 214,409 214,406',
+  },
+  {
+    id: 'thyroid',
+    label: 'Štítná žláza',
+    color: '#7fd1c7',
+    d: 'M197,168 C192,160 184,164 185,174 C186,184 194,184 197,178 L203,178 C206,184 214,184 215,174 C216,164 208,160 203,168 Z',
+  },
+]
