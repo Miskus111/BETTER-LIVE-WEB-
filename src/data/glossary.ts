@@ -158,7 +158,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'LDL cholesterol',
     def: 'Částice, které nesou cholesterol do tkání. Když je jich dlouhodobě moc, ukládají se do stěn tepen — proto se mu říká „zlý“ cholesterol.',
     match: ['LDL'],
-    guide: 'srdce-a-tlak',
+    guide: 'cholesterol',
     group: 'telo',
   },
   {
@@ -458,7 +458,7 @@ export const GLOSSARY: GlossaryTerm[] = [
     term: 'Lipoproteiny',
     def: 'Částice, ve kterých krev převáží tuky a cholesterol (tuk se ve vodě sám nerozpustí). Patří sem LDL a HDL.',
     match: ['lipoprotein'],
-    guide: 'srdce-a-tlak',
+    guide: 'cholesterol',
     group: 'organy',
   },
   {
@@ -815,9 +815,11 @@ export function splitTerms(text: string, seen: Set<string>): Piece[] {
   const out: Piece[] = []
   let last = 0
   for (const m of text.matchAll(PATTERN)) {
-    const key = Object.entries(m.groups ?? {}).find(([, v]) => v !== undefined)?.[0]
-    if (!key) continue
-    const id = ENTRIES[Number(key.slice(1))].id
+    // capture groups are numbered in ENTRIES order (each named group is one capture), so the first
+    // defined capture tells which term matched — no need to scan the named-groups object
+    const idx = m.findIndex((v, i) => i > 0 && v !== undefined)
+    if (idx < 1) continue
+    const id = ENTRIES[idx - 1].id
     if (seen.has(id)) continue
     seen.add(id)
     if (m.index! > last) out.push(text.slice(last, m.index))

@@ -8,19 +8,25 @@ import { cx } from '@/lib/format'
  * non-elevated < 120/70, elevated 120–139 / 70–89, hypertension ≥ 140/90 mmHg.
  * The higher of the two categories (systolic vs diastolic) decides.
  */
-type Cat = 'ok' | 'elevated' | 'high' | 'severe'
+type Cat = 'low' | 'ok' | 'elevated' | 'high' | 'severe'
 
 function category(sys: number, dia: number): Cat {
   if (sys >= 180 || dia >= 110) return 'severe'
   if (sys >= 140 || dia >= 90) return 'high'
   if (sys >= 120 || dia >= 70) return 'elevated'
+  if (sys < 90 || dia < 60) return 'low'
   return 'ok'
 }
 
 const INFO: Record<Cat, { title: string; text: string; cls: string }> = {
+  low: {
+    title: 'Nízký tlak',
+    text: 'Pod 90/60. U řady zdravých, štíhlých lidí je to normální. Pokud se ale točí hlava, máte mžitky, omdléváte nebo je tlak nově nízký, poraďte se s lékařem.',
+    cls: 'border-[#9fb6ff]/40 bg-[#9fb6ff]/[0.06]',
+  },
   ok: {
     title: 'Nezvýšený tlak',
-    text: 'Pod 120/70. Stačí si tlak občas zkontrolovat — a držet zdravé návyky.',
+    text: 'Pod 120/70 (a nad 90/60). Stačí si tlak občas zkontrolovat — a držet zdravé návyky.',
     cls: 'border-bio/40 bg-bio/[0.05]',
   },
   elevated: {
@@ -96,10 +102,12 @@ export function BloodPressureCheck() {
 
       <div className="mt-5" aria-hidden>
         <div className="relative h-2.5 rounded-full bg-[linear-gradient(90deg,#4ade80_0%,#4ade80_30%,#f5c46a_30%,#f5c46a_50%,#ff9b9b_50%,#ff9b9b_90%,#ff6b7d_90%)] opacity-70">
-          <span
-            className="bg-fg absolute -top-1 h-4.5 w-1 -translate-x-1/2 rounded-full transition-all"
-            style={{ left: `${marker}%` }}
-          />
+          {valid && (
+            <span
+              className="bg-fg absolute -top-1 h-4.5 w-1 -translate-x-1/2 rounded-full transition-all"
+              style={{ left: `${marker}%` }}
+            />
+          )}
         </div>
         <div className="text-subtle relative mt-1 h-4 font-mono text-[11px]">
           {[

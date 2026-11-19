@@ -36,6 +36,9 @@ export function Term({
     setShift((s) => s + (over > 0 ? -over : under > 0 ? under : 0))
   }, [open])
 
+  // clear a pending hover timer when the term unmounts (e.g. client-side navigation)
+  useEffect(() => () => clearTimeout(hoverTimer.current), [])
+
   useEffect(() => {
     if (!open) return
     const close = (e: Event) => {

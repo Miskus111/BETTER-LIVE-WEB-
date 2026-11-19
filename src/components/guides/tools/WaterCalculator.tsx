@@ -26,7 +26,7 @@ export function WaterCalculator() {
 
   const b = Number(before.replace(',', '.'))
   const a = Number(after.replace(',', '.'))
-  const sweat = b > 0 && a > 0 && b >= a && b - a < 6 ? b - a : null
+  const sweat = b > 0 && a > 0 && b > a && b - a < 6 ? b - a : null
   const lossPct = sweat !== null ? (sweat / b) * 100 : null
 
   const chip = (on: boolean) =>

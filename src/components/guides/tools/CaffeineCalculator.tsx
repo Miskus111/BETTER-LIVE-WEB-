@@ -46,10 +46,15 @@ export function CaffeineCalculator() {
   const [bed, setBed] = useState('23:00')
   const [half, setHalf] = useState(5)
 
-  const start = 6 * 60
-  const bedMin = toMin(bed) < start ? toMin(bed) + 1440 : toMin(bed)
-  const end = Math.max(bedMin + 120, 24 * 60)
-  const intakes = items.map((i) => ({ min: toMin(i.time), mg: BY_ID[i.drink].mg }))
+  // the day runs up to bedtime: anything clocked after bedtime belongs to the day before
+  // (works for night owls who drink after midnight and for day sleepers after a night shift)
+  const bedMin = toMin(bed) + 1440
+  const start = bedMin - 18 * 60
+  const end = bedMin + 120
+  const intakes = items.map((i) => {
+    const m = toMin(i.time) + 1440
+    return { min: m > bedMin ? m - 1440 : m, mg: BY_ID[i.drink].mg }
+  })
   const total = intakes.reduce((s, i) => s + i.mg, 0)
   const atBed = Math.round(amountAt(bedMin, intakes, half))
   const espressos = atBed / 80
@@ -170,19 +175,24 @@ export function CaffeineCalculator() {
             </g>
           )
         })}
-        {Array.from({ length: Math.floor((end - start) / 240) + 1 }, (_, i) => start + i * 240).map((m) => (
-          <text
-            key={m}
-            x={x(m)}
-            y={H - 6}
-            fontSize={10}
-            fill="#7f8b96"
-            textAnchor="middle"
-            fontFamily="var(--font-geist-mono)"
-          >
-            {fmtTime(m)}
-          </text>
-        ))}
+        {Array.from(
+          { length: Math.floor((end - start) / 240) + 1 },
+          (_, i) => Math.ceil(start / 60) * 60 + i * 240,
+        )
+          .filter((m) => m <= end)
+          .map((m) => (
+            <text
+              key={m}
+              x={x(m)}
+              y={H - 6}
+              fontSize={10}
+              fill="#7f8b96"
+              textAnchor="middle"
+              fontFamily="var(--font-geist-mono)"
+            >
+              {fmtTime(m)}
+            </text>
+          ))}
         <path d={`${path} L${x(end)},${y(0)} L${x(start)},${y(0)} Z`} fill="#f5c46a" fillOpacity={0.12} />
         <path d={path} fill="none" stroke="#f5c46a" strokeWidth={2} strokeLinejoin="round" />
         <line x1={x(bedMin)} x2={x(bedMin)} y1={12} y2={y(0)} stroke="#9fb6ff" strokeDasharray="3 3" />

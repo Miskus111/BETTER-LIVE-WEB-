@@ -85,7 +85,7 @@ export function SafeListening() {
         </div>
         <div className="border-line rounded-xl border p-3">
           <p className="text-subtle text-[12.5px]">To je denně</p>
-          <p className="mt-0.5 font-mono text-[22px]">{fmtDuration(day)}</p>
+          <p className="mt-0.5 font-mono text-[22px]">{db <= 80 ? 'bez limitu' : fmtDuration(day)}</p>
         </div>
       </div>
 

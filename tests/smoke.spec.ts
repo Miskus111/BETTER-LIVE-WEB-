@@ -202,6 +202,32 @@ test('tools: homepage teaser leads to all calculators, each opens inside its gui
   await expect(page.getByTestId('caffeine-calc')).toBeVisible()
 })
 
+test('tool edge cases: drink after midnight, low blood pressure, quiet sound has no limit', async ({
+  page,
+}) => {
+  await page.goto('/jak-funguje-telo/energie-a-kofein')
+  const calc = page.getByTestId('caffeine-calc')
+  // one energy drink at 00:30, bed at 01:30 → most of the 80 mg is still there
+  await calc.getByRole('button', { name: 'Odebrat nápoj' }).first().click()
+  await calc.getByRole('button', { name: 'Odebrat nápoj' }).first().click()
+  await calc.getByRole('button', { name: 'Přidat nápoj' }).click()
+  await calc.getByLabel('Nápoj', { exact: true }).selectOption('energy')
+  await calc.getByLabel('Čas', { exact: true }).fill('00:30')
+  await calc.locator('input[type=time]').last().fill('01:30')
+  await expect(calc.getByTestId('caffeine-at-bed')).toContainText('70 mg')
+
+  await page.goto('/jak-funguje-telo/srdce-a-tlak')
+  const bp = page.getByTestId('bp-check')
+  await bp.getByTestId('bp-sys').fill('82')
+  await bp.getByTestId('bp-dia').fill('50')
+  await expect(bp.getByTestId('bp-result')).toContainText('Nízký tlak')
+
+  await page.goto('/jak-funguje-telo/sluch-a-sluchatka')
+  const ear = page.getByTestId('safe-listening')
+  await ear.getByRole('button', { name: /Běžný rozhovor/ }).click()
+  await expect(ear).toContainText('bez limitu')
+})
+
 test('looksmaxing page shows evidence and warns about harmful trends', async ({ page }) => {
   await page.goto('/looksmaxing')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Lepší vzhled')
