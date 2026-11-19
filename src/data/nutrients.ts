@@ -258,7 +258,7 @@ export const NUTRIENTS: Record<NutrientId, Nutrient> = {
       'Přispívá k udržení normálního stavu pokožky',
       'Přispívá k udržení normálního stavu vlasů a nehtů',
       'Přispívá k udržení normálního stavu zraku',
-      'Přispívá k normální acidobazické rovnováze',
+      'Přispívá k normálnímu acidobazickému metabolismu',
       'Přispívá k normální činnosti imunitního systému',
     ],
   },
@@ -324,7 +324,9 @@ export const NUTRIENTS: Record<NutrientId, Nutrient> = {
     qualitative: { rule: 'Obsahuje živé mikroorganismy (po fermentaci tepelně neošetřeno).' },
     blurb:
       'Živé mikroorganismy v některých fermentovaných potravinách. Označení „probiotikum“ patří jen konkrétním kmenům s prokázaným účinkem.',
-    functions: ['Živé kultury v jogurtu zlepšují trávení laktózy u osob, které mají potíže s jejím trávením'],
+    functions: [
+      'Živé kultury v jogurtu nebo zakysaném mléčném výrobku zlepšují trávení laktózy obsažené ve výrobku u osob, které mají potíže s trávením laktózy',
+    ],
   },
   water: {
     id: 'water',
