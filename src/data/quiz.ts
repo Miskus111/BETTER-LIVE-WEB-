@@ -490,6 +490,13 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Laktát z krve zmizí do hodiny. Bolest za den či dva způsobují mikropoškození a zánět ve svalu.',
   },
+  {
+    id: 'pas-polovina-vysky',
+    guide: 'bmi-a-pas',
+    statement: 'Obvod pasu by měl být menší než polovina tělesné výšky.',
+    fact: true,
+    explain: 'Poměr pasu k výšce pod 0,5 znamená podle NICE nízké riziko; od 0,5 riziko stoupá.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

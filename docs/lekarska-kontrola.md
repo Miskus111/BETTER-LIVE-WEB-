@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 53 průvodců, 20 doplňků, 929 položek ke kontrole.
+Obsah: 54 průvodců, 20 doplňků, 945 položek ke kontrole.
 
 ---
 
@@ -1830,7 +1830,54 @@ Poznámky lékaře:
 
 ---
 
-## 38. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 38. BMI a obvod pasu: co čísla o zdraví říkají a co ne
+
+Web: /jak-funguje-telo/bmi-a-pas
+
+**Ve zkratce**
+
+- [ ] BMI je hmotnost děleno výškou na druhou. Pro populaci je užitečné, u jednotlivce ale nerozliší svaly od tuku.
+- [ ] Nebezpečnější je tuk kolem orgánů v břiše. Prozradí ho obvod pasu.
+- [ ] Jednoduché pravidlo podle NICE: obvod pasu by měl být menší než polovina výšky.
+
+**Čísla**
+
+- [ ] **< 0,5** poměr pasu k výšce — nízké riziko (NICE)
+- [ ] **94 / 80 cm** pas muži / ženy, od kterého riziko stoupá (WHO)
+- [ ] **102 / 88 cm** pas muži / ženy s výrazně vyšším rizikem (WHO)
+
+**Jak to funguje**
+
+- [ ] **Co BMI umí a neumí:** BMI 18,5–24,9 se považuje za normální váhu, 25–29,9 za nadváhu a od 30 za obezitu. Svalnatý sportovec ale může mít „nadváhu“ a štíhlý člověk bez svalů hodně tuku. U lidí asijského, afrického či blízkovýchodního původu začíná riziko už při nižším BMI.
+- [ ] **Proč záleží na břiše:** Tuk uložený kolem orgánů v břiše (viscerální) je metabolicky aktivní — zhoršuje citlivost na inzulin, cholesterol i tlak. Tuk na bocích a stehnech je méně rizikový.
+- [ ] **Jak měřit pas:** Ve stoje, po normálním výdechu, metrem vodorovně v polovině mezi spodním žebrem a hřebenem kosti kyčelní. Výsledek vydělte výškou: 0,5–0,59 znamená zvýšené riziko, od 0,6 vysoké.
+
+**Doporučení**
+
+- [ ] Změřit si jednou za čas pas a spočítat poměr k výšce. _(Prokázané)_
+- [ ] Při poměru od 0,5 nebo pasu nad 94 cm (muži) či 80 cm (ženy) nechat u lékaře zkontrolovat tlak, cukr a cholesterol. _(Prokázané)_
+- [ ] Na tuk v břiše funguje pohyb, méně alkoholu a sladkých nápojů a dost spánku. _(Pravděpodobné)_
+- [ ] Sledovat trend v čase, ne jednotlivé měření. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Normální BMI znamená, že je všechno v pořádku.“ → I při normálním BMI může být hodně tuku v břiše. Proto se vyplatí změřit i pas.
+- [ ] „Cviky na břicho spálí tuk na břiše.“ → Tuk se nedá spálit z jednoho místa. Ubývá z celého těla podle energetické bilance.
+- [ ] „Svalnatý člověk s BMI nad 25 je obézní.“ → BMI nerozliší sval od tuku. U sportovců víc řekne obvod pasu.
+
+**Zdroje**
+
+- NICE NG246 (2025) Nadváha, obezita a tuk na břiše: jak je posoudit — https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity
+- Ashwell a kol. (2012) Poměr pasu k výšce předpovídá riziko lépe než BMI — metaanalýza, Obes Rev — https://pubmed.ncbi.nlm.nih.gov/22106927/
+- WHO (2008) Obvod pasu a poměr pas–boky — zpráva odborné konzultace — https://www.who.int/publications/i/item/9789241501491
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 39. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1880,7 +1927,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 40. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1932,7 +1979,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Kosti: banka, do které se ukládá do třiceti
+## 41. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1982,7 +2029,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 42. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2029,7 +2076,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Akné: co ho způsobuje a co na něj opravdu platí
+## 43. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2080,7 +2127,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 44. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2129,7 +2176,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 45. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2176,7 +2223,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 46. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2224,7 +2271,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Protahování: na co je dobré a na co ne
+## 47. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2274,7 +2321,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 48. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2326,7 +2373,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 49. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2375,7 +2422,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 50. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2425,7 +2472,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 51. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2477,7 +2524,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 52. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2528,7 +2575,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 53. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2576,7 +2623,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 54. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

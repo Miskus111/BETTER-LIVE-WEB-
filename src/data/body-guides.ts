@@ -378,6 +378,18 @@ const SOURCES = {
     27782911,
     'Hyldahl a kol. (2017) Proč svaly bolí příště méně — efekt opakované zátěže, Exerc Sport Sci Rev',
   ),
+  ashwellWhtr: pm(
+    22106927,
+    'Ashwell a kol. (2012) Poměr pasu k výšce předpovídá riziko lépe než BMI — metaanalýza, Obes Rev',
+  ),
+  niceAdiposity: {
+    title: 'NICE NG246 (2025) Nadváha, obezita a tuk na břiše: jak je posoudit',
+    url: 'https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity',
+  },
+  whoWaist: {
+    title: 'WHO (2008) Obvod pasu a poměr pas–boky — zpráva odborné konzultace',
+    url: 'https://www.who.int/publications/i/item/9789241501491',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3356,6 +3368,74 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
   },
   {
+    slug: 'bmi-a-pas',
+    title: 'BMI a obvod pasu: co čísla o zdraví říkají a co ne',
+    short: 'BMI a pas',
+    icon: 'scale',
+    hook: 'BMI nerozliší sval od tuku a neřekne, kde tuk je. Metr kolem pasu toho o riziku prozradí víc — a stačí na to pravidlo „pas pod polovinou výšky“.',
+    tldr: [
+      'BMI je hmotnost děleno výškou na druhou. Pro populaci je užitečné, u jednotlivce ale nerozliší svaly od tuku.',
+      'Nebezpečnější je tuk kolem orgánů v břiše. Prozradí ho obvod pasu.',
+      'Jednoduché pravidlo podle NICE: obvod pasu by měl být menší než polovina výšky.',
+    ],
+    numbers: [
+      { value: '< 0,5', label: 'poměr pasu k výšce — nízké riziko (NICE)' },
+      { value: '94 / 80 cm', label: 'pas muži / ženy, od kterého riziko stoupá (WHO)' },
+      { value: '102 / 88 cm', label: 'pas muži / ženy s výrazně vyšším rizikem (WHO)' },
+    ],
+    how: [
+      {
+        title: 'Co BMI umí a neumí',
+        text: 'BMI 18,5–24,9 se považuje za normální váhu, 25–29,9 za nadváhu a od 30 za obezitu. Svalnatý sportovec ale může mít „nadváhu“ a štíhlý člověk bez svalů hodně tuku. U lidí asijského, afrického či blízkovýchodního původu začíná riziko už při nižším BMI.',
+      },
+      {
+        title: 'Proč záleží na břiše',
+        text: 'Tuk uložený kolem orgánů v břiše (viscerální) je metabolicky aktivní — zhoršuje citlivost na inzulin, cholesterol i tlak. Tuk na bocích a stehnech je méně rizikový.',
+      },
+      {
+        title: 'Jak měřit pas',
+        text: 'Ve stoje, po normálním výdechu, metrem vodorovně v polovině mezi spodním žebrem a hřebenem kosti kyčelní. Výsledek vydělte výškou: 0,5–0,59 znamená zvýšené riziko, od 0,6 vysoké.',
+      },
+    ],
+    today: [
+      'Chytré váhy „měří tuk“ pomocí slabého proudu — výsledek ale hodně kolísá podle pití a denní doby.',
+      'Sítě ukazují ideál vyrýsovaného břicha. Pro zdraví stačí, aby pas nebyl nad polovinou výšky.',
+    ],
+    helps: [
+      { text: 'Změřit si jednou za čas pas a spočítat poměr k výšce.', level: 'established' },
+      {
+        text: 'Při poměru od 0,5 nebo pasu nad 94 cm (muži) či 80 cm (ženy) nechat u lékaře zkontrolovat tlak, cukr a cholesterol.',
+        level: 'established',
+      },
+      {
+        text: 'Na tuk v břiše funguje pohyb, méně alkoholu a sladkých nápojů a dost spánku.',
+        level: 'plausible',
+      },
+      { text: 'Sledovat trend v čase, ne jednotlivé měření.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Normální BMI znamená, že je všechno v pořádku.',
+        fact: 'I při normálním BMI může být hodně tuku v břiše. Proto se vyplatí změřit i pas.',
+      },
+      {
+        myth: 'Cviky na břicho spálí tuk na břiše.',
+        fact: 'Tuk se nedá spálit z jednoho místa. Ubývá z celého těla podle energetické bilance.',
+      },
+      {
+        myth: 'Svalnatý člověk s BMI nad 25 je obézní.',
+        fact: 'BMI nerozliší sval od tuku. U sportovců víc řekne obvod pasu.',
+      },
+    ],
+    related: [
+      { label: 'Pas a váhu si můžete zapisovat v aplikaci', href: '/login?mode=signup' },
+      { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+    ],
+    sources: [SOURCES.niceAdiposity, SOURCES.ashwellWhtr, SOURCES.whoWaist],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4617,6 +4697,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'ockovani-dospelych': 'prevence',
   'laktoza-a-lepek': 'jidlo',
   'svalova-horecka': 'pohyb',
+  'bmi-a-pas': 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',
