@@ -110,18 +110,12 @@ const SOURCES = {
     22374636,
     'Dunstan a kol. (2012) Přerušování sezení snižuje cukr a inzulin po jídle, Diabetes Care',
   ),
-  saintMaurice: pm(
-    32207799,
-    'Saint-Maurice a kol. (2020) Počet kroků, jejich tempo a úmrtnost, JAMA',
-  ),
+  saintMaurice: pm(32207799, 'Saint-Maurice a kol. (2020) Počet kroků, jejich tempo a úmrtnost, JAMA'),
   costaBack: pm(
     22586331,
     'da C Menezes Costa a kol. (2012) Průběh akutní a dlouhodobé bolesti zad — metaanalýza, CMAJ',
   ),
-  sherrington: pm(
-    30703272,
-    'Sherrington a kol. (2019) Cvičení jako prevence pádů u starších lidí, Cochrane',
-  ),
+  sherrington: pm(30703272, 'Sherrington a kol. (2019) Cvičení jako prevence pádů u starších lidí, Cochrane'),
   leboff: pm(
     35939577,
     'LeBoff a kol. (2022) Vitamín D a zlomeniny u zdravých lidí středního a vyššího věku (VITAL), N Engl J Med',
@@ -130,13 +124,20 @@ const SOURCES = {
     12445849,
     'Chung a kol. (2002) Slabší brýle krátkozrakost nezpomalí, ale zrychlí, Vision Res',
   ),
-  lancetDementia: pm(
-    39096926,
-    'Livingston a kol. (2024) Prevence demence — zpráva komise časopisu Lancet',
-  ),
+  lancetDementia: pm(39096926, 'Livingston a kol. (2024) Prevence demence — zpráva komise časopisu Lancet'),
   acsm: pm(
     21694556,
     'Garber a kol. (2011) ACSM: kolik a jak cvičit — doporučení pro dospělé, Med Sci Sports Exerc',
+  ),
+  ssass: pm(
+    34459569,
+    'Neal a kol. (2021) Náhrada soli s draslíkem a srdečně-cévní příhody (SSaSS), N Engl J Med',
+  ),
+  poweredBrush: pm(24934383, 'Yaacob a kol. (2014) Elektrický vs. ruční zubní kartáček, Cochrane'),
+  perioDiabetes: pm(35420698, 'Simpson a kol. (2022) Léčba zánětu dásní a cukr v krvi u diabetu, Cochrane'),
+  paperBag: pm(
+    2499228,
+    'Callaham (1989) Rizika dýchání do papírového sáčku při hyperventilaci, Ann Emerg Med',
   ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
@@ -1244,6 +1245,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Sůl a tlak',
         text: 'Sodík zadržuje v těle vodu a u mnoha lidí zvyšuje tlak. Většinu soli přitom sníme v pečivu, uzeninách a hotových jídlech, ne ze slánky.',
       },
+      {
+        title: 'Jak měřit, aby to sedělo',
+        text: 'Pět minut v klidu sedět, ruka opřená ve výšce srdce, manžeta na holé paži. Změřit dvakrát po minutě a zapsat průměr. Jedno vysoké číslo ještě nic neznamená — rozhoduje opakované měření.',
+      },
     ],
     today: [
       'Sezení, ultrazpracované jídlo, stres a málo spánku tlak zvyšují.',
@@ -1258,6 +1263,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Pravidelný pohyb, hlavně vytrvalostní.', level: 'established' },
       { text: 'Nekouřit a omezit alkohol.', level: 'established' },
       { text: 'Víc zeleniny, ovoce a luštěnin (draslík).', level: 'plausible' },
+      {
+        text: 'Solit solí s draslíkem místo běžné — ve velké studii u lidí s vysokým tlakem ubylo mrtvic asi o 14 %. Ne při nemoci ledvin nebo lécích, které draslík zadržují.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -1268,13 +1277,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Mladých lidí se to netýká.',
         fact: 'Riziko s věkem roste, ale vysoký tlak mívají i lidé pod 40.',
       },
+      {
+        myth: 'Když je tlak s léky v normě, můžu je vysadit.',
+        fact: 'Normální tlak je většinou zásluha léků — po vysazení se obvykle vrátí. Změnu léčby proberte s lékařem.',
+      },
     ],
     related: [
       { label: 'Srdce v mapě těla', href: '/organ/heart' },
       { label: 'Omega-3', href: '/doplnky/omega-3' },
       { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
     ],
-    sources: [SOURCES.whoHypertension, SOURCES.whoSodium, SOURCES.escHypertension],
+    sources: [SOURCES.whoHypertension, SOURCES.whoSodium, SOURCES.escHypertension, SOURCES.ssass],
   },
   {
     slug: 'mozek-a-uceni',
@@ -1947,10 +1960,15 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Dásně',
         text: 'Plak u dásní způsobí zánět — krvácení při čištění. Neléčený může vést až k uvolnění zubů.',
       },
+      {
+        title: 'Ústa a zbytek těla',
+        text: 'Zánět dásní a cukrovka se navzájem zhoršují. U lidí s diabetem léčba dásní snížila dlouhodobý cukr (HbA1c) zhruba o 0,4 procentního bodu — podobně jako přidání dalšího léku.',
+      },
     ],
     today: [
       'Energetické a sportovní nápoje a slazená káva během celého dne znamenají kyselý útok za útokem.',
       'Sítě propagují „přírodní“ pasty bez fluoridu a s aktivním uhlím, které můžou sklovinu obrušovat.',
+      'Kyselé nápoje (cola, džusy, ochucené vody) leptají sklovinu i bez cukru — tomu se říká eroze.',
     ],
     helps: [
       { text: 'Čistit 2× denně fluoridovou pastou.', level: 'established' },
@@ -1964,6 +1982,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'preliminary',
       },
       { text: 'Preventivní prohlídky u zubaře a dentální hygiena.', level: 'plausible' },
+      {
+        text: 'Elektrický kartáček s rotační hlavou odstraní o něco víc plaku a víc zklidní dásně než ruční.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -1979,7 +2001,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
       { label: 'Energie a kofein', href: '/jak-funguje-telo/energie-a-kofein' },
     ],
-    sources: [SOURCES.walshFluoride, SOURCES.worthington, SOURCES.whoOral, SOURCES.whoSugar],
+    sources: [
+      SOURCES.walshFluoride,
+      SOURCES.worthington,
+      SOURCES.whoOral,
+      SOURCES.whoSugar,
+      SOURCES.poweredBrush,
+      SOURCES.perioDiabetes,
+    ],
   },
   {
     slug: 'kosti',
@@ -2089,6 +2118,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         text: 'Při hlasitém chrápání, zástavách dechu a denní únavě jít k lékaři — apnoe se dá léčit.',
         level: 'established',
       },
+      {
+        text: 'Dechová cvičení se zadržováním dechu nikdy nezkoušet ve vodě ani za volantem — po rychlém dýchání se dá omdlít bez varování.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -2099,13 +2132,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Čím hlouběji a rychleji dýchám, tím víc kyslíku.',
         fact: 'Krev je kyslíkem nasycená i normálně. Rychlé dýchání spíš sníží oxid uhličitý a může vyvolat závrať.',
       },
+      {
+        myth: 'Při panice pomůže dýchat do papírového sáčku.',
+        fact: 'Už se nedoporučuje: může snížit kyslík v krvi a zakrýt jinou příčinu dušnosti (astma, srdce). Lepší je zpomalit a prodloužit výdech.',
+      },
     ],
     related: [
       { label: 'Stres', href: '/jak-funguje-telo/stres' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
       { label: 'Plíce v mapě těla', href: '/organ/lungs' },
     ],
-    sources: [SOURCES.zaccaro, SOURCES.rhee, SOURCES.benjafield],
+    sources: [SOURCES.zaccaro, SOURCES.rhee, SOURCES.benjafield, SOURCES.paperBag],
   },
   {
     slug: 'akne-a-plet',
