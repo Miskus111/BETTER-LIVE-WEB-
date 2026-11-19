@@ -162,6 +162,15 @@ const SOURCES = {
     26121498,
     'Stothart a kol. (2015) I jen přijatá notifikace naruší pozornost, J Exp Psychol Hum Percept Perform',
   ),
+  erickson: pm(21282661, 'Erickson a kol. (2011) Rok chůze zvětšil hipokampus a zlepšil paměť, PNAS'),
+  whoUvIndex: {
+    title: 'WHO: UV index — kdy se chránit před sluncem',
+    url: 'https://www.who.int/news-room/questions-and-answers/item/radiation-the-ultraviolet-(uv)-index',
+  },
+  whoEndometriosis: {
+    title: 'WHO: Endometrióza — fakta',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/endometriosis',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -1222,6 +1231,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: 'SPF 30+', label: 'doporučený opalovací krém' },
       { value: '2 h', label: 'po kolika krém obnovit' },
+      { value: 'UV 3+', label: 'od tohoto UV indexu se chránit (WHO)' },
     ],
     how: [
       {
@@ -1236,6 +1246,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Vitamín D',
         text: 'Kůže ho ze slunce vytváří, ale v ČR to od podzimu do jara nestačí — a k jeho tvorbě nepotřebujete spálení.',
       },
+      {
+        title: 'UV index',
+        text: 'Síla UV záření se neřídí teplotou, ale výškou slunce. Podle WHO se od indexu 3 vyplatí chránit — v Česku to bývá od jara do září kolem poledne, i v chladném dni. Index ukazuje většina aplikací na počasí.',
+      },
     ],
     today: [
       'Sociální sítě propagují opálení, „base tan“ a solária — přitom právě UV záření nejvíc urychluje stárnutí kůže.',
@@ -1249,6 +1263,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Stín a oblečení kolem poledne (zhruba 11–15 h).', level: 'established' },
       { text: 'Žádná solária.', level: 'established' },
       { text: 'Nekouřit — kouření urychluje stárnutí pleti.', level: 'established' },
+      {
+        text: 'Krému nešetřit: na obličej a krk zhruba lžičku. Většina lidí nanese jen polovinu — a ochrana je pak výrazně nižší, než slibuje SPF.',
+        level: 'established',
+      },
+      {
+        text: 'Hlídat znaménka: nesouměrné, s neostrým okrajem, víc barev, nad 6 mm nebo měnící se — ukázat lékaři.',
+        level: 'established',
+      },
       {
         text: 'Při akné k dermatologovi; vliv stravy (sladké, mléčné) je zatím jen předběžný.',
         level: 'preliminary',
@@ -1270,7 +1292,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Kolagen', href: '/doplnky/kolagen' },
       { label: 'Kůže v mapě těla', href: '/organ/skin' },
     ],
-    sources: [SOURCES.hughes, SOURCES.green, SOURCES.iarc],
+    sources: [SOURCES.hughes, SOURCES.green, SOURCES.iarc, SOURCES.whoUvIndex],
   },
   {
     slug: 'srdce-a-tlak',
@@ -1355,7 +1377,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Zkoušet se (vybavovat si) funguje lépe než znovu číst.',
       'Spánek po učení paměť upevňuje — noc před zkouškou bez spánku se nevyplatí.',
     ],
-    numbers: [],
+    numbers: [
+      { value: '1–2 dny', label: 'pauza před 1. opakováním, když je zkouška za týden' },
+      { value: '+2 %', label: 'objem hipokampu po roce chůze (starší dospělí)' },
+    ],
     how: [
       {
         title: 'Spoje mezi neurony',
@@ -1368,6 +1393,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Spánek jako ukládání',
         text: 'Během spánku mozek přehrává a třídí, co se přes den naučil. Bez spánku se nové vzpomínky ukládají hůř.',
+      },
+      {
+        title: 'Pohyb a paměť',
+        text: 'Hipokampus — centrum pro ukládání vzpomínek — s věkem pomalu ubývá. U starších lidí, kteří rok třikrát týdně svižně chodili, se naopak o 2 % zvětšil a zlepšila se jim paměť.',
       },
     ],
     today: [
@@ -1403,7 +1432,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
       { label: 'Mozek v mapě těla', href: '/organ/brain' },
     ],
-    sources: [SOURCES.cepeda, SOURCES.roediger, SOURCES.walker, SOURCES.ophir, SOURCES.pashler],
+    sources: [
+      SOURCES.cepeda,
+      SOURCES.roediger,
+      SOURCES.walker,
+      SOURCES.ophir,
+      SOURCES.pashler,
+      SOURCES.erickson,
+    ],
   },
   {
     slug: 'hubnuti-a-energie',
@@ -1897,6 +1933,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '21–35', label: 'dní: běžná délka cyklu' },
       { value: '~30 %', label: 'žen 15–49 let s anémií (WHO, svět)' },
+      { value: '~10 %', label: 'žen v plodném věku má endometriózu (WHO)' },
     ],
     how: [
       {
@@ -1910,6 +1947,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'PMS',
         text: 'Pár dní před menstruací může přijít únava, podrážděnost, napětí v prsou nebo chuť na jídlo. Je to časté — silné potíže ale stojí za návštěvu lékaře.',
+      },
+      {
+        title: 'Kdy je krvácení moc silné',
+        text: 'Varovné jsou výměna vložky nebo tamponu každou 1–2 hodiny, sraženiny větší než mince, krvácení přes 7 dní nebo únava a dušnost. To bývá cesta k nedostatku železa — a dá se léčit.',
+      },
+      {
+        title: 'Endometrióza',
+        text: 'Tkáň podobná děložní sliznici roste mimo dělohu a způsobuje silnou bolest při menstruaci, při sexu nebo dlouhodobou bolest v podbřišku. Týká se zhruba každé desáté ženy a často se roky přehlíží.',
       },
     ],
     today: [
@@ -1926,6 +1971,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'established',
       },
       { text: 'Na bolest pomáhají běžné protizánětlivé léky a teplo.', level: 'established' },
+      {
+        text: 'Silné krvácení i bolest umí výrazně zmírnit léčba od gynekologa (např. hormonální) — není nutné to „vydržet“.',
+        level: 'established',
+      },
       {
         text: 'K lékaři při velmi silném krvácení, bolesti, která omezuje běžný život, nebo při vynechání menstruace.',
         level: 'established',
@@ -1949,7 +1998,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Železo', href: '/doplnky/zelezo' },
       { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
     ],
-    sources: [SOURCES.mcnulty, SOURCES.whoAnaemia],
+    sources: [SOURCES.mcnulty, SOURCES.whoAnaemia, SOURCES.whoEndometriosis],
   },
   {
     slug: 'nalada-a-uzkost',
