@@ -180,6 +180,20 @@ const SOURCES = {
     'Du Toit a kol. (2015) Časné zavádění arašídů a alergie u rizikových kojenců (LEAP), N Engl J Med',
   ),
   cocAcne: pm(22786490, 'Arowojolu a kol. (2012) Kombinovaná antikoncepce při akné, Cochrane'),
+  modiPosture: pm(
+    30346317,
+    'Modi a kol. (2019) Stolička pod nohy na toaletě: méně tlačení a kratší čas, J Clin Gastroenterol',
+  ),
+  hunterNature: pm(
+    31019479,
+    'Hunter a kol. (2019) Pobyt v přírodě ve městě a kortizol ve slinách, Front Psychol',
+  ),
+  jamieson: pm(
+    21942377,
+    'Jamieson a kol. (2012) Vnímat stresové vzrušení jako pomoc zlepšuje reakci srdce i výkon, J Exp Psychol Gen',
+  ),
+  volpi: pm(15192443, 'Volpi a kol. (2004) Jak se mění svalová tkáň s věkem, Curr Opin Clin Nutr Metab Care'),
+  fiatarone: pm(2342214, 'Fiatarone a kol. (1990) Silový trénink u devadesátníků, JAMA'),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -642,6 +656,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Když alarm neutichne',
         text: 'Stresová reakce se spouští podobně u medvěda jako u e-mailu od šéfa. Když stres běží dlouhodobě, tělo platí „opotřebením“: horší spánek, podrážděnost, vyšší tlak a chuť na sladké.',
       },
+      {
+        title: 'Jak stres čtete, hraje roli',
+        text: 'Bušící srdce před zkouškou můžete brát jako „panikařím“, nebo „tělo se chystá na výkon“. Lidé, kterým výzkumníci vysvětlili druhý pohled, měli příznivější reakci srdce a cév a lepší výsledky v testu.',
+      },
     ],
     today: [
       'Stálá dostupnost: notifikace a zprávy znamenají, že se stresová reakce spouští i ve volném čase.',
@@ -656,6 +674,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Dostatek pravidelného spánku.', level: 'established' },
       { text: 'Blízké vztahy a mluvit o tom, co vás tíží.', level: 'plausible' },
       { text: 'Pomalé dýchání (delší výdech než nádech) pár minut denně.', level: 'preliminary' },
+      {
+        text: '20–30 minut v parku nebo přírodě — ve studii kortizol klesal nejvíc právě při této délce.',
+        level: 'preliminary',
+      },
       {
         text: 'Při dlouhodobých potížích: psycholog nebo psychoterapeut — to není selhání, ale účinná léčba.',
         level: 'established',
@@ -680,7 +702,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Rhodiola', href: '/doplnky/rhodiola' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
     ],
-    sources: [SOURCES.mcewen, SOURCES.adrenal, SOURCES.who],
+    sources: [SOURCES.mcewen, SOURCES.adrenal, SOURCES.who, SOURCES.jamieson, SOURCES.hunterNature],
   },
   {
     slug: 'dopamin-a-mobil',
@@ -762,6 +784,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '2×', label: 'silový trénink týdně (WHO)' },
       { value: '~1,6 g/kg', label: 'bílkovin denně na růst svalů' },
+      { value: '3–8 %', label: 'svalové hmoty ubude za každé desetiletí po třicítce' },
     ],
     how: [
       {
@@ -776,6 +799,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Sval a metabolismus',
         text: 'Svaly jsou největší „spotřebič“ cukru v těle a zlepšují citlivost na inzulin. Kalorií ale v klidu spálí méně, než se často tvrdí — hlavní přínos je zdraví, ne „spalování“.',
       },
+      {
+        title: 'Svaly jako důchodové spoření',
+        text: 'Od třicítky svalů pomalu ubývá, zhruba o 3–8 % za desetiletí, a ve stáří to zrychluje. Úbytek svalů a síly (sarkopenie) stojí za pády a ztrátou soběstačnosti. Čím víc jich máte předem, tím déle vydrží.',
+      },
     ],
     today: [
       'Sedavá práce a studium: bez zátěže svaly i kosti s věkem ubývají rychleji.',
@@ -786,6 +813,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Bílkoviny rozložené do jídel během dne, celkem kolem 1,6 g na kg.', level: 'established' },
       { text: 'Kreatin 3–5 g denně zrychlí nárůst síly.', level: 'established' },
       { text: 'Dost spánku — bez něj je regenerace horší.', level: 'plausible' },
+      {
+        text: 'Začít se dá v jakémkoli věku: lidé ve věku 86–96 let za 8 týdnů posilování víc než zdvojnásobili sílu.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -806,7 +837,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Bílkoviny', href: '/doplnky/bilkoviny' },
       { label: 'Zapisovat trénink v aplikaci', href: '/login?mode=signup' },
     ],
-    sources: [SOURCES.morton, SOURCES.who, SOURCES.efsaProtein],
+    sources: [SOURCES.morton, SOURCES.who, SOURCES.efsaProtein, SOURCES.volpi, SOURCES.fiatarone],
   },
   {
     slug: 'pohyb-a-sezeni',
@@ -2839,6 +2870,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Co zácpu zhoršuje',
         text: 'Málo vlákniny a pohybu, odkládání nutkání, některé léky (např. na bolest s opioidy, železo) a změny režimu, třeba na cestách.',
       },
+      {
+        title: 'Ranní okno',
+        text: 'Po probuzení a po jídle — hlavně po snídani — se tlusté střevo samo rozhýbe (gastrokolický reflex). Proto se vyplatí dát si ráno po snídani na záchod čas a nespěchat.',
+      },
     ],
     today: [
       'Bílé pečivo, ultrazpracované jídlo a celý den vsedě — kombinace, která střevu nepomáhá.',
@@ -2853,6 +2888,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Žitný chléb místo bílého pečiva.', level: 'preliminary' },
       { text: 'Minerální voda s vyšším obsahem hořčíku.', level: 'preliminary' },
       { text: 'Pohyb a neodkládat nutkání jít na záchod.', level: 'plausible' },
+      {
+        text: 'Stolička pod nohy na záchodě (kolena výš než boky) — ve studii lidé méně tlačili a byli rychleji hotoví.',
+        level: 'preliminary',
+      },
     ],
     myths: [
       {
@@ -2873,7 +2912,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Pitný režim', href: '/jak-funguje-telo/pitny-rezim' },
       { label: 'Střeva v mapě těla', href: '/organ/intestines' },
     ],
-    sources: [SOURCES.blackFord, SOURCES.schootFoods, SOURCES.bdaConstipation],
+    sources: [SOURCES.blackFord, SOURCES.schootFoods, SOURCES.bdaConstipation, SOURCES.modiPosture],
   },
   {
     slug: 'chronotyp',
