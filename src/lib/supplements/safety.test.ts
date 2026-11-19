@@ -7,9 +7,10 @@ describe('upper limits (EFSA)', () => {
     expect(checkDose(SUPPLEMENT_BY_ID['vitamin-d3'], 125)?.level).toBe('block')
     expect(checkDose(SUPPLEMENT_BY_ID['vitamin-d3'], 25)).toBeNull()
   })
-  it('blocks zinc above 25 mg and B6 above 12.5 mg', () => {
+  it('blocks zinc above 25 mg and B6 above 12 mg (EFSA 2023)', () => {
     expect(checkDose(SUPPLEMENT_BY_ID.zinc, 30)?.code).toBe('over_ul')
-    expect(checkDose(SUPPLEMENT_BY_ID['vitamin-b6'], 20)?.code).toBe('over_ul')
+    expect(checkDose(SUPPLEMENT_BY_ID['vitamin-b6'], 12.5)?.code).toBe('over_ul')
+    expect(checkDose(SUPPLEMENT_BY_ID['vitamin-b6'], 12)?.code).not.toBe('over_ul')
   })
   it('blocks supplemental magnesium above 250 mg', () => {
     expect(checkDose(SUPPLEMENT_BY_ID.magnesium, 400)?.level).toBe('block')

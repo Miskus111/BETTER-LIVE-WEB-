@@ -66,7 +66,7 @@ export const REFERENCE: Partial<Record<NutrientId, ReferenceValues>> = {
   b1: { efsa: { kind: 'PRI', text: '0,1 mg na MJ energie (≈ 1 mg)' } },
   b6: {
     efsa: { kind: 'PRI', text: 'muži 1,7 mg · ženy 1,6 mg' },
-    ul: { text: '12,5 mg', note: 'EFSA ho v roce 2023 snížila — pozor na vysoce dávkované B-komplexy.' },
+    ul: { text: '12 mg', note: 'EFSA ho v roce 2023 snížila — pozor na vysoce dávkované B-komplexy.' },
   },
   b12: { efsa: { kind: 'AI', text: '4 µg' }, ul: { text: 'nestanoven' } },
   folate: {

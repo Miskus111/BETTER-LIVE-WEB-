@@ -531,7 +531,7 @@ export const SUPPLEMENTS: Supplement[] = [
       en: 'Rarely needed; watch high doses in B-complexes.',
     },
     dose: { min: 1.4, max: 5, unit: 'mg' },
-    ul: { value: 12.5, scope: 'total', note: 'EFSA 2023' },
+    ul: { value: 12, scope: 'total', note: 'EFSA 2023: 12 mg/day for adults' },
     timing: { cs: 'Kdykoli.', en: 'Any time.' },
     interactions: [],
     avoidIf: [],
