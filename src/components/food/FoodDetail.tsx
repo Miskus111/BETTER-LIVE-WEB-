@@ -85,7 +85,7 @@ export function FoodDetail({
 
       {micros.length > 0 && (
         <section>
-          <h4 className="eyebrow mb-3">Vitamíny, minerály a další · % denní referenční hodnoty</h4>
+          <h2 className="eyebrow mb-3">Vitamíny, minerály a další · % denní referenční hodnoty</h2>
           <div className="grid gap-3.5 sm:grid-cols-2 sm:gap-x-6">
             {micros.map(([id, v]) => (
               <NrvBar key={id} id={id} value={v} />
@@ -100,7 +100,7 @@ export function FoodDetail({
       )}
 
       <section>
-        <h4 className="eyebrow mb-3">Související orgány</h4>
+        <h2 className="eyebrow mb-3">Související orgány</h2>
         {organs.length ? (
           <ul className="flex flex-wrap gap-2">
             {organs.map(({ organ, via }) => (
