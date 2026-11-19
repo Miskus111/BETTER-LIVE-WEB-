@@ -407,6 +407,14 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Cvičení je základ léčby artrózy — podle přehledu Cochrane zmírní bolest a zlepší hybnost.',
   },
+  {
+    id: 'textovaci-krk',
+    guide: 'bolest-krku',
+    statement: 'Skloněná hlava nad mobilem je hlavní příčinou bolesti krku u mladých lidí.',
+    fact: false,
+    explain:
+      'Studie u mladých dospělých souvislost nenašla. Víc vadí dlouhé hodiny v jedné poloze bez pohybu.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

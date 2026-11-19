@@ -270,6 +270,19 @@ const SOURCES = {
     title: 'NICE (2022) Artróza u lidí nad 16 let: diagnostika a léčba (NG226)',
     url: 'https://www.nice.org.uk/guidance/ng226',
   },
+  grossNeck: pm(25629215, 'Gross a kol. (2015) Cvičení při bolesti krku, Cochrane'),
+  andersenNeck: pm(
+    18461010,
+    'Andersen a kol. (2008) Silový trénink proti bolesti šíje a ramen u kancelářských pracovníků, Med Sci Sports Exerc',
+  ),
+  hushNeck: pm(
+    21458776,
+    'Hush a kol. (2011) Průběh akutní bolesti krku — metaanalýza, Arch Phys Med Rehabil',
+  ),
+  textNeck: pm(
+    29306972,
+    'Damasceno a kol. (2018) „Textovací krk“ a bolest krku u mladých dospělých, Eur Spine J',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2466,6 +2479,77 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
   },
   {
+    slug: 'bolest-krku',
+    title: 'Bolest krku a šíje: u počítače, u mobilu a co s ní',
+    short: 'Bolest krku',
+    icon: 'move',
+    hook: 'Ztuhlá šíje po dni u počítače je skoro normální. Pomáhá ale něco jiného než „hlídat si držení“ — silnější svaly a víc pohybu.',
+    tldr: [
+      'Většina bolestí krku nemá vážnou příčinu a zlepší se. U části lidí se ale vrací, proto se vyplatí řešit ji pohybem.',
+      'Nejlépe ověřené jsou cviky na posílení šíje, ramen a lopatek.',
+      'Skloněná hlava nad mobilem sama o sobě bolest krku u mladých lidí ve studii nezpůsobovala. Víc záleží na tom, jak dlouho jste bez pohybu.',
+    ],
+    numbers: [
+      { value: '3× 20 min', label: 'silového tréninku týdně zmírnilo bolest šíje kancelářských pracovníků' },
+      { value: '~6 týdnů', label: 'během nich se akutní bolest krku většinou výrazně zlepší' },
+    ],
+    how: [
+      {
+        title: 'Svaly, které drží hlavu',
+        text: 'Hlava váží kolem 5 kg a nesou ji svaly šíje a ramen. Když jsou slabé nebo dlouho v jedné poloze, rychleji se unaví a bolí.',
+      },
+      {
+        title: 'Proč pomáhá posilování',
+        text: 'V randomizované studii krátký trénink s jednoručkami (asi 20 minut třikrát týdně) zmírnil bolest šíje víc než obecné kondiční cvičení. Silnější sval snese víc.',
+      },
+      {
+        title: 'Jak bolest běží',
+        text: 'Akutní bolest se během prvních týdnů obvykle výrazně zlepší. U zhruba poloviny lidí ale nějaké potíže po roce trvají nebo se vracejí — proto má smysl cvičit i potom.',
+      },
+    ],
+    today: [
+      'Hodiny u monitoru a mobilu znamenají dlouhé hodiny v jedné poloze bez přestávky.',
+      'Sítě straší „textovacím krkem“ a prodávají korektory držení, které svaly neposílí.',
+    ],
+    helps: [
+      {
+        text: 'Posilovat šíji, ramena a lopatky (přítahy, upažování, krčení ramen s jednoručkami) 2–3× týdně.',
+        level: 'established',
+      },
+      { text: 'Každých 30–60 minut vstát, protáhnout se a změnit polohu.', level: 'plausible' },
+      {
+        text: 'Monitor zhruba do výšky očí a mobil zvednout k obličeji, když čtete delší dobu.',
+        level: 'plausible',
+      },
+      { text: 'Zůstat v pohybu i při bolesti — klid ani límec dlouhodobě nepomáhají.', level: 'plausible' },
+      {
+        text: 'K lékaři při bolesti po úrazu, brnění nebo slabosti v rukou, horečce, nevysvětlitelném hubnutí nebo silné bolesti hlavy.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Skloněná hlava nad mobilem ničí krk.',
+        fact: 'U mladých dospělých studie souvislost mezi „textovacím“ držením a bolestí krku nenašla. Víc vadí dlouhé hodiny bez pohybu.',
+      },
+      {
+        myth: 'Korektor držení těla bolest vyřeší.',
+        fact: 'Svaly za vás drží jen chvíli a neposílí je. Účinnější je posilování a častější změna polohy.',
+      },
+      {
+        myth: 'Bolest krku znamená, že je něco s páteří.',
+        fact: 'Většinou jde o přetížené svaly a měkké tkáně. Na vážnou příčinu upozorní varovné příznaky — ty patří k lékaři.',
+      },
+    ],
+    related: [
+      { label: 'Mapa bolesti a cviky v aplikaci', href: '/login?mode=signup' },
+      { label: 'Bolest zad', href: '/jak-funguje-telo/bolest-zad' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+      { label: 'Bolest hlavy', href: '/jak-funguje-telo/bolest-hlavy' },
+    ],
+    sources: [SOURCES.grossNeck, SOURCES.andersenNeck, SOURCES.hushNeck, SOURCES.textNeck],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3716,6 +3800,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   dlouhovekost: 'prevence',
   'vysledky-krve': 'prevence',
   'bolest-kolen': 'pohyb',
+  'bolest-krku': 'pohyb',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

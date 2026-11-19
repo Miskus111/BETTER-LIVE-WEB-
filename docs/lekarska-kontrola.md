@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 42 průvodců, 20 doplňků, 747 položek ke kontrole.
+Obsah: 43 průvodců, 20 doplňků, 763 položek ke kontrole.
 
 ---
 
@@ -1300,7 +1300,55 @@ Poznámky lékaře:
 
 ---
 
-## 27. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 27. Bolest krku a šíje: u počítače, u mobilu a co s ní
+
+Web: /jak-funguje-telo/bolest-krku
+
+**Ve zkratce**
+
+- [ ] Většina bolestí krku nemá vážnou příčinu a zlepší se. U části lidí se ale vrací, proto se vyplatí řešit ji pohybem.
+- [ ] Nejlépe ověřené jsou cviky na posílení šíje, ramen a lopatek.
+- [ ] Skloněná hlava nad mobilem sama o sobě bolest krku u mladých lidí ve studii nezpůsobovala. Víc záleží na tom, jak dlouho jste bez pohybu.
+
+**Čísla**
+
+- [ ] **3× 20 min** silového tréninku týdně zmírnilo bolest šíje kancelářských pracovníků
+- [ ] **~6 týdnů** během nich se akutní bolest krku většinou výrazně zlepší
+
+**Jak to funguje**
+
+- [ ] **Svaly, které drží hlavu:** Hlava váží kolem 5 kg a nesou ji svaly šíje a ramen. Když jsou slabé nebo dlouho v jedné poloze, rychleji se unaví a bolí.
+- [ ] **Proč pomáhá posilování:** V randomizované studii krátký trénink s jednoručkami (asi 20 minut třikrát týdně) zmírnil bolest šíje víc než obecné kondiční cvičení. Silnější sval snese víc.
+- [ ] **Jak bolest běží:** Akutní bolest se během prvních týdnů obvykle výrazně zlepší. U zhruba poloviny lidí ale nějaké potíže po roce trvají nebo se vracejí — proto má smysl cvičit i potom.
+
+**Doporučení**
+
+- [ ] Posilovat šíji, ramena a lopatky (přítahy, upažování, krčení ramen s jednoručkami) 2–3× týdně. _(Prokázané)_
+- [ ] Každých 30–60 minut vstát, protáhnout se a změnit polohu. _(Pravděpodobné)_
+- [ ] Monitor zhruba do výšky očí a mobil zvednout k obličeji, když čtete delší dobu. _(Pravděpodobné)_
+- [ ] Zůstat v pohybu i při bolesti — klid ani límec dlouhodobě nepomáhají. _(Pravděpodobné)_
+- [ ] K lékaři při bolesti po úrazu, brnění nebo slabosti v rukou, horečce, nevysvětlitelném hubnutí nebo silné bolesti hlavy. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Skloněná hlava nad mobilem ničí krk.“ → U mladých dospělých studie souvislost mezi „textovacím“ držením a bolestí krku nenašla. Víc vadí dlouhé hodiny bez pohybu.
+- [ ] „Korektor držení těla bolest vyřeší.“ → Svaly za vás drží jen chvíli a neposílí je. Účinnější je posilování a častější změna polohy.
+- [ ] „Bolest krku znamená, že je něco s páteří.“ → Většinou jde o přetížené svaly a měkké tkáně. Na vážnou příčinu upozorní varovné příznaky — ty patří k lékaři.
+
+**Zdroje**
+
+- Gross a kol. (2015) Cvičení při bolesti krku, Cochrane — https://pubmed.ncbi.nlm.nih.gov/25629215/
+- Andersen a kol. (2008) Silový trénink proti bolesti šíje a ramen u kancelářských pracovníků, Med Sci Sports Exerc — https://pubmed.ncbi.nlm.nih.gov/18461010/
+- Hush a kol. (2011) Průběh akutní bolesti krku — metaanalýza, Arch Phys Med Rehabil — https://pubmed.ncbi.nlm.nih.gov/21458776/
+- Damasceno a kol. (2018) „Textovací krk“ a bolest krku u mladých dospělých, Eur Spine J — https://pubmed.ncbi.nlm.nih.gov/29306972/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 28. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1350,7 +1398,7 @@ Poznámky lékaře:
 
 ---
 
-## 28. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 29. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1402,7 +1450,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Kosti: banka, do které se ukládá do třiceti
+## 30. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1452,7 +1500,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 31. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1499,7 +1547,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Akné: co ho způsobuje a co na něj opravdu platí
+## 32. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1550,7 +1598,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 33. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1599,7 +1647,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 34. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1646,7 +1694,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 35. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1694,7 +1742,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Protahování: na co je dobré a na co ne
+## 36. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1744,7 +1792,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 37. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1796,7 +1844,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 38. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1845,7 +1893,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 39. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1895,7 +1943,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 40. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1947,7 +1995,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 41. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -1998,7 +2046,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 42. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2046,7 +2094,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 43. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
