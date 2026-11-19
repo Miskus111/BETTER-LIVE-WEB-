@@ -48,8 +48,10 @@ export async function deletePhoto(id: string): Promise<{ ok: boolean }> {
   const db = s.supabase as unknown as Db
   const { data } = await db.from('progress_photos').select('storage_path').eq('id', id).maybeSingle()
   if (!data) return { ok: false }
-  await s.supabase.storage.from('progress-photos').remove([data.storage_path])
+  // row first: a failed delete then leaves the photo intact instead of a broken gallery entry
   const { error } = await db.from('progress_photos').delete().eq('id', id)
+  if (error) return { ok: false }
+  await s.supabase.storage.from('progress-photos').remove([data.storage_path])
   revalidatePath('/body/photos')
-  return { ok: !error }
+  return { ok: true }
 }

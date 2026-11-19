@@ -22,8 +22,14 @@ export async function deleteAccount(formData: FormData) {
   if (word !== 'SMAZAT' && word !== 'DELETE') redirect('/settings?delete=confirm')
   const admin = createServiceClient()
   for (const bucket of ['progress-photos', 'lab-reports']) {
-    const { data } = await admin.storage.from(bucket).list(s.user.id, { limit: 1000 })
-    if (data?.length) await admin.storage.from(bucket).remove(data.map((f) => `${s.user.id}/${f.name}`))
+    // list() returns at most `limit` files: keep removing pages until the folder is empty
+    for (let round = 0; round < 100; round++) {
+      const { data, error } = await admin.storage.from(bucket).list(s.user.id, { limit: 1000 })
+      if (error || !data?.length) break
+      const { error: rm } = await admin.storage.from(bucket).remove(data.map((f) => `${s.user.id}/${f.name}`))
+      if (rm) redirect('/settings?delete=error')
+      if (data.length < 1000) break
+    }
   }
   const { error } = await admin.auth.admin.deleteUser(s.user.id)
   if (error) redirect('/settings?delete=error')

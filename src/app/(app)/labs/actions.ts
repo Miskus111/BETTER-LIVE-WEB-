@@ -71,13 +71,19 @@ export async function saveLabReport(
         taken_on: r.taken_on,
       })),
     )
-    if (e2) return { ok: false, error: e2.message }
+    if (e2) {
+      await db.from('lab_reports').delete().eq('id', report.id) // no empty report left behind
+      return { ok: false, error: e2.message }
+    }
   }
   if (r.inbody && Object.values(r.inbody).some((v) => v !== null)) {
     const { error: e3 } = await db
       .from('body_composition')
       .insert({ report_id: report.id, measured_on: r.taken_on, ...r.inbody, confirmed: true })
-    if (e3) return { ok: false, error: e3.message }
+    if (e3) {
+      await db.from('lab_reports').delete().eq('id', report.id) // values cascade
+      return { ok: false, error: e3.message }
+    }
   }
   revalidatePath('/labs')
   return { ok: true }
@@ -85,10 +91,13 @@ export async function saveLabReport(
 
 export async function deleteLabReport(id: string) {
   const s = await getSession()
-  if (!s) return
+  if (!s?.healthConsent || !z.string().uuid().safeParse(id).success) return
   const db = s.supabase as unknown as Db
   const { data } = await db.from('lab_reports').select('storage_path').eq('id', id).maybeSingle()
-  if (data?.storage_path) await s.supabase.storage.from('lab-reports').remove([data.storage_path])
-  await db.from('lab_reports').delete().eq('id', id)
+  if (!data) return
+  // row first: if it fails, the report stays whole instead of pointing to a deleted file
+  const { error } = await db.from('lab_reports').delete().eq('id', id)
+  if (error) return
+  if (data.storage_path) await s.supabase.storage.from('lab-reports').remove([data.storage_path])
   revalidatePath('/labs')
 }
