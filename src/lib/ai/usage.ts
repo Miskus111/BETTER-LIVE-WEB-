@@ -1,7 +1,10 @@
 import 'server-only'
 import { createServiceClient } from '@/lib/supabase/server'
 
-type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
+type Db = {
+  from: (t: string) => any // eslint-disable-line @typescript-eslint/no-explicit-any
+  rpc: (fn: string, args: Record<string, unknown>) => PromiseLike<{ data: unknown; error: unknown }>
+}
 
 /** Today's date in Czech time — the daily AI allowance resets at local midnight, not UTC. */
 export const usageDay = (now = new Date()) =>
@@ -24,6 +27,9 @@ export async function reserveAiCall(userId: string, limit: number): Promise<bool
   const db = admin()
   if (!db) return null
   const day = usageDay()
+  // atomic path (migration 20261119000000): one UPDATE … WHERE messages < limit, race-free
+  const rpc = await db.rpc('reserve_ai_call', { p_user: userId, p_day: day, p_limit: limit })
+  if (!rpc.error) return rpc.data === true
   const { data } = await db
     .from('ai_usage')
     .select('messages')
@@ -45,6 +51,14 @@ export async function addTokens(userId: string, input: number, output: number) {
   if (!db || (!input && !output)) return
   try {
     const day = usageDay()
+    const rpc = await db.rpc('add_ai_tokens', {
+      p_user: userId,
+      p_day: day,
+      p_input: input,
+      p_output: output,
+    })
+    if (!rpc.error) return
+    // fallback until the migration is applied
     const { data } = await db
       .from('ai_usage')
       .select('input_tokens, output_tokens')
