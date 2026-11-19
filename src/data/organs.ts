@@ -83,7 +83,7 @@ export const ORGANS: Organ[] = [
     ],
     science: {
       points: [
-        'Nedostatek vitamínu A způsobuje šeroslepost a je celosvětově hlavní preventabilní příčinou slepoty — v Evropě je vzácný.',
+        'Nedostatek vitamínu A způsobuje šeroslepost a je celosvětově hlavní příčinou slepoty, které se dá předejít — v Evropě je vzácný.',
         'AREDS2 testovala doplněk (mj. lutein 10 mg + zeaxantin 2 mg) u lidí se středně pokročilou věkem podmíněnou makulární degenerací; výsledky neplatí pro zdravé oči.',
         'Lutein se lépe vstřebává z potravin jedených s tukem (např. špenát s olivovým olejem, žloutek).',
       ],

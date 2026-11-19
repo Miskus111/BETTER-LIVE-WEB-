@@ -1088,7 +1088,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
     ],
     today: [
-      'Sociální sítě propagují opálení, „base tan“ a solária — přitom právě ty kůži stárnou nejvíc.',
+      'Sociální sítě propagují opálení, „base tan“ a solária — přitom právě UV záření nejvíc urychluje stárnutí kůže.',
       'Hodně péče o pleť jde do drahých sér; nejlépe doložený je přitom levný opalovací krém.',
     ],
     helps: [
