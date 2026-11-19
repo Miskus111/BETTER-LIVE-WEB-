@@ -20,7 +20,8 @@
     "seed:demo": "tsx --tsconfig scripts/tsconfig.json scripts/seed-demo.ts",
     "test:rls": "tsx --tsconfig scripts/tsconfig.json scripts/test-rls.ts",
     "seed:reference": "tsx --tsconfig scripts/tsconfig.json scripts/seed-reference.ts",
-    "review:doc": "tsx --tsconfig scripts/tsconfig.json scripts/medical-review.ts"
+    "review:doc": "tsx --tsconfig scripts/tsconfig.json scripts/medical-review.ts",
+    "check:db": "tsx --tsconfig scripts/tsconfig.json scripts/check-db.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",
