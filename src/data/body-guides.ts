@@ -150,6 +150,18 @@ const SOURCES = {
   ),
   aubin: pm(22782848, 'Aubin a kol. (2012) Kolik kuřáci přiberou po skončení — metaanalýza, BMJ'),
   pooleCoffee: pm(29167102, 'Poole a kol. (2017) Káva a zdraví — zastřešující přehled metaanalýz, BMJ'),
+  harmanT: pm(
+    11158037,
+    'Harman a kol. (2001) Jak se mění testosteron s věkem — dlouhodobá studie BLSA, J Clin Endocrinol Metab',
+  ),
+  weakTies: pm(
+    24769739,
+    'Sandstrom a Dunn (2014) Síla slabých vazeb: i krátké rozhovory zlepšují den, Pers Soc Psychol Bull',
+  ),
+  stothart: pm(
+    26121498,
+    'Stothart a kol. (2015) I jen přijatá notifikace naruší pozornost, J Exp Psychol Hum Percept Perform',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -663,7 +675,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Aplikace s nekonečným scrollem a nepředvídatelnými odměnami toho využívají.',
       'Výzkum dopadů mobilů je smíšený; prakticky pomáhá omezit spouštěče, ne „vypustit dopamin“.',
     ],
-    numbers: [],
+    numbers: [{ value: '1 pípnutí', label: 'stačí k narušení pozornosti, i když mobil nevezmete' }],
     how: [
       {
         title: 'Chyba v předpovědi',
@@ -676,6 +688,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Nepředvídatelná odměna',
         text: 'Když nevíte, jestli další příspěvek bude dobrý, mozek zkouší znovu a znovu — stejný princip jako u automatů.',
+      },
+      {
+        title: 'Cena přerušení',
+        text: 'V experimentu lidem zhoršila výkon v úkolu na pozornost už samotná notifikace — i když na mobil nesáhli. Mysl odběhne k tomu, co tam asi je.',
       },
     ],
     today: [
@@ -712,7 +728,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
       { label: 'Stres', href: '/jak-funguje-telo/stres' },
     ],
-    sources: [SOURCES.schultz, SOURCES.orben],
+    sources: [SOURCES.schultz, SOURCES.orben, SOURCES.stothart],
   },
   {
     slug: 'svaly-a-metabolismus',
@@ -2447,6 +2463,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Kvalita víc než počet',
         text: 'Nejde o počet sledujících. Rozhoduje, jestli máte pár lidí, kterým můžete zavolat, když je zle.',
       },
+      {
+        title: 'Proč je těžké z ní vystoupit',
+        text: 'Dlouhá osamělost zbystří mozek na odmítnutí — neutrální reakci pak snáz čteme jako chlad a raději se stáhneme. Pomáhá vědět, že je to past, ne pravda o vás.',
+      },
     ],
     today: [
       'WHO upozorňuje na nadměrný čas u obrazovky a negativní interakce online jako na riziko pro duševní zdraví mladých.',
@@ -2464,6 +2484,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         text: 'Kroužek, sport, dobrovolnictví nebo skupina se stejným koníčkem — lidi se nejsnáz potkávají u společné činnosti.',
         level: 'plausible',
+      },
+      {
+        text: 'Počítají se i drobnosti: pár vět s prodavačkou, sousedem nebo spolužákem. Lidé, kteří měli víc takových krátkých rozhovorů, se ten den cítili líp.',
+        level: 'preliminary',
       },
       {
         text: 'Když osamělost trvá a přidá se smutek nebo beznaděj, říct si o pomoc (psycholog, linka důvěry).',
@@ -2485,7 +2509,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Stres', href: '/jak-funguje-telo/stres' },
       { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
     ],
-    sources: [SOURCES.whoSocial, SOURCES.holtLunstad, SOURCES.holtLunstad24],
+    sources: [SOURCES.whoSocial, SOURCES.holtLunstad, SOURCES.holtLunstad24, SOURCES.weakTies],
   },
   {
     slug: 'protahovani',
@@ -2578,6 +2602,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '10–15 %', label: 'pokles po týdnu spánku 5 h za noc (studie)' },
       { value: '~25 %', label: 'složek boosterů mělo data o zvýšení testosteronu' },
+      { value: '~1 %', label: 'ročně klesá testosteron od středního věku' },
     ],
     how: [
       {
@@ -2592,6 +2617,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Váha',
         text: 'Tukové tkáně přeměňují testosteron na estrogen a obezita tlumí jeho tvorbu. Zhubnutí podle metaanalýzy hladinu zvyšuje — tím víc, čím víc kil dolů.',
       },
+      {
+        title: 'Věk',
+        text: 'Od středního věku hladina pozvolna klesá, zhruba o procento ročně. Je to normální a samo o sobě to léčbu nevyžaduje — rozhodují příznaky a opakovaně nízké hodnoty.',
+      },
     ],
     today: [
       'Sítě a e-shopy prodávají boostery, „TRT kliniky“ a strach z „nízkého T“.',
@@ -2604,6 +2633,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Při nadváze zhubnout.', level: 'established' },
       { text: 'Pravidelný pohyb a posilování.', level: 'plausible' },
+      { text: 'Omezit alkohol — velké dávky tvorbu testosteronu tlumí.', level: 'plausible' },
       {
         text: 'Při únavě, poklesu libida nebo erekce zajít k lékaři — měří se ráno nalačno a opakovaně.',
         level: 'established',
@@ -2628,7 +2658,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
       { label: 'Looksmaxing', href: '/looksmaxing' },
     ],
-    sources: [SOURCES.leproult, SOURCES.coronaWeight, SOURCES.clemesha, SOURCES.bhasin, SOURCES.reedSoy],
+    sources: [
+      SOURCES.leproult,
+      SOURCES.coronaWeight,
+      SOURCES.clemesha,
+      SOURCES.bhasin,
+      SOURCES.reedSoy,
+      SOURCES.harmanT,
+    ],
   },
   {
     slug: 'cholesterol',
