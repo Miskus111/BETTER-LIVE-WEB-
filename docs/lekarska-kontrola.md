@@ -1381,7 +1381,7 @@ Web: /jak-funguje-telo/unava
 **Mýty**
 
 - [ ] „Únava znamená, že mi chybí vitamíny.“ → Nedostatek vitamínů nebo železa je jen jedna z možností a u většiny lidí ne ta hlavní. Doplňky naslepo únavu obvykle nevyřeší.
-- [ ] „Když je unavený, musí mu něco vážného být.“ → Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.
+- [ ] „Kdo je dlouho unavený, musí mít něco vážného.“ → Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.
 - [ ] „Mám adrenální únavu.“ → Taková diagnóza vědecky neexistuje. Únava má skutečné příčiny — a ty stojí za vyšetření.
 
 **Zdroje**

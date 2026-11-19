@@ -2632,7 +2632,7 @@ export const BODY_GUIDES: BodyGuide[] = [
         fact: 'Nedostatek vitamínů nebo železa je jen jedna z možností a u většiny lidí ne ta hlavní. Doplňky naslepo únavu obvykle nevyřeší.',
       },
       {
-        myth: 'Když je unavený, musí mu něco vážného být.',
+        myth: 'Kdo je dlouho unavený, musí mít něco vážného.',
         fact: 'Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.',
       },
       {
