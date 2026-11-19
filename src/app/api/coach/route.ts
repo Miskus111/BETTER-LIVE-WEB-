@@ -9,7 +9,7 @@ import { AI_MODEL, fallbackParams, getAnthropic } from '@/lib/ai/client'
 import { coachDailyLimit, hasAccess } from '@/lib/billing'
 import { EATING_INSTRUCTION, FIXED_REPLY, screenMessage } from '@/lib/coach/safety'
 import { COACH_TOOLS, runCoachTool } from '@/lib/coach/tools'
-import { createServiceClient } from '@/lib/supabase/server'
+import { addTokens, reserveAiCall, usageDay } from '@/lib/ai/usage'
 
 export const runtime = 'nodejs'
 export const maxDuration = 120
@@ -37,16 +37,9 @@ export async function POST(req: Request) {
   const plan = await getPlan(s.supabase, s.user.id)
   if (!hasAccess('coach', plan)) return NextResponse.json({ error: 'upgrade' }, { status: 402 })
 
-  // daily cap, counted from the user's own messages (RLS-visible, no service key needed)
-  const start = new Date()
-  start.setHours(0, 0, 0, 0)
-  const { count } = await db
-    .from('coach_messages')
-    .select('id', { count: 'exact', head: true })
-    .eq('role', 'user')
-    .gte('created_at', start.toISOString())
+  // daily cap: counted in ai_usage (server-write-only, so deleting chat history can't reset it),
+  // reserved before the model call so parallel requests can't all slip through
   const limit = coachDailyLimit(plan)
-  if ((count ?? 0) >= limit) return NextResponse.json({ error: 'limit', limit }, { status: 429 })
 
   // conversation
   let conversationId = parsed.data.conversationId ?? null
@@ -98,6 +91,18 @@ export async function POST(req: Request) {
   const ai = getAnthropic()
   if (!ai) return NextResponse.json({ error: 'ai_not_configured' }, { status: 503 })
 
+  const reserved = await reserveAiCall(s.user.id, limit)
+  if (reserved === false) return NextResponse.json({ error: 'limit', limit }, { status: 429 })
+  if (reserved === null) {
+    // no service key (local development): fall back to counting today's own messages
+    const { count } = await db
+      .from('coach_messages')
+      .select('id', { count: 'exact', head: true })
+      .eq('role', 'user')
+      .gte('created_at', `${usageDay()}T00:00:00+01:00`)
+    if ((count ?? 0) >= limit) return NextResponse.json({ error: 'limit', limit }, { status: 429 })
+  }
+
   const messages: Anthropic.Beta.BetaMessageParam[] = [
     ...((history ?? []) as { role: 'user' | 'assistant'; content: string }[])
       .reverse()
@@ -148,7 +153,6 @@ export async function POST(req: Request) {
           .join('\n')
           .trim()
         await save(reply, usedTools)
-        await recordUsage(s.user.id, inputTokens, outputTokens)
         return NextResponse.json({ conversationId, reply, tools: usedTools })
       }
       messages.push({ role: 'assistant', content: res.content })
@@ -180,28 +184,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
     if (e instanceof Anthropic.APIError) return NextResponse.json({ error: 'ai_error' }, { status: 502 })
     throw e
-  }
-}
-
-/** Token accounting for cost monitoring; needs the service key (ai_usage is server-write-only). */
-async function recordUsage(userId: string, input: number, output: number) {
-  try {
-    const admin = createServiceClient() as unknown as Db
-    const day = new Date().toISOString().slice(0, 10)
-    const { data } = await admin
-      .from('ai_usage')
-      .select('messages, input_tokens, output_tokens')
-      .eq('user_id', userId)
-      .eq('day', day)
-      .maybeSingle()
-    await admin.from('ai_usage').upsert({
-      user_id: userId,
-      day,
-      messages: (data?.messages ?? 0) + 1,
-      input_tokens: (data?.input_tokens ?? 0) + input,
-      output_tokens: (data?.output_tokens ?? 0) + output,
-    })
-  } catch {
-    // usage accounting must never break the chat
+  } finally {
+    // every exit that reached the model — reply, refusal, aborted tool loop, API error — is accounted
+    await addTokens(s.user.id, inputTokens, outputTokens)
   }
 }

@@ -37,13 +37,29 @@ export async function GET() {
   if (!s) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
   // untyped access: tables beyond the generated subset
   const db = s.supabase as unknown as {
-    from: (t: string) => { select: (c: string) => PromiseLike<{ data: unknown }> }
+    from: (t: string) => {
+      select: (c: string) => { range: (a: number, b: number) => PromiseLike<{ data: unknown[] | null }> }
+    }
+  }
+  // PostgREST returns at most 1000 rows per request — page through so the export is complete
+  const PAGE = 1000
+  const all = async (t: string) => {
+    const rows: unknown[] = []
+    for (let from = 0; ; from += PAGE) {
+      const { data } = await db
+        .from(t)
+        .select('*')
+        .range(from, from + PAGE - 1)
+      rows.push(...(data ?? []))
+      if (!data || data.length < PAGE) return rows
+    }
   }
   const out: Record<string, unknown> = {
     exported_at: new Date().toISOString(),
     user: { id: s.user.id, email: s.user.email },
   }
-  for (const t of TABLES) out[t] = (await db.from(t).select('*')).data ?? []
+  const tables = await Promise.all(TABLES.map(async (t) => [t, await all(t)] as const))
+  for (const [t, rows] of tables) out[t] = rows
   return new NextResponse(JSON.stringify(out, null, 2), {
     headers: {
       'content-type': 'application/json; charset=utf-8',

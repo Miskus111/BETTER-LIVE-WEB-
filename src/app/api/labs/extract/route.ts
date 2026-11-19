@@ -3,7 +3,9 @@ import { z } from 'zod/v4'
 import Anthropic from '@anthropic-ai/sdk'
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod'
 import { getSession } from '@/lib/auth'
-import { gate } from '@/lib/plan'
+import { gate, getPlan } from '@/lib/plan'
+import { coachDailyLimit } from '@/lib/billing'
+import { addTokens, reserveAiCall } from '@/lib/ai/usage'
 import { AI_MODEL, fallbackParams, getAnthropic } from '@/lib/ai/client'
 import { normalizeRow, type LabCandidate } from '@/lib/labs/markers'
 import { parseLabText } from '@/lib/labs/parse-text'
@@ -86,19 +88,13 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'unsupported_type' }, { status: 415 })
 
   const bytes = Buffer.from(await file.arrayBuffer())
-  // keep the original in the private bucket (path is prefixed with the user id — storage RLS)
-  const ext = file.type === 'application/pdf' ? 'pdf' : file.type.split('/')[1]
-  const storage_path = `${s.user.id}/${crypto.randomUUID()}.${ext}`
-  const up = await s.supabase.storage
-    .from('lab-reports')
-    .upload(storage_path, bytes, { contentType: file.type })
 
   const ai = getAnthropic()
-  if (!ai)
-    return NextResponse.json(
-      { error: 'ai_not_configured', storage_path: up.error ? null : storage_path },
-      { status: 503 },
-    )
+  if (!ai) return NextResponse.json({ error: 'ai_not_configured', storage_path: null }, { status: 503 })
+
+  // shares the daily AI allowance with the coach (counted server-side in ai_usage)
+  const reserved = await reserveAiCall(s.user.id, coachDailyLimit(await getPlan(s.supabase, s.user.id)))
+  if (reserved === false) return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
 
   const data = bytes.toString('base64')
   const doc: Anthropic.Beta.BetaContentBlockParam =
@@ -122,9 +118,19 @@ export async function POST(req: Request) {
       system: PROMPT,
       messages: [{ role: 'user', content: [doc, { type: 'text', text: 'Transcribe this document.' }] }],
     })
+    await addTokens(s.user.id, res.usage.input_tokens, res.usage.output_tokens)
     if (res.stop_reason === 'refusal' || !res.parsed_output)
       return NextResponse.json({ error: 'extraction_failed' }, { status: 422 })
     const out = res.parsed_output
+
+    // keep the original only once it was read successfully (private bucket, path prefixed with the
+    // user id — storage RLS); failed or refused documents are never stored
+    const ext = file.type === 'application/pdf' ? 'pdf' : file.type.split('/')[1]
+    const storage_path = `${s.user.id}/${crypto.randomUUID()}.${ext}`
+    const up =
+      out.kind === 'other'
+        ? { error: 'not a lab report' }
+        : await s.supabase.storage.from('lab-reports').upload(storage_path, bytes, { contentType: file.type })
     const body: ExtractResponse = {
       source: 'ai',
       kind: out.kind,
