@@ -325,6 +325,18 @@ const SOURCES = {
     30376075,
     'Iguacel a kol. (2019) Veganství, vegetariánství, hustota kostí a zlomeniny — metaanalýza, Nutr Rev',
   ),
+  whoCancer: {
+    title: 'WHO: Rakovina — fakta (asi 38 % nádorů lze předejít)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/cancer',
+  },
+  cancerCode: {
+    title: 'IARC/WHO: Evropský kodex proti rakovině',
+    url: 'https://cancer-code-europe.iarc.who.int/',
+  },
+  vzpScreening: {
+    title: 'VZP ČR: Screeningové programy a programy časného záchytu (podmínky platné v ČR)',
+    url: 'https://vzp.cz/pojistenci/prevence/screeningove-programy-a-programy-casneho-zachytu-vybranych-onemocneni',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3005,6 +3017,77 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.melinaVeg, SOURCES.neufingerl, SOURCES.iguacelBone],
   },
   {
+    slug: 'prevence-rakoviny',
+    title: 'Prevence rakoviny: co máte ve svých rukou a na jaké screeningy chodit',
+    short: 'Prevence rakoviny',
+    icon: 'shield',
+    hook: 'Zhruba 38 % nádorů jde podle WHO předejít. A řadu dalších screening zachytí tak brzy, že se dají vyléčit. V Česku jsou tato vyšetření zdarma.',
+    tldr: [
+      'Největší vliv má nekouření, málo alkoholu, zdravá váha, pohyb, ochrana před sluncem a očkování proti HPV a hepatitidě B.',
+      'Screening hledá nádor dřív, než bolí — kdy je léčba nejúspěšnější.',
+      'V ČR jsou hrazené screeningy prsu, děložního hrdla, tlustého střeva a plic a pilotní program pro prostatu.',
+    ],
+    numbers: [
+      { value: '~38 %', label: 'nádorů lze předejít (WHO)' },
+      { value: '45+', label: 'let: mamografie a screening tlustého střeva' },
+      { value: '10 let', label: 'interval screeningové koloskopie' },
+    ],
+    how: [
+      {
+        title: 'Co riziko zvyšuje',
+        text: 'Tabák je největší jednotlivá příčina nádorů. Dále alkohol, obezita, nedostatek pohybu, spálení od slunce, některé infekce (HPV, hepatitida B a C) a znečištěné ovzduší.',
+      },
+      {
+        title: 'Proč screening funguje',
+        text: 'Řada nádorů roste roky bez příznaků. Screening najde přednádorové změny nebo časné stadium — například koloskopie polyp rovnou odstraní dřív, než se z něj nádor stane.',
+      },
+      {
+        title: 'Screeningy v ČR',
+        text: 'Mamografie pro ženy od 45 let každé 2 roky. Děložní hrdlo: od 15 let každoroční prohlídka s cytologií a HPV test ve 35, 45 a 55 letech. Tlusté střevo: od 45 do 74 let test na skryté krvácení ve stolici každé 2 roky, nebo koloskopie jednou za 10 let. Plíce: kuřáci a bývalí kuřáci 55–74 let s kouřením aspoň 20 cigaret denně 20 let. Prostata: pilotní program pro muže 50–69 let.',
+      },
+    ],
+    today: [
+      'Na screeningy chodí jen část lidí, pro které jsou určené — hlavně kolorektální screening má nízkou účast.',
+      'Sítě nabízejí „detoxy proti rakovině“ a zázračné diety. Žádná potravina ani doplněk rakovině spolehlivě nezabrání.',
+    ],
+    helps: [
+      { text: 'Nekouřit a nevapovat — přínos má přestat v jakémkoli věku.', level: 'established' },
+      { text: 'Alkohol co nejméně — zvyšuje riziko už v malých dávkách.', level: 'established' },
+      { text: 'Udržovat zdravou váhu a hýbat se.', level: 'established' },
+      { text: 'Chránit kůži před spálením a nechodit do solária.', level: 'established' },
+      { text: 'Očkování proti HPV (dívky i chlapci) a hepatitidě B.', level: 'established' },
+      {
+        text: 'Chodit na screeningy podle věku — praktický lékař nebo gynekolog vás objedná.',
+        level: 'established',
+      },
+      {
+        text: 'K lékaři bez odkladu při krvi ve stolici, bulce v prsu, nehojící se ráně, změně znaménka nebo nevysvětlitelném hubnutí.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Rakovina je jen otázka genů a smůly.',
+        fact: 'Dědičnost hraje roli u menší části nádorů. Podle WHO jde zhruba 38 % případů předejít životním stylem a prevencí.',
+      },
+      {
+        myth: 'Když mě nic nebolí, screening nepotřebuji.',
+        fact: 'Právě proto existuje — zachytí nádor dřív, než způsobí potíže a kdy je léčba nejúčinnější.',
+      },
+      {
+        myth: 'Superpotraviny a detoxy chrání před rakovinou.',
+        fact: 'Žádná jednotlivá potravina rakovině spolehlivě nezabrání. Pomáhá celková strava s dostatkem vlákniny a málo uzenin a červeného masa.',
+      },
+    ],
+    related: [
+      { label: 'Nikotin a vaping', href: '/jak-funguje-telo/nikotin-a-vaping' },
+      { label: 'Alkohol', href: '/jak-funguje-telo/alkohol' },
+      { label: 'Kůže a slunce', href: '/jak-funguje-telo/kuze-a-slunce' },
+      { label: 'Dlouhověkost', href: '/jak-funguje-telo/dlouhovekost' },
+    ],
+    sources: [SOURCES.whoCancer, SOURCES.cancerCode, SOURCES.vzpScreening],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4262,6 +4345,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'etikety-potravin': 'jidlo',
   'panevni-dno': 'prevence',
   'rostlinna-strava': 'jidlo',
+  'prevence-rakoviny': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

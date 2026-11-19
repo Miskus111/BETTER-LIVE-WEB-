@@ -461,6 +461,14 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Většinou jde o neúčinné formy B12. Spolehlivý je jen doplněk nebo obohacené potraviny.',
   },
+  {
+    id: 'rakovina-geny',
+    guide: 'prevence-rakoviny',
+    statement: 'Rakovina je hlavně otázka genů, životním stylem se jí předejít nedá.',
+    fact: false,
+    explain:
+      'Podle WHO jde zhruba 38 % nádorů předejít — hlavně nekouřením, méně alkoholu, pohybem a očkováním.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

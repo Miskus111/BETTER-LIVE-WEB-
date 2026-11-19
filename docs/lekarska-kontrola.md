@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 49 průvodců, 20 doplňků, 861 položek ke kontrole.
+Obsah: 50 průvodců, 20 doplňků, 880 položek ke kontrole.
 
 ---
 
@@ -1634,7 +1634,57 @@ Poznámky lékaře:
 
 ---
 
-## 34. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 34. Prevence rakoviny: co máte ve svých rukou a na jaké screeningy chodit
+
+Web: /jak-funguje-telo/prevence-rakoviny
+
+**Ve zkratce**
+
+- [ ] Největší vliv má nekouření, málo alkoholu, zdravá váha, pohyb, ochrana před sluncem a očkování proti HPV a hepatitidě B.
+- [ ] Screening hledá nádor dřív, než bolí — kdy je léčba nejúspěšnější.
+- [ ] V ČR jsou hrazené screeningy prsu, děložního hrdla, tlustého střeva a plic a pilotní program pro prostatu.
+
+**Čísla**
+
+- [ ] **~38 %** nádorů lze předejít (WHO)
+- [ ] **45+** let: mamografie a screening tlustého střeva
+- [ ] **10 let** interval screeningové koloskopie
+
+**Jak to funguje**
+
+- [ ] **Co riziko zvyšuje:** Tabák je největší jednotlivá příčina nádorů. Dále alkohol, obezita, nedostatek pohybu, spálení od slunce, některé infekce (HPV, hepatitida B a C) a znečištěné ovzduší.
+- [ ] **Proč screening funguje:** Řada nádorů roste roky bez příznaků. Screening najde přednádorové změny nebo časné stadium — například koloskopie polyp rovnou odstraní dřív, než se z něj nádor stane.
+- [ ] **Screeningy v ČR:** Mamografie pro ženy od 45 let každé 2 roky. Děložní hrdlo: od 15 let každoroční prohlídka s cytologií a HPV test ve 35, 45 a 55 letech. Tlusté střevo: od 45 do 74 let test na skryté krvácení ve stolici každé 2 roky, nebo koloskopie jednou za 10 let. Plíce: kuřáci a bývalí kuřáci 55–74 let s kouřením aspoň 20 cigaret denně 20 let. Prostata: pilotní program pro muže 50–69 let.
+
+**Doporučení**
+
+- [ ] Nekouřit a nevapovat — přínos má přestat v jakémkoli věku. _(Prokázané)_
+- [ ] Alkohol co nejméně — zvyšuje riziko už v malých dávkách. _(Prokázané)_
+- [ ] Udržovat zdravou váhu a hýbat se. _(Prokázané)_
+- [ ] Chránit kůži před spálením a nechodit do solária. _(Prokázané)_
+- [ ] Očkování proti HPV (dívky i chlapci) a hepatitidě B. _(Prokázané)_
+- [ ] Chodit na screeningy podle věku — praktický lékař nebo gynekolog vás objedná. _(Prokázané)_
+- [ ] K lékaři bez odkladu při krvi ve stolici, bulce v prsu, nehojící se ráně, změně znaménka nebo nevysvětlitelném hubnutí. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Rakovina je jen otázka genů a smůly.“ → Dědičnost hraje roli u menší části nádorů. Podle WHO jde zhruba 38 % případů předejít životním stylem a prevencí.
+- [ ] „Když mě nic nebolí, screening nepotřebuji.“ → Právě proto existuje — zachytí nádor dřív, než způsobí potíže a kdy je léčba nejúčinnější.
+- [ ] „Superpotraviny a detoxy chrání před rakovinou.“ → Žádná jednotlivá potravina rakovině spolehlivě nezabrání. Pomáhá celková strava s dostatkem vlákniny a málo uzenin a červeného masa.
+
+**Zdroje**
+
+- WHO: Rakovina — fakta (asi 38 % nádorů lze předejít) — https://www.who.int/news-room/fact-sheets/detail/cancer
+- IARC/WHO: Evropský kodex proti rakovině — https://cancer-code-europe.iarc.who.int/
+- VZP ČR: Screeningové programy a programy časného záchytu (podmínky platné v ČR) — https://vzp.cz/pojistenci/prevence/screeningove-programy-a-programy-casneho-zachytu-vybranych-onemocneni
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 35. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1684,7 +1734,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 36. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1736,7 +1786,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Kosti: banka, do které se ukládá do třiceti
+## 37. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1786,7 +1836,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 38. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1833,7 +1883,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Akné: co ho způsobuje a co na něj opravdu platí
+## 39. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1884,7 +1934,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 40. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1933,7 +1983,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 41. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1980,7 +2030,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 42. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2028,7 +2078,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Protahování: na co je dobré a na co ne
+## 43. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2078,7 +2128,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 44. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2130,7 +2180,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 45. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2179,7 +2229,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 46. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2229,7 +2279,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 47. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2281,7 +2331,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 48. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2332,7 +2382,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 49. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2380,7 +2430,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 50. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
