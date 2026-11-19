@@ -439,6 +439,13 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Odpočinek uleví, ale když se nezmění podmínky práce, vyčerpání se vrátí. Víc pomáhají změny v organizaci práce.',
   },
+  {
+    id: 'bez-pridaneho-cukru',
+    guide: 'etikety-potravin',
+    statement: 'Nápis „bez přidaného cukru“ znamená, že potravina neobsahuje žádný cukr.',
+    fact: false,
+    explain: 'Jen to, že výrobce cukr nepřidal. Přirozený cukr z ovoce nebo mléka v ní být může.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

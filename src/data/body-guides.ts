@@ -2781,6 +2781,77 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.whoBurnout, SOURCES.salvagioni, SOURCES.panagioti],
   },
   {
+    slug: 'etikety-potravin',
+    title: 'Etikety potravin: jak je přečíst za 30 sekund',
+    short: 'Etikety potravin',
+    icon: 'package',
+    hook: '„Light“, „bez přidaného cukru“, „zdroj bílkovin“. Co tyhle nápisy podle evropských pravidel opravdu znamenají — a kam se na obalu podívat nejdřív.',
+    tldr: [
+      'Složení je seřazené podle množství: co je první, toho je v potravině nejvíc.',
+      'Výživové údaje se uvádějí na 100 g — díky tomu jde výrobky férově porovnat.',
+      'Tvrzení jako „zdroj“, „light“ nebo „nízký obsah cukrů“ mají v EU přesná pravidla. Nemusí ale znamenat, že je výrobek celkově zdravý.',
+    ],
+    numbers: [
+      { value: '15 %', label: 'denní referenční hodnoty na 100 g = „zdroj“ vitamínu či minerálu' },
+      { value: '5 g', label: 'cukrů na 100 g nejvýš u „nízký obsah cukrů“ (u nápojů 2,5 g na 100 ml)' },
+      { value: '× 2,5', label: 'sodík na sůl: 1 g sodíku = 2,5 g soli' },
+    ],
+    how: [
+      {
+        title: 'Kam se dívat nejdřív',
+        text: 'Na první tři složky — tvoří většinu výrobku. Když je mezi nimi cukr, sirup nebo rafinovaný olej, je to signál. Pak tabulka: energie, cukry, nasycené tuky, vláknina a sůl na 100 g.',
+      },
+      {
+        title: 'Co znamenají tvrzení',
+        text: '„Zdroj“ vitamínu znamená aspoň 15 % denní referenční hodnoty na 100 g, „vysoký obsah“ dvojnásobek. „Light“ nebo „se sníženým obsahem“ znamená aspoň o 30 % méně než běžný srovnatelný výrobek.',
+      },
+      {
+        title: 'Datum na obalu',
+        text: '„Spotřebujte do“ hlídá bezpečnost — po datu potravinu nejezte. „Minimální trvanlivost do“ hlídá kvalitu; potravina je často v pořádku i po něm, když je neporušená a dobře uložená.',
+      },
+    ],
+    today: [
+      'Přední strana obalu je reklama: „protein“, „fit“ nebo „přírodní“ často zakrývají hodně cukru nebo soli.',
+      'Cukr se na etiketě skrývá pod desítkami názvů — sirup, dextróza, maltodextrin, koncentrát ovocné šťávy.',
+    ],
+    helps: [
+      {
+        text: 'Porovnávat výrobky na 100 g, ne na porci — porce si výrobci určují sami.',
+        level: 'established',
+      },
+      { text: 'Vybírat kratší složení s potravinami, které znáte z kuchyně.', level: 'plausible' },
+      {
+        text: 'Hlídat sůl: u sýrů, uzenin a pečiva bývá vysoká. WHO doporučuje méně než 5 g soli denně.',
+        level: 'established',
+      },
+      {
+        text: '„Minimální trvanlivost“ nebrat jako datum vyhození — zkontrolovat vzhled, vůni a chuť.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: '„Bez přidaného cukru“ znamená bez cukru.',
+        fact: 'Jen to, že výrobce cukr nepřidal. Cukr z ovoce nebo mléka v potravině být může — etiketa to pak musí uvést.',
+      },
+      {
+        myth: '„Light“ znamená zdravé.',
+        fact: 'Znamená aspoň o 30 % méně něčeho (tuku, cukru, energie) než běžná verze. Výrobek může mít pořád hodně soli nebo cukru.',
+      },
+      {
+        myth: 'Po datu minimální trvanlivosti se potravina musí vyhodit.',
+        fact: 'Ne. To platí pro „spotřebujte do“. Po minimální trvanlivosti se může jen zhoršit chuť či vůně.',
+      },
+    ],
+    related: [
+      { label: 'Ultrazpracované potraviny', href: '/jak-funguje-telo/ultrazpracovane-potraviny' },
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+      { label: 'Tuky', href: '/jak-funguje-telo/tuky' },
+    ],
+    sources: [SRC.fic, SRC.claimsReg, SOURCES.whoSodium],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4035,6 +4106,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   unava: 'spanek',
   tuky: 'jidlo',
   vyhoreni: 'mysl',
+  'etikety-potravin': 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

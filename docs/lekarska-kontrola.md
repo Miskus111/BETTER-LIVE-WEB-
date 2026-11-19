@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 46 průvodců, 20 doplňků, 812 položek ke kontrole.
+Obsah: 47 průvodců, 20 doplňků, 828 položek ke kontrole.
 
 ---
 
@@ -1493,7 +1493,54 @@ Poznámky lékaře:
 
 ---
 
-## 31. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 31. Etikety potravin: jak je přečíst za 30 sekund
+
+Web: /jak-funguje-telo/etikety-potravin
+
+**Ve zkratce**
+
+- [ ] Složení je seřazené podle množství: co je první, toho je v potravině nejvíc.
+- [ ] Výživové údaje se uvádějí na 100 g — díky tomu jde výrobky férově porovnat.
+- [ ] Tvrzení jako „zdroj“, „light“ nebo „nízký obsah cukrů“ mají v EU přesná pravidla. Nemusí ale znamenat, že je výrobek celkově zdravý.
+
+**Čísla**
+
+- [ ] **15 %** denní referenční hodnoty na 100 g = „zdroj“ vitamínu či minerálu
+- [ ] **5 g** cukrů na 100 g nejvýš u „nízký obsah cukrů“ (u nápojů 2,5 g na 100 ml)
+- [ ] **× 2,5** sodík na sůl: 1 g sodíku = 2,5 g soli
+
+**Jak to funguje**
+
+- [ ] **Kam se dívat nejdřív:** Na první tři složky — tvoří většinu výrobku. Když je mezi nimi cukr, sirup nebo rafinovaný olej, je to signál. Pak tabulka: energie, cukry, nasycené tuky, vláknina a sůl na 100 g.
+- [ ] **Co znamenají tvrzení:** „Zdroj“ vitamínu znamená aspoň 15 % denní referenční hodnoty na 100 g, „vysoký obsah“ dvojnásobek. „Light“ nebo „se sníženým obsahem“ znamená aspoň o 30 % méně než běžný srovnatelný výrobek.
+- [ ] **Datum na obalu:** „Spotřebujte do“ hlídá bezpečnost — po datu potravinu nejezte. „Minimální trvanlivost do“ hlídá kvalitu; potravina je často v pořádku i po něm, když je neporušená a dobře uložená.
+
+**Doporučení**
+
+- [ ] Porovnávat výrobky na 100 g, ne na porci — porce si výrobci určují sami. _(Prokázané)_
+- [ ] Vybírat kratší složení s potravinami, které znáte z kuchyně. _(Pravděpodobné)_
+- [ ] Hlídat sůl: u sýrů, uzenin a pečiva bývá vysoká. WHO doporučuje méně než 5 g soli denně. _(Prokázané)_
+- [ ] „Minimální trvanlivost“ nebrat jako datum vyhození — zkontrolovat vzhled, vůni a chuť. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „„Bez přidaného cukru“ znamená bez cukru.“ → Jen to, že výrobce cukr nepřidal. Cukr z ovoce nebo mléka v potravině být může — etiketa to pak musí uvést.
+- [ ] „„Light“ znamená zdravé.“ → Znamená aspoň o 30 % méně něčeho (tuku, cukru, energie) než běžná verze. Výrobek může mít pořád hodně soli nebo cukru.
+- [ ] „Po datu minimální trvanlivosti se potravina musí vyhodit.“ → Ne. To platí pro „spotřebujte do“. Po minimální trvanlivosti se může jen zhoršit chuť či vůně.
+
+**Zdroje**
+
+- Nařízení (EU) 1169/2011, příloha XIII — referenční hodnoty příjmu — https://eur-lex.europa.eu/eli/reg/2011/1169/oj
+- Nařízení (ES) 1924/2006 — výživová tvrzení („zdroj“, „vysoký obsah“) — https://eur-lex.europa.eu/eli/reg/2006/1924/oj
+- WHO — Snížení příjmu soli (sodíku) — https://www.who.int/news-room/fact-sheets/detail/sodium-reduction
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 32. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1543,7 +1590,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 33. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1595,7 +1642,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Kosti: banka, do které se ukládá do třiceti
+## 34. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1645,7 +1692,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 35. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1692,7 +1739,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Akné: co ho způsobuje a co na něj opravdu platí
+## 36. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1743,7 +1790,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 37. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1792,7 +1839,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 38. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1839,7 +1886,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 39. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1887,7 +1934,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Protahování: na co je dobré a na co ne
+## 40. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1937,7 +1984,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 41. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1989,7 +2036,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 42. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2038,7 +2085,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 43. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2088,7 +2135,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 44. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2140,7 +2187,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 45. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2191,7 +2238,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 46. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2239,7 +2286,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 47. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
