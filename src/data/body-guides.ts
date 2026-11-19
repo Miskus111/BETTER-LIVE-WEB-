@@ -97,6 +97,15 @@ const SOURCES = {
     'Paluch a kol. (2022) Počet kroků za den a úmrtnost — metaanalýza 15 kohort, Lancet Public Health',
   ),
   ekelund: pm(27475271, 'Ekelund a kol. (2016) Vyváží pohyb škody ze sezení? Metaanalýza, Lancet'),
+  americanGut: pm(
+    29795809,
+    'McDonald a kol. (2018) American Gut: víc druhů rostlin týdně a pestřejší mikrobiom, mSystems',
+  ),
+  dethlefsen: pm(
+    20847294,
+    'Dethlefsen a Relman (2011) Neúplné zotavení střevních bakterií po antibiotikách, PNAS',
+  ),
+  killer: pm(24416202, 'Killer a kol. (2014) Káva v běžném množství neodvodňuje — zkřížená studie, PLoS One'),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -785,6 +794,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '25 g', label: 'vlákniny denně (EFSA, minimum)' },
       { value: '25–29 g', label: 'kde studie vidí největší přínos' },
+      { value: '30+', label: 'druhů rostlin týdně — spojeno s pestřejším mikrobiomem' },
     ],
     how: [
       {
@@ -795,10 +805,19 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Rozmanitost',
         text: 'Pestřejší strava (víc druhů rostlin) obvykle znamená pestřejší mikrobiom. Antibiotika a velmi jednotvárná strava ho dočasně ochudí.',
       },
+      {
+        title: 'Střevní bariéra',
+        text: 'Střevo od zbytku těla odděluje jediná vrstva buněk krytá hlenem. Hlídá ji velká část imunitního systému — proto se střeva a imunita tolik ovlivňují.',
+      },
+      {
+        title: 'Střevo a mozek',
+        text: 'Střeva s mozkem „mluví“ přes bloudivý nerv, hormony a látky od bakterií. Většina důkazů je zatím ze zvířat; u lidí se to teprve zkoumá.',
+      },
     ],
     today: [
       'Ultrazpracované potraviny často obsahují málo vlákniny — většina lidí jí sní méně, než by měla.',
       'Trh s probiotiky a „detoxy“ slibuje víc, než data dovolují.',
+      'Po antibiotikách se mikrobiom většinou z velké části zotaví během týdnů, ale ne vždy úplně.',
     ],
     helps: [
       {
@@ -810,6 +829,11 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'preliminary',
       },
       { text: 'Vlákninu přidávat postupně a pít — jinak nadýmání.', level: 'plausible' },
+      {
+        text: 'Střídat rostliny: lidé, kteří jich za týden snědí 30 a víc druhů (počítají se i bylinky, ořechy a semínka), mají pestřejší mikrobiom.',
+        level: 'preliminary',
+      },
+      { text: 'Antibiotika jen tehdy, když je předepíše lékař — ne „pro jistotu“.', level: 'established' },
     ],
     myths: [
       {
@@ -820,13 +844,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Probiotika pomůžou každému.',
         fact: 'Účinek závisí na konkrétním kmeni a potížích. Pro zdravé lidi bez potíží je přínos nejistý.',
       },
+      {
+        myth: 'Test mikrobiomu ze stolice mi řekne, co přesně jíst.',
+        fact: 'Zatím ne. Nikdo neumí přesně říct, jak vypadá „zdravý mikrobiom“, a osobní doporučení z těchto testů nejsou ověřená.',
+      },
     ],
     related: [
       { label: 'Vláknina', href: '/doplnky/vlaknina' },
       { label: 'Probiotika a fermentované potraviny', href: '/doplnky/probiotika' },
       { label: 'Střeva v mapě těla', href: '/organ/intestines' },
     ],
-    sources: [SOURCES.reynolds, SOURCES.wastyk],
+    sources: [SOURCES.reynolds, SOURCES.wastyk, SOURCES.americanGut, SOURCES.dethlefsen],
   },
   {
     slug: 'pitny-rezim',
@@ -853,15 +881,24 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Dehydratace a výkon',
         text: 'Už mírný nedostatek tekutin může zhoršit soustředění a fyzický výkon, hlavně v horku.',
       },
+      {
+        title: 'Kudy voda odchází',
+        text: 'Nejvíc močí, část dechem a kůží. Při sportu v horku se dá vypotit i přes litr za hodinu — a s potem odchází i sůl.',
+      },
     ],
     today: [
       'Sladké nápoje a energeťáky jsou zdrojem vody, ale i zbytečného cukru.',
       'Klimatizace, sport v posilovně a horká léta zvyšují potřebu.',
+      'Ve stáří slábne pocit žízně, takže starší lidé snáz pijí málo, aniž si toho všimnou.',
     ],
     helps: [
       { text: 'Pít při žízni a mít vodu po ruce; barva moči by měla být světle žlutá.', level: 'plausible' },
       { text: 'Při sportu delším než hodinu a v horku doplňovat i sůl (sodík).', level: 'plausible' },
       { text: 'Voda, neslazené čaje a káva v rozumném množství se počítají.', level: 'established' },
+      {
+        text: 'Starší lidé: pít během dne pravidelně, i bez žízně — sklenice ke každému jídlu.',
+        level: 'plausible',
+      },
     ],
     myths: [
       {
@@ -872,9 +909,13 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Čím víc vody, tím líp.',
         fact: 'Extrémní množství naopak může být nebezpečné (nízká hladina sodíku).',
       },
+      {
+        myth: 'Káva odvodňuje.',
+        fact: 'V běžném množství (3–4 šálky denně) hydratuje podobně jako voda. Močopudně působí spíš velké dávky u lidí, kteří kávu nepijí.',
+      },
     ],
     related: [{ label: 'Kofein', href: '/doplnky/kofein' }],
-    sources: [SOURCES.efsaWater, SOURCES.popkin, SOURCES.acsmFluid],
+    sources: [SOURCES.efsaWater, SOURCES.popkin, SOURCES.acsmFluid, SOURCES.killer],
   },
   {
     slug: 'alkohol',

@@ -25,12 +25,13 @@ function readingMinutes(g: BodyGuide) {
   const text = [
     g.hook,
     ...g.tldr,
+    ...g.numbers.map((n) => n.label),
     ...g.how.flatMap((h) => [h.title, h.text]),
     ...g.today,
     ...g.helps.map((h) => h.text),
     ...g.myths.flatMap((m) => [m.myth, m.fact]),
   ].join(' ')
-  return Math.max(1, Math.round(text.split(/\s+/).length / 200))
+  return Math.max(1, Math.ceil(text.split(/\s+/).length / 200))
 }
 
 const TOC = [
