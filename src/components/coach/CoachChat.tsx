@@ -17,6 +17,15 @@ export interface Conversation {
   title: string | null
 }
 
+/** Health situations the user ticked in the supplement tracker (device-only, see StackTracker). */
+function savedConditions(): string[] {
+  try {
+    return JSON.parse(localStorage.getItem('blwb-supp-conditions') ?? '[]') as string[]
+  } catch {
+    return []
+  }
+}
+
 export function CoachChat({
   conversations,
   conversationId: initialId,
@@ -52,7 +61,7 @@ export function CoachChat({
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ conversationId, message, locale }),
+        body: JSON.stringify({ conversationId, message, locale, conditions: savedConditions() }),
       })
       const j = await res.json()
       if (!res.ok) {

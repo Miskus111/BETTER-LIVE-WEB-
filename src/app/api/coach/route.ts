@@ -21,6 +21,11 @@ const Body = z.object({
   conversationId: z.string().uuid().nullable().optional(),
   message: z.string().trim().min(1).max(4000),
   locale: z.enum(['cs', 'en']).default('cs'),
+  /** device-only health situations from the supplement tracker; used for supplement safety checks */
+  conditions: z
+    .array(z.enum(['pregnancy', 'breastfeeding', 'kidney', 'liver']))
+    .max(4)
+    .default([]),
 })
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -31,7 +36,7 @@ export async function POST(req: Request) {
   if (!s.healthConsent) return NextResponse.json({ error: 'consent_required' }, { status: 403 })
   const parsed = Body.safeParse(await req.json().catch(() => null))
   if (!parsed.success) return NextResponse.json({ error: 'invalid' }, { status: 400 })
-  const { message, locale } = parsed.data
+  const { message, locale, conditions } = parsed.data
   const db = s.supabase as unknown as Db
 
   const plan = await getPlan(s.supabase, s.user.id)
@@ -163,7 +168,7 @@ export async function POST(req: Request) {
             return {
               type: 'tool_result',
               tool_use_id: tu.id,
-              content: await runCoachTool(db, s.user.id, tu.name, tu.input),
+              content: await runCoachTool(db, s.user.id, tu.name, tu.input, { conditions }),
             }
           } catch (e) {
             return {

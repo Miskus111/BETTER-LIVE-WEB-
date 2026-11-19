@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { z } from 'zod'
 import { profileTargets } from '@/lib/eat/profile-targets'
 import { ageFrom } from '@/lib/eat/targets'
-import { checkStack, medicationCategories } from '@/lib/supplements/safety'
+import { checkStack, medicationCategories, type Condition } from '@/lib/supplements/safety'
 import { SUPPLEMENT_BY_ID, type SupplementId } from '@/data/supplement-library'
 import { MARKER_BY_KEY } from '@/lib/labs/markers'
 
@@ -85,7 +85,13 @@ export const COACH_TOOLS: Anthropic.Beta.BetaTool[] = [
 const Days = z.object({ days: z.number().int().min(1).max(56).optional() })
 const Labs = z.object({ marker: z.string().max(40).optional() })
 
-export async function runCoachTool(db: Db, userId: string, name: string, rawInput: unknown): Promise<string> {
+export async function runCoachTool(
+  db: Db,
+  userId: string,
+  name: string,
+  rawInput: unknown,
+  ctx: { conditions?: Condition[] } = {},
+): Promise<string> {
   switch (name) {
     case 'get_profile': {
       const [{ data: p }, { data: goals }, { data: prefs }] = await Promise.all([
@@ -201,7 +207,10 @@ export async function runCoachTool(db: Db, userId: string, name: string, rawInpu
           timing: r.timing,
         }),
       )
-      const issues = checkStack(items, { medications: prefs?.medications ?? null })
+      const issues = checkStack(items, {
+        medications: prefs?.medications ?? null,
+        conditions: ctx.conditions,
+      })
       return JSON.stringify({
         stack: items.map((i: { id: SupplementId; dailyAmount: number; timing: string | null }) => ({
           supplement: SUPPLEMENT_BY_ID[i.id]?.name.en ?? i.id,
