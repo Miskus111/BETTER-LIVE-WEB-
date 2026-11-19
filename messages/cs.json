@@ -455,7 +455,13 @@
     "liver": "onemocnění jater",
     "anticoagulants": "léky na ředění krve",
     "thyroid": "onemocnění štítné žlázy",
-    "under18": "pod 18 let"
+    "under18": "pod 18 let",
+    "conditionsTitle": "Týká se vás něco z toho?",
+    "cond_pregnancy": "Těhotenství",
+    "cond_breastfeeding": "Kojení",
+    "cond_kidney": "Onemocnění ledvin",
+    "cond_liver": "Onemocnění jater",
+    "conditionsNote": "Upozorníme na doplňky, které v té situaci patří k lékaři. Zůstává jen v tomto zařízení."
   },
   "evidence": {
     "established": "Prokázané",

@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { useState, useTransition } from 'react'
+import { useEffect, useState, useTransition } from 'react'
 import { AlertTriangle, Check, Clock, Plus, ShieldAlert, Stethoscope, Trash2 } from 'lucide-react'
 import { SUPPLEMENTS, SUPPLEMENT_BY_ID, type SupplementId } from '@/data/supplement-library'
-import { checkStack, type SafetyIssue } from '@/lib/supplements/safety'
+import { checkStack, type Condition, type SafetyIssue } from '@/lib/supplements/safety'
 import { createClient } from '@/lib/supabase/client'
 import { EVIDENCE } from '@/data/sources'
 import { cx } from '@/lib/format'
@@ -20,6 +20,10 @@ export interface StackRow {
   takenToday: boolean
 }
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
+
+/** Situations that change what is safe; kept only on this device (localStorage), never sent anywhere. */
+const CONDITIONS: Condition[] = ['pregnancy', 'breastfeeding', 'kidney', 'liver']
+const CONDITIONS_KEY = 'blwb-supp-conditions'
 
 const ICON: Record<SafetyIssue['level'], typeof AlertTriangle> = {
   block: ShieldAlert,
@@ -39,13 +43,37 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
   const [timing, setTiming] = useState('')
   const [reminder, setReminder] = useState('')
   const [error, setError] = useState<string | null>(null)
+  const [conditions, setConditions] = useState<Condition[]>([])
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(CONDITIONS_KEY) ?? '[]') as Condition[]
+      // localStorage exists only in the browser: read it once after hydration
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setConditions(saved.filter((c) => CONDITIONS.includes(c)))
+    } catch {
+      /* private mode */
+    }
+  }, [])
+  const toggleCondition = (c: Condition) =>
+    setConditions((cur) => {
+      const next = cur.includes(c) ? cur.filter((x) => x !== c) : [...cur, c]
+      try {
+        localStorage.setItem(CONDITIONS_KEY, JSON.stringify(next))
+      } catch {
+        /* private mode */
+      }
+      return next
+    })
 
   const issues = checkStack(
     rows.map((r) => ({ id: r.slug, dailyAmount: Number(r.dose_amount ?? 0) })),
-    { medications },
+    { medications, conditions },
   )
   const draftIssue = adding
-    ? checkStack([{ id: adding, dailyAmount: Number(dose.replace(',', '.')) || 0 }], { medications })
+    ? checkStack([{ id: adding, dailyAmount: Number(dose.replace(',', '.')) || 0 }], {
+        medications,
+        conditions,
+      })
     : []
   const blocked = draftIssue.some((i) => i.level === 'block')
 
@@ -141,6 +169,23 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
             })}
           </ul>
         )}
+        <fieldset className="border-line mt-4 rounded-xl border p-3" data-testid="supp-conditions">
+          <legend className="text-subtle px-1 text-[12.5px]">{t('conditionsTitle')}</legend>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {CONDITIONS.map((c) => (
+              <label key={c} className="flex items-center gap-2 text-[14px]">
+                <input
+                  type="checkbox"
+                  checked={conditions.includes(c)}
+                  onChange={() => toggleCondition(c)}
+                  className="accent-[#5ee7ff]"
+                />
+                {t(`cond_${c}`)}
+              </label>
+            ))}
+          </div>
+          <p className="text-subtle mt-2 text-[12px]">{t('conditionsNote')}</p>
+        </fieldset>
         {rows.length > 0 && (
           <div className="mt-4">
             <h3 className="eyebrow !text-subtle mb-2">{t('issues')}</h3>

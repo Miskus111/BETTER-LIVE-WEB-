@@ -20,3 +20,23 @@ describe('coach safety pre-screen', () => {
     expect(screenMessage('How do I improve my bench press?')).toBeNull()
   })
 })
+
+describe('everyday Czech phrasings', () => {
+  it('catches crisis wording in natural word order', () => {
+    for (const m of ['Chci se zabít', 'Řežu se', 'Sebepoškozuju se', 'Nemám pro co žít'])
+      expect(screenMessage(m), m).toBe('crisis')
+  })
+  it('catches chest pain however it is phrased', () => {
+    for (const m of [
+      'Bolí mě na hrudi',
+      'Tlak na hrudníku',
+      'Svírá mě na hrudi',
+      'Pálí mě na prsou a brní levá ruka',
+    ])
+      expect(screenMessage(m), m).toBe('emergency')
+  })
+  it('does not flag ordinary training messages', () => {
+    for (const m of ['Bolí mě záda po dřepech', 'Dnes jsem dal bench 80 kg', 'Chci zhubnout do léta'])
+      expect(screenMessage(m), m).toBeNull()
+  })
+})

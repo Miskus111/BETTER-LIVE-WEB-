@@ -1,14 +1,10 @@
 import { z } from 'zod'
+import { ageFrom } from '@/lib/eat/targets'
 import { ALLERGIES, BUDGETS, DIETS, EQUIPMENT, EXPERIENCE, GOALS, PAIN_AREAS, SPORTS, WORK } from './options'
 
-/** Full years between a birth date (YYYY-MM-DD) and `today`. */
-export function ageOn(birthDate: string, today = new Date()): number {
-  const [y, m, d] = birthDate.split('-').map(Number)
-  let age = today.getFullYear() - y
-  const beforeBirthday = today.getMonth() + 1 < m || (today.getMonth() + 1 === m && today.getDate() < d)
-  if (beforeBirthday) age--
-  return age
-}
+/** Full years between a birth date (YYYY-MM-DD) and `today` — one implementation shared with the
+ * nutrition targets, so the 18+ gate and calorie maths always agree on age. */
+export const ageOn = ageFrom
 
 export const isAdult = (birthDate: string, today = new Date()) => ageOn(birthDate, today) >= 18
 

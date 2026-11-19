@@ -7,12 +7,18 @@ export type Screen = 'emergency' | 'crisis' | 'eating' | null
 
 const strip = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
 
+// Text is lower-cased and stripped of diacritics before matching. Err on the side of catching:
+// a false positive shows a helpline, a miss leaves someone in crisis with a chatbot.
 const CRISIS = [
-  /zabit se|zabiju se|chci umrit|nechci (uz )?zit|sebevrazd|ublizit si|ublizim si|podrezat/,
-  /kill myself|suicid|end my life|want to die|hurt myself|self[- ]harm/,
+  /zabit se|se zabit|zabiju se|chci umrit|chtel(a)? bych umrit|nechci (uz )?zit|nemam (pro )?co zit|skoncovat (se )?(se svym )?zivot|sebevrazd|sebeposkoz|ublizit si|ublizim si|ubliz(uj|ova)(u|t) si|podrezat|rezu se|rezat se|pozrat prasky|predavkovat se/,
+  /kill myself|kms\b|suicid|end my life|end it all|want to die|hurt myself|self[- ]harm|cutting myself|overdose on purpose/,
 ]
+const CHEST = '(hrud|hrudnik|prsou|prsa)'
 const EMERGENCY = [
-  /bolest (na )?hrudi|tlak na hrudi|nemuzu dychat|nemohu dychat|ochrnut|poklesly koutek|ztrata vedomi|omdlel|krev ve stolici|zvracim krev|necitim (rozkrok|genital)/,
+  new RegExp(
+    `(bolest|boli|pali|svira|tlaci|pichani|pichá|picha|tlak)( me)? (na|v|ve) ${CHEST}|${CHEST}\\w* .{0,30}(vystreluje|brni|brneni) .{0,20}(ruk|celist)`,
+  ),
+  /nemuzu dychat|nemohu dychat|neda se mi dychat|dusim se|ochrnut|poklesly koutek|nemuzu mluvit|ztrata vedomi|omdlel|krev ve stolici|zvracim krev|necitim (rozkrok|genital)/,
   /chest pain|chest pressure|can'?t breathe|cannot breathe|face drooping|slurred speech|passed out|fainted|vomiting blood|numb(ness)? (in )?(my )?(groin|saddle)|lost (bladder|bowel) control/,
 ]
 const EATING = [

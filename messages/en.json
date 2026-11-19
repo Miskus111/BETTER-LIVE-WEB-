@@ -455,7 +455,13 @@
     "liver": "liver disease",
     "anticoagulants": "blood thinners",
     "thyroid": "thyroid disease",
-    "under18": "under 18"
+    "under18": "under 18",
+    "conditionsTitle": "Does any of this apply to you?",
+    "cond_pregnancy": "Pregnancy",
+    "cond_breastfeeding": "Breastfeeding",
+    "cond_kidney": "Kidney disease",
+    "cond_liver": "Liver disease",
+    "conditionsNote": "We flag supplements that need a doctor in that situation. Stored only on this device."
   },
   "evidence": {
     "established": "Established",

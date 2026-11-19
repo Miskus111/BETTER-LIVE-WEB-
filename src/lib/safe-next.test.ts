@@ -10,3 +10,11 @@ describe('safeNext', () => {
       expect(safeNext(bad)).toBe('/today')
   })
 })
+
+describe('control characters', () => {
+  it('rejects tab/newline tricks that browsers turn into //host', () => {
+    expect(safeNext('/\t/evil.com')).toBe('/today')
+    expect(safeNext('/\n/evil.com')).toBe('/today')
+    expect(safeNext('/train?x=1')).toBe('/train?x=1')
+  })
+})
