@@ -399,7 +399,7 @@ export const MOBILITY: MobilityExercise[] = [
     'Box breathing',
     ['full_body'],
     'activation',
-    'Nádech 4 s, zádrž 4 s, výdech 4 s, zádrž 4 s.',
+    'Nádech na 4 s, dech zadržte na 4 s, výdech na 4 s a znovu zadržte na 4 s.',
     'Inhale 4 s, hold 4 s, exhale 4 s, hold 4 s.',
     { seconds: 120 },
   ),
