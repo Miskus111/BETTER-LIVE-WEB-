@@ -431,6 +431,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Máslo má hodně nasycených tuků, které zvyšují LDL cholesterol. Olivový olej srdci prospívá víc.',
   },
+  {
+    id: 'vyhoreni-volno',
+    guide: 'vyhoreni',
+    statement: 'Na vyhoření stačí týden dovolené.',
+    fact: false,
+    explain:
+      'Odpočinek uleví, ale když se nezmění podmínky práce, vyčerpání se vrátí. Víc pomáhají změny v organizaci práce.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

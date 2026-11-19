@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 45 průvodců, 20 doplňků, 797 položek ke kontrole.
+Obsah: 46 průvodců, 20 doplňků, 812 položek ke kontrole.
 
 ---
 
@@ -1447,7 +1447,53 @@ Poznámky lékaře:
 
 ---
 
-## 30. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 30. Vyhoření: když práce vysaje všechnu energii
+
+Web: /jak-funguje-telo/vyhoreni
+
+**Ve zkratce**
+
+- [ ] WHO popisuje vyhoření jako pracovní jev se třemi znaky: vyčerpání, odstup od práce (cynismus) a pocit neschopnosti.
+- [ ] Dlouhodobé vyhoření souvisí s nespavostí, depresí, bolestmi i vyšším rizikem cukrovky a nemocí srdce.
+- [ ] Pomáhá hlavně změnit podmínky práce — samotné relaxační techniky obvykle nestačí.
+
+**Čísla**
+
+- [ ] **3** znaky vyhoření podle WHO: vyčerpání, odstup, pocit neschopnosti
+
+**Jak to funguje**
+
+- [ ] **Stres bez konce:** Krátký stres tělo zvládne. Když ale nároky dlouhodobě převyšují možnosti a chybí odpočinek, kontrola nad prací nebo uznání, stresová reakce se nevypne a energie dochází.
+- [ ] **Tři podoby:** Nejdřív obvykle přijde vyčerpání. Pak si člověk od práce i lidí začne držet odstup a nakonec má pocit, že nic nezvládá — i když objektivně pracuje dobře.
+- [ ] **Vyhoření, nebo deprese?:** Vyhoření se týká hlavně práce a o víkendu nebo na dovolené se zlepšuje. Když smutek, beznaděj a ztráta radosti prostupují celý život, může jít o depresi — a ta patří k lékaři.
+
+**Doporučení**
+
+- [ ] Mluvit s vedením o zátěži a podmínkách — změny v organizaci práce pomáhají víc než samotné individuální techniky. _(Prokázané)_
+- [ ] Pevné hranice: čas bez pracovních zpráv, skutečné volno a dovolená. _(Pravděpodobné)_
+- [ ] Spánek, pohyb a lidé mimo práci — obnovují energii. _(Pravděpodobné)_
+- [ ] Psycholog nebo psychoterapie — zvlášť když se přidá smutek, úzkost nebo nespavost. _(Prokázané)_
+- [ ] Při myšlenkách na sebepoškození hned volat Linku první psychické pomoci 116 123 nebo 155. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Vyhoří jen slabí lidé.“ → Vyhoření často potká právě ty nejvíc zapálené. Vzniká z nepoměru mezi nároky a zdroji, ne z osobní slabosti.
+- [ ] „Stačí si vzít týden volna.“ → Odpočinek uleví, ale když se podmínky práce nezmění, vyčerpání se vrátí.
+- [ ] „Vyhoření je oficiální nemoc.“ → WHO ho vede jako pracovní jev, ne jako nemoc. Jeho důsledky — deprese, nespavost, úzkost — se ale léčí.
+
+**Zdroje**
+
+- WHO (2019) Vyhoření jako pracovní jev v klasifikaci MKN-11 — https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases
+- Salvagioni a kol. (2017) Tělesné a psychické důsledky vyhoření — systematický přehled, PLoS One — https://pubmed.ncbi.nlm.nih.gov/28977041/
+- Panagioti a kol. (2017) Co pomáhá proti vyhoření — metaanalýza intervencí, JAMA Intern Med — https://pubmed.ncbi.nlm.nih.gov/27918798/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 31. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1497,7 +1543,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 32. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1549,7 +1595,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Kosti: banka, do které se ukládá do třiceti
+## 33. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1599,7 +1645,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 34. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1646,7 +1692,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Akné: co ho způsobuje a co na něj opravdu platí
+## 35. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1697,7 +1743,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 36. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1746,7 +1792,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 37. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1793,7 +1839,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 38. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1841,7 +1887,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Protahování: na co je dobré a na co ne
+## 39. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1891,7 +1937,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 40. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1943,7 +1989,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 41. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1992,7 +2038,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 42. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2042,7 +2088,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 43. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2094,7 +2140,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 44. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2145,7 +2191,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 45. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2193,7 +2239,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 46. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

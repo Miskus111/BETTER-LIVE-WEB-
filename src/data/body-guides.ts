@@ -296,6 +296,18 @@ const SOURCES = {
     title: 'WHO (2023) Nasycené a trans-mastné kyseliny u dospělých a dětí — doporučení',
     url: 'https://www.who.int/publications/i/item/9789240073630',
   },
+  whoBurnout: {
+    title: 'WHO (2019) Vyhoření jako pracovní jev v klasifikaci MKN-11',
+    url: 'https://www.who.int/news/item/28-05-2019-burn-out-an-occupational-phenomenon-international-classification-of-diseases',
+  },
+  salvagioni: pm(
+    28977041,
+    'Salvagioni a kol. (2017) Tělesné a psychické důsledky vyhoření — systematický přehled, PLoS One',
+  ),
+  panagioti: pm(
+    27918798,
+    'Panagioti a kol. (2017) Co pomáhá proti vyhoření — metaanalýza intervencí, JAMA Intern Med',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2701,6 +2713,74 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.whoSatFat, SOURCES.hooperSatFat, SOURCES.predimed, SOURCES.mozaffarianTrans],
   },
   {
+    slug: 'vyhoreni',
+    title: 'Vyhoření: když práce vysaje všechnu energii',
+    short: 'Vyhoření',
+    icon: 'flame',
+    hook: 'Vyčerpání, cynismus a pocit, že nic nezvládáte. Vyhoření není slabost — je to reakce na dlouhodobě nezvládnutelný stres v práci.',
+    tldr: [
+      'WHO popisuje vyhoření jako pracovní jev se třemi znaky: vyčerpání, odstup od práce (cynismus) a pocit neschopnosti.',
+      'Dlouhodobé vyhoření souvisí s nespavostí, depresí, bolestmi i vyšším rizikem cukrovky a nemocí srdce.',
+      'Pomáhá hlavně změnit podmínky práce — samotné relaxační techniky obvykle nestačí.',
+    ],
+    numbers: [{ value: '3', label: 'znaky vyhoření podle WHO: vyčerpání, odstup, pocit neschopnosti' }],
+    how: [
+      {
+        title: 'Stres bez konce',
+        text: 'Krátký stres tělo zvládne. Když ale nároky dlouhodobě převyšují možnosti a chybí odpočinek, kontrola nad prací nebo uznání, stresová reakce se nevypne a energie dochází.',
+      },
+      {
+        title: 'Tři podoby',
+        text: 'Nejdřív obvykle přijde vyčerpání. Pak si člověk od práce i lidí začne držet odstup a nakonec má pocit, že nic nezvládá — i když objektivně pracuje dobře.',
+      },
+      {
+        title: 'Vyhoření, nebo deprese?',
+        text: 'Vyhoření se týká hlavně práce a o víkendu nebo na dovolené se zlepšuje. Když smutek, beznaděj a ztráta radosti prostupují celý život, může jít o depresi — a ta patří k lékaři.',
+      },
+    ],
+    today: [
+      'Práce v mobilu znamená, že se z ní člověk nikdy úplně neodpojí.',
+      'Kultura výkonu tlačí k tomu přiznat únavu až ve chvíli, kdy už nejde dál.',
+    ],
+    helps: [
+      {
+        text: 'Mluvit s vedením o zátěži a podmínkách — změny v organizaci práce pomáhají víc než samotné individuální techniky.',
+        level: 'established',
+      },
+      { text: 'Pevné hranice: čas bez pracovních zpráv, skutečné volno a dovolená.', level: 'plausible' },
+      { text: 'Spánek, pohyb a lidé mimo práci — obnovují energii.', level: 'plausible' },
+      {
+        text: 'Psycholog nebo psychoterapie — zvlášť když se přidá smutek, úzkost nebo nespavost.',
+        level: 'established',
+      },
+      {
+        text: 'Při myšlenkách na sebepoškození hned volat Linku první psychické pomoci 116 123 nebo 155.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Vyhoří jen slabí lidé.',
+        fact: 'Vyhoření často potká právě ty nejvíc zapálené. Vzniká z nepoměru mezi nároky a zdroji, ne z osobní slabosti.',
+      },
+      {
+        myth: 'Stačí si vzít týden volna.',
+        fact: 'Odpočinek uleví, ale když se podmínky práce nezmění, vyčerpání se vrátí.',
+      },
+      {
+        myth: 'Vyhoření je oficiální nemoc.',
+        fact: 'WHO ho vede jako pracovní jev, ne jako nemoc. Jeho důsledky — deprese, nespavost, úzkost — se ale léčí.',
+      },
+    ],
+    related: [
+      { label: 'Stres a kortizol', href: '/jak-funguje-telo/stres' },
+      { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
+      { label: 'Pořád unavený', href: '/jak-funguje-telo/unava' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+    ],
+    sources: [SOURCES.whoBurnout, SOURCES.salvagioni, SOURCES.panagioti],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3954,6 +4034,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'bolest-krku': 'pohyb',
   unava: 'spanek',
   tuky: 'jidlo',
+  vyhoreni: 'mysl',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',
