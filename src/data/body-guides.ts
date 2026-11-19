@@ -210,6 +210,16 @@ const SOURCES = {
     35441470,
     'Wilding a kol. (2022) Návrat váhy po vysazení semaglutidu (STEP 1 — pokračování), Diabetes Obes Metab',
   ),
+  herxheimer: pm(12076414, 'Herxheimer a Petrie (2002) Melatonin proti jet lagu, Cochrane'),
+  wrightCamping: pm(23910656, 'Wright a kol. (2013) Týden pod stanem posunul vnitřní hodiny dřív, Curr Biol'),
+  bahji: pm(
+    32271390,
+    'Bahji a kol. (2020) Jak často se objeví abstinenční příznaky po konopí — metaanalýza, JAMA Netw Open',
+  ),
+  varkey: pm(
+    21890526,
+    'Varkey a kol. (2011) Cvičení jako prevence migrény ve srovnání s relaxací a topiramátem, Cephalalgia',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -1616,6 +1626,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Svaly jako odběratel',
         text: 'Pracující svaly berou glukózu i bez velkého množství inzulinu. Proto po jídle pomáhá i krátká procházka.',
       },
+      {
+        title: 'Jak se to měří',
+        text: 'Lékař měří cukr nalačno a HbA1c — „průměr“ cukru za poslední 2–3 měsíce. Prediabetes (nalačno zhruba 5,6–6,9 mmol/l) se dlouho neprojevuje, ale právě tehdy jde cukrovce nejlépe předejít.',
+      },
     ],
     today: [
       'Sladké nápoje a energetické tyčinky přinášejí hodně cukru bez sytosti.',
@@ -1646,6 +1660,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         myth: 'Ovoce je kvůli cukru špatné.',
         fact: 'Celé ovoce obsahuje vlákninu a souvisí s lepším zdravím. Jiné je to u džusů a sladkých nápojů.',
+      },
+      {
+        myth: 'Med a třtinový cukr jsou zdravější než bílý cukr.',
+        fact: 'Pro tělo jde pořád o volné cukry, stejně jako u sirupů a džusů. WHO je počítá do stejného limitu.',
       },
     ],
     related: [
@@ -2501,6 +2519,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Pravidelný spánek a jídlo, dost tekutin a pohyb.', level: 'plausible' },
       { text: 'Deník bolesti hlavy — pomůže najít spouštěče a lékaři zvolit léčbu.', level: 'plausible' },
+      {
+        text: 'Při migréně pravidelný aerobní pohyb (40 minut 3× týdně) — ve studii snížil počet záchvatů podobně jako preventivní lék.',
+        level: 'preliminary',
+      },
     ],
     myths: [
       {
@@ -2515,13 +2537,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Častá bolest hlavy znamená nádor.',
         fact: 'Velmi vzácně. Pozor si dejte na varovné příznaky — ty patří k lékaři hned.',
       },
+      {
+        myth: 'Na migrénu nic nepomáhá, musím ji vydržet.',
+        fact: 'Existují léky na záchvat (např. triptany) i preventivní léčba včetně novějších léků. Migréna patří k praktickému lékaři nebo neurologovi.',
+      },
     ],
     related: [
       { label: 'Stres', href: '/jak-funguje-telo/stres' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
       { label: 'Oči a obrazovky', href: '/jak-funguje-telo/oci-a-obrazovky' },
     ],
-    sources: [SOURCES.whoHeadache, SOURCES.ashinaMigraine, SOURCES.ashinaMOH],
+    sources: [SOURCES.whoHeadache, SOURCES.ashinaMigraine, SOURCES.ashinaMOH, SOURCES.varkey],
   },
   {
     slug: 'prerusovany-pust',
@@ -2980,7 +3006,8 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     numbers: [
       { value: '~20 let', label: 'věk, kdy jsme největší sovy' },
-      { value: '2A', label: 'IARC: noční práce je pravděpodobně karcinogenní' },
+      { value: 'Skupina 2A', label: 'IARC: noční práce je pravděpodobně karcinogenní' },
+      { value: '~2 h', label: 'dřív se posunuly hodiny po týdnu pod stanem bez umělého světla' },
     ],
     how: [
       {
@@ -2994,6 +3021,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Sociální jet lag',
         text: 'Když budík ve všední dny „přetáčí“ vaše vnitřní hodiny a o víkendu spíte podle nich, tělo každý týden cestuje přes časová pásma. Výsledkem je chronický spánkový dluh.',
+      },
+      {
+        title: 'Světlo umí hodiny přenastavit',
+        text: 'Když lidé strávili týden pod stanem jen s denním světlem a ohněm, jejich vnitřní hodiny se posunuly zhruba o 2 hodiny dřív — a rozdíly mezi sovami a skřivany se zmenšily. Velká část „sovího“ rytmu je tedy dnešní světlo.',
       },
     ],
     today: [
@@ -3024,6 +3055,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'O víkendu si to prospím a je to v pořádku.',
         fact: 'Velký posun o víkendu zvětšuje sociální jet lag. V pondělí se pak spí ještě hůř.',
       },
+      {
+        myth: 'Melatonin je obyčejná pilulka na spaní.',
+        fact: 'Je to hlavně signál „venku je tma“ pro vnitřní hodiny. Nejlépe ověřený je na jet lag. U dětí a při dlouhodobých potížích se spánkem jen po poradě s lékařem.',
+      },
     ],
     related: [
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
@@ -3036,6 +3071,8 @@ export const BODY_GUIDES: BodyGuide[] = [
       SOURCES.roenneberg2012,
       SOURCES.kalmbach,
       SOURCES.iarcShift,
+      SOURCES.wrightCamping,
+      SOURCES.herxheimer,
     ],
   },
   {
@@ -3204,6 +3241,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '~1 z 6', label: 'kdo začne v dospívání, se stane závislým' },
       { value: '~5×', label: 'vyšší šance psychózy při denním užívání silné trávy' },
+      { value: '~47 %', label: 'pravidelných uživatelů má při vysazení abstinenční příznaky' },
     ],
     how: [
       {
@@ -3217,6 +3255,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Silnější než dřív',
         text: 'Obsah THC v dnešní marihuaně je výrazně vyšší než před desítkami let. Čím silnější tráva a častější užívání, tím vyšší riziko závislosti i psychických potíží.',
+      },
+      {
+        title: 'Když člověk přestane',
+        text: 'Skoro polovina pravidelných uživatelů má po vysazení abstinenční příznaky: podrážděnost, úzkost, špatný spánek a živé sny, menší chuť k jídlu. Nejhorší bývají první dny, odezní obvykle do 2–3 týdnů.',
       },
     ],
     today: [
@@ -3251,13 +3293,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Jedlé výrobky jsou bezpečnější než kouření.',
         fact: 'Plíce šetří, ale účinek nastupuje pozdě a nepředvídatelně, takže se snadno přejí.',
       },
+      {
+        myth: 'CBD je totéž co tráva, jen slabší.',
+        fact: 'CBD neopíjí a závislost jako THC nevyvolává. Výrobky s CBD ale můžou obsahovat i THC a jejich složení se často liší od etikety.',
+      },
     ],
     related: [
       { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
       { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
       { label: 'Mozek a učení', href: '/jak-funguje-telo/mozek-a-uceni' },
     ],
-    sources: [SOURCES.volkowCannabis, SOURCES.diFortiPsychosis],
+    sources: [SOURCES.volkowCannabis, SOURCES.diFortiPsychosis, SOURCES.bahji],
   },
 ]
 
