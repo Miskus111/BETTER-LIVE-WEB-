@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 50 průvodců, 20 doplňků, 880 položek ke kontrole.
+Obsah: 51 průvodců, 20 doplňků, 897 položek ke kontrole.
 
 ---
 
@@ -1684,7 +1684,56 @@ Poznámky lékaře:
 
 ---
 
-## 35. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 35. Očkování v dospělosti: které vakcíny nekončí dětstvím
+
+Web: /jak-funguje-telo/ockovani-dospelych
+
+**Ve zkratce**
+
+- [ ] Ochrana proti tetanu časem slábne — dospělí se přeočkovávají zhruba každých 10–15 let.
+- [ ] Od 65 let hradí zdravotní pojištění očkování proti chřipce a pneumokokům; mladším pojišťovny na řadu vakcín přispívají.
+- [ ] Vakcína proti pásovému oparu chránila lidi nad 50 let z 97 %. Proti klíšťové encefalitidě je očkování v ČR zvlášť důležité.
+
+**Čísla**
+
+- [ ] **10–15 let** interval přeočkování proti tetanu
+- [ ] **97 %** účinnost vakcíny proti pásovému oparu u lidí nad 50 let
+- [ ] **65+** let: chřipka a pneumokoky hrazené pojišťovnou
+
+**Jak to funguje**
+
+- [ ] **Imunita z dětství slábne:** U některých vakcín (tetanus, záškrt, černý kašel) protilátky postupně klesají. Přeočkování imunitní paměť „připomene“ a ochranu obnoví.
+- [ ] **S věkem roste riziko:** Imunita ve stáří reaguje pomaleji. Chřipka a zápal plic od pneumokoků jsou proto pro starší lidi a chronicky nemocné mnohem nebezpečnější — a pásový opar častější.
+- [ ] **Klíšťata v Česku:** Česko patří v Evropě k zemím s nejvyšším výskytem klíšťové encefalitidy. Nemoc může poškodit mozek a léčba proti viru neexistuje — chrání jen očkování.
+
+**Doporučení**
+
+- [ ] Zeptat se praktického lékaře, kdy jste měli tetanus naposledy, a nechat se včas přeočkovat. _(Prokázané)_
+- [ ] Od 65 let nebo při chronické nemoci každý podzim chřipka a jednou pneumokoky. _(Prokázané)_
+- [ ] Od 50 let zvážit očkování proti pásovému oparu — pojišťovny na něj přispívají. _(Prokázané)_
+- [ ] Očkování proti klíšťové encefalitidě, hlavně když chodíte do přírody. _(Prokázané)_
+- [ ] Ověřit si u lékaře příspěvky své pojišťovny — liší se podle pojišťovny a věku. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Očkování je jen pro děti.“ → Proti tetanu, chřipce, pneumokokům, pásovému oparu nebo klíšťové encefalitidě se očkují hlavně dospělí.
+- [ ] „Z vakcíny proti chřipce dostanu chřipku.“ → Injekční vakcína pro dospělé neobsahuje živý virus, takže chřipku způsobit nemůže. Může přijít krátká únava nebo bolest paže.
+- [ ] „Klíšťovou encefalitidu léčí antibiotika.“ → Jde o virus — antibiotika na něj nefungují. Antibiotika se dávají na boreliózu, proti které zase vakcína není.
+
+**Zdroje**
+
+- VZP ČR: Příspěvky na očkování dospělých — https://www.vzp.cz/pojistenci/vyhody-a-prispevky/ockovani/dospely
+- Lal a kol. (2015) Účinnost vakcíny proti pásovému oparu u lidí nad 50 let, N Engl J Med — https://pubmed.ncbi.nlm.nih.gov/25916341/
+- WHO: Sezónní chřipka — fakta — https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)
+- ECDC: Klíšťová encefalitida — fakta pro zdravotníky — https://www.ecdc.europa.eu/en/tick-borne-encephalitis/facts
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 36. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1734,7 +1783,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 37. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1786,7 +1835,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Kosti: banka, do které se ukládá do třiceti
+## 38. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1836,7 +1885,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 39. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1883,7 +1932,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Akné: co ho způsobuje a co na něj opravdu platí
+## 40. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1934,7 +1983,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 41. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1983,7 +2032,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 42. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2030,7 +2079,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 43. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2078,7 +2127,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Protahování: na co je dobré a na co ne
+## 44. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2128,7 +2177,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 45. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2180,7 +2229,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 46. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2229,7 +2278,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 47. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2279,7 +2328,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 48. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2331,7 +2380,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 49. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2382,7 +2431,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 50. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2430,7 +2479,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 51. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

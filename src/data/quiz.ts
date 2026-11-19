@@ -469,6 +469,13 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Podle WHO jde zhruba 38 % nádorů předejít — hlavně nekouřením, méně alkoholu, pohybem a očkováním.',
   },
+  {
+    id: 'klistata-antibiotika',
+    guide: 'ockovani-dospelych',
+    statement: 'Klíšťovou encefalitidu jde vyléčit antibiotiky.',
+    fact: false,
+    explain: 'Je to virus — antibiotika na něj nefungují. Chrání jen očkování.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

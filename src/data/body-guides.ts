@@ -337,6 +337,22 @@ const SOURCES = {
     title: 'VZP ČR: Screeningové programy a programy časného záchytu (podmínky platné v ČR)',
     url: 'https://vzp.cz/pojistenci/prevence/screeningove-programy-a-programy-casneho-zachytu-vybranych-onemocneni',
   },
+  lalZoster: pm(
+    25916341,
+    'Lal a kol. (2015) Účinnost vakcíny proti pásovému oparu u lidí nad 50 let, N Engl J Med',
+  ),
+  whoFlu: {
+    title: 'WHO: Sezónní chřipka — fakta',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)',
+  },
+  ecdcTbe: {
+    title: 'ECDC: Klíšťová encefalitida — fakta pro zdravotníky',
+    url: 'https://www.ecdc.europa.eu/en/tick-borne-encephalitis/facts',
+  },
+  vzpVaccines: {
+    title: 'VZP ČR: Příspěvky na očkování dospělých',
+    url: 'https://www.vzp.cz/pojistenci/vyhody-a-prispevky/ockovani/dospely',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3088,6 +3104,80 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.whoCancer, SOURCES.cancerCode, SOURCES.vzpScreening],
   },
   {
+    slug: 'ockovani-dospelych',
+    title: 'Očkování v dospělosti: které vakcíny nekončí dětstvím',
+    short: 'Očkování dospělých',
+    icon: 'shield',
+    hook: 'Očkování není jen pro děti. Tetanus potřebuje přeočkování, s věkem přibývá chřipky, pneumokoků i pásového oparu — a v Česku jsou všude klíšťata.',
+    tldr: [
+      'Ochrana proti tetanu časem slábne — dospělí se přeočkovávají zhruba každých 10–15 let.',
+      'Od 65 let hradí zdravotní pojištění očkování proti chřipce a pneumokokům; mladším pojišťovny na řadu vakcín přispívají.',
+      'Vakcína proti pásovému oparu chránila lidi nad 50 let z 97 %. Proti klíšťové encefalitidě je očkování v ČR zvlášť důležité.',
+    ],
+    numbers: [
+      { value: '10–15 let', label: 'interval přeočkování proti tetanu' },
+      { value: '97 %', label: 'účinnost vakcíny proti pásovému oparu u lidí nad 50 let' },
+      { value: '65+', label: 'let: chřipka a pneumokoky hrazené pojišťovnou' },
+    ],
+    how: [
+      {
+        title: 'Imunita z dětství slábne',
+        text: 'U některých vakcín (tetanus, záškrt, černý kašel) protilátky postupně klesají. Přeočkování imunitní paměť „připomene“ a ochranu obnoví.',
+      },
+      {
+        title: 'S věkem roste riziko',
+        text: 'Imunita ve stáří reaguje pomaleji. Chřipka a zápal plic od pneumokoků jsou proto pro starší lidi a chronicky nemocné mnohem nebezpečnější — a pásový opar častější.',
+      },
+      {
+        title: 'Klíšťata v Česku',
+        text: 'Česko patří v Evropě k zemím s nejvyšším výskytem klíšťové encefalitidy. Nemoc může poškodit mozek a léčba proti viru neexistuje — chrání jen očkování.',
+      },
+    ],
+    today: [
+      'Mnoho dospělých neví, kdy byli naposledy očkovaní proti tetanu — a zjistí to až po úrazu.',
+      'Na sítích se šíří nepodložené obavy z vakcín, přitom patří k nejdůkladněji sledovaným lékům vůbec.',
+    ],
+    helps: [
+      {
+        text: 'Zeptat se praktického lékaře, kdy jste měli tetanus naposledy, a nechat se včas přeočkovat.',
+        level: 'established',
+      },
+      {
+        text: 'Od 65 let nebo při chronické nemoci každý podzim chřipka a jednou pneumokoky.',
+        level: 'established',
+      },
+      {
+        text: 'Od 50 let zvážit očkování proti pásovému oparu — pojišťovny na něj přispívají.',
+        level: 'established',
+      },
+      { text: 'Očkování proti klíšťové encefalitidě, hlavně když chodíte do přírody.', level: 'established' },
+      {
+        text: 'Ověřit si u lékaře příspěvky své pojišťovny — liší se podle pojišťovny a věku.',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Očkování je jen pro děti.',
+        fact: 'Proti tetanu, chřipce, pneumokokům, pásovému oparu nebo klíšťové encefalitidě se očkují hlavně dospělí.',
+      },
+      {
+        myth: 'Z vakcíny proti chřipce dostanu chřipku.',
+        fact: 'Injekční vakcína pro dospělé neobsahuje živý virus, takže chřipku způsobit nemůže. Může přijít krátká únava nebo bolest paže.',
+      },
+      {
+        myth: 'Klíšťovou encefalitidu léčí antibiotika.',
+        fact: 'Jde o virus — antibiotika na něj nefungují. Antibiotika se dávají na boreliózu, proti které zase vakcína není.',
+      },
+    ],
+    related: [
+      { label: 'Imunita', href: '/jak-funguje-telo/imunita' },
+      { label: 'Prevence rakoviny', href: '/jak-funguje-telo/prevence-rakoviny' },
+      { label: 'Dlouhověkost', href: '/jak-funguje-telo/dlouhovekost' },
+    ],
+    sources: [SOURCES.vzpVaccines, SOURCES.lalZoster, SOURCES.whoFlu, SOURCES.ecdcTbe],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4346,6 +4436,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'panevni-dno': 'prevence',
   'rostlinna-strava': 'jidlo',
   'prevence-rakoviny': 'prevence',
+  'ockovani-dospelych': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',
