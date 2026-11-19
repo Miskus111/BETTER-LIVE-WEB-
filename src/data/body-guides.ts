@@ -427,6 +427,15 @@ const SOURCES = {
     title: 'WHO (2016) Doporučení pro péči v těhotenství',
     url: 'https://www.who.int/publications/i/item/9789241549912',
   },
+  whoAmr: {
+    title: 'WHO: Antimikrobiální rezistence — fakta',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance',
+  },
+  kenealyCold: pm(23733381, 'Kenealy a Arroll (2013) Antibiotika na nachlazení a rýmu, Cochrane'),
+  spurlingDelayed: pm(
+    28881007,
+    'Spurling a kol. (2017) Odložený předpis antibiotik při infekcích dýchacích cest, Cochrane',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3744,6 +3753,82 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.deRegilFolate, SOURCES.whoAntenatal, SOURCES.efsaCaffeine],
   },
   {
+    slug: 'antibiotika',
+    title: 'Antibiotika: kdy pomáhají, kdy škodí a proč přestávají fungovat',
+    short: 'Antibiotika',
+    icon: 'shield',
+    hook: 'Antibiotika zachraňují životy — ale jen na bakterie. Na nachlazení, chřipku ani většinu bolestí v krku nepomáhají a každé zbytečné užití oslabuje jejich účinnost pro všechny.',
+    tldr: [
+      'Antibiotika zabíjejí bakterie. Na viry — nachlazení, chřipku, covid, většinu zánětů hrdla a průdušek — nefungují.',
+      'Přehled Cochrane u nachlazení přínos antibiotik nenašel, ale vedlejší účinky ano.',
+      'Bakterie odolné vůči antibiotikům souvisely podle WHO v roce 2021 s více než 4,7 miliony úmrtí.',
+    ],
+    numbers: [
+      { value: '4,7 mil.', label: 'úmrtí v roce 2021 spojených s odolnými bakteriemi (WHO)' },
+      { value: '0', label: 'prokázaný přínos antibiotik u běžného nachlazení' },
+    ],
+    how: [
+      {
+        title: 'Bakterie vs. viry',
+        text: 'Bakterie jsou samostatné buňky a antibiotika ničí jejich stěnu nebo tvorbu bílkovin. Viry se množí uvnitř našich buněk a antibiotika na ně nemají kde zaútočit.',
+      },
+      {
+        title: 'Jak vzniká odolnost',
+        text: 'Při každém užití přežijí bakterie, které jsou náhodou odolnější, a dál se množí. Čím častěji se antibiotika používají, tím víc odolných kmenů koluje — a infekce se pak léčí hůř.',
+      },
+      {
+        title: 'Vedlejší účinky',
+        text: 'Antibiotika zasáhnou i užitečné bakterie ve střevě: průjem, plísňové infekce, vzácně alergická reakce nebo nebezpečná infekce střeva bakterií Clostridioides difficile.',
+      },
+    ],
+    today: [
+      'Lidé často chtějí antibiotika „pro jistotu“ na nachlazení nebo chřipku.',
+      'Zbylé tablety z minula se doma schovávají a berou bez lékaře.',
+    ],
+    helps: [
+      {
+        text: 'Na nachlazení a chřipku odpočinek, tekutiny a léky na příznaky — ne antibiotika.',
+        level: 'established',
+      },
+      {
+        text: 'Brát antibiotika přesně podle lékaře a nepoužívat zbytky z minula ani od známých.',
+        level: 'established',
+      },
+      {
+        text: 'Když lékař předepíše antibiotika „pro případ, že se to nezlepší“, počkat — často nakonec nejsou potřeba.',
+        level: 'established',
+      },
+      {
+        text: 'Mytí rukou a očkování snižují počet infekcí, a tím i potřebu antibiotik.',
+        level: 'established',
+      },
+      {
+        text: 'K lékaři při vysoké horečce přes 3 dny, dušnosti, silné bolesti v krku s nemožností polykat nebo zhoršení po počátečním zlepšení.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Antibiotika pomohou rychleji vyléčit nachlazení.',
+        fact: 'Nachlazení způsobují viry. Přehled Cochrane přínos antibiotik nenašel, jen vedlejší účinky.',
+      },
+      {
+        myth: 'Zelený hlen znamená, že potřebuji antibiotika.',
+        fact: 'Barva hlenu bakteriální infekci neprokazuje — zelený bývá i u běžné virové rýmy.',
+      },
+      {
+        myth: 'Odolnost proti antibiotikům se týká jen nemocnic.',
+        fact: 'Odolné bakterie se šíří i v běžné populaci, mezi zvířaty a v potravinách. Každé zbytečné užití k tomu přispívá.',
+      },
+    ],
+    related: [
+      { label: 'Imunita', href: '/jak-funguje-telo/imunita' },
+      { label: 'Střeva a mikrobiom', href: '/jak-funguje-telo/streva-a-mikrobiom' },
+      { label: 'Očkování dospělých', href: '/jak-funguje-telo/ockovani-dospelych' },
+    ],
+    sources: [SOURCES.whoAmr, SOURCES.kenealyCold, SOURCES.spurlingDelayed],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -5010,6 +5095,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'chytre-hodinky': 'prevence',
   'stitna-zlaza': 'prevence',
   'priprava-na-tehotenstvi': 'prevence',
+  antibiotika: 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

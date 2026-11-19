@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 58 průvodců, 20 doplňků, 1009 položek ke kontrole.
+Obsah: 59 průvodců, 20 doplňků, 1025 položek ke kontrole.
 
 ---
 
@@ -2066,7 +2066,54 @@ Poznámky lékaře:
 
 ---
 
-## 43. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 43. Antibiotika: kdy pomáhají, kdy škodí a proč přestávají fungovat
+
+Web: /jak-funguje-telo/antibiotika
+
+**Ve zkratce**
+
+- [ ] Antibiotika zabíjejí bakterie. Na viry — nachlazení, chřipku, covid, většinu zánětů hrdla a průdušek — nefungují.
+- [ ] Přehled Cochrane u nachlazení přínos antibiotik nenašel, ale vedlejší účinky ano.
+- [ ] Bakterie odolné vůči antibiotikům souvisely podle WHO v roce 2021 s více než 4,7 miliony úmrtí.
+
+**Čísla**
+
+- [ ] **4,7 mil.** úmrtí v roce 2021 spojených s odolnými bakteriemi (WHO)
+- [ ] **0** prokázaný přínos antibiotik u běžného nachlazení
+
+**Jak to funguje**
+
+- [ ] **Bakterie vs. viry:** Bakterie jsou samostatné buňky a antibiotika ničí jejich stěnu nebo tvorbu bílkovin. Viry se množí uvnitř našich buněk a antibiotika na ně nemají kde zaútočit.
+- [ ] **Jak vzniká odolnost:** Při každém užití přežijí bakterie, které jsou náhodou odolnější, a dál se množí. Čím častěji se antibiotika používají, tím víc odolných kmenů koluje — a infekce se pak léčí hůř.
+- [ ] **Vedlejší účinky:** Antibiotika zasáhnou i užitečné bakterie ve střevě: průjem, plísňové infekce, vzácně alergická reakce nebo nebezpečná infekce střeva bakterií Clostridioides difficile.
+
+**Doporučení**
+
+- [ ] Na nachlazení a chřipku odpočinek, tekutiny a léky na příznaky — ne antibiotika. _(Prokázané)_
+- [ ] Brát antibiotika přesně podle lékaře a nepoužívat zbytky z minula ani od známých. _(Prokázané)_
+- [ ] Když lékař předepíše antibiotika „pro případ, že se to nezlepší“, počkat — často nakonec nejsou potřeba. _(Prokázané)_
+- [ ] Mytí rukou a očkování snižují počet infekcí, a tím i potřebu antibiotik. _(Prokázané)_
+- [ ] K lékaři při vysoké horečce přes 3 dny, dušnosti, silné bolesti v krku s nemožností polykat nebo zhoršení po počátečním zlepšení. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Antibiotika pomohou rychleji vyléčit nachlazení.“ → Nachlazení způsobují viry. Přehled Cochrane přínos antibiotik nenašel, jen vedlejší účinky.
+- [ ] „Zelený hlen znamená, že potřebuji antibiotika.“ → Barva hlenu bakteriální infekci neprokazuje — zelený bývá i u běžné virové rýmy.
+- [ ] „Odolnost proti antibiotikům se týká jen nemocnic.“ → Odolné bakterie se šíří i v běžné populaci, mezi zvířaty a v potravinách. Každé zbytečné užití k tomu přispívá.
+
+**Zdroje**
+
+- WHO: Antimikrobiální rezistence — fakta — https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance
+- Kenealy a Arroll (2013) Antibiotika na nachlazení a rýmu, Cochrane — https://pubmed.ncbi.nlm.nih.gov/23733381/
+- Spurling a kol. (2017) Odložený předpis antibiotik při infekcích dýchacích cest, Cochrane — https://pubmed.ncbi.nlm.nih.gov/28881007/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 44. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -2116,7 +2163,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 45. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -2168,7 +2215,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Kosti: banka, do které se ukládá do třiceti
+## 46. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2218,7 +2265,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 47. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2265,7 +2312,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Akné: co ho způsobuje a co na něj opravdu platí
+## 48. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2316,7 +2363,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 49. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2365,7 +2412,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 50. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2412,7 +2459,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 51. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2460,7 +2507,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Protahování: na co je dobré a na co ne
+## 52. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2510,7 +2557,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 53. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2562,7 +2609,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 54. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2611,7 +2658,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 55. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2661,7 +2708,7 @@ Poznámky lékaře:
 
 ---
 
-## 55. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 56. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2713,7 +2760,7 @@ Poznámky lékaře:
 
 ---
 
-## 56. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 57. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2764,7 +2811,7 @@ Poznámky lékaře:
 
 ---
 
-## 57. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 58. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2812,7 +2859,7 @@ Poznámky lékaře:
 
 ---
 
-## 58. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 59. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

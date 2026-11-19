@@ -529,6 +529,13 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Neurální trubice se uzavírá do 4. týdne po početí — kyselina listová se proto doporučuje už při plánování.',
   },
+  {
+    id: 'zeleny-hlen',
+    guide: 'antibiotika',
+    statement: 'Zelený hlen z nosu znamená, že potřebuji antibiotika.',
+    fact: false,
+    explain: 'Barva hlenu bakteriální infekci neprokazuje — zelený bývá i u běžné virové rýmy.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10
