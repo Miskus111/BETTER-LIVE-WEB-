@@ -283,6 +283,10 @@ const SOURCES = {
     29306972,
     'Damasceno a kol. (2018) „Textovací krk“ a bolest krku u mladých dospělých, Eur Spine J',
   ),
+  stadje: pm(
+    27765009,
+    'Stadje a kol. (2016) Co stojí za únavou u praktického lékaře — systematický přehled, BMC Fam Pract',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2550,6 +2554,81 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.grossNeck, SOURCES.andersenNeck, SOURCES.hushNeck, SOURCES.textNeck],
   },
   {
+    slug: 'unava',
+    title: 'Pořád unavený: nejčastější příčiny a kdy k lékaři',
+    short: 'Únava',
+    icon: 'zap',
+    hook: 'Únava patří k nejčastějším důvodům návštěvy lékaře. Vážná nemoc za ní bývá vzácně — častěji spánek, stres a nálada.',
+    tldr: [
+      'U lidí, kteří přišli k praktickému lékaři kvůli únavě, měl vážnou tělesnou nemoc jen asi 1 z 25.',
+      'Mnohem častěji za únavou stojí málo nebo nekvalitní spánek, stres a deprese — tu měl skoro každý pátý.',
+      'Krevní testy „na všechno“ bez dalších příznaků obvykle nic nenajdou. Víc řekne rozhovor s lékařem a pár cílených vyšetření.',
+    ],
+    numbers: [
+      { value: '18,5 %', label: 'unavených pacientů mělo depresi' },
+      { value: '4,3 %', label: 'mělo vážnou tělesnou nemoc' },
+      { value: '2,8 %', label: 'mělo chudokrevnost' },
+    ],
+    how: [
+      {
+        title: 'Spánek na prvním místě',
+        text: 'Pod 7 hodin spánku, nepravidelný režim nebo práce na směny vyčerpají každého. Hlasité chrápání se zástavami dechu může znamenat spánkovou apnoi, která únavu způsobuje i po „dlouhé“ noci.',
+      },
+      {
+        title: 'Mysl a tělo',
+        text: 'Deprese a dlouhodobý stres se často projeví hlavně únavou, ztrátou energie a horším spánkem — dřív než smutkem. Proto se lékař ptá i na náladu.',
+      },
+      {
+        title: 'Tělesné příčiny',
+        text: 'Mezi ty častější patří chudokrevnost (hlavně ze ztráty železa), nemoci štítné žlázy, cukrovka a vedlejší účinky léků. Lékař je hledá cíleně podle dalších příznaků.',
+      },
+    ],
+    today: [
+      'Kofein a energetické nápoje únavu maskují — a horším spánkem ji druhý den prohloubí.',
+      'Sítě nabízejí „adrenální únavu“ a doplňky na energii. Adrenální únava jako diagnóza neexistuje.',
+    ],
+    helps: [
+      { text: 'Spát pravidelně 7 a více hodin, ve stejnou dobu i o víkendu.', level: 'established' },
+      { text: 'Pravidelný pohyb — i když se nechce, energii dlouhodobě zvyšuje.', level: 'plausible' },
+      { text: 'Omezit alkohol a kofein odpoledne a večer.', level: 'plausible' },
+      {
+        text: 'Když únava trvá přes 2–3 týdny a nemá jasnou příčinu, zajít k praktickému lékaři.',
+        level: 'established',
+      },
+      {
+        text: 'Hned k lékaři při únavě s nevysvětlitelným hubnutím, horečkou, nočním pocením, dušností, krvácením nebo výraznou bledostí.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Únava znamená, že mi chybí vitamíny.',
+        fact: 'Nedostatek vitamínů nebo železa je jen jedna z možností a u většiny lidí ne ta hlavní. Doplňky naslepo únavu obvykle nevyřeší.',
+      },
+      {
+        myth: 'Když je unavený, musí mu něco vážného být.',
+        fact: 'Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.',
+      },
+      {
+        myth: 'Mám adrenální únavu.',
+        fact: 'Taková diagnóza vědecky neexistuje. Únava má skutečné příčiny — a ty stojí za vyšetření.',
+      },
+    ],
+    related: [
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
+      { label: 'Výsledky krve', href: '/jak-funguje-telo/vysledky-krve' },
+      { label: 'Energie a kofein', href: '/jak-funguje-telo/energie-a-kofein' },
+    ],
+    sources: [
+      SOURCES.stadje,
+      SOURCES.sleepConsensus,
+      SOURCES.benjafield,
+      SOURCES.adrenal,
+      SOURCES.whoAnaemia,
+    ],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3801,6 +3880,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'vysledky-krve': 'prevence',
   'bolest-kolen': 'pohyb',
   'bolest-krku': 'pohyb',
+  unava: 'spanek',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

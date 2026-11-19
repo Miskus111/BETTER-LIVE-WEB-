@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 43 průvodců, 20 doplňků, 763 položek ke kontrole.
+Obsah: 44 průvodců, 20 doplňků, 780 položek ke kontrole.
 
 ---
 
@@ -1348,7 +1348,57 @@ Poznámky lékaře:
 
 ---
 
-## 28. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 28. Pořád unavený: nejčastější příčiny a kdy k lékaři
+
+Web: /jak-funguje-telo/unava
+
+**Ve zkratce**
+
+- [ ] U lidí, kteří přišli k praktickému lékaři kvůli únavě, měl vážnou tělesnou nemoc jen asi 1 z 25.
+- [ ] Mnohem častěji za únavou stojí málo nebo nekvalitní spánek, stres a deprese — tu měl skoro každý pátý.
+- [ ] Krevní testy „na všechno“ bez dalších příznaků obvykle nic nenajdou. Víc řekne rozhovor s lékařem a pár cílených vyšetření.
+
+**Čísla**
+
+- [ ] **18,5 %** unavených pacientů mělo depresi
+- [ ] **4,3 %** mělo vážnou tělesnou nemoc
+- [ ] **2,8 %** mělo chudokrevnost
+
+**Jak to funguje**
+
+- [ ] **Spánek na prvním místě:** Pod 7 hodin spánku, nepravidelný režim nebo práce na směny vyčerpají každého. Hlasité chrápání se zástavami dechu může znamenat spánkovou apnoi, která únavu způsobuje i po „dlouhé“ noci.
+- [ ] **Mysl a tělo:** Deprese a dlouhodobý stres se často projeví hlavně únavou, ztrátou energie a horším spánkem — dřív než smutkem. Proto se lékař ptá i na náladu.
+- [ ] **Tělesné příčiny:** Mezi ty častější patří chudokrevnost (hlavně ze ztráty železa), nemoci štítné žlázy, cukrovka a vedlejší účinky léků. Lékař je hledá cíleně podle dalších příznaků.
+
+**Doporučení**
+
+- [ ] Spát pravidelně 7 a více hodin, ve stejnou dobu i o víkendu. _(Prokázané)_
+- [ ] Pravidelný pohyb — i když se nechce, energii dlouhodobě zvyšuje. _(Pravděpodobné)_
+- [ ] Omezit alkohol a kofein odpoledne a večer. _(Pravděpodobné)_
+- [ ] Když únava trvá přes 2–3 týdny a nemá jasnou příčinu, zajít k praktickému lékaři. _(Prokázané)_
+- [ ] Hned k lékaři při únavě s nevysvětlitelným hubnutím, horečkou, nočním pocením, dušností, krvácením nebo výraznou bledostí. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Únava znamená, že mi chybí vitamíny.“ → Nedostatek vitamínů nebo železa je jen jedna z možností a u většiny lidí ne ta hlavní. Doplňky naslepo únavu obvykle nevyřeší.
+- [ ] „Když je unavený, musí mu něco vážného být.“ → Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.
+- [ ] „Mám adrenální únavu.“ → Taková diagnóza vědecky neexistuje. Únava má skutečné příčiny — a ty stojí za vyšetření.
+
+**Zdroje**
+
+- Stadje a kol. (2016) Co stojí za únavou u praktického lékaře — systematický přehled, BMC Fam Pract — https://pubmed.ncbi.nlm.nih.gov/27765009/
+- Watson a kol. (2015) Doporučená délka spánku pro dospělé — konsenzus AASM a SRS, J Clin Sleep Med — https://pubmed.ncbi.nlm.nih.gov/26235159/
+- Benjafield a kol. (2019) Celosvětový výskyt obstrukční spánkové apnoe, Lancet Respir Med — https://pubmed.ncbi.nlm.nih.gov/31300334/
+- Cadegiani a Kater (2016) „Adrenální únava“ neexistuje — systematický přehled, BMC Endocr Disord — https://pubmed.ncbi.nlm.nih.gov/27557747/
+- WHO — Anémie (přehled) — https://www.who.int/news-room/fact-sheets/detail/anaemia
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 29. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1398,7 +1448,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 30. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1450,7 +1500,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Kosti: banka, do které se ukládá do třiceti
+## 31. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1500,7 +1550,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 32. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1547,7 +1597,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Akné: co ho způsobuje a co na něj opravdu platí
+## 33. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1598,7 +1648,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 34. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1647,7 +1697,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 35. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1694,7 +1744,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 36. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1742,7 +1792,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Protahování: na co je dobré a na co ne
+## 37. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1792,7 +1842,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 38. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1844,7 +1894,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 39. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1893,7 +1943,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 40. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1943,7 +1993,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 41. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1995,7 +2045,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 42. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2046,7 +2096,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 43. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2094,7 +2144,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 44. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

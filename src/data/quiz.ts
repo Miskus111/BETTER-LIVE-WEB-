@@ -415,6 +415,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Studie u mladých dospělých souvislost nenašla. Víc vadí dlouhé hodiny v jedné poloze bez pohybu.',
   },
+  {
+    id: 'unava-vazna-nemoc',
+    guide: 'unava',
+    statement: 'Za dlouhodobou únavou obvykle stojí vážná tělesná nemoc.',
+    fact: false,
+    explain:
+      'U unavených pacientů praktického lékaře měl vážnou tělesnou nemoc jen asi 1 z 25 — častější byla deprese a málo spánku.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10
