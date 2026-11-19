@@ -349,6 +349,10 @@ const SOURCES = {
     title: 'ECDC: Klíšťová encefalitida — fakta pro zdravotníky',
     url: 'https://www.ecdc.europa.eu/en/tick-borne-encephalitis/facts',
   },
+  vyhlaskaOckovani: {
+    title: 'Vyhláška č. 537/2006 Sb., o očkování proti infekčním nemocem (§ 4: tetanus po 10–15 letech)',
+    url: 'https://www.zakonyprolidi.cz/cs/2006-537',
+  },
   vzpVaccines: {
     title: 'VZP ČR: Příspěvky na očkování dospělých',
     url: 'https://www.vzp.cz/pojistenci/vyhody-a-prispevky/ockovani/dospely',
@@ -3175,7 +3179,13 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Prevence rakoviny', href: '/jak-funguje-telo/prevence-rakoviny' },
       { label: 'Dlouhověkost', href: '/jak-funguje-telo/dlouhovekost' },
     ],
-    sources: [SOURCES.vzpVaccines, SOURCES.lalZoster, SOURCES.whoFlu, SOURCES.ecdcTbe],
+    sources: [
+      SOURCES.vyhlaskaOckovani,
+      SOURCES.vzpVaccines,
+      SOURCES.lalZoster,
+      SOURCES.whoFlu,
+      SOURCES.ecdcTbe,
+    ],
   },
   {
     slug: 'nalada-a-uzkost',

@@ -1722,6 +1722,7 @@ Web: /jak-funguje-telo/ockovani-dospelych
 
 **Zdroje**
 
+- Vyhláška č. 537/2006 Sb., o očkování proti infekčním nemocem (§ 4: tetanus po 10–15 letech) — https://www.zakonyprolidi.cz/cs/2006-537
 - VZP ČR: Příspěvky na očkování dospělých — https://www.vzp.cz/pojistenci/vyhody-a-prispevky/ockovani/dospely
 - Lal a kol. (2015) Účinnost vakcíny proti pásovému oparu u lidí nad 50 let, N Engl J Med — https://pubmed.ncbi.nlm.nih.gov/25916341/
 - WHO: Sezónní chřipka — fakta — https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)
