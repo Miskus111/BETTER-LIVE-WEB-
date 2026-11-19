@@ -2,9 +2,9 @@
 
 Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
-**Jak kontrolovat:** u každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište pod ni krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
+**Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 38 průvodců, 20 doplňků s dávkami a horními limity.
+Obsah: 38 průvodců, 20 doplňků, 680 položek ke kontrole.
 
 ---
 
@@ -20,9 +20,9 @@ Web: /jak-funguje-telo/spanek
 
 **Čísla**
 
-- [ ] **7+ h** — doporučený spánek dospělých
-- [ ] **~90 min** — jeden spánkový cyklus
-- [ ] **4–6** — cyklů za noc
+- [ ] **7+ h** doporučený spánek dospělých
+- [ ] **~90 min** jeden spánkový cyklus
+- [ ] **4–6** cyklů za noc
 
 **Jak to funguje**
 
@@ -69,9 +69,9 @@ Web: /jak-funguje-telo/energie-a-kofein
 
 **Čísla**
 
-- [ ] **400 mg** — bezpečně za den (dospělí)
-- [ ] **~4–5 h** — průměrný poločas kofeinu (u někoho 2–8 h)
-- [ ] **~80 mg** — energetický nápoj 250 ml
+- [ ] **400 mg** bezpečně za den (dospělí)
+- [ ] **~4–5 h** průměrný poločas kofeinu (u někoho 2–8 h)
+- [ ] **~80 mg** energetický nápoj 250 ml
 
 **Jak to funguje**
 
@@ -117,9 +117,9 @@ Web: /jak-funguje-telo/stres
 
 **Čísla**
 
-- [ ] **sekundy** — nástup adrenalinu
-- [ ] **minuty** — nástup kortizolu
-- [ ] **150 min** — pohybu týdně podle WHO
+- [ ] **sekundy** nástup adrenalinu
+- [ ] **minuty** nástup kortizolu
+- [ ] **150 min** pohybu týdně podle WHO
 
 **Jak to funguje**
 
@@ -169,7 +169,7 @@ Web: /jak-funguje-telo/dopamin-a-mobil
 
 **Čísla**
 
-- [ ] **1 pípnutí** — stačí k narušení pozornosti, i když mobil nevezmete
+- [ ] **1 pípnutí** stačí k narušení pozornosti, i když mobil nevezmete
 
 **Jak to funguje**
 
@@ -215,9 +215,9 @@ Web: /jak-funguje-telo/svaly-a-metabolismus
 
 **Čísla**
 
-- [ ] **2×** — silový trénink týdně (WHO)
-- [ ] **~1,6 g/kg** — bílkovin denně na růst svalů
-- [ ] **3–8 %** — svalové hmoty ubude za každé desetiletí po třicítce
+- [ ] **2×** silový trénink týdně (WHO)
+- [ ] **~1,6 g/kg** bílkovin denně na růst svalů
+- [ ] **3–8 %** svalové hmoty ubude za každé desetiletí po třicítce
 
 **Jak to funguje**
 
@@ -266,9 +266,9 @@ Web: /jak-funguje-telo/pohyb-a-sezeni
 
 **Čísla**
 
-- [ ] **150–300** — minut pohybu týdně
-- [ ] **8–10 tis.** — kroků, kde se přínos vyrovnává (pod 60 let)
-- [ ] **60–75 min** — svižného pohybu denně tlumí rizika sezení
+- [ ] **150–300** minut pohybu týdně
+- [ ] **8–10 tis.** kroků, kde se přínos vyrovnává (pod 60 let)
+- [ ] **60–75 min** svižného pohybu denně tlumí rizika sezení
 
 **Jak to funguje**
 
@@ -315,9 +315,9 @@ Web: /jak-funguje-telo/streva-a-mikrobiom
 
 **Čísla**
 
-- [ ] **25 g** — vlákniny denně (EFSA, minimum)
-- [ ] **25–29 g** — kde studie vidí největší přínos
-- [ ] **30+** — druhů rostlin týdně — spojeno s pestřejším mikrobiomem
+- [ ] **25 g** vlákniny denně (EFSA, minimum)
+- [ ] **25–29 g** kde studie vidí největší přínos
+- [ ] **30+** druhů rostlin týdně — spojeno s pestřejším mikrobiomem
 
 **Jak to funguje**
 
@@ -365,9 +365,9 @@ Web: /jak-funguje-telo/pitny-rezim
 
 **Čísla**
 
-- [ ] **2,0 l** — ženy, celkem za den
-- [ ] **2,5 l** — muži, celkem za den
-- [ ] **~20 %** — vody z jídla
+- [ ] **2,0 l** ženy, celkem za den
+- [ ] **2,5 l** muži, celkem za den
+- [ ] **~20 %** vody z jídla
 
 **Jak to funguje**
 
@@ -413,9 +413,9 @@ Web: /jak-funguje-telo/alkohol
 
 **Čísla**
 
-- [ ] **0** — bezpečná míra podle WHO
-- [ ] **7+** — druhů rakoviny spojených s alkoholem
-- [ ] **10 g** — alkoholu = 1 standardní drink (~0,3 l piva, 1 dl vína)
+- [ ] **0** bezpečná míra podle WHO
+- [ ] **7+** druhů rakoviny spojených s alkoholem
+- [ ] **10 g** alkoholu = 1 standardní drink (~0,3 l piva, 1 dl vína)
 
 **Jak to funguje**
 
@@ -463,8 +463,8 @@ Web: /jak-funguje-telo/imunita
 
 **Čísla**
 
-- [ ] **~4×** — vyšší šance nachlazení při spánku pod 6 h (v experimentu)
-- [ ] **<6 h** — hranice, kde riziko roste
+- [ ] **~4×** vyšší šance nachlazení při spánku pod 6 h (v experimentu)
+- [ ] **<6 h** hranice, kde riziko roste
 
 **Jak to funguje**
 
@@ -517,9 +517,9 @@ Web: /jak-funguje-telo/oci-a-obrazovky
 
 **Čísla**
 
-- [ ] **~50 %** — krátkozrakých lidí v roce 2050 (odhad)
-- [ ] **20-20-20** — pravidlo pauz pro oči
-- [ ] **40 min** — venku navíc denně snížilo nové případy u dětí (studie z Číny)
+- [ ] **~50 %** krátkozrakých lidí v roce 2050 (odhad)
+- [ ] **20-20-20** pravidlo pauz pro oči
+- [ ] **40 min** venku navíc denně snížilo nové případy u dětí (studie z Číny)
 
 **Jak to funguje**
 
@@ -568,9 +568,9 @@ Web: /jak-funguje-telo/kuze-a-slunce
 
 **Čísla**
 
-- [ ] **SPF 30+** — doporučený opalovací krém
-- [ ] **2 h** — po kolika krém obnovit
-- [ ] **UV 3+** — od tohoto UV indexu se chránit (WHO)
+- [ ] **SPF 30+** doporučený opalovací krém
+- [ ] **2 h** po kolika krém obnovit
+- [ ] **UV 3+** od tohoto UV indexu se chránit (WHO)
 
 **Jak to funguje**
 
@@ -620,8 +620,8 @@ Web: /jak-funguje-telo/srdce-a-tlak
 
 **Čísla**
 
-- [ ] **<5 g** — soli denně podle WHO
-- [ ] **<120/70** — nezvýšený tlak podle ESC 2024 (mmHg)
+- [ ] **<5 g** soli denně podle WHO
+- [ ] **<120/70** nezvýšený tlak podle ESC 2024 (mmHg)
 
 **Jak to funguje**
 
@@ -670,8 +670,8 @@ Web: /jak-funguje-telo/mozek-a-uceni
 
 **Čísla**
 
-- [ ] **1–2 dny** — pauza před 1. opakováním, když je zkouška za týden
-- [ ] **+2 %** — objem hipokampu po roce chůze (starší dospělí)
+- [ ] **1–2 dny** pauza před 1. opakováním, když je zkouška za týden
+- [ ] **+2 %** objem hipokampu po roce chůze (starší dospělí)
 
 **Jak to funguje**
 
@@ -721,9 +721,9 @@ Web: /jak-funguje-telo/hubnuti-a-energie
 
 **Čísla**
 
-- [ ] **20–60** — let stabilní metabolismus
-- [ ] **0,5–1 %** — hmotnosti týdně: rozumné tempo
-- [ ] **2/3** — shozené váhy se vrátilo do roka po vysazení semaglutidu
+- [ ] **20–60** let stabilní metabolismus
+- [ ] **0,5–1 %** hmotnosti týdně: rozumné tempo
+- [ ] **2/3** shozené váhy se vrátilo do roka po vysazení semaglutidu
 
 **Jak to funguje**
 
@@ -774,8 +774,8 @@ Web: /jak-funguje-telo/cukr-a-inzulin
 
 **Čísla**
 
-- [ ] **58 %** — méně cukrovky díky změně životního stylu
-- [ ] **<10 %** — energie z volných cukrů (WHO)
+- [ ] **58 %** méně cukrovky díky změně životního stylu
+- [ ] **<10 %** energie z volných cukrů (WHO)
 
 **Jak to funguje**
 
@@ -824,8 +824,8 @@ Web: /jak-funguje-telo/ultrazpracovane-potraviny
 
 **Čísla**
 
-- [ ] **~500 kcal** — denně navíc při ultrazpracované stravě
-- [ ] **2 týdny** — na každé stravě (20 dospělých, celkem 4 týdny)
+- [ ] **~500 kcal** denně navíc při ultrazpracované stravě
+- [ ] **2 týdny** na každé stravě (20 dospělých, celkem 4 týdny)
 
 **Jak to funguje**
 
@@ -870,9 +870,9 @@ Web: /jak-funguje-telo/nikotin-a-vaping
 
 **Čísla**
 
-- [ ] **7+ mil.** — úmrtí na tabák ročně (WHO)
-- [ ] **2×** — vyšší šance přestat s léky vareniklin nebo cytisin
-- [ ] **4–5 kg** — průměrně se přibere za rok po skončení
+- [ ] **7+ mil.** úmrtí na tabák ročně (WHO)
+- [ ] **2×** vyšší šance přestat s léky vareniklin nebo cytisin
+- [ ] **4–5 kg** průměrně se přibere za rok po skončení
 
 **Jak to funguje**
 
@@ -920,8 +920,8 @@ Web: /jak-funguje-telo/bolest-zad
 
 **Čísla**
 
-- [ ] **#1** — příčina let života s omezením (svět)
-- [ ] **6 týdnů** — do té doby se akutní bolest většinou výrazně zlepší
+- [ ] **#1** příčina let života s omezením (svět)
+- [ ] **6 týdnů** do té doby se akutní bolest většinou výrazně zlepší
 
 **Jak to funguje**
 
@@ -969,8 +969,8 @@ Web: /jak-funguje-telo/sluch-a-sluchatka
 
 **Čísla**
 
-- [ ] **~1 mld.** — mladých lidí v ohrožení (odhad)
-- [ ] **~60 %** — hlasitosti jako rozumný strop
+- [ ] **~1 mld.** mladých lidí v ohrožení (odhad)
+- [ ] **~60 %** hlasitosti jako rozumný strop
 
 **Jak to funguje**
 
@@ -1018,8 +1018,8 @@ Web: /jak-funguje-telo/sauna-a-chlad
 
 **Čísla**
 
-- [ ] **4–7×** — sauna týdně v nejznámější studii
-- [ ] **1–3 min** — nejrizikovější první fáze ve studené vodě
+- [ ] **4–7×** sauna týdně v nejznámější studii
+- [ ] **1–3 min** nejrizikovější první fáze ve studené vodě
 
 **Jak to funguje**
 
@@ -1066,9 +1066,9 @@ Web: /jak-funguje-telo/menstruacni-cyklus
 
 **Čísla**
 
-- [ ] **21–35** — dní: běžná délka cyklu
-- [ ] **~30 %** — žen 15–49 let s anémií (WHO, svět)
-- [ ] **~10 %** — žen v plodném věku má endometriózu (WHO)
+- [ ] **21–35** dní: běžná délka cyklu
+- [ ] **~30 %** žen 15–49 let s anémií (WHO, svět)
+- [ ] **~10 %** žen v plodném věku má endometriózu (WHO)
 
 **Jak to funguje**
 
@@ -1116,8 +1116,8 @@ Web: /jak-funguje-telo/nalada-a-uzkost
 
 **Čísla**
 
-- [ ] **1 ze 7** — lidí žije s duševní poruchou (WHO)
-- [ ] **116 123** — Linka první psychické pomoci
+- [ ] **1 ze 7** lidí žije s duševní poruchou (WHO)
+- [ ] **116 123** Linka první psychické pomoci
 
 **Jak to funguje**
 
@@ -1166,9 +1166,9 @@ Web: /jak-funguje-telo/zuby-a-usta
 
 **Čísla**
 
-- [ ] **2× denně** — čistit 2 minuty
-- [ ] **1 000+ ppm** — fluoridu v pastě pro dospělé
-- [ ] **3,7 mld.** — lidí s nemocí zubů či dásní (WHO)
+- [ ] **2× denně** čistit 2 minuty
+- [ ] **1 000+ ppm** fluoridu v pastě pro dospělé
+- [ ] **3,7 mld.** lidí s nemocí zubů či dásní (WHO)
 
 **Jak to funguje**
 
@@ -1218,8 +1218,8 @@ Web: /jak-funguje-telo/kosti
 
 **Čísla**
 
-- [ ] **~25–30** — let: vrchol kostní hmoty
-- [ ] **−23 %** — pádů u starších lidí díky cvičení rovnováhy a síly
+- [ ] **~25–30** let: vrchol kostní hmoty
+- [ ] **−23 %** pádů u starších lidí díky cvičení rovnováhy a síly
 
 **Jak to funguje**
 
@@ -1268,8 +1268,8 @@ Web: /jak-funguje-telo/dychani
 
 **Čísla**
 
-- [ ] **~6/min** — pomalé dýchání ve studiích
-- [ ] **~1 mld.** — dospělých ve věku 30–69 let se spánkovou apnoí (odhad)
+- [ ] **~6/min** pomalé dýchání ve studiích
+- [ ] **~1 mld.** dospělých ve věku 30–69 let se spánkovou apnoí (odhad)
 
 **Jak to funguje**
 
@@ -1315,8 +1315,8 @@ Web: /jak-funguje-telo/akne-a-plet
 
 **Čísla**
 
-- [ ] **~9 %** — lidí na světě má akné (odhad)
-- [ ] **2–3 měsíce** — na plný účinek léčby
+- [ ] **~9 %** lidí na světě má akné (odhad)
+- [ ] **2–3 měsíce** na plný účinek léčby
 
 **Jak to funguje**
 
@@ -1366,8 +1366,8 @@ Web: /jak-funguje-telo/bolest-hlavy
 
 **Čísla**
 
-- [ ] **~40 %** — lidí na světě má poruchu s bolestí hlavy (WHO)
-- [ ] **4–72 h** — trvá neléčený záchvat migrény
+- [ ] **~40 %** lidí na světě má poruchu s bolestí hlavy (WHO)
+- [ ] **4–72 h** trvá neléčený záchvat migrény
 
 **Jak to funguje**
 
@@ -1415,8 +1415,8 @@ Web: /jak-funguje-telo/prerusovany-pust
 
 **Čísla**
 
-- [ ] **16:8** — 16 h bez jídla, 8 h okno
-- [ ] **12 měsíců** — trvala studie bez rozdílu proti dietě
+- [ ] **16:8** 16 h bez jídla, 8 h okno
+- [ ] **12 měsíců** trvala studie bez rozdílu proti dietě
 
 **Jak to funguje**
 
@@ -1462,8 +1462,8 @@ Web: /jak-funguje-telo/samota-a-vztahy
 
 **Čísla**
 
-- [ ] **1 z 6** — lidí na světě se cítí osamělý (WHO)
-- [ ] **871 000** — úmrtí ročně spojených s osamělostí (odhad WHO)
+- [ ] **1 z 6** lidí na světě se cítí osamělý (WHO)
+- [ ] **871 000** úmrtí ročně spojených s osamělostí (odhad WHO)
 
 **Jak to funguje**
 
@@ -1510,8 +1510,8 @@ Web: /jak-funguje-telo/protahovani
 
 **Čísla**
 
-- [ ] **< 60 s** — statického protažení na sval výkon prakticky neovlivní
-- [ ] **~1/3** — zranění oproti kontrolám při posilování (metaanalýza)
+- [ ] **< 60 s** statického protažení na sval výkon prakticky neovlivní
+- [ ] **~1/3** zranění oproti kontrolám při posilování (metaanalýza)
 
 **Jak to funguje**
 
@@ -1560,9 +1560,9 @@ Web: /jak-funguje-telo/testosteron
 
 **Čísla**
 
-- [ ] **10–15 %** — pokles po týdnu spánku 5 h za noc (studie)
-- [ ] **~25 %** — složek boosterů mělo data o zvýšení testosteronu
-- [ ] **~1 %** — ročně klesá testosteron od středního věku
+- [ ] **10–15 %** pokles po týdnu spánku 5 h za noc (studie)
+- [ ] **~25 %** složek boosterů mělo data o zvýšení testosteronu
+- [ ] **~1 %** ročně klesá testosteron od středního věku
 
 **Jak to funguje**
 
@@ -1612,8 +1612,8 @@ Web: /jak-funguje-telo/cholesterol
 
 **Čísla**
 
-- [ ] **−22 %** — infarktů a mrtvic na každý 1 mmol/l nižšího LDL
-- [ ] **<3,0** — cílový LDL (mmol/l) u lidí s nízkým rizikem (ESC)
+- [ ] **−22 %** infarktů a mrtvic na každý 1 mmol/l nižšího LDL
+- [ ] **<3,0** cílový LDL (mmol/l) u lidí s nízkým rizikem (ESC)
 
 **Jak to funguje**
 
@@ -1661,8 +1661,8 @@ Web: /jak-funguje-telo/traveni-a-zacpa
 
 **Čísla**
 
-- [ ] **~14 %** — lidí na světě má chronickou zácpu
-- [ ] **3× týdně–3× denně** — běžný rozsah četnosti stolice
+- [ ] **~14 %** lidí na světě má chronickou zácpu
+- [ ] **3× týdně–3× denně** běžný rozsah četnosti stolice
 
 **Jak to funguje**
 
@@ -1711,9 +1711,9 @@ Web: /jak-funguje-telo/chronotyp
 
 **Čísla**
 
-- [ ] **~20 let** — věk, kdy jsme největší sovy
-- [ ] **Skupina 2A** — IARC: noční práce je pravděpodobně karcinogenní
-- [ ] **~2 h** — dřív se posunuly hodiny po týdnu pod stanem bez umělého světla
+- [ ] **~20 let** věk, kdy jsme největší sovy
+- [ ] **Skupina 2A** IARC: noční práce je pravděpodobně karcinogenní
+- [ ] **~2 h** dřív se posunuly hodiny po týdnu pod stanem bez umělého světla
 
 **Jak to funguje**
 
@@ -1763,10 +1763,10 @@ Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
 **Čísla**
 
-- [ ] **2×** — týdně na každou svalovou skupinu
-- [ ] **8–12** — opakování v sérii na začátek
-- [ ] **10+** — sérií na sval týdně pro výraznější růst
-- [ ] **30–60 min** — posilování týdně — spojeno s 10–20 % nižší úmrtností
+- [ ] **2×** týdně na každou svalovou skupinu
+- [ ] **8–12** opakování v sérii na začátek
+- [ ] **10+** sérií na sval týdně pro výraznější růst
+- [ ] **30–60 min** posilování týdně — spojeno s 10–20 % nižší úmrtností
 
 **Jak to funguje**
 
@@ -1814,7 +1814,7 @@ Web: /jak-funguje-telo/alergie-a-pyl
 
 **Čísla**
 
-- [ ] **−81 %** — arašídové alergie při časném zavádění u rizikových kojenců
+- [ ] **−81 %** arašídové alergie při časném zavádění u rizikových kojenců
 
 **Jak to funguje**
 
@@ -1862,9 +1862,9 @@ Web: /jak-funguje-telo/marihuana-a-thc
 
 **Čísla**
 
-- [ ] **~1 z 6** — kdo začne v dospívání, se stane závislým
-- [ ] **~5×** — vyšší šance psychózy při denním užívání silné trávy
-- [ ] **~47 %** — pravidelných uživatelů má při vysazení abstinenční příznaky
+- [ ] **~1 z 6** kdo začne v dospívání, se stane závislým
+- [ ] **~5×** vyšší šance psychózy při denním užívání silné trávy
+- [ ] **~47 %** pravidelných uživatelů má při vysazení abstinenční příznaky
 
 **Jak to funguje**
 

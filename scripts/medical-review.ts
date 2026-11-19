@@ -1,13 +1,30 @@
 /**
- * Generates docs/lekarska-kontrola.md — a checklist for the physician who reviews the health content.
- * Every guide's numbers, recommendations (with evidence level), myths and sources, plus the supplement
- * upper limits, in one printable document with a box to tick or comment on each item.
+ * Generates the checklist for the physician who reviews the health content, as
+ * docs/lekarska-kontrola.md and a printable docs/lekarska-kontrola.docx: every guide's numbers,
+ * recommendations (with evidence level), myths and sources, plus the supplement doses and upper limits,
+ * with a box to tick on each item, room for notes and a sign-off block.
  *
  *   npm run review:doc
  *
  * Regenerate after any content change so the reviewer always signs off on what is live.
  */
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import {
+  AlignmentType,
+  BorderStyle,
+  Document,
+  Footer,
+  HeadingLevel,
+  Packer,
+  PageNumber,
+  Paragraph,
+  ShadingType,
+  Table,
+  TableCell,
+  TableRow,
+  TextRun,
+  WidthType,
+} from 'docx'
 import { BODY_GUIDES } from '../src/data/body-guides'
 import { SUPPLEMENTS } from '../src/data/supplement-library'
 
@@ -16,57 +33,74 @@ const LEVEL: Record<string, string> = {
   plausible: 'Pravděpodobné',
   preliminary: 'Předběžné',
 }
-const box = '- [ ] '
 /** Czech number format; billions of CFU as "mld." so probiotics read 1–10 mld. CFU */
 const num = (v: number) =>
   v >= 1e9
     ? `${(v / 1e9).toLocaleString('cs-CZ')} mld.`
     : v.toLocaleString('cs-CZ', { maximumFractionDigits: 2 })
-const out: string[] = []
 
-out.push(
+// ── content model (shared by both outputs) ───────────────────────────────────
+type Item = { bold?: string; text: string; note?: string }
+type Block = { title: string; items: Item[]; plain?: boolean }
+type Section = { title: string; url: string; blocks: Block[] }
+
+const today = new Date().toISOString().slice(0, 10)
+const INTRO =
+  'U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište ' +
+  'k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje ' +
+  '(Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.'
+
+const sections: Section[] = BODY_GUIDES.map((g) => ({
+  title: g.title,
+  url: `/jak-funguje-telo/${g.slug}`,
+  blocks: [
+    { title: 'Ve zkratce', items: g.tldr.map((t) => ({ text: t })) },
+    { title: 'Čísla', items: g.numbers.map((n) => ({ bold: n.value, text: n.label })) },
+    { title: 'Jak to funguje', items: g.how.map((h) => ({ bold: h.title + ':', text: h.text })) },
+    { title: 'Doporučení', items: g.helps.map((h) => ({ text: h.text, note: LEVEL[h.level] })) },
+    { title: 'Mýty', items: g.myths.map((m) => ({ text: `„${m.myth}“ → ${m.fact}` })) },
+    { title: 'Zdroje', plain: true, items: g.sources.map((s) => ({ text: `${s.title} — ${s.url}` })) },
+  ].filter((b) => b.items.length),
+}))
+
+const suppRows = SUPPLEMENTS.map((s) => [
+  s.name.cs,
+  `${num(s.dose.min)}–${num(s.dose.max)} ${s.dose.unit}`,
+  s.ul ? `${num(s.ul.value)} ${s.dose.unit}${s.ul.scope === 'supplements' ? ' (z doplňků)' : ''}` : '—',
+])
+const itemCount =
+  sections.reduce((n, s) => n + s.blocks.filter((b) => !b.plain).reduce((m, b) => m + b.items.length, 0), 0) +
+  suppRows.length
+
+// ── Markdown ─────────────────────────────────────────────────────────────────
+const md: string[] = [
   '# Odborná kontrola zdravotního obsahu — BLWB',
   '',
-  `Vygenerováno ${new Date().toISOString().slice(0, 10)} přímo z dat webu (\`npm run review:doc\`).`,
+  `Vygenerováno ${today} přímo z dat webu (\`npm run review:doc\`).`,
   '',
-  '**Jak kontrolovat:** u každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. ' +
-    'Když ne, napište pod ni krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje ' +
-    '(Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.',
+  `**Jak kontrolovat:** ${INTRO}`,
   '',
-  `Obsah: ${BODY_GUIDES.length} průvodců, ${SUPPLEMENTS.length} doplňků s dávkami a horními limity.`,
+  `Obsah: ${sections.length} průvodců, ${SUPPLEMENTS.length} doplňků, ${itemCount} položek ke kontrole.`,
   '',
   '---',
   '',
-)
-
-for (const [i, g] of BODY_GUIDES.entries()) {
-  out.push(`## ${i + 1}. ${g.title}`, '', `Web: /jak-funguje-telo/${g.slug}`, '')
-  out.push('**Ve zkratce**', '')
-  for (const t of g.tldr) out.push(box + t)
-  if (g.numbers.length) {
-    out.push('', '**Čísla**', '')
-    for (const n of g.numbers) out.push(`${box}**${n.value}** — ${n.label}`)
+]
+sections.forEach((s, i) => {
+  md.push(`## ${i + 1}. ${s.title}`, '', `Web: ${s.url}`, '')
+  for (const b of s.blocks) {
+    md.push(`**${b.title}**`, '')
+    for (const it of b.items) {
+      const body = `${it.bold ? `**${it.bold}** ` : ''}${it.text}${it.note ? ` _(${it.note})_` : ''}`
+      md.push(`${b.plain ? '- ' : '- [ ] '}${body}`)
+    }
+    md.push('')
   }
-  out.push('', '**Jak to funguje**', '')
-  for (const h of g.how) out.push(`${box}**${h.title}:** ${h.text}`)
-  out.push('', '**Doporučení**', '')
-  for (const h of g.helps) out.push(`${box}${h.text} _(${LEVEL[h.level]})_`)
-  out.push('', '**Mýty**', '')
-  for (const m of g.myths) out.push(`${box}„${m.myth}“ → ${m.fact}`)
-  out.push('', '**Zdroje**', '')
-  for (const s of g.sources) out.push(`- ${s.title} — ${s.url}`)
-  out.push('', 'Poznámky lékaře:', '', '&nbsp;', '', '---', '')
-}
-
-out.push('## Doplňky: běžné dávky a horní limity', '')
-out.push('| Doplněk | Běžná denní dávka | Horní bezpečný limit | OK |', '|---|---|---|---|')
-for (const s of SUPPLEMENTS) {
-  const ul = s.ul
-    ? `${num(s.ul.value)} ${s.dose.unit}${s.ul.scope === 'supplements' ? ' (z doplňků)' : ''}`
-    : '—'
-  out.push(`| ${s.name.cs} | ${num(s.dose.min)}–${num(s.dose.max)} ${s.dose.unit} | ${ul} | ☐ |`)
-}
-out.push(
+  md.push('Poznámky lékaře:', '', '&nbsp;', '', '---', '')
+})
+md.push('## Doplňky: běžné dávky a horní limity', '')
+md.push('| Doplněk | Běžná denní dávka | Horní bezpečný limit | OK |', '|---|---|---|---|')
+for (const r of suppRows) md.push(`| ${r.join(' | ')} | ☐ |`)
+md.push(
   '',
   '---',
   '',
@@ -76,6 +110,179 @@ out.push(
   '',
 )
 
+// ── Word ─────────────────────────────────────────────────────────────────────
+const FONT = 'Arial'
+const ink = '1F2937'
+const muted = '6B7280'
+const para = (runs: TextRun[], opts: Record<string, unknown> = {}) =>
+  new Paragraph({ children: runs, spacing: { after: 80 }, ...opts })
+const check = (it: Item) =>
+  para(
+    [
+      new TextRun({ text: '☐  ', font: 'Segoe UI Symbol', size: 22 }),
+      ...(it.bold ? [new TextRun({ text: it.bold + ' ', bold: true })] : []),
+      new TextRun(it.text),
+      ...(it.note ? [new TextRun({ text: `  (${it.note})`, italics: true, color: muted })] : []),
+    ],
+    { indent: { left: 360, hanging: 360 }, keepLines: true },
+  )
+const rule = () =>
+  new Paragraph({
+    border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: 'D1D5DB', space: 1 } },
+    spacing: { after: 160 },
+  })
+const noteLines = () => [
+  para([new TextRun({ text: 'Poznámky lékaře:', bold: true, color: muted })], {
+    spacing: { before: 120, after: 60 },
+  }),
+  ...[0, 1, 2].map(
+    () =>
+      new Paragraph({
+        border: { bottom: { style: BorderStyle.DOTTED, size: 4, color: '9CA3AF', space: 1 } },
+        spacing: { after: 240 },
+      }),
+  ),
+]
+
+const children: (Paragraph | Table)[] = [
+  new Paragraph({
+    heading: HeadingLevel.TITLE,
+    children: [new TextRun('Odborná kontrola zdravotního obsahu')],
+  }),
+  para([new TextRun({ text: `Better Live with Biohacking (BLWB) · vygenerováno ${today}`, color: muted })]),
+  para([new TextRun({ text: 'Jak kontrolovat: ', bold: true }), new TextRun(INTRO)], {
+    spacing: { before: 200, after: 120 },
+  }),
+  para([
+    new TextRun(
+      `Obsah: ${sections.length} průvodců a ${SUPPLEMENTS.length} doplňků — celkem ${itemCount} položek. Zdroje u každého průvodce jsou odkazy na PubMed, EFSA nebo WHO.`,
+    ),
+  ]),
+]
+sections.forEach((s, i) => {
+  children.push(
+    new Paragraph({
+      heading: HeadingLevel.HEADING_1,
+      pageBreakBefore: true,
+      children: [new TextRun(`${i + 1}. ${s.title}`)],
+    }),
+  )
+  children.push(para([new TextRun({ text: `Web: ${s.url}`, color: muted, size: 18 })]))
+  for (const b of s.blocks) {
+    children.push(new Paragraph({ heading: HeadingLevel.HEADING_2, children: [new TextRun(b.title)] }))
+    for (const it of b.items)
+      children.push(
+        b.plain
+          ? para([new TextRun({ text: it.text, size: 17, color: muted })], { indent: { left: 360 } })
+          : check(it),
+      )
+  }
+  children.push(...noteLines())
+})
+
+// supplements table
+const widths = [3000, 2400, 2800, 826] // sums to 9026 = A4 width minus 1" margins
+const cell = (text: string, w: number, header = false) =>
+  new TableCell({
+    width: { size: w, type: WidthType.DXA },
+    shading: header ? { type: ShadingType.CLEAR, fill: 'F3F4F6', color: 'auto' } : undefined,
+    margins: { top: 60, bottom: 60, left: 100, right: 100 },
+    children: [
+      new Paragraph({
+        alignment: w === widths[3] ? AlignmentType.CENTER : AlignmentType.LEFT,
+        children: [
+          new TextRun({ text, bold: header, font: w === widths[3] && !header ? 'Segoe UI Symbol' : FONT }),
+        ],
+      }),
+    ],
+  })
+children.push(
+  new Paragraph({
+    heading: HeadingLevel.HEADING_1,
+    pageBreakBefore: true,
+    children: [new TextRun('Doplňky: běžné dávky a horní limity')],
+  }),
+)
+children.push(
+  new Table({
+    width: { size: 9026, type: WidthType.DXA },
+    columnWidths: widths,
+    rows: [
+      new TableRow({
+        tableHeader: true,
+        children: ['Doplněk', 'Běžná denní dávka', 'Horní bezpečný limit', 'OK'].map((t, i) =>
+          cell(t, widths[i], true),
+        ),
+      }),
+      ...suppRows.map((r) => new TableRow({ children: [...r, '☐'].map((t, i) => cell(t, widths[i])) })),
+    ],
+  }),
+)
+children.push(rule())
+for (const line of [
+  'Kontrolu provedl(a): ______________________________   Odbornost: ______________________________',
+  'Datum: ____________________   Podpis: ______________________________',
+])
+  children.push(para([new TextRun(line)], { spacing: { before: 360, after: 120 } }))
+
+const doc = new Document({
+  creator: 'BLWB',
+  title: 'Odborná kontrola zdravotního obsahu — BLWB',
+  styles: {
+    default: { document: { run: { font: FONT, size: 20, color: ink } } },
+    paragraphStyles: [
+      { id: 'Normal', name: 'Normal', run: { font: FONT, size: 20, color: ink } },
+      {
+        id: 'Title',
+        name: 'Title',
+        basedOn: 'Normal',
+        run: { font: FONT, size: 40, bold: true },
+        paragraph: { spacing: { before: 0, after: 120 }, keepNext: true },
+      },
+      {
+        id: 'Heading1',
+        name: 'Heading 1',
+        basedOn: 'Normal',
+        next: 'Normal',
+        run: { font: FONT, size: 30, bold: true },
+        paragraph: { spacing: { before: 0, after: 80 }, keepNext: true, outlineLevel: 0 },
+      },
+      {
+        id: 'Heading2',
+        name: 'Heading 2',
+        basedOn: 'Normal',
+        next: 'Normal',
+        run: { font: FONT, size: 22, bold: true, color: '0E7490' },
+        paragraph: { spacing: { before: 200, after: 80 }, keepNext: true, outlineLevel: 1 },
+      },
+    ],
+  },
+  sections: [
+    {
+      properties: { page: { margin: { top: 1134, bottom: 1134, left: 1440, right: 1440 } } },
+      footers: {
+        default: new Footer({
+          children: [
+            new Paragraph({
+              alignment: AlignmentType.RIGHT,
+              children: [
+                new TextRun({ text: 'BLWB · odborná kontrola · strana ', color: muted, size: 16 }),
+                new TextRun({ children: [PageNumber.CURRENT], color: muted, size: 16 }),
+              ],
+            }),
+          ],
+        }),
+      },
+      children,
+    },
+  ],
+})
+
 mkdirSync('docs', { recursive: true })
-writeFileSync('docs/lekarska-kontrola.md', out.join('\n'))
-console.log(`✓ docs/lekarska-kontrola.md — ${BODY_GUIDES.length} guides, ${SUPPLEMENTS.length} supplements`)
+writeFileSync('docs/lekarska-kontrola.md', md.join('\n'))
+Packer.toBuffer(doc).then((buf) => {
+  writeFileSync('docs/lekarska-kontrola.docx', buf)
+  console.log(
+    `✓ docs/lekarska-kontrola.{md,docx} — ${sections.length} guides, ${SUPPLEMENTS.length} supplements, ${itemCount} items`,
+  )
+})
