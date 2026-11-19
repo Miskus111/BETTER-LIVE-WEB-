@@ -3,7 +3,14 @@ import type { BodyGuide } from '@/data/body-guides'
 /** Lowercase and strip diacritics so "spanek" finds "spánek". */
 export const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 
-const fields = (g: BodyGuide) => ({
+const cache = new WeakMap<BodyGuide, { title: string; lead: string; body: string }>()
+/** normalised text of a guide, computed once (search runs on every keystroke) */
+const fields = (g: BodyGuide) => {
+  let f = cache.get(g)
+  if (!f) cache.set(g, (f = build(g)))
+  return f
+}
+const build = (g: BodyGuide) => ({
   title: norm(`${g.title} ${g.short}`),
   lead: norm(`${g.hook} ${g.tldr.join(' ')}`),
   body: norm(
@@ -21,7 +28,9 @@ const fields = (g: BodyGuide) => ({
  * hook and summary, then the body. An empty query returns the guides unchanged.
  */
 export function searchGuides(guides: BodyGuide[], query: string): BodyGuide[] {
-  const words = norm(query).split(/\s+/).filter(Boolean)
+  const all = norm(query).split(/\s+/).filter(Boolean)
+  // one-letter words ("vitamín d") match almost anything — ignore them unless they're all there is
+  const words = all.some((w) => w.length > 1) ? all.filter((w) => w.length > 1) : all
   if (!words.length) return guides
   return guides
     .map((g, i) => {

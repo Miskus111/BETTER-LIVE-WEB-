@@ -15,7 +15,7 @@ const RULES = [
   {
     k: '03',
     t: 'Vypočteno, ne vybráno',
-    d: 'Potravina je s orgánem propojená, jen pokud 100 g dodá ≥ 15 % referenční hodnoty — spočítáno z dat USDA.',
+    d: 'Potravina je s orgánem propojená, jen pokud 100 g dodá ≥ 15 % referenční hodnoty (u nápojů 100 ml ≥ 7,5 %) — spočítáno z dat USDA.',
   },
   {
     k: '04',

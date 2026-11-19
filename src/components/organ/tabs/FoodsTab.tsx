@@ -9,8 +9,9 @@ export function FoodsTab({ organ }: { organ: Organ }) {
   return (
     <div>
       <p className="text-muted mb-4 text-[14px]">
-        Potraviny, ve kterých 100 g dosáhne alespoň úrovně „zdroj“ podle EU (≥ 15 % referenční hodnoty) u
-        živiny, na které orgán závisí. Řazeno podle síly důkazů a množství — vypočteno z dat USDA.
+        Potraviny, ve kterých 100 g dosáhne alespoň úrovně „zdroj“ podle EU (≥ 15 % referenční hodnoty na 100
+        g, u nápojů 7,5 % na 100 ml) u živiny, na které orgán závisí. Řazeno podle síly důkazů a množství —
+        vypočteno z dat USDA.
       </p>
       <ul className="grid grid-cols-2 gap-3">
         {foods.map(({ food, via }) => (

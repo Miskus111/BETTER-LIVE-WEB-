@@ -176,6 +176,7 @@ export const FOODS: Food[] = [
   }),
   f({
     id: 'milk',
+    liquid: true,
     name: 'Plnotučné mléko',
     category: 'Mléčné výrobky',
     basis: '3,3 % tuku',
@@ -199,6 +200,7 @@ export const FOODS: Food[] = [
   }),
   f({
     id: 'kefir',
+    liquid: true,
     name: 'Kefír',
     category: 'Fermentované',
     basis: 'bílý, z plnotučného mléka',

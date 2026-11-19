@@ -170,6 +170,8 @@ export interface Food {
   micros: Partial<Record<NutrientId, number>>
   completeProtein?: boolean
   liveCultures?: boolean
+  /** a drink: EU 'source of' thresholds are per 100 ml at half the solid level (7.5 % NRV) */
+  liquid?: boolean
   sodiumMg?: number
   note?: string
   /** public path; placeholder SVG until licensed photography is supplied */

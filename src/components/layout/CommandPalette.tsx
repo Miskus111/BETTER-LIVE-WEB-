@@ -2,7 +2,19 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Apple, Atom, BookOpen, CornerDownLeft, FileText, HeartPulse, Pill, Search, X } from 'lucide-react'
+import {
+  Apple,
+  Atom,
+  BookA,
+  BookOpen,
+  Calculator,
+  CornerDownLeft,
+  FileText,
+  HeartPulse,
+  Pill,
+  Search,
+  X,
+} from 'lucide-react'
 import { search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
@@ -14,6 +26,8 @@ const ICON: Record<SearchKind, typeof Apple> = {
   Stránka: FileText,
   Průvodce: BookOpen,
   Doplněk: Pill,
+  Kalkulačka: Calculator,
+  Pojem: BookA,
 }
 const SUGGESTED = [
   'guide-spanek',

@@ -92,7 +92,8 @@ export function FoodDetail({
             ))}
           </div>
           <p className="text-subtle mt-3 text-[12.5px]">
-            Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU (≥ 15 % RHP). Zdroj: USDA FoodData Central —{' '}
+            Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU (
+            {food.liquid ? '≥ 7,5 % RHP na 100 ml' : '≥ 15 % RHP na 100 g'}). Zdroj: USDA FoodData Central —{' '}
             {food.fdc}.
           </p>
         </section>

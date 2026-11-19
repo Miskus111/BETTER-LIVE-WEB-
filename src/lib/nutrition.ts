@@ -15,11 +15,14 @@ export function amountOf(
   return food.micros[id]
 }
 
-/** "Source of" threshold per 100 g: explicit rule, else 15 % of the reference value. */
-export function thresholdOf(id: NutrientId): number | undefined {
+/**
+ * "Source of" threshold: explicit rule, else 15 % of the reference value per 100 g — or 7.5 % per
+ * 100 ml for drinks (Reg. (EU) 1169/2011, Annex XIII; used by Reg. 1924/2006 for 'source of').
+ */
+export function thresholdOf(id: NutrientId, liquid = false): number | undefined {
   const n = NUTRIENTS[id]
   if (n.threshold) return n.threshold.value
-  if (n.ref) return +(n.ref.value * 0.15).toPrecision(6)
+  if (n.ref) return +(n.ref.value * (liquid ? 0.075 : 0.15)).toPrecision(6)
   return undefined
 }
 
@@ -36,7 +39,7 @@ export function isSource(food: Food, id: NutrientId): boolean {
   if (v === undefined) return false
   const n = NUTRIENTS[id]
   if (n.qualitative) return id !== 'water'
-  const t = thresholdOf(id)
+  const t = thresholdOf(id, food.liquid)
   return t !== undefined && v >= t
 }
 
