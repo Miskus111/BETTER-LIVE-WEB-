@@ -287,6 +287,15 @@ const SOURCES = {
     27765009,
     'Stadje a kol. (2016) Co stojí za únavou u praktického lékaře — systematický přehled, BMC Fam Pract',
   ),
+  predimed: pm(
+    29897866,
+    'Estruch a kol. (2018) Středomořská strava s olivovým olejem nebo ořechy — studie PREDIMED, N Engl J Med',
+  ),
+  mozaffarianTrans: pm(16611951, 'Mozaffarian a kol. (2006) Trans-tuky a nemoci srdce, N Engl J Med'),
+  whoSatFat: {
+    title: 'WHO (2023) Nasycené a trans-mastné kyseliny u dospělých a dětí — doporučení',
+    url: 'https://www.who.int/publications/i/item/9789240073630',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2629,6 +2638,69 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
   },
   {
+    slug: 'tuky',
+    title: 'Tuky: které tělu prospívají a které omezit',
+    short: 'Tuky',
+    icon: 'droplet',
+    hook: 'Tuk není nepřítel — bez něj se nevstřebají vitamíny a nevytvoří hormony. Rozhoduje, jaký tuk a co nahradí.',
+    tldr: [
+      'Nenasycené tuky (olivový olej, ořechy, semínka, ryby) souvisí se zdravějším srdcem.',
+      'Nasycené tuky (máslo, tučné maso, uzeniny, sýry) podle WHO pod 10 % energie, trans-tuky pod 1 %.',
+      'Nejvíc pomáhá nasycený tuk nahradit nenasyceným — ne bílým pečivem a cukrem.',
+    ],
+    numbers: [
+      { value: '< 10 %', label: 'energie z nasycených tuků (WHO)' },
+      { value: '−17 %', label: 'srdečně-cévních příhod při omezení nasycených tuků (Cochrane)' },
+      { value: '~30 %', label: 'méně příhod se středomořskou stravou s olivovým olejem nebo ořechy' },
+    ],
+    how: [
+      {
+        title: 'K čemu tuk potřebujeme',
+        text: 'Tuky jsou stavební kámen buněčných membrán a hormonů a díky nim se vstřebají vitamíny A, D, E a K. Omega-3 si tělo samo nevyrobí, musí je dostat v jídle.',
+      },
+      {
+        title: 'Nasycené vs. nenasycené',
+        text: 'Nasycené tuky (pevné za pokojové teploty) zvyšují LDL cholesterol. Nenasycené tuky (oleje, ořechy, ryby) ho snižují, když nasycené nahradí.',
+      },
+      {
+        title: 'Na náhradě záleží',
+        text: 'Přehled Cochrane ukázal, že omezení nasycených tuků snížilo počet srdečních příhod o 17 %. Přínos byl největší, když je lidé nahradili nenasycenými tuky; nahrazení rafinovanými sacharidy nepomáhá.',
+      },
+    ],
+    today: [
+      'Trans-tuky ze ztužených olejů jsou v EU od roku 2021 omezené — v některých pečivech a smaženém jídle se ale dál objevují.',
+      'Trend „keto“ a „carnivore“ podporuje velké množství másla a tučného masa; dlouhodobé údaje o bezpečnosti chybí.',
+    ],
+    helps: [
+      { text: 'Na vaření a do salátů hlavně olivový nebo řepkový olej.', level: 'established' },
+      { text: 'Hrst ořechů nebo semínek denně.', level: 'established' },
+      { text: 'Tučné ryby (losos, makrela, sardinky) 1–2× týdně.', level: 'established' },
+      { text: 'Méně uzenin, tučného masa a sladkého pečiva; máslo a sýry s mírou.', level: 'established' },
+      { text: 'Nenahrazovat tuk cukrem — „light“ výrobky často přidávají sacharidy.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Tuk ve stravě dělá tlustým.',
+        fact: 'Na váze rozhoduje celková energie. Tuk je kaloricky hustý, ale nenasycené tuky v rozumném množství patří ke zdravé stravě.',
+      },
+      {
+        myth: 'Máslo je zdravější než olej.',
+        fact: 'Máslo má hodně nasycených tuků, které zvyšují LDL cholesterol. Olivový a řepkový olej srdci prospívají víc.',
+      },
+      {
+        myth: 'Nízkotučné výrobky jsou vždy lepší volba.',
+        fact: 'Často mají víc cukru. Lepší je vybírat druh tuku než tuk úplně vyřazovat.',
+      },
+    ],
+    related: [
+      { label: 'Cholesterol', href: '/jak-funguje-telo/cholesterol' },
+      { label: 'Olivový olej', href: '/food/olive-oil' },
+      { label: 'Omega-3', href: '/doplnky/omega-3' },
+      { label: 'Ultrazpracované potraviny', href: '/jak-funguje-telo/ultrazpracovane-potraviny' },
+    ],
+    sources: [SOURCES.whoSatFat, SOURCES.hooperSatFat, SOURCES.predimed, SOURCES.mozaffarianTrans],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3881,6 +3953,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'bolest-kolen': 'pohyb',
   'bolest-krku': 'pohyb',
   unava: 'spanek',
+  tuky: 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

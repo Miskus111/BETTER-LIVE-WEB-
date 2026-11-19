@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 44 průvodců, 20 doplňků, 780 položek ke kontrole.
+Obsah: 45 průvodců, 20 doplňků, 797 položek ke kontrole.
 
 ---
 
@@ -1398,7 +1398,56 @@ Poznámky lékaře:
 
 ---
 
-## 29. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 29. Tuky: které tělu prospívají a které omezit
+
+Web: /jak-funguje-telo/tuky
+
+**Ve zkratce**
+
+- [ ] Nenasycené tuky (olivový olej, ořechy, semínka, ryby) souvisí se zdravějším srdcem.
+- [ ] Nasycené tuky (máslo, tučné maso, uzeniny, sýry) podle WHO pod 10 % energie, trans-tuky pod 1 %.
+- [ ] Nejvíc pomáhá nasycený tuk nahradit nenasyceným — ne bílým pečivem a cukrem.
+
+**Čísla**
+
+- [ ] **< 10 %** energie z nasycených tuků (WHO)
+- [ ] **−17 %** srdečně-cévních příhod při omezení nasycených tuků (Cochrane)
+- [ ] **~30 %** méně příhod se středomořskou stravou s olivovým olejem nebo ořechy
+
+**Jak to funguje**
+
+- [ ] **K čemu tuk potřebujeme:** Tuky jsou stavební kámen buněčných membrán a hormonů a díky nim se vstřebají vitamíny A, D, E a K. Omega-3 si tělo samo nevyrobí, musí je dostat v jídle.
+- [ ] **Nasycené vs. nenasycené:** Nasycené tuky (pevné za pokojové teploty) zvyšují LDL cholesterol. Nenasycené tuky (oleje, ořechy, ryby) ho snižují, když nasycené nahradí.
+- [ ] **Na náhradě záleží:** Přehled Cochrane ukázal, že omezení nasycených tuků snížilo počet srdečních příhod o 17 %. Přínos byl největší, když je lidé nahradili nenasycenými tuky; nahrazení rafinovanými sacharidy nepomáhá.
+
+**Doporučení**
+
+- [ ] Na vaření a do salátů hlavně olivový nebo řepkový olej. _(Prokázané)_
+- [ ] Hrst ořechů nebo semínek denně. _(Prokázané)_
+- [ ] Tučné ryby (losos, makrela, sardinky) 1–2× týdně. _(Prokázané)_
+- [ ] Méně uzenin, tučného masa a sladkého pečiva; máslo a sýry s mírou. _(Prokázané)_
+- [ ] Nenahrazovat tuk cukrem — „light“ výrobky často přidávají sacharidy. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Tuk ve stravě dělá tlustým.“ → Na váze rozhoduje celková energie. Tuk je kaloricky hustý, ale nenasycené tuky v rozumném množství patří ke zdravé stravě.
+- [ ] „Máslo je zdravější než olej.“ → Máslo má hodně nasycených tuků, které zvyšují LDL cholesterol. Olivový a řepkový olej srdci prospívají víc.
+- [ ] „Nízkotučné výrobky jsou vždy lepší volba.“ → Často mají víc cukru. Lepší je vybírat druh tuku než tuk úplně vyřazovat.
+
+**Zdroje**
+
+- WHO (2023) Nasycené a trans-mastné kyseliny u dospělých a dětí — doporučení — https://www.who.int/publications/i/item/9789240073630
+- Hooper a kol. (2020) Méně nasycených tuků a nemoci srdce, Cochrane — https://pubmed.ncbi.nlm.nih.gov/32428300/
+- Estruch a kol. (2018) Středomořská strava s olivovým olejem nebo ořechy — studie PREDIMED, N Engl J Med — https://pubmed.ncbi.nlm.nih.gov/29897866/
+- Mozaffarian a kol. (2006) Trans-tuky a nemoci srdce, N Engl J Med — https://pubmed.ncbi.nlm.nih.gov/16611951/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 30. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1448,7 +1497,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 31. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1500,7 +1549,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Kosti: banka, do které se ukládá do třiceti
+## 32. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1550,7 +1599,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 33. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1597,7 +1646,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Akné: co ho způsobuje a co na něj opravdu platí
+## 34. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1648,7 +1697,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 35. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1697,7 +1746,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 36. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1744,7 +1793,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 37. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1792,7 +1841,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Protahování: na co je dobré a na co ne
+## 38. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1842,7 +1891,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 39. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1894,7 +1943,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 40. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1943,7 +1992,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 41. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1993,7 +2042,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 42. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2045,7 +2094,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 43. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2096,7 +2145,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 44. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2144,7 +2193,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 45. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

@@ -423,6 +423,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'U unavených pacientů praktického lékaře měl vážnou tělesnou nemoc jen asi 1 z 25 — častější byla deprese a málo spánku.',
   },
+  {
+    id: 'maslo-vs-olej',
+    guide: 'tuky',
+    statement: 'Máslo je pro srdce zdravější než olivový olej.',
+    fact: false,
+    explain:
+      'Máslo má hodně nasycených tuků, které zvyšují LDL cholesterol. Olivový olej srdci prospívá víc.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

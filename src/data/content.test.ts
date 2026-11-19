@@ -3,6 +3,7 @@ import { COMPOUNDS } from './compounds'
 import { BODY_GUIDES } from './body-guides'
 import { SUPPLEMENT_SLUGS } from './supplements'
 import { ORGANS } from './organs'
+import { FOODS } from './foods'
 
 const internal = new Set<string>([
   '/login?mode=signup',
@@ -13,6 +14,7 @@ const internal = new Set<string>([
   ...Object.values(SUPPLEMENT_SLUGS).map((s) => `/doplnky/${s}`),
   ...BODY_GUIDES.map((g) => `/jak-funguje-telo/${g.slug}`),
   ...ORGANS.map((o) => `/organ/${o.id}`),
+  ...FOODS.map((f) => `/food/${f.id}`),
 ])
 
 describe('educational content', () => {
