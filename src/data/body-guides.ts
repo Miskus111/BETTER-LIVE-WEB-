@@ -144,6 +144,12 @@ const SOURCES = {
     27631616,
     'Buijze a kol. (2016) Studená sprcha, nemocnost a absence v práci — randomizovaná studie, PLoS One',
   ),
+  vareniclineCochrane: pm(
+    37142273,
+    'Livingstone-Banks a kol. (2023) Vareniklin a cytisin při odvykání kouření, Cochrane',
+  ),
+  aubin: pm(22782848, 'Aubin a kol. (2012) Kolik kuřáci přiberou po skončení — metaanalýza, BMJ'),
+  pooleCoffee: pm(29167102, 'Poole a kol. (2017) Káva a zdraví — zastřešující přehled metaanalýz, BMJ'),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -538,6 +544,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Tolerance',
         text: 'Při každodenním pití si tělo zvykne a část efektu zmizí. Po náhlém vysazení může pár dní bolet hlava a být horší nálada.',
       },
+      {
+        title: 'Proč to každý snáší jinak',
+        text: 'Kofein odbourávají játra a rychlost dané geny. Kouření odbourávání zrychlí; těhotenství a hormonální antikoncepce ho výrazně zpomalí — kofein pak v těle vydrží mnohem déle.',
+      },
     ],
     today: [
       'Energetické nápoje, předtréninkovky a „kofeinové“ žvýkačky se snadno sčítají — 400 mg je rychle pryč.',
@@ -561,13 +571,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         fact: 'Kofeinu má plechovka podobně jako slabší káva. Problém bývá cukr a to, že se jich vypije víc.',
       },
       { myth: 'Káva dehydratuje.', fact: 'V běžném množství se do pitného režimu započítává.' },
+      {
+        myth: 'Káva škodí srdci.',
+        fact: 'U zdravých dospělých souvisí 3–4 šálky denně spíš s nižším rizikem srdečních nemocí i úmrtí. Výjimkou je těhotenství — tam méně.',
+      },
     ],
     related: [
       { label: 'Kofein — dávky a bezpečnost', href: '/doplnky/kofein' },
       { label: 'L-theanin', href: '/doplnky/l-theanin' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
     ],
-    sources: [SOURCES.efsaCaffeine, SOURCES.drake],
+    sources: [SOURCES.efsaCaffeine, SOURCES.drake, SOURCES.pooleCoffee],
   },
   {
     slug: 'stres',
@@ -1588,7 +1602,11 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Nejvíc škodí kouření — tabák zabíjí ročně přes 7 milionů lidí, z toho 1,6 milionu nekuřáků vystavených kouři.',
       'Pro kuřáky jsou e-cigarety s nikotinem účinnou cestou k odvykání. Pro nekuřáky jsou jen nová závislost.',
     ],
-    numbers: [{ value: '7+ mil.', label: 'úmrtí na tabák ročně (WHO)' }],
+    numbers: [
+      { value: '7+ mil.', label: 'úmrtí na tabák ročně (WHO)' },
+      { value: '2×', label: 'vyšší šance přestat s léky vareniklin nebo cytisin' },
+      { value: '4–5 kg', label: 'průměrně se přibere za rok po skončení' },
+    ],
     how: [
       {
         title: 'Rychlá odměna',
@@ -1611,6 +1629,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Přestat kouřit — přínos má v jakémkoli věku.', level: 'established' },
       { text: 'Kombinovat odvykání s podporou (lékař, linka) a náhradou nikotinu.', level: 'established' },
       {
+        text: 'Zeptat se lékaře na léky (vareniklin, cytisin) — zhruba zdvojnásobí šanci, že vydržíte.',
+        level: 'established',
+      },
+      {
         text: 'Kuřákům, kterým jiné cesty nefungují, pomáhají přestat e-cigarety s nikotinem.',
         level: 'established',
       },
@@ -1623,13 +1645,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Rakovinu způsobuje hlavně nikotin.',
         fact: 'Hlavní příčinou jsou látky z hořícího tabáku. Nikotin je ale návykový a zatěžuje srdce.',
       },
+      {
+        myth: 'Když přestanu, přiberu tolik, že se to nevyplatí.',
+        fact: 'Průměrně se za rok přibere 4–5 kg, někdo nic. Přínos pro srdce a plíce je i tak mnohem větší — a s váhou se dá pracovat.',
+      },
     ],
     related: [
       { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
       { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
       { label: 'Plíce v mapě těla', href: '/organ/lungs' },
     ],
-    sources: [SOURCES.whoTobacco, SOURCES.lindson],
+    sources: [SOURCES.whoTobacco, SOURCES.lindson, SOURCES.vareniclineCochrane, SOURCES.aubin],
   },
   {
     slug: 'bolest-zad',
@@ -2367,6 +2393,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'V okně jíst plnohodnotně: bílkoviny, zelenina, vláknina.', level: 'plausible' },
       { text: 'Při silném hladu, točení hlavy nebo přejídání v okně režim nedržet.', level: 'plausible' },
+      {
+        text: 'Dost bílkovin a posilování — aby ubýval tuk, ne svaly.',
+        level: 'plausible',
+      },
     ],
     myths: [
       {
@@ -2376,6 +2406,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         myth: 'Snídaně je nejdůležitější jídlo dne.',
         fact: 'Metaanalýza randomizovaných studií nezjistila, že by snídaně pomáhala hubnout. Rozhoduje celková strava.',
+      },
+      {
+        myth: 'Při půstu se hubne čistý tuk.',
+        fact: 'Ve studii TREAT tvořila podstatnou část úbytku i svalová hmota. Proto je důležité jíst v okně dost bílkovin a cvičit.',
       },
     ],
     related: [
