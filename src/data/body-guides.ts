@@ -390,6 +390,14 @@ const SOURCES = {
     title: 'WHO (2008) Obvod pasu a poměr pas–boky — zpráva odborné konzultace',
     url: 'https://www.who.int/publications/i/item/9789241501491',
   },
+  protAge: pm(
+    23867520,
+    'Bauer a kol. (2013) Kolik bílkovin potřebují starší lidé — doporučení PROT-AGE, J Am Med Dir Assoc',
+  ),
+  devriesKidney: pm(
+    30383278,
+    'Devries a kol. (2018) Vyšší příjem bílkovin a funkce ledvin u zdravých dospělých — metaanalýza, J Nutr',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3436,6 +3444,71 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.niceAdiposity, SOURCES.ashwellWhtr, SOURCES.whoWaist],
   },
   {
+    slug: 'bilkoviny',
+    title: 'Bílkoviny: kolik jich opravdu potřebujete',
+    short: 'Bílkoviny',
+    icon: 'apple',
+    hook: 'Proteinové tyčinky jsou všude, ale většina lidí bílkovin sní dost. Kdy je potřeba víc — při posilování, hubnutí a hlavně ve stáří.',
+    tldr: [
+      'Běžnému dospělému stačí podle EFSA 0,83 g bílkovin na kg hmotnosti denně — 70kg člověku asi 58 g.',
+      'Při posilování přínos pro svaly roste zhruba do 1,6 g na kg. Víc už svaly skoro nepřidá.',
+      'Lidé nad 65 let potřebují víc, kolem 1,0–1,2 g na kg, aby neztráceli svaly.',
+    ],
+    numbers: [
+      { value: '0,83 g/kg', label: 'denně stačí běžnému dospělému (EFSA)' },
+      { value: '1,0–1,2 g/kg', label: 'pro lidi nad 65 let (PROT-AGE)' },
+      { value: '~1,6 g/kg', label: 'pro nárůst svalů při posilování' },
+    ],
+    how: [
+      {
+        title: 'K čemu bílkoviny jsou',
+        text: 'Z aminokyselin tělo staví a obnovuje svaly, enzymy, hormony i protilátky. Bílkoviny se v těle neskladují jako tuk, takže je potřeba je dostávat průběžně.',
+      },
+      {
+        title: 'Rozložit do dne',
+        text: 'Svaly lépe využijí bílkoviny rozložené do 3–4 jídel po zhruba 20–40 g než jednu velkou dávku večer. Typicky to znamená bílkovinu v každém hlavním jídle.',
+      },
+      {
+        title: 'Kolik je v jídle',
+        text: '100 g kuřecího masa má asi 22 g bílkovin, 200 g řeckého jogurtu asi 18 g, 200 g vařené čočky asi 18 g a dvě vejce asi 12 g.',
+      },
+    ],
+    today: [
+      '„Protein“ na obalu prodává — tyčinky a pudinky s přidanou bílkovinou bývají ultrazpracované a sladké.',
+      'Starší lidé jedí bílkovin často málo, přitom s věkem svaly ubývají nejrychleji.',
+    ],
+    helps: [
+      {
+        text: 'Bílkovinu do každého hlavního jídla: maso, ryby, vejce, mléčné výrobky, luštěniny, tofu.',
+        level: 'established',
+      },
+      { text: 'Po šedesátce přidat bílkovin a spojit je s posilováním.', level: 'established' },
+      { text: 'Při hubnutí držet bílkoviny výš, aby ubýval tuk, ne svaly.', level: 'established' },
+      { text: 'Proteinový nápoj jen jako pohodlný doplněk, ne náhrada jídla.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Čím víc bílkovin, tím víc svalů.',
+        fact: 'Nad zhruba 1,6 g na kg se přínos pro svaly výrazně nezvyšuje. Rozhoduje hlavně trénink.',
+      },
+      {
+        myth: 'Hodně bílkovin ničí zdravé ledviny.',
+        fact: 'Metaanalýza u zdravých dospělých nenašla zhoršení funkce ledvin. Kdo má nemoc ledvin, má příjem řešit s lékařem.',
+      },
+      {
+        myth: 'Bez proteinového prášku svaly neporostou.',
+        fact: 'Prášek je jen pohodlná forma bílkovin z jídla. Stejný efekt má běžná strava s dostatkem bílkovin.',
+      },
+    ],
+    related: [
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+      { label: 'Posilování pro začátečníky', href: '/jak-funguje-telo/posilovani-pro-zacatecniky' },
+      { label: 'Rostlinná strava', href: '/jak-funguje-telo/rostlinna-strava' },
+      { label: 'Cíl bílkovin vám spočítá aplikace', href: '/login?mode=signup' },
+    ],
+    sources: [SOURCES.efsaProtein, SOURCES.protAge, SOURCES.morton, SOURCES.devriesKidney],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4698,6 +4771,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'laktoza-a-lepek': 'jidlo',
   'svalova-horecka': 'pohyb',
   'bmi-a-pas': 'jidlo',
+  bilkoviny: 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

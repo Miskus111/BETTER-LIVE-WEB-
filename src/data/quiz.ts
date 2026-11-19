@@ -497,6 +497,14 @@ export const QUIZ: QuizItem[] = [
     fact: true,
     explain: 'Poměr pasu k výšce pod 0,5 znamená podle NICE nízké riziko; od 0,5 riziko stoupá.',
   },
+  {
+    id: 'bilkoviny-ledviny',
+    guide: 'bilkoviny',
+    statement: 'Vyšší příjem bílkovin poškozuje zdravé ledviny.',
+    fact: false,
+    explain:
+      'Metaanalýza u zdravých dospělých zhoršení funkce ledvin nenašla. Při nemoci ledvin je potřeba poradit se s lékařem.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

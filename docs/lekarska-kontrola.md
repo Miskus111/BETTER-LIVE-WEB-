@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 54 průvodců, 20 doplňků, 945 položek ke kontrole.
+Obsah: 55 průvodců, 20 doplňků, 961 položek ke kontrole.
 
 ---
 
@@ -1877,7 +1877,55 @@ Poznámky lékaře:
 
 ---
 
-## 39. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 39. Bílkoviny: kolik jich opravdu potřebujete
+
+Web: /jak-funguje-telo/bilkoviny
+
+**Ve zkratce**
+
+- [ ] Běžnému dospělému stačí podle EFSA 0,83 g bílkovin na kg hmotnosti denně — 70kg člověku asi 58 g.
+- [ ] Při posilování přínos pro svaly roste zhruba do 1,6 g na kg. Víc už svaly skoro nepřidá.
+- [ ] Lidé nad 65 let potřebují víc, kolem 1,0–1,2 g na kg, aby neztráceli svaly.
+
+**Čísla**
+
+- [ ] **0,83 g/kg** denně stačí běžnému dospělému (EFSA)
+- [ ] **1,0–1,2 g/kg** pro lidi nad 65 let (PROT-AGE)
+- [ ] **~1,6 g/kg** pro nárůst svalů při posilování
+
+**Jak to funguje**
+
+- [ ] **K čemu bílkoviny jsou:** Z aminokyselin tělo staví a obnovuje svaly, enzymy, hormony i protilátky. Bílkoviny se v těle neskladují jako tuk, takže je potřeba je dostávat průběžně.
+- [ ] **Rozložit do dne:** Svaly lépe využijí bílkoviny rozložené do 3–4 jídel po zhruba 20–40 g než jednu velkou dávku večer. Typicky to znamená bílkovinu v každém hlavním jídle.
+- [ ] **Kolik je v jídle:** 100 g kuřecího masa má asi 22 g bílkovin, 200 g řeckého jogurtu asi 18 g, 200 g vařené čočky asi 18 g a dvě vejce asi 12 g.
+
+**Doporučení**
+
+- [ ] Bílkovinu do každého hlavního jídla: maso, ryby, vejce, mléčné výrobky, luštěniny, tofu. _(Prokázané)_
+- [ ] Po šedesátce přidat bílkovin a spojit je s posilováním. _(Prokázané)_
+- [ ] Při hubnutí držet bílkoviny výš, aby ubýval tuk, ne svaly. _(Prokázané)_
+- [ ] Proteinový nápoj jen jako pohodlný doplněk, ne náhrada jídla. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Čím víc bílkovin, tím víc svalů.“ → Nad zhruba 1,6 g na kg se přínos pro svaly výrazně nezvyšuje. Rozhoduje hlavně trénink.
+- [ ] „Hodně bílkovin ničí zdravé ledviny.“ → Metaanalýza u zdravých dospělých nenašla zhoršení funkce ledvin. Kdo má nemoc ledvin, má příjem řešit s lékařem.
+- [ ] „Bez proteinového prášku svaly neporostou.“ → Prášek je jen pohodlná forma bílkovin z jídla. Stejný efekt má běžná strava s dostatkem bílkovin.
+
+**Zdroje**
+
+- EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557 — https://doi.org/10.2903/j.efsa.2012.2557
+- Bauer a kol. (2013) Kolik bílkovin potřebují starší lidé — doporučení PROT-AGE, J Am Med Dir Assoc — https://pubmed.ncbi.nlm.nih.gov/23867520/
+- Morton a kol. (2018) Bílkoviny a nárůst svalů při silovém tréninku — metaanalýza, Br J Sports Med — https://pubmed.ncbi.nlm.nih.gov/28698222/
+- Devries a kol. (2018) Vyšší příjem bílkovin a funkce ledvin u zdravých dospělých — metaanalýza, J Nutr — https://pubmed.ncbi.nlm.nih.gov/30383278/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 40. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1927,7 +1975,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 41. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1979,7 +2027,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Kosti: banka, do které se ukládá do třiceti
+## 42. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2029,7 +2077,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 43. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2076,7 +2124,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Akné: co ho způsobuje a co na něj opravdu platí
+## 44. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2127,7 +2175,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 45. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2176,7 +2224,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 46. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2223,7 +2271,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 47. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2271,7 +2319,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Protahování: na co je dobré a na co ne
+## 48. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2321,7 +2369,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 49. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2373,7 +2421,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 50. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2422,7 +2470,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 51. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2472,7 +2520,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 52. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2524,7 +2572,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 53. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2575,7 +2623,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 54. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2623,7 +2671,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 55. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
