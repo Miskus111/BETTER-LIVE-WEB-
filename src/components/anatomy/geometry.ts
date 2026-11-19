@@ -1023,43 +1023,82 @@ export const ORGAN_SHAPES = {
     hit: symmetric(BRAIN_HALF),
     detail: [
       'M200,46 L200,103',
-      // gyri and sulci (both hemispheres)
+      // sulci seen from the front: irregular like a real cortex, not a repeating wave.
+      // superior frontal sulcus runs roughly parallel to the midline, the inferior one obliquely,
+      // with shorter tertiary sulci of varying length and angle between them
       ...both(
         [
-          [166, 58],
-          [174, 53],
-          [182, 59],
-          [190, 53],
-          [196, 58],
+          [190, 49],
+          [187, 58],
+          [189, 67],
+          [186, 77],
+          [188, 88],
         ],
         false,
       ),
       ...both(
         [
-          [161, 74],
-          [169, 67],
-          [177, 75],
-          [186, 68],
-          [195, 74],
+          [168, 58],
+          [173, 66],
+          [171, 75],
+          [176, 84],
+          [175, 92],
         ],
         false,
       ),
       ...both(
         [
-          [160, 90],
-          [168, 84],
-          [176, 92],
-          [186, 86],
-          [195, 91],
+          [177, 47],
+          [181, 53],
+          [179, 59],
         ],
         false,
       ),
       ...both(
         [
-          [178, 62],
-          [174, 70],
-          [180, 78],
-          [176, 86],
+          [195, 60],
+          [192, 65],
+          [194, 71],
+        ],
+        false,
+      ),
+      ...both(
+        [
+          [179, 69],
+          [183, 73],
+          [182, 79],
+        ],
+        false,
+      ),
+      ...both(
+        [
+          [161, 80],
+          [166, 83],
+          [170, 81],
+        ],
+        false,
+      ),
+      ...both(
+        [
+          [194, 81],
+          [191, 87],
+          [194, 95],
+        ],
+        false,
+      ),
+      ...both(
+        [
+          [180, 91],
+          [184, 95],
+        ],
+        false,
+      ),
+      // superior temporal sulcus on the temporal pole
+      ...both(
+        [
+          [164, 109],
+          [170, 111],
+          [177, 110],
         ],
         false,
       ),
