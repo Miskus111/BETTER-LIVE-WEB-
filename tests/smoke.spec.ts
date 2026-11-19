@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { BODY_GUIDES } from '../src/data/body-guides'
 
 test.describe('anatomy', () => {
   test('select an organ by click, switch tabs, navigate with prev/next and keyboard', async ({ page }) => {
@@ -67,7 +68,7 @@ test('guides page: search, category filter and shareable URL', async ({ page }) 
   await page.goto('/jak-funguje-telo')
   const box = page.getByTestId('guides-search')
   await box.fill('kofein')
-  await expect(page.getByTestId('guides-count')).toContainText('z 38')
+  await expect(page.getByTestId('guides-count')).toContainText(`z ${BODY_GUIDES.length}`)
   await expect(page.getByTestId('guides').locator('a').first()).toHaveAttribute('href', /energie-a-kofein/)
   await expect(page).toHaveURL(/q=kofein/)
   await page.goto('/jak-funguje-telo?q=mobil&k=mysl')
@@ -324,7 +325,7 @@ test('body guides: hub lists all topics; a guide has TL;DR, evidence levels, myt
   page,
 }) => {
   await page.goto('/jak-funguje-telo')
-  await expect(page.getByTestId('guides').locator('li')).toHaveCount(38)
+  await expect(page.getByTestId('guides').locator('li')).toHaveCount(BODY_GUIDES.length)
   await page.getByRole('link', { name: /Spánek: noční servis těla/ }).click()
   await expect(page).toHaveURL(/\/jak-funguje-telo\/spanek$/)
   await expect(page.getByTestId('tldr')).toContainText('7 a více hodin')
