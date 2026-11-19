@@ -20,7 +20,7 @@ export default function OG() {
     >
       <div style={{ display: 'flex', fontSize: 30, letterSpacing: 12, color: '#5ee7ff' }}>BLWB</div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ fontSize: 84, lineHeight: 1.02 }}>Tvoje tělo, rozluštěné.</div>
+        <div style={{ fontSize: 84, lineHeight: 1.02 }}>Vaše tělo, rozluštěné.</div>
         <div style={{ fontSize: 32, marginTop: 24, color: '#a3b0bd' }}>
           Interaktivní anatomie · průvodci o těle · doplňky podle důkazů
         </div>

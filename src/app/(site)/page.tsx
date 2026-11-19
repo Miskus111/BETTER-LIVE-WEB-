@@ -28,7 +28,7 @@ export default function Home() {
           <p className="eyebrow lg:hidden">BLWB · Tělo × výživa</p>
           {/* the one h1 of the page: visible on phones, read by screen readers and search engines on desktop */}
           <h1 className="display mt-2 text-[44px] lg:sr-only">
-            Tvoje tělo, <em className="text-cyan">rozluštěné.</em>
+            Vaše tělo, <em className="text-cyan">rozluštěné.</em>
           </h1>
           <p className="text-muted mt-2 text-[15px] lg:hidden">
             Klepněte na orgán a uvidíte, co potřebuje — a proč.

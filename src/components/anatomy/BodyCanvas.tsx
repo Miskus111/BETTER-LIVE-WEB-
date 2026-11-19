@@ -37,10 +37,15 @@ export function BodyCanvas({
   const { vb, aspect, unitsPerPx, animateTo, zoomBy, toBody, pointer, justDragged } = useViewBox(frame)
   const [hover, setHover] = useState<OrganId | null>(null)
 
-  // zoom to the selected organ (or full body); re-fit on resize
+  // zoom to the selected organ (or full body); re-fit on resize. At full-body view the bottom ~76 px
+  // belong to the prev/next pill, so the feet are fitted above it instead of disappearing behind it.
   useEffect(() => {
+    const frameH = frame.current?.clientHeight ?? 0
+    const pillInset = frameH ? Math.min(0.14, 76 / frameH) : 0
     animateTo(
-      selected ? fit(ORGAN_BY_ID[selected].zoom, aspect, { pad: 1.45, bottomInset }) : fit(FULL, aspect),
+      selected
+        ? fit(ORGAN_BY_ID[selected].zoom, aspect, { pad: 1.45, bottomInset })
+        : fit(FULL, aspect, { bottomInset: Math.max(bottomInset, pillInset) }),
     )
   }, [selected, aspect, resetKey, animateTo, bottomInset])
 
@@ -138,7 +143,7 @@ export function BodyCanvas({
         </CtrlBtn>
       </div>
 
-      <p className="text-subtle pointer-events-none absolute top-3 left-3 hidden items-center gap-1.5 font-mono text-[12px] md:flex">
+      <p className="text-subtle pointer-events-none absolute top-3 right-3 hidden items-center gap-1.5 font-mono text-[12px] md:flex">
         <Move size={12} aria-hidden /> Tažením posunete · dvojklikem přiblížíte
       </p>
     </div>

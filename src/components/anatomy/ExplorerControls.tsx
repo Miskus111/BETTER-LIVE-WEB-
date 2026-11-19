@@ -40,7 +40,7 @@ export function ExplorerControls({
       <div className="hidden lg:block">
         <span className="eyebrow">BLWB · Tělo × výživa</span>
         <Title className="display mt-3 text-[38px] xl:text-[42px]">
-          Tvoje tělo,
+          Vaše tělo,
           <br />
           <em className="text-cyan">rozluštěné.</em>
         </Title>
