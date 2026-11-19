@@ -194,6 +194,22 @@ const SOURCES = {
   ),
   volpi: pm(15192443, 'Volpi a kol. (2004) Jak se mění svalová tkáň s věkem, Curr Opin Clin Nutr Metab Care'),
   fiatarone: pm(2342214, 'Fiatarone a kol. (1990) Silový trénink u devadesátníků, JAMA'),
+  cuijpersBA: pm(
+    17184887,
+    'Cuijpers a kol. (2007) Behaviorální aktivace při depresi — metaanalýza, Clin Psychol Rev',
+  ),
+  sumithran: pm(
+    22029981,
+    'Sumithran a kol. (2011) Hormony hladu zůstávají změněné i rok po zhubnutí, N Engl J Med',
+  ),
+  step1: pm(
+    33567185,
+    'Wilding a kol. (2021) Semaglutid jednou týdně při nadváze a obezitě (STEP 1), N Engl J Med',
+  ),
+  step1Ext: pm(
+    35441470,
+    'Wilding a kol. (2022) Návrat váhy po vysazení semaglutidu (STEP 1 — pokračování), Diabetes Obes Metab',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -1056,6 +1072,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '0', label: 'bezpečná míra podle WHO' },
       { value: '7+', label: 'druhů rakoviny spojených s alkoholem' },
+      { value: '10 g', label: 'alkoholu = 1 standardní drink (~0,3 l piva, 1 dl vína)' },
     ],
     how: [
       {
@@ -1070,6 +1087,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Kocovina',
         text: 'Je to kombinace špatného spánku, ztráty tekutin, podráždění žaludku a zánětlivé reakce. Spolehlivý lék neexistuje — jen čas.',
       },
+      {
+        title: 'Proč stejné pivo neudělá s každým totéž',
+        text: 'Alkohol se rozloží ve vodě v těle. Menší lidé a ženy, které mají v těle méně vody, mají po stejném množství vyšší hladinu. Na lačno stoupne rychleji a výš.',
+      },
     ],
     today: [
       'Pití je pro mnoho lidí součástí každého víkendu; nárazové velké množství („binge“) je pro tělo nejhorší kombinace.',
@@ -1083,6 +1104,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'plausible',
       },
       { text: 'Poslední drink pár hodin před spaním, aby měl spánek šanci.', level: 'plausible' },
+      {
+        text: 'Počítat drinky, ne sklenice: půllitr dvanáctky jsou zhruba dva standardní drinky, panák tvrdého jeden.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -1096,6 +1121,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         myth: 'Po alkoholu se dobře spí.',
         fact: 'Usnete rychleji, ale ve druhé polovině noci se spánek rozpadá — častěji se budíte a máte méně REM fáze.',
+      },
+      {
+        myth: 'Kocovinu spraví ranní pivo.',
+        fact: 'Jen oddálí příznaky a přidá další alkohol. Pití „na spravení“ je navíc jedno z varovných znamení vznikající závislosti.',
       },
     ],
     related: [
@@ -1495,6 +1524,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '20–60', label: 'let stabilní metabolismus' },
       { value: '0,5–1 %', label: 'hmotnosti týdně: rozumné tempo' },
+      { value: '2/3', label: 'shozené váhy se vrátilo do roka po vysazení semaglutidu' },
     ],
     how: [
       {
@@ -1508,6 +1538,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Pohyb mimo trénink',
         text: 'Hodina v posilovně je malá část dne. Chůze, stání a běžný pohyb (NEAT) se mezi lidmi liší o stovky kalorií denně.',
+      },
+      {
+        title: 'Hlad po zhubnutí',
+        text: 'Po zhubnutí tělo zvýší hormon hladu (ghrelin) a sníží hormony sytosti — a tak to zůstává i rok poté. Udržet váhu proto není otázka slabé vůle, ale samostatná fáze, na kterou je dobré se připravit.',
       },
     ],
     today: [
@@ -1535,13 +1569,24 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Spalovače tuků fungují.',
         fact: 'Žádný doplněk neudělá měřitelný rozdíl bez změny jídla a pohybu.',
       },
+      {
+        myth: 'Injekce na hubnutí jsou jednorázová kúra.',
+        fact: 'Léky jako semaglutid při obezitě pomáhají (v průměru −15 % váhy), ale působí jen po dobu užívání. Do roka po vysazení se vrátily asi dvě třetiny shozených kil. Patří k lékaři.',
+      },
     ],
     related: [
       { label: 'Bílkoviny', href: '/doplnky/bilkoviny' },
       { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
       { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
     ],
-    sources: [SOURCES.hallEnergy, SOURCES.pontzer, SOURCES.levine],
+    sources: [
+      SOURCES.hallEnergy,
+      SOURCES.pontzer,
+      SOURCES.levine,
+      SOURCES.sumithran,
+      SOURCES.step1,
+      SOURCES.step1Ext,
+    ],
   },
   {
     slug: 'cukr-a-inzulin',
@@ -2068,6 +2113,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Tělo a mysl',
         text: 'Spánek, pohyb, alkohol i vztahy ovlivňují náladu přímo přes mozek a hormony. Proto pomáhá i to, co na první pohled „psychické“ není.',
       },
+      {
+        title: 'Past vyhýbání',
+        text: 'U úzkosti se člověk vyhne tomu, čeho se bojí, a hned se mu uleví. Mozek se tím ale naučí, že hrozba byla skutečná — a příště je strach větší. Proto terapie úzkosti učí po malých krocích strach vydržet.',
+      },
     ],
     today: [
       'Srovnávání na sítích, stálá dostupnost a nejistota (škola, práce, bydlení) zvyšují tlak.',
@@ -2084,6 +2133,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Pravidelný spánek a méně alkoholu.', level: 'plausible' },
       { text: 'Mluvit s někým blízkým; nebýt s tím sám.', level: 'plausible' },
+      {
+        text: 'Při depresi nečekat, až přijde chuť: naplánovat si malé činnosti, které dřív bavily nebo mají smysl, a udělat je. Tato „behaviorální aktivace“ je ověřená součást léčby.',
+        level: 'established',
+      },
       {
         text: 'V krizi volat: Linka první psychické pomoci 116 123, Linka bezpečí 116 111 (do 26 let), v ohrožení života 155 nebo 112.',
         level: 'established',
@@ -2108,7 +2161,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
       { label: 'Dopamin a mobil', href: '/jak-funguje-telo/dopamin-a-mobil' },
     ],
-    sources: [SOURCES.whoMental, SOURCES.noetel, SOURCES.singhPA],
+    sources: [SOURCES.whoMental, SOURCES.noetel, SOURCES.singhPA, SOURCES.cuijpersBA],
   },
   {
     slug: 'zuby-a-usta',
