@@ -946,6 +946,33 @@ const KIDNEY_R: P[] = [
 const KIDNEY_L: P[] = KIDNEY_R.map(([x, y]) => [400 - x, y - 10])
 
 /**
+ * Inner kidney anatomy, drawn for the right kidney and mirrored for the left (same 10-unit lift as the
+ * outline): cortex boundary, renal pelvis with three major calyces and their cup-shaped minor calyces,
+ * and the renal artery/vein running from the hilum to the aorta and vena cava at the midline.
+ */
+const KIDNEY_INNER_R: P[][] = [
+  // upper / middle / lower major calyx, from the pelvis at the hilum
+  [[177, 383], [172, 380], [168, 375], [164, 369]],
+  [[176, 384], [170, 384], [164, 384], [159, 384]],
+  [[177, 386], [172, 389], [168, 394], [164, 400]],
+  // minor calyx cups (where the medullary pyramids drain)
+  [[161, 369], [163, 366], [166, 366], [167, 369]],
+  [[158, 381], [156, 383], [156, 385], [158, 387]],
+  [[161, 400], [163, 403], [166, 403], [167, 400]],
+  // renal vein (to the vena cava) and artery (from the aorta)
+  [[180, 380], [186, 378], [191, 377], [196, 377]],
+  [[180, 378], [188, 374], [196, 372], [203, 372]],
+]
+const cubic = ([a, b, c, d]: P[]) => `M${a[0]},${a[1]} C${b[0]},${b[1]} ${c[0]},${c[1]} ${d[0]},${d[1]}`
+const mirrorKidney = (pts: P[]): P[] => pts.map(([x, y]) => [400 - x, y - 10])
+/** cortex/medulla boundary: the outline shrunk towards the kidney's centre */
+const cortexOf = (outline: P[]): P[] => {
+  const cx = outline.reduce((s, p) => s + p[0], 0) / outline.length
+  const cy = outline.reduce((s, p) => s + p[1], 0) / outline.length
+  return outline.map(([x, y]) => [cx + (x - cx) * 0.74, cy + (y - cy) * 0.8])
+}
+
+/**
  * Small intestine (jejunum + ileum): ~6 m of gut folded into tight loops inside the colon frame —
  * drawn as a serpentine of rows with a gentle wobble so it reads as a coiled mass, not a single tube.
  */
@@ -1240,6 +1267,10 @@ export const ORGAN_SHAPES = {
   kidneys: {
     hit: `${spline(KIDNEY_R)} ${spline(KIDNEY_L)}`,
     detail: [
+      spline(cortexOf(KIDNEY_R)),
+      spline(cortexOf(KIDNEY_L)),
+      ...KIDNEY_INNER_R.map(cubic),
+      ...KIDNEY_INNER_R.map((c) => cubic(mirrorKidney(c))),
       // renal pelvis → ureters → bladder; adrenal glands on top
       'M178,385 C186,389 187,404 186,424 C186,444 190,466 195,478',
       'M222,375 C214,379 213,396 214,420 C214,442 210,466 205,478',
