@@ -35,7 +35,7 @@ export function AppCta({ compact = false }: { compact?: boolean }) {
         <Link href="/login?mode=signup" className="btn btn-primary">
           Začít zapisovat zdarma <ArrowRight size={16} aria-hidden />
         </Link>
-        <Link href="/today" className="btn btn-ghost">
+        <Link href="/today" prefetch={false} className="btn btn-ghost">
           Moje aplikace
         </Link>
       </div>
@@ -63,7 +63,7 @@ export function AppCta({ compact = false }: { compact?: boolean }) {
                 <Link href="/login?mode=signup" className="btn btn-primary" data-testid="cta-signup">
                   Vytvořit účet zdarma <ArrowRight size={16} aria-hidden />
                 </Link>
-                <Link href="/today" className="btn btn-ghost">
+                <Link href="/today" prefetch={false} className="btn btn-ghost">
                   Už mám účet — otevřít aplikaci
                 </Link>
               </div>

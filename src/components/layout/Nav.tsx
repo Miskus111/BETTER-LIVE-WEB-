@@ -88,7 +88,13 @@ export function Nav() {
               ⌘K
             </kbd>
           </button>
-          <Link href="/today" className="btn btn-primary !h-10 !px-4 !py-0 text-[14px]" data-testid="nav-app">
+          {/* no prefetch: logged-out visitors are redirected to /login, and that prefetched stream never closes */}
+          <Link
+            href="/today"
+            prefetch={false}
+            className="btn btn-primary !h-10 !px-4 !py-0 text-[14px]"
+            data-testid="nav-app"
+          >
             <LayoutDashboard size={16} aria-hidden />
             <span className="hidden sm:inline">Moje aplikace</span>
             <span className="sm:hidden">Aplikace</span>
