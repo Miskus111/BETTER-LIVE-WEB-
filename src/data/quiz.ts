@@ -446,6 +446,14 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Jen to, že výrobce cukr nepřidal. Přirozený cukr z ovoce nebo mléka v ní být může.',
   },
+  {
+    id: 'unik-moci-normalni',
+    guide: 'panevni-dno',
+    statement: 'Únik moči po porodu je normální a nedá se s ním nic dělat.',
+    fact: false,
+    explain:
+      'Cvičení pánevního dna vedlo u žen se stresovým únikem k vyléčení osmkrát častěji než žádná léčba.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

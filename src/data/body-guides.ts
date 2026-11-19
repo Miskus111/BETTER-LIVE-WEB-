@@ -308,6 +308,11 @@ const SOURCES = {
     27918798,
     'Panagioti a kol. (2017) Co pomáhá proti vyhoření — metaanalýza intervencí, JAMA Intern Med',
   ),
+  dumoulinPfmt: pm(30288727, 'Dumoulin a kol. (2018) Cvičení pánevního dna při úniku moči u žen, Cochrane'),
+  woodleyPfmt: pm(
+    32378735,
+    'Woodley a kol. (2020) Cvičení pánevního dna v těhotenství a po porodu, Cochrane',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2852,6 +2857,73 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SRC.fic, SRC.claimsReg, SOURCES.whoSodium],
   },
   {
+    slug: 'panevni-dno',
+    title: 'Pánevní dno: svaly, o kterých se nemluví, a únik moči',
+    short: 'Pánevní dno',
+    icon: 'activity',
+    hook: 'Únik moči při kašli, smíchu nebo sportu je častý — po porodu i v menopauze. Není to „normální daň“ za věk a dá se dobře trénovat.',
+    tldr: [
+      'Pánevní dno je skupina svalů, která nese orgány v pánvi a pomáhá udržet moč i stolici.',
+      'U žen se stresovým únikem moči vedlo cvičení pánevního dna k vyléčení osmkrát častěji než žádná léčba.',
+      'Cvičení v těhotenství snížilo riziko úniku moči v pozdním těhotenství o 62 %.',
+    ],
+    numbers: [
+      { value: '56 % vs. 6 %', label: 'žen vyléčených cvičením vs. bez léčby (stresový únik)' },
+      { value: '−62 %', label: 'úniku moči v pozdním těhotenství díky cvičení' },
+      { value: '3 měsíce', label: 'pravidelného cvičení — obvyklá doba do zlepšení' },
+    ],
+    how: [
+      {
+        title: 'Svalové „dno“ pánve',
+        text: 'Svaly se upínají od stydké kosti ke kostrči jako houpací síť. Při kašli nebo skoku se mají včas stáhnout a uzavřít močovou trubici.',
+      },
+      {
+        title: 'Proč povolí',
+        text: 'Těhotenství a porod svaly natáhnou, s menopauzou ubude estrogenu a s věkem i síly. Přidat se může nadváha, chronický kašel a zácpa s tlačením.',
+      },
+      {
+        title: 'Jak cvičit',
+        text: 'Stáhnout svaly, jako byste zadržovali moč i plyny, bez zatínání hýždí a zadržování dechu. Výdrž pár sekund, uvolnit, opakovat 8–12× několikrát denně. Fyzioterapeut ověří, že cvičíte správně.',
+      },
+    ],
+    today: [
+      'O úniku moči se stydíme mluvit, a tak se roky řeší jen vložkami.',
+      'Intenzivní skoky a běh bez přípravy po porodu svaly přetíží, než se zotaví.',
+    ],
+    helps: [
+      {
+        text: 'Pravidelné cvičení pánevního dna aspoň 3 měsíce — nejlépe pod vedením fyzioterapeuta.',
+        level: 'established',
+      },
+      { text: 'Cvičit už v těhotenství a začít znovu brzy po porodu.', level: 'established' },
+      { text: 'Při nadváze zhubnout a řešit zácpu, aby se netlačilo.', level: 'plausible' },
+      {
+        text: 'K lékaři při úniku moči, který omezuje život, při bolesti, krvi v moči nebo pocitu „tlaku dolů“ v pochvě.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Únik moči po porodu nebo s věkem je normální a nic se s tím nedá dělat.',
+        fact: 'Je častý, ale normální není — cvičení pánevního dna ho u řady žen zlepší nebo vyléčí.',
+      },
+      {
+        myth: 'Zastavovat proud moči je dobrý trénink.',
+        fact: 'Pomůže svaly najít, ale jako pravidelné cvičení se nedoporučuje — může narušit vyprazdňování měchýře.',
+      },
+      {
+        myth: 'Pánevní dno řeší jen ženy.',
+        fact: 'Muži ho mají taky a doporučuje se jim třeba po operaci prostaty. Důkazy o přínosu jsou u mužů ale slabší než u žen.',
+      },
+    ],
+    related: [
+      { label: 'Menopauza', href: '/jak-funguje-telo/menopauza' },
+      { label: 'Trávení a zácpa', href: '/jak-funguje-telo/traveni-a-zacpa' },
+      { label: 'Posilování pro začátečníky', href: '/jak-funguje-telo/posilovani-pro-zacatecniky' },
+    ],
+    sources: [SOURCES.dumoulinPfmt, SOURCES.woodleyPfmt],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4107,6 +4179,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   tuky: 'jidlo',
   vyhoreni: 'mysl',
   'etikety-potravin': 'jidlo',
+  'panevni-dno': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

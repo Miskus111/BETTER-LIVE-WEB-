@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 47 průvodců, 20 doplňků, 828 položek ke kontrole.
+Obsah: 48 průvodců, 20 doplňků, 844 položek ke kontrole.
 
 ---
 
@@ -1540,7 +1540,53 @@ Poznámky lékaře:
 
 ---
 
-## 32. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 32. Pánevní dno: svaly, o kterých se nemluví, a únik moči
+
+Web: /jak-funguje-telo/panevni-dno
+
+**Ve zkratce**
+
+- [ ] Pánevní dno je skupina svalů, která nese orgány v pánvi a pomáhá udržet moč i stolici.
+- [ ] U žen se stresovým únikem moči vedlo cvičení pánevního dna k vyléčení osmkrát častěji než žádná léčba.
+- [ ] Cvičení v těhotenství snížilo riziko úniku moči v pozdním těhotenství o 62 %.
+
+**Čísla**
+
+- [ ] **56 % vs. 6 %** žen vyléčených cvičením vs. bez léčby (stresový únik)
+- [ ] **−62 %** úniku moči v pozdním těhotenství díky cvičení
+- [ ] **3 měsíce** pravidelného cvičení — obvyklá doba do zlepšení
+
+**Jak to funguje**
+
+- [ ] **Svalové „dno“ pánve:** Svaly se upínají od stydké kosti ke kostrči jako houpací síť. Při kašli nebo skoku se mají včas stáhnout a uzavřít močovou trubici.
+- [ ] **Proč povolí:** Těhotenství a porod svaly natáhnou, s menopauzou ubude estrogenu a s věkem i síly. Přidat se může nadváha, chronický kašel a zácpa s tlačením.
+- [ ] **Jak cvičit:** Stáhnout svaly, jako byste zadržovali moč i plyny, bez zatínání hýždí a zadržování dechu. Výdrž pár sekund, uvolnit, opakovat 8–12× několikrát denně. Fyzioterapeut ověří, že cvičíte správně.
+
+**Doporučení**
+
+- [ ] Pravidelné cvičení pánevního dna aspoň 3 měsíce — nejlépe pod vedením fyzioterapeuta. _(Prokázané)_
+- [ ] Cvičit už v těhotenství a začít znovu brzy po porodu. _(Prokázané)_
+- [ ] Při nadváze zhubnout a řešit zácpu, aby se netlačilo. _(Pravděpodobné)_
+- [ ] K lékaři při úniku moči, který omezuje život, při bolesti, krvi v moči nebo pocitu „tlaku dolů“ v pochvě. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Únik moči po porodu nebo s věkem je normální a nic se s tím nedá dělat.“ → Je častý, ale normální není — cvičení pánevního dna ho u řady žen zlepší nebo vyléčí.
+- [ ] „Zastavovat proud moči je dobrý trénink.“ → Pomůže svaly najít, ale jako pravidelné cvičení se nedoporučuje — může narušit vyprazdňování měchýře.
+- [ ] „Pánevní dno řeší jen ženy.“ → Muži ho mají taky a doporučuje se jim třeba po operaci prostaty. Důkazy o přínosu jsou u mužů ale slabší než u žen.
+
+**Zdroje**
+
+- Dumoulin a kol. (2018) Cvičení pánevního dna při úniku moči u žen, Cochrane — https://pubmed.ncbi.nlm.nih.gov/30288727/
+- Woodley a kol. (2020) Cvičení pánevního dna v těhotenství a po porodu, Cochrane — https://pubmed.ncbi.nlm.nih.gov/32378735/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 33. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1590,7 +1636,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 34. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1642,7 +1688,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Kosti: banka, do které se ukládá do třiceti
+## 35. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1692,7 +1738,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 36. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1739,7 +1785,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Akné: co ho způsobuje a co na něj opravdu platí
+## 37. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1790,7 +1836,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 38. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1839,7 +1885,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 39. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1886,7 +1932,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 40. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1934,7 +1980,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Protahování: na co je dobré a na co ne
+## 41. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1984,7 +2030,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 42. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2036,7 +2082,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 43. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2085,7 +2131,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 44. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2135,7 +2181,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 45. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2187,7 +2233,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 46. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2238,7 +2284,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 47. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2286,7 +2332,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 48. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
