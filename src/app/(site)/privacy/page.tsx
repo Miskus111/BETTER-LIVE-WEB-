@@ -66,7 +66,8 @@ export default function PrivacyPage() {
         <p>
           <strong className="font-medium">Co ukládáme:</strong> e-mail pro přihlášení; profil (přezdívka,
           datum narození, pohlaví, výška, hmotnost, zkušenosti a cíle); záznamy, které sami zadáte — tréninky,
-          jídlo, doplňky, spánek, regenerace, fotky pokroku a konverzace s AI koučem.
+          jídlo, doplňky, spánek, regenerace, váhu a míry, mapu bolesti, laboratorní výsledky, fotky pokroku a
+          konverzace s AI koučem.
         </p>
         <p>
           <strong className="font-medium">Údaje o zdraví</strong> (bolest, léky, krevní testy, složení těla)
@@ -98,7 +99,10 @@ export default function PrivacyPage() {
         <p>
           Používáme jen nezbytné cookies: přihlášení (aby aplikace věděla, že jste to vy) a volbu jazyka.
           Reklamní ani sledovací cookies nepoužíváme, proto web nemá cookie lištu. Některé nastavení (např.
-          rozpracovaný trénink) se ukládá jen ve vašem prohlížeči.
+          rozpracovaný trénink) se ukládá jen ve vašem prohlížeči. Patří sem i zdravotní situace, kterou
+          můžete zaškrtnout u kontroly doplňků (těhotenství, kojení, nemoc ledvin nebo jater): na náš server
+          ji pošleme jen spolu s dotazem na AI kouče, aby doporučení doplňků zohlednilo vaše omezení. Samotnou
+          volbu na serveru neukládáme, ale odpověď kouče, která z ní vychází, zůstane v konverzaci.
         </p>
       </LegalSection>
 
