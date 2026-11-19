@@ -357,6 +357,18 @@ const SOURCES = {
     title: 'VZP ČR: Příspěvky na očkování dospělých',
     url: 'https://www.vzp.cz/pojistenci/vyhody-a-prispevky/ockovani/dospely',
   },
+  singhCeliac: pm(
+    29551598,
+    'Singh a kol. (2018) Výskyt celiakie ve světě — metaanalýza, Clin Gastroenterol Hepatol',
+  ),
+  storhaugLactose: pm(
+    28690131,
+    'Storhaug a kol. (2017) Špatné trávení laktózy ve světě podle zemí — metaanalýza, Lancet Gastroenterol Hepatol',
+  ),
+  shaukatLactose: pm(
+    20404262,
+    'Shaukat a kol. (2010) Jak zvládat intoleranci laktózy — systematický přehled, Ann Intern Med',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3188,6 +3200,80 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
   },
   {
+    slug: 'laktoza-a-lepek',
+    title: 'Laktóza a lepek: intolerance, celiakie, nebo jen trend?',
+    short: 'Laktóza a lepek',
+    icon: 'apple',
+    hook: 'Bezlaktózové a bezlepkové výrobky jsou v každém obchodě. Kdo je opravdu potřebuje — a proč se nevyplatí vyřazovat lepek bez vyšetření.',
+    tldr: [
+      'Laktózu po dětství hůř tráví asi dvě třetiny lidí na světě, v západní a severní Evropě ale jen zhruba čtvrtina.',
+      'I lidé s intolerancí laktózy většinou snesou 12–15 g laktózy — asi sklenici mléka. Jogurt a tvrdé sýry jí mají málo.',
+      'Celiakii má asi 1 % lidí a vyžaduje přísnou bezlepkovou dietu. Bez vyšetření lepek nevyřazujte — testy pak nemusí nic ukázat.',
+    ],
+    numbers: [
+      { value: '~1 %', label: 'lidí má celiakii (potvrzenou biopsií 0,7 %)' },
+      { value: '28 %', label: 'dospělých v západní a severní Evropě hůř tráví laktózu (svět 68 %)' },
+      { value: '12–15 g', label: 'laktózy snese většina lidí s intolerancí' },
+    ],
+    how: [
+      {
+        title: 'Intolerance laktózy',
+        text: 'Mléčný cukr štěpí ve střevě enzym laktáza. Jeho tvorba po dětství u řady lidí klesne a nestrávená laktóza pak v tlustém střevě kvasí — nadýmání, plyny, průjem. Je to nepříjemné, ale střevo nepoškozuje.',
+      },
+      {
+        title: 'Celiakie',
+        text: 'Autoimunitní nemoc: lepek spustí imunitní reakci, která poškozuje sliznici tenkého střeva. Projevit se může průjmem, ale i chudokrevností, únavou nebo řídnutím kostí. Potvrzuje se krevními testy a biopsií.',
+      },
+      {
+        title: 'Alergie je něco jiného',
+        text: 'Alergie na mléčnou bílkovinu nebo pšenici je reakce imunity (vyrážka, otok, dýchací potíže) a může být nebezpečná. Intolerance laktózy alergie není.',
+      },
+    ],
+    today: [
+      'Bezlepková strava je trend i u lidí bez celiakie — často je dražší a má méně vlákniny.',
+      'Domácí testy a „testy nesnášenlivosti potravin“ z protilátek IgG nejsou pro diagnózu spolehlivé.',
+    ],
+    helps: [
+      {
+        text: 'Při potížích po mléce zkusit menší porce, mléko k jídlu, jogurt, kefír a tvrdé sýry, případně bezlaktózové mléko.',
+        level: 'established',
+      },
+      {
+        text: 'Při podezření na celiakii jít k lékaři ještě před změnou stravy — testy fungují jen tehdy, když lepek jíte.',
+        level: 'established',
+      },
+      {
+        text: 'Při celiakii celoživotní přísná bezlepková dieta, ideálně s pomocí nutričního terapeuta.',
+        level: 'established',
+      },
+      {
+        text: 'Kdo mléčné výrobky vynechá, má pohlídat vápník (obohacené nápoje, tofu, mák, brokolice).',
+        level: 'plausible',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Bezlepková strava je zdravější pro každého.',
+        fact: 'Lidem bez celiakie nebo citlivosti na lepek přínos neprokázala. Bezlepkové výrobky bývají dražší a chudší na vlákninu.',
+      },
+      {
+        myth: 'Při intoleranci laktózy se musím mléčným výrobkům úplně vyhnout.',
+        fact: 'Většina lidí snese 12–15 g laktózy denně. Jogurt, kefír a tvrdé sýry jí mají málo.',
+      },
+      {
+        myth: 'Intolerance laktózy je alergie na mléko.',
+        fact: 'Ne. Intolerance je nedostatek enzymu, alergie je reakce imunity na mléčnou bílkovinu — jiná věc s jinou léčbou.',
+      },
+    ],
+    related: [
+      { label: 'Trávení a zácpa', href: '/jak-funguje-telo/traveni-a-zacpa' },
+      { label: 'Střeva a mikrobiom', href: '/jak-funguje-telo/streva-a-mikrobiom' },
+      { label: 'Vápník', href: '/doplnky/vapnik' },
+      { label: 'Kefír', href: '/food/kefir' },
+    ],
+    sources: [SOURCES.singhCeliac, SOURCES.storhaugLactose, SOURCES.shaukatLactose],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4447,6 +4533,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'rostlinna-strava': 'jidlo',
   'prevence-rakoviny': 'prevence',
   'ockovani-dospelych': 'prevence',
+  'laktoza-a-lepek': 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

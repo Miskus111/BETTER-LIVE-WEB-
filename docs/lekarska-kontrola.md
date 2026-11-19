@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 51 průvodců, 20 doplňků, 897 položek ke kontrole.
+Obsah: 52 průvodců, 20 doplňků, 913 položek ke kontrole.
 
 ---
 
@@ -1734,7 +1734,54 @@ Poznámky lékaře:
 
 ---
 
-## 36. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 36. Laktóza a lepek: intolerance, celiakie, nebo jen trend?
+
+Web: /jak-funguje-telo/laktoza-a-lepek
+
+**Ve zkratce**
+
+- [ ] Laktózu po dětství hůř tráví asi dvě třetiny lidí na světě, v západní a severní Evropě ale jen zhruba čtvrtina.
+- [ ] I lidé s intolerancí laktózy většinou snesou 12–15 g laktózy — asi sklenici mléka. Jogurt a tvrdé sýry jí mají málo.
+- [ ] Celiakii má asi 1 % lidí a vyžaduje přísnou bezlepkovou dietu. Bez vyšetření lepek nevyřazujte — testy pak nemusí nic ukázat.
+
+**Čísla**
+
+- [ ] **~1 %** lidí má celiakii (potvrzenou biopsií 0,7 %)
+- [ ] **28 %** dospělých v západní a severní Evropě hůř tráví laktózu (svět 68 %)
+- [ ] **12–15 g** laktózy snese většina lidí s intolerancí
+
+**Jak to funguje**
+
+- [ ] **Intolerance laktózy:** Mléčný cukr štěpí ve střevě enzym laktáza. Jeho tvorba po dětství u řady lidí klesne a nestrávená laktóza pak v tlustém střevě kvasí — nadýmání, plyny, průjem. Je to nepříjemné, ale střevo nepoškozuje.
+- [ ] **Celiakie:** Autoimunitní nemoc: lepek spustí imunitní reakci, která poškozuje sliznici tenkého střeva. Projevit se může průjmem, ale i chudokrevností, únavou nebo řídnutím kostí. Potvrzuje se krevními testy a biopsií.
+- [ ] **Alergie je něco jiného:** Alergie na mléčnou bílkovinu nebo pšenici je reakce imunity (vyrážka, otok, dýchací potíže) a může být nebezpečná. Intolerance laktózy alergie není.
+
+**Doporučení**
+
+- [ ] Při potížích po mléce zkusit menší porce, mléko k jídlu, jogurt, kefír a tvrdé sýry, případně bezlaktózové mléko. _(Prokázané)_
+- [ ] Při podezření na celiakii jít k lékaři ještě před změnou stravy — testy fungují jen tehdy, když lepek jíte. _(Prokázané)_
+- [ ] Při celiakii celoživotní přísná bezlepková dieta, ideálně s pomocí nutričního terapeuta. _(Prokázané)_
+- [ ] Kdo mléčné výrobky vynechá, má pohlídat vápník (obohacené nápoje, tofu, mák, brokolice). _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Bezlepková strava je zdravější pro každého.“ → Lidem bez celiakie nebo citlivosti na lepek přínos neprokázala. Bezlepkové výrobky bývají dražší a chudší na vlákninu.
+- [ ] „Při intoleranci laktózy se musím mléčným výrobkům úplně vyhnout.“ → Většina lidí snese 12–15 g laktózy denně. Jogurt, kefír a tvrdé sýry jí mají málo.
+- [ ] „Intolerance laktózy je alergie na mléko.“ → Ne. Intolerance je nedostatek enzymu, alergie je reakce imunity na mléčnou bílkovinu — jiná věc s jinou léčbou.
+
+**Zdroje**
+
+- Singh a kol. (2018) Výskyt celiakie ve světě — metaanalýza, Clin Gastroenterol Hepatol — https://pubmed.ncbi.nlm.nih.gov/29551598/
+- Storhaug a kol. (2017) Špatné trávení laktózy ve světě podle zemí — metaanalýza, Lancet Gastroenterol Hepatol — https://pubmed.ncbi.nlm.nih.gov/28690131/
+- Shaukat a kol. (2010) Jak zvládat intoleranci laktózy — systematický přehled, Ann Intern Med — https://pubmed.ncbi.nlm.nih.gov/20404262/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 37. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1784,7 +1831,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 38. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1836,7 +1883,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Kosti: banka, do které se ukládá do třiceti
+## 39. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1886,7 +1933,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 40. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1933,7 +1980,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Akné: co ho způsobuje a co na něj opravdu platí
+## 41. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1984,7 +2031,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 42. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2033,7 +2080,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 43. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2080,7 +2127,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 44. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2128,7 +2175,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Protahování: na co je dobré a na co ne
+## 45. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2178,7 +2225,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 46. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2230,7 +2277,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 47. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2279,7 +2326,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 48. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2329,7 +2376,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 49. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2381,7 +2428,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 50. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2432,7 +2479,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 51. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2480,7 +2527,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 52. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

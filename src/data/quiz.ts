@@ -476,6 +476,13 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Je to virus — antibiotika na něj nefungují. Chrání jen očkování.',
   },
+  {
+    id: 'bezlepkova-zdravejsi',
+    guide: 'laktoza-a-lepek',
+    statement: 'Bezlepková strava je zdravější pro každého, nejen pro lidi s celiakií.',
+    fact: false,
+    explain: 'Lidem bez celiakie přínos neprokázala. Bezlepkové výrobky bývají dražší a chudší na vlákninu.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10
