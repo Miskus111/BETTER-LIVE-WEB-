@@ -17,8 +17,8 @@ export const LM_SRC = {
     url: 'https://www.acpjournals.org/doi/10.7326/0003-4819-158-11-201306040-00002',
   },
   sunbeds: {
-    title: 'WHO — Solária, opalování a UV záření (IARC skupina 1)',
-    url: 'https://www.who.int/news-room/questions-and-answers/item/radiation-sunbeds-tanning-and-uv-exposure',
+    title: 'WHO — Ultrafialové záření (přehled; solária zvyšují riziko rakoviny kůže)',
+    url: 'https://www.who.int/news-room/fact-sheets/detail/ultraviolet-radiation',
   },
   creatine: {
     title: 'Kreider a kol. (2017) ISSN position stand: creatine supplementation, JISSN',

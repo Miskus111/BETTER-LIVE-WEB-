@@ -19,7 +19,11 @@ const STEPS = [
     t: 'Filtrujte pohled',
     d: 'Zobrazte jednu soustavu nebo zapínejte orgány, kostru a svaly.',
   },
-  { icon: Search, t: 'Hledejte cokoli', d: 'Zkratkou ⌘K najdete orgán, živinu, potravinu nebo produkt.' },
+  {
+    icon: Search,
+    t: 'Hledejte cokoli',
+    d: 'Zkratkou ⌘K najdete orgán, průvodce, živinu, potravinu nebo doplněk.',
+  },
 ]
 
 const QUICK: OrganId[] = ['brain', 'heart', 'intestines', 'bones']

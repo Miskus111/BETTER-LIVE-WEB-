@@ -168,9 +168,9 @@
       "diet": {
         "omnivore": "Všežravec",
         "vegetarian": "Vegetarián",
-        "vegan": "Vegan",
+        "vegan": "Veganská",
         "pescatarian": "Pescetarián",
-        "keto": "Keto / low-carb",
+        "keto": "Keto / nízkosacharidová",
         "other": "Jiné"
       },
       "allergies": {
