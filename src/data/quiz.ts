@@ -400,6 +400,13 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Rozmezí pokrývá 95 % zdravých lidí — zhruba každá dvacátá hodnota zdravého člověka z něj vybočí.',
   },
+  {
+    id: 'artroza-setrit',
+    guide: 'bolest-kolen',
+    statement: 'S artrózou kolene je nejlepší kloub šetřit a necvičit.',
+    fact: false,
+    explain: 'Cvičení je základ léčby artrózy — podle přehledu Cochrane zmírní bolest a zlepší hybnost.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

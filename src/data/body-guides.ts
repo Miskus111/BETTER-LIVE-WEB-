@@ -256,6 +256,20 @@ const SOURCES = {
     title: 'WHO (2011) HbA1c v diagnostice cukrovky',
     url: 'https://www.who.int/publications/i/item/use-of-glycated-haemoglobin-(-hba1c)-in-diagnosis-of-diabetes-mellitus',
   },
+  fransenKnee: pm(25569281, 'Fransen a kol. (2015) Cvičení při artróze kolene, Cochrane'),
+  messierIdea: pm(24065013, 'Messier a kol. (2013) Hubnutí a cvičení při artróze kolene — studie IDEA, JAMA'),
+  arthroscopyBmj: pm(
+    28490431,
+    'Siemieniuk a kol. (2017) Artroskopie u opotřebeného kolene — doporučení BMJ Rapid Recommendations',
+  ),
+  loRunning: pm(
+    27333572,
+    'Lo a kol. (2017) Běhání v minulosti a bolestivá artróza kolene, Arthritis Care Res',
+  ),
+  niceOa: {
+    title: 'NICE (2022) Artróza u lidí nad 16 let: diagnostika a léčba (NG226)',
+    url: 'https://www.nice.org.uk/guidance/ng226',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2369,6 +2383,89 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.ozardaRi, SOURCES.nordestgaard, SOURCES.whoFerritin, SOURCES.whoHba1c],
   },
   {
+    slug: 'bolest-kolen',
+    title: 'Bolest kolen a artróza: proč je pohyb lék, ne nepřítel',
+    short: 'Bolest kolen',
+    icon: 'bone',
+    hook: '„Máte opotřebovaná kolena, šetřete je.“ Výzkum radí opak: správný pohyb bolest artrózy tlumí podobně jako prášky.',
+    tldr: [
+      'Artróza není jen „ošoupaná chrupavka“ — mění se celý kloub a bolest často neodpovídá tomu, co ukáže rentgen.',
+      'Cvičení je základ léčby: podle přehledu Cochrane zmírní bolest a zlepší hybnost.',
+      'Při nadváze pomáhá zhubnout. Artroskopie opotřebeného kolene se nedoporučuje — nepomáhá víc než cvičení.',
+    ],
+    numbers: [
+      {
+        value: '~10 %',
+        label: 'váhy dolů + cvičení: bolest ubyla víc než po samotném cvičení (studie IDEA)',
+      },
+      { value: '45+', label: 'let a typické potíže: diagnóza bez rentgenu (NICE)' },
+    ],
+    how: [
+      {
+        title: 'Co se v kloubu děje',
+        text: 'Chrupavka řídne, kost pod ní se přestavuje, vazy a sval kolem kloubu slábnou a může přijít mírný zánět. Bolest ovlivňuje i síla stehen, spánek a nálada.',
+      },
+      {
+        title: 'Proč pohyb pomáhá',
+        text: 'Chrupavka nemá cévy — živí ji kloubní tekutina, kterou pohyb „pumpuje“. Silnější stehenní svaly kloub odlehčí a stabilizují.',
+      },
+      {
+        title: 'Snímek není všechno',
+        text: 'Na rentgenu mají „opotřebení“ i lidé, které kolena nebolí, a naopak. Proto se u lidí nad 45 let s typickými potížemi artróza určuje podle příznaků a vyšetření.',
+      },
+    ],
+    today: [
+      'Lidé ze strachu z „opotřebení“ přestanou chodit a cvičit — svaly slábnou a bolest se zhoršuje.',
+      'Prodávají se kloubní výživy a operace „na vyčištění kolene“, jejichž přínos studie nepotvrdily.',
+    ],
+    helps: [
+      {
+        text: 'Pravidelné posilování stehen a hýždí a chůze, kolo nebo plavání — i když to zpočátku trochu bolí.',
+        level: 'established',
+      },
+      { text: 'Při nadváze zhubnout — i menší úbytek kolena znatelně odlehčí.', level: 'established' },
+      {
+        text: 'Na bolest nejdřív protizánětlivý gel na kůži; tablety jen krátce a po poradě s lékařem.',
+        level: 'established',
+      },
+      {
+        text: 'Dávkovat zátěž: mírná bolest při cvičení, která do druhého dne odezní, je v pořádku.',
+        level: 'plausible',
+      },
+      {
+        text: 'K lékaři hned při oteklém, horkém a zarudlém koleni, horečce, zablokování kloubu nebo po úrazu.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'S artrózou kolene je nejlepší šetřit se.',
+        fact: 'Naopak — cvičení je základ léčby. Nečinnost oslabí svaly, které kloub chrání.',
+      },
+      {
+        myth: 'Běhání ničí kolena.',
+        fact: 'U rekreačních běžců se artróza kolene ve velké studii neobjevovala častěji než u lidí, kteří neběhali.',
+      },
+      {
+        myth: 'Artroskopie „vyčistí“ opotřebené koleno.',
+        fact: 'Mezinárodní doporučení ji u opotřebeného kolene silně nedoporučuje — dlouhodobě nepomáhá víc než cvičení.',
+      },
+    ],
+    related: [
+      { label: 'Mapa bolesti a cviky v aplikaci', href: '/login?mode=signup' },
+      { label: 'Posilování pro začátečníky', href: '/jak-funguje-telo/posilovani-pro-zacatecniky' },
+      { label: 'Bolest zad', href: '/jak-funguje-telo/bolest-zad' },
+      { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
+    ],
+    sources: [
+      SOURCES.fransenKnee,
+      SOURCES.messierIdea,
+      SOURCES.arthroscopyBmj,
+      SOURCES.loRunning,
+      SOURCES.niceOa,
+    ],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3618,6 +3715,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   menopauza: 'prevence',
   dlouhovekost: 'prevence',
   'vysledky-krve': 'prevence',
+  'bolest-kolen': 'pohyb',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

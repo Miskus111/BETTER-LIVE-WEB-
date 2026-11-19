@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 41 průvodců, 20 doplňků, 731 položek ke kontrole.
+Obsah: 42 průvodců, 20 doplňků, 747 položek ke kontrole.
 
 ---
 
@@ -1251,7 +1251,56 @@ Poznámky lékaře:
 
 ---
 
-## 26. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 26. Bolest kolen a artróza: proč je pohyb lék, ne nepřítel
+
+Web: /jak-funguje-telo/bolest-kolen
+
+**Ve zkratce**
+
+- [ ] Artróza není jen „ošoupaná chrupavka“ — mění se celý kloub a bolest často neodpovídá tomu, co ukáže rentgen.
+- [ ] Cvičení je základ léčby: podle přehledu Cochrane zmírní bolest a zlepší hybnost.
+- [ ] Při nadváze pomáhá zhubnout. Artroskopie opotřebeného kolene se nedoporučuje — nepomáhá víc než cvičení.
+
+**Čísla**
+
+- [ ] **~10 %** váhy dolů + cvičení: bolest ubyla víc než po samotném cvičení (studie IDEA)
+- [ ] **45+** let a typické potíže: diagnóza bez rentgenu (NICE)
+
+**Jak to funguje**
+
+- [ ] **Co se v kloubu děje:** Chrupavka řídne, kost pod ní se přestavuje, vazy a sval kolem kloubu slábnou a může přijít mírný zánět. Bolest ovlivňuje i síla stehen, spánek a nálada.
+- [ ] **Proč pohyb pomáhá:** Chrupavka nemá cévy — živí ji kloubní tekutina, kterou pohyb „pumpuje“. Silnější stehenní svaly kloub odlehčí a stabilizují.
+- [ ] **Snímek není všechno:** Na rentgenu mají „opotřebení“ i lidé, které kolena nebolí, a naopak. Proto se u lidí nad 45 let s typickými potížemi artróza určuje podle příznaků a vyšetření.
+
+**Doporučení**
+
+- [ ] Pravidelné posilování stehen a hýždí a chůze, kolo nebo plavání — i když to zpočátku trochu bolí. _(Prokázané)_
+- [ ] Při nadváze zhubnout — i menší úbytek kolena znatelně odlehčí. _(Prokázané)_
+- [ ] Na bolest nejdřív protizánětlivý gel na kůži; tablety jen krátce a po poradě s lékařem. _(Prokázané)_
+- [ ] Dávkovat zátěž: mírná bolest při cvičení, která do druhého dne odezní, je v pořádku. _(Pravděpodobné)_
+- [ ] K lékaři hned při oteklém, horkém a zarudlém koleni, horečce, zablokování kloubu nebo po úrazu. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „S artrózou kolene je nejlepší šetřit se.“ → Naopak — cvičení je základ léčby. Nečinnost oslabí svaly, které kloub chrání.
+- [ ] „Běhání ničí kolena.“ → U rekreačních běžců se artróza kolene ve velké studii neobjevovala častěji než u lidí, kteří neběhali.
+- [ ] „Artroskopie „vyčistí“ opotřebené koleno.“ → Mezinárodní doporučení ji u opotřebeného kolene silně nedoporučuje — dlouhodobě nepomáhá víc než cvičení.
+
+**Zdroje**
+
+- Fransen a kol. (2015) Cvičení při artróze kolene, Cochrane — https://pubmed.ncbi.nlm.nih.gov/25569281/
+- Messier a kol. (2013) Hubnutí a cvičení při artróze kolene — studie IDEA, JAMA — https://pubmed.ncbi.nlm.nih.gov/24065013/
+- Siemieniuk a kol. (2017) Artroskopie u opotřebeného kolene — doporučení BMJ Rapid Recommendations — https://pubmed.ncbi.nlm.nih.gov/28490431/
+- Lo a kol. (2017) Běhání v minulosti a bolestivá artróza kolene, Arthritis Care Res — https://pubmed.ncbi.nlm.nih.gov/27333572/
+- NICE (2022) Artróza u lidí nad 16 let: diagnostika a léčba (NG226) — https://www.nice.org.uk/guidance/ng226
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 27. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1301,7 +1350,7 @@ Poznámky lékaře:
 
 ---
 
-## 27. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 28. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1353,7 +1402,7 @@ Poznámky lékaře:
 
 ---
 
-## 28. Kosti: banka, do které se ukládá do třiceti
+## 29. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1403,7 +1452,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 30. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1450,7 +1499,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Akné: co ho způsobuje a co na něj opravdu platí
+## 31. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1501,7 +1550,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 32. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1550,7 +1599,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 33. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1597,7 +1646,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 34. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1645,7 +1694,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Protahování: na co je dobré a na co ne
+## 35. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1695,7 +1744,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 36. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1747,7 +1796,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 37. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1796,7 +1845,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 38. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1846,7 +1895,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 39. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1898,7 +1947,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 40. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -1949,7 +1998,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 41. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -1997,7 +2046,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 42. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
