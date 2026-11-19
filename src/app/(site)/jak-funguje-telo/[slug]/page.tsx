@@ -153,7 +153,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         className="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0"
         data-testid="toc"
       >
-        {TOC.map((t) => (
+        {(Tool ? [{ id: 'try', label: 'Vyzkoušejte si' }, ...TOC] : TOC).map((t) => (
           <a key={t.id} href={`#${t.id}`} className="chip shrink-0">
             {t.label}
           </a>

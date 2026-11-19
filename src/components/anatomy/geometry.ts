@@ -1483,7 +1483,15 @@ export const MUSCLE_FIBRES = half
  * stomach on the left, pancreas across the back of the abdomen (head in the duodenal "C", tail at the
  * spleen), the duodenum from the pylorus to the jejunum, and the thyroid wrapped around the trachea.
  */
-export const SUPPORT_ORGANS: { id: string; label: string; d: string; color: string; tube?: number }[] = [
+export const SUPPORT_ORGANS: {
+  id: string
+  label: string
+  d: string
+  color: string
+  tube?: number
+  /** system filter it belongs to (thyroid and spleen belong to none of the site's systems) */
+  system?: 'digestive'
+}[] = [
   {
     id: 'spleen',
     label: 'Slezina',
@@ -1501,6 +1509,7 @@ export const SUPPORT_ORGANS: { id: string; label: string; d: string; color: stri
   },
   {
     id: 'pancreas',
+    system: 'digestive',
     label: 'Slinivka břišní',
     color: '#e8c27a',
     d: spline([
@@ -1521,6 +1530,7 @@ export const SUPPORT_ORGANS: { id: string; label: string; d: string; color: stri
   },
   {
     id: 'duodenum',
+    system: 'digestive',
     label: 'Dvanáctník',
     color: '#ffd166',
     tube: 5,

@@ -485,11 +485,12 @@ export function BodySvg({
         <g
           aria-hidden
           className="pointer-events-none transition-opacity duration-300"
-          opacity={system && system !== 'digestive' ? 0.25 : selected ? 0.35 : 1}
+          opacity={selected ? 0.35 : 1}
         >
           {SUPPORT_ORGANS.map((o) =>
             o.tube ? (
               <path
+                opacity={system && o.system !== system ? 0.2 : 1}
                 key={o.id}
                 d={o.d}
                 fill="none"
@@ -500,6 +501,7 @@ export function BodySvg({
               />
             ) : (
               <path
+                opacity={system && o.system !== system ? 0.2 : 1}
                 key={o.id}
                 d={o.d}
                 fill={o.color}

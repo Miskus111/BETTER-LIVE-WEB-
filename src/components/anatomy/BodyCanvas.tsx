@@ -51,24 +51,38 @@ export function BodyCanvas({
     onSelect(id === selected ? null : id)
   }
 
-  const onWheel = (e: React.WheelEvent) => {
-    if (!e.ctrlKey && !e.metaKey) return // let the page scroll; pinch-zoom / ⌘+wheel zooms the body
-    e.preventDefault()
-    const [x, y] = toBody(e.clientX, e.clientY)
-    zoomBy(e.deltaY > 0 ? 1.15 : 0.87, x, y)
-  }
+  // pinch-zoom / ⌘+wheel zooms the body. React's onWheel is passive (preventDefault would be ignored
+  // and the whole page would zoom too), so attach a native non-passive listener.
+  const wheelRef = useRef({ toBody, zoomBy })
+  useEffect(() => {
+    wheelRef.current = { toBody, zoomBy }
+  })
+  useEffect(() => {
+    const el = frame.current
+    if (!el) return
+    const on = (e: WheelEvent) => {
+      if (!e.ctrlKey && !e.metaKey) return // plain wheel scrolls the page
+      e.preventDefault()
+      const [x, y] = wheelRef.current.toBody(e.clientX, e.clientY)
+      wheelRef.current.zoomBy(e.deltaY > 0 ? 1.15 : 0.87, x, y)
+    }
+    el.addEventListener('wheel', on, { passive: false })
+    return () => el.removeEventListener('wheel', on)
+  }, [])
+
+  // at full-body view a vertical swipe scrolls the page (phones); once zoomed in, drags pan the body
+  const zoomedIn = vb[2] < 380
 
   return (
     <div className="relative h-full w-full">
       <div
         ref={frame}
         data-testid="body-canvas"
-        className="relative h-full w-full cursor-grab touch-none select-none active:cursor-grabbing"
+        className={`relative h-full w-full cursor-grab select-none active:cursor-grabbing ${zoomedIn ? 'touch-none' : 'touch-pan-y'}`}
         onPointerDown={pointer.onPointerDown}
         onPointerMove={pointer.onPointerMove}
         onPointerUp={pointer.onPointerUp}
         onPointerCancel={pointer.onPointerUp}
-        onWheel={onWheel}
       >
         <BodySvg
           vb={vb}

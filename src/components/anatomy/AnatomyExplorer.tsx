@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronUp } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { ORGAN_BY_ID, ORGAN_IDS } from '@/data/organs'
 import type { OrganId, SystemId } from '@/data/types'
 import { OrganPanel } from '@/components/organ/OrganPanel'
@@ -28,6 +29,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
   const [resetKey, setResetKey] = useState(0)
   const [sheetExpanded, setSheetExpanded] = useState(false)
   const frameRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   // homepage: restore ?organ= on load (shareable state)
   useEffect(() => {
@@ -50,15 +52,18 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
         if (layer === 'skeleton' || layer === 'muscles' || layer === 'organs')
           setLayers((l) => (l[layer] ? l : { ...l, [layer]: true }))
       }
-      // reflect selection in the URL without a navigation
+      if (urlMode === 'path') {
+        // organ pages: another organ is another page (title, breadcrumb, related guides, metadata)
+        if (id && id !== initial) router.push(`/organ/${id}`, { scroll: false })
+        return
+      }
+      // homepage: reflect selection in the URL without a navigation
       const url = new URL(window.location.href)
-      if (urlMode === 'query') {
-        if (id) url.searchParams.set('organ', id)
-        else url.searchParams.delete('organ')
-      } else if (id) url.pathname = `/organ/${id}`
+      if (id) url.searchParams.set('organ', id)
+      else url.searchParams.delete('organ')
       window.history.replaceState(window.history.state, '', url)
     },
-    [urlMode, mobilePanel],
+    [urlMode, mobilePanel, initial, router],
   )
 
   // cross-links elsewhere on the page (food explorer, nutrient index) select organs via an event
