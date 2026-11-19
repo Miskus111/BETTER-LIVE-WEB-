@@ -410,6 +410,15 @@ const SOURCES = {
     32897239,
     'Fuller a kol. (2020) Jak přesně měří chytré hodinky kroky, tep a výdej energie — systematický přehled, JMIR Mhealth Uhealth',
   ),
+  chakerHypo: pm(28336049, 'Chaker a kol. (2017) Snížená funkce štítné žlázy (hypotyreóza), Lancet'),
+  taylorThyroid: pm(
+    29569622,
+    'Taylor a kol. (2018) Výskyt zvýšené a snížené funkce štítné žlázy ve světě, Nat Rev Endocrinol',
+  ),
+  bekkeringSch: pm(
+    31088853,
+    'Bekkering a kol. (2019) Hormony u lehké (subklinické) hypotyreózy — doporučení BMJ Rapid Recommendations',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3589,6 +3598,75 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.zhangRhr, SOURCES.shafferHrv, SOURCES.fullerWearables],
   },
   {
+    slug: 'stitna-zlaza',
+    title: 'Štítná žláza: malý orgán, který řídí tempo celého těla',
+    short: 'Štítná žláza',
+    icon: 'activity',
+    hook: 'Únava, zimomřivost a přibírání — nebo naopak hubnutí, bušení srdce a neklid. Za obojím může být štítná žláza. Jak ji poznat a proč se jí nevyplatí „podporovat“ doplňky.',
+    tldr: [
+      'Štítná žláza tvoří hormony, které nastavují tempo metabolismu, srdce i trávení. Potřebuje k tomu jód.',
+      'Snížená funkce (hypotyreóza) se projevuje hlavně únavou, zimomřivostí, přibíráním, zácpou a suchou kůží. Je častější u žen.',
+      'Základní test je TSH z krve. Lehce zvýšené TSH při normálním T4 se u většiny dospělých hormony neléčí.',
+    ],
+    numbers: [
+      { value: 'TSH', label: 'první krevní test, když lékař myslí na štítnou žlázu' },
+      { value: '150 µg', label: 'jódu denně potřebuje dospělý (EFSA)' },
+    ],
+    how: [
+      {
+        title: 'Termostat těla',
+        text: 'Hypofýza v mozku vysílá hormon TSH, který štítné žláze říká, kolik hormonů T4 a T3 vyrobit. Když jich je málo, TSH stoupá — proto je vysoké TSH znamením snížené funkce.',
+      },
+      {
+        title: 'Snížená funkce',
+        text: 'Nejčastější příčinou je autoimunitní zánět (Hashimotova tyreoiditida). Tělo pak jede „na úsporný režim“: únava, zimomřivost, přibírání, zácpa, suchá kůže. Léčí se tabletou hormonu levothyroxinu.',
+      },
+      {
+        title: 'Zvýšená funkce',
+        text: 'Při hypertyreóze jede tělo naopak „na plný plyn“: hubnutí, bušení srdce, třes, pocení, neklid a nespavost. Také ji léčí lékař.',
+      },
+    ],
+    today: [
+      'Prodávají se doplňky „na podporu štítné žlázy“ s jódem a extrakty ze žlázy — bez vyšetření mohou funkci spíš rozhodit.',
+      'Na sítích se šíří, že za každou únavou je „skrytá“ porucha štítné žlázy. Ve skutečnosti je to jen jedna z mnoha příčin.',
+    ],
+    helps: [
+      {
+        text: 'Používat jodidovanou sůl — v Česku hlavní zdroj jódu (ale soli celkově málo).',
+        level: 'established',
+      },
+      {
+        text: 'Při dlouhodobé únavě, zimomřivosti a přibírání, nebo naopak bušení srdce a hubnutí, nechat u lékaře změřit TSH.',
+        level: 'established',
+      },
+      {
+        text: 'Levothyroxin brát ráno nalačno a odděleně od vápníku a železa, které jeho vstřebání brzdí.',
+        level: 'established',
+      },
+      { text: 'Doplňky s jódem nebo „na štítnou žlázu“ brát jen po poradě s lékařem.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'Mírně zvýšené TSH je potřeba vždy léčit hormony.',
+        fact: 'U většiny dospělých s lehce zvýšeným TSH a normálním T4 hormony podle doporučení BMJ nepomáhají. Výjimkou jsou například ženy, které se snaží otěhotnět.',
+      },
+      {
+        myth: 'Čím víc jódu, tím líp pro štítnou žlázu.',
+        fact: 'Škodí nedostatek i nadbytek. Horní bezpečný limit je 600 µg denně a doplňky ho snadno překročí.',
+      },
+      {
+        myth: 'Za každou únavou je štítná žláza.',
+        fact: 'Je to jedna z možných příčin. Častěji stojí za únavou spánek, stres nebo deprese — jednoduchý test TSH to rozliší.',
+      },
+    ],
+    related: [
+      { label: 'Pořád unavený', href: '/jak-funguje-telo/unava' },
+      { label: 'Výsledky krve', href: '/jak-funguje-telo/vysledky-krve' },
+      { label: 'Jód', href: '/doplnky/jod' },
+    ],
+    sources: [SOURCES.chakerHypo, SOURCES.taylorThyroid, SOURCES.bekkeringSch],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4853,6 +4931,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'bmi-a-pas': 'jidlo',
   bilkoviny: 'jidlo',
   'chytre-hodinky': 'prevence',
+  'stitna-zlaza': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

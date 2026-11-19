@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 56 průvodců, 20 doplňků, 977 položek ke kontrole.
+Obsah: 57 průvodců, 20 doplňků, 992 položek ke kontrole.
 
 ---
 
@@ -1972,7 +1972,53 @@ Poznámky lékaře:
 
 ---
 
-## 41. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 41. Štítná žláza: malý orgán, který řídí tempo celého těla
+
+Web: /jak-funguje-telo/stitna-zlaza
+
+**Ve zkratce**
+
+- [ ] Štítná žláza tvoří hormony, které nastavují tempo metabolismu, srdce i trávení. Potřebuje k tomu jód.
+- [ ] Snížená funkce (hypotyreóza) se projevuje hlavně únavou, zimomřivostí, přibíráním, zácpou a suchou kůží. Je častější u žen.
+- [ ] Základní test je TSH z krve. Lehce zvýšené TSH při normálním T4 se u většiny dospělých hormony neléčí.
+
+**Čísla**
+
+- [ ] **TSH** první krevní test, když lékař myslí na štítnou žlázu
+- [ ] **150 µg** jódu denně potřebuje dospělý (EFSA)
+
+**Jak to funguje**
+
+- [ ] **Termostat těla:** Hypofýza v mozku vysílá hormon TSH, který štítné žláze říká, kolik hormonů T4 a T3 vyrobit. Když jich je málo, TSH stoupá — proto je vysoké TSH znamením snížené funkce.
+- [ ] **Snížená funkce:** Nejčastější příčinou je autoimunitní zánět (Hashimotova tyreoiditida). Tělo pak jede „na úsporný režim“: únava, zimomřivost, přibírání, zácpa, suchá kůže. Léčí se tabletou hormonu levothyroxinu.
+- [ ] **Zvýšená funkce:** Při hypertyreóze jede tělo naopak „na plný plyn“: hubnutí, bušení srdce, třes, pocení, neklid a nespavost. Také ji léčí lékař.
+
+**Doporučení**
+
+- [ ] Používat jodidovanou sůl — v Česku hlavní zdroj jódu (ale soli celkově málo). _(Prokázané)_
+- [ ] Při dlouhodobé únavě, zimomřivosti a přibírání, nebo naopak bušení srdce a hubnutí, nechat u lékaře změřit TSH. _(Prokázané)_
+- [ ] Levothyroxin brát ráno nalačno a odděleně od vápníku a železa, které jeho vstřebání brzdí. _(Prokázané)_
+- [ ] Doplňky s jódem nebo „na štítnou žlázu“ brát jen po poradě s lékařem. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „Mírně zvýšené TSH je potřeba vždy léčit hormony.“ → U většiny dospělých s lehce zvýšeným TSH a normálním T4 hormony podle doporučení BMJ nepomáhají. Výjimkou jsou například ženy, které se snaží otěhotnět.
+- [ ] „Čím víc jódu, tím líp pro štítnou žlázu.“ → Škodí nedostatek i nadbytek. Horní bezpečný limit je 600 µg denně a doplňky ho snadno překročí.
+- [ ] „Za každou únavou je štítná žláza.“ → Je to jedna z možných příčin. Častěji stojí za únavou spánek, stres nebo deprese — jednoduchý test TSH to rozliší.
+
+**Zdroje**
+
+- Chaker a kol. (2017) Snížená funkce štítné žlázy (hypotyreóza), Lancet — https://pubmed.ncbi.nlm.nih.gov/28336049/
+- Taylor a kol. (2018) Výskyt zvýšené a snížené funkce štítné žlázy ve světě, Nat Rev Endocrinol — https://pubmed.ncbi.nlm.nih.gov/29569622/
+- Bekkering a kol. (2019) Hormony u lehké (subklinické) hypotyreózy — doporučení BMJ Rapid Recommendations — https://pubmed.ncbi.nlm.nih.gov/31088853/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 42. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -2022,7 +2068,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 43. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -2074,7 +2120,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Kosti: banka, do které se ukládá do třiceti
+## 44. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2124,7 +2170,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 45. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2171,7 +2217,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Akné: co ho způsobuje a co na něj opravdu platí
+## 46. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2222,7 +2268,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 47. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2271,7 +2317,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 48. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2318,7 +2364,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 49. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2366,7 +2412,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Protahování: na co je dobré a na co ne
+## 50. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2416,7 +2462,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 51. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2468,7 +2514,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 52. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2517,7 +2563,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 53. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2567,7 +2613,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 54. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2619,7 +2665,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 55. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2670,7 +2716,7 @@ Poznámky lékaře:
 
 ---
 
-## 55. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 56. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2718,7 +2764,7 @@ Poznámky lékaře:
 
 ---
 
-## 56. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 57. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

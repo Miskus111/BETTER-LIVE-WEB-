@@ -513,6 +513,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'V přehledu 158 studií neměřila spálenou energii přesně žádná značka. Kroky a tep jsou spolehlivější.',
   },
+  {
+    id: 'jod-cim-vic',
+    guide: 'stitna-zlaza',
+    statement: 'Čím víc jódu, tím lépe pro štítnou žlázu.',
+    fact: false,
+    explain:
+      'Škodí nedostatek i nadbytek. Horní bezpečný limit je 600 µg denně a doplňky ho snadno překročí.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10
