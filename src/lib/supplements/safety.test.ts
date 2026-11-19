@@ -67,3 +67,18 @@ describe('caffeine', () => {
     expect(checkDose(SUPPLEMENT_BY_ID.caffeine, 500)?.level).toBe('block')
   })
 })
+
+describe('stack totals', () => {
+  it('sums the same supplement taken twice against the upper limit', () => {
+    const ul = SUPPLEMENT_BY_ID['vitamin-d3']?.ul?.value
+    if (!ul) return
+    const issues = checkStack(
+      [
+        { id: 'vitamin-d3', dailyAmount: ul * 0.75 },
+        { id: 'vitamin-d3', dailyAmount: ul * 0.5 },
+      ],
+      {},
+    )
+    expect(issues.some((i) => i.code === 'over_ul')).toBe(true)
+  })
+})

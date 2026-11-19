@@ -88,7 +88,7 @@ export const MARKERS: Marker[] = [
     en: 'LDL cholesterol',
     unit: 'mmol/L',
     category: 'lipids',
-    aliases: ['ldl', 'ldlcholesterol', 'ldlc', 'ldlchol'],
+    aliases: ['ldl', 'ldlcholesterol', 'ldlc', 'ldlchol', 'cholesterolldl'],
     high: 3.0,
     convert: { 'mg/dl': 0.02586 },
   },
@@ -98,7 +98,7 @@ export const MARKERS: Marker[] = [
     en: 'HDL cholesterol',
     unit: 'mmol/L',
     category: 'lipids',
-    aliases: ['hdl', 'hdlcholesterol', 'hdlc', 'hdlchol'],
+    aliases: ['hdl', 'hdlcholesterol', 'hdlc', 'hdlchol', 'cholesterolhdl'],
     low: 1.0,
     convert: { 'mg/dl': 0.02586 },
   },
@@ -138,7 +138,7 @@ export const MARKERS: Marker[] = [
     en: 'GGT',
     unit: 'µkat/L',
     category: 'liver',
-    aliases: ['ggt', 'gmt', 'gamaglutamyltransferaza'],
+    aliases: ['ggt', 'gmt', 'gamagt', 'ggtp', 'gamaglutamyltransferaza'],
     high: 0.84,
     convert: { 'u/l': 0.01667, 'iu/l': 0.01667 },
   },
@@ -394,16 +394,31 @@ export function matchMarker(name: string): Marker | null {
   if (!n) return null
   return (
     MARKERS.find((m) => m.aliases.includes(n) || normName(m.cs) === n || normName(m.en) === n) ??
-    // tolerate trailing qualifiers like "glukozavplazme" / "hdlcholesterolserum"
-    MARKERS.find((m) => m.aliases.some((a) => a.length >= 3 && n.startsWith(a))) ??
-    null
+    // tolerate trailing qualifiers like "glukozavplazme" / "hdlcholesterolserum" — the LONGEST matching
+    // alias wins, so "cholesterolhdl" is HDL, not total cholesterol ("cholesterol…")
+    longestPrefixMatch(n)
   )
+}
+
+function longestPrefixMatch(n: string): Marker | null {
+  let best: Marker | null = null
+  let bestLen = 0
+  for (const m of MARKERS)
+    for (const a of m.aliases)
+      if (a.length >= 3 && a.length > bestLen && n.startsWith(a)) {
+        best = m
+        bestLen = a.length
+      }
+  return best
 }
 
 /** Convert a value into the marker's canonical unit; null when the unit is unknown. */
 export function toCanonical(m: Marker, value: number, unit: string): number | null {
   const u = normUnit(unit)
-  if (!u || u === normUnit(m.unit)) return value
+  // no unit printed: only trust it when the marker has a single common unit; otherwise (e.g. glucose
+  // in mg/dl vs mmol/l) the value goes to manual review instead of being judged in the wrong unit
+  if (!u) return m.convert ? null : value
+  if (u === normUnit(m.unit)) return value
   if (m.key === 'hba1c' && u === '%') return Math.round((value - 2.15) * 10.929 * 10) / 10
   const f = m.convert?.[u]
   return f === undefined ? null : Math.round(value * f * 1000) / 1000
@@ -423,8 +438,10 @@ export function flagFor(
       (m.criticalHigh !== undefined && value > m.criticalHigh))
   )
     return 'critical'
-  const lo = refLow ?? m?.low
-  const hi = refHigh ?? m?.high
+  // the lab's range always wins; a one-sided lab range (e.g. "> 1,0") is not completed with ours
+  const labRange = (refLow ?? null) !== null || (refHigh ?? null) !== null
+  const lo = labRange ? refLow : m?.low
+  const hi = labRange ? refHigh : m?.high
   if (lo === undefined && hi === undefined) return null
   if (lo !== undefined && lo !== null && value < lo) return 'low'
   if (hi !== undefined && hi !== null && value > hi) return 'high'

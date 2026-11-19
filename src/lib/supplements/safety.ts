@@ -99,8 +99,12 @@ export function checkStack(
   if (meds.has('anticoagulants')) conds.add('anticoagulants')
   if (meds.has('levothyroxine')) conds.add('thyroid')
   const ids = new Set(stack.map((x) => x.id))
+  // the same supplement can be in the stack twice (morning + evening): limits apply to the daily total
+  const totals = new Map<SupplementId, number>()
+  for (const x of stack) totals.set(x.id, (totals.get(x.id) ?? 0) + x.dailyAmount)
 
-  for (const item of stack) {
+  for (const [id, dailyAmount] of totals) {
+    const item = { id, dailyAmount }
     const s = SUPPLEMENT_BY_ID[item.id]
     if (!s) continue
     const dose = checkDose(s, item.dailyAmount)

@@ -539,7 +539,8 @@
       "chest_pain": "Chest pain or pressure, pain into the jaw or left arm, shortness of breath",
       "sudden_severe_headache": "Sudden, very severe headache (“worst ever”)",
       "deformity_or_unable_to_bear_weight": "Visible deformity or you can't put weight on the limb",
-      "hot_swollen_joint": "A red, hot, swollen joint, possibly with fever"
+      "hot_swollen_joint": "A red, hot, swollen joint, possibly with fever",
+      "calf_swelling": "One calf is swollen, warm and tender (especially after long sitting, travel or surgery)"
     },
     "painJump": "Something hurts? Tap the spot on the body map for a safe plan.",
     "exercisesCount": "{n, plural, one {# exercise} other {# exercises}}"

@@ -539,7 +539,8 @@
       "chest_pain": "Bolest nebo tlak na hrudi, bolest vystřelující do čelisti či levé paže, dušnost",
       "sudden_severe_headache": "Náhlá velmi silná bolest hlavy („nejhorší v životě“)",
       "deformity_or_unable_to_bear_weight": "Viditelná deformace nebo nemůžete končetinu zatížit",
-      "hot_swollen_joint": "Kloub je červený, horký a oteklý, případně s horečkou"
+      "hot_swollen_joint": "Kloub je červený, horký a oteklý, případně s horečkou",
+      "calf_swelling": "Jedno lýtko je oteklé, teplé a bolestivé (zvlášť po dlouhém sezení, cestě nebo operaci)"
     },
     "painJump": "Něco vás bolí? Klepněte na místo na těle a dostanete bezpečný plán.",
     "exercisesCount": "{n, plural, one {# cvik} few {# cviky} other {# cviků}}"

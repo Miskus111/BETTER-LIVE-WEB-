@@ -59,3 +59,20 @@ Poznámka: odběr nalačno
     expect(rows).toHaveLength(6)
   })
 })
+
+describe('review fixes', () => {
+  it('Czech "Cholesterol HDL/LDL" labels map to HDL/LDL, not total cholesterol', () => {
+    expect(matchMarker('Cholesterol HDL')?.key).toBe('hdl')
+    expect(matchMarker('Cholesterol LDL')?.key).toBe('ldl')
+    expect(matchMarker('S-Cholesterol celkový')?.key).toBe('chol_total')
+    expect(matchMarker('Gama-GT')?.key).toBe('ggt')
+  })
+  it('a value without a unit is sent to review when the marker has several common units', () => {
+    const r = normalizeRow({ name: 'Glukóza', value: 95, unit: '' })
+    expect(r.needsReview).toBe(true)
+    expect(r.flag).toBeNull()
+  })
+  it('a one-sided lab range is not completed with the generic range', () => {
+    expect(flagFor(matchMarker('HDL cholesterol'), 3.5, 1.0, null)).toBe('normal')
+  })
+})

@@ -41,3 +41,14 @@ describe('pain tracking', () => {
     expect(nextStep(7, false)).toBe('regress')
   })
 })
+
+describe('review fixes', () => {
+  it('knee and ankle screening asks about a swollen calf (possible DVT)', () => {
+    expect(FLAGS_BY_REGION.knee).toContain('calf_swelling')
+    expect(triage({ calf_swelling: true }).action).toBe('doctor')
+  })
+  it('trend windows never overlap and fractional pain above 3 holds', () => {
+    expect(painTrend([8, 7, 3, 2])).toBe(-5)
+    expect(nextStep(3.5, false)).toBe('hold')
+  })
+})
