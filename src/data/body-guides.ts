@@ -106,6 +106,26 @@ const SOURCES = {
     'Dethlefsen a Relman (2011) Neúplné zotavení střevních bakterií po antibiotikách, PNAS',
   ),
   killer: pm(24416202, 'Killer a kol. (2014) Káva v běžném množství neodvodňuje — zkřížená studie, PLoS One'),
+  dunstan: pm(
+    22374636,
+    'Dunstan a kol. (2012) Přerušování sezení snižuje cukr a inzulin po jídle, Diabetes Care',
+  ),
+  saintMaurice: pm(
+    32207799,
+    'Saint-Maurice a kol. (2020) Počet kroků, jejich tempo a úmrtnost, JAMA',
+  ),
+  costaBack: pm(
+    22586331,
+    'da C Menezes Costa a kol. (2012) Průběh akutní a dlouhodobé bolesti zad — metaanalýza, CMAJ',
+  ),
+  sherrington: pm(
+    30703272,
+    'Sherrington a kol. (2019) Cvičení jako prevence pádů u starších lidí, Cochrane',
+  ),
+  leboff: pm(
+    35939577,
+    'LeBoff a kol. (2022) Vitamín D a zlomeniny u zdravých lidí středního a vyššího věku (VITAL), N Engl J Med',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -747,6 +767,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Co dělá sezení',
         text: 'Při dlouhém sezení svaly „spí“ — hůř zpracovávají cukr a tuky z krve. Nejde jen o kalorie, ale o to, jak dlouho tělo neprochází žádnou zátěží.',
       },
+      {
+        title: 'Malé přestávky, měřitelný efekt',
+        text: 'U lidí s nadváhou stačily 2 minuty chůze každých 20 minut sezení, aby cukr a inzulin po jídle klesly zhruba o čtvrtinu. Pracující sval si cukr z krve bere sám.',
+      },
     ],
     today: [
       'Práce a škola u obrazovky znamená klidně 10 a více hodin sezení denně.',
@@ -770,6 +794,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         fact: 'Přínos roste už od nižších počtů. Každých pár tisíc kroků navíc pomáhá.',
       },
       {
+        myth: 'Počítá se jen rychlá chůze.',
+        fact: 'Ve velké americké studii záleželo hlavně na celkovém počtu kroků. Svižné tempo je bonus, ne podmínka.',
+      },
+      {
         myth: 'Stojací stůl vyřeší sezení.',
         fact: 'Samotné stání není pohyb. Pomáhá hlavně ho střídat a chodit.',
       },
@@ -778,7 +806,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Kroky si můžete zapisovat v aplikaci', href: '/login?mode=signup' },
       { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
     ],
-    sources: [SOURCES.who, SOURCES.paluch, SOURCES.ekelund],
+    sources: [SOURCES.who, SOURCES.paluch, SOURCES.ekelund, SOURCES.dunstan, SOURCES.saintMaurice],
   },
   {
     slug: 'streva-a-mikrobiom',
@@ -1541,7 +1569,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     ],
     numbers: [
       { value: '#1', label: 'příčina let života s omezením (svět)' },
-      { value: 'týdny', label: 'obvyklá doba zlepšení akutní bolesti' },
+      { value: '6 týdnů', label: 'do té doby se akutní bolest většinou výrazně zlepší' },
     ],
     how: [
       {
@@ -1551,6 +1579,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Snímky klamou',
         text: 'Vyklenuté ploténky a „opotřebení“ na magnetické rezonanci má i spousta lidí, které záda vůbec nebolí. Snímek proto bez varovných příznaků obvykle nepomůže.',
+      },
+      {
+        title: 'Bolest není měřák poškození',
+        text: 'Nervový systém umí bolest „zesílit“ — při stresu, špatném spánku nebo strachu bolí víc, i když se v zádech nic nezměnilo. Proto pomáhá i pochopit, co se děje.',
+      },
+      {
+        title: 'Jak to obvykle běží',
+        text: 'Akutní bolest se u většiny lidí během 6 týdnů výrazně zlepší. U části ale mírnější potíže zůstávají nebo se vracejí — a právě tam má největší smysl cvičení.',
       },
     ],
     today: [
@@ -1588,7 +1624,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
       { label: 'Kosti v mapě těla', href: '/organ/bones' },
     ],
-    sources: [SOURCES.hartvigsen, SOURCES.foster, SOURCES.slater, SOURCES.whoBack],
+    sources: [SOURCES.hartvigsen, SOURCES.foster, SOURCES.slater, SOURCES.whoBack, SOURCES.costaBack],
   },
   {
     slug: 'sluch-a-sluchatka',
@@ -1919,7 +1955,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Kosti posiluje zátěž — skoky, běh a posilování. Plavání a kolo méně.',
       'Vápník, vitamín D a bílkoviny jsou stavební materiál; kouření a alkohol kostem škodí.',
     ],
-    numbers: [{ value: '~25–30', label: 'let: vrchol kostní hmoty' }],
+    numbers: [
+      { value: '~25–30', label: 'let: vrchol kostní hmoty' },
+      { value: '−23 %', label: 'pádů u starších lidí díky cvičení rovnováhy a síly' },
+    ],
     how: [
       {
         title: 'Stálá přestavba',
@@ -1932,6 +1971,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Materiál',
         text: 'Vápník dodává pevnost, vitamín D pomáhá ho vstřebat, bílkoviny tvoří kostní kostru.',
+      },
+      {
+        title: 'Zlomenina = slabší kost + pád',
+        text: 'Většina zlomenin ve stáří vzniká při obyčejném pádu. Chránit kosti proto znamená i udržet sílu nohou a rovnováhu.',
       },
     ],
     today: [
@@ -1946,6 +1989,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Dost vápníku a vitamínu D (v zimě doplněk) a bílkovin.', level: 'established' },
       { text: 'Nekouřit a omezit alkohol.', level: 'plausible' },
+      {
+        text: 'Ve vyšším věku cvičit rovnováhu a sílu (třeba tai-chi nebo cviky na stabilitu) — pádů je pak asi o čtvrtinu méně.',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -1953,13 +2000,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         fact: 'Vápník je potřeba, ale bez zátěže kost nezesílí. Vápník lze získat i z jiných potravin.',
       },
       { myth: 'Řídnutí kostí je jen problém babiček.', fact: 'Základ se buduje v mládí a týká se i mužů.' },
+      {
+        myth: 'Vysoké dávky vitamínu D chrání každého před zlomeninami.',
+        fact: 'U zdravých lidí bez nedostatku 2 000 IU denně zlomeniny nesnížilo (studie VITAL, přes 25 000 lidí). Smysl má hlavně při prokázaném nedostatku.',
+      },
     ],
     related: [
       { label: 'Vápník', href: '/doplnky/vapnik' },
       { label: 'Vitamín D', href: '/doplnky/vitamin-d' },
       { label: 'Kosti v mapě těla', href: '/organ/bones' },
     ],
-    sources: [SOURCES.weaver, SOURCES.watson, SRC.euRegister],
+    sources: [SOURCES.weaver, SOURCES.watson, SRC.euRegister, SOURCES.sherrington, SOURCES.leboff],
   },
   {
     slug: 'dychani',
