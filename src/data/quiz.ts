@@ -483,6 +483,13 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Lidem bez celiakie přínos neprokázala. Bezlepkové výrobky bývají dražší a chudší na vlákninu.',
   },
+  {
+    id: 'horecka-laktat',
+    guide: 'svalova-horecka',
+    statement: 'Svalovou horečku způsobuje kyselina mléčná, která zůstane ve svalech.',
+    fact: false,
+    explain: 'Laktát z krve zmizí do hodiny. Bolest za den či dva způsobují mikropoškození a zánět ve svalu.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

@@ -369,6 +369,15 @@ const SOURCES = {
     20404262,
     'Shaukat a kol. (2010) Jak zvládat intoleranci laktózy — systematický přehled, Ann Intern Med',
   ),
+  cheungDoms: pm(12617692, 'Cheung a kol. (2003) Svalová horečka: léčba a vliv na výkon, Sports Med'),
+  dupuyRecovery: pm(
+    29755363,
+    'Dupuy a kol. (2018) Které regenerační metody snižují bolest svalů a únavu — metaanalýza, Front Physiol',
+  ),
+  hyldahlRbe: pm(
+    27782911,
+    'Hyldahl a kol. (2017) Proč svaly bolí příště méně — efekt opakované zátěže, Exerc Sport Sci Rev',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3274,6 +3283,79 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.singhCeliac, SOURCES.storhaugLactose, SOURCES.shaukatLactose],
   },
   {
+    slug: 'svalova-horecka',
+    title: 'Svalová horečka: proč svaly bolí den po tréninku a co pomáhá',
+    short: 'Svalová horečka',
+    icon: 'dumbbell',
+    hook: 'Bolest svalů den či dva po tréninku není kyselina mléčná ani známka dobrého tréninku. Co to je, jak dlouho trvá a co ji opravdu zmírní.',
+    tldr: [
+      'Svalová horečka přichází za 12–24 hodin, vrcholí zhruba za 1–3 dny a do týdne odezní.',
+      'Nejvíc ji vyvolá nezvyklá zátěž a brzdivé pohyby — sbíhání kopce, spouštění činky, dřepy.',
+      'Nejlépe ověřeně ji zmírní masáž. Protahování skoro nepomáhá a po pár trénincích bolí svaly méně samo.',
+    ],
+    numbers: [
+      { value: '24–72 h', label: 'po tréninku je bolest nejsilnější' },
+      { value: '1 trénink', label: 'stačí, aby příště stejná zátěž bolela výrazně méně' },
+    ],
+    how: [
+      {
+        title: 'Mikropoškození, ne kyselina mléčná',
+        text: 'Laktát z krve zmizí do hodiny po výkonu. Za bolestí jsou drobná poškození svalových vláken a zánětlivá reakce, která podráždí nervová zakončení.',
+      },
+      {
+        title: 'Brzdivé pohyby bolí nejvíc',
+        text: 'Když se sval natahuje pod zátěží (spouštění činky, sbíhání), vzniká víc mikropoškození. Proto po prvním výletu do hor bolí hlavně stehna.',
+      },
+      {
+        title: 'Sval se učí',
+        text: 'Už po jednom tréninku se sval přizpůsobí a stejná zátěž příště bolí mnohem méně — vědci tomu říkají efekt opakované zátěže.',
+      },
+    ],
+    today: [
+      'Mezi lidmi panuje přesvědčení, že bez bolesti druhý den to nebyl trénink.',
+      'Prodávají se kompresní oblečení, masážní pistole a doplňky „na regeneraci“ s různou mírou důkazů.',
+    ],
+    helps: [
+      { text: 'Začínat s novým cvičením zlehka a zátěž přidávat postupně.', level: 'established' },
+      { text: 'Masáž — v metaanalýze nejúčinnější na bolest i únavu.', level: 'established' },
+      { text: 'Lehký pohyb (chůze, kolo) — bolest na chvíli zmírní.', level: 'plausible' },
+      {
+        text: 'Kompresní oblečení nebo studená voda — malý přínos, ale ledovou lázeň ne hned po posilování.',
+        level: 'preliminary',
+      },
+      {
+        text: 'K lékaři při extrémní bolesti a otoku svalů, slabosti nebo tmavé moči po tvrdém výkonu — může jít o vzácné, ale vážné rozpadání svalů.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Svalová horečka je kyselina mléčná.',
+        fact: 'Laktát se odbourá do hodiny. Bolest za den či dva způsobují mikropoškození a zánět ve svalu.',
+      },
+      {
+        myth: 'Bez bolesti to nebyl dobrý trénink.',
+        fact: 'Bolest jen ukazuje nezvyklou zátěž. Svaly rostou z postupného přidávání, ne z toho, jak moc bolí.',
+      },
+      {
+        myth: 'Protažení po tréninku svalové horečce zabrání.',
+        fact: 'Přehled Cochrane ukázal, že protahování bolest prakticky nezmírní.',
+      },
+    ],
+    related: [
+      { label: 'Posilování pro začátečníky', href: '/jak-funguje-telo/posilovani-pro-zacatecniky' },
+      { label: 'Protahování', href: '/jak-funguje-telo/protahovani' },
+      { label: 'Sauna a otužování', href: '/jak-funguje-telo/sauna-a-chlad' },
+    ],
+    sources: [
+      SOURCES.cheungDoms,
+      SOURCES.dupuyRecovery,
+      SOURCES.hyldahlRbe,
+      SOURCES.herbertStretch,
+      SOURCES.roberts,
+    ],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4534,6 +4616,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'prevence-rakoviny': 'prevence',
   'ockovani-dospelych': 'prevence',
   'laktoza-a-lepek': 'jidlo',
+  'svalova-horecka': 'pohyb',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

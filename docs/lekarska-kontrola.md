@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 52 průvodců, 20 doplňků, 913 položek ke kontrole.
+Obsah: 53 průvodců, 20 doplňků, 929 položek ke kontrole.
 
 ---
 
@@ -1781,7 +1781,56 @@ Poznámky lékaře:
 
 ---
 
-## 37. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 37. Svalová horečka: proč svaly bolí den po tréninku a co pomáhá
+
+Web: /jak-funguje-telo/svalova-horecka
+
+**Ve zkratce**
+
+- [ ] Svalová horečka přichází za 12–24 hodin, vrcholí zhruba za 1–3 dny a do týdne odezní.
+- [ ] Nejvíc ji vyvolá nezvyklá zátěž a brzdivé pohyby — sbíhání kopce, spouštění činky, dřepy.
+- [ ] Nejlépe ověřeně ji zmírní masáž. Protahování skoro nepomáhá a po pár trénincích bolí svaly méně samo.
+
+**Čísla**
+
+- [ ] **24–72 h** po tréninku je bolest nejsilnější
+- [ ] **1 trénink** stačí, aby příště stejná zátěž bolela výrazně méně
+
+**Jak to funguje**
+
+- [ ] **Mikropoškození, ne kyselina mléčná:** Laktát z krve zmizí do hodiny po výkonu. Za bolestí jsou drobná poškození svalových vláken a zánětlivá reakce, která podráždí nervová zakončení.
+- [ ] **Brzdivé pohyby bolí nejvíc:** Když se sval natahuje pod zátěží (spouštění činky, sbíhání), vzniká víc mikropoškození. Proto po prvním výletu do hor bolí hlavně stehna.
+- [ ] **Sval se učí:** Už po jednom tréninku se sval přizpůsobí a stejná zátěž příště bolí mnohem méně — vědci tomu říkají efekt opakované zátěže.
+
+**Doporučení**
+
+- [ ] Začínat s novým cvičením zlehka a zátěž přidávat postupně. _(Prokázané)_
+- [ ] Masáž — v metaanalýze nejúčinnější na bolest i únavu. _(Prokázané)_
+- [ ] Lehký pohyb (chůze, kolo) — bolest na chvíli zmírní. _(Pravděpodobné)_
+- [ ] Kompresní oblečení nebo studená voda — malý přínos, ale ledovou lázeň ne hned po posilování. _(Předběžné)_
+- [ ] K lékaři při extrémní bolesti a otoku svalů, slabosti nebo tmavé moči po tvrdém výkonu — může jít o vzácné, ale vážné rozpadání svalů. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Svalová horečka je kyselina mléčná.“ → Laktát se odbourá do hodiny. Bolest za den či dva způsobují mikropoškození a zánět ve svalu.
+- [ ] „Bez bolesti to nebyl dobrý trénink.“ → Bolest jen ukazuje nezvyklou zátěž. Svaly rostou z postupného přidávání, ne z toho, jak moc bolí.
+- [ ] „Protažení po tréninku svalové horečce zabrání.“ → Přehled Cochrane ukázal, že protahování bolest prakticky nezmírní.
+
+**Zdroje**
+
+- Cheung a kol. (2003) Svalová horečka: léčba a vliv na výkon, Sports Med — https://pubmed.ncbi.nlm.nih.gov/12617692/
+- Dupuy a kol. (2018) Které regenerační metody snižují bolest svalů a únavu — metaanalýza, Front Physiol — https://pubmed.ncbi.nlm.nih.gov/29755363/
+- Hyldahl a kol. (2017) Proč svaly bolí příště méně — efekt opakované zátěže, Exerc Sport Sci Rev — https://pubmed.ncbi.nlm.nih.gov/27782911/
+- Herbert a kol. (2011) Protahování a svalová bolest po cvičení, Cochrane — https://pubmed.ncbi.nlm.nih.gov/21735398/
+- Roberts a kol. (2015) Ledová lázeň po tréninku tlumí nárůst svalů, J Physiol — https://pubmed.ncbi.nlm.nih.gov/26174323/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 38. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1831,7 +1880,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 39. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1883,7 +1932,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Kosti: banka, do které se ukládá do třiceti
+## 40. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1933,7 +1982,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 41. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1980,7 +2029,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Akné: co ho způsobuje a co na něj opravdu platí
+## 42. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2031,7 +2080,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 43. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2080,7 +2129,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 44. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2127,7 +2176,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 45. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2175,7 +2224,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Protahování: na co je dobré a na co ne
+## 46. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2225,7 +2274,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 47. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2277,7 +2326,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 48. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2326,7 +2375,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 49. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2376,7 +2425,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 50. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2428,7 +2477,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 51. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2479,7 +2528,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 52. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2527,7 +2576,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 53. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
