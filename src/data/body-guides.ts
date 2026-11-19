@@ -171,6 +171,15 @@ const SOURCES = {
     title: 'WHO: Endometrióza — fakta',
     url: 'https://www.who.int/news-room/fact-sheets/detail/endometriosis',
   },
+  momma: pm(
+    35228201,
+    'Momma a kol. (2022) Posilování a nižší riziko nemocí i úmrtí — metaanalýza, Br J Sports Med',
+  ),
+  leap: pm(
+    25705822,
+    'Du Toit a kol. (2015) Časné zavádění arašídů a alergie u rizikových kojenců (LEAP), N Engl J Med',
+  ),
+  cocAcne: pm(22786490, 'Arowojolu a kol. (2012) Kombinovaná antikoncepce při akné, Cochrane'),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2330,6 +2339,14 @@ export const BODY_GUIDES: BodyGuide[] = [
         text: 'Zkusit méně mléka a sladkého, pokud máte pocit, že vám přitěžují.',
         level: 'preliminary',
       },
+      {
+        text: 'U žen může pomoct kombinovaná hormonální antikoncepce — proberte s gynekologem nebo dermatologem.',
+        level: 'established',
+      },
+      {
+        text: 'Při léčbě retinoidy denně opalovací krém — kůže je citlivější na slunce.',
+        level: 'plausible',
+      },
     ],
     myths: [
       {
@@ -2344,13 +2361,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Zubní pasta pupínek vysuší.',
         fact: 'Pasta není lék na kůži a často ji podráždí. Účinné látky jsou jiné — benzoylperoxid nebo retinoidy.',
       },
+      {
+        myth: 'Akné po pubertě samo zmizí.',
+        fact: 'Často ano, ale u řady lidí — hlavně žen — přetrvává i po dvacítce nebo se objeví nově. I pak se dá léčit.',
+      },
     ],
     related: [
       { label: 'Kůže a slunce', href: '/jak-funguje-telo/kuze-a-slunce' },
       { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
       { label: 'Looksmaxing', href: '/looksmaxing' },
     ],
-    sources: [SOURCES.reynoldsAcne, SOURCES.tanAcne, SOURCES.juhlDairy, SOURCES.smithGL],
+    sources: [SOURCES.reynoldsAcne, SOURCES.tanAcne, SOURCES.juhlDairy, SOURCES.smithGL, SOURCES.cocAcne],
   },
   {
     slug: 'bolest-hlavy',
@@ -2940,6 +2961,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { value: '2×', label: 'týdně na každou svalovou skupinu' },
       { value: '8–12', label: 'opakování v sérii na začátek' },
       { value: '10+', label: 'sérií na sval týdně pro výraznější růst' },
+      { value: '30–60 min', label: 'posilování týdně — spojeno s 10–20 % nižší úmrtností' },
     ],
     how: [
       {
@@ -2953,6 +2975,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Technika před váhou',
         text: 'Prvních pár týdnů se učí hlavně nervový systém: zlepšuje koordinaci a sílu ještě dřív, než svaly viditelně narostou.',
+      },
+      {
+        title: 'Nejen o vzhledu',
+        text: 'Lidé, kteří posilují 30–60 minut týdně, mají podle metaanalýzy o 10–20 % nižší riziko úmrtí, srdečních nemocí i cukrovky. Sval je největší „spotřebič“ cukru v těle a s věkem drží soběstačnost.',
       },
     ],
     today: [
@@ -2980,13 +3006,23 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Začátečník potřebuje trénovat každý den.',
         fact: 'Dvakrát až třikrát týdně celé tělo stačí — svaly rostou mezi tréninky.',
       },
+      {
+        myth: 'Ženy z posilování „zmohutní“.',
+        fact: 'Velké svaly vyžadují roky cíleného tréninku a jídla. Běžné posilování přidá sílu a pevnost, ne objem navíc.',
+      },
     ],
     related: [
       { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
       { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
       { label: 'Zapisovat trénink v aplikaci', href: '/login?mode=signup' },
     ],
-    sources: [SOURCES.acsmProgression, SOURCES.schoenfeldFreq, SOURCES.schoenfeldVolume, SOURCES.who],
+    sources: [
+      SOURCES.acsmProgression,
+      SOURCES.schoenfeldFreq,
+      SOURCES.schoenfeldVolume,
+      SOURCES.who,
+      SOURCES.momma,
+    ],
   },
   {
     slug: 'alergie-a-pyl',
@@ -2999,7 +3035,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       'Alergická rýma patří k nejčastějším chronickým nemocem a často jde ruku v ruce s astmatem.',
       'Nejlépe fungují léky: antihistaminika a nosní spreje s kortikoidem; při dlouhodobých potížích imunoterapie od alergologa.',
     ],
-    numbers: [],
+    numbers: [{ value: '−81 %', label: 'arašídové alergie při časném zavádění u rizikových kojenců' }],
     how: [
       {
         title: 'Imunita si splete nepřítele',
@@ -3012,6 +3048,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         title: 'Nos a plíce spolu souvisejí',
         text: 'Neléčená alergická rýma zhoršuje spánek a soustředění a často se spojuje s astmatem. Proto má smysl ji léčit, ne jen přetrpět.',
+      },
+      {
+        title: 'Prevence začíná u miminek',
+        text: 'Dřív se alergenům u dětí raději vyhýbalo. Velká studie LEAP ukázala opak: rizikové děti, které jedly arašídy od kojeneckého věku, měly arašídovou alergii o 81 % méně často. Střevo se učí toleranci.',
       },
     ],
     today: [
@@ -3031,6 +3071,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         text: 'Sledovat pylové zpravodajství, po návratu zvenku se osprchovat a převléct, větrat při nízké koncentraci pylu.',
         level: 'plausible',
+      },
+      {
+        text: 'U kojenců s ekzémem nebo alergií na vejce probrat s pediatrem časné zavádění arašídů (vždy jako krém, nikdy celé oříšky).',
+        level: 'established',
       },
     ],
     myths: [
@@ -3052,7 +3096,7 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Dýchání', href: '/jak-funguje-telo/dychani' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
     ],
-    sources: [SOURCES.bousquetAr, SOURCES.ariaGuideline, SOURCES.honeyRct],
+    sources: [SOURCES.bousquetAr, SOURCES.ariaGuideline, SOURCES.honeyRct, SOURCES.leap],
   },
   {
     slug: 'marihuana-a-thc',
