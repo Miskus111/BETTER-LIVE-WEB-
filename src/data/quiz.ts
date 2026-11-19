@@ -454,6 +454,13 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Cvičení pánevního dna vedlo u žen se stresovým únikem k vyléčení osmkrát častěji než žádná léčba.',
   },
+  {
+    id: 'b12-rasy',
+    guide: 'rostlinna-strava',
+    statement: 'Vegan získá dost vitamínu B12 ze spiruliny nebo kysaného zelí.',
+    fact: false,
+    explain: 'Většinou jde o neúčinné formy B12. Spolehlivý je jen doplněk nebo obohacené potraviny.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

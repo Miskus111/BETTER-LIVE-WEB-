@@ -313,6 +313,18 @@ const SOURCES = {
     32378735,
     'Woodley a kol. (2020) Cvičení pánevního dna v těhotenství a po porodu, Cochrane',
   ),
+  melinaVeg: pm(
+    27886704,
+    'Melina a kol. (2016) Vegetariánská strava — stanovisko Academy of Nutrition and Dietetics, J Acad Nutr Diet',
+  ),
+  neufingerl: pm(
+    35010904,
+    'Neufingerl a Eilander (2021) Příjem a stav živin u rostlinné stravy — systematický přehled, Nutrients',
+  ),
+  iguacelBone: pm(
+    30376075,
+    'Iguacel a kol. (2019) Veganství, vegetariánství, hustota kostí a zlomeniny — metaanalýza, Nutr Rev',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2924,6 +2936,75 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.dumoulinPfmt, SOURCES.woodleyPfmt],
   },
   {
+    slug: 'rostlinna-strava',
+    title: 'Rostlinná strava: co pohlídat, aby byla opravdu zdravá',
+    short: 'Rostlinná strava',
+    icon: 'leaf',
+    hook: 'Dobře poskládaná vegetariánská i veganská strava může být zdravá v každém věku. Pár živin ale v rostlinách chybí nebo se hůř vstřebává.',
+    tldr: [
+      'Správně naplánovaná rostlinná strava je podle odborníků na výživu vhodná pro všechna životní období.',
+      'Vitamín B12 v rostlinách prakticky není — vegani ho potřebují z doplňku nebo obohacených potravin, bez výjimky.',
+      'Pohlídat se vyplatí i jód, vápník, vitamín D, železo, zinek a omega-3. Vegani mají v průměru nižší hustotu kostí.',
+    ],
+    numbers: [
+      { value: '0', label: 'spolehlivých rostlinných zdrojů vitamínu B12' },
+      { value: '4 µg', label: 'vitamínu B12 denně (EFSA, dospělí)' },
+    ],
+    how: [
+      {
+        title: 'Proč chybí B12',
+        text: 'Vitamín B12 vyrábějí bakterie a do potravy se dostává hlavně přes živočišné produkty. Zásoby v játrech vydrží i roky, takže nedostatek se projeví pozdě — únavou, chudokrevností a poškozením nervů.',
+      },
+      {
+        title: 'Železo a zinek',
+        text: 'V rostlinách jsou, ale fytáty z obilovin a luštěnin jejich vstřebávání brzdí. Pomáhá vitamín C k jídlu a namáčení, klíčení nebo kvašení.',
+      },
+      {
+        title: 'Kosti',
+        text: 'Ve velké metaanalýze měli vegetariáni a vegani nižší hustotu kostí a vegani i víc zlomenin. Důvodem bývá málo vápníku, vitamínu D a bílkovin — dá se tomu předejít.',
+      },
+    ],
+    today: [
+      'Přibývá veganských náhražek masa a sýrů — často jsou ultrazpracované a vápníkem ani B12 obohacené nebývají.',
+      'Rostlinné nápoje mají často méně bílkovin než mléko a ne všechny jsou obohacené vápníkem.',
+    ],
+    helps: [
+      {
+        text: 'Vegani: doplněk vitamínu B12 pravidelně, bez výjimky (denně menší, nebo jednou týdně větší dávka).',
+        level: 'established',
+      },
+      {
+        text: 'Rostlinné nápoje a jogurty volit obohacené vápníkem a B12; počítat s tofu srážené vápníkem.',
+        level: 'established',
+      },
+      { text: 'Luštěniny, tofu a ořechy denně — kvůli bílkovinám, železu a zinku.', level: 'established' },
+      { text: 'Jodidovaná sůl nebo doplněk jódu, vitamín D v zimě.', level: 'plausible' },
+      { text: 'Omega-3: lněné semínko a vlašské ořechy, případně doplněk z řas.', level: 'plausible' },
+      { text: 'Jednou za čas nechat změřit B12 a železo, hlavně v těhotenství.', level: 'plausible' },
+    ],
+    myths: [
+      {
+        myth: 'B12 se dá získat z řas, spiruliny nebo kysaného zelí.',
+        fact: 'Většina z nich obsahuje neúčinné formy B12. Spolehlivý je jen doplněk nebo obohacené potraviny.',
+      },
+      {
+        myth: 'Rostlinná strava nemá dost bílkovin.',
+        fact: 'S luštěninami, tofu, ořechy a obilovinami se dá potřeba pokrýt — jen je dobré je jíst každý den a kombinovat.',
+      },
+      {
+        myth: 'Veganské = automaticky zdravé.',
+        fact: 'Hranolky a sladkosti jsou taky veganské. Přínos má strava plná luštěnin, zeleniny, ovoce, celozrnných potravin a ořechů.',
+      },
+    ],
+    related: [
+      { label: 'Vitamín B12', href: '/doplnky/vitamin-b12' },
+      { label: 'Železo', href: '/doplnky/zelezo' },
+      { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
+      { label: 'Etikety potravin', href: '/jak-funguje-telo/etikety-potravin' },
+    ],
+    sources: [SOURCES.melinaVeg, SOURCES.neufingerl, SOURCES.iguacelBone],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4180,6 +4261,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   vyhoreni: 'mysl',
   'etikety-potravin': 'jidlo',
   'panevni-dno': 'prevence',
+  'rostlinna-strava': 'jidlo',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

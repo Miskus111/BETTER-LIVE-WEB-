@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 48 průvodců, 20 doplňků, 844 položek ke kontrole.
+Obsah: 49 průvodců, 20 doplňků, 861 položek ke kontrole.
 
 ---
 
@@ -1586,7 +1586,55 @@ Poznámky lékaře:
 
 ---
 
-## 33. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 33. Rostlinná strava: co pohlídat, aby byla opravdu zdravá
+
+Web: /jak-funguje-telo/rostlinna-strava
+
+**Ve zkratce**
+
+- [ ] Správně naplánovaná rostlinná strava je podle odborníků na výživu vhodná pro všechna životní období.
+- [ ] Vitamín B12 v rostlinách prakticky není — vegani ho potřebují z doplňku nebo obohacených potravin, bez výjimky.
+- [ ] Pohlídat se vyplatí i jód, vápník, vitamín D, železo, zinek a omega-3. Vegani mají v průměru nižší hustotu kostí.
+
+**Čísla**
+
+- [ ] **0** spolehlivých rostlinných zdrojů vitamínu B12
+- [ ] **4 µg** vitamínu B12 denně (EFSA, dospělí)
+
+**Jak to funguje**
+
+- [ ] **Proč chybí B12:** Vitamín B12 vyrábějí bakterie a do potravy se dostává hlavně přes živočišné produkty. Zásoby v játrech vydrží i roky, takže nedostatek se projeví pozdě — únavou, chudokrevností a poškozením nervů.
+- [ ] **Železo a zinek:** V rostlinách jsou, ale fytáty z obilovin a luštěnin jejich vstřebávání brzdí. Pomáhá vitamín C k jídlu a namáčení, klíčení nebo kvašení.
+- [ ] **Kosti:** Ve velké metaanalýze měli vegetariáni a vegani nižší hustotu kostí a vegani i víc zlomenin. Důvodem bývá málo vápníku, vitamínu D a bílkovin — dá se tomu předejít.
+
+**Doporučení**
+
+- [ ] Vegani: doplněk vitamínu B12 pravidelně, bez výjimky (denně menší, nebo jednou týdně větší dávka). _(Prokázané)_
+- [ ] Rostlinné nápoje a jogurty volit obohacené vápníkem a B12; počítat s tofu srážené vápníkem. _(Prokázané)_
+- [ ] Luštěniny, tofu a ořechy denně — kvůli bílkovinám, železu a zinku. _(Prokázané)_
+- [ ] Jodidovaná sůl nebo doplněk jódu, vitamín D v zimě. _(Pravděpodobné)_
+- [ ] Omega-3: lněné semínko a vlašské ořechy, případně doplněk z řas. _(Pravděpodobné)_
+- [ ] Jednou za čas nechat změřit B12 a železo, hlavně v těhotenství. _(Pravděpodobné)_
+
+**Mýty**
+
+- [ ] „B12 se dá získat z řas, spiruliny nebo kysaného zelí.“ → Většina z nich obsahuje neúčinné formy B12. Spolehlivý je jen doplněk nebo obohacené potraviny.
+- [ ] „Rostlinná strava nemá dost bílkovin.“ → S luštěninami, tofu, ořechy a obilovinami se dá potřeba pokrýt — jen je dobré je jíst každý den a kombinovat.
+- [ ] „Veganské = automaticky zdravé.“ → Hranolky a sladkosti jsou taky veganské. Přínos má strava plná luštěnin, zeleniny, ovoce, celozrnných potravin a ořechů.
+
+**Zdroje**
+
+- Melina a kol. (2016) Vegetariánská strava — stanovisko Academy of Nutrition and Dietetics, J Acad Nutr Diet — https://pubmed.ncbi.nlm.nih.gov/27886704/
+- Neufingerl a Eilander (2021) Příjem a stav živin u rostlinné stravy — systematický přehled, Nutrients — https://pubmed.ncbi.nlm.nih.gov/35010904/
+- Iguacel a kol. (2019) Veganství, vegetariánství, hustota kostí a zlomeniny — metaanalýza, Nutr Rev — https://pubmed.ncbi.nlm.nih.gov/30376075/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 34. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1636,7 +1684,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 35. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1688,7 +1736,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Kosti: banka, do které se ukládá do třiceti
+## 36. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1738,7 +1786,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 37. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1785,7 +1833,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Akné: co ho způsobuje a co na něj opravdu platí
+## 38. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1836,7 +1884,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 39. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1885,7 +1933,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 40. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1932,7 +1980,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 41. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1980,7 +2028,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Protahování: na co je dobré a na co ne
+## 42. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2030,7 +2078,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 43. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2082,7 +2130,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 44. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2131,7 +2179,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 45. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2181,7 +2229,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 46. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2233,7 +2281,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 47. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2284,7 +2332,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 48. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2332,7 +2380,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 49. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
