@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 38 průvodců, 20 doplňků, 680 položek ke kontrole.
+Obsah: 39 průvodců, 20 doplňků, 697 položek ke kontrole.
 
 ---
 
@@ -1104,7 +1104,56 @@ Poznámky lékaře:
 
 ---
 
-## 23. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 23. Menopauza: co se v těle mění a co opravdu pomáhá
+
+Web: /jak-funguje-telo/menopauza
+
+**Ve zkratce**
+
+- [ ] Menopauza je poslední menstruace, v průměru kolem 51 let. Přechodné období před ní (perimenopauza) trvá i několik let.
+- [ ] Návaly horka a noční pocení trvají v průměru přes 7 let — u žen, kterým začaly brzy, často déle.
+- [ ] Nejúčinnější léčbou návalů je hormonální terapie. U zdravých žen do 60 let nebo do 10 let od menopauzy obvykle převažují přínosy nad riziky.
+
+**Čísla**
+
+- [ ] **~51 let** průměrný věk menopauzy
+- [ ] **7,4 roku** medián trvání návalů (studie SWAN)
+- [ ] **12 měsíců** bez menstruace — teprve pak je to menopauza
+
+**Jak to funguje**
+
+- [ ] **Vaječníky zpomalují:** V perimenopauze estrogen a progesteron nejdřív kolísají — proto bývá cyklus nepravidelný — a pak trvale klesnou. Menopauza se určuje zpětně, po roce bez menstruace.
+- [ ] **Proč přicházejí návaly:** Pokles estrogenu zúží „termostatové“ pásmo v hypotalamu. I malé zvýšení tělesné teploty pak spustí rozšíření cév v kůži a pocení — náhlé horko, zčervenání, v noci probouzení.
+- [ ] **Kosti a srdce:** Bez estrogenu se v prvních letech po menopauze zrychlí úbytek kostní hmoty a mění se cholesterol. Pohyb, posilování a preventivní prohlídky mají od teď ještě větší váhu.
+
+**Doporučení**
+
+- [ ] Hormonální terapie od gynekologa — nejúčinnější na návaly a noční pocení. Lékař posoudí věk, dobu od menopauzy a vaše rizika. _(Prokázané)_
+- [ ] Nehormonální léky na návaly na předpis — pro ženy, které hormony užívat nemohou nebo nechtějí. _(Prokázané)_
+- [ ] Kognitivně-behaviorální terapie (i ve formě svépomocné knihy) — zmírní, jak moc návaly obtěžují, a zlepší spánek. _(Prokázané)_
+- [ ] Pravidelný pohyb a posilování aspoň 2× týdně — pro kosti, svaly, srdce i náladu. _(Prokázané)_
+- [ ] K lékaři při velmi silném nebo nepravidelném krvácení v perimenopauze a vždy při jakémkoli krvácení po menopauze. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Hormonální terapie je nebezpečná pro každou ženu.“ → Rizika závisí na věku, době od menopauzy, typu léčby a zdravotním stavu. U zdravých žen do 60 let obvykle převažují přínosy — rozhoduje se s lékařem individuálně.
+- [ ] „Byliny a sójové fytoestrogeny spolehlivě zastaví návaly.“ → Odborná společnost pro menopauzu je kvůli slabým a nejednotným důkazům nedoporučuje. Ověřené jsou hormonální a nehormonální léky a terapie.
+- [ ] „Návaly přejdou za pár měsíců.“ → Ve velké studii trvaly v průměru 7,4 roku. U žen, kterým začaly ještě před poslední menstruací, často přes 10 let.
+
+**Zdroje**
+
+- Avis a kol. (2015) Jak dlouho trvají návaly horka v přechodu — studie SWAN, JAMA Intern Med — https://pubmed.ncbi.nlm.nih.gov/25686030/
+- The Menopause Society (2022) Stanovisko k hormonální terapii, Menopause — https://pubmed.ncbi.nlm.nih.gov/35797481/
+- The Menopause Society (2023) Stanovisko k nehormonální léčbě návalů, Menopause — https://pubmed.ncbi.nlm.nih.gov/37252752/
+- Ayers a kol. (2012) Kognitivně-behaviorální terapie na návaly a noční pocení (MENOS 2), Menopause — https://pubmed.ncbi.nlm.nih.gov/22336748/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 24. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1154,7 +1203,7 @@ Poznámky lékaře:
 
 ---
 
-## 24. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 25. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1206,7 +1255,7 @@ Poznámky lékaře:
 
 ---
 
-## 25. Kosti: banka, do které se ukládá do třiceti
+## 26. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1256,7 +1305,7 @@ Poznámky lékaře:
 
 ---
 
-## 26. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 27. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1303,7 +1352,7 @@ Poznámky lékaře:
 
 ---
 
-## 27. Akné: co ho způsobuje a co na něj opravdu platí
+## 28. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1354,7 +1403,7 @@ Poznámky lékaře:
 
 ---
 
-## 28. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 29. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1403,7 +1452,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 30. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1450,7 +1499,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 31. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1498,7 +1547,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Protahování: na co je dobré a na co ne
+## 32. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1548,7 +1597,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 33. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1600,7 +1649,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 34. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1649,7 +1698,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 35. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1699,7 +1748,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 36. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1751,7 +1800,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 37. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -1802,7 +1851,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 38. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -1850,7 +1899,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 39. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

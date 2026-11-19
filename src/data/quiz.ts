@@ -378,6 +378,13 @@ export const QUIZ: QuizItem[] = [
     fact: true,
     explain: 'Metaanalýza ukázala větší nárůst svalů při frekvenci aspoň dvakrát týdně.',
   },
+  {
+    id: 'navaly-par-mesicu',
+    guide: 'menopauza',
+    statement: 'Návaly horka v přechodu obvykle přejdou během pár měsíců.',
+    fact: false,
+    explain: 'Ve velké studii SWAN trvaly v průměru 7,4 roku — a dají se účinně léčit.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

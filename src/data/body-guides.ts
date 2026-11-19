@@ -46,6 +46,7 @@ export interface BodyGuide {
     | 'users'
     | 'move'
     | 'mars'
+    | 'venus'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -219,6 +220,16 @@ const SOURCES = {
   varkey: pm(
     21890526,
     'Varkey a kol. (2011) Cvičení jako prevence migrény ve srovnání s relaxací a topiramátem, Cephalalgia',
+  ),
+  avisVms: pm(
+    25686030,
+    'Avis a kol. (2015) Jak dlouho trvají návaly horka v přechodu — studie SWAN, JAMA Intern Med',
+  ),
+  nams2022: pm(35797481, 'The Menopause Society (2022) Stanovisko k hormonální terapii, Menopause'),
+  nams2023: pm(37252752, 'The Menopause Society (2023) Stanovisko k nehormonální léčbě návalů, Menopause'),
+  ayersCbt: pm(
+    22336748,
+    'Ayers a kol. (2012) Kognitivně-behaviorální terapie na návaly a noční pocení (MENOS 2), Menopause',
   ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
@@ -2100,8 +2111,87 @@ export const BODY_GUIDES: BodyGuide[] = [
     related: [
       { label: 'Železo', href: '/doplnky/zelezo' },
       { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
+      { label: 'Menopauza', href: '/jak-funguje-telo/menopauza' },
     ],
     sources: [SOURCES.mcnulty, SOURCES.whoAnaemia, SOURCES.whoEndometriosis],
+  },
+  {
+    slug: 'menopauza',
+    title: 'Menopauza: co se v těle mění a co opravdu pomáhá',
+    short: 'Menopauza',
+    icon: 'venus',
+    hook: 'Návaly horka, horší spánek, výkyvy nálady. Přechod není nemoc — ale potíže se dají dobře léčit a nemusíte je jen přetrpět.',
+    tldr: [
+      'Menopauza je poslední menstruace, v průměru kolem 51 let. Přechodné období před ní (perimenopauza) trvá i několik let.',
+      'Návaly horka a noční pocení trvají v průměru přes 7 let — u žen, kterým začaly brzy, často déle.',
+      'Nejúčinnější léčbou návalů je hormonální terapie. U zdravých žen do 60 let nebo do 10 let od menopauzy obvykle převažují přínosy nad riziky.',
+    ],
+    numbers: [
+      { value: '~51 let', label: 'průměrný věk menopauzy' },
+      { value: '7,4 roku', label: 'medián trvání návalů (studie SWAN)' },
+      { value: '12 měsíců', label: 'bez menstruace — teprve pak je to menopauza' },
+    ],
+    how: [
+      {
+        title: 'Vaječníky zpomalují',
+        text: 'V perimenopauze estrogen a progesteron nejdřív kolísají — proto bývá cyklus nepravidelný — a pak trvale klesnou. Menopauza se určuje zpětně, po roce bez menstruace.',
+      },
+      {
+        title: 'Proč přicházejí návaly',
+        text: 'Pokles estrogenu zúží „termostatové“ pásmo v hypotalamu. I malé zvýšení tělesné teploty pak spustí rozšíření cév v kůži a pocení — náhlé horko, zčervenání, v noci probouzení.',
+      },
+      {
+        title: 'Kosti a srdce',
+        text: 'Bez estrogenu se v prvních letech po menopauze zrychlí úbytek kostní hmoty a mění se cholesterol. Pohyb, posilování a preventivní prohlídky mají od teď ještě větší váhu.',
+      },
+    ],
+    today: [
+      'Na sítích a v e-shopech se nabízejí „bioidentické“ krémy, byliny a doplňky na přechod se sliby, které studie nepotvrdily.',
+      'Hodně žen potíže roky snáší, protože neví, že se dají léčit — nebo se hormonů bojí kvůli starším, dnes jinak vykládaným studiím.',
+    ],
+    helps: [
+      {
+        text: 'Hormonální terapie od gynekologa — nejúčinnější na návaly a noční pocení. Lékař posoudí věk, dobu od menopauzy a vaše rizika.',
+        level: 'established',
+      },
+      {
+        text: 'Nehormonální léky na návaly na předpis — pro ženy, které hormony užívat nemohou nebo nechtějí.',
+        level: 'established',
+      },
+      {
+        text: 'Kognitivně-behaviorální terapie (i ve formě svépomocné knihy) — zmírní, jak moc návaly obtěžují, a zlepší spánek.',
+        level: 'established',
+      },
+      {
+        text: 'Pravidelný pohyb a posilování aspoň 2× týdně — pro kosti, svaly, srdce i náladu.',
+        level: 'established',
+      },
+      {
+        text: 'K lékaři při velmi silném nebo nepravidelném krvácení v perimenopauze a vždy při jakémkoli krvácení po menopauze.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Hormonální terapie je nebezpečná pro každou ženu.',
+        fact: 'Rizika závisí na věku, době od menopauzy, typu léčby a zdravotním stavu. U zdravých žen do 60 let obvykle převažují přínosy — rozhoduje se s lékařem individuálně.',
+      },
+      {
+        myth: 'Byliny a sójové fytoestrogeny spolehlivě zastaví návaly.',
+        fact: 'Odborná společnost pro menopauzu je kvůli slabým a nejednotným důkazům nedoporučuje. Ověřené jsou hormonální a nehormonální léky a terapie.',
+      },
+      {
+        myth: 'Návaly přejdou za pár měsíců.',
+        fact: 'Ve velké studii trvaly v průměru 7,4 roku. U žen, kterým začaly ještě před poslední menstruací, často přes 10 let.',
+      },
+    ],
+    related: [
+      { label: 'Menstruační cyklus', href: '/jak-funguje-telo/menstruacni-cyklus' },
+      { label: 'Kosti', href: '/jak-funguje-telo/kosti' },
+      { label: 'Vápník', href: '/doplnky/vapnik' },
+      { label: 'Vitamín D', href: '/doplnky/vitamin-d' },
+    ],
+    sources: [SOURCES.avisVms, SOURCES.nams2022, SOURCES.nams2023, SOURCES.ayersCbt],
   },
   {
     slug: 'nalada-a-uzkost',
@@ -3350,6 +3440,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'sluch-a-sluchatka': 'prevence',
   'sauna-a-chlad': 'navyky',
   'menstruacni-cyklus': 'prevence',
+  menopauza: 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',
