@@ -436,6 +436,14 @@ const SOURCES = {
     28881007,
     'Spurling a kol. (2017) Odložený předpis antibiotik při infekcích dýchacích cest, Cochrane',
   ),
+  galmicheEd: pm(
+    31051507,
+    'Galmiche a kol. (2019) Výskyt poruch příjmu potravy 2000–2018 — systematický přehled, Am J Clin Nutr',
+  ),
+  niceEd: {
+    title: 'NICE NG69: Poruchy příjmu potravy — rozpoznání a léčba',
+    url: 'https://www.nice.org.uk/guidance/ng69',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3829,6 +3837,76 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.whoAmr, SOURCES.kenealyCold, SOURCES.spurlingDelayed],
   },
   {
+    slug: 'poruchy-prijmu-potravy',
+    title: 'Poruchy příjmu potravy: varovné signály a kde hledat pomoc',
+    short: 'Poruchy příjmu potravy',
+    icon: 'smile',
+    hook: 'Anorexie, bulimie a záchvatovité přejídání jsou vážné nemoci, ne rozmar nebo dieta. Čím dřív se zachytí, tím lépe se léčí.',
+    tldr: [
+      'Poruchou příjmu potravy během života onemocní zhruba 8 z 100 žen a 2 ze 100 mužů. Nejčastěji začíná v dospívání.',
+      'Nejde jen o váhu: patří k nim strach z jídla, přísná pravidla, záchvaty přejídání, zvracení nebo přehnané cvičení.',
+      'Dobře se léčí, hlavně když se začne brzy. Prvním krokem může být praktický lékař, psycholog nebo linka pomoci.',
+    ],
+    numbers: [
+      { value: '8,4 %', label: 'žen během života onemocní poruchou příjmu potravy' },
+      { value: '2,2 %', label: 'mužů během života' },
+      { value: '116 123', label: 'Linka první psychické pomoci (nonstop)' },
+    ],
+    how: [
+      {
+        title: 'Víc než jídlo',
+        text: 'Poruchy příjmu potravy vznikají souhrou genů, osobnosti, stresu a prostředí. Jídlo a váha se stanou způsobem, jak zvládat pocity nebo mít pocit kontroly.',
+      },
+      {
+        title: 'Co se děje v těle',
+        text: 'Dlouhodobé hladovění zpomalí srdce, oslabí kosti a naruší menstruaci i hormony. Zvracení a projímadla rozhodí minerály v krvi, což může být nebezpečné pro srdce.',
+      },
+      {
+        title: 'Jak se léčí',
+        text: 'Základem je psychoterapie zaměřená na poruchu příjmu potravy, u dospívajících s účastí rodiny, a péče o tělesné zdraví. Lékař rozhodne, zda je potřeba i hospitalizace.',
+      },
+    ],
+    today: [
+      'Sítě plné „what I eat in a day“, extrémních diet a filtrovaných postav zvyšují tlak na vzhled.',
+      'Aplikace na počítání kalorií mohou u zranitelných lidí podpořit nezdravou kontrolu. Proto naše aplikace při varovných signálech plán nevytvoří a nabídne pomoc.',
+    ],
+    helps: [
+      {
+        text: 'Všímat si varovných signálů: vynechávání jídel, přísná pravidla, strach z přibrání, jídlo v tajnosti, zvracení, nadměrné cvičení, rychlé hubnutí.',
+        level: 'established',
+      },
+      {
+        text: 'Mluvit o tom — s někým blízkým, praktickým lékařem nebo psychologem. Čím dřív, tím lépe se léčí.',
+        level: 'established',
+      },
+      { text: 'U blízkého člověka mluvit o pocitech a starosti, ne o váze a vzhledu.', level: 'plausible' },
+      {
+        text: 'V akutní krizi volat Linku první psychické pomoci 116 123, Linku bezpečí 116 111 (do 26 let), při ohrožení života 155.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Poruchu příjmu potravy poznám podle toho, že je člověk hubený.',
+        fact: 'Většina lidí s poruchou příjmu potravy má normální nebo vyšší váhu. Rozhoduje chování a myšlení kolem jídla.',
+      },
+      {
+        myth: 'Je to jen fáze nebo touha po pozornosti.',
+        fact: 'Jde o vážné nemoci s tělesnými následky. Bez léčby mohou trvat roky.',
+      },
+      {
+        myth: 'Týká se to jen dívek.',
+        fact: 'Onemocnět může kdokoli. U mužů se častěji přehlíží, třeba když se to projevuje posedlostí svaly a dietou.',
+      },
+    ],
+    related: [
+      { label: 'Nálada a úzkost', href: '/jak-funguje-telo/nalada-a-uzkost' },
+      { label: 'Hubnutí a energie', href: '/jak-funguje-telo/hubnuti-a-energie' },
+      { label: 'Menstruační cyklus', href: '/jak-funguje-telo/menstruacni-cyklus' },
+    ],
+    sources: [SOURCES.galmicheEd, SOURCES.niceEd],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -5096,6 +5174,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'stitna-zlaza': 'prevence',
   'priprava-na-tehotenstvi': 'prevence',
   antibiotika: 'prevence',
+  'poruchy-prijmu-potravy': 'mysl',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

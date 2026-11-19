@@ -536,6 +536,14 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Barva hlenu bakteriální infekci neprokazuje — zelený bývá i u běžné virové rýmy.',
   },
+  {
+    id: 'ppp-hubeny',
+    guide: 'poruchy-prijmu-potravy',
+    statement: 'Člověka s poruchou příjmu potravy vždy poznáte podle toho, že je velmi hubený.',
+    fact: false,
+    explain:
+      'Většina lidí s poruchou příjmu potravy má normální nebo vyšší váhu. Rozhoduje chování kolem jídla.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

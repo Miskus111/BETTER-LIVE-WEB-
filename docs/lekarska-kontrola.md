@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 59 průvodců, 20 doplňků, 1025 položek ke kontrole.
+Obsah: 60 průvodců, 20 doplňků, 1041 položek ke kontrole.
 
 ---
 
@@ -2113,7 +2113,53 @@ Poznámky lékaře:
 
 ---
 
-## 44. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 44. Poruchy příjmu potravy: varovné signály a kde hledat pomoc
+
+Web: /jak-funguje-telo/poruchy-prijmu-potravy
+
+**Ve zkratce**
+
+- [ ] Poruchou příjmu potravy během života onemocní zhruba 8 z 100 žen a 2 ze 100 mužů. Nejčastěji začíná v dospívání.
+- [ ] Nejde jen o váhu: patří k nim strach z jídla, přísná pravidla, záchvaty přejídání, zvracení nebo přehnané cvičení.
+- [ ] Dobře se léčí, hlavně když se začne brzy. Prvním krokem může být praktický lékař, psycholog nebo linka pomoci.
+
+**Čísla**
+
+- [ ] **8,4 %** žen během života onemocní poruchou příjmu potravy
+- [ ] **2,2 %** mužů během života
+- [ ] **116 123** Linka první psychické pomoci (nonstop)
+
+**Jak to funguje**
+
+- [ ] **Víc než jídlo:** Poruchy příjmu potravy vznikají souhrou genů, osobnosti, stresu a prostředí. Jídlo a váha se stanou způsobem, jak zvládat pocity nebo mít pocit kontroly.
+- [ ] **Co se děje v těle:** Dlouhodobé hladovění zpomalí srdce, oslabí kosti a naruší menstruaci i hormony. Zvracení a projímadla rozhodí minerály v krvi, což může být nebezpečné pro srdce.
+- [ ] **Jak se léčí:** Základem je psychoterapie zaměřená na poruchu příjmu potravy, u dospívajících s účastí rodiny, a péče o tělesné zdraví. Lékař rozhodne, zda je potřeba i hospitalizace.
+
+**Doporučení**
+
+- [ ] Všímat si varovných signálů: vynechávání jídel, přísná pravidla, strach z přibrání, jídlo v tajnosti, zvracení, nadměrné cvičení, rychlé hubnutí. _(Prokázané)_
+- [ ] Mluvit o tom — s někým blízkým, praktickým lékařem nebo psychologem. Čím dřív, tím lépe se léčí. _(Prokázané)_
+- [ ] U blízkého člověka mluvit o pocitech a starosti, ne o váze a vzhledu. _(Pravděpodobné)_
+- [ ] V akutní krizi volat Linku první psychické pomoci 116 123, Linku bezpečí 116 111 (do 26 let), při ohrožení života 155. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Poruchu příjmu potravy poznám podle toho, že je člověk hubený.“ → Většina lidí s poruchou příjmu potravy má normální nebo vyšší váhu. Rozhoduje chování a myšlení kolem jídla.
+- [ ] „Je to jen fáze nebo touha po pozornosti.“ → Jde o vážné nemoci s tělesnými následky. Bez léčby mohou trvat roky.
+- [ ] „Týká se to jen dívek.“ → Onemocnět může kdokoli. U mužů se častěji přehlíží, třeba když se to projevuje posedlostí svaly a dietou.
+
+**Zdroje**
+
+- Galmiche a kol. (2019) Výskyt poruch příjmu potravy 2000–2018 — systematický přehled, Am J Clin Nutr — https://pubmed.ncbi.nlm.nih.gov/31051507/
+- NICE NG69: Poruchy příjmu potravy — rozpoznání a léčba — https://www.nice.org.uk/guidance/ng69
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 45. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -2163,7 +2209,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 46. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -2215,7 +2261,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Kosti: banka, do které se ukládá do třiceti
+## 47. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2265,7 +2311,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 48. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2312,7 +2358,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Akné: co ho způsobuje a co na něj opravdu platí
+## 49. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2363,7 +2409,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 50. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2412,7 +2458,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 51. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2459,7 +2505,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 52. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2507,7 +2553,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Protahování: na co je dobré a na co ne
+## 53. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2557,7 +2603,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 54. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2609,7 +2655,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 55. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2658,7 +2704,7 @@ Poznámky lékaře:
 
 ---
 
-## 55. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 56. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2708,7 +2754,7 @@ Poznámky lékaře:
 
 ---
 
-## 56. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 57. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2760,7 +2806,7 @@ Poznámky lékaře:
 
 ---
 
-## 57. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 58. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2811,7 +2857,7 @@ Poznámky lékaře:
 
 ---
 
-## 58. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 59. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2859,7 +2905,7 @@ Poznámky lékaře:
 
 ---
 
-## 59. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 60. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
