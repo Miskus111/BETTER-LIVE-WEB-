@@ -48,6 +48,7 @@ export interface BodyGuide {
     | 'mars'
     | 'venus'
     | 'hourglass'
+    | 'test-tube'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -242,6 +243,19 @@ const SOURCES = {
     30401766,
     'Ruby a kol. (2018) Dědičnost délky života je výrazně nadhodnocená, Genetics',
   ),
+  ozardaRi: pm(26981015, 'Ozarda (2016) Referenční rozmezí: jak vznikají a jak je číst, Biochem Med'),
+  nordestgaard: pm(
+    27122601,
+    'Nordestgaard a kol. (2016) Na vyšetření cholesterolu není nutné chodit nalačno — konsenzus EAS a EFLM, Eur Heart J',
+  ),
+  whoFerritin: {
+    title: 'WHO (2020) Feritin a hodnocení zásob železa — doporučení',
+    url: 'https://www.who.int/publications/i/item/9789240000124',
+  },
+  whoHba1c: {
+    title: 'WHO (2011) HbA1c v diagnostice cukrovky',
+    url: 'https://www.who.int/publications/i/item/use-of-glycated-haemoglobin-(-hba1c)-in-diagnosis-of-diabetes-mellitus',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -2281,6 +2295,80 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.liLifestyle, SOURCES.mandsager, SOURCES.gripStrength, SOURCES.rubyHeritability],
   },
   {
+    slug: 'vysledky-krve',
+    title: 'Výsledky krve: jak jim rozumět a kdy zbystřit',
+    short: 'Výsledky krve',
+    icon: 'test-tube',
+    hook: 'Hvězdička u výsledku ještě neznamená nemoc a „v normě“ neznamená, že je všechno v pořádku. Jak číst laboratorní zprávu s rozumem.',
+    tldr: [
+      'Referenční rozmezí pokrývá 95 % zdravých lidí — takže zhruba každá dvacátá hodnota zdravého člověka z něj vybočí.',
+      'Rozmezí se liší mezi laboratořemi a jednotkami. Srovnávejte vždy s rozmezím na vlastní zprávě.',
+      'Víc než jedna hodnota říká trend v čase a souvislosti — výsledky vždy vykládá lékař.',
+    ],
+    numbers: [
+      { value: '95 %', label: 'zdravých lidí je uvnitř referenčního rozmezí' },
+      { value: '~64 %', label: 'šance, že u zdravého člověka bude z 20 testů aspoň jeden „mimo“' },
+      { value: '48 mmol/mol', label: 'HbA1c, od kterého jde o cukrovku (WHO)' },
+    ],
+    how: [
+      {
+        title: 'Jak vzniká „norma“',
+        text: 'Laboratoř změří velkou skupinu zdravých lidí a za rozmezí vezme prostředních 95 % hodnot. Hodnota těsně mimo je proto u zdravých častá, hodnota daleko mimo už je signál.',
+      },
+      {
+        title: 'Hodnoty kolísají',
+        text: 'Výsledek ovlivní denní doba, jídlo, tekutiny, nemoc i tvrdý trénink den předem. Jedno odchýlené číslo se proto obvykle nejdřív zopakuje.',
+      },
+      {
+        title: 'Souvislosti rozhodují',
+        text: 'Feritin pod 15 µg/l u dospělého podle WHO znamená vyčerpané zásoby železa. Při zánětu ale feritin stoupá, takže „normální“ hodnota nedostatek může zakrýt — proto lékař čte výsledky dohromady.',
+      },
+    ],
+    today: [
+      'Komerční balíčky „velkého krevního obrazu“ bez lékaře přinášejí hodně čísel a s nimi i zbytečné obavy z hodnot těsně mimo rozmezí.',
+      'Výsledky dnes často přijdou do mobilu dřív, než je vidí lékař — bez vysvětlení, co znamenají.',
+    ],
+    helps: [
+      {
+        text: 'Na cukr chodit nalačno; na cholesterol to podle evropského konsenzu obvykle nutné není.',
+        level: 'established',
+      },
+      {
+        text: 'Den před odběrem vynechat tvrdý trénink a alkohol a ráno se napít vody — výsledky budou srovnatelnější.',
+        level: 'plausible',
+      },
+      {
+        text: 'Sledovat své hodnoty v čase a odebírat ideálně ve stejné laboratoři a denní době.',
+        level: 'plausible',
+      },
+      {
+        text: 'Výsledky probrat s lékařem — hlavně hodnoty daleko mimo rozmezí nebo několik odchylek najednou.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Hodnota mimo rozmezí znamená nemoc.',
+        fact: 'Rozmezí je postavené tak, že 1 z 20 zdravých lidí je mimo. Rozhoduje, jak daleko, jestli se odchylka opakuje a co k tomu říkají příznaky.',
+      },
+      {
+        myth: '„V normě“ znamená, že je všechno v pořádku.',
+        fact: 'Ne vždy. Třeba feritin při zánětu stoupá a nedostatek železa zakryje. U cholesterolu je cíl podle rizika často nižší než horní hranice rozmezí.',
+      },
+      {
+        myth: 'Čím víc vyšetření, tím líp.',
+        fact: 'Každý test navíc zvyšuje šanci na náhodnou odchylku a další zbytečná vyšetření. Smysl mají testy, které odpovídají vaší situaci.',
+      },
+    ],
+    related: [
+      { label: 'Výsledky si můžete uložit v aplikaci', href: '/login?mode=signup' },
+      { label: 'Cholesterol', href: '/jak-funguje-telo/cholesterol' },
+      { label: 'Cukr a inzulin', href: '/jak-funguje-telo/cukr-a-inzulin' },
+      { label: 'Železo', href: '/doplnky/zelezo' },
+    ],
+    sources: [SOURCES.ozardaRi, SOURCES.nordestgaard, SOURCES.whoFerritin, SOURCES.whoHba1c],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3529,6 +3617,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'menstruacni-cyklus': 'prevence',
   menopauza: 'prevence',
   dlouhovekost: 'prevence',
+  'vysledky-krve': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

@@ -392,6 +392,14 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Velká analýza rodokmenů odhadla dědičnost délky života pod 10 %. Rozhodují hlavně návyky.',
   },
+  {
+    id: 'hvezdicka-nemoc',
+    guide: 'vysledky-krve',
+    statement: 'Hodnota v krevním testu mimo referenční rozmezí znamená nemoc.',
+    fact: false,
+    explain:
+      'Rozmezí pokrývá 95 % zdravých lidí — zhruba každá dvacátá hodnota zdravého člověka z něj vybočí.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

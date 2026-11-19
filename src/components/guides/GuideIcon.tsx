@@ -20,6 +20,7 @@ import {
   Move,
   Venus,
   Hourglass,
+  TestTube,
   Mars,
   Package,
   Scale,
@@ -77,6 +78,7 @@ const ICONS = {
   mars: Mars,
   venus: Venus,
   hourglass: Hourglass,
+  'test-tube': TestTube,
 } as const
 
 export function GuideIcon({

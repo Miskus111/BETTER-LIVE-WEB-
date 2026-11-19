@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 40 průvodců, 20 doplňků, 715 položek ke kontrole.
+Obsah: 41 průvodců, 20 doplňků, 731 položek ke kontrole.
 
 ---
 
@@ -1203,7 +1203,55 @@ Poznámky lékaře:
 
 ---
 
-## 25. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 25. Výsledky krve: jak jim rozumět a kdy zbystřit
+
+Web: /jak-funguje-telo/vysledky-krve
+
+**Ve zkratce**
+
+- [ ] Referenční rozmezí pokrývá 95 % zdravých lidí — takže zhruba každá dvacátá hodnota zdravého člověka z něj vybočí.
+- [ ] Rozmezí se liší mezi laboratořemi a jednotkami. Srovnávejte vždy s rozmezím na vlastní zprávě.
+- [ ] Víc než jedna hodnota říká trend v čase a souvislosti — výsledky vždy vykládá lékař.
+
+**Čísla**
+
+- [ ] **95 %** zdravých lidí je uvnitř referenčního rozmezí
+- [ ] **~64 %** šance, že u zdravého člověka bude z 20 testů aspoň jeden „mimo“
+- [ ] **48 mmol/mol** HbA1c, od kterého jde o cukrovku (WHO)
+
+**Jak to funguje**
+
+- [ ] **Jak vzniká „norma“:** Laboratoř změří velkou skupinu zdravých lidí a za rozmezí vezme prostředních 95 % hodnot. Hodnota těsně mimo je proto u zdravých častá, hodnota daleko mimo už je signál.
+- [ ] **Hodnoty kolísají:** Výsledek ovlivní denní doba, jídlo, tekutiny, nemoc i tvrdý trénink den předem. Jedno odchýlené číslo se proto obvykle nejdřív zopakuje.
+- [ ] **Souvislosti rozhodují:** Feritin pod 15 µg/l u dospělého podle WHO znamená vyčerpané zásoby železa. Při zánětu ale feritin stoupá, takže „normální“ hodnota nedostatek může zakrýt — proto lékař čte výsledky dohromady.
+
+**Doporučení**
+
+- [ ] Na cukr chodit nalačno; na cholesterol to podle evropského konsenzu obvykle nutné není. _(Prokázané)_
+- [ ] Den před odběrem vynechat tvrdý trénink a alkohol a ráno se napít vody — výsledky budou srovnatelnější. _(Pravděpodobné)_
+- [ ] Sledovat své hodnoty v čase a odebírat ideálně ve stejné laboratoři a denní době. _(Pravděpodobné)_
+- [ ] Výsledky probrat s lékařem — hlavně hodnoty daleko mimo rozmezí nebo několik odchylek najednou. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Hodnota mimo rozmezí znamená nemoc.“ → Rozmezí je postavené tak, že 1 z 20 zdravých lidí je mimo. Rozhoduje, jak daleko, jestli se odchylka opakuje a co k tomu říkají příznaky.
+- [ ] „„V normě“ znamená, že je všechno v pořádku.“ → Ne vždy. Třeba feritin při zánětu stoupá a nedostatek železa zakryje. U cholesterolu je cíl podle rizika často nižší než horní hranice rozmezí.
+- [ ] „Čím víc vyšetření, tím líp.“ → Každý test navíc zvyšuje šanci na náhodnou odchylku a další zbytečná vyšetření. Smysl mají testy, které odpovídají vaší situaci.
+
+**Zdroje**
+
+- Ozarda (2016) Referenční rozmezí: jak vznikají a jak je číst, Biochem Med — https://pubmed.ncbi.nlm.nih.gov/26981015/
+- Nordestgaard a kol. (2016) Na vyšetření cholesterolu není nutné chodit nalačno — konsenzus EAS a EFLM, Eur Heart J — https://pubmed.ncbi.nlm.nih.gov/27122601/
+- WHO (2020) Feritin a hodnocení zásob železa — doporučení — https://www.who.int/publications/i/item/9789240000124
+- WHO (2011) HbA1c v diagnostice cukrovky — https://www.who.int/publications/i/item/use-of-glycated-haemoglobin-(-hba1c)-in-diagnosis-of-diabetes-mellitus
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 26. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1253,7 +1301,7 @@ Poznámky lékaře:
 
 ---
 
-## 26. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 27. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1305,7 +1353,7 @@ Poznámky lékaře:
 
 ---
 
-## 27. Kosti: banka, do které se ukládá do třiceti
+## 28. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1355,7 +1403,7 @@ Poznámky lékaře:
 
 ---
 
-## 28. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 29. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1402,7 +1450,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Akné: co ho způsobuje a co na něj opravdu platí
+## 30. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1453,7 +1501,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 31. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1502,7 +1550,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 32. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1549,7 +1597,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 33. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1597,7 +1645,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Protahování: na co je dobré a na co ne
+## 34. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1647,7 +1695,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 35. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1699,7 +1747,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 36. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1748,7 +1796,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 37. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1798,7 +1846,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 38. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1850,7 +1898,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 39. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -1901,7 +1949,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 40. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -1949,7 +1997,7 @@ Poznámky lékaře:
 
 ---
 
-## 40. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 41. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
