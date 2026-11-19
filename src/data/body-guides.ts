@@ -398,6 +398,18 @@ const SOURCES = {
     30383278,
     'Devries a kol. (2018) Vyšší příjem bílkovin a funkce ledvin u zdravých dospělých — metaanalýza, J Nutr',
   ),
+  zhangRhr: pm(
+    26598376,
+    'Zhang a kol. (2016) Klidová tepová frekvence a úmrtnost — metaanalýza 46 studií, CMAJ',
+  ),
+  shafferHrv: pm(
+    29034226,
+    'Shaffer a Ginsberg (2017) Variabilita srdečního rytmu: ukazatele a normy, Front Public Health',
+  ),
+  fullerWearables: pm(
+    32897239,
+    'Fuller a kol. (2020) Jak přesně měří chytré hodinky kroky, tep a výdej energie — systematický přehled, JMIR Mhealth Uhealth',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3509,6 +3521,74 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.efsaProtein, SOURCES.protAge, SOURCES.morton, SOURCES.devriesKidney],
   },
   {
+    slug: 'chytre-hodinky',
+    title: 'Chytré hodinky: co říká klidový tep, HRV a „spálené kalorie“',
+    short: 'Chytré hodinky',
+    icon: 'heart',
+    hook: 'Hodinky měří spánek, tep, HRV i kalorie. Některým číslům se dá věřit, jiným ne — a nejvíc řekne vlastní trend, ne srovnání s ostatními.',
+    tldr: [
+      'Kroky a tep měří hodinky v klidu poměrně přesně. Spálené kalorie ale ve studiích nepřesně ukazovaly všechny značky.',
+      'Klidový tep je užitečný ukazatel: každých 10 tepů za minutu navíc souviselo s o 9 % vyšším rizikem úmrtí.',
+      'HRV se liší člověk od člověka. Srovnávejte jen se svými hodnotami v čase, ne s kamarády.',
+    ],
+    numbers: [
+      { value: '+10 tepů', label: 'klidového tepu = asi o 9 % vyšší riziko úmrtí' },
+      { value: '> 80 / min', label: 'klidový tep spojený s výrazně vyšším rizikem' },
+      { value: '0', label: 'značek měřilo ve studiích přesně spálené kalorie' },
+    ],
+    how: [
+      {
+        title: 'Klidový tep',
+        text: 'Měří se ráno po probuzení nebo v klidu. Pravidelný vytrvalostní pohyb ho během týdnů snižuje. Krátkodobě ho zvedne nemoc, alkohol, málo spánku, stres nebo horko.',
+      },
+      {
+        title: 'HRV — variabilita tepu',
+        text: 'Srdce nebije jako metronom; drobné kolísání mezi údery je známka, že nervy dobře přepínají mezi zátěží a odpočinkem. Vyšší HRV oproti vašemu běžnému stavu obvykle znamená lepší zotavení.',
+      },
+      {
+        title: 'Co hodinky neumí',
+        text: 'Kalorie odhadují z tepu a pohybu podle obecných vzorců — chyba bývá velká. Fáze spánku hádají z pohybu a tepu, takže je berte orientačně.',
+      },
+    ],
+    today: [
+      'Hodinky dávají „skóre“ připravenosti a spánku, ze kterých může být spíš stres než užitek.',
+      'Lidé jedí podle „spálených kalorií“ z hodinek — a nechápou, proč nehubnou.',
+    ],
+    helps: [
+      { text: 'Sledovat klidový tep a HRV jako týdenní trend, ne den po dni.', level: 'plausible' },
+      {
+        text: 'Když je tep ráno o hodně vyšší a HRV nižší než obvykle, dát si lehčí den.',
+        level: 'plausible',
+      },
+      { text: 'Kalorie z hodinek nepřičítat k jídlu — odhad bývá nadsazený.', level: 'established' },
+      {
+        text: 'K lékaři při klidovém tepu trvale nad 100, výrazně nepravidelném tepu nebo upozornění hodinek na fibrilaci síní.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Hodinky přesně ví, kolik jsem spálil.',
+        fact: 'V přehledu 158 studií neměřila spálenou energii přesně žádná značka. Kroky a tep jsou spolehlivější.',
+      },
+      {
+        myth: 'Vyšší HRV než kamarád znamená, že jsem zdravější.',
+        fact: 'HRV se mezi lidmi liší i podle věku a genů. Smysl má srovnávat jen své vlastní hodnoty v čase.',
+      },
+      {
+        myth: 'Skóre spánku z hodinek je přesné měření.',
+        fact: 'Fáze spánku hodinky jen odhadují. Pro diagnózu poruch spánku je potřeba vyšetření ve spánkové laboratoři.',
+      },
+    ],
+    related: [
+      { label: 'Tep a HRV si zapisujte v denním check-inu aplikace', href: '/login?mode=signup' },
+      { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
+      { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
+      { label: 'Stres a kortizol', href: '/jak-funguje-telo/stres' },
+    ],
+    sources: [SOURCES.zhangRhr, SOURCES.shafferHrv, SOURCES.fullerWearables],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4772,6 +4852,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'svalova-horecka': 'pohyb',
   'bmi-a-pas': 'jidlo',
   bilkoviny: 'jidlo',
+  'chytre-hodinky': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

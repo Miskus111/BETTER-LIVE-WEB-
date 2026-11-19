@@ -505,6 +505,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Metaanalýza u zdravých dospělých zhoršení funkce ledvin nenašla. Při nemoci ledvin je potřeba poradit se s lékařem.',
   },
+  {
+    id: 'hodinky-kalorie',
+    guide: 'chytre-hodinky',
+    statement: 'Chytré hodinky přesně měří, kolik kalorií jste spálili.',
+    fact: false,
+    explain:
+      'V přehledu 158 studií neměřila spálenou energii přesně žádná značka. Kroky a tep jsou spolehlivější.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 55 průvodců, 20 doplňků, 961 položek ke kontrole.
+Obsah: 56 průvodců, 20 doplňků, 977 položek ke kontrole.
 
 ---
 
@@ -1925,7 +1925,54 @@ Poznámky lékaře:
 
 ---
 
-## 40. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 40. Chytré hodinky: co říká klidový tep, HRV a „spálené kalorie“
+
+Web: /jak-funguje-telo/chytre-hodinky
+
+**Ve zkratce**
+
+- [ ] Kroky a tep měří hodinky v klidu poměrně přesně. Spálené kalorie ale ve studiích nepřesně ukazovaly všechny značky.
+- [ ] Klidový tep je užitečný ukazatel: každých 10 tepů za minutu navíc souviselo s o 9 % vyšším rizikem úmrtí.
+- [ ] HRV se liší člověk od člověka. Srovnávejte jen se svými hodnotami v čase, ne s kamarády.
+
+**Čísla**
+
+- [ ] **+10 tepů** klidového tepu = asi o 9 % vyšší riziko úmrtí
+- [ ] **> 80 / min** klidový tep spojený s výrazně vyšším rizikem
+- [ ] **0** značek měřilo ve studiích přesně spálené kalorie
+
+**Jak to funguje**
+
+- [ ] **Klidový tep:** Měří se ráno po probuzení nebo v klidu. Pravidelný vytrvalostní pohyb ho během týdnů snižuje. Krátkodobě ho zvedne nemoc, alkohol, málo spánku, stres nebo horko.
+- [ ] **HRV — variabilita tepu:** Srdce nebije jako metronom; drobné kolísání mezi údery je známka, že nervy dobře přepínají mezi zátěží a odpočinkem. Vyšší HRV oproti vašemu běžnému stavu obvykle znamená lepší zotavení.
+- [ ] **Co hodinky neumí:** Kalorie odhadují z tepu a pohybu podle obecných vzorců — chyba bývá velká. Fáze spánku hádají z pohybu a tepu, takže je berte orientačně.
+
+**Doporučení**
+
+- [ ] Sledovat klidový tep a HRV jako týdenní trend, ne den po dni. _(Pravděpodobné)_
+- [ ] Když je tep ráno o hodně vyšší a HRV nižší než obvykle, dát si lehčí den. _(Pravděpodobné)_
+- [ ] Kalorie z hodinek nepřičítat k jídlu — odhad bývá nadsazený. _(Prokázané)_
+- [ ] K lékaři při klidovém tepu trvale nad 100, výrazně nepravidelném tepu nebo upozornění hodinek na fibrilaci síní. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Hodinky přesně ví, kolik jsem spálil.“ → V přehledu 158 studií neměřila spálenou energii přesně žádná značka. Kroky a tep jsou spolehlivější.
+- [ ] „Vyšší HRV než kamarád znamená, že jsem zdravější.“ → HRV se mezi lidmi liší i podle věku a genů. Smysl má srovnávat jen své vlastní hodnoty v čase.
+- [ ] „Skóre spánku z hodinek je přesné měření.“ → Fáze spánku hodinky jen odhadují. Pro diagnózu poruch spánku je potřeba vyšetření ve spánkové laboratoři.
+
+**Zdroje**
+
+- Zhang a kol. (2016) Klidová tepová frekvence a úmrtnost — metaanalýza 46 studií, CMAJ — https://pubmed.ncbi.nlm.nih.gov/26598376/
+- Shaffer a Ginsberg (2017) Variabilita srdečního rytmu: ukazatele a normy, Front Public Health — https://pubmed.ncbi.nlm.nih.gov/29034226/
+- Fuller a kol. (2020) Jak přesně měří chytré hodinky kroky, tep a výdej energie — systematický přehled, JMIR Mhealth Uhealth — https://pubmed.ncbi.nlm.nih.gov/32897239/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 41. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1975,7 +2022,7 @@ Poznámky lékaře:
 
 ---
 
-## 41. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 42. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -2027,7 +2074,7 @@ Poznámky lékaře:
 
 ---
 
-## 42. Kosti: banka, do které se ukládá do třiceti
+## 43. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2077,7 +2124,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 44. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2124,7 +2171,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Akné: co ho způsobuje a co na něj opravdu platí
+## 45. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2175,7 +2222,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 46. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2224,7 +2271,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 47. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2271,7 +2318,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 48. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2319,7 +2366,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Protahování: na co je dobré a na co ne
+## 49. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2369,7 +2416,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 50. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2421,7 +2468,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 51. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2470,7 +2517,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 52. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2520,7 +2567,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 53. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2572,7 +2619,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 54. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2623,7 +2670,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 55. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2671,7 +2718,7 @@ Poznámky lékaře:
 
 ---
 
-## 55. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 56. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
