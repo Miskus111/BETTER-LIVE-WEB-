@@ -10,6 +10,9 @@ import type { NutrientId } from '@/data/types'
 import { createClient } from '@/lib/supabase/client'
 import { cx } from '@/lib/format'
 
+/** daily targets that differ from the label NRV (EFSA adequate intake for adults) */
+const DIARY_TARGET: Partial<Record<NutrientId, number>> = { vitD: 15 }
+
 export type Meal = 'breakfast' | 'lunch' | 'dinner' | 'snack'
 export interface LogRow {
   id: string
@@ -76,7 +79,8 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
       router.refresh()
     })
 
-  // micronutrient coverage (% NRV) from logged USDA foods
+  // micronutrient coverage from logged USDA foods: % of the label NRV, except vitamin D, whose legal NRV
+  // (5 µg) is far below the EFSA adequate intake for adults (15 µg) and would read as 300 % "covered"
   const micros = useMemo(() => {
     const sum: Partial<Record<NutrientId, number>> = {}
     for (const r of rows) {
@@ -88,7 +92,7 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
     }
     return (Object.entries(sum) as [NutrientId, number][])
       .filter(([id]) => NUTRIENTS[id].ref?.kind === 'RHP')
-      .map(([id, v]) => ({ id, pct: Math.round((v / NUTRIENTS[id].ref!.value) * 100) }))
+      .map(([id, v]) => ({ id, pct: Math.round((v / (DIARY_TARGET[id] ?? NUTRIENTS[id].ref!.value)) * 100) }))
       .sort((a, b) => b.pct - a.pct)
   }, [rows])
 
@@ -203,7 +207,9 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
             ))}
           </ul>
           <p className="text-subtle mt-2 text-[12px]">
-            {locale === 'cs' ? 'Jen z potravin z databáze USDA.' : 'From USDA-database foods only.'}
+            {locale === 'cs'
+              ? 'Jen z potravin z databáze USDA. Procenta jsou z RHP jako na etiketách; vitamín D se měří k 15 µg podle EFSA — zákonná RHP (5 µg) je pro dospělé zastaralá.'
+              : 'From USDA-database foods only. Percentages use the label NRV; vitamin D is measured against the EFSA 15 µg — the legal NRV (5 µg) is outdated for adults.'}
           </p>
         </section>
       )}

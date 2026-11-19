@@ -419,7 +419,7 @@
     "empty": "Zatím nic",
     "remaining": "Zbývá",
     "over": "Nad cílem",
-    "micros": "Vitamíny a minerály dnes (% RHP)",
+    "micros": "Vitamíny a minerály dnes (% denní potřeby)",
     "floorNote": "Cíl je omezen bezpečnostním pravidlem: nikdy pod bazální metabolismus a hubnutí max. 0,75 % hmotnosti týdně.",
     "missingProfile": "Doplňte výšku, hmotnost a datum narození v profilu.",
     "explore": "Průvodce potravinami",
