@@ -385,6 +385,13 @@ export const QUIZ: QuizItem[] = [
     fact: false,
     explain: 'Ve velké studii SWAN trvaly v průměru 7,4 roku — a dají se účinně léčit.',
   },
+  {
+    id: 'geny-delka-zivota',
+    guide: 'dlouhovekost',
+    statement: 'O délce života rozhodují hlavně geny.',
+    fact: false,
+    explain: 'Velká analýza rodokmenů odhadla dědičnost délky života pod 10 %. Rozhodují hlavně návyky.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10

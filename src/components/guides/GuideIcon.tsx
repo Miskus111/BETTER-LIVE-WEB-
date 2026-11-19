@@ -19,6 +19,7 @@ import {
   Users,
   Move,
   Venus,
+  Hourglass,
   Mars,
   Package,
   Scale,
@@ -75,6 +76,7 @@ const ICONS = {
   move: Move,
   mars: Mars,
   venus: Venus,
+  hourglass: Hourglass,
 } as const
 
 export function GuideIcon({

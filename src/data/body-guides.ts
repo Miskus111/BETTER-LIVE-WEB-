@@ -47,6 +47,7 @@ export interface BodyGuide {
     | 'move'
     | 'mars'
     | 'venus'
+    | 'hourglass'
   /** jedna věta pod nadpisem */
   hook: string
   tldr: string[]
@@ -230,6 +231,16 @@ const SOURCES = {
   ayersCbt: pm(
     22336748,
     'Ayers a kol. (2012) Kognitivně-behaviorální terapie na návaly a noční pocení (MENOS 2), Menopause',
+  ),
+  liLifestyle: pm(29712712, 'Li a kol. (2018) Pět zdravých návyků a délka života v USA, Circulation'),
+  mandsager: pm(
+    30646252,
+    'Mandsager a kol. (2018) Kondice na běžeckém pásu a dlouhodobá úmrtnost (122 000 lidí), JAMA Netw Open',
+  ),
+  gripStrength: pm(29739772, 'Celis-Morales a kol. (2018) Síla stisku ruky a úmrtnost — UK Biobank, BMJ'),
+  rubyHeritability: pm(
+    30401766,
+    'Ruby a kol. (2018) Dědičnost délky života je výrazně nadhodnocená, Genetics',
   ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
@@ -2194,6 +2205,82 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.avisVms, SOURCES.nams2022, SOURCES.nams2023, SOURCES.ayersCbt],
   },
   {
+    slug: 'dlouhovekost',
+    title: 'Dlouhověkost: co doopravdy prodlužuje život',
+    short: 'Dlouhověkost',
+    icon: 'hourglass',
+    hook: 'Žádná pilulka proti stárnutí zatím nefunguje. Pět obyčejných návyků ale ve velké studii přidalo ženám 14 a mužům 12 let života.',
+    tldr: [
+      'Geny rozhodují o délce života méně, než se myslí — podle velké analýzy zhruba z méně než 10 %.',
+      'Nekouřit, hýbat se, jíst kvalitně, držet zdravou váhu a pít málo alkoholu: dohromady to ve studii přidalo ženám 14 a mužům 12 let.',
+      'Kondice a síla patří k nejsilnějším ukazatelům, jak dlouho a v jakém zdraví budete žít.',
+    ],
+    numbers: [
+      { value: '+14 / +12 let', label: 'života navíc pro ženy / muže s pěti zdravými návyky' },
+      { value: '< 10 %', label: 'délky života vysvětlí geny' },
+      { value: '5 kg', label: 'slabší stisk ruky = zhruba o 16–20 % vyšší riziko úmrtí' },
+    ],
+    how: [
+      {
+        title: 'Návyky se sčítají',
+        text: 'Ve studii se 120 000 lidmi každý zdravý návyk snížil riziko předčasného úmrtí a dohromady jejich účinek rostl. Nejvíc ze všeho přidá nekouření.',
+      },
+      {
+        title: 'Kondice jako životní pojistka',
+        text: 'V testech na běžeckém pásu měli lidé s nejnižší kondicí výrazně vyšší riziko úmrtí než ti nejzdatnější — rozdíl byl větší než u kouření nebo cukrovky. Horní hranice přínosu se nenašla.',
+      },
+      {
+        title: 'Síla drží soběstačnost',
+        text: 'Svaly a síla s věkem ubývají. Slabší stisk ruky souvisel s vyšším rizikem srdečních nemocí i úmrtí — síla je proto dobrý ukazatel celkového zdraví, nejen vzhledu.',
+      },
+    ],
+    today: [
+      'Sítě a e-shopy prodávají „anti-aging“ doplňky (NMN, resveratrol, „biohacking“ protokoly). Prodloužení života u lidí žádný z nich neprokázal.',
+      'Sedavý život bere kondici i sílu dřív, než si toho všimneme — a obojí se s věkem hůř dohání.',
+    ],
+    helps: [
+      {
+        text: 'Nekouřit — největší jednotlivý přínos pro délku života v jakémkoli věku.',
+        level: 'established',
+      },
+      {
+        text: 'Pravidelný vytrvalostní pohyb (150–300 min týdně) a k tomu něco náročnějšího, co zlepší kondici.',
+        level: 'established',
+      },
+      { text: 'Posilovat aspoň 2× týdně — udrží svaly, sílu a soběstačnost ve stáří.', level: 'established' },
+      {
+        text: 'Strava s převahou zeleniny, ovoce, luštěnin, celozrnných potravin a ořechů; málo ultrazpracovaného jídla.',
+        level: 'established',
+      },
+      { text: 'Pravidelný spánek a blízké vztahy — obojí souvisí s delším životem.', level: 'plausible' },
+      {
+        text: 'Preventivní prohlídky (tlak, cholesterol, cukr, screeningy rakoviny) — zachytí to, co nebolí.',
+        level: 'established',
+      },
+    ],
+    myths: [
+      {
+        myth: 'Délka života je hlavně v genech.',
+        fact: 'Analýza rodokmenů milionů lidí odhadla dědičnost délky života pod 10 %. Většina je v rukou návyků a prostředí.',
+      },
+      {
+        myth: 'Existuje doplněk, který zpomalí stárnutí.',
+        fact: 'U lidí zatím žádný doplněk prodloužení života neprokázal. Nejsilnější ověřené „anti-aging“ jsou pohyb, nekouření a spánek.',
+      },
+      {
+        myth: 'Na změnu je pozdě, když je mi přes 60.',
+        fact: 'Přestat kouřit, začít chodit nebo posilovat se vyplatí v jakémkoli věku — i lidé přes 80 let zesílí.',
+      },
+    ],
+    related: [
+      { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
+      { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
+      { label: 'Samota a vztahy', href: '/jak-funguje-telo/samota-a-vztahy' },
+      { label: 'Nikotin a vaping', href: '/jak-funguje-telo/nikotin-a-vaping' },
+    ],
+    sources: [SOURCES.liLifestyle, SOURCES.mandsager, SOURCES.gripStrength, SOURCES.rubyHeritability],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -3441,6 +3528,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   'sauna-a-chlad': 'navyky',
   'menstruacni-cyklus': 'prevence',
   menopauza: 'prevence',
+  dlouhovekost: 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

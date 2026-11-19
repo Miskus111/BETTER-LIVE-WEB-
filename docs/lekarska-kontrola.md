@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 39 průvodců, 20 doplňků, 697 položek ke kontrole.
+Obsah: 40 průvodců, 20 doplňků, 715 položek ke kontrole.
 
 ---
 
@@ -1153,7 +1153,57 @@ Poznámky lékaře:
 
 ---
 
-## 24. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 24. Dlouhověkost: co doopravdy prodlužuje život
+
+Web: /jak-funguje-telo/dlouhovekost
+
+**Ve zkratce**
+
+- [ ] Geny rozhodují o délce života méně, než se myslí — podle velké analýzy zhruba z méně než 10 %.
+- [ ] Nekouřit, hýbat se, jíst kvalitně, držet zdravou váhu a pít málo alkoholu: dohromady to ve studii přidalo ženám 14 a mužům 12 let.
+- [ ] Kondice a síla patří k nejsilnějším ukazatelům, jak dlouho a v jakém zdraví budete žít.
+
+**Čísla**
+
+- [ ] **+14 / +12 let** života navíc pro ženy / muže s pěti zdravými návyky
+- [ ] **< 10 %** délky života vysvětlí geny
+- [ ] **5 kg** slabší stisk ruky = zhruba o 16–20 % vyšší riziko úmrtí
+
+**Jak to funguje**
+
+- [ ] **Návyky se sčítají:** Ve studii se 120 000 lidmi každý zdravý návyk snížil riziko předčasného úmrtí a dohromady jejich účinek rostl. Nejvíc ze všeho přidá nekouření.
+- [ ] **Kondice jako životní pojistka:** V testech na běžeckém pásu měli lidé s nejnižší kondicí výrazně vyšší riziko úmrtí než ti nejzdatnější — rozdíl byl větší než u kouření nebo cukrovky. Horní hranice přínosu se nenašla.
+- [ ] **Síla drží soběstačnost:** Svaly a síla s věkem ubývají. Slabší stisk ruky souvisel s vyšším rizikem srdečních nemocí i úmrtí — síla je proto dobrý ukazatel celkového zdraví, nejen vzhledu.
+
+**Doporučení**
+
+- [ ] Nekouřit — největší jednotlivý přínos pro délku života v jakémkoli věku. _(Prokázané)_
+- [ ] Pravidelný vytrvalostní pohyb (150–300 min týdně) a k tomu něco náročnějšího, co zlepší kondici. _(Prokázané)_
+- [ ] Posilovat aspoň 2× týdně — udrží svaly, sílu a soběstačnost ve stáří. _(Prokázané)_
+- [ ] Strava s převahou zeleniny, ovoce, luštěnin, celozrnných potravin a ořechů; málo ultrazpracovaného jídla. _(Prokázané)_
+- [ ] Pravidelný spánek a blízké vztahy — obojí souvisí s delším životem. _(Pravděpodobné)_
+- [ ] Preventivní prohlídky (tlak, cholesterol, cukr, screeningy rakoviny) — zachytí to, co nebolí. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Délka života je hlavně v genech.“ → Analýza rodokmenů milionů lidí odhadla dědičnost délky života pod 10 %. Většina je v rukou návyků a prostředí.
+- [ ] „Existuje doplněk, který zpomalí stárnutí.“ → U lidí zatím žádný doplněk prodloužení života neprokázal. Nejsilnější ověřené „anti-aging“ jsou pohyb, nekouření a spánek.
+- [ ] „Na změnu je pozdě, když je mi přes 60.“ → Přestat kouřit, začít chodit nebo posilovat se vyplatí v jakémkoli věku — i lidé přes 80 let zesílí.
+
+**Zdroje**
+
+- Li a kol. (2018) Pět zdravých návyků a délka života v USA, Circulation — https://pubmed.ncbi.nlm.nih.gov/29712712/
+- Mandsager a kol. (2018) Kondice na běžeckém pásu a dlouhodobá úmrtnost (122 000 lidí), JAMA Netw Open — https://pubmed.ncbi.nlm.nih.gov/30646252/
+- Celis-Morales a kol. (2018) Síla stisku ruky a úmrtnost — UK Biobank, BMJ — https://pubmed.ncbi.nlm.nih.gov/29739772/
+- Ruby a kol. (2018) Dědičnost délky života je výrazně nadhodnocená, Genetics — https://pubmed.ncbi.nlm.nih.gov/30401766/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 25. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -1203,7 +1253,7 @@ Poznámky lékaře:
 
 ---
 
-## 25. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 26. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -1255,7 +1305,7 @@ Poznámky lékaře:
 
 ---
 
-## 26. Kosti: banka, do které se ukládá do třiceti
+## 27. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -1305,7 +1355,7 @@ Poznámky lékaře:
 
 ---
 
-## 27. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 28. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -1352,7 +1402,7 @@ Poznámky lékaře:
 
 ---
 
-## 28. Akné: co ho způsobuje a co na něj opravdu platí
+## 29. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -1403,7 +1453,7 @@ Poznámky lékaře:
 
 ---
 
-## 29. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 30. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -1452,7 +1502,7 @@ Poznámky lékaře:
 
 ---
 
-## 30. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 31. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -1499,7 +1549,7 @@ Poznámky lékaře:
 
 ---
 
-## 31. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 32. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -1547,7 +1597,7 @@ Poznámky lékaře:
 
 ---
 
-## 32. Protahování: na co je dobré a na co ne
+## 33. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -1597,7 +1647,7 @@ Poznámky lékaře:
 
 ---
 
-## 33. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 34. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -1649,7 +1699,7 @@ Poznámky lékaře:
 
 ---
 
-## 34. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 35. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -1698,7 +1748,7 @@ Poznámky lékaře:
 
 ---
 
-## 35. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 36. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -1748,7 +1798,7 @@ Poznámky lékaře:
 
 ---
 
-## 36. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 37. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -1800,7 +1850,7 @@ Poznámky lékaře:
 
 ---
 
-## 37. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 38. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -1851,7 +1901,7 @@ Poznámky lékaře:
 
 ---
 
-## 38. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 39. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -1899,7 +1949,7 @@ Poznámky lékaře:
 
 ---
 
-## 39. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 40. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 
