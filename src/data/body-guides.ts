@@ -126,6 +126,18 @@ const SOURCES = {
     35939577,
     'LeBoff a kol. (2022) Vitamín D a zlomeniny u zdravých lidí středního a vyššího věku (VITAL), N Engl J Med',
   ),
+  chungMyopia: pm(
+    12445849,
+    'Chung a kol. (2002) Slabší brýle krátkozrakost nezpomalí, ale zrychlí, Vision Res',
+  ),
+  lancetDementia: pm(
+    39096926,
+    'Livingston a kol. (2024) Prevence demence — zpráva komise časopisu Lancet',
+  ),
+  acsm: pm(
+    21694556,
+    'Garber a kol. (2011) ACSM: kolik a jak cvičit — doporučení pro dospělé, Med Sci Sports Exerc',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -1083,6 +1095,7 @@ export const BODY_GUIDES: BodyGuide[] = [
     numbers: [
       { value: '~50 %', label: 'krátkozrakých lidí v roce 2050 (odhad)' },
       { value: '20-20-20', label: 'pravidlo pauz pro oči' },
+      { value: '40 min', label: 'venku navíc denně snížilo nové případy u dětí (studie z Číny)' },
     ],
     how: [
       {
@@ -1097,6 +1110,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Mrkání',
         text: 'Při soustředění na obrazovku mrkáme výrazně méně. Oko osychá, pálí a únava přichází rychleji.',
       },
+      {
+        title: 'Proč na tom záleží',
+        text: 'Nejde jen o brýle. Vysoká krátkozrakost zvyšuje riziko odchlípení sítnice, glaukomu a dalších nemocí oka v dospělosti — proto se vyplatí ji u dětí brzdit.',
+      },
     ],
     today: [
       'Děti tráví víc času uvnitř a na blízko než kdykoli dřív.',
@@ -1110,6 +1127,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       },
       { text: 'Vědomě mrkat, obrazovku mít kousek pod úrovní očí a nepřesvítit ji.', level: 'plausible' },
       { text: 'Pravidelná kontrola zraku u dětí i dospělých.', level: 'established' },
+      {
+        text: 'U dětí, kterým se krátkozrakost rychle zhoršuje, se zeptat očního lékaře na brzdění (speciální brýlové čočky, kapky).',
+        level: 'established',
+      },
     ],
     myths: [
       {
@@ -1120,12 +1141,16 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Obrazovky poškozují sítnici.',
         fact: 'Není důkaz, že by běžné obrazovky poškozovaly sítnici. Unavují hlavně zaostřování a mrkání.',
       },
+      {
+        myth: 'Slabší brýle šetří oči, aby si „nezvykly“.',
+        fact: 'Naopak — v klinické studii se krátkozrakost se slabšími brýlemi zhoršovala rychleji. Brýle mají odpovídat předpisu.',
+      },
     ],
     related: [
       { label: 'Oči v mapě těla', href: '/organ/eyes' },
       { label: 'Spánek a obrazovky', href: '/jak-funguje-telo/spanek' },
     ],
-    sources: [SOURCES.holden, SOURCES.he, SOURCES.sheppard, SOURCES.singh],
+    sources: [SOURCES.holden, SOURCES.he, SOURCES.sheppard, SOURCES.singh, SOURCES.chungMyopia],
   },
   {
     slug: 'kuze-a-slunce',
@@ -1654,6 +1679,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Varovné signály',
         text: 'Pískání v uších (tinnitus) nebo zastřený sluch po koncertě znamenají, že ucho bylo přetížené. Opakované přetížení se sčítá.',
       },
+      {
+        title: 'Sluch a mozek',
+        text: 'Když mozek dostává z uší horší signál, musí se víc namáhat a člověk se často stahuje z hovorů. Neléčená ztráta sluchu ve středním věku patří mezi nejvýznamnější ovlivnitelná rizika demence.',
+      },
     ],
     today: [
       'Sluchátka celý den — v MHD, při učení, při sportu.',
@@ -1664,6 +1693,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Sluchátka s potlačením hluku — umožní poslouchat potichu.', level: 'plausible' },
       { text: 'Špunty do uší na koncerty, festivaly a do klubů.', level: 'established' },
       { text: 'Při pískání v uších nebo zhoršeném sluchu jít na vyšetření.', level: 'established' },
+      {
+        text: 'Když sluch slábne, nečekat a zkusit naslouchadlo — souvisí s menším rizikem demence.',
+        level: 'preliminary',
+      },
     ],
     myths: [
       {
@@ -1674,12 +1707,16 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Ztráta sluchu je problém starých lidí.',
         fact: 'Hlukem poškozený sluch se objevuje i u mladých a je trvalý.',
       },
+      {
+        myth: 'Pecky do uší jsou horší než velká sluchátka.',
+        fact: 'Rozhoduje hlasitost a čas, ne typ sluchátek. Výhodu mají ta, která tlumí okolní hluk, protože s nimi stačí poslouchat potichu.',
+      },
     ],
     related: [
       { label: 'Mozek a učení', href: '/jak-funguje-telo/mozek-a-uceni' },
       { label: 'Mozek v mapě těla', href: '/organ/brain' },
     ],
-    sources: [SOURCES.dillard, SOURCES.whoHearing, SOURCES.whoSafeListening],
+    sources: [SOURCES.dillard, SOURCES.whoHearing, SOURCES.whoSafeListening, SOURCES.lancetDementia],
   },
   {
     slug: 'sauna-a-chlad',
@@ -2359,6 +2396,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Protahování a bolest svalů',
         text: 'Přehled Cochrane zjistil, že protahování před ani po cvičení bolest svalů v dalších dnech prakticky nesníží.',
       },
+      {
+        title: 'Statické, nebo dynamické',
+        text: 'Statické protažení znamená výdrž v jedné poloze, dynamické plynulé pohyby v plném rozsahu (kroužení, výpady, švihy). Před sportem se hodí spíš dynamické, na rozsah obojí.',
+      },
     ],
     today: [
       'Celý den sezení zkracuje rozsah, ve kterém se běžně hýbeme.',
@@ -2378,6 +2419,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'plausible',
       },
       { text: 'Protahovat se, protože je vám to příjemné — to je taky dobrý důvod.', level: 'plausible' },
+      {
+        text: 'Kolik: každý sval 2–4× po 10–30 s, aspoň 2–3 dny v týdnu. Do mírného tahu, ne do bolesti.',
+        level: 'plausible',
+      },
     ],
     myths: [
       {
@@ -2388,13 +2433,17 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Protažení po tréninku zabrání svalové horečce.',
         fact: 'Efekt je podle přehledu Cochrane tak malý, že ho skoro nepoznáte.',
       },
+      {
+        myth: 'Čím ohebnější, tím zdravější.',
+        fact: 'Stačí rozsah pro to, co v životě a sportu děláte. Extrémní ohebnost bez síly klouby nechrání.',
+      },
     ],
     related: [
       { label: 'Bolest zad', href: '/jak-funguje-telo/bolest-zad' },
       { label: 'Pohyb a sezení', href: '/jak-funguje-telo/pohyb-a-sezeni' },
       { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
     ],
-    sources: [SOURCES.lauersen, SOURCES.herbertStretch, SOURCES.behm, SOURCES.warneke],
+    sources: [SOURCES.lauersen, SOURCES.herbertStretch, SOURCES.behm, SOURCES.warneke, SOURCES.acsm],
   },
   {
     slug: 'testosteron',
