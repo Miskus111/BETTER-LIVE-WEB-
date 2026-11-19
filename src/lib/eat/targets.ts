@@ -77,8 +77,13 @@ export function targetsFor(opts: {
   const t = tdee(bmr, opts.level)
   const requested = opts.goal === 'fat_loss' ? t * 0.8 : opts.goal === 'muscle' ? t * 1.1 : t
   const { kcal, rule } = safeKcal(requested, bmr, t, opts.weightKg)
-  const proteinG = Math.round(Math.min(2.2, PROTEIN_G_PER_KG[opts.goal] ?? 1.2) * opts.weightKg)
-  const fatG = Math.round(Math.max(0.6 * opts.weightKg, (kcal * 0.28) / 9))
+  // with obesity (BMI > 30) per-kg targets use an adjusted weight: the weight at BMI 25 plus a quarter
+  // of the excess — otherwise protein and the fat floor alone would fill most of the plan
+  const h2 = (opts.heightCm / 100) ** 2
+  const refWeight =
+    bmi(opts.weightKg, opts.heightCm) > 30 ? 25 * h2 + 0.25 * (opts.weightKg - 25 * h2) : opts.weightKg
+  const proteinG = Math.round(Math.min(2.2, PROTEIN_G_PER_KG[opts.goal] ?? 1.2) * refWeight)
+  const fatG = Math.round(Math.max(0.6 * refWeight, (kcal * 0.28) / 9))
   const carbsG = Math.max(0, Math.round((kcal - proteinG * 4 - fatG * 9) / 4))
   const fiberG = Math.max(25, Math.round((kcal / 1000) * 14))
   return { bmr, tdee: t, kcal, proteinG, fatG, carbsG, fiberG, limited: !!rule, rule }

@@ -94,3 +94,19 @@ describe('eating-risk screen', () => {
     expect(eatingRiskSignals({ weightKg: 75, heightCm: 178, goals: ['muscle'] })).toEqual([])
   })
 })
+
+describe('obesity-adjusted targets', () => {
+  it('uses an adjusted weight for protein when BMI > 30', () => {
+    const t = targetsFor({
+      sex: 'male',
+      weightKg: 130,
+      heightCm: 170,
+      age: 35,
+      level: 'light',
+      goal: 'fat_loss',
+    })
+    // reference ≈ 72,3 + 0,25 × 57,8 ≈ 86,7 kg → ~173 g, not 260 g
+    expect(t.proteinG).toBeLessThan(190)
+    expect(t.carbsG).toBeGreaterThan(100)
+  })
+})

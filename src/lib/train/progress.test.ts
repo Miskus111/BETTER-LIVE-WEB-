@@ -14,8 +14,8 @@ const set = (p: Partial<ProgressSet>): ProgressSet => ({
 describe('weekStart', () => {
   it('returns the Monday of the week', () => {
     expect(weekStart(new Date('2026-11-16T10:00:00Z'))).toBe('2026-11-16') // Monday
-    expect(weekStart(new Date('2026-11-22T23:00:00Z'))).toBe('2026-11-16') // Sunday
-    expect(weekStart(new Date('2026-11-23T00:00:00Z'))).toBe('2026-11-23')
+    expect(weekStart(new Date('2026-11-22T22:30:00Z'))).toBe('2026-11-16') // Sunday 23:30 in Prague
+    expect(weekStart(new Date('2026-11-22T23:00:00Z'))).toBe('2026-11-23') // Monday 00:00 in Prague
   })
 })
 

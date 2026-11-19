@@ -43,3 +43,14 @@ describe('trendChange / weeklyRate', () => {
     expect(trendChange(pts.slice(0, 5), 30)).toBeNull()
   })
 })
+
+describe('logging gaps', () => {
+  it('does not inflate the weekly rate or mislabel a months-long change as 30 days', () => {
+    const pts = withTrend([
+      { date: '2026-01-01', weightKg: 90 },
+      ...Array.from({ length: 8 }, (_, i) => ({ date: `2026-03-0${i + 1}`, weightKg: 85 })),
+    ])
+    expect(trendChange(pts, 30)).toBeNull()
+    expect(weeklyRate(pts, 28)).toBeNull()
+  })
+})

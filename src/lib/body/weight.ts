@@ -40,28 +40,35 @@ export function withTrend(entries: WeighIn[], days = 7): TrendPoint[] {
   })
 }
 
-/** Change of the trend over the last `days` days, or null when there is no point that far back. */
-export function trendChange(points: TrendPoint[], days: number): number | null {
+/**
+ * The point to measure a `days`-long change from: the latest weigh-in at or just before the cutoff
+ * (at most half a window older), else the oldest weigh-in inside the window if it covers ≥ 60 % of it.
+ * Never a weigh-in from months ago — after a logging gap that would mislabel a long change as "30 days".
+ */
+function trendBase(points: TrendPoint[], days: number): TrendPoint | null {
   if (points.length < 2) return null
   const last = points[points.length - 1]
   const cutoff = t(last.date) - days * DAY
-  // the latest point on or before the cutoff; fall back to the first point if it is close enough
-  let base: TrendPoint | undefined
-  for (const p of points) if (t(p.date) <= cutoff) base = p
-  if (!base) {
-    const first = points[0]
-    if (t(last.date) - t(first.date) < days * DAY * 0.6) return null
-    base = first
-  }
-  return r1(last.trend - base.trend)
+  let base: TrendPoint | null = null
+  for (const p of points) if (t(p.date) <= cutoff && t(p.date) >= cutoff - days * 0.5 * DAY) base = p
+  if (base) return base
+  const firstInWindow = points.find((p) => t(p.date) > cutoff)
+  if (!firstInWindow || firstInWindow === last) return null
+  return t(last.date) - t(firstInWindow.date) >= days * DAY * 0.6 ? firstInWindow : null
+}
+
+/** Change of the trend over the last `days` days, or null when the data don't cover that period. */
+export function trendChange(points: TrendPoint[], days: number): number | null {
+  const base = trendBase(points, days)
+  return base ? r1(points[points.length - 1].trend - base.trend) : null
 }
 
 /** Weekly rate (kg/week) of the trend over the last `days` days. Negative = losing. */
 export function weeklyRate(points: TrendPoint[], days = 28): number | null {
-  const ch = trendChange(points, days)
-  if (ch === null) return null
+  const base = trendBase(points, days)
+  if (!base) return null
   const last = points[points.length - 1]
-  const firstInWindow = points.find((p) => t(p.date) >= t(last.date) - days * DAY) ?? points[0]
-  const span = Math.max(7, (t(last.date) - t(firstInWindow.date)) / DAY)
-  return r1((ch / span) * 7)
+  // the change and the time it took are measured between the same two points
+  const span = Math.max(7, (t(last.date) - t(base.date)) / DAY)
+  return r1(((last.trend - base.trend) / span) * 7)
 }

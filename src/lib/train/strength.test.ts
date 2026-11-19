@@ -95,3 +95,12 @@ describe('personal records', () => {
     ).toEqual([])
   })
 })
+
+describe('first set', () => {
+  it('is a baseline, not a record', () => {
+    const empty = { e1rm: 0, maxWeight: 0, maxReps: 0, maxVolume: 0 }
+    expect(
+      newRecords(empty, { exercise: 'bench', weightKg: 60, reps: 8, type: 'normal', completed: true }),
+    ).toEqual([])
+  })
+})

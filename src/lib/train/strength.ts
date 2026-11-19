@@ -115,6 +115,8 @@ export function personalRecords(sets: LoggedSet[]): PRs {
 /** Which PR kinds a new set beats compared with previous bests. */
 export function newRecords(prev: PRs, set: LoggedSet): (keyof PRs)[] {
   if (!isWorkingSet(set)) return []
+  // the very first set of an exercise is a baseline, not a record
+  if (prev.e1rm === 0 && prev.maxWeight === 0 && prev.maxReps === 0) return []
   const next = personalRecords([set])
   return (Object.keys(next) as (keyof PRs)[]).filter((k) => next[k] > prev[k] && next[k] > 0)
 }
