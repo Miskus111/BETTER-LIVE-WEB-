@@ -139,6 +139,11 @@ const SOURCES = {
     2499228,
     'Callaham (1989) Rizika dýchání do papírového sáčku při hyperventilaci, Ann Emerg Med',
   ),
+  cohenTies: pm(9200634, 'Cohen a kol. (1997) Sociální vazby a náchylnost k nachlazení, JAMA'),
+  buijze: pm(
+    27631616,
+    'Buijze a kol. (2016) Studená sprcha, nemocnost a absence v práci — randomizovaná studie, PLoS One',
+  ),
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -1048,6 +1053,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Horečka a únava',
         text: 'Nejsou chyba, ale součást obrany. Tělo šetří energii pro boj s infekcí.',
       },
+      {
+        title: 'Víc není líp',
+        text: 'Imunita má být přesná, ne co nejsilnější. Když reaguje přehnaně nebo na nesprávný cíl, vznikají alergie a autoimunitní nemoci. Proto „nabuzení“ imunity nedává smysl.',
+      },
     ],
     today: [
       'Málo spánku a chronický stres oslabují obranyschopnost.',
@@ -1059,6 +1068,11 @@ export const BODY_GUIDES: BodyGuide[] = [
       { text: 'Mytí rukou, hlavně před jídlem a po cestě MHD.', level: 'established' },
       { text: 'Pravidelný středně intenzivní pohyb.', level: 'plausible' },
       { text: 'Vitamín D v zimě, hlavně pokud ho máte málo.', level: 'plausible' },
+      {
+        text: 'Udržovat vztahy: lidé s pestřejší sítí kontaktů (rodina, přátelé, práce, spolky) se ve studii nachladili zhruba 4× méně často.',
+        level: 'preliminary',
+      },
+      { text: 'Nekouřit — kouř oslabuje obranu dýchacích cest.', level: 'established' },
     ],
     myths: [
       {
@@ -1073,6 +1087,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         myth: 'Na chřipku pomůžou antibiotika.',
         fact: 'Antibiotika na viry nefungují — zbytečné užívání zvyšuje odolnost bakterií.',
       },
+      {
+        myth: 'Studená sprcha mě ochrání před nemocí.',
+        fact: 'V randomizované studii se 3 000 lidmi počet dní nemoci neklesl. Lidé ale méně často zůstávali doma z práce — cítili se líp.',
+      },
     ],
     related: [
       { label: 'Vitamín D', href: '/doplnky/vitamin-d' },
@@ -1080,7 +1098,14 @@ export const BODY_GUIDES: BodyGuide[] = [
       { label: 'Zinek', href: '/doplnky/zinek' },
       { label: 'Spánek', href: '/jak-funguje-telo/spanek' },
     ],
-    sources: [SOURCES.prather, SOURCES.nieman, SOURCES.martineau, SOURCES.hemila],
+    sources: [
+      SOURCES.prather,
+      SOURCES.nieman,
+      SOURCES.martineau,
+      SOURCES.hemila,
+      SOURCES.cohenTies,
+      SOURCES.buijze,
+    ],
   },
   {
     slug: 'oci-a-obrazovky',
@@ -1503,6 +1528,14 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Snadno se jich sní víc',
         text: 'Ultrazpracované výrobky mívají málo vlákniny a bílkovin, které nejvíc zasytí. Ve zmíněné studii ale lidé jedli víc, i když strava měla stejně vlákniny i bílkovin — roli hraje i něco dalšího, třeba rychlost jedení.',
       },
+      {
+        title: 'Jak je poznat',
+        text: 'Vědci používají třídění NOVA: od nezpracovaných potravin (jablko, vejce) přes zpracované (sýr, chléb ze tří surovin) až po ultrazpracované, které obsahují složky, jež v kuchyni nepoužíváte — sirupy, izoláty, aromata, emulgátory.',
+      },
+      {
+        title: 'Co ukazují data',
+        text: 'Velký přehled 45 metaanalýz spojil vysoký příjem s vyšším rizikem srdečních nemocí, cukrovky 2. typu, deprese i úmrtí. Jde hlavně o pozorování — přesný mechanismus se teprve hledá.',
+      },
     ],
     today: [
       'Ultrazpracované potraviny tvoří v mnoha zemích velkou část jídelníčku — jsou levné, rychlé a všude.',
@@ -1531,6 +1564,10 @@ export const BODY_GUIDES: BodyGuide[] = [
       {
         myth: 'Je to jen o kaloriích.',
         fact: 'Kalorie rozhodují o váze, ale ultrazpracovaná strava ovlivňuje, kolik jich sníte.',
+      },
+      {
+        myth: 'Problém jsou hlavně „éčka“.',
+        fact: 'Schválené přídatné látky posuzuje EFSA. Větší roli hraje celé složení — hodně cukru, soli a tuku a málo vlákniny. U některých emulgátorů se vliv na střeva zatím zkoumá.',
       },
     ],
     related: [
@@ -1759,6 +1796,10 @@ export const BODY_GUIDES: BodyGuide[] = [
         title: 'Zvykání',
         text: 'Při pravidelném otužování se chladový šok zmírní. Většina dalších slibovaných účinků ale stojí na malých studiích.',
       },
+      {
+        title: 'Chlad a hubnutí',
+        text: 'Chlad aktivuje hnědý tuk, který pálí energii na teplo. Za pár minut v ledové vodě je to ale jen desítky kilokalorií — na váze se to skoro neprojeví.',
+      },
     ],
     today: [
       'Ledové lázně se prodávají jako univerzální regenerace — přitom u silového tréninku můžou část přínosu vzít.',
@@ -1778,20 +1819,27 @@ export const BODY_GUIDES: BodyGuide[] = [
         level: 'plausible',
       },
       { text: 'Lepší nálada a pocit svěžesti po chladu — zatím jen malé studie.', level: 'preliminary' },
+      {
+        text: 'Do sauny ani do studené vody ne s horečkou, po alkoholu nebo při nestabilní nemoci srdce.',
+        level: 'established',
+      },
     ],
     myths: [
       {
         myth: 'V sauně se „vypotí toxiny“.',
         fact: 'Potem odchází hlavně voda a soli. Odpadní látky odstraňují játra a ledviny.',
       },
-      { myth: 'Otužování spolehlivě posílí imunitu.', fact: 'Důkazy jsou slabé a nejednoznačné.' },
+      {
+        myth: 'Otužování spolehlivě posílí imunitu.',
+        fact: 'Důkazy jsou slabé. Ve velké studii se studenou sprchou lidé nebyli nemocní méně často, jen se cítili líp.',
+      },
     ],
     related: [
       { label: 'Srdce a tlak', href: '/jak-funguje-telo/srdce-a-tlak' },
       { label: 'Svaly a metabolismus', href: '/jak-funguje-telo/svaly-a-metabolismus' },
       { label: 'Stres', href: '/jak-funguje-telo/stres' },
     ],
-    sources: [SOURCES.laukkanen, SOURCES.roberts, SOURCES.esperland],
+    sources: [SOURCES.laukkanen, SOURCES.roberts, SOURCES.esperland, SOURCES.buijze],
   },
   {
     slug: 'menstruacni-cyklus',
