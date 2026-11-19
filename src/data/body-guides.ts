@@ -419,6 +419,14 @@ const SOURCES = {
     31088853,
     'Bekkering a kol. (2019) Hormony u lehké (subklinické) hypotyreózy — doporučení BMJ Rapid Recommendations',
   ),
+  deRegilFolate: pm(
+    26662928,
+    'De-Regil a kol. (2015) Kyselina listová kolem početí a vrozené vady, Cochrane',
+  ),
+  whoAntenatal: {
+    title: 'WHO (2016) Doporučení pro péči v těhotenství',
+    url: 'https://www.who.int/publications/i/item/9789241549912',
+  },
   reynolds: pm(30638909, 'Reynolds a kol. (2019) Kvalita sacharidů a zdraví — série metaanalýz, Lancet'),
   wastyk: pm(34256014, 'Wastyk a kol. (2021) Strava cílená na mikrobiom a imunita, Cell'),
   efsaWater: {
@@ -3667,6 +3675,75 @@ export const BODY_GUIDES: BodyGuide[] = [
     sources: [SOURCES.chakerHypo, SOURCES.taylorThyroid, SOURCES.bekkeringSch],
   },
   {
+    slug: 'priprava-na-tehotenstvi',
+    title: 'Příprava na těhotenství: co začít dělat ještě předem',
+    short: 'Příprava na těhotenství',
+    icon: 'flower',
+    hook: 'Nejdůležitější týdny vývoje miminka přicházejí dřív, než žena o těhotenství ví. Proto se vyplatí pár věcí změnit už ve chvíli, kdy ho plánujete.',
+    tldr: [
+      'Kyselina listová (400 µg denně) užívaná už před početím snížila riziko vad páteře a mozku miminka zhruba o dvě třetiny.',
+      'Alkohol v těhotenství žádná bezpečná dávka nemá. Kouření a vaping škodí také.',
+      'Před těhotenstvím je dobré zkontrolovat očkování, léky a chronické nemoci s lékařem.',
+    ],
+    numbers: [
+      { value: '400 µg', label: 'kyseliny listové denně od plánování těhotenství' },
+      { value: '~−66 %', label: 'vad neurální trubice díky kyselině listové (Cochrane)' },
+      { value: '200 mg', label: 'kofeinu denně nejvýš v těhotenství (EFSA)' },
+    ],
+    how: [
+      {
+        title: 'Proč tak brzy',
+        text: 'Neurální trubice — základ mozku a míchy — se uzavírá ve 3. až 4. týdnu po početí, kdy si mnoho žen těhotenství ještě nevšimne. Kyselina listová musí být v těle už v tu dobu.',
+      },
+      {
+        title: 'Co škodí nejvíc',
+        text: 'Alkohol prochází placentou a může trvale poškodit vývoj mozku dítěte. Kouření zvyšuje riziko potratu, předčasného porodu a nízké porodní váhy.',
+      },
+      {
+        title: 'Návštěva lékaře předem',
+        text: 'Některé léky (například na epilepsii nebo akné) se před těhotenstvím mění. Lékař zkontroluje i očkování proti zarděnkám a planým neštovicím a dlouhodobé nemoci jako cukrovku nebo štítnou žlázu.',
+      },
+    ],
+    today: [
+      'Polovina těhotenství přichází neplánovaně — kyselina listová se proto doporučuje všem ženám, které mohou otěhotnět.',
+      'Sítě nabízejí drahé „fertility“ doplňky; základ je přitom levný: kyselina listová, jód a u veganek B12.',
+    ],
+    helps: [
+      {
+        text: 'Kyselina listová 400 µg denně ideálně měsíc před početím až do 12. týdne těhotenství.',
+        level: 'established',
+      },
+      { text: 'Úplně vynechat alkohol a přestat kouřit a vapovat.', level: 'established' },
+      { text: 'Kofein do 200 mg denně (asi 2 šálky kávy).', level: 'established' },
+      {
+        text: 'Před plánovaným těhotenstvím zajít k praktickému lékaři nebo gynekologovi — léky, očkování, chronické nemoci.',
+        level: 'established',
+      },
+      { text: 'Veganky: doplněk vitamínu B12; všechny: dostatek jódu.', level: 'established' },
+    ],
+    myths: [
+      {
+        myth: 'Kyselinu listovou stačí začít brát, až je test pozitivní.',
+        fact: 'Neurální trubice se uzavírá do 4. týdne po početí. Proto se doporučuje brát ji už při plánování.',
+      },
+      {
+        myth: 'Sklenka vína v těhotenství nevadí.',
+        fact: 'Bezpečná dávka alkoholu v těhotenství není známa. Nejbezpečnější je nepít vůbec.',
+      },
+      {
+        myth: 'Těhotná musí jíst za dva.',
+        fact: 'Potřeba energie roste až ve 2. a 3. trimestru a jen mírně. Víc než množství je důležitá kvalita stravy.',
+      },
+    ],
+    related: [
+      { label: 'Kyselina listová (folát)', href: '/doplnky/folat' },
+      { label: 'Menstruační cyklus', href: '/jak-funguje-telo/menstruacni-cyklus' },
+      { label: 'Alkohol', href: '/jak-funguje-telo/alkohol' },
+      { label: 'Energie a kofein', href: '/jak-funguje-telo/energie-a-kofein' },
+    ],
+    sources: [SOURCES.deRegilFolate, SOURCES.whoAntenatal, SOURCES.efsaCaffeine],
+  },
+  {
     slug: 'nalada-a-uzkost',
     title: 'Nálada a úzkost: kdy je to normální a kdy hledat pomoc',
     short: 'Nálada a úzkost',
@@ -4932,6 +5009,7 @@ export const GUIDE_CATEGORY: Record<string, GuideCategory> = {
   bilkoviny: 'jidlo',
   'chytre-hodinky': 'prevence',
   'stitna-zlaza': 'prevence',
+  'priprava-na-tehotenstvi': 'prevence',
   'nalada-a-uzkost': 'mysl',
   'zuby-a-usta': 'prevence',
   kosti: 'pohyb',

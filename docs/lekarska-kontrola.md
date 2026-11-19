@@ -4,7 +4,7 @@ Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 57 průvodců, 20 doplňků, 992 položek ke kontrole.
+Obsah: 58 průvodců, 20 doplňků, 1009 položek ke kontrole.
 
 ---
 
@@ -2018,7 +2018,55 @@ Poznámky lékaře:
 
 ---
 
-## 42. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
+## 42. Příprava na těhotenství: co začít dělat ještě předem
+
+Web: /jak-funguje-telo/priprava-na-tehotenstvi
+
+**Ve zkratce**
+
+- [ ] Kyselina listová (400 µg denně) užívaná už před početím snížila riziko vad páteře a mozku miminka zhruba o dvě třetiny.
+- [ ] Alkohol v těhotenství žádná bezpečná dávka nemá. Kouření a vaping škodí také.
+- [ ] Před těhotenstvím je dobré zkontrolovat očkování, léky a chronické nemoci s lékařem.
+
+**Čísla**
+
+- [ ] **400 µg** kyseliny listové denně od plánování těhotenství
+- [ ] **~−66 %** vad neurální trubice díky kyselině listové (Cochrane)
+- [ ] **200 mg** kofeinu denně nejvýš v těhotenství (EFSA)
+
+**Jak to funguje**
+
+- [ ] **Proč tak brzy:** Neurální trubice — základ mozku a míchy — se uzavírá ve 3. až 4. týdnu po početí, kdy si mnoho žen těhotenství ještě nevšimne. Kyselina listová musí být v těle už v tu dobu.
+- [ ] **Co škodí nejvíc:** Alkohol prochází placentou a může trvale poškodit vývoj mozku dítěte. Kouření zvyšuje riziko potratu, předčasného porodu a nízké porodní váhy.
+- [ ] **Návštěva lékaře předem:** Některé léky (například na epilepsii nebo akné) se před těhotenstvím mění. Lékař zkontroluje i očkování proti zarděnkám a planým neštovicím a dlouhodobé nemoci jako cukrovku nebo štítnou žlázu.
+
+**Doporučení**
+
+- [ ] Kyselina listová 400 µg denně ideálně měsíc před početím až do 12. týdne těhotenství. _(Prokázané)_
+- [ ] Úplně vynechat alkohol a přestat kouřit a vapovat. _(Prokázané)_
+- [ ] Kofein do 200 mg denně (asi 2 šálky kávy). _(Prokázané)_
+- [ ] Před plánovaným těhotenstvím zajít k praktickému lékaři nebo gynekologovi — léky, očkování, chronické nemoci. _(Prokázané)_
+- [ ] Veganky: doplněk vitamínu B12; všechny: dostatek jódu. _(Prokázané)_
+
+**Mýty**
+
+- [ ] „Kyselinu listovou stačí začít brát, až je test pozitivní.“ → Neurální trubice se uzavírá do 4. týdne po početí. Proto se doporučuje brát ji už při plánování.
+- [ ] „Sklenka vína v těhotenství nevadí.“ → Bezpečná dávka alkoholu v těhotenství není známa. Nejbezpečnější je nepít vůbec.
+- [ ] „Těhotná musí jíst za dva.“ → Potřeba energie roste až ve 2. a 3. trimestru a jen mírně. Víc než množství je důležitá kvalita stravy.
+
+**Zdroje**
+
+- De-Regil a kol. (2015) Kyselina listová kolem početí a vrozené vady, Cochrane — https://pubmed.ncbi.nlm.nih.gov/26662928/
+- WHO (2016) Doporučení pro péči v těhotenství — https://www.who.int/publications/i/item/9789241549912
+- EFSA (2015) Bezpečnost kofeinu, EFSA Journal 13(5):4102 — https://doi.org/10.2903/j.efsa.2015.4102
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 43. Nálada a úzkost: kdy je to normální a kdy hledat pomoc
 
 Web: /jak-funguje-telo/nalada-a-uzkost
 
@@ -2068,7 +2116,7 @@ Poznámky lékaře:
 
 ---
 
-## 43. Zuby a ústa: kaz není o cukru, ale o tom, jak často
+## 44. Zuby a ústa: kaz není o cukru, ale o tom, jak často
 
 Web: /jak-funguje-telo/zuby-a-usta
 
@@ -2120,7 +2168,7 @@ Poznámky lékaře:
 
 ---
 
-## 44. Kosti: banka, do které se ukládá do třiceti
+## 45. Kosti: banka, do které se ukládá do třiceti
 
 Web: /jak-funguje-telo/kosti
 
@@ -2170,7 +2218,7 @@ Poznámky lékaře:
 
 ---
 
-## 45. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
+## 46. Dýchání: nos, pomalý výdech a proč nepřelepovat pusu
 
 Web: /jak-funguje-telo/dychani
 
@@ -2217,7 +2265,7 @@ Poznámky lékaře:
 
 ---
 
-## 46. Akné: co ho způsobuje a co na něj opravdu platí
+## 47. Akné: co ho způsobuje a co na něj opravdu platí
 
 Web: /jak-funguje-telo/akne-a-plet
 
@@ -2268,7 +2316,7 @@ Poznámky lékaře:
 
 ---
 
-## 47. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
+## 48. Bolest hlavy a migréna: kdy stačí klid a kdy k lékaři
 
 Web: /jak-funguje-telo/bolest-hlavy
 
@@ -2317,7 +2365,7 @@ Poznámky lékaře:
 
 ---
 
-## 48. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
+## 49. Přerušovaný půst: funguje 16:8 lépe než obyčejná dieta?
 
 Web: /jak-funguje-telo/prerusovany-pust
 
@@ -2364,7 +2412,7 @@ Poznámky lékaře:
 
 ---
 
-## 49. Samota a vztahy: proč jsou lidé kolem vás zdraví
+## 50. Samota a vztahy: proč jsou lidé kolem vás zdraví
 
 Web: /jak-funguje-telo/samota-a-vztahy
 
@@ -2412,7 +2460,7 @@ Poznámky lékaře:
 
 ---
 
-## 50. Protahování: na co je dobré a na co ne
+## 51. Protahování: na co je dobré a na co ne
 
 Web: /jak-funguje-telo/protahovani
 
@@ -2462,7 +2510,7 @@ Poznámky lékaře:
 
 ---
 
-## 51. Testosteron: co ho opravdu zvedá a co je jen marketing
+## 52. Testosteron: co ho opravdu zvedá a co je jen marketing
 
 Web: /jak-funguje-telo/testosteron
 
@@ -2514,7 +2562,7 @@ Poznámky lékaře:
 
 ---
 
-## 52. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
+## 53. Cholesterol: co znamenají čísla z krve a co s nimi dělá jídlo
 
 Web: /jak-funguje-telo/cholesterol
 
@@ -2563,7 +2611,7 @@ Poznámky lékaře:
 
 ---
 
-## 53. Trávení a zácpa: co je normální a co opravdu pomáhá
+## 54. Trávení a zácpa: co je normální a co opravdu pomáhá
 
 Web: /jak-funguje-telo/traveni-a-zacpa
 
@@ -2613,7 +2661,7 @@ Poznámky lékaře:
 
 ---
 
-## 54. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
+## 55. Ranní ptáče, nebo sova? Chronotyp a sociální jet lag
 
 Web: /jak-funguje-telo/chronotyp
 
@@ -2665,7 +2713,7 @@ Poznámky lékaře:
 
 ---
 
-## 55. Posilování pro začátečníky: kolik, jak často a jak přidávat
+## 56. Posilování pro začátečníky: kolik, jak často a jak přidávat
 
 Web: /jak-funguje-telo/posilovani-pro-zacatecniky
 
@@ -2716,7 +2764,7 @@ Poznámky lékaře:
 
 ---
 
-## 56. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
+## 57. Alergie a pyl: proč tělo bojuje s neškodnými věcmi
 
 Web: /jak-funguje-telo/alergie-a-pyl
 
@@ -2764,7 +2812,7 @@ Poznámky lékaře:
 
 ---
 
-## 57. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
+## 58. Marihuana a THC: co dělá s mozkem, hlavně v mladém věku
 
 Web: /jak-funguje-telo/marihuana-a-thc
 

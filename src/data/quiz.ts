@@ -521,6 +521,14 @@ export const QUIZ: QuizItem[] = [
     explain:
       'Škodí nedostatek i nadbytek. Horní bezpečný limit je 600 µg denně a doplňky ho snadno překročí.',
   },
+  {
+    id: 'listova-po-testu',
+    guide: 'priprava-na-tehotenstvi',
+    statement: 'Kyselinu listovou stačí začít brát, až je těhotenský test pozitivní.',
+    fact: false,
+    explain:
+      'Neurální trubice se uzavírá do 4. týdne po početí — kyselina listová se proto doporučuje už při plánování.',
+  },
 ]
 
 export const QUIZ_LENGTH = 10
