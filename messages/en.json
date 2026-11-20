@@ -258,6 +258,7 @@
     "planPro": "You have Pro. Thank you for supporting development.",
     "planFree": "Free: training, food diary, weight, supplements, mobility and manual lab results without limits; AI coach 5 messages a day.",
     "proPrice": "Pro for {month} CZK a month or {year} CZK a year: AI coach with up to 100 messages a day, reading results from PDFs and photos, progress charts and progress photos.",
+    "aiSoon": "The AI coach and reading results from PDFs and photos are launching soon — switched off for now.",
     "paymentsSoon": "Payments are coming soon. Until then it costs you nothing.",
     "typeToConfirm": "Type <word></word> to confirm",
     "confirmWord": "DELETE",

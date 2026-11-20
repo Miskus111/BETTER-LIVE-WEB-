@@ -4,6 +4,7 @@ import { Download, PencilLine, ShieldOff, Sparkles, Trash2 } from 'lucide-react'
 import { isFreeMode, PRICES } from '@/lib/billing'
 import { getPlan } from '@/lib/plan'
 import { requireAppUser } from '@/lib/auth'
+import { isAiConfigured } from '@/lib/ai/client'
 import { LanguageSwitch } from '@/components/app/LanguageSwitch'
 import { signOut } from '@/app/(auth)/actions'
 import { deleteAccount, withdrawHealthConsent } from './actions'
@@ -54,6 +55,7 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
             <p className="text-subtle mt-3 text-[13px]">{t('paymentsSoon')}</p>
           </>
         )}
+        {!isAiConfigured() && <p className="text-subtle mt-2 text-[13px]">{t('aiSoon')}</p>}
         <Link href="/pricing" className="link mt-3 inline-block text-[14px]">
           {t('seePricing')} →
         </Link>
