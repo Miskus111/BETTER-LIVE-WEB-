@@ -123,38 +123,41 @@ export function organsForFood(food: Food): OrganLink[] {
  * marjoram, so they are left out there; per portion they rank on their real amounts.
  */
 /**
- * Foods we never suggest as a "best source", whatever their numbers: alcohol, sugary and energy drinks
- * (fortified with B vitamins), sugars, sweets and crisps. They stay in the database and the explorer.
+ * Foods we never suggest as a "best source", whatever their numbers, and why. They stay in the database
+ * and the explorer; their pages say they meet "source of" thresholds but aren't a sensible way to get them.
  */
-const NOT_RECOMMENDED = new Set([
-  'beer',
-  'beer-light',
-  'wine-red',
-  'wine-white',
-  'spirits',
-  'cola',
-  'energy-drink',
-  'sugar',
-  'sugar-brown',
-  'honey',
-  'maple-syrup',
-  'agave',
-  'jam',
-  'chocolate-milk',
-  'nutella',
-  'cookies',
-  'cake',
-  'gummy',
-  'ice-cream',
-  'chips',
-  'banana-chips',
-])
+const NOT_RECOMMENDED: Record<string, string> = {
+  beer: 'alkohol',
+  'beer-light': 'alkohol',
+  'wine-red': 'alkohol',
+  'wine-white': 'alkohol',
+  spirits: 'alkohol',
+  cola: 'přidaný cukr',
+  'energy-drink': 'přidaný cukr a kofein; vitamíny jsou přidané uměle',
+  sugar: 'cukr',
+  'sugar-brown': 'cukr',
+  honey: 'cukr',
+  'maple-syrup': 'cukr',
+  agave: 'cukr',
+  jam: 'cukr',
+  'chocolate-milk': 'cukr a nasycené tuky',
+  nutella: 'cukr a nasycené tuky',
+  cookies: 'cukr a nasycené tuky',
+  cake: 'cukr a nasycené tuky',
+  gummy: 'cukr',
+  'ice-cream': 'cukr a nasycené tuky',
+  chips: 'tuk a sůl',
+  'banana-chips': 'smažené, cukr a nasycené tuky',
+}
+
+/** Why a food isn't recommended as a nutrient source, or undefined if it is fine. */
+export const notRecommendedReason = (food: Food): string | undefined => NOT_RECOMMENDED[food.id]
 
 /** Eaten by the pinch: spices, dried herbs, milk powder (usual portion under 10 g). */
 export const pinchSized = (food: Food) => food.portion.grams < 10
 
 export const rankable = (food: Food, per: Basis) =>
-  !NOT_RECOMMENDED.has(food.id) && (per === 'portion' || !pinchSized(food))
+  !NOT_RECOMMENDED[food.id] && (per === 'portion' || !pinchSized(food))
 
 /** Keep only the best-ranked preparation of each food (raw / cooked / canned salmon → one entry). */
 function onePerFood<T extends { food: Food }>(ranked: T[]): T[] {

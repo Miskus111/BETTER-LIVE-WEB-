@@ -5,7 +5,7 @@ import type { Food, NutrientId } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
 import { NrvBar } from '@/components/ui/NrvBar'
 import { OrganLink } from '@/components/ui/OrganLink'
-import { organsForFood, pctRef } from '@/lib/nutrition'
+import { notRecommendedReason, organsForFood, pctRef } from '@/lib/nutrition'
 import { shortNutrient } from '@/lib/format'
 import { ALLERGEN_CS, portionText } from '@/lib/foods/query'
 import { foodSummary } from '@/lib/foods/summary'
@@ -26,6 +26,7 @@ export function FoodDetail({
     .filter(([id]) => NUTRIENTS[id])
     .sort((a, b) => (pctRef(b[0], b[1]) ?? 0) - (pctRef(a[0], a[1]) ?? 0))
   const organs = organsForFood(food)
+  const notRecommended = notRecommendedReason(food)
   const summary = foodSummary(food)
   // UK FSA 'high' salt: more than 1.5 g per 100 g
   const salty = food.sodiumMg !== undefined && (food.sodiumMg * 2.5) / 1000 > 1.5
@@ -136,7 +137,25 @@ export function FoodDetail({
 
       <section>
         <h2 className="eyebrow mb-3">Související orgány</h2>
-        {organs.length ? (
+        {notRecommended && organs.length ? (
+          <div data-testid="not-recommended">
+            <p className="text-muted text-[14px]">
+              Na 100 g splňuje práh „zdroj“ pro:{' '}
+              {[...new Set(organs.flatMap((o) => o.via))]
+                .map((v) => shortNutrient(NUTRIENTS[v].name))
+                .map((n) => n.charAt(0).toLowerCase() + n.slice(1))
+                .join(', ')}
+              . Jako zdroj živin to přesto nedoporučujeme ({notRecommended}). Lepší zdroje najdete u orgánů:
+            </p>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {organs.slice(0, 4).map((o) => (
+                <li key={o.organ.id}>
+                  <OrganLink id={o.organ.id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : organs.length ? (
           <ul className="flex flex-wrap gap-2">
             {organs.map(({ organ, via }) => (
               <li key={organ.id}>

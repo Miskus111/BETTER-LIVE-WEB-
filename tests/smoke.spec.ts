@@ -461,5 +461,15 @@ test('food page compares raw and cooked forms per 100 g', async ({ page }) => {
   const block = page.getByTestId('raw-cooked')
   await expect(block.getByRole('heading', { name: 'Jak se mění úpravou' })).toBeVisible()
   await expect(block.getByRole('row', { name: /Vitamín C/ })).toContainText('%')
-  await expect(block.getByRole('link', { name: /upravené podoby/ })).toHaveAttribute('href', '/food/spinach-cooked')
+  await expect(block.getByRole('link', { name: /upravené podoby/ })).toHaveAttribute(
+    'href',
+    '/food/spinach-cooked',
+  )
+})
+
+test('junk food pages explain why they are not a recommended source', async ({ page }) => {
+  await page.goto('/food/nutella')
+  await expect(page.getByTestId('not-recommended')).toContainText('nedoporučujeme')
+  await page.goto('/food/spinach')
+  await expect(page.getByTestId('not-recommended')).toHaveCount(0)
 })
