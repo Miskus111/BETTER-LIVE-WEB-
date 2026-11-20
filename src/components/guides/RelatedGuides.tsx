@@ -1,11 +1,25 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { guidesLinkingTo } from '@/data/body-guides'
+import { guidesLinkingTo, type BodyGuide } from '@/data/body-guides'
 import { GuideIcon } from './GuideIcon'
 
-/** "Read also" box: body guides that mention this page. Renders nothing when there are none. */
-export function RelatedGuides({ href, className }: { href: string; className?: string }) {
-  const guides = guidesLinkingTo(href)
+/**
+ * "Read also" box: body guides that mention this page, then any `extra` guides, without duplicates.
+ * Renders nothing when there are none.
+ */
+export function RelatedGuides({
+  href,
+  extra = [],
+  limit,
+  className,
+}: {
+  href: string
+  extra?: BodyGuide[]
+  limit?: number
+  className?: string
+}) {
+  const all = [...guidesLinkingTo(href), ...extra]
+  const guides = all.filter((g, i) => all.indexOf(g) === i).slice(0, limit)
   if (!guides.length) return null
   return (
     <section className={className} aria-labelledby="related-guides">

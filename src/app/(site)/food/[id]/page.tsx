@@ -12,6 +12,8 @@ import { RETAILERS } from '@/data/retailers'
 import { FoodDetail } from '@/components/food/FoodDetail'
 import { FoodNutritionPanel } from '@/components/food/FoodNutritionPanel'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { RelatedGuides } from '@/components/guides/RelatedGuides'
+import { guidesForFood } from '@/lib/foods/guides'
 import { SITE } from '@/lib/site'
 
 type Params = { params: Promise<{ id: string }> }
@@ -163,6 +165,8 @@ export default async function FoodPage({ params }: Params) {
           </ul>
         )}
       </section>
+
+      <RelatedGuides href={`/food/${food.id}`} extra={guidesForFood(food)} limit={4} className="mt-8" />
 
       <nav className="mt-6 flex justify-between gap-4 text-[14.5px]" aria-label="Další potraviny">
         <Link href={`/food/${prev.id}`} className="link">
