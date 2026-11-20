@@ -7,6 +7,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
 import { Rich } from '@/components/glossary/Rich'
+import { PUBLISHED, modifiedAfter } from '@/data/published'
 
 const UPDATED = '2026-11-18'
 
@@ -34,7 +35,9 @@ export function CompoundArticle({ c }: { c: Compound }) {
             headline: compoundTitle(c),
             description: c.verdict,
             inLanguage: 'cs',
-            dateModified: UPDATED,
+            datePublished: PUBLISHED[`/doplnky/${c.slug}`],
+            dateModified: modifiedAfter(PUBLISHED[`/doplnky/${c.slug}`], UPDATED),
+            author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             mainEntityOfPage: url,
             publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             about: { '@type': 'DietarySupplement', name: c.name },

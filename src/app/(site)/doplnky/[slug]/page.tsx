@@ -16,6 +16,7 @@ import { Rich } from '@/components/glossary/Rich'
 import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
 import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
 import { clip } from '@/lib/format'
+import { PUBLISHED, modifiedAfter } from '@/data/published'
 
 const UPDATED = '2026-11-18'
 
@@ -27,7 +28,6 @@ export function generateStaticParams() {
     ...COMPOUNDS.map((c) => ({ slug: c.slug })),
   ]
 }
-
 
 function describe(id: NutrientId) {
   const n = NUTRIENTS[id]
@@ -116,7 +116,9 @@ export default async function SupplementPage({ params }: { params: Promise<{ slu
             headline: `${n.name} — nejlepší forma, dávka a referenční hodnoty`,
             description: describe(id),
             inLanguage: 'cs',
-            dateModified: UPDATED,
+            datePublished: PUBLISHED[supplementHref(id)],
+            dateModified: modifiedAfter(PUBLISHED[supplementHref(id)], UPDATED),
+            author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             mainEntityOfPage: url,
             publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             about: { '@type': 'DietarySupplement', name: n.name },

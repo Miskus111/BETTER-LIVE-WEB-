@@ -17,6 +17,7 @@ import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
+import { PUBLISHED, modifiedAfter } from '@/data/published'
 
 const UPDATED = '2026-11-18'
 
@@ -83,7 +84,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             headline: g.title,
             description: g.hook,
             inLanguage: 'cs',
-            dateModified: UPDATED,
+            datePublished: PUBLISHED[`/jak-funguje-telo/${g.slug}`],
+            dateModified: modifiedAfter(PUBLISHED[`/jak-funguje-telo/${g.slug}`], UPDATED),
+            author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             timeRequired: `PT${minutes}M`,
             mainEntityOfPage: url,
             publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
