@@ -2,6 +2,7 @@ import { FOODS } from '@/data/foods'
 import { NUTRIENTS } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
 import type { Food, NutrientId, Organ } from '@/data/types'
+import { baseName } from '@/lib/foods/variants'
 
 /** Amount of a nutrient per 100 g, or undefined if the food does not supply / we do not track it. */
 export function amountOf(
@@ -119,25 +120,36 @@ export function organsForFood(food: Food): OrganLink[] {
  */
 export const rankable = (food: Food, per: Basis) => per === 'portion' || food.portion.grams >= 10
 
+/** Keep only the best-ranked preparation of each food (raw / cooked / canned salmon → one entry). */
+function onePerFood<T extends { food: Food }>(ranked: T[]): T[] {
+  const seen = new Set<string>()
+  return ranked.filter(({ food }) => {
+    const key = `${food.category}|${baseName(food.name)}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
 export function foodsForOrgan(
   organ: Organ,
   k = 12,
   per: Basis = '100g',
 ): { food: Food; via: NutrientId[] }[] {
-  return FOODS.filter((food) => rankable(food, per))
+  const ranked = FOODS.filter((food) => rankable(food, per))
     .map((food) => ({ food, via: linkVia(food, organ) }))
     .filter((x) => x.via.length > 0)
     .sort((a, b) => organScore(b.food, organ, per) - organScore(a.food, organ, per))
-    .slice(0, k)
+  return onePerFood(ranked).slice(0, k)
 }
 
 /** Best sources of a nutrient; `v` is per 100 g or per the default portion depending on `per`. */
 export function topFoodsFor(id: NutrientId, k = 5, per: Basis = '100g'): { food: Food; v: number }[] {
   const qualitative = !!NUTRIENTS[id].qualitative
-  return FOODS.filter((f) => isSource(f, id) && rankable(f, per))
+  const ranked = FOODS.filter((f) => isSource(f, id) && rankable(f, per))
     .map((food) => ({ food, v: scaled(food, amountOf(food, id)!, per) }))
     .sort((a, b) => (qualitative ? 0 : b.v - a.v))
-    .slice(0, k)
+  return onePerFood(ranked).slice(0, k)
 }
 
 export function organsForNutrient(id: NutrientId): Organ[] {

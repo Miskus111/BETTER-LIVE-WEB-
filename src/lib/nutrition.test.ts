@@ -13,3 +13,13 @@ describe('rankings per 100 g', () => {
     expect(topFoodsFor('calcium', 10, 'portion').length).toBe(10)
   })
 })
+
+describe('rankings show each food once', () => {
+  it('keep only the best preparation of a food', async () => {
+    const { baseName } = await import('./foods/variants')
+    const names = foodsForOrgan(ORGAN_BY_ID.brain, 12, 'portion').map(
+      (x) => `${x.food.category}|${baseName(x.food.name)}`,
+    )
+    expect(new Set(names).size).toBe(names.length)
+  })
+})
