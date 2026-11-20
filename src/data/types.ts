@@ -116,17 +116,7 @@ export interface Organ {
 }
 
 // ── Foods ───────────────────────────────────────────────────────────────────
-export type FoodCategory =
-  | 'Maso'
-  | 'Ryby a mořské plody'
-  | 'Vejce'
-  | 'Mléčné výrobky'
-  | 'Fermentované'
-  | 'Ovoce'
-  | 'Zelenina'
-  | 'Ořechy a semínka'
-  | 'Luštěniny'
-  | 'Obiloviny a oleje'
+export type FoodCategory = import('@/lib/foods/categories').Category
 
 export type ArtKind =
   | 'steak'
@@ -159,13 +149,20 @@ export interface Art {
 
 export interface Food {
   id: string
+  /** Czech name */
   name: string
+  nameEn: string
   category: FoodCategory
-  /** what the 100 g refers to (raw, cooked, drained …) */
+  subcategory: string | null
+  /** raw / cooked / dried … (see src/lib/foods/types.ts) */
+  state: string
+  /** what the 100 g refers to, in Czech (raw, cooked · roasted, drained …) */
   basis: string
-  /** USDA FoodData Central reference (description of the matched entry) */
+  /** provenance line: "USDA FoodData Central, FDC 171287, SR Legacy 2018-04" */
   fdc: string
+  /** kcal per 100 g; 0 only if the dataset has no energy value (never for generated foods) */
   kcal: number
+  /** g per 100 g (carbs = total carbohydrate incl. fibre); missing values are 0 here — the full panel shows "no data" */
   macros: { protein: number; fat: number; carbs: number; fiber: number }
   micros: Partial<Record<NutrientId, number>>
   completeProtein?: boolean
@@ -173,6 +170,14 @@ export interface Food {
   /** a drink: EU 'source of' thresholds are per 100 ml at half the solid level (7.5 % NRV) */
   liquid?: boolean
   sodiumMg?: number
+  /** default household portion */
+  portion: { label: string; grams: number }
+  allergens: string[]
+  diet: { vegan: boolean; vegetarian: boolean; glutenFree: boolean }
+  /** calculated Czech recipe rather than a single dataset record */
+  recipe?: boolean
+  /** curated everyday food (own illustration and note): listed first by default */
+  featured?: boolean
   note?: string
   /** public path; placeholder SVG until licensed photography is supplied */
   image: string

@@ -14,6 +14,7 @@ import { PANEL, type Panel, type PanelKey } from '../../src/lib/foods/panel'
 import type { FoodsFile, FoodState, GeneratedFood, Portion } from '../../src/lib/foods/types'
 import { folateDfe, iuToUgVitD, kcalToKj, round, saltFromSodiumMg } from '../../src/lib/foods/units'
 import { validateFoods } from '../../src/lib/foods/validate'
+import { toLite } from '../../src/lib/foods/lite'
 import { DATASETS, ensureDataset, loadDataset, type DatasetName, type FdcFood } from './fdc'
 import { RECIPES } from './recipes'
 import {
@@ -29,6 +30,7 @@ import {
 
 const ROOT = process.cwd()
 const OUT = join(ROOT, 'src/data/foods.generated.json')
+const OUT_LITE = join(ROOT, 'src/data/foods.lite.generated.json')
 const LICENCE = 'USDA FoodData Central — public domain (CC0 1.0)'
 const UNIT_SYNONYMS: Record<string, string[]> = { tbsp: ['tablespoon'], tsp: ['teaspoon'], cup: ['cup'] }
 const ZERO_IF_MISSING = new Set(['water', 'salt'])
@@ -43,15 +45,26 @@ function parseCsv(text: string): Record<string, string>[] {
   for (let i = 0; i < text.length; i++) {
     const c = text[i]
     if (q) {
-      if (c === '"' && text[i + 1] === '"') ((cell += '"'), i++)
-      else if (c === '"') q = false
+      if (c === '"' && text[i + 1] === '"') {
+        cell += '"'
+        i++
+      } else if (c === '"') q = false
       else cell += c
     } else if (c === '"') q = true
-    else if (c === ',') (row.push(cell), (cell = ''))
-    else if (c === '\n') (row.push(cell), rows.push(row), (row = []), (cell = ''))
-    else if (c !== '\r') cell += c
+    else if (c === ',') {
+      row.push(cell)
+      cell = ''
+    } else if (c === '\n') {
+      row.push(cell)
+      rows.push(row)
+      row = []
+      cell = ''
+    } else if (c !== '\r') cell += c
   }
-  if (cell || row.length) (row.push(cell), rows.push(row))
+  if (cell || row.length) {
+    row.push(cell)
+    rows.push(row)
+  }
   const [head, ...body] = rows
   return body
     .filter((r) => r.some(Boolean))
@@ -283,4 +296,5 @@ const prev = existsSync(OUT) ? (JSON.parse(readFileSync(OUT, 'utf8')) as FoodsFi
 const changes = diff(prev, next)
 console.log(changes.length ? `Changes:\n  ${changes.join('\n  ')}` : 'No changes.')
 writeFileSync(OUT, JSON.stringify(next) + '\n')
+writeFileSync(OUT_LITE, JSON.stringify(next.foods.map(toLite)) + '\n')
 console.log(`✓ ${next.foods.length} foods → src/data/foods.generated.json (${log.length} log entries)`)

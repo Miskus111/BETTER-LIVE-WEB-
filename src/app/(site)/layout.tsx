@@ -1,6 +1,6 @@
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
-import { CommandPalette } from '@/components/layout/CommandPalette'
+import { CommandPaletteShell } from '@/components/layout/CommandPaletteShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
@@ -37,7 +37,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Nav />
       <main id="main">{children}</main>
       <Footer />
-      <CommandPalette />
+      <CommandPaletteShell />
     </>
   )
 }

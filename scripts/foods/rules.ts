@@ -2,27 +2,8 @@
  * Curation rules applied on top of the raw FDC values: categories, flags, allergens, diet tags.
  * These are classifications, never nutrient numbers — every number comes from the dataset.
  */
-export const CATEGORIES = [
-  'Maso',
-  'Drůbež',
-  'Ryby a mořské plody',
-  'Vejce',
-  'Mléčné výrobky',
-  'Fermentované',
-  'Zelenina',
-  'Ovoce',
-  'Ořechy a semínka',
-  'Luštěniny',
-  'Obiloviny a pečivo',
-  'Brambory a hlízy',
-  'Houby',
-  'Oleje a tuky',
-  'Bylinky a koření',
-  'Nápoje',
-  'Sladidla a sladkosti',
-  'Česká jídla',
-] as const
-export type Category = (typeof CATEGORIES)[number]
+import { CATEGORIES, type Category } from '../../src/lib/foods/categories'
+export { CATEGORIES, type Category }
 
 /** EU allergens (Reg. (EU) 1169/2011, Annex II) */
 export const ALLERGENS = [

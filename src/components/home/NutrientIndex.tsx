@@ -11,7 +11,15 @@ import { WHERE_TO_BUY } from '@/data/retailers'
 import { ABSORPTION } from '@/data/absorption'
 import { ReferenceValues } from '@/components/ui/ReferenceValues'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
-import { fmtAmount, organsForNutrient, pctRef, thresholdBasis, topFoodsFor } from '@/lib/nutrition'
+import {
+  fmtAmount,
+  organsForNutrient,
+  pctRef,
+  thresholdBasis,
+  topFoodsFor,
+  type Basis,
+} from '@/lib/nutrition'
+import { BasisToggle } from '@/components/food/BasisToggle'
 import { cx } from '@/lib/format'
 import { supplementHref } from '@/data/supplements'
 
@@ -46,7 +54,8 @@ export function NutrientIndex() {
 
   const n = NUTRIENTS[active]
   const organs = organsForNutrient(active)
-  const top = topFoodsFor(active, 6)
+  const [per, setPer] = useState<Basis>('100g')
+  const top = topFoodsFor(active, 6, per)
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
@@ -157,7 +166,10 @@ export function NutrientIndex() {
 
         {active !== 'water' && top.length > 0 && (
           <section className="mt-6">
-            <h4 className="eyebrow mb-2.5">Nejlepší zdroje · na 100 g</h4>
+            <div className="mb-2.5 flex flex-wrap items-center justify-between gap-2">
+              <h4 className="eyebrow">Nejlepší zdroje · {per === 'portion' ? 'na porci' : 'na 100 g'}</h4>
+              {!n.qualitative && <BasisToggle value={per} onChange={setPer} />}
+            </div>
             <ul className="divide-line divide-y">
               {top.map(({ food, v }) => {
                 const p = pctRef(active, v)
@@ -167,7 +179,12 @@ export function NutrientIndex() {
                       href={`/food/${food.id}`}
                       className="hover:text-cyan flex items-center justify-between gap-3 py-2"
                     >
-                      <span className="text-[14.5px]">{food.name}</span>
+                      <span className="text-[14.5px]">
+                        {food.name}
+                        {per === 'portion' && (
+                          <span className="text-subtle ml-1.5 text-[12px]">({food.portion.label})</span>
+                        )}
+                      </span>
                       {!n.qualitative && (
                         <span className="text-muted font-mono text-[13px]">
                           {fmtAmount(v, n.unit)}

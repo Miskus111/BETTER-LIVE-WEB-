@@ -46,23 +46,6 @@ export function CommandPalette() {
   const input = useRef<HTMLInputElement>(null)
   const list = useRef<HTMLUListElement>(null)
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault()
-        setSearch(!useUi.getState().searchOpen)
-      } else if (
-        e.key === '/' &&
-        !(e.target as HTMLElement)?.closest('input,textarea,select,[contenteditable]')
-      ) {
-        e.preventDefault()
-        setSearch(true)
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [setSearch])
-
   const [wasOpen, setWasOpen] = useState(open)
   if (wasOpen !== open) {
     setWasOpen(open)

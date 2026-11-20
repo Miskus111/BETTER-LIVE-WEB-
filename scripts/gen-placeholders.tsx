@@ -9,6 +9,8 @@ import { join } from 'node:path'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { FoodArt } from '../src/components/art/FoodArt'
 import { FOODS } from '../src/data/foods'
+import { FOOD_NOTES } from '../src/data/food-notes'
+import { CATEGORIES, CATEGORY_ART, categorySlug } from '../src/lib/foods/categories'
 import type { Art } from '../src/data/types'
 
 const out = join(process.cwd(), 'public/images')
@@ -59,5 +61,11 @@ ${inner}
 </svg>`
 }
 
-for (const f of FOODS) writeFileSync(join(out, 'foods', `${f.id}.svg`), frame(f.art, f.id))
-console.log(`generated ${FOODS.length} food placeholders`)
+// curated foods get their own illustration; all others share one per category
+const curated = FOODS.filter((f) => FOOD_NOTES[f.id])
+for (const f of curated) writeFileSync(join(out, 'foods', `${f.id}.svg`), frame(f.art, f.id))
+for (const c of CATEGORIES) {
+  const slug = `cat-${categorySlug(c)}`
+  writeFileSync(join(out, 'foods', `${slug}.svg`), frame(CATEGORY_ART[c], slug))
+}
+console.log(`generated ${curated.length} food and ${CATEGORIES.length} category placeholders`)

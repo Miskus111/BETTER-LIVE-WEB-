@@ -1,89 +1,285 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+import { Scale, Search, X } from 'lucide-react'
 import { FOOD_CATEGORIES, FOODS } from '@/data/foods'
-import type { FoodCategory } from '@/data/types'
+import { NUTRIENTS } from '@/data/nutrients'
+import type { Food } from '@/data/types'
+import { STATE_CS } from '@/lib/foods/categories'
+import {
+  ALLERGEN_CS,
+  EMPTY_QUERY,
+  MEASURES,
+  measureOf,
+  portionText,
+  queryFoods,
+  type FoodQuery,
+  type Measure,
+} from '@/lib/foods/query'
+import { fmtAmount } from '@/lib/nutrition'
 import { Thumb } from '@/components/ui/Thumb'
 import { cx } from '@/lib/format'
 import { FoodDetail } from './FoodDetail'
+import { FoodCompare } from './FoodCompare'
+import { BarcodeLookup } from './BarcodeLookup'
+
+const PAGE = 24
+const STATES = [...new Set(FOODS.map((f) => f.state))].sort((a, b) =>
+  (STATE_CS[a] ?? a).localeCompare(STATE_CS[b] ?? b, 'cs'),
+)
+const HIGH_IN = Object.values(NUTRIENTS).filter((n) => n.ref && !n.qualitative)
 
 export function FoodExplorer() {
-  const [cat, setCat] = useState<FoodCategory | 'Vše'>('Vše')
-  const [selectedId, setSelectedId] = useState(FOODS[0].id)
+  const [q, setQ] = useState<FoodQuery>(EMPTY_QUERY)
+  const [shown, setShown] = useState(PAGE)
+  const [selectedId, setSelectedId] = useState('salmon')
+  const [compare, setCompare] = useState<string[]>([])
   const detail = useRef<HTMLDivElement>(null)
-  const foods = cat === 'Vše' ? FOODS : FOODS.filter((f) => f.category === cat)
-  // the selection always stays inside the visible category
-  const shownId = foods.some((f) => f.id === selectedId) ? selectedId : foods[0].id
-  const selected = FOODS.find((f) => f.id === shownId)!
+
+  const foods = useMemo(() => queryFoods(FOODS, q), [q])
+  const counts = useMemo(() => {
+    const base = queryFoods(FOODS, { ...q, category: '' })
+    return Object.fromEntries(FOOD_CATEGORIES.map((c) => [c, base.filter((f) => f.category === c).length]))
+  }, [q])
+  const shownId = foods.some((f) => f.id === selectedId) ? selectedId : foods[0]?.id
+  const selected = FOODS.find((f) => f.id === shownId)
+  const sortMeasure = MEASURES.find((m) => m.id === q.sort)
+
+  // changing the query starts again from the first page
+  const update = (patch: Partial<FoodQuery>) => {
+    setQ((x) => ({ ...x, ...patch }))
+    setShown(PAGE)
+  }
 
   const pick = (id: string) => {
     setSelectedId(id)
     if (window.matchMedia('(max-width: 1023px)').matches)
       requestAnimationFrame(() => detail.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
+  const toggleCompare = (id: string) =>
+    setCompare((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 3 ? [...c, id] : c))
 
   return (
     <div>
-      <div
-        role="tablist"
-        aria-label="Kategorie potravin"
-        className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:px-0"
-      >
-        {(['Vše', ...FOOD_CATEGORIES] as const).map((c) => (
-          <button
-            key={c}
-            type="button"
-            role="tab"
-            aria-selected={cat === c}
-            onClick={() => setCat(c)}
-            className="chip shrink-0"
-          >
-            {c}
-            <span className="font-mono text-[12px] opacity-70">
-              {c === 'Vše' ? FOODS.length : FOODS.filter((f) => f.category === c).length}
-            </span>
-          </button>
-        ))}
-      </div>
+      <div className="grid gap-3">
+        <label className="relative block">
+          <span className="sr-only">Hledat potravinu</span>
+          <Search size={16} className="text-subtle absolute top-1/2 left-3 -translate-y-1/2" aria-hidden />
+          <input
+            type="search"
+            value={q.q}
+            onChange={(e) => update({ q: e.target.value })}
+            placeholder={`Hledat mezi ${FOODS.length} potravinami — např. cocka, losos, tvaroh…`}
+            className="field !pl-9"
+            data-testid="food-search"
+          />
+        </label>
 
-      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
-        <ul className="grid grid-cols-1 content-start gap-2 sm:grid-cols-2" aria-label="Potraviny">
-          {foods.map((f) => (
-            <li key={f.id}>
-              <button
-                type="button"
-                onClick={() => pick(f.id)}
-                aria-pressed={f.id === shownId}
-                data-testid={`food-${f.id}`}
-                className={cx(
-                  'card group flex w-full items-center gap-3 overflow-hidden p-2 text-left transition',
-                  f.id === shownId
-                    ? '!border-cyan/60 shadow-[0_0_30px_-12px_rgba(94,231,255,0.6)]'
-                    : 'hover:border-line-strong',
-                )}
-              >
-                <Thumb src={f.image} alt="" ratio="aspect-square" className="w-14 shrink-0 rounded-lg" />
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[14.5px] font-medium">{f.name}</span>
-                  <span className="text-subtle block truncate font-mono text-[12px]">
-                    {f.kcal} kcal · {String(f.macros.protein).replace('.', ',')} g bílkovin
-                  </span>
-                </span>
-              </button>
-            </li>
+        <div
+          role="tablist"
+          aria-label="Kategorie potravin"
+          className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 md:mx-0 md:flex-wrap md:px-0"
+        >
+          {(['', ...FOOD_CATEGORIES] as const).map((c) => (
+            <button
+              key={c || 'all'}
+              type="button"
+              role="tab"
+              aria-selected={q.category === c}
+              onClick={() => update({ category: c })}
+              className="chip shrink-0"
+            >
+              {c || 'Vše'}
+              <span className="font-mono text-[12px] opacity-70">
+                {c ? counts[c] : Object.values(counts).reduce((s, n) => s + n, 0)}
+              </span>
+            </button>
           ))}
-        </ul>
-        <div ref={detail} className="scroll-mt-20 lg:sticky lg:top-20 lg:self-start">
-          <div
-            className="card p-5 md:p-6 lg:max-h-[calc(100svh-6rem)] lg:overflow-y-auto lg:overscroll-contain"
-            key={selected.id}
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          <Select label="Stav" value={q.state} onChange={(v) => update({ state: v })}>
+            <option value="">Jakýkoli stav</option>
+            {STATES.map((s) => (
+              <option key={s} value={s}>
+                {STATE_CS[s] ?? s}
+              </option>
+            ))}
+          </Select>
+          <Select label="Strava" value={q.diet} onChange={(v) => update({ diet: v as FoodQuery['diet'] })}>
+            <option value="">Jakákoli strava</option>
+            <option value="vegan">Veganské</option>
+            <option value="vegetarian">Vegetariánské</option>
+            <option value="glutenFree">Bez lepku</option>
+          </Select>
+          <Select label="Bez alergenu" value={q.without} onChange={(v) => update({ without: v })}>
+            <option value="">Bez filtru alergenů</option>
+            {Object.entries(ALLERGEN_CS).map(([k, v]) => (
+              <option key={k} value={k}>
+                Bez: {v}
+              </option>
+            ))}
+          </Select>
+          <Select
+            label="Vysoký obsah"
+            value={q.highIn}
+            onChange={(v) => update({ highIn: v as FoodQuery['highIn'] })}
           >
-            <div className="fade-up">
-              <FoodDetail food={selected} showPageLink />
-            </div>
-          </div>
+            <option value="">Vysoký obsah: cokoli</option>
+            {HIGH_IN.map((n) => (
+              <option key={n.id} value={n.id}>
+                Zdroj: {n.name}
+              </option>
+            ))}
+          </Select>
+          <Select label="Řadit podle" value={q.sort} onChange={(v) => update({ sort: v as Measure | '' })}>
+            <option value="">Řadit: podle kategorií</option>
+            {MEASURES.map((m) => (
+              <option key={m.id} value={m.id}>
+                Nejvíc: {m.label}
+              </option>
+            ))}
+          </Select>
+          <Select label="Hodnoty na" value={q.per} onChange={(v) => update({ per: v as FoodQuery['per'] })}>
+            <option value="100g">Hodnoty na 100 g</option>
+            <option value="portion">Hodnoty na porci</option>
+          </Select>
         </div>
       </div>
+
+      <p className="text-subtle mt-3 text-[13px]" data-testid="food-count" aria-live="polite">
+        {foods.length === FOODS.length
+          ? `${foods.length} potravin`
+          : `${foods.length} z ${FOODS.length} potravin`}
+        {compare.length > 0 && ` · k porovnání vybráno ${compare.length}/3`}
+      </p>
+
+      {foods.length === 0 ? (
+        <div className="card mt-4 p-6 text-center">
+          <p className="text-muted">Žádná potravina neodpovídá filtrům.</p>
+          <button type="button" className="link mt-2 text-[14px]" onClick={() => update(EMPTY_QUERY)}>
+            Zrušit filtry
+          </button>
+        </div>
+      ) : (
+        <div className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+          <div>
+            <ul className="grid grid-cols-1 content-start gap-2 sm:grid-cols-2" aria-label="Potraviny">
+              {foods.slice(0, shown).map((f) => (
+                <li key={f.id} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => pick(f.id)}
+                    aria-pressed={f.id === shownId}
+                    data-testid={`food-${f.id}`}
+                    className={cx(
+                      'card group flex w-full items-center gap-3 overflow-hidden p-2 pr-10 text-left transition',
+                      f.id === shownId
+                        ? '!border-cyan/60 shadow-[0_0_30px_-12px_rgba(94,231,255,0.6)]'
+                        : 'hover:border-line-strong',
+                    )}
+                  >
+                    <Thumb src={f.image} alt="" ratio="aspect-square" className="w-14 shrink-0 rounded-lg" />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[14.5px] font-medium">{f.name}</span>
+                      <span className="text-subtle block truncate text-[12px]">{f.basis}</span>
+                      <span className="text-subtle block truncate font-mono text-[12px]">
+                        {summary(f, q, sortMeasure)}
+                      </span>
+                    </span>
+                  </button>
+                  <label
+                    className="text-subtle hover:text-fg absolute top-2 right-2 flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg"
+                    title="Přidat k porovnání"
+                  >
+                    <input
+                      type="checkbox"
+                      className="peer sr-only"
+                      checked={compare.includes(f.id)}
+                      disabled={!compare.includes(f.id) && compare.length >= 3}
+                      onChange={() => toggleCompare(f.id)}
+                      aria-label={`Porovnat: ${f.name}`}
+                    />
+                    <Scale size={15} aria-hidden className="peer-checked:text-cyan" />
+                  </label>
+                </li>
+              ))}
+            </ul>
+            {shown < foods.length && (
+              <button
+                type="button"
+                className="btn btn-ghost mt-3 w-full"
+                onClick={() => setShown((n) => n + PAGE)}
+                data-testid="food-more"
+              >
+                Zobrazit další ({foods.length - shown})
+              </button>
+            )}
+          </div>
+          {selected && (
+            <div ref={detail} className="scroll-mt-20 lg:sticky lg:top-20 lg:self-start">
+              <div
+                className="card p-5 md:p-6 lg:max-h-[calc(100svh-6rem)] lg:overflow-y-auto lg:overscroll-contain"
+                key={selected.id}
+              >
+                <div className="fade-up">
+                  <FoodDetail food={selected} showPageLink />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {compare.length > 0 && (
+        <div className="mt-6">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-[17px] font-medium">
+              Porovnání ({q.per === 'portion' ? 'na porci' : 'na 100 g'})
+            </h3>
+            <button
+              type="button"
+              className="link inline-flex items-center gap-1 text-[13.5px]"
+              onClick={() => setCompare([])}
+            >
+              <X size={13} aria-hidden /> Zrušit porovnání
+            </button>
+          </div>
+          <FoodCompare foods={compare.map((id) => FOODS.find((f) => f.id === id)!)} per={q.per} />
+        </div>
+      )}
+      <BarcodeLookup />
     </div>
+  )
+}
+
+function summary(f: Food, q: FoodQuery, m?: { id: Measure; label: string; unit: string }) {
+  const per = q.per === 'portion' ? f.portion.grams / 100 : 1
+  const unit = q.per === 'portion' ? ` · ${portionText(f.portion)}` : ''
+  if (m && !['kcal', 'protein'].includes(m.id)) {
+    const v = measureOf(f, m.id)
+    return v === undefined ? `${m.label}: bez údajů` : `${m.label}: ${fmtAmount(v * per, m.unit)}${unit}`
+  }
+  return `${Math.round(f.kcal * per)} kcal · ${fmtAmount(f.macros.protein * per, 'g')} bílkovin${unit}`
+}
+
+function Select({
+  label,
+  value,
+  onChange,
+  children,
+}: {
+  label: string
+  value: string
+  onChange: (v: string) => void
+  children: React.ReactNode
+}) {
+  return (
+    <label className="block">
+      <span className="sr-only">{label}</span>
+      <select value={value} onChange={(e) => onChange(e.target.value)} className="field !py-2 text-[13.5px]">
+        {children}
+      </select>
+    </label>
   )
 }

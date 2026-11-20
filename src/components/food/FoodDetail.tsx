@@ -7,6 +7,7 @@ import { NrvBar } from '@/components/ui/NrvBar'
 import { OrganLink } from '@/components/ui/OrganLink'
 import { organsForFood, pctRef } from '@/lib/nutrition'
 import { shortNutrient } from '@/lib/format'
+import { ALLERGEN_CS, portionText } from '@/lib/foods/query'
 import { MacroSplitBar } from './MacroSplitBar'
 
 /** Full food detail — used in the homepage explorer and on /food/[id]. */
@@ -24,6 +25,8 @@ export function FoodDetail({
     .filter(([id]) => NUTRIENTS[id])
     .sort((a, b) => (pctRef(b[0], b[1]) ?? 0) - (pctRef(a[0], a[1]) ?? 0))
   const organs = organsForFood(food)
+  // UK FSA 'high' salt: more than 1.5 g per 100 g
+  const salty = food.sodiumMg !== undefined && (food.sodiumMg * 2.5) / 1000 > 1.5
 
   return (
     <article className="grid grid-cols-1 gap-6" data-testid="food-detail">
@@ -33,6 +36,11 @@ export function FoodDetail({
           <p className="eyebrow">{food.category}</p>
           <H className="display mt-2 text-[36px] md:text-[42px]">{food.name}</H>
           <p className="text-muted mt-1 font-mono text-[13px]">Na 100 g · {food.basis}</p>
+          <p className="text-subtle mt-1 text-[13px]">
+            Běžná porce: {portionText(food.portion)} = {Math.round((food.kcal * food.portion.grams) / 100)}{' '}
+            kcal
+          </p>
+          {food.recipe && <p className="chip mt-2 inline-flex text-[12px]">Vypočtený recept ze surovin</p>}
           {showPageLink && (
             <Link
               href={`/food/${food.id}`}
@@ -64,7 +72,14 @@ export function FoodDetail({
 
       <MacroSplitBar macros={food.macros} />
 
-      {(food.liveCultures || food.sodiumMg || food.note) && (
+      {food.allergens.length > 0 && (
+        <p className="text-[13.5px]" data-testid="food-allergens">
+          <span className="text-subtle">Alergeny (EU): </span>
+          {food.allergens.map((a) => ALLERGEN_CS[a] ?? a).join(', ')}
+        </p>
+      )}
+
+      {(food.liveCultures || salty || food.note) && (
         <ul className="grid grid-cols-1 gap-2">
           {food.liveCultures && (
             <Note icon={<Microscope size={15} />}>
@@ -72,11 +87,10 @@ export function FoodDetail({
               verze je neobsahují.
             </Note>
           )}
-          {food.sodiumMg !== undefined && (
+          {salty && (
             <Note icon={<Waves size={15} />} tone="warn">
-              Sodík: {food.sodiumMg} mg na 100 g (≈{' '}
-              {((food.sodiumMg * 2.5) / 1000).toFixed(1).replace('.', ',')} g soli) — sůl je součástí
-              konzervace; záleží na velikosti porce.
+              Vysoký obsah soli: {((food.sodiumMg! * 2.5) / 1000).toFixed(1).replace('.', ',')} g na 100 g
+              (sodík {food.sodiumMg} mg). Doporučený denní limit WHO je 5 g soli — záleží na velikosti porce.
             </Note>
           )}
           {food.note && <Note icon={<Info size={15} />}>{food.note}</Note>}
@@ -93,8 +107,7 @@ export function FoodDetail({
           </div>
           <p className="text-subtle mt-3 text-[12.5px]">
             Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU (
-            {food.liquid ? '≥ 7,5 % RHP na 100 ml' : '≥ 15 % RHP na 100 g'}). Zdroj: USDA FoodData Central —{' '}
-            {food.fdc}.
+            {food.liquid ? '≥ 7,5 % RHP na 100 ml' : '≥ 15 % RHP na 100 g'}). Zdroj: {food.fdc}.
           </p>
         </section>
       )}

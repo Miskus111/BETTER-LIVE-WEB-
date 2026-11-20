@@ -35,7 +35,11 @@ async function syncProfileWeight(db: Db, userId: string) {
     .order('measured_at', { ascending: false })
     .limit(1)
     .maybeSingle()
-  if (newest) await db.from('profiles').update({ weight_kg: Number(newest.weight_kg) }).eq('id', userId)
+  if (newest)
+    await db
+      .from('profiles')
+      .update({ weight_kg: Number(newest.weight_kg) })
+      .eq('id', userId)
 }
 
 /** One entry per day: a second save on the same date adds the new values and keeps the others. */

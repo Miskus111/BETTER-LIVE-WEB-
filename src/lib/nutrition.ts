@@ -84,11 +84,18 @@ export function linkVia(food: Food, organ: Organ): NutrientId[] {
   return matches.some((n) => n.level !== 'preliminary') ? matches.map((n) => n.id) : []
 }
 
-/** Ranking score: how much of the organ's nutrient list a food covers, weighted by evidence and % reference. */
-export function organScore(food: Food, organ: Organ) {
+export type Basis = '100g' | 'portion'
+/** amount in the chosen basis: per 100 g, or per the food's default household portion */
+const scaled = (food: Food, v: number, per: Basis) => (per === 'portion' ? (v * food.portion.grams) / 100 : v)
+
+/**
+ * Ranking score: how much of the organ's nutrient list a food covers, weighted by evidence and % reference.
+ * Eligibility always uses the EU per-100 g "source of" rule; `per` only changes the ranking amount.
+ */
+export function organScore(food: Food, organ: Organ, per: Basis = '100g') {
   return linking(organ).reduce((s, n) => {
     if (!isSource(food, n.id)) return s
-    const v = amountOf(food, n.id)!
+    const v = scaled(food, amountOf(food, n.id)!, per)
     const pct = pctRef(n.id, v)
     const weight = n.level === 'established' ? 1 : n.level === 'plausible' ? 0.6 : 0.3
     return s + weight * (1 + Math.min(pct ?? 30, 200) / 100)
@@ -102,17 +109,22 @@ export function organsForFood(food: Food): OrganLink[] {
     .sort((a, b) => organScore(food, b.organ) - organScore(food, a.organ))
 }
 
-export function foodsForOrgan(organ: Organ, k = 12): { food: Food; via: NutrientId[] }[] {
+export function foodsForOrgan(
+  organ: Organ,
+  k = 12,
+  per: Basis = '100g',
+): { food: Food; via: NutrientId[] }[] {
   return FOODS.map((food) => ({ food, via: linkVia(food, organ) }))
     .filter((x) => x.via.length > 0)
-    .sort((a, b) => organScore(b.food, organ) - organScore(a.food, organ))
+    .sort((a, b) => organScore(b.food, organ, per) - organScore(a.food, organ, per))
     .slice(0, k)
 }
 
-export function topFoodsFor(id: NutrientId, k = 5): { food: Food; v: number }[] {
+/** Best sources of a nutrient; `v` is per 100 g or per the default portion depending on `per`. */
+export function topFoodsFor(id: NutrientId, k = 5, per: Basis = '100g'): { food: Food; v: number }[] {
   const qualitative = !!NUTRIENTS[id].qualitative
   return FOODS.filter((f) => isSource(f, id))
-    .map((food) => ({ food, v: amountOf(food, id)! }))
+    .map((food) => ({ food, v: scaled(food, amountOf(food, id)!, per) }))
     .sort((a, b) => (qualitative ? 0 : b.v - a.v))
     .slice(0, k)
 }

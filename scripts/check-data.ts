@@ -62,7 +62,8 @@ const foodIds = new Set<string>()
 for (const f of FOODS) {
   if (foodIds.has(f.id)) fail(`food ${f.id}: duplicate id`)
   foodIds.add(f.id)
-  if (!(f.kcal > 0) && f.id !== 'water') fail(`food ${f.id}: missing kcal`)
+  // 0 kcal is a real value (salt, water, black coffee); missing energy is caught by foods:validate
+  if (!(f.kcal >= 0)) fail(`food ${f.id}: missing kcal`)
   const { protein, fat, carbs, fiber } = f.macros
   if ([protein, fat, carbs, fiber].some((x) => typeof x !== 'number' || x < 0))
     fail(`food ${f.id}: invalid macros`)

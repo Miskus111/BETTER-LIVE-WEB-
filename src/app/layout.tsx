@@ -9,7 +9,11 @@ import './globals.css'
 
 const geist = Geist({ subsets: ['latin', 'latin-ext'], variable: '--font-geist' })
 // mono is only used for small labels, never above-the-fold headings: don't let it compete with the LCP heading font
-const geistMono = Geist_Mono({ subsets: ['latin', 'latin-ext'], variable: '--font-geist-mono', preload: false })
+const geistMono = Geist_Mono({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-geist-mono',
+  preload: false,
+})
 const serif = Instrument_Serif({
   subsets: ['latin', 'latin-ext'],
   weight: '400',

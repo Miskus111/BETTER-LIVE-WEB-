@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useMemo, useState, useTransition } from 'react'
 import { Plus, Trash2 } from 'lucide-react'
 import { FOODS } from '@/data/foods'
+import { matchesText } from '@/lib/foods/query'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { NutrientId } from '@/data/types'
 import { createClient } from '@/lib/supabase/client'
@@ -27,7 +28,6 @@ export interface LogRow {
   food_slug?: string | null
 }
 const MEALS: Meal[] = ['breakfast', 'lunch', 'dinner', 'snack']
-const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 
 export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
@@ -36,19 +36,24 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
   const router = useRouter()
   const [open, setOpen] = useState<Meal | null>(null)
   const [q, setQ] = useState('')
-  const [grams, setGrams] = useState('100')
+  // empty = the food's default household portion
+  const [grams, setGrams] = useState('')
   const [pending, start] = useTransition()
   const [error, setError] = useState<string | null>(null)
 
-  const results = useMemo(() => {
-    const nq = norm(q)
-    return FOODS.filter((f) => !nq || norm(f.name).includes(nq) || f.id.includes(nq)).slice(0, 8)
-  }, [q])
+  const results = useMemo(
+    () =>
+      FOODS.filter((f) => matchesText(f, q))
+        // dry rice, pasta and pulses are rarely eaten as such: ready-to-eat versions first
+        .sort((a, b) => Number(a.state === 'dry') - Number(b.state === 'dry'))
+        .slice(0, 8),
+    [q],
+  )
 
   const add = (meal: Meal, slug: string) =>
     start(async () => {
       const f = FOODS.find((x) => x.id === slug)!
-      const g = Number(grams.replace(',', '.'))
+      const g = grams.trim() ? Number(grams.replace(',', '.')) : f.portion.grams
       if (!(g > 0)) return
       const k = g / 100
       const db = createClient() as unknown as Db
@@ -149,7 +154,8 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
                   />
                   <input
                     aria-label={t('grams')}
-                    className="field !w-20 !py-2 text-center"
+                    placeholder="porce g"
+                    className="field !w-24 !py-2 text-center"
                     inputMode="decimal"
                     value={grams}
                     onChange={(e) => setGrams(e.target.value)}
@@ -164,8 +170,15 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
                         onClick={() => add(meal, f.id)}
                         className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left hover:bg-white/[0.05]"
                       >
-                        <span className="text-[14.5px]">{f.name}</span>
-                        <span className="text-subtle font-mono text-[12.5px]">{f.kcal} kcal / 100 g</span>
+                        <span className="min-w-0">
+                          <span className="block truncate text-[14.5px]">{f.name}</span>
+                          <span className="text-subtle block truncate text-[12px]">{f.basis}</span>
+                        </span>
+                        <span className="text-subtle shrink-0 text-right font-mono text-[12px]">
+                          {grams.trim()
+                            ? `${f.kcal} kcal / 100 g`
+                            : `${f.portion.label} · ${Math.round((f.kcal * f.portion.grams) / 100)} kcal`}
+                        </span>
                       </button>
                     </li>
                   ))}

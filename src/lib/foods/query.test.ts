@@ -1,0 +1,33 @@
+import { describe, expect, it } from 'vitest'
+import { FOODS, FOOD_BY_ID } from '@/data/foods'
+import { EMPTY_QUERY, matchesText, measureOf, queryFoods } from './query'
+
+describe('food queries', () => {
+  it('search ignores Czech diacritics and matches English names', () => {
+    expect(matchesText(FOOD_BY_ID.lentils, 'cocka')).toBe(true)
+    expect(matchesText(FOOD_BY_ID.lentils, 'lentils')).toBe(true)
+    expect(matchesText(FOOD_BY_ID.lentils, 'losos')).toBe(false)
+  })
+  it('filters by diet and excluded allergen', () => {
+    const vegan = queryFoods(FOODS, { ...EMPTY_QUERY, diet: 'vegan' })
+    expect(vegan.length).toBeGreaterThan(100)
+    expect(vegan.some((f) => f.allergens.includes('milk') || f.category === 'Maso')).toBe(false)
+    const noGluten = queryFoods(FOODS, { ...EMPTY_QUERY, without: 'gluten' })
+    expect(noGluten.some((f) => f.allergens.includes('gluten'))).toBe(false)
+  })
+  it('sorts by a nutrient per 100 g and per portion, "no data" last', () => {
+    const per100 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'vitC' })
+    const vals = per100.map((f) => measureOf(f, 'vitC') ?? -1)
+    expect(vals).toEqual([...vals].sort((a, b) => b - a))
+    const protein100 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'protein' })
+    const proteinPortion = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'protein', per: 'portion' })
+    // dried powders lead per 100 g; a real meal portion leads per portion
+    expect(proteinPortion[0].id).not.toBe(protein100[0].id)
+    const p = proteinPortion[0]
+    expect(((measureOf(p, 'protein') ?? 0) * p.portion.grams) / 100).toBeGreaterThan(20)
+  })
+  it('"high in" uses the EU source-of threshold', () => {
+    const iron = queryFoods(FOODS, { ...EMPTY_QUERY, highIn: 'iron' })
+    expect(iron.every((f) => (f.micros.iron ?? 0) >= 14 * 0.15 * (f.liquid ? 0.5 : 1))).toBe(true)
+  })
+})

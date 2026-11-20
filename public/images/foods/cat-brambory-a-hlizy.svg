@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720">
+<defs>
+  <radialGradient id="bg-cat-brambory-a-hlizy" cx="50%" cy="38%" r="80%">
+    <stop offset="0%" stop-color="#c49a5b" stop-opacity="0.28"/>
+    <stop offset="45%" stop-color="#121a24"/>
+    <stop offset="100%" stop-color="#06080b"/>
+  </radialGradient>
+  <linearGradient id="beam-cat-brambory-a-hlizy" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="slab-cat-brambory-a-hlizy" cx="50%" cy="35%" r="65%">
+    <stop offset="0%" stop-color="#2a3644"/>
+    <stop offset="70%" stop-color="#151c25"/>
+    <stop offset="100%" stop-color="#0c1117"/>
+  </radialGradient>
+  <radialGradient id="shadow-cat-brambory-a-hlizy" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#000" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig-cat-brambory-a-hlizy" cx="50%" cy="45%" r="75%">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+  </radialGradient>
+  <filter id="grain-cat-brambory-a-hlizy"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/></filter>
+  <filter id="soft-cat-brambory-a-hlizy" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<rect width="800" height="720" fill="url(#bg-cat-brambory-a-hlizy)"/>
+<path d="M250,0 L550,0 L700,720 L100,720 Z" fill="url(#beam-cat-brambory-a-hlizy)"/>
+<ellipse cx="400" cy="560" rx="330" ry="78" fill="url(#slab-cat-brambory-a-hlizy)"/>
+<ellipse cx="400" cy="548" rx="330" ry="70" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+<ellipse cx="400" cy="560" rx="230" ry="34" fill="url(#shadow-cat-brambory-a-hlizy)"/>
+<ellipse cx="400" cy="380" rx="220" ry="150" fill="#c49a5b" opacity="0.18" filter="url(#soft-cat-brambory-a-hlizy)"/>
+<svg x="60" y="120" width="680" height="544" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" class="" aria-hidden="true"><defs><radialGradient id="gpotatoc49a5bbg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#c49a5b" stop-opacity="0.35"></stop><stop offset="100%" stop-color="#0a0d12" stop-opacity="0"></stop></radialGradient><linearGradient id="gpotatoc49a5b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0dcb8"></stop><stop offset="100%" stop-color="#c49a5b"></stop></linearGradient><radialGradient id="gpotatoc49a5bsh" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.55"></stop><stop offset="100%" stop-color="#000" stop-opacity="0"></stop></radialGradient></defs><rect width="200" height="160" fill="url(#gpotatoc49a5bbg)"></rect><ellipse cx="100" cy="132" rx="62" ry="9" fill="url(#gpotatoc49a5bsh)"></ellipse><g><path d="M48,92 C44,66 70,52 100,56 C134,60 156,72 152,98 C148,120 108,124 82,118 C62,114 50,106 48,92 Z" fill="url(#gpotatoc49a5b)"></path><circle cx="76" cy="80" r="2.5" fill="#c49a5b"></circle><circle cx="112" cy="74" r="2.5" fill="#c49a5b"></circle><circle cx="128" cy="100" r="2.5" fill="#c49a5b"></circle><circle cx="92" cy="104" r="2.5" fill="#c49a5b"></circle><ellipse cx="80" cy="62" rx="14" ry="6" fill="#fff" opacity="0.25" transform="rotate(-20 80 62)"></ellipse></g></svg>
+<rect width="800" height="720" fill="url(#vig-cat-brambory-a-hlizy)"/>
+<rect width="800" height="720" filter="url(#grain-cat-brambory-a-hlizy)" opacity="0.6"/>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="3" fill="#5f7183">ILUSTRACE · NAHRADIT FOTOGRAFIÍ</text>
+</svg>

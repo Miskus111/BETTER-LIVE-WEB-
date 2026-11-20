@@ -42,7 +42,10 @@ describe('pricing copy matches the real limits', () => {
   // the pricing table and paywall must never promise more than the code allows
   it('coach messages per day in cs and en', async () => {
     for (const lang of ['cs', 'en']) {
-      const m = (await import(`../../messages/${lang}.json`)).default as Record<string, Record<string, string>>
+      const m = (await import(`../../messages/${lang}.json`)).default as Record<
+        string,
+        Record<string, string>
+      >
       const all = JSON.stringify(m)
       expect(all).toContain(`"f_coach_free":"${coachDailyLimit('free', false)} `)
       expect(all).toContain(`"f_coach_pro":"${coachDailyLimit('pro', false)} `)

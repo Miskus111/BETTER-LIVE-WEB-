@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720">
+<defs>
+  <radialGradient id="bg-cat-mlecne-vyrobky" cx="50%" cy="38%" r="80%">
+    <stop offset="0%" stop-color="#f2d58a" stop-opacity="0.28"/>
+    <stop offset="45%" stop-color="#121a24"/>
+    <stop offset="100%" stop-color="#06080b"/>
+  </radialGradient>
+  <linearGradient id="beam-cat-mlecne-vyrobky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="slab-cat-mlecne-vyrobky" cx="50%" cy="35%" r="65%">
+    <stop offset="0%" stop-color="#2a3644"/>
+    <stop offset="70%" stop-color="#151c25"/>
+    <stop offset="100%" stop-color="#0c1117"/>
+  </radialGradient>
+  <radialGradient id="shadow-cat-mlecne-vyrobky" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#000" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig-cat-mlecne-vyrobky" cx="50%" cy="45%" r="75%">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.55"/>
+  </radialGradient>
+  <filter id="grain-cat-mlecne-vyrobky"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/></filter>
+  <filter id="soft-cat-mlecne-vyrobky" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<rect width="800" height="720" fill="url(#bg-cat-mlecne-vyrobky)"/>
+<path d="M250,0 L550,0 L700,720 L100,720 Z" fill="url(#beam-cat-mlecne-vyrobky)"/>
+<ellipse cx="400" cy="560" rx="330" ry="78" fill="url(#slab-cat-mlecne-vyrobky)"/>
+<ellipse cx="400" cy="548" rx="330" ry="70" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+<ellipse cx="400" cy="560" rx="230" ry="34" fill="url(#shadow-cat-mlecne-vyrobky)"/>
+<ellipse cx="400" cy="380" rx="220" ry="150" fill="#f2d58a" opacity="0.18" filter="url(#soft-cat-mlecne-vyrobky)"/>
+<svg x="60" y="120" width="680" height="544" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" class="" aria-hidden="true"><defs><radialGradient id="gcheesef2d58abg" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#f2d58a" stop-opacity="0.35"></stop><stop offset="100%" stop-color="#0a0d12" stop-opacity="0"></stop></radialGradient><linearGradient id="gcheesef2d58a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff3cf"></stop><stop offset="100%" stop-color="#f2d58a"></stop></linearGradient><radialGradient id="gcheesef2d58ash" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#000" stop-opacity="0.55"></stop><stop offset="100%" stop-color="#000" stop-opacity="0"></stop></radialGradient></defs><rect width="200" height="160" fill="url(#gcheesef2d58abg)"></rect><ellipse cx="100" cy="132" rx="62" ry="9" fill="url(#gcheesef2d58ash)"></ellipse><g><path d="M44,106 L148,72 L158,112 L54,128 Z" fill="#f2d58a"></path><path d="M44,106 L148,72 L136,58 Z" fill="#fff3cf"></path><circle cx="90" cy="108" r="7" fill="#d9a83a"></circle><circle cx="122" cy="100" r="5" fill="#d9a83a"></circle><circle cx="70" cy="118" r="4" fill="#d9a83a"></circle></g></svg>
+<rect width="800" height="720" fill="url(#vig-cat-mlecne-vyrobky)"/>
+<rect width="800" height="720" filter="url(#grain-cat-mlecne-vyrobky)" opacity="0.6"/>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="3" fill="#5f7183">ILUSTRACE · NAHRADIT FOTOGRAFIÍ</text>
+</svg>

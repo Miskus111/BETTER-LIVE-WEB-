@@ -163,3 +163,68 @@ export const PANEL_GROUPS: { id: PanelGroup; cs: string }[] = [
   { id: 'fat', cs: 'Mastné kyseliny a cholesterol' },
   { id: 'other', cs: 'Další látky' },
 ]
+
+/**
+ * Reference intakes for adults from Reg. (EU) 1169/2011, Annex XIII: Part A (vitamins and minerals, NRV)
+ * and Part B (energy and macronutrients, RI). Used for the "% RHP" column.
+ */
+export const EU_REFERENCE: Partial<Record<PanelKey, number>> = {
+  kcal: 2000,
+  kj: 8400,
+  fat: 70,
+  satFat: 20,
+  carbsAvailable: 260,
+  sugars: 90,
+  protein: 50,
+  salt: 6,
+  vitA: 800,
+  vitD: 5,
+  vitE: 12,
+  vitK: 75,
+  vitC: 80,
+  b1: 1.1,
+  b2: 1.4,
+  b3: 16,
+  b5: 6,
+  b6: 1.4,
+  b7: 50,
+  folate: 200,
+  b12: 2.5,
+  potassium: 2000,
+  calcium: 800,
+  phosphorus: 700,
+  magnesium: 375,
+  iron: 14,
+  zinc: 10,
+  copper: 1,
+  manganese: 2,
+  selenium: 55,
+  iodine: 150,
+}
+
+/** Annex XIII Part A only (vitamins and minerals): the 15 % "source of" rule applies to these. */
+export const NRV_KEYS = new Set<PanelKey>([
+  'vitA',
+  'vitD',
+  'vitE',
+  'vitK',
+  'vitC',
+  'b1',
+  'b2',
+  'b3',
+  'b5',
+  'b6',
+  'b7',
+  'folate',
+  'b12',
+  'potassium',
+  'calcium',
+  'phosphorus',
+  'magnesium',
+  'iron',
+  'zinc',
+  'copper',
+  'manganese',
+  'selenium',
+  'iodine',
+])

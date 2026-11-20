@@ -199,9 +199,9 @@ sprouts-mung,169957,SR Legacy,"Mung beans, mature seeds, sprouted, raw",Klíčky
 seaweed-nori,170495,SR Legacy,"Seaweed, spirulina, dried",Spirulina (sušená řasa),"Spirulina, dried",Zelenina,dried,1 lžička==3,
 seaweed-kelp,168457,SR Legacy,"Seaweed, kelp, raw",Mořská řasa kelp,Kelp,Zelenina,raw,porce 10 g==10,
 seaweed-wakame,170496,SR Legacy,"Seaweed, wakame, raw",Mořská řasa wakame,Wakame,Zelenina,raw,porce 10 g==10,
-potato,170026,SR Legacy,"Potatoes, flesh and skin, raw",Brambory,Potatoes,Brambory a hlízy,raw,1 brambora=medium,
+potato-raw,170026,SR Legacy,"Potatoes, flesh and skin, raw",Brambory,Potatoes,Brambory a hlízy,raw,1 brambora=medium,
 potato-boiled,170440,SR Legacy,"Potatoes, boiled, cooked without skin, flesh, without salt",Vařené brambory (loupané),Boiled potatoes,Brambory a hlízy,cooked,porce 200 g==200,
-potato-baked,170093,SR Legacy,"Potatoes, baked, flesh and skin, without salt",Pečené brambory ve slupce,Baked potato with skin,Brambory a hlízy,cooked,1 brambora=medium,
+potato,170093,SR Legacy,"Potatoes, baked, flesh and skin, without salt",Pečené brambory ve slupce,Baked potato with skin,Brambory a hlízy,cooked,1 brambora=medium,
 potato-mashed,168555,SR Legacy,"Potatoes, mashed, home-prepared, whole milk and butter added",Bramborová kaše (s mlékem a máslem),Mashed potatoes,Brambory a hlízy,cooked,porce 200 g==200,milk
 fries,170118,SR Legacy,"Potatoes, french fried, all types, salt not added in processing, frozen, oven-heated",Hranolky (pečené v troubě),"French fries, oven-baked",Brambory a hlízy,cooked,porce 150 g==150,
 chips,169677,SR Legacy,"Snacks, potato chips, plain, salted",Bramborové lupínky (chipsy),Potato chips,Brambory a hlízy,processed,sáček 60 g==60,
