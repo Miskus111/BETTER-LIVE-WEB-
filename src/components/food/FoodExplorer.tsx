@@ -121,11 +121,11 @@ export function FoodExplorer() {
             ))}
           </Select>
           <Select
-            label="Vysoký obsah"
+            label="Zdroj živiny (≥ 15 % RHP na 100 g)"
             value={q.highIn}
             onChange={(v) => update({ highIn: v as FoodQuery['highIn'] })}
           >
-            <option value="">Vysoký obsah: cokoli</option>
+            <option value="">Zdroj živiny: cokoli</option>
             {HIGH_IN.map((n) => (
               <option key={n.id} value={n.id}>
                 Zdroj: {n.name}
