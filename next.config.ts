@@ -22,6 +22,31 @@ const nextConfig: NextConfig = {
   },
   // metadata (title, description, og:image) always in <head> — every link-preview bot finds it
   htmlLimitedBots: /.*/,
+  poweredByHeader: false,
+  // Security headers that can't break the app. No script CSP on purpose: Next inline scripts,
+  // Supabase, Vercel and Open Food Facts would need a nonce setup first.
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          // no framing by other sites (clickjacking on login and health forms)
+          { key: 'X-Frame-Options', value: 'DENY' },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'none'; object-src 'none'; base-uri 'self'",
+          },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // the site never uses these; file pickers for photos are not affected
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 export default withNextIntl(nextConfig)
