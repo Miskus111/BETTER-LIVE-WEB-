@@ -126,13 +126,23 @@ function portionsFor(key: string, spec: string, food: FdcFood | null): Portion[]
     } else {
       const [label, kw] = spec.split('=').map((s) => s.trim())
       const words = [kw.toLowerCase(), ...(UNIT_SYNONYMS[kw.toLowerCase()] ?? [])]
-      const hit = food?.foodPortions?.find((p) => {
-        const text = `${p.amount ?? ''} ${p.measureUnit?.name ?? ''} ${p.modifier ?? ''} ${p.portionDescription ?? ''}`
-        return words.some((w) => text.toLowerCase().includes(w))
-      })
+      // "cup, dry, yields" is the cooked yield of a dry cup, not a cup of this food — never use it.
+      // (Other "yields" are fine: "ear … yields" is the edible part of one ear.)
+      // Prefer the portion whose own name is exactly the keyword ("can" over "can (12.5 oz), drained").
+      const name = (p: NonNullable<FdcFood['foodPortions']>[number]) =>
+        (p.modifier || p.portionDescription || p.measureUnit?.name || '').toLowerCase().trim()
+      const usable = (food?.foodPortions ?? []).filter((p) => !/\bdry\b.*\byields?\b/.test(name(p)))
+      const hit =
+        usable.find((p) => words.includes(name(p))) ??
+        usable.find((p) => {
+          const text = `${p.amount ?? ''} ${p.measureUnit?.name ?? ''} ${p.modifier ?? ''} ${p.portionDescription ?? ''}`
+          return words.some((w) => text.toLowerCase().includes(w))
+        })
       if (hit && hit.gramWeight > 0) {
         const per = hit.gramWeight / (hit.amount && hit.amount > 0 ? hit.amount : 1)
-        out.push({ label, grams: round(per), source: 'FDC' })
+        // "6 ústřic" = six times the FDC weight of one — unless the label already states the weight
+        const n = /\(\s*\d[^)]*\b(g|ml)\)/.test(label) ? 1 : Number(/^\s*(\d+)\s/.exec(label)?.[1] ?? 1)
+        out.push({ label, grams: round(per * n), source: 'FDC' })
       } else log.push(`portion: ${key} — no FDC portion matching "${kw}", skipped`)
     }
   }

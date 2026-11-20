@@ -42,6 +42,10 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
     if (!f.nameCs || !f.nameEn) err('missing name')
     if (!f.portions.length) err('no portions')
     for (const po of f.portions) if (!(po.grams > 0)) err(`portion "${po.label}" has no weight`)
+    // a wrong FDC match ("cup, dry, yields" 528 g, "cup (4.86 large eggs)" 243 g) shows up as a huge portion
+    for (const po of f.portions)
+      if (po.source === 'FDC' && po.grams > 400)
+        err(`portion "${po.label}" is ${po.grams} g — wrong FDC match?`)
 
     const n = f.nutrients
     for (const [k, v] of Object.entries(n)) {

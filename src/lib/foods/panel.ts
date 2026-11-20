@@ -53,6 +53,15 @@ export const PANEL = [
   { key: 'alcohol', cs: 'Alkohol', en: 'Alcohol', unit: 'g', group: 'macro', fdc: [1018] },
   { key: 'water', cs: 'Voda', en: 'Water', unit: 'g', group: 'macro', fdc: [1051] },
   { key: 'vitA', cs: 'Vitamín A (RAE)', en: 'Vitamin A (RAE)', unit: 'µg', group: 'vitamin', fdc: [1106] },
+  {
+    key: 'retinol',
+    cs: 'z toho retinol (hotový vitamín A)',
+    en: 'Retinol',
+    unit: 'µg',
+    group: 'vitamin',
+    fdc: [1105],
+    hint: 'Horní bezpečný limit EFSA (3 000 µg/den) platí jen pro retinol, ne pro beta-karoten.',
+  },
   { key: 'vitD', cs: 'Vitamín D', en: 'Vitamin D', unit: 'µg', group: 'vitamin', fdc: [1114] },
   {
     key: 'vitE',

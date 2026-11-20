@@ -2908,7 +2908,7 @@
       "water": 59.8
     },
     "sodiumMg": 416,
-    "portion": { "label": "1 konzerva", "grams": 321 },
+    "portion": { "label": "1 konzerva", "grams": 171 },
     "allergens": ["fish"],
     "vegan": false,
     "vegetarian": false,
@@ -3268,7 +3268,7 @@
       "water": 50.3
     },
     "sodiumMg": 3670,
-    "portion": { "label": "5 kusů", "grams": 4 },
+    "portion": { "label": "5 kusů", "grams": 20 },
     "allergens": ["fish"],
     "vegan": false,
     "vegetarian": false,
@@ -3471,7 +3471,7 @@
       "water": 89
     },
     "sodiumMg": 85,
-    "portion": { "label": "6 ústřic", "grams": 14 },
+    "portion": { "label": "6 ústřic", "grams": 84 },
     "allergens": ["molluscs"],
     "vegan": false,
     "vegetarian": false,
@@ -3654,7 +3654,7 @@
       "water": 76.2
     },
     "sodiumMg": 142,
-    "portion": { "label": "1 vejce L", "grams": 243 },
+    "portion": { "label": "1 vejce L", "grams": 50 },
     "allergens": ["eggs"],
     "vegan": false,
     "vegetarian": true,
@@ -5142,7 +5142,7 @@
       "water": 52.6
     },
     "sodiumMg": 314,
-    "portion": { "label": "1 lžíce", "grams": 10 },
+    "portion": { "label": "1 lžíce", "grams": 14.5 },
     "allergens": ["milk"],
     "vegan": false,
     "vegetarian": true,
@@ -8053,7 +8053,7 @@
       "water": 93.2
     },
     "sodiumMg": 2,
-    "portion": { "label": "5 výhonků", "grams": 24 },
+    "portion": { "label": "5 výhonků", "grams": 120 },
     "allergens": [],
     "vegan": true,
     "vegetarian": true,
@@ -9340,7 +9340,7 @@
       "water": 9.5
     },
     "sodiumMg": 13,
-    "portion": { "label": "4 houby", "grams": 3.75 },
+    "portion": { "label": "4 houby", "grams": 14.4 },
     "allergens": [],
     "vegan": true,
     "vegetarian": true,
@@ -11304,7 +11304,7 @@
       "water": 30.9
     },
     "sodiumMg": 2,
-    "portion": { "label": "5 kusů", "grams": 9.5 },
+    "portion": { "label": "5 kusů", "grams": 47.5 },
     "allergens": [],
     "vegan": true,
     "vegetarian": true,
@@ -11429,7 +11429,7 @@
       "water": 30
     },
     "sodiumMg": 10,
-    "portion": { "label": "2 kusy", "grams": 8.4 },
+    "portion": { "label": "2 kusy", "grams": 16.8 },
     "allergens": [],
     "vegan": true,
     "vegetarian": true,
@@ -14237,7 +14237,7 @@
       "water": 72.6
     },
     "sodiumMg": 5,
-    "portion": { "label": "1 hrnek", "grams": 528 },
+    "portion": { "label": "1 hrnek", "grams": 157 },
     "allergens": ["gluten"],
     "vegan": true,
     "vegetarian": true,

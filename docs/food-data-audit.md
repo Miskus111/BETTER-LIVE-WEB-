@@ -88,6 +88,26 @@ sacharidy, vláknina, vápník, železo, vitamin C a sodík; tolerance jen na za
 | mackerel | 175119 | SR Legacy | shoda |
 | sesame-oil | 171016 | SR Legacy | shoda |
 
+## Oprava porcí (20. 11. 2026, večer)
+
+Při doplňování varování o horních limitech se ukázalo, že párování porcí s FDC bralo první záznam, který
+obsahoval klíčové slovo. Opraveno v `scripts/foods/build.ts` (přednost má přesná shoda, „dry … yields“ se
+nepoužívá, počet kusů v popisku se násobí) a pojistka ve validaci (porce z FDC nad 400 g = chyba):
+
+| Potravina | Bylo | Nyní | Příčina |
+| --- | --- | --- | --- |
+| Vejce, 1 vejce L | 243 g | 50 g | vzal se „cup (4.86 large eggs)“ |
+| Kuskus vařený, 1 hrnek | 528 g | 157 g | „cup, dry, yields“ místo „cup, cooked“ |
+| Tuňák v oleji, 1 konzerva | 321 g | 171 g | velká konzerva 12,5 oz místo běžné |
+| Lučina, 1 lžíce | 10 g | 14,5 g | lžíce šlehaného sýra |
+| Ústřice, 6 ks | 14 g | 84 g | váha jednoho kusu bez násobení |
+| Ančovičky 5 ks / chřest 5 výhonků / sušené švestky 5 ks / fíky 2 ks / shiitake 4 ks | 1 kus | × počet | dtto |
+
+Nutriční hodnoty na 100 g se nezměnily — jen přepočty „na porci“.
+
+Panel nově obsahuje **retinol** (FDC 1105, 421 potravin), aby varování o horním limitu vitamínu A
+(EFSA 3 000 µg/den platí jen pro retinol) nevarovalo u mrkve nebo špenátu kvůli beta-karotenu.
+
 ## Známé mezery
 
 - **Jód** je v FDC téměř všude prázdný (data má jen 6 potravin) — zobrazuje se „bez údajů“, ne 0.
