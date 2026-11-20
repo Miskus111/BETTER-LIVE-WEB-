@@ -19,6 +19,7 @@ npm run dev            # http://localhost:3000
 | `npm run lint`             | ESLint                                                                       |
 | `npm run typecheck`        | `tsc --noEmit` (strict)                                                      |
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy) |
+| `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet) |
 | `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)              |
 | `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`     |
 | `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)  |

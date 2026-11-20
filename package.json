@@ -23,7 +23,8 @@
     "review:doc": "tsx --tsconfig scripts/tsconfig.json scripts/medical-review.ts",
     "check:db": "tsx --tsconfig scripts/tsconfig.json scripts/check-db.ts",
     "foods:build": "NODE_OPTIONS=--max-old-space-size=4096 tsx --tsconfig scripts/tsconfig.json scripts/foods/build.ts",
-    "foods:validate": "tsx --tsconfig scripts/tsconfig.json scripts/foods/validate.ts"
+    "foods:validate": "tsx --tsconfig scripts/tsconfig.json scripts/foods/validate.ts",
+    "check:sources": "tsx --tsconfig scripts/tsconfig.json scripts/check-sources.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.8.0",
