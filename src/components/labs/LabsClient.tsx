@@ -394,7 +394,7 @@ export function LabsClient({
           </div>
 
           {draft.rows.length > 0 && (
-            <div className="mt-4 overflow-x-auto">
+            <div className="mt-4 overflow-x-auto" tabIndex={0}>
               <table className="w-full min-w-[560px] text-[14px]">
                 <thead className="text-subtle font-mono text-[11.5px] uppercase">
                   <tr>
@@ -574,7 +574,7 @@ export function LabsClient({
           <h2 id="labs-inbody" className="text-[17px] font-medium">
             {t('bodyComp')}
           </h2>
-          <div className="mt-2 overflow-x-auto">
+          <div className="mt-2 overflow-x-auto" tabIndex={0}>
             <table className="w-full min-w-[420px] text-[14px]">
               <thead className="text-subtle font-mono text-[11.5px] uppercase">
                 <tr>

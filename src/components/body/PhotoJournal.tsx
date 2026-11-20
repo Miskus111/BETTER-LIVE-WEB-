@@ -132,6 +132,8 @@ export function PhotoJournal({
             type="file"
             accept="image/*"
             className="sr-only"
+            aria-label={t('pick')}
+            tabIndex={-1}
             data-testid="photo-input"
             onChange={(e) => {
               setMsg(null)
