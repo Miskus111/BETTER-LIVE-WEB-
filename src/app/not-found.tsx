@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { NotFoundSuggestions } from '@/components/layout/NotFoundSuggestions'
 
 export default function NotFound() {
   return (
@@ -14,6 +15,7 @@ export default function NotFound() {
           Jak funguje tělo
         </Link>
       </div>
+      <NotFoundSuggestions />
     </div>
   )
 }

@@ -473,3 +473,10 @@ test('junk food pages explain why they are not a recommended source', async ({ p
   await page.goto('/food/spinach')
   await expect(page.getByTestId('not-recommended')).toHaveCount(0)
 })
+
+test('404 suggests pages from the words in the URL', async ({ page }) => {
+  const res = await page.goto('/food/losos-uzeny')
+  expect(res?.status()).toBe(404)
+  const s = page.getByTestId('not-found-suggestions')
+  await expect(s.getByRole('link').first()).toContainText('Losos')
+})
