@@ -45,3 +45,14 @@ function toFood(l: LiteFood): Food {
 export const FOODS: Food[] = (liteData as LiteFood[]).map(toFood)
 
 export const FOOD_BY_ID = Object.fromEntries(FOODS.map((x) => [x.id, x])) as Record<string, Food>
+
+/**
+ * Renamed food ids → current id. Old ids live on in diary entries and links; next.config.ts redirects
+ * the old /food/ URLs. Never reuse an old id for a different food.
+ */
+export const FOOD_ID_ALIASES: Record<string, string> = {
+  'seaweed-nori': 'spirulina', // the record is spirulina, not nori
+  'yeast-nutritional': 'yeast-dry', // the record is dry baker's yeast, not nutritional yeast
+}
+
+export const foodById = (id: string): Food | undefined => FOOD_BY_ID[id] ?? FOOD_BY_ID[FOOD_ID_ALIASES[id]]

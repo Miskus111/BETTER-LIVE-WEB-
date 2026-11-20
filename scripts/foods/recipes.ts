@@ -24,7 +24,7 @@ export const RECIPES: RecipeDef[] = [
       { key: 'milk', grams: 300 },
       { key: 'egg', grams: 50 },
       { key: 'roll', grams: 150 },
-      { key: 'yeast-nutritional', grams: 7 },
+      { key: 'yeast-dry', grams: 7 },
       { key: 'salt', grams: 8 },
     ],
     note: 'Těsto z mouky, mléka, vejce, droždí a na kostičky nakrájených rohlíků; vařeno ve vodě.',

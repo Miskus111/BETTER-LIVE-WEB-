@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useMemo, useState, useTransition } from 'react'
 import { Plus, Trash2 } from 'lucide-react'
-import { FOODS } from '@/data/foods'
+import { FOODS, foodById } from '@/data/foods'
 import { matchesText } from '@/lib/foods/query'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { NutrientId } from '@/data/types'
@@ -90,7 +90,7 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
     const sum: Partial<Record<NutrientId, number>> = {}
     for (const r of rows) {
       const slug = r.title.split('|')[1]
-      const f = FOODS.find((x) => x.id === slug)
+      const f = foodById(slug)
       if (!f) continue
       for (const [id, v] of Object.entries(f.micros) as [NutrientId, number][])
         sum[id] = (sum[id] ?? 0) + (v * r.grams) / 100

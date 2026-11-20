@@ -60,7 +60,7 @@ sacharidy, vláknina, vápník, železo, vitamin C a sodík; tolerance jen na za
 | lemon | 167746 | SR Legacy | shoda |
 | white-beans-dry | 175202 | SR Legacy | shoda |
 | cranberries-dried | 171723 | SR Legacy | shoda |
-| seaweed-nori | 170495 | SR Legacy | shoda |
+| spirulina | 170495 | SR Legacy | shoda |
 | savoy | 170388 | SR Legacy | shoda |
 | margarine | 171038 | SR Legacy | shoda |
 | gouda | 171241 | SR Legacy | shoda |

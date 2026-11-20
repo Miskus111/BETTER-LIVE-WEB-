@@ -16230,7 +16230,7 @@
       }
     },
     {
-      "id": "seaweed-nori",
+      "id": "spirulina",
       "nameCs": "Spirulina (sušená řasa)",
       "nameEn": "Spirulina, dried",
       "synonyms": ["Spirulina, dried", "Seaweed, spirulina, dried"],
@@ -32839,7 +32839,7 @@
       }
     },
     {
-      "id": "yeast-nutritional",
+      "id": "yeast-dry",
       "nameCs": "Droždí sušené",
       "nameEn": "Dry baker's yeast",
       "synonyms": ["Dry baker's yeast", "Leavening agents, yeast, baker's, active dry"],
@@ -36528,7 +36528,7 @@
           { "id": "milk", "grams": 300 },
           { "id": "egg", "grams": 50 },
           { "id": "roll", "grams": 150 },
-          { "id": "yeast-nutritional", "grams": 7 },
+          { "id": "yeast-dry", "grams": 7 },
           { "id": "salt", "grams": 8 }
         ],
         "note": "Těsto z mouky, mléka, vejce, droždí a na kostičky nakrájených rohlíků; vařeno ve vodě."
@@ -36537,7 +36537,7 @@
         "source": "Calculated recipe",
         "sourceId": "houskovy-knedlik",
         "sourceVersion": "BLWB recipe calculation from USDA FoodData Central ingredients",
-        "sourceDescription": "flour-wheat 500 g, milk 300 g, egg 50 g, roll 150 g, yeast-nutritional 7 g, salt 8 g",
+        "sourceDescription": "flour-wheat 500 g, milk 300 g, egg 50 g, roll 150 g, yeast-dry 7 g, salt 8 g",
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": false,

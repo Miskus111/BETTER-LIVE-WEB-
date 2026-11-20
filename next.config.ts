@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       { source: '/our-standard', destination: '/jak-doporucujeme', permanent: true },
       { source: '/signup', destination: '/login?mode=signup', permanent: false },
       { source: '/register', destination: '/login?mode=signup', permanent: false },
+      // renamed food ids (see FOOD_ID_ALIASES in src/data/foods.ts)
+      { source: '/food/seaweed-nori', destination: '/food/spirulina', permanent: true },
+      { source: '/food/yeast-nutritional', destination: '/food/yeast-dry', permanent: true },
     ]
   },
   // metadata (title, description, og:image) always in <head> — every link-preview bot finds it

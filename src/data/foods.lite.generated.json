@@ -8544,7 +8544,7 @@
     "source": "USDA FoodData Central, FDC 169957, SR Legacy 2018-04"
   },
   {
-    "id": "seaweed-nori",
+    "id": "spirulina",
     "name": "Spirulina (sušená řasa)",
     "nameEn": "Spirulina, dried",
     "category": "Zelenina",
@@ -16845,7 +16845,7 @@
     "source": "USDA FoodData Central, FDC 173469, SR Legacy 2018-04"
   },
   {
-    "id": "yeast-nutritional",
+    "id": "yeast-dry",
     "name": "Droždí sušené",
     "nameEn": "Dry baker's yeast",
     "category": "Bylinky a koření",

@@ -196,7 +196,7 @@ artichoke,169205,SR Legacy,"Artichokes, (globe or french), raw",Artyčok,Articho
 fennel,169385,SR Legacy,"Fennel, bulb, raw",Fenykl,Fennel,Zelenina,raw,porce 100 g==100,
 olives,169094,SR Legacy,"Olives, ripe, canned (small-extra large)",Olivy,Olives,Zelenina,canned,5 oliv==15,
 sprouts-mung,169957,SR Legacy,"Mung beans, mature seeds, sprouted, raw",Klíčky mungo,Mung bean sprouts,Zelenina,raw,hrst 50 g==50,
-seaweed-nori,170495,SR Legacy,"Seaweed, spirulina, dried",Spirulina (sušená řasa),"Spirulina, dried",Zelenina,dried,1 lžička==3,
+spirulina,170495,SR Legacy,"Seaweed, spirulina, dried",Spirulina (sušená řasa),"Spirulina, dried",Zelenina,dried,1 lžička==3,
 seaweed-kelp,168457,SR Legacy,"Seaweed, kelp, raw",Mořská řasa kelp,Kelp,Zelenina,raw,porce 10 g==10,
 seaweed-wakame,170496,SR Legacy,"Seaweed, wakame, raw",Mořská řasa wakame,Wakame,Zelenina,raw,porce 10 g==10,
 potato-raw,170026,SR Legacy,"Potatoes, flesh and skin, raw",Brambory,Potatoes,Brambory a hlízy,raw,1 brambora=medium,
@@ -398,7 +398,7 @@ ketchup,168556,SR Legacy,Catsup,Kečup,Ketchup,Bylinky a koření,processed,1 l�
 soy-sauce,174277,SR Legacy,Soy sauce made from soy and wheat (shoyu),Sójová omáčka,Soy sauce,Bylinky a koření,fermented,1 lžíce=tbsp,"soy, gluten"
 vinegar,172237,SR Legacy,"Vinegar, distilled",Ocet kvasný,Vinegar,Bylinky a koření,fermented,1 lžíce=tbsp,
 apple-cider-vinegar,173469,SR Legacy,"Vinegar, cider",Jablečný ocet,Cider vinegar,Bylinky a koření,fermented,1 lžíce=tbsp,
-yeast-nutritional,175043,SR Legacy,"Leavening agents, yeast, baker's, active dry",Droždí sušené,Dry baker's yeast,Bylinky a koření,dried,1 lžička=tsp,
+yeast-dry,175043,SR Legacy,"Leavening agents, yeast, baker's, active dry",Droždí sušené,Dry baker's yeast,Bylinky a koření,dried,1 lžička=tsp,
 cocoa,169593,SR Legacy,"Cocoa, dry powder, unsweetened",Kakao (neslazené),"Cocoa powder, unsweetened",Sladidla a sladkosti,dried,1 lžíce=tbsp,
 water,173647,SR Legacy,"Beverages, water, tap, drinking",Voda z kohoutku,Tap water,Nápoje,raw,1 sklenice (250 ml)==250,
 coffee,171890,SR Legacy,"Beverages, coffee, brewed, prepared with tap water",Káva překapávaná,Brewed coffee,Nápoje,brewed,1 šálek=cup,
