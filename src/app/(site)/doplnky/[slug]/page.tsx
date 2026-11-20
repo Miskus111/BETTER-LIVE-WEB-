@@ -15,6 +15,7 @@ import { RelatedGuides } from '@/components/guides/RelatedGuides'
 import { Rich } from '@/components/glossary/Rich'
 import { COMPOUNDS, COMPOUND_BY_SLUG } from '@/data/compounds'
 import { CompoundArticle, compoundTitle } from '@/components/supplements/CompoundArticle'
+import { clip } from '@/lib/format'
 
 const UPDATED = '2026-11-18'
 
@@ -27,7 +28,6 @@ export function generateStaticParams() {
   ]
 }
 
-const clip = (s: string, n = 155) => (s.length <= n ? s : `${s.slice(0, s.lastIndexOf(' ', n - 1))}…`)
 
 function describe(id: NutrientId) {
   const n = NUTRIENTS[id]
@@ -42,6 +42,7 @@ function describe(id: NutrientId) {
     ]
       .filter(Boolean)
       .join(' '),
+    155,
   )
 }
 
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const c = COMPOUND_BY_SLUG[slug]
   if (c) {
     const title = compoundTitle(c)
-    const description = c.verdict.length > 155 ? `${c.verdict.slice(0, 152)}…` : c.verdict
+    const description = clip(c.verdict, 155)
     return {
       title,
       description,

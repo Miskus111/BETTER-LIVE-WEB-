@@ -6,6 +6,7 @@ import { ORGAN_BY_ID, ORGANS } from '@/data/organs'
 import type { OrganId } from '@/data/types'
 import { AnatomyExplorer } from '@/components/anatomy/AnatomyExplorer'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
+import { clip } from '@/lib/format'
 
 type Params = { params: Promise<{ id: string }> }
 
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const title = `${o.shortName} — funkce a výživa`
   return {
     title,
-    description: `${o.what} ${o.why}`.slice(0, 158),
+    description: clip(`${o.what} ${o.why}`, 158),
     alternates: { canonical: `/organ/${o.id}` },
     openGraph: { title, description: o.what, url: `/organ/${o.id}` },
   }

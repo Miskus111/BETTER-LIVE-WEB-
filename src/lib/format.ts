@@ -12,3 +12,10 @@ export const cx = (...c: (string | false | null | undefined)[]) => c.filter(Bool
 
 /** Krátký název živiny pro štítky: „Vitamín B1 (thiamin)“ → „Vit. B1“. */
 export const shortNutrient = (name: string) => name.replace(/ \(.+\)/, '').replace(/^Vitamín /, 'Vit. ')
+
+/** Shorten to at most n characters at a word boundary, with "…" (no dangling comma or dash). */
+export function clip(s: string, n: number): string {
+  if (s.length <= n) return s
+  const cut = s.lastIndexOf(' ', n - 1)
+  return `${s.slice(0, cut > 0 ? cut : n - 1).replace(/[\s,;:—–-]+$/, '')}…`
+}

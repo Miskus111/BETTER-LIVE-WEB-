@@ -1,8 +1,7 @@
 import { ImageResponse } from 'next/og'
+import { clip } from '@/lib/format'
 
 export const OG_SIZE = { width: 1200, height: 630 }
-
-const clip = (s: string, n: number) => (s.length <= n ? s : `${s.slice(0, s.lastIndexOf(' ', n - 1))}…`)
 
 /** Shared 1200×630 social card: eyebrow, big title, one-line subtitle, site mark. */
 export function ogCard({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
