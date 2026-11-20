@@ -11,6 +11,8 @@ import { affiliateUrl } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'
 import { FoodDetail } from '@/components/food/FoodDetail'
 import { FoodNutritionPanel } from '@/components/food/FoodNutritionPanel'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SITE } from '@/lib/site'
 
 type Params = { params: Promise<{ id: string }> }
 
@@ -23,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const f = FOOD_BY_ID[id]
   if (!f) return {}
   const title = `${f.name} — nutriční hodnoty na 100 g`
-  const description = `${f.name} (${f.basis}): ${f.kcal} kcal, ${String(f.macros.protein).replace('.', ',')} g bílkovin na 100 g. Vitamíny, minerály, porce a orgány, které podporují. Zdroj: USDA FoodData Central.`
+  const description = `${f.name} (${f.basis}): ${f.kcal} kcal, ${String(f.macros.protein).replace('.', ',')} g bílkovin na 100 g. Vitamíny, minerály, porce a orgány, které podporují. ${f.recipe ? 'Vypočteno z receptu (suroviny z USDA FoodData Central).' : 'Zdroj: USDA FoodData Central.'}`
   return {
     title,
     description,
@@ -46,6 +48,16 @@ export default async function FoodPage({ params }: Params) {
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-8 md:px-8">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Domů', item: SITE.url },
+            { '@type': 'ListItem', position: 2, name: food.name, item: `${SITE.url}/food/${food.id}` },
+          ],
+        }}
+      />
       <Link href="/#foods" className="link inline-flex items-center gap-1 text-[14px]">
         <ChevronLeft size={15} aria-hidden /> Průvodce potravinami
       </Link>
