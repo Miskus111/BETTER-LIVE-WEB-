@@ -8327,9 +8327,9 @@
     },
     {
       "id": "kefir",
-      "nameCs": "Kefír",
-      "nameEn": "Kefir",
-      "synonyms": ["Kefir", "Kefir, lowfat, plain, LIFEWAY"],
+      "nameCs": "Kefír nízkotučný",
+      "nameEn": "Kefir (low-fat)",
+      "synonyms": ["Kefir (low-fat)", "Kefir, lowfat, plain, LIFEWAY"],
       "category": "Fermentované",
       "subcategory": "Mléko, sýry a vejce",
       "state": "fermented",

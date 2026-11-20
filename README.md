@@ -20,6 +20,8 @@ npm run dev            # http://localhost:3000
 | `npm run typecheck`        | `tsc --noEmit` (strict)                                                      |
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy) |
 | `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)              |
+| `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`      |
+| `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)  |
 | `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                          |
 | `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                    |
 | `npm test`                 | Vitest unit tests                                                            |
@@ -83,7 +85,11 @@ src/data/
   supplements.ts   pořadí živin na /doplnky
   retailers.ts     doporučené produkty (BrainMarket, Vilgain) s formou a dávkou
   affiliate.ts     affiliate parametry z env + text upozornění
-  foods.ts         32 potravin (USDA FDC, na 100 g)
+  foods.ts         448 potravin pro klienta (lehký index z foods.lite.generated.json)
+  food-details.ts  plný panel 50 živin na 100 g (server-only, foods.generated.json)
+  food-notes.ts    ručně psané poznámky a ilustrace k vybraným potravinám
+scripts/foods/     pipeline: fdc.ts (stažení datasetů), build.ts, recipes.ts, rules.ts, validate.ts
+lib/foods/         panel.ts (živiny + RHP EU), units.ts, query.ts, variants.ts, validate.ts
   looksmaxing.ts   pilíře a mýty pro /looksmaxing
 lib/nutrition.ts   výpočty: isSource, foodsForOrgan, organsForFood, topFoodsFor …
 app/               /, /organ/[id], /food/[id], /doplnky, /jak-doporucujeme, /looksmaxing, /science
@@ -107,12 +113,19 @@ zdroje), případně produkty v `retailers.ts`, a přidejte id do `supplements.t
 **Doporučený produkt** — v `retailers.ts` přes `bm()`/`vg()` s polem `why` (forma, dávka). Doporučujte jen formy
 hodnocené „nejlepší“ nebo „dobrá“ a dávky pod horním limitem; vysoké dávky označte `note`.
 
-**Orgán / potravinu** — viz `organs.ts`, `foods.ts` (+ `npm run gen:placeholders`).
+**Orgán** — viz `organs.ts`.
+
+**Potravinu** — přidejte řádek do `scripts/foods/selection.csv`: FDC ID, dataset (`Foundation`/`SR Legacy`), přesný
+popis z FDC (build ho porovná), český a anglický název, kategorie, stav (`raw`, `cooked`…), porce
+(`popisek=klíčové slovo FDC porce` nebo `popisek==gramy` pro domácí míru) a alergeny. Syrovou a vařenou podobu
+přidejte jako dva řádky s vlastními FDC ID. Pak `npm run foods:build` (stáhne datasety do `.cache/fdc`, vypíše
+rozdíl proti současným datům, nic nemění, když se nic nezměnilo) a `npm run foods:validate`. Hodnoty nikdy
+nezapisujte ručně; neznámá hodnota je `null` → „bez údajů“. Zdroje a licence: `docs/data-sources.md`, audit:
+`docs/food-data-audit.md`.
 
 ## Před spuštěním
 
 - Registrace v affiliate programech a nastavení env proměnných.
 - Ilustrace potravin nahradit licencovanými fotografiemi (`IMAGES_TODO.md`).
-- Doplnit číselná FDC ID u potravin.
 - Odborná revize textů (nutriční terapeut) a právní stránky (GDPR, cookies, obchodní podmínky).
 - `NEXT_PUBLIC_SITE_URL` při vlastní doméně.

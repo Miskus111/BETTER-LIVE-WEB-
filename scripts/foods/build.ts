@@ -8,6 +8,7 @@
  * Every number comes from USDA FoodData Central; unknown values stay null. The output is generated:
  * never hand-edit it — curated texts live in src/data/food-notes.ts.
  */
+import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { PANEL, type Panel, type PanelKey } from '../../src/lib/foods/panel'
@@ -295,6 +296,16 @@ if (issues.length) {
 const prev = existsSync(OUT) ? (JSON.parse(readFileSync(OUT, 'utf8')) as FoodsFile) : null
 const changes = diff(prev, next)
 console.log(changes.length ? `Changes:\n  ${changes.join('\n  ')}` : 'No changes.')
-writeFileSync(OUT, JSON.stringify(next) + '\n')
-writeFileSync(OUT_LITE, JSON.stringify(next.foods.map(toLite)) + '\n')
+if (changes.length || !existsSync(OUT_LITE)) {
+  writeFileSync(OUT, JSON.stringify(next) + '\n')
+  writeFileSync(OUT_LITE, JSON.stringify(next.foods.map(toLite)) + '\n')
+  // same formatting as the committed files, so git diffs show only real changes
+  execFileSync(
+    join(process.cwd(), 'node_modules/.bin/prettier'),
+    ['--write', '--log-level=warn', OUT, OUT_LITE],
+    {
+      stdio: 'inherit',
+    },
+  )
+}
 console.log(`✓ ${next.foods.length} foods → src/data/foods.generated.json (${log.length} log entries)`)
