@@ -94,7 +94,8 @@ const scaled = (food: Food, v: number, per: Basis) => (per === 'portion' ? (v * 
 
 /**
  * Ranking score: how much of the organ's nutrient list a food covers, weighted by evidence and % reference.
- * Eligibility always uses the EU per-100 g "source of" rule; `per` only changes the ranking amount.
+ * Eligibility always uses the EU per-100 g "source of" rule. Per portion the score is only the amount the
+ * portion delivers (% reference, capped at 200 % per nutrient).
  */
 export function organScore(food: Food, organ: Organ, per: Basis = '100g') {
   return linking(organ).reduce((s, n) => {
@@ -102,7 +103,10 @@ export function organScore(food: Food, organ: Organ, per: Basis = '100g') {
     const v = scaled(food, amountOf(food, n.id)!, per)
     const pct = pctRef(n.id, v)
     const weight = n.level === 'established' ? 1 : n.level === 'plausible' ? 0.6 : 0.3
-    return s + weight * (1 + Math.min(pct ?? 30, 200) / 100)
+    const amount = Math.min(pct ?? 30, 200) / 100
+    // per 100 g, breadth counts (a base point per nutrient); per portion only what the portion delivers,
+    // or a teaspoon of paprika would outrank a plate of spinach for having many "source of" nutrients
+    return s + weight * (per === 'portion' ? amount : 1 + amount)
   }, 0)
 }
 
@@ -118,7 +122,39 @@ export function organsForFood(food: Food): OrganLink[] {
  * herbs, milk powder: usual portion under 10 g) would top every list although nobody eats 100 g of
  * marjoram, so they are left out there; per portion they rank on their real amounts.
  */
-export const rankable = (food: Food, per: Basis) => per === 'portion' || food.portion.grams >= 10
+/**
+ * Foods we never suggest as a "best source", whatever their numbers: alcohol, sugary and energy drinks
+ * (fortified with B vitamins), sugars, sweets and crisps. They stay in the database and the explorer.
+ */
+const NOT_RECOMMENDED = new Set([
+  'beer',
+  'beer-light',
+  'wine-red',
+  'wine-white',
+  'spirits',
+  'cola',
+  'energy-drink',
+  'sugar',
+  'sugar-brown',
+  'honey',
+  'maple-syrup',
+  'agave',
+  'jam',
+  'chocolate-milk',
+  'nutella',
+  'cookies',
+  'cake',
+  'gummy',
+  'ice-cream',
+  'chips',
+  'banana-chips',
+])
+
+/** Eaten by the pinch: spices, dried herbs, milk powder (usual portion under 10 g). */
+export const pinchSized = (food: Food) => food.portion.grams < 10
+
+export const rankable = (food: Food, per: Basis) =>
+  !NOT_RECOMMENDED.has(food.id) && (per === 'portion' || !pinchSized(food))
 
 /** Keep only the best-ranked preparation of each food (raw / cooked / canned salmon → one entry). */
 function onePerFood<T extends { food: Food }>(ranked: T[]): T[] {

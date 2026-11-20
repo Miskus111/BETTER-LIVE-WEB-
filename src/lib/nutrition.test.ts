@@ -23,3 +23,27 @@ describe('rankings show each food once', () => {
     expect(new Set(names).size).toBe(names.length)
   })
 })
+
+describe('what rankings recommend', () => {
+  it('never suggests alcohol, sugary or energy drinks or sweets', async () => {
+    const { ORGANS } = await import('@/data/organs')
+    const bad = new Set([
+      'energy-drink',
+      'cola',
+      'beer',
+      'spirits',
+      'wine-red',
+      'nutella',
+      'cookies',
+      'gummy',
+    ])
+    for (const o of ORGANS)
+      for (const per of ['100g', 'portion'] as const)
+        expect(foodsForOrgan(o, 12, per).filter((x) => bad.has(x.food.id))).toEqual([])
+    expect(topFoodsFor('b12', 20, 'portion').map((x) => x.food.id)).not.toContain('energy-drink')
+  })
+  it('per portion, a teaspoon of spice does not outrank real foods', () => {
+    const ids = foodsForOrgan(ORGAN_BY_ID.lungs, 12, 'portion').map((x) => x.food.id)
+    expect(ids).not.toContain('paprika-spice')
+  })
+})
