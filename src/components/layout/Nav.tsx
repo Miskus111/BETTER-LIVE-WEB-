@@ -80,11 +80,15 @@ export function Nav() {
             type="button"
             onClick={() => setSearch(true)}
             className="border-line text-muted hover:border-line-strong hover:text-fg flex h-10 items-center gap-2 rounded-full border px-3 text-[14px] transition"
-            aria-label="Hledat průvodce, doplňky, orgány a potraviny"
           >
-            <Search size={16} />
-            <span className="hidden sm:inline">Hledat</span>
-            <kbd className="border-line text-subtle hidden rounded border px-1.5 font-mono text-[12px] sm:inline">
+            <Search size={16} aria-hidden />
+            {/* accessible name starts with the visible word, so voice control ("click Hledat") works */}
+            <span className="sr-only sm:not-sr-only">Hledat</span>
+            <span className="sr-only"> průvodce, doplňky, orgány a potraviny</span>
+            <kbd
+              aria-hidden
+              className="border-line text-subtle hidden rounded border px-1.5 font-mono text-[12px] sm:inline"
+            >
               ⌘K
             </kbd>
           </button>

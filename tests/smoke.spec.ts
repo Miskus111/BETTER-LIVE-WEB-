@@ -389,3 +389,29 @@ test('barcode lookup rejects an invalid EAN without a request', async ({ page })
   await page.getByRole('button', { name: 'Vyhledat' }).click()
   await expect(page.getByTestId('barcode-lookup')).toContainText('8 nebo 13 číslic')
 })
+
+test('accessibility: no serious or critical axe violations on key pages', async ({ page }) => {
+  test.setTimeout(120_000)
+  for (const path of ['/', '/organ/heart', '/food/almonds', '/doplnky', '/jak-funguje-telo', '/pricing']) {
+    await page.goto(path)
+    await page.addScriptTag({ path: 'node_modules/axe-core/axe.min.js' })
+    const violations = await page.evaluate(async () => {
+      const r = await (
+        window as unknown as {
+          axe: {
+            run: (
+              c: unknown,
+              o: unknown,
+            ) => Promise<{ violations: { id: string; impact: string; nodes: { target: string[] }[] }[] }>
+          }
+        }
+      ).axe.run(document, {
+        runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'best-practice'],
+      })
+      return r.violations
+        .filter((v) => v.impact === 'serious' || v.impact === 'critical')
+        .map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`)
+    })
+    expect(violations, path).toEqual([])
+  }
+})
