@@ -112,12 +112,20 @@ export function organsForFood(food: Food): OrganLink[] {
     .sort((a, b) => organScore(food, b.organ) - organScore(food, a.organ))
 }
 
+/**
+ * Can this food appear in a "best sources" ranking? Per 100 g, foods eaten by the pinch (spices, dried
+ * herbs, milk powder: usual portion under 10 g) would top every list although nobody eats 100 g of
+ * marjoram, so they are left out there; per portion they rank on their real amounts.
+ */
+export const rankable = (food: Food, per: Basis) => per === 'portion' || food.portion.grams >= 10
+
 export function foodsForOrgan(
   organ: Organ,
   k = 12,
   per: Basis = '100g',
 ): { food: Food; via: NutrientId[] }[] {
-  return FOODS.map((food) => ({ food, via: linkVia(food, organ) }))
+  return FOODS.filter((food) => rankable(food, per))
+    .map((food) => ({ food, via: linkVia(food, organ) }))
     .filter((x) => x.via.length > 0)
     .sort((a, b) => organScore(b.food, organ, per) - organScore(a.food, organ, per))
     .slice(0, k)
@@ -126,7 +134,7 @@ export function foodsForOrgan(
 /** Best sources of a nutrient; `v` is per 100 g or per the default portion depending on `per`. */
 export function topFoodsFor(id: NutrientId, k = 5, per: Basis = '100g'): { food: Food; v: number }[] {
   const qualitative = !!NUTRIENTS[id].qualitative
-  return FOODS.filter((f) => isSource(f, id))
+  return FOODS.filter((f) => isSource(f, id) && rankable(f, per))
     .map((food) => ({ food, v: scaled(food, amountOf(food, id)!, per) }))
     .sort((a, b) => (qualitative ? 0 : b.v - a.v))
     .slice(0, k)
