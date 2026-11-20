@@ -8,6 +8,7 @@ import { OrganLink } from '@/components/ui/OrganLink'
 import { organsForFood, pctRef } from '@/lib/nutrition'
 import { shortNutrient } from '@/lib/format'
 import { ALLERGEN_CS, portionText } from '@/lib/foods/query'
+import { foodSummary } from '@/lib/foods/summary'
 import { MacroSplitBar } from './MacroSplitBar'
 
 /** Full food detail — used in the homepage explorer and on /food/[id]. */
@@ -25,6 +26,7 @@ export function FoodDetail({
     .filter(([id]) => NUTRIENTS[id])
     .sort((a, b) => (pctRef(b[0], b[1]) ?? 0) - (pctRef(a[0], a[1]) ?? 0))
   const organs = organsForFood(food)
+  const summary = foodSummary(food)
   // UK FSA 'high' salt: more than 1.5 g per 100 g
   const salty = food.sodiumMg !== undefined && (food.sodiumMg * 2.5) / 1000 > 1.5
 
@@ -71,6 +73,26 @@ export function FoodDetail({
       </dl>
 
       <MacroSplitBar macros={food.macros} />
+
+      {summary.length > 0 && (
+        <section aria-labelledby={`summary-${food.id}`} data-testid="food-summary">
+          <h2 id={`summary-${food.id}`} className="eyebrow mb-2">
+            V kostce
+          </h2>
+          <ul className="grid gap-1.5 text-[14.5px] leading-snug">
+            {summary.map((line) => (
+              <li key={line} className="flex gap-2">
+                <span className="bg-cyan mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full" aria-hidden />
+                {line}
+              </li>
+            ))}
+          </ul>
+          <p className="text-subtle mt-2 text-[12px]">
+            Vypočteno z hodnot na {food.liquid ? '100 ml' : '100 g'} podle prahů výživových tvrzení EU
+            (nařízení 1924/2006).
+          </p>
+        </section>
+      )}
 
       {food.allergens.length > 0 && (
         <p className="text-[13.5px]" data-testid="food-allergens">
