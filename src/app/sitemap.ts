@@ -8,9 +8,13 @@ import { BODY_GUIDES } from '@/data/body-guides'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const u = (p: string) => `${SITE.url}${p}`
+  // when each group of pages last changed in substance — bump it with real content changes, so search
+  // engines re-crawl what changed (one date for everything teaches them to ignore lastmod)
   const lastModified = new Date('2026-11-18')
+  const foodsUpdated = new Date('2026-11-20') // V kostce, portion fixes, upper-limit warnings, share images
+  const organsUpdated = new Date('2026-11-20') // rankings without spices, share images
   return [
-    { url: u('/'), priority: 1 },
+    { url: u('/'), priority: 1, lastModified: foodsUpdated },
     { url: u('/doplnky'), priority: 0.8 },
     { url: u('/jak-funguje-telo'), priority: 0.9 },
     { url: u('/jak-funguje-telo/kviz'), priority: 0.7 },
@@ -25,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/terms'), priority: 0.2 },
     ...SUPPLEMENT_NUTRIENTS.map((id) => ({ url: u(supplementHref(id)), priority: 0.8 })),
     ...COMPOUNDS.map((c) => ({ url: u(`/doplnky/${c.slug}`), priority: 0.8 })),
-    ...ORGANS.map((o) => ({ url: u(`/organ/${o.id}`), priority: 0.8 })),
-    ...FOODS.map((f) => ({ url: u(`/food/${f.id}`), priority: 0.6 })),
+    ...ORGANS.map((o) => ({ url: u(`/organ/${o.id}`), priority: 0.8, lastModified: organsUpdated })),
+    ...FOODS.map((f) => ({ url: u(`/food/${f.id}`), priority: 0.6, lastModified: foodsUpdated })),
   ].map((e) => ({ lastModified, ...e }))
 }
