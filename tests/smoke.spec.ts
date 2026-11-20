@@ -455,3 +455,11 @@ test('search with no results offers next steps and stays accessible', async ({ p
   await page.getByRole('button', { name: /čárového kódu/ }).click()
   await expect(page.getByTestId('barcode-lookup')).toBeVisible()
 })
+
+test('food page compares raw and cooked forms per 100 g', async ({ page }) => {
+  await page.goto('/food/spinach')
+  const block = page.getByTestId('raw-cooked')
+  await expect(block.getByRole('heading', { name: 'Jak se mění úpravou' })).toBeVisible()
+  await expect(block.getByRole('row', { name: /Vitamín C/ })).toContainText('%')
+  await expect(block.getByRole('link', { name: /upravené podoby/ })).toHaveAttribute('href', '/food/spinach-cooked')
+})

@@ -5,12 +5,13 @@ import { AlertTriangle, ArrowUpRight, ChevronLeft, Database } from 'lucide-react
 import { FOOD_BY_ID, FOODS } from '@/data/foods'
 import { FOOD_DETAILS } from '@/data/food-details'
 import { STATE_CS } from '@/lib/foods/categories'
-import { variantsOf } from '@/lib/foods/variants'
+import { rawCookedPair, variantsOf } from '@/lib/foods/variants'
 import { shopLinksForFood } from '@/lib/foods/shop'
 import { affiliateUrl } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'
 import { FoodDetail } from '@/components/food/FoodDetail'
 import { FoodNutritionPanel } from '@/components/food/FoodNutritionPanel'
+import { RawCookedCompare } from '@/components/food/RawCookedCompare'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { RelatedGuides } from '@/components/guides/RelatedGuides'
 import { guidesForFood } from '@/lib/foods/guides'
@@ -48,6 +49,7 @@ export default async function FoodPage({ params }: Params) {
   const prev = FOODS[(i - 1 + FOODS.length) % FOODS.length]
   const next = FOODS[(i + 1) % FOODS.length]
   const variants = variantsOf(food, FOODS)
+  const pair = rawCookedPair(food, FOODS)
   const shop = shopLinksForFood(food)
   const p = details.provenance
   const limits = upperLimitHits(details.nutrients, food.portion.grams)
@@ -115,6 +117,8 @@ export default async function FoodPage({ params }: Params) {
       <div className="mt-6">
         <FoodNutritionPanel food={details} />
       </div>
+
+      {pair && <RawCookedCompare before={pair.before} after={pair.after} current={food.id} />}
 
       {details.recipe && (
         <section className="card mt-6 p-5" aria-labelledby="recipe">

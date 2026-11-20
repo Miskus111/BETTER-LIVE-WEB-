@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { FOODS, FOOD_BY_ID } from '@/data/foods'
 import { EMPTY_QUERY, matchesText, measureOf, portionText, queryFoods } from './query'
+import { rawCookedPair } from './variants'
 
 describe('food queries', () => {
   it('search ignores Czech diacritics and matches English names', () => {
@@ -55,5 +56,14 @@ describe('sorting per 100 g', () => {
     expect(top).not.toContain('marjoram')
     const herbs = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'calcium', category: 'Bylinky a koření' })
     expect(herbs.map((f) => f.id)).toContain('marjoram') // still listed, just not on top
+  })
+})
+
+describe('rawCookedPair', () => {
+  it('pairs raw/dry with cooked forms from either page', () => {
+    const s = rawCookedPair(FOOD_BY_ID['spinach'], FOODS)
+    expect([s?.before.id, s?.after.id]).toEqual(['spinach', 'spinach-cooked'])
+    expect(rawCookedPair(FOOD_BY_ID['spinach-cooked'], FOODS)?.before.id).toBe('spinach')
+    expect(rawCookedPair(FOOD_BY_ID['lentils-dry'], FOODS)?.after.id).toBe('lentils')
   })
 })
