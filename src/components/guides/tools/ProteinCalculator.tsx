@@ -2,29 +2,18 @@
 
 import { useState } from 'react'
 import { Minus, Plus, RotateCcw } from 'lucide-react'
-import { FOOD_BY_ID } from '@/data/foods'
 import { cx } from '@/lib/format'
+import { PORTIONS } from './protein-portions'
 
 /**
  * Daily protein: EFSA population reference intake 0.83 g/kg (healthy adults) and ~1.6 g/kg for
  * people strength training (Morton et al. 2018 meta-analysis — little extra gain above that).
- * Portions use the site's USDA FoodData Central values per 100 g.
+ * Portions use the site's USDA FoodData Central values per 100 g, passed in by the server wrapper
+ * (ProteinCalculatorTool) so the food database stays out of the client bundle.
  */
-const PORTIONS: { food: string; label: string; grams: number }[] = [
-  { food: 'chicken', label: 'Kuřecí prsa', grams: 150 },
-  { food: 'salmon', label: 'Losos', grams: 150 },
-  { food: 'egg', label: 'Vejce (2 ks)', grams: 100 },
-  { food: 'greek-yogurt', label: 'Řecký jogurt', grams: 200 },
-  { food: 'lentils', label: 'Čočka vařená', grams: 200 },
-  { food: 'oats', label: 'Ovesné vločky', grams: 60 },
-  { food: 'emmental', label: 'Ementál', grams: 30 },
-  { food: 'almonds', label: 'Mandle', grams: 30 },
-]
-
-const protein = (p: (typeof PORTIONS)[number]) =>
-  Math.round(((FOOD_BY_ID[p.food]?.macros.protein ?? 0) * p.grams) / 100)
-
-export function ProteinCalculator() {
+export function ProteinCalculator({ proteinPer100g }: { proteinPer100g: Record<string, number> }) {
+  const protein = (p: (typeof PORTIONS)[number]) =>
+    Math.round(((proteinPer100g[p.food] ?? 0) * p.grams) / 100)
   const [kg, setKg] = useState(70)
   const [count, setCount] = useState<Record<string, number>>({ 'greek-yogurt': 1, chicken: 1, egg: 1 })
   const health = Math.round(kg * 0.83)

@@ -35,11 +35,12 @@ const PAGES = [
   ['login', '/login'],
 ] as const
 
+// one test per page and width: a slow page can't eat the others' time budget, and a failure names the page
 for (const width of WIDTHS) {
-  test(`screens @${width}px`, async ({ page }) => {
-    test.setTimeout(120_000)
-    await page.setViewportSize({ width, height: width < 768 ? 844 : width < 1440 ? 1024 : 900 })
-    for (const [name, path] of PAGES) {
+  for (const [name, path] of PAGES) {
+    test(`screen ${name} @${width}px`, async ({ page }) => {
+      test.setTimeout(90_000) // full-page shots of long pages are slow on a busy machine
+      await page.setViewportSize({ width, height: width < 768 ? 844 : width < 1440 ? 1024 : 900 })
       await page.goto(path)
       await page.waitForLoadState('networkidle')
       await page.waitForTimeout(900)
@@ -51,6 +52,6 @@ for (const width of WIDTHS) {
       })
       if (name === 'home')
         await page.screenshot({ path: `test-results/screens/${width}-home-full.png`, fullPage: true })
-    }
-  })
+    })
+  }
 }
