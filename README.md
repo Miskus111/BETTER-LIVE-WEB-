@@ -20,7 +20,7 @@ npm run dev            # http://localhost:3000
 | `npm run typecheck`        | `tsc --noEmit` (strict)                                                      |
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy) |
 | `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)              |
-| `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`      |
+| `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`     |
 | `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)  |
 | `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                          |
 | `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                    |
@@ -121,11 +121,30 @@ popis z FDC (build ho porovná), český a anglický název, kategorie, stav (`r
 přidejte jako dva řádky s vlastními FDC ID. Pak `npm run foods:build` (stáhne datasety do `.cache/fdc`, vypíše
 rozdíl proti současným datům, nic nemění, když se nic nezměnilo) a `npm run foods:validate`. Hodnoty nikdy
 nezapisujte ručně; neznámá hodnota je `null` → „bez údajů“. Zdroje a licence: `docs/data-sources.md`, audit:
-`docs/food-data-audit.md`.
+`docs/food-data-audit.md`. Porce z FDC: přesný název míry má přednost, „dry … yields“ se nepoužívá, počet
+v popisku („6 ústřic“) se násobí; validace odmítne porci z FDC nad 400 g.
+
+**Průvodce nebo stránku doplňku** — přidejte datum prvního zveřejnění do `src/data/published.ts` (jinak selže test;
+jde do `datePublished` ve strukturovaných datech). Slova, kterými lidé téma hledají a průvodce je nemusí obsahovat
+(„nespavost“ → Spánek), patří do `GUIDE_ALIASES` v `src/lib/search.ts`. Po větší změně obsahu posuňte datum
+skupiny v `src/app/sitemap.ts`.
+
+**Texty o živinách** — pojmy „zdroj“ / „vysoký obsah“ používejte jen podle prahů EU (nařízení 1924/2006): zdroj
+≥ 15 % RHP na 100 g, vysoký obsah ≥ 30 % (u nápojů polovina). Shrnutí „V kostce“ (`src/lib/foods/summary.ts`) i
+varování o horních limitech EFSA (`src/lib/foods/upper-limits.ts`) se počítají z dat, ne ručně.
+
+## Bezpečnost
+
+- Hlavičky v `next.config.ts`: nosniff, zákaz vkládání do rámců (`frame-ancestors 'none'`), referrer a permissions
+  policy. Plná CSP pro skripty zatím není — vyžadovala by nonce pro Next, Supabase, Vercel a Open Food Facts.
+- Supabase: po změně schématu spusťte poradce (Dashboard → Advisors). Migrace jsou v `supabase/migrations/`
+  a spouštějí se ručně (SQL editor nebo `supabase db push`).
+- E2E test spouští axe (přístupnost) na hlavních stránkách, obrazovkách aplikace a v prázdném vyhledávání.
 
 ## Před spuštěním
 
 - Registrace v affiliate programech a nastavení env proměnných.
 - Ilustrace potravin nahradit licencovanými fotografiemi (`IMAGES_TODO.md`).
+- Spustit migrace `20261119000000_ai_usage_atomic.sql` a `20261121000000_advisor_hardening.sql`; v Supabase zapnout ochranu proti uniklým heslům.
 - Odborná revize textů (nutriční terapeut) a právní stránky (GDPR, cookies, obchodní podmínky).
 - `NEXT_PUBLIC_SITE_URL` při vlastní doméně.
