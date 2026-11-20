@@ -1,7 +1,7 @@
 import { NUTRIENTS } from '@/data/nutrients'
 import type { Food, NutrientId } from '@/data/types'
 import { norm } from '@/lib/guide-search'
-import { amountOf, isSource } from '@/lib/nutrition'
+import { amountOf, isSource, rankable } from '@/lib/nutrition'
 
 /** Sortable measures: energy, macros and every nutrient with an amount per 100 g. */
 export type Measure = 'kcal' | 'protein' | 'fat' | 'carbs' | 'fiber' | NutrientId
@@ -96,7 +96,9 @@ export function queryFoods(foods: Food[], q: FoodQuery): Food[] {
     if (v === undefined) return -1 // "no data" sorts last
     return q.per === 'portion' ? perPortion(f, v) : v
   }
-  return [...out].sort((a, b) => val(b) - val(a))
+  // per 100 g, foods eaten by the pinch (spices, dried herbs) go after real foods, still visible
+  const last = (f: Food) => Number(!rankable(f, q.per === 'portion' ? 'portion' : '100g'))
+  return [...out].sort((a, b) => last(a) - last(b) || val(b) - val(a))
 }
 
 /** "porce 125 g" already states the weight; "1 vejce L" needs it added. */

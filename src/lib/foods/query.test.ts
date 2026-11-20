@@ -17,8 +17,14 @@ describe('food queries', () => {
   })
   it('sorts by a nutrient per 100 g and per portion, "no data" last', () => {
     const per100 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'vitC' })
-    const vals = per100.map((f) => measureOf(f, 'vitC') ?? -1)
-    expect(vals).toEqual([...vals].sort((a, b) => b - a))
+    // sorted within each group: real foods first, then foods eaten by the pinch
+    for (const group of [
+      per100.filter((f) => f.portion.grams >= 10),
+      per100.filter((f) => f.portion.grams < 10),
+    ]) {
+      const vals = group.map((f) => measureOf(f, 'vitC') ?? -1)
+      expect(vals).toEqual([...vals].sort((a, b) => b - a))
+    }
     const protein100 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'protein' })
     const proteinPortion = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'protein', per: 'portion' })
     // dried powders lead per 100 g; a real meal portion leads per portion
@@ -38,5 +44,16 @@ describe('portionText', () => {
     expect(portionText({ label: '1 sklenice (250 ml)', grams: 258 })).toBe('1 sklenice (250 ml)')
     expect(portionText({ label: '1 lžíce', grams: 12 })).toBe('1 lžíce (12 g)')
     expect(portionText({ label: '1 vejce L', grams: 60 })).toBe('1 vejce L (60 g)')
+  })
+})
+
+describe('sorting per 100 g', () => {
+  it('puts foods eaten by the pinch after real foods', () => {
+    const top = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'calcium' })
+      .slice(0, 5)
+      .map((f) => f.id)
+    expect(top).not.toContain('marjoram')
+    const herbs = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'calcium', category: 'Bylinky a koření' })
+    expect(herbs.map((f) => f.id)).toContain('marjoram') // still listed, just not on top
   })
 })
