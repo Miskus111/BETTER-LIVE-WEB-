@@ -17,5 +17,9 @@ export const shortNutrient = (name: string) => name.replace(/ \(.+\)/, '').repla
 export function clip(s: string, n: number): string {
   if (s.length <= n) return s
   const cut = s.lastIndexOf(' ', n - 1)
-  return `${s.slice(0, cut > 0 ? cut : n - 1).replace(/[\s,;:—–-]+$/, '')}…`
+  let out = s.slice(0, cut > 0 ? cut : n - 1)
+  // don't leave a parenthesis open: "energie (závislou na…" → "energie…"
+  const open = out.lastIndexOf('(')
+  if (open > out.lastIndexOf(')') && open > n / 2) out = out.slice(0, open)
+  return `${out.replace(/[\s,;:—–-]+$/, '')}…`
 }
