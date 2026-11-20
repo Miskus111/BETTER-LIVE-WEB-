@@ -22,6 +22,30 @@ export interface SearchItem {
   aliases?: string
 }
 
+/** Words people type for a topic that the guide itself may not use (searched without diacritics). */
+const GUIDE_ALIASES: Partial<Record<string, string>> = {
+  spanek: 'nespavost insomnie spat usinani chrapani',
+  'cukr-a-inzulin': 'cukrovka diabetes glykemie inzulinova rezistence prediabetes',
+  'hubnuti-a-energie': 'dieta kalorie zhubnout nadvaha obezita',
+  'posilovani-pro-zacatecniky': 'posilovna fitko cviceni trenink zacatecnik',
+  'pohyb-a-sezeni': 'chuze kroky sezeni pohyb cviceni beh',
+  dlouhovekost: 'kondice vo2max beh vytrvalost stari',
+  'srdce-a-tlak': 'hypertenze vysoky tlak infarkt',
+  'nalada-a-uzkost': 'deprese uzkost panika psychika',
+  'bolest-hlavy': 'migrena hlava',
+  'akne-a-plet': 'pupinky plet',
+  'streva-a-mikrobiom': 'probiotika mikrobiom nadymani',
+  'traveni-a-zacpa': 'prujem nadymani zacpa',
+  'zuby-a-usta': 'zuby kaz dasne',
+  'alergie-a-pyl': 'senna ryma alergie',
+  'prerusovany-pust': 'pust 16 8 intermittent fasting',
+  'energie-a-kofein': 'kava kofein energy drink',
+  kosti: 'osteoporoza zlomeniny',
+  'stitna-zlaza': 'stitna zlaza hypotyreoza hashimoto',
+  testosteron: 'testosteron libido',
+  'menstruacni-cyklus': 'menstruace perioda pms',
+}
+
 /** Everyday and English names for nutrients ("protein" → Bílkoviny). */
 const NUTRIENT_ALIASES: Partial<Record<string, string>> = {
   protein: 'protein proteiny',
@@ -117,6 +141,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     subtitle: g.title,
     href: `/jak-funguje-telo/${g.slug}`,
     text: `${g.title} ${g.hook} ${g.tldr.join(' ')} ${g.myths.map((m) => m.myth).join(' ')}`,
+    aliases: GUIDE_ALIASES[g.slug],
   })),
   ...COMPOUNDS.map((c) => ({
     kind: 'Doplněk' as const,

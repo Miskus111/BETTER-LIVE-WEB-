@@ -12,6 +12,11 @@ describe('search aliases', () => {
   it('finds foods by their English name', () => {
     expect(first('chicken')).toMatch(/^Kuřecí/)
   })
+  it('finds guides by the words people use', () => {
+    expect(first('nespavost')).toBe('Spánek')
+    expect(first('cukrovka')).toBe('Cukr a inzulin')
+    expect(first('posilovna')).toBe('Posilování od nuly')
+  })
   it('still prefers Czech title matches', () => {
     expect(first('losos')).toMatch(/^Losos/)
   })
