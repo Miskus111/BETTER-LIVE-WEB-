@@ -42,7 +42,8 @@ for (const width of WIDTHS) {
       test.setTimeout(90_000) // full-page shots of long pages are slow on a busy machine
       await page.setViewportSize({ width, height: width < 768 ? 844 : width < 1440 ? 1024 : 900 })
       await page.goto(path)
-      await page.waitForLoadState('networkidle')
+      // app screens prefetch protected routes; logged out, those streams never close, so cap the wait
+      await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})
       await page.waitForTimeout(900)
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
       expect(overflow, `${path} overflows horizontally at ${width}px`).toBeLessThanOrEqual(0)
