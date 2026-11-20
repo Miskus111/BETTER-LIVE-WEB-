@@ -18,6 +18,31 @@ export interface SearchItem {
   subtitle: string
   href: string
   text: string
+  /** other names people type (English, everyday words) — scored like the title */
+  aliases?: string
+}
+
+/** Everyday and English names for nutrients ("protein" → Bílkoviny). */
+const NUTRIENT_ALIASES: Partial<Record<string, string>> = {
+  protein: 'protein proteiny',
+  fiber: 'fiber fibre',
+  vitA: 'retinol vitamin a',
+  vitC: 'vitamin c kyselina askorbova',
+  vitD: 'vitamin d vitamin d3 cholekalciferol',
+  vitE: 'vitamin e tokoferol',
+  vitK: 'vitamin k',
+  b1: 'thiamin b1',
+  b6: 'pyridoxin b6',
+  b12: 'kobalamin b12 vitamin b12',
+  folate: 'kyselina listova folic acid b9',
+  calcium: 'calcium kalcium',
+  magnesium: 'magnesium magnezium',
+  iron: 'iron',
+  zinc: 'zinc',
+  iodine: 'iodine',
+  potassium: 'potassium kalium',
+  omega3: 'omega 3 rybi tuk fish oil epa dha',
+  ala: 'omega 3 ala lnene seminko alpha linolenic',
 }
 
 export const SEARCH_INDEX: SearchItem[] = [
@@ -117,6 +142,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     // nutrients with a supplement guide open that page; the rest jump to the nutrient index
     href: SUPPLEMENT_SLUGS[n.id] ? `/doplnky/${SUPPLEMENT_SLUGS[n.id]}` : `/#nutrient-${n.id}`,
     text: `${n.name} ${n.kind} ${n.blurb}`,
+    aliases: NUTRIENT_ALIASES[n.id],
   })),
   ...FOODS.map((f) => ({
     kind: 'Potravina' as const,
@@ -125,6 +151,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     subtitle: `${f.category} · ${f.kcal} kcal / 100 g`,
     href: `/food/${f.id}`,
     text: `${f.name} ${f.category} ${f.basis}`,
+    aliases: f.nameEn,
   })),
 ]
 
@@ -134,10 +161,20 @@ export function search(query: string, limit = 24): SearchItem[] {
   if (!tokens.length) return []
   return SEARCH_INDEX.map((item) => {
     const title = norm(item.title)
-    const all = `${title} ${norm(item.text)}`
+    const aliases = norm(item.aliases ?? '')
+    const all = `${title} ${aliases} ${norm(item.text)}`
     if (!tokens.every((t) => all.includes(t))) return null
+    // a whole-word alias hit ("protein" → Bílkoviny) counts like a title prefix
+    const aliasWords = aliases.split(/\s+/)
     const score = tokens.reduce(
-      (s, t) => s + (title.startsWith(t) ? 6 : title.includes(t) ? 3 : 1) + (item.kind === 'Orgán' ? 0.5 : 0),
+      (s, t) =>
+        s +
+        (title.startsWith(t) || aliasWords.includes(t)
+          ? 6
+          : title.includes(t) || aliases.includes(t)
+            ? 3
+            : 1) +
+        (item.kind === 'Orgán' ? 0.5 : 0),
       0,
     )
     return { item, score }
