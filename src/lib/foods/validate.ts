@@ -98,6 +98,22 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
     if (/\b(bio|organic|organick)/i.test(`${f.nameCs} ${f.nameEn}`))
       err('organic claim without certification (store rules)')
     if (f.liveCultures && f.state !== 'fermented') err('live cultures on a non-fermented food')
+    // parts can't exceed their whole (tolerance for analytical rounding: dairy sugars are measured,
+    // carbohydrate is "by difference", so sugars may sit slightly above it)
+    if (n.sugars !== null && n.carbsTotal !== null && n.sugars > n.carbsTotal + 1)
+      err(`sugars ${n.sugars} g > carbohydrate ${n.carbsTotal} g`)
+    if (n.fiber !== null && n.carbsTotal !== null && n.fiber > n.carbsTotal + 0.5)
+      err(`fibre ${n.fiber} g > carbohydrate ${n.carbsTotal} g`)
+    if (n.satFat !== null && n.fat !== null && n.satFat > n.fat + 0.3)
+      err(`saturated fat ${n.satFat} g > fat ${n.fat} g`)
+    if (n.fat !== null && n.satFat !== null && n.monoFat !== null && n.polyFat !== null) {
+      const fa = n.satFat + n.monoFat + n.polyFat
+      if (fa > n.fat * 1.1 + 0.5) err(`fatty acids ${fa.toFixed(1)} g > fat ${n.fat} g`)
+    }
+    if (n.water !== null && n.protein !== null && n.fat !== null && n.carbsTotal !== null) {
+      const mass = n.water + n.protein + n.fat + n.carbsTotal
+      if (mass > 105) err(`water + protein + fat + carbohydrate = ${mass.toFixed(0)} g per 100 g`)
+    }
     // a fatty food can't be all saturated with no mono/poly at all (FDC 168000 shipped exactly that)
     if ((n.fat ?? 0) >= 5 && n.satFat !== null && n.monoFat === 0 && n.polyFat === 0)
       err('fatty-acid breakdown has 0 g mono and poly — suspect source values (see SUSPECT_VALUES)')
