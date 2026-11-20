@@ -22,6 +22,7 @@ import { cx } from '@/lib/format'
 import { FoodDetail } from './FoodDetail'
 import { FoodCompare } from './FoodCompare'
 import { BarcodeLookup } from './BarcodeLookup'
+import { scrollBehavior } from '@/lib/motion'
 
 const PAGE = 24
 const STATES = [...new Set(FOODS.map((f) => f.state))].sort((a, b) =>
@@ -54,7 +55,9 @@ export function FoodExplorer() {
   const pick = (id: string) => {
     setSelectedId(id)
     if (window.matchMedia('(max-width: 1023px)').matches)
-      requestAnimationFrame(() => detail.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+      requestAnimationFrame(() =>
+        detail.current?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }),
+      )
   }
   const toggleCompare = (id: string) =>
     setCompare((c) => (c.includes(id) ? c.filter((x) => x !== id) : c.length < 3 ? [...c, id] : c))

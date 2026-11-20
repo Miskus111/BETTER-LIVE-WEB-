@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client'
 import { photoPath, preparePhoto } from '@/lib/body/photo'
 import { deletePhoto, savePhoto } from '@/app/(app)/body/photos/actions'
 import { cx } from '@/lib/format'
+import { scrollBehavior } from '@/lib/motion'
 
 export type Pose = 'front' | 'side' | 'back' | 'other'
 export interface PhotoItem {
@@ -64,7 +65,8 @@ export function PhotoJournal({
 
   // bring the comparison into view as soon as the second photo is picked
   useEffect(() => {
-    if (pair) document.getElementById('compare-title')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (pair)
+      document.getElementById('compare-title')?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
   }, [pair])
 
   const togglePick = (id: string) =>

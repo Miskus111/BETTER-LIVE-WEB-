@@ -13,6 +13,7 @@ import { BodyCanvas } from './BodyCanvas'
 import type { Layers } from './BodySvg'
 import { ExplorerControls } from './ExplorerControls'
 import { PanelIntro } from './PanelIntro'
+import { scrollBehavior } from '@/lib/motion'
 
 interface Props {
   initial?: OrganId | null
@@ -46,7 +47,7 @@ export function AnatomyExplorer({ initial = null, urlMode = 'query', mobilePanel
       setSheetExpanded(false)
       // mobile: bring the body frame to the top so the organ is visible above the bottom sheet
       if (id && mobilePanel === 'sheet' && !window.matchMedia('(min-width: 1024px)').matches)
-        frameRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        frameRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
       if (id) {
         const layer = ORGAN_BY_ID[id].layer
         if (layer === 'skeleton' || layer === 'muscles' || layer === 'organs')

@@ -23,6 +23,7 @@ import { BasisToggle } from '@/components/food/BasisToggle'
 import { cx } from '@/lib/format'
 import { supplementHref } from '@/data/supplements'
 import { portionText } from '@/lib/foods/query'
+import { scrollBehavior } from '@/lib/motion'
 
 const KINDS: (NutrientKind | 'Vše')[] = [
   'Vše',
@@ -45,7 +46,7 @@ export function NutrientIndex() {
       if (m && m[1] in NUTRIENTS) {
         setKind('Vše')
         setActive(m[1] as NutrientId)
-        document.getElementById('nutrients')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        document.getElementById('nutrients')?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' })
       }
     }
     sync()
