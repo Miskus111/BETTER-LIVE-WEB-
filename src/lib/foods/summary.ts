@@ -12,7 +12,8 @@ const nameOf = (id: NutrientId) => lower(NUTRIENTS[id].name.replace(/ \(.+\)/, '
  * EU nutrition claims (Reg. (EC) 1924/2006, Annex): low energy ≤ 40 kcal/100 g (20 kcal/100 ml),
  * source of / high protein ≥ 12 / 20 % of energy, source of / high fibre ≥ 3 / 6 g/100 g, low fat
  * ≤ 3 g/100 g (1,5 g/100 ml), source of / high in a vitamin or mineral ≥ 15 / 30 % NRV per 100 g
- * (half for drinks). Nothing here is written by hand, so it can't overstate a food.
+ * (half for drinks). Downsides use the UK FSA "high" thresholds: sugars > 22,5 g, fat > 17,5 g, saturated fat > 5 g,
+ * salt > 1,5 g per 100 g (half for drinks). Nothing here is written by hand, so it can't overstate a food.
  */
 export function foodSummary(f: Food): string[] {
   const out: string[] = []
@@ -23,6 +24,18 @@ export function foodSummary(f: Food): string[] {
     out.push(
       `Energeticky hutné: ${num(f.kcal, 0)} kcal na ${per} — záleží hlavně na velikosti porce (${portionText(f.portion)} ≈ ${num((f.kcal * f.portion.grams) / 100, 0)} kcal).`,
     )
+
+  // the other side, per the UK FSA front-of-pack "high" thresholds (per 100 g; half for drinks)
+  const half = f.liquid ? 0.5 : 1
+  if (f.sugars !== undefined && f.sugars > 22.5 * half)
+    out.push(
+      `Vysoký obsah cukrů: ${num(f.sugars)} g na ${per}${f.category === 'Ovoce' ? ' (přirozené cukry z ovoce)' : ''}.`,
+    )
+  if (f.macros.fat > 17.5 * half) out.push(`Vysoký obsah tuku: ${num(f.macros.fat)} g na ${per}.`)
+  if (f.satFat !== undefined && f.satFat > 5 * half)
+    out.push(`Vysoký obsah nasycených tuků: ${num(f.satFat)} g na ${per}.`)
+  if (f.sodiumMg !== undefined && (f.sodiumMg * 2.5) / 1000 > 1.5 * half)
+    out.push(`Vysoký obsah soli: ${num((f.sodiumMg * 2.5) / 1000)} g na ${per}.`)
 
   // claims about protein only when there is a meaningful amount (coffee is 48 % protein energy at 0,1 g)
   if (f.kcal > 0 && f.macros.protein >= (f.liquid ? 2.5 : 5)) {

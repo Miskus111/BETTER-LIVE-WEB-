@@ -32,6 +32,8 @@
       "water": 73.2
     },
     "sodiumMg": 66,
+    "sugars": 0,
+    "satFat": 2.18,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": [],
     "vegan": false,
@@ -75,6 +77,8 @@
       "water": 65.8
     },
     "sodiumMg": 65,
+    "sugars": 0,
+    "satFat": 2.98,
     "portion": { "label": "1 karbanátek", "grams": 85 },
     "allergens": [],
     "vegan": false,
@@ -119,6 +123,8 @@
       "water": 61.9
     },
     "sodiumMg": 66,
+    "sugars": 0,
+    "satFat": 7.58,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": [],
     "vegan": false,
@@ -162,6 +168,8 @@
       "water": 59.1
     },
     "sodiumMg": 83,
+    "sugars": 0,
+    "satFat": 6.03,
     "portion": { "label": "1 karbanátek", "grams": 85 },
     "allergens": [],
     "vegan": false,
@@ -206,6 +214,8 @@
       "water": 72.5
     },
     "sodiumMg": 57,
+    "sugars": 0,
+    "satFat": 1.71,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -250,6 +260,8 @@
       "water": 63.3
     },
     "sodiumMg": 61,
+    "sugars": 0,
+    "satFat": 2.56,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -292,6 +304,8 @@
       "water": 70.2
     },
     "sodiumMg": 57,
+    "sugars": 0,
+    "satFat": 2.61,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -334,6 +348,8 @@
       "water": 58.8
     },
     "sodiumMg": 54,
+    "sugars": 0,
+    "satFat": 2.9,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -379,6 +395,8 @@
       "water": 70.8
     },
     "sodiumMg": 69,
+    "sugars": 0,
+    "satFat": 1.23,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -424,6 +442,8 @@
       "water": 62
     },
     "sodiumMg": 77,
+    "sugars": 0,
+    "satFat": 2.53,
     "portion": { "label": "porce 85 g", "grams": 85 },
     "allergens": [],
     "vegan": false,
@@ -465,6 +485,8 @@
       "water": 77.1
     },
     "sodiumMg": 98,
+    "sugars": 0,
+    "satFat": 1.38,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -508,6 +530,8 @@
       "water": 77.9
     },
     "sodiumMg": 182,
+    "sugars": 0,
+    "satFat": 0.868,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -547,6 +571,8 @@
       "water": 64.5
     },
     "sodiumMg": 69,
+    "sugars": null,
+    "satFat": 7,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -588,6 +614,8 @@
       "water": 76
     },
     "sodiumMg": 53,
+    "sugars": 0,
+    "satFat": 0.698,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -629,6 +657,8 @@
       "water": 69.4
     },
     "sodiumMg": 57,
+    "sugars": 0,
+    "satFat": 1.2,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -670,6 +700,8 @@
       "water": 73.6
     },
     "sodiumMg": 58,
+    "sugars": 0,
+    "satFat": 1.1,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -711,6 +743,8 @@
       "water": 65
     },
     "sodiumMg": 56,
+    "sugars": 0,
+    "satFat": 2.16,
     "portion": { "label": "1 kotleta", "grams": 146 },
     "allergens": [],
     "vegan": false,
@@ -755,6 +789,8 @@
       "water": 64
     },
     "sodiumMg": 65,
+    "sugars": 0,
+    "satFat": 6.24,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -799,6 +835,8 @@
       "water": 54.8
     },
     "sodiumMg": 68,
+    "sugars": 0,
+    "satFat": 7.86,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -841,6 +879,8 @@
       "water": 36.7
     },
     "sodiumMg": 32,
+    "sugars": 0,
+    "satFat": 19.3,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -884,6 +924,8 @@
       "water": 64.7
     },
     "sodiumMg": 68,
+    "sugars": 0,
+    "satFat": 4.93,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": [],
     "vegan": false,
@@ -926,6 +968,8 @@
       "water": 71.1
     },
     "sodiumMg": 87,
+    "sugars": null,
+    "satFat": 1.17,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -969,6 +1013,8 @@
       "water": 46.7
     },
     "sodiumMg": 751,
+    "sugars": 0.35,
+    "satFat": 12.6,
     "portion": { "label": "1 plátek", "grams": 28 },
     "allergens": [],
     "vegan": false,
@@ -1012,6 +1058,8 @@
       "water": 12.5
     },
     "sodiumMg": 2190,
+    "sugars": 0,
+    "satFat": 14.2,
     "portion": { "label": "1 plátek", "grams": 8.1 },
     "allergens": [],
     "vegan": false,
@@ -1055,6 +1103,8 @@
       "water": 67.3
     },
     "sodiumMg": 814,
+    "sugars": 1,
+    "satFat": 0.5,
     "portion": { "label": "1 plátek", "grams": 28 },
     "allergens": [],
     "vegan": false,
@@ -1097,6 +1147,8 @@
       "water": 74.8
     },
     "sodiumMg": 945,
+    "sugars": 0,
+    "satFat": 1.23,
     "portion": { "label": "1 plátek", "grams": 13 },
     "allergens": [],
     "vegan": false,
@@ -1135,6 +1187,8 @@
       "water": 34.6
     },
     "sodiumMg": 1890,
+    "sugars": 1.2,
+    "satFat": 13.1,
     "portion": { "label": "1 plátek", "grams": 10 },
     "allergens": [],
     "vegan": false,
@@ -1176,6 +1230,8 @@
       "water": 54.6
     },
     "sodiumMg": 872,
+    "sugars": 1.26,
+    "satFat": 11.4,
     "portion": { "label": "1 párek", "grams": 48.6 },
     "allergens": [],
     "vegan": false,
@@ -1220,6 +1276,8 @@
       "water": 49.9
     },
     "sodiumMg": 814,
+    "sugars": 1.09,
+    "satFat": 8.83,
     "portion": { "label": "1 klobása", "grams": 23 },
     "allergens": [],
     "vegan": false,
@@ -1261,6 +1319,8 @@
       "water": 53.9
     },
     "sodiumMg": 697,
+    "sugars": null,
+    "satFat": 9.57,
     "portion": { "label": "1 lžíce", "grams": 13 },
     "allergens": [],
     "vegan": false,
@@ -1301,6 +1361,8 @@
       "water": 74.1
     },
     "sodiumMg": 62,
+    "sugars": null,
+    "satFat": 1.61,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1344,6 +1406,8 @@
       "water": 63.9
     },
     "sodiumMg": 68,
+    "sugars": 0,
+    "satFat": 2.76,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -1384,6 +1448,8 @@
       "water": 75.8
     },
     "sodiumMg": 64,
+    "sugars": null,
+    "satFat": 0.53,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1423,6 +1489,8 @@
       "water": 72.8
     },
     "sodiumMg": 41,
+    "sugars": null,
+    "satFat": 1.66,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1465,6 +1533,8 @@
       "water": 58.8
     },
     "sodiumMg": 37,
+    "sugars": 0,
+    "satFat": 2.51,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -1506,6 +1576,8 @@
       "water": 73.6
     },
     "sodiumMg": 51,
+    "sugars": 0,
+    "satFat": 0.95,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1551,6 +1623,8 @@
       "water": 73.8
     },
     "sodiumMg": 74,
+    "sugars": 0,
+    "satFat": 2.32,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1595,6 +1669,8 @@
       "water": 51.8
     },
     "sodiumMg": 59,
+    "sugars": 0,
+    "satFat": 9.67,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1636,6 +1712,8 @@
       "water": 68.3
     },
     "sodiumMg": 87,
+    "sugars": null,
+    "satFat": 2.79,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1679,6 +1757,8 @@
       "water": 73.9
     },
     "sodiumMg": 45,
+    "sugars": 0,
+    "satFat": 0.563,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1724,6 +1804,8 @@
       "water": 65.3
     },
     "sodiumMg": 74,
+    "sugars": 0,
+    "satFat": 1.01,
     "portion": { "label": "1/2 prsa", "grams": 172 },
     "allergens": [],
     "vegan": false,
@@ -1769,6 +1851,8 @@
       "water": 76.2
     },
     "sodiumMg": 95,
+    "sugars": 0,
+    "satFat": 1.1,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -1814,6 +1898,8 @@
       "water": 67
     },
     "sodiumMg": 106,
+    "sugars": 0,
+    "satFat": 2.31,
     "portion": { "label": "1 stehno", "grams": 137 },
     "allergens": [],
     "vegan": false,
@@ -1860,6 +1946,8 @@
       "water": 66.4
     },
     "sodiumMg": 123,
+    "sugars": 0,
+    "satFat": 2.74,
     "portion": { "label": "1 palička", "grams": 96 },
     "allergens": [],
     "vegan": false,
@@ -1905,6 +1993,8 @@
       "water": 59.4
     },
     "sodiumMg": 98,
+    "sugars": 0,
+    "satFat": 4.98,
     "portion": { "label": "1 křídlo", "grams": 85 },
     "allergens": [],
     "vegan": false,
@@ -1948,6 +2038,8 @@
       "water": 76.5
     },
     "sodiumMg": 71,
+    "sugars": 0,
+    "satFat": 1.56,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -1991,6 +2083,8 @@
       "water": 65.2
     },
     "sodiumMg": 92,
+    "sugars": 0,
+    "satFat": 2.03,
     "portion": { "label": "porce 85 g", "grams": 85 },
     "allergens": [],
     "vegan": false,
@@ -2032,6 +2126,8 @@
       "water": 73.6
     },
     "sodiumMg": 74,
+    "sugars": null,
+    "satFat": 2.66,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -2074,6 +2170,8 @@
       "water": 79.3
     },
     "sodiumMg": 69,
+    "sugars": 0,
+    "satFat": 0.529,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": false,
@@ -2118,6 +2216,8 @@
       "water": 74.9
     },
     "sodiumMg": 113,
+    "sugars": 0.05,
+    "satFat": 0.289,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": false,
@@ -2162,6 +2262,8 @@
       "water": 67.9
     },
     "sodiumMg": 99,
+    "sugars": 0,
+    "satFat": 0.593,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": [],
     "vegan": false,
@@ -2206,6 +2308,8 @@
       "water": 72.4
     },
     "sodiumMg": 58,
+    "sugars": 0,
+    "satFat": 2.02,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": [],
     "vegan": false,
@@ -2244,6 +2348,8 @@
       "water": 97.8
     },
     "sodiumMg": 371,
+    "sugars": 0.43,
+    "satFat": 0.013,
     "portion": { "label": "1 talíř (250 ml)", "grams": 250 },
     "allergens": [],
     "vegan": false,
@@ -2290,6 +2396,8 @@
       "water": 64.9
     },
     "sodiumMg": 59,
+    "sugars": 0,
+    "satFat": 3.05,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2336,6 +2444,8 @@
       "water": 64.8
     },
     "sodiumMg": 61,
+    "sugars": 0,
+    "satFat": 2.4,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2377,6 +2487,8 @@
       "water": 68.5
     },
     "sodiumMg": 44,
+    "sugars": null,
+    "satFat": 0.981,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2421,6 +2533,8 @@
       "water": 72
     },
     "sodiumMg": 672,
+    "sugars": 0,
+    "satFat": 0.929,
     "portion": { "label": "1 plátek", "grams": 28.3 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2466,6 +2580,8 @@
       "water": 74
     },
     "sodiumMg": 403,
+    "sugars": 0,
+    "satFat": 0.862,
     "portion": { "label": "1/2 konzervy", "grams": 85 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2511,6 +2627,8 @@
       "water": 59.6
     },
     "sodiumMg": 307,
+    "sugars": 0,
+    "satFat": 1.53,
     "portion": { "label": "1 konzerva", "grams": 92 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2557,6 +2675,8 @@
       "water": 63.6
     },
     "sodiumMg": 90,
+    "sugars": 0,
+    "satFat": 3.26,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2599,6 +2719,8 @@
       "water": 53.3
     },
     "sodiumMg": 83,
+    "sugars": null,
+    "satFat": 4.18,
     "portion": { "label": "porce 120 g", "grams": 120 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2645,6 +2767,8 @@
       "water": 72
     },
     "sodiumMg": 90,
+    "sugars": 0,
+    "satFat": 2.04,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2689,6 +2813,8 @@
       "water": 55.2
     },
     "sodiumMg": 870,
+    "sugars": 7.71,
+    "satFat": 2.38,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2735,6 +2861,8 @@
       "water": 81.2
     },
     "sodiumMg": 54,
+    "sugars": 0,
+    "satFat": 0.131,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2781,6 +2909,8 @@
       "water": 75.9
     },
     "sodiumMg": 78,
+    "sugars": 0,
+    "satFat": 0.168,
     "portion": { "label": "porce 130 g", "grams": 130 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2823,6 +2953,8 @@
       "water": 86.7
     },
     "sodiumMg": 333,
+    "sugars": null,
+    "satFat": 0.128,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2863,6 +2995,8 @@
       "water": 79
     },
     "sodiumMg": 219,
+    "sugars": 0,
+    "satFat": 0.224,
     "portion": { "label": "1 konzerva", "grams": 142 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2908,6 +3042,8 @@
       "water": 59.8
     },
     "sodiumMg": 416,
+    "sugars": 0,
+    "satFat": 1.53,
     "portion": { "label": "1 konzerva", "grams": 171 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2953,6 +3089,8 @@
       "water": 74
     },
     "sodiumMg": 45,
+    "sugars": 0,
+    "satFat": 0.172,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -2999,6 +3137,8 @@
       "water": 73.8
     },
     "sodiumMg": 51,
+    "sugars": 0,
+    "satFat": 1.38,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3045,6 +3185,8 @@
       "water": 68.7
     },
     "sodiumMg": 61,
+    "sugars": 0,
+    "satFat": 1.65,
     "portion": { "label": "1 filet", "grams": 71 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3091,6 +3233,8 @@
       "water": 76.3
     },
     "sodiumMg": 49,
+    "sugars": 0,
+    "satFat": 1.08,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3133,6 +3277,8 @@
       "water": 69.6
     },
     "sodiumMg": 63,
+    "sugars": null,
+    "satFat": 1.39,
     "portion": { "label": "porce 130 g", "grams": 130 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3177,6 +3323,8 @@
       "water": 78.1
     },
     "sodiumMg": 52,
+    "sugars": 0,
+    "satFat": 0.585,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3223,6 +3371,8 @@
       "water": 78.9
     },
     "sodiumMg": 39,
+    "sugars": 0,
+    "satFat": 0.118,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3268,6 +3418,8 @@
       "water": 50.3
     },
     "sodiumMg": 3670,
+    "sugars": 0,
+    "satFat": 2.2,
     "portion": { "label": "5 kusů", "grams": 20 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3304,6 +3456,8 @@
       "water": 78.4
     },
     "sodiumMg": 119,
+    "sugars": null,
+    "satFat": 0.101,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["crustaceans"],
     "vegan": false,
@@ -3340,6 +3494,8 @@
       "water": 74.3
     },
     "sodiumMg": 111,
+    "sugars": null,
+    "satFat": 0.056,
     "portion": { "label": "porce 85 g", "grams": 85 },
     "allergens": ["crustaceans"],
     "vegan": false,
@@ -3385,6 +3541,8 @@
       "water": 80.6
     },
     "sodiumMg": 286,
+    "sugars": 0,
+    "satFat": 0.425,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["molluscs"],
     "vegan": false,
@@ -3427,6 +3585,8 @@
       "water": 61.2
     },
     "sodiumMg": 369,
+    "sugars": null,
+    "satFat": 0.85,
     "portion": { "label": "porce 85 g", "grams": 85 },
     "allergens": ["molluscs"],
     "vegan": false,
@@ -3471,6 +3631,8 @@
       "water": 89
     },
     "sodiumMg": 85,
+    "sugars": 0.62,
+    "satFat": 0.474,
     "portion": { "label": "6 ústřic", "grams": 84 },
     "allergens": ["molluscs"],
     "vegan": false,
@@ -3515,6 +3677,8 @@
       "water": 78.6
     },
     "sodiumMg": 44,
+    "sugars": 0,
+    "satFat": 0.358,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["molluscs"],
     "vegan": false,
@@ -3561,6 +3725,8 @@
       "water": 75.6
     },
     "sodiumMg": 218,
+    "sugars": 0,
+    "satFat": 0.167,
     "portion": { "label": "porce 85 g", "grams": 85 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3608,6 +3774,8 @@
       "water": 67.7
     },
     "sodiumMg": 91,
+    "sugars": 0,
+    "satFat": 1.46,
     "portion": { "label": "1 lžíce", "grams": 14 },
     "allergens": ["fish"],
     "vegan": false,
@@ -3654,6 +3822,8 @@
       "water": 76.2
     },
     "sodiumMg": 142,
+    "sugars": 0.37,
+    "satFat": 3.13,
     "portion": { "label": "1 vejce L", "grams": 50 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3700,6 +3870,8 @@
       "water": 74.6
     },
     "sodiumMg": 124,
+    "sugars": 1.12,
+    "satFat": 3.27,
     "portion": { "label": "1 vejce L", "grams": 50 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3746,6 +3918,8 @@
       "water": 69.5
     },
     "sodiumMg": 207,
+    "sugars": 0.4,
+    "satFat": 4.32,
     "portion": { "label": "1 vejce L", "grams": 46 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3792,6 +3966,8 @@
       "water": 76.4
     },
     "sodiumMg": 145,
+    "sugars": 1.39,
+    "satFat": 3.33,
     "portion": { "label": "1 vejce L", "grams": 61 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3831,6 +4007,8 @@
       "water": 87.6
     },
     "sodiumMg": 166,
+    "sugars": 0.71,
+    "satFat": 0,
     "portion": { "label": "1 bílek", "grams": 33 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3877,6 +4055,8 @@
       "water": 52.3
     },
     "sodiumMg": 48,
+    "sugars": 0.56,
+    "satFat": 9.55,
     "portion": { "label": "1 žloutek", "grams": 17 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3922,6 +4102,8 @@
       "water": 74.4
     },
     "sodiumMg": 141,
+    "sugars": 0.4,
+    "satFat": 3.56,
     "portion": { "label": "1 vejce", "grams": 9 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -3965,6 +4147,8 @@
       "water": 88.1
     },
     "sodiumMg": 38,
+    "sugars": 4.81,
+    "satFat": 1.86,
     "portion": { "label": "1 hrnek (250 ml)", "grams": 249 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4007,6 +4191,8 @@
       "water": 89.1
     },
     "sodiumMg": 39,
+    "sugars": 4.89,
+    "satFat": 1.11,
     "portion": { "label": "1 hrnek (250 ml)", "grams": 245 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4047,6 +4233,8 @@
       "water": 90.8
     },
     "sodiumMg": 41,
+    "sugars": 5.05,
+    "satFat": 0.049,
     "portion": { "label": "1 hrnek (250 ml)", "grams": 246 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4091,6 +4279,8 @@
       "water": 90.1
     },
     "sodiumMg": 148,
+    "sugars": 5.36,
+    "satFat": 0.66,
     "portion": { "label": "1 hrnek (250 ml)", "grams": 245 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4136,6 +4326,8 @@
       "water": 87
     },
     "sodiumMg": 50,
+    "sugars": 4.45,
+    "satFat": 2.67,
     "portion": { "label": "1 hrnek (250 ml)", "grams": 244 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4179,6 +4371,8 @@
       "water": 3.16
     },
     "sodiumMg": 535,
+    "sugars": 52,
+    "satFat": 0.499,
     "portion": { "label": "1 lžíce", "grams": 4.6 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4224,6 +4418,8 @@
       "water": 87.9
     },
     "sodiumMg": 46,
+    "sugars": 4.66,
+    "satFat": 2.1,
     "portion": { "label": "1 kelímek 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4268,6 +4464,8 @@
       "water": 85.1
     },
     "sodiumMg": 70,
+    "sugars": 7.04,
+    "satFat": 1,
     "portion": { "label": "1 kelímek 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4310,6 +4508,8 @@
       "water": 81.3
     },
     "sodiumMg": 35,
+    "sugars": 4,
+    "satFat": 2.4,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4351,6 +4551,8 @@
       "water": 85
     },
     "sodiumMg": 36,
+    "sugars": 3.27,
+    "satFat": 0.108,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4395,6 +4597,8 @@
       "water": 74.5
     },
     "sodiumMg": 58,
+    "sugars": 19,
+    "satFat": 0.697,
     "portion": { "label": "1 kelímek 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4440,6 +4644,8 @@
       "water": 89.7
     },
     "sodiumMg": 40,
+    "sugars": 4.61,
+    "satFat": 0.658,
     "portion": { "label": "1 sklenice (250 ml)", "grams": 243 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4483,6 +4689,8 @@
       "water": 81.2
     },
     "sodiumMg": 308,
+    "sugars": 4,
+    "satFat": 1.24,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4526,6 +4734,8 @@
       "water": 79.8
     },
     "sodiumMg": 315,
+    "sugars": 2.67,
+    "satFat": 1.72,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4567,6 +4777,8 @@
       "water": 81
     },
     "sodiumMg": 372,
+    "sugars": 1.85,
+    "satFat": 0.169,
     "portion": { "label": "porce 125 g", "grams": 125 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4611,6 +4823,8 @@
       "water": 74.4
     },
     "sodiumMg": 99,
+    "sugars": 0.31,
+    "satFat": 4.93,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4655,6 +4869,8 @@
       "water": 37.6
     },
     "sodiumMg": 185,
+    "sugars": 0,
+    "satFat": 18.2,
     "portion": { "label": "1 plátek", "grams": 21.9 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4699,6 +4915,8 @@
       "water": 41
     },
     "sodiumMg": 973,
+    "sugars": 0,
+    "satFat": 18.7,
     "portion": { "label": "1 plátek", "grams": 20 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4743,6 +4961,8 @@
       "water": 41.5
     },
     "sodiumMg": 819,
+    "sugars": 2.22,
+    "satFat": 17.6,
     "portion": { "label": "1 plátek", "grams": 20 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4788,6 +5008,8 @@
       "water": 36.8
     },
     "sodiumMg": 653,
+    "sugars": 0.48,
+    "satFat": 18.9,
     "portion": { "label": "1 plátek", "grams": 28 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4832,6 +5054,8 @@
       "water": 30
     },
     "sodiumMg": 1180,
+    "sugars": 0.11,
+    "satFat": 14.8,
     "portion": { "label": "1 lžíce strouhaného", "grams": 5 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4876,6 +5100,8 @@
       "water": 50
     },
     "sodiumMg": 486,
+    "sugars": 0,
+    "satFat": 13.9,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4920,6 +5146,8 @@
       "water": 55.2
     },
     "sodiumMg": 1140,
+    "sugars": 0,
+    "satFat": 13.3,
     "portion": { "label": "porce 30 g", "grams": 30 },
     "allergens": ["milk"],
     "vegan": false,
@@ -4964,6 +5192,8 @@
       "water": 51.8
     },
     "sodiumMg": 842,
+    "sugars": 0.46,
+    "satFat": 15.3,
     "portion": { "label": "1 kus 100 g", "grams": 100 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5008,6 +5238,8 @@
       "water": 42.4
     },
     "sodiumMg": 1150,
+    "sugars": 0.5,
+    "satFat": 18.7,
     "portion": { "label": "porce 30 g", "grams": 30 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5052,6 +5284,8 @@
       "water": 48.4
     },
     "sodiumMg": 800,
+    "sugars": 0.49,
+    "satFat": 16.7,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5097,6 +5331,8 @@
       "water": 39.6
     },
     "sodiumMg": 1660,
+    "sugars": 2.63,
+    "satFat": 18.1,
     "portion": { "label": "1 plátek", "grams": 20.6 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5142,6 +5378,8 @@
       "water": 52.6
     },
     "sodiumMg": 314,
+    "sugars": 3.76,
+    "satFat": 20.2,
     "portion": { "label": "1 lžíce", "grams": 14.5 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5185,6 +5423,8 @@
       "water": 29
     },
     "sodiumMg": 423,
+    "sugars": 2.17,
+    "satFat": 24.6,
     "portion": { "label": "porce 30 g", "grams": 30 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5228,6 +5468,8 @@
       "water": 60.8
     },
     "sodiumMg": 459,
+    "sugars": 0,
+    "satFat": 14.6,
     "portion": { "label": "porce 30 g", "grams": 30 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5274,6 +5516,8 @@
       "water": 73.1
     },
     "sodiumMg": 31,
+    "sugars": 3.41,
+    "satFat": 10.1,
     "portion": { "label": "1 lžíce", "grams": 12 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5320,6 +5564,8 @@
       "water": 57.7
     },
     "sodiumMg": 27,
+    "sugars": 2.92,
+    "satFat": 23,
     "portion": { "label": "1 lžíce", "grams": 15 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5366,6 +5612,8 @@
       "water": 73.8
     },
     "sodiumMg": 72,
+    "sugars": 3.67,
+    "satFat": 10.2,
     "portion": { "label": "1 lžíce", "grams": 15 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5409,6 +5657,8 @@
       "water": 16.2
     },
     "sodiumMg": 11,
+    "sugars": 0.06,
+    "satFat": 50.5,
     "portion": { "label": "na krajíc chleba", "grams": 5 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5449,6 +5699,8 @@
       "water": 0.24
     },
     "sodiumMg": 2,
+    "sugars": 0,
+    "satFat": 61.9,
     "portion": { "label": "1 lžíce", "grams": 12.8 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5493,6 +5745,8 @@
       "water": 0.86
     },
     "sodiumMg": 372,
+    "sugars": 1.16,
+    "satFat": 0.581,
     "portion": { "label": "1 odměrka 30 g", "grams": 30 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5539,6 +5793,8 @@
       "water": 61
     },
     "sodiumMg": 80,
+    "sugars": 21.2,
+    "satFat": 6.79,
     "portion": { "label": "1 kopeček", "grams": 66 },
     "allergens": ["milk"],
     "vegan": false,
@@ -5583,6 +5839,8 @@
       "water": 91.4
     },
     "sodiumMg": 79,
+    "sugars": 0.42,
+    "satFat": 0.063,
     "portion": { "label": "1 hrnek", "grams": 30 },
     "allergens": [],
     "vegan": true,
@@ -5627,6 +5885,8 @@
       "water": 91.2
     },
     "sodiumMg": 70,
+    "sugars": 0.43,
+    "satFat": 0.043,
     "portion": { "label": "1/2 hrnku", "grams": 90 },
     "allergens": [],
     "vegan": true,
@@ -5671,6 +5931,8 @@
       "water": 88.9
     },
     "sodiumMg": 97,
+    "sugars": 0.51,
+    "satFat": 0.157,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -5715,6 +5977,8 @@
       "water": 89.6
     },
     "sodiumMg": 53,
+    "sugars": 0.99,
+    "satFat": 0.178,
     "portion": { "label": "1 hrnek", "grams": 21 },
     "allergens": [],
     "vegan": true,
@@ -5759,6 +6023,8 @@
       "water": 89.8
     },
     "sodiumMg": 16,
+    "sugars": 1.21,
+    "satFat": 0.175,
     "portion": { "label": "1 hrnek", "grams": 118 },
     "allergens": [],
     "vegan": true,
@@ -5803,6 +6069,8 @@
       "water": 94.6
     },
     "sodiumMg": 8,
+    "sugars": 1.19,
+    "satFat": 0.039,
     "portion": { "label": "1 hrnek", "grams": 47 },
     "allergens": [],
     "vegan": true,
@@ -5847,6 +6115,8 @@
       "water": 95.6
     },
     "sodiumMg": 10,
+    "sugars": 1.97,
+    "satFat": 0.018,
     "portion": { "label": "1 hrnek", "grams": 57 },
     "allergens": [],
     "vegan": true,
@@ -5891,6 +6161,8 @@
       "water": 95.6
     },
     "sodiumMg": 5,
+    "sugars": 0.94,
+    "satFat": 0.029,
     "portion": { "label": "1 hrnek", "grams": 55 },
     "allergens": [],
     "vegan": true,
@@ -5935,6 +6207,8 @@
       "water": 91.7
     },
     "sodiumMg": 27,
+    "sugars": 2.05,
+    "satFat": 0.086,
     "portion": { "label": "hrst 20 g", "grams": 20 },
     "allergens": [],
     "vegan": true,
@@ -5979,6 +6253,8 @@
       "water": 92.7
     },
     "sodiumMg": 213,
+    "sugars": 1.1,
+    "satFat": 0.03,
     "portion": { "label": "1 hrnek", "grams": 36 },
     "allergens": [],
     "vegan": true,
@@ -6023,6 +6299,8 @@
       "water": 95.1
     },
     "sodiumMg": 41,
+    "sugars": 0.2,
+    "satFat": 0.027,
     "portion": { "label": "1 hrnek", "grams": 34 },
     "allergens": [],
     "vegan": true,
@@ -6067,6 +6345,8 @@
       "water": 91
     },
     "sodiumMg": 226,
+    "sugars": 0.5,
+    "satFat": 0.02,
     "portion": { "label": "1 hrnek", "grams": 38 },
     "allergens": [],
     "vegan": true,
@@ -6111,6 +6391,8 @@
       "water": 85.6
     },
     "sodiumMg": 76,
+    "sugars": 0.71,
+    "satFat": 0.17,
     "portion": { "label": "1 hrnek", "grams": 55 },
     "allergens": [],
     "vegan": true,
@@ -6153,6 +6435,8 @@
       "water": 90
     },
     "sodiumMg": 36,
+    "sugars": 1.4,
+    "satFat": 0.039,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6197,6 +6481,8 @@
       "water": 89.2
     },
     "sodiumMg": 41,
+    "sugars": 1.39,
+    "satFat": 0.079,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6240,6 +6526,8 @@
       "water": 92.1
     },
     "sodiumMg": 30,
+    "sugars": 1.91,
+    "satFat": 0.13,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6284,6 +6572,8 @@
       "water": 93
     },
     "sodiumMg": 15,
+    "sugars": 2.08,
+    "satFat": 0.07,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6328,6 +6618,8 @@
       "water": 86
     },
     "sodiumMg": 25,
+    "sugars": 2.2,
+    "satFat": 0.062,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6372,6 +6664,8 @@
       "water": 88.9
     },
     "sodiumMg": 21,
+    "sugars": 1.74,
+    "satFat": 0.102,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6415,6 +6709,8 @@
       "water": 92.2
     },
     "sodiumMg": 18,
+    "sugars": 3.2,
+    "satFat": 0.034,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6459,6 +6755,8 @@
       "water": 92.6
     },
     "sodiumMg": 8,
+    "sugars": 2.79,
+    "satFat": 0,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6503,6 +6801,8 @@
       "water": 90.4
     },
     "sodiumMg": 27,
+    "sugars": 3.83,
+    "satFat": 0.021,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6547,6 +6847,8 @@
       "water": 91
     },
     "sodiumMg": 28,
+    "sugars": 2.27,
+    "satFat": 0.013,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6590,6 +6892,8 @@
       "water": 91
     },
     "sodiumMg": 20,
+    "sugars": 2.6,
+    "satFat": 0.013,
     "portion": { "label": "1 kus", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -6634,6 +6938,8 @@
       "water": 88.3
     },
     "sodiumMg": 69,
+    "sugars": 4.74,
+    "satFat": 0.032,
     "portion": { "label": "1 mrkev", "grams": 61 },
     "allergens": [],
     "vegan": true,
@@ -6678,6 +6984,8 @@
       "water": 90.2
     },
     "sodiumMg": 58,
+    "sugars": 3.45,
+    "satFat": 0.03,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6721,6 +7029,8 @@
       "water": 87.6
     },
     "sodiumMg": 78,
+    "sugars": 6.76,
+    "satFat": 0.027,
     "portion": { "label": "1 bulva", "grams": 82 },
     "allergens": [],
     "vegan": true,
@@ -6764,6 +7074,8 @@
       "water": 87.1
     },
     "sodiumMg": 77,
+    "sugars": 7.96,
+    "satFat": 0.028,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6805,6 +7117,8 @@
       "water": 79.5
     },
     "sodiumMg": 10,
+    "sugars": 4.8,
+    "satFat": 0.05,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -6847,6 +7161,8 @@
       "water": 88
     },
     "sodiumMg": 100,
+    "sugars": 1.6,
+    "satFat": 0.079,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["celery"],
     "vegan": true,
@@ -6890,6 +7206,8 @@
       "water": 95.4
     },
     "sodiumMg": 80,
+    "sugars": 1.34,
+    "satFat": 0.042,
     "portion": { "label": "1 řapík", "grams": 40 },
     "allergens": ["celery"],
     "vegan": true,
@@ -6934,6 +7252,8 @@
       "water": 87.7
     },
     "sodiumMg": 56,
+    "sugars": 0.85,
+    "satFat": 0.132,
     "portion": { "label": "1 lžíce", "grams": 3.8 },
     "allergens": [],
     "vegan": true,
@@ -6976,6 +7296,8 @@
       "water": 95.3
     },
     "sodiumMg": 39,
+    "sugars": 1.86,
+    "satFat": 0.032,
     "portion": { "label": "5 kusů", "grams": 45 },
     "allergens": [],
     "vegan": true,
@@ -7018,6 +7340,8 @@
       "water": 91.9
     },
     "sodiumMg": 67,
+    "sugars": 3.8,
+    "satFat": 0.011,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7061,6 +7385,8 @@
       "water": 89.1
     },
     "sodiumMg": 4,
+    "sugars": 4.24,
+    "satFat": 0.042,
     "portion": { "label": "1 cibule", "grams": 14 },
     "allergens": [],
     "vegan": true,
@@ -7104,6 +7430,8 @@
       "water": 87.9
     },
     "sodiumMg": 3,
+    "sugars": 4.73,
+    "satFat": 0.031,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7139,6 +7467,8 @@
       "water": 88.6
     },
     "sodiumMg": 1,
+    "sugars": 5.76,
+    "satFat": null,
     "portion": { "label": "1 cibule", "grams": 110 },
     "allergens": [],
     "vegan": true,
@@ -7183,6 +7513,8 @@
       "water": 89.8
     },
     "sodiumMg": 16,
+    "sugars": 2.33,
+    "satFat": 0.032,
     "portion": { "label": "1 kus", "grams": 15 },
     "allergens": [],
     "vegan": true,
@@ -7227,6 +7559,8 @@
       "water": 83
     },
     "sodiumMg": 20,
+    "sugars": 3.9,
+    "satFat": 0.04,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7270,6 +7604,8 @@
       "water": 58.6
     },
     "sodiumMg": 17,
+    "sugars": 1,
+    "satFat": 0.089,
     "portion": { "label": "1 stroužek", "grams": 3 },
     "allergens": [],
     "vegan": true,
@@ -7314,6 +7650,8 @@
       "water": 94.5
     },
     "sodiumMg": 5,
+    "sugars": 2.63,
+    "satFat": 0.028,
     "portion": { "label": "1 rajče", "grams": 123 },
     "allergens": [],
     "vegan": true,
@@ -7358,6 +7696,8 @@
       "water": 94.8
     },
     "sodiumMg": 115,
+    "sugars": 2.55,
+    "satFat": 0.034,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7401,6 +7741,8 @@
       "water": 73.5
     },
     "sodiumMg": 59,
+    "sugars": 12.2,
+    "satFat": 0.1,
     "portion": { "label": "1 lžíce", "grams": 16 },
     "allergens": [],
     "vegan": true,
@@ -7444,6 +7786,8 @@
       "water": 87.9
     },
     "sodiumMg": 28,
+    "sugars": 4.83,
+    "satFat": 0.029,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7488,6 +7832,8 @@
       "water": 14.6
     },
     "sodiumMg": 107,
+    "sugars": 37.6,
+    "satFat": 0.426,
     "portion": { "label": "5 kusů", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -7532,6 +7878,8 @@
       "water": 95.2
     },
     "sodiumMg": 2,
+    "sugars": 1.67,
+    "satFat": 0.037,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7576,6 +7924,8 @@
       "water": 94.3
     },
     "sodiumMg": 809,
+    "sugars": 1.07,
+    "satFat": 0.079,
     "portion": { "label": "1 malá okurka", "grams": 35 },
     "allergens": [],
     "vegan": true,
@@ -7620,6 +7970,8 @@
       "water": 92.2
     },
     "sodiumMg": 4,
+    "sugars": 4.2,
+    "satFat": 0.059,
     "portion": { "label": "1 paprika", "grams": 119 },
     "allergens": [],
     "vegan": true,
@@ -7664,6 +8016,8 @@
       "water": 93.9
     },
     "sodiumMg": 3,
+    "sugars": 2.4,
+    "satFat": 0.058,
     "portion": { "label": "1 paprika", "grams": 119 },
     "allergens": [],
     "vegan": true,
@@ -7703,6 +8057,8 @@
       "water": 92
     },
     "sodiumMg": 2,
+    "sugars": null,
+    "satFat": 0.031,
     "portion": { "label": "1 paprika", "grams": 186 },
     "allergens": [],
     "vegan": true,
@@ -7747,6 +8103,8 @@
       "water": 88
     },
     "sodiumMg": 9,
+    "sugars": 5.3,
+    "satFat": 0.042,
     "portion": { "label": "1 paprička", "grams": 45 },
     "allergens": [],
     "vegan": true,
@@ -7791,6 +8149,8 @@
       "water": 94.8
     },
     "sodiumMg": 8,
+    "sugars": 2.5,
+    "satFat": 0.084,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7835,6 +8195,8 @@
       "water": 95.2
     },
     "sodiumMg": 3,
+    "sugars": 1.71,
+    "satFat": 0.072,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7879,6 +8241,8 @@
       "water": 92.3
     },
     "sodiumMg": 2,
+    "sugars": 3.53,
+    "satFat": 0.034,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7923,6 +8287,8 @@
       "water": 91.6
     },
     "sodiumMg": 1,
+    "sugars": 2.76,
+    "satFat": 0.052,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -7965,6 +8331,8 @@
       "water": 86.4
     },
     "sodiumMg": 4,
+    "sugars": 2.2,
+    "satFat": 0.021,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8009,6 +8377,8 @@
       "water": 89.8
     },
     "sodiumMg": 4,
+    "sugars": 2.2,
+    "satFat": 0.027,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8053,6 +8423,8 @@
       "water": 93.2
     },
     "sodiumMg": 2,
+    "sugars": 1.88,
+    "satFat": 0.04,
     "portion": { "label": "5 výhonků", "grams": 120 },
     "allergens": [],
     "vegan": true,
@@ -8097,6 +8469,8 @@
       "water": 90.3
     },
     "sodiumMg": 6,
+    "sugars": 3.26,
+    "satFat": 0.05,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8141,6 +8515,8 @@
       "water": 89.2
     },
     "sodiumMg": 1,
+    "sugars": 3.63,
+    "satFat": 0.064,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8185,6 +8561,8 @@
       "water": 78.9
     },
     "sodiumMg": 5,
+    "sugars": 5.67,
+    "satFat": 0.071,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8229,6 +8607,8 @@
       "water": 79.5
     },
     "sodiumMg": 72,
+    "sugars": 4.4,
+    "satFat": 0.049,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8273,6 +8653,8 @@
       "water": 76
     },
     "sodiumMg": 15,
+    "sugars": 6.26,
+    "satFat": 0.325,
     "portion": { "label": "1 klas", "grams": 102 },
     "allergens": [],
     "vegan": true,
@@ -8316,6 +8698,8 @@
       "water": 81.4
     },
     "sodiumMg": 205,
+    "sugars": 4.44,
+    "satFat": 0.245,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8360,6 +8744,8 @@
       "water": 73.2
     },
     "sodiumMg": 7,
+    "sugars": 0.66,
+    "satFat": 2.13,
     "portion": { "label": "1/2 avokáda", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8404,6 +8790,8 @@
       "water": 84.9
     },
     "sodiumMg": 94,
+    "sugars": 0.99,
+    "satFat": 0.036,
     "portion": { "label": "1 artyčok", "grams": 128 },
     "allergens": [],
     "vegan": true,
@@ -8447,6 +8835,8 @@
       "water": 90.2
     },
     "sodiumMg": 52,
+    "sugars": 3.93,
+    "satFat": 0.09,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -8489,6 +8879,8 @@
       "water": 80
     },
     "sodiumMg": 735,
+    "sugars": 0,
+    "satFat": 2.28,
     "portion": { "label": "5 oliv", "grams": 15 },
     "allergens": [],
     "vegan": true,
@@ -8532,6 +8924,8 @@
       "water": 90.4
     },
     "sodiumMg": 6,
+    "sugars": 4.13,
+    "satFat": 0.046,
     "portion": { "label": "hrst 50 g", "grams": 50 },
     "allergens": [],
     "vegan": true,
@@ -8575,6 +8969,8 @@
       "water": 4.68
     },
     "sodiumMg": 1050,
+    "sugars": 3.1,
+    "satFat": 2.65,
     "portion": { "label": "1 lžička", "grams": 3 },
     "allergens": [],
     "vegan": true,
@@ -8619,6 +9015,8 @@
       "water": 81.6
     },
     "sodiumMg": 233,
+    "sugars": 0.6,
+    "satFat": 0.247,
     "portion": { "label": "porce 10 g", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -8663,6 +9061,8 @@
       "water": 80
     },
     "sodiumMg": 872,
+    "sugars": 0.65,
+    "satFat": 0.13,
     "portion": { "label": "porce 10 g", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -8706,6 +9106,8 @@
       "water": 79.2
     },
     "sodiumMg": 6,
+    "sugars": 0.82,
+    "satFat": 0.025,
     "portion": { "label": "1 brambora", "grams": 213 },
     "allergens": [],
     "vegan": true,
@@ -8749,6 +9151,8 @@
       "water": 77.5
     },
     "sodiumMg": 5,
+    "sugars": 0.89,
+    "satFat": 0.026,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -8793,6 +9197,8 @@
       "water": 74.9
     },
     "sodiumMg": 10,
+    "sugars": 1.18,
+    "satFat": 0.034,
     "portion": { "label": "1 brambora", "grams": 173 },
     "allergens": [],
     "vegan": true,
@@ -8839,6 +9245,8 @@
       "water": 75.6
     },
     "sodiumMg": 317,
+    "sugars": 1.43,
+    "satFat": 2.61,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": ["milk"],
     "vegan": false,
@@ -8880,6 +9288,8 @@
       "water": 61.5
     },
     "sodiumMg": 32,
+    "sugars": 0.28,
+    "satFat": 1.03,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -8923,6 +9333,8 @@
       "water": 1.86
     },
     "sodiumMg": 527,
+    "sugars": 0.33,
+    "satFat": 3.4,
     "portion": { "label": "sáček 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -8966,6 +9378,8 @@
       "water": 77.3
     },
     "sodiumMg": 55,
+    "sugars": 4.18,
+    "satFat": 0.018,
     "portion": { "label": "1 batát", "grams": 130 },
     "allergens": [],
     "vegan": true,
@@ -9009,6 +9423,8 @@
       "water": 75.8
     },
     "sodiumMg": 36,
+    "sugars": 6.48,
+    "satFat": 0.052,
     "portion": { "label": "1 batát", "grams": 114 },
     "allergens": [],
     "vegan": true,
@@ -9051,6 +9467,8 @@
       "water": 78
     },
     "sodiumMg": 4,
+    "sugars": 9.6,
+    "satFat": 0,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9093,6 +9511,8 @@
       "water": 78.9
     },
     "sodiumMg": 13,
+    "sugars": 1.7,
+    "satFat": 0.203,
     "portion": { "label": "1 lžička", "grams": 2 },
     "allergens": [],
     "vegan": true,
@@ -9136,6 +9556,8 @@
       "water": 85.1
     },
     "sodiumMg": 420,
+    "sugars": 7.99,
+    "satFat": 0.09,
     "portion": { "label": "1 lžíce", "grams": 15 },
     "allergens": [],
     "vegan": true,
@@ -9178,6 +9600,8 @@
       "water": 92.4
     },
     "sodiumMg": 5,
+    "sugars": 1.98,
+    "satFat": 0.05,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9220,6 +9644,8 @@
       "water": 91.1
     },
     "sodiumMg": 2,
+    "sugars": 2.34,
+    "satFat": 0.061,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9261,6 +9687,8 @@
       "water": 92.4
     },
     "sodiumMg": 5,
+    "sugars": 1.98,
+    "satFat": 0.05,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9299,6 +9727,8 @@
       "water": 89.7
     },
     "sodiumMg": 9,
+    "sugars": 2.38,
+    "satFat": null,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9340,6 +9770,8 @@
       "water": 9.5
     },
     "sodiumMg": 13,
+    "sugars": 2.21,
+    "satFat": 0.225,
     "portion": { "label": "4 houby", "grams": 14.4 },
     "allergens": [],
     "vegan": true,
@@ -9380,6 +9812,8 @@
       "water": 89.2
     },
     "sodiumMg": 18,
+    "sugars": 1.11,
+    "satFat": 0.062,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9420,6 +9854,8 @@
       "water": 92.8
     },
     "sodiumMg": 9,
+    "sugars": 2.5,
+    "satFat": 0.01,
     "portion": { "label": "1 klobouk", "grams": 84 },
     "allergens": [],
     "vegan": true,
@@ -9458,6 +9894,8 @@
       "water": 89.8
     },
     "sodiumMg": 9,
+    "sugars": 1.16,
+    "satFat": null,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9496,6 +9934,8 @@
       "water": 89.6
     },
     "sodiumMg": 21,
+    "sugars": 0.6,
+    "satFat": 0.065,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -9540,6 +9980,8 @@
       "water": 85.6
     },
     "sodiumMg": 1,
+    "sugars": 10.4,
+    "satFat": 0.028,
     "portion": { "label": "1 jablko", "grams": 182 },
     "allergens": [],
     "vegan": true,
@@ -9583,6 +10025,8 @@
       "water": 86.7
     },
     "sodiumMg": 0,
+    "sugars": 10.1,
+    "satFat": 0.021,
     "portion": { "label": "1 jablko", "grams": 161 },
     "allergens": [],
     "vegan": true,
@@ -9627,6 +10071,8 @@
       "water": 84
     },
     "sodiumMg": 1,
+    "sugars": 9.75,
+    "satFat": 0.022,
     "portion": { "label": "1 hruška", "grams": 178 },
     "allergens": [],
     "vegan": true,
@@ -9671,6 +10117,8 @@
       "water": 74.9
     },
     "sodiumMg": 1,
+    "sugars": 12.2,
+    "satFat": 0.112,
     "portion": { "label": "1 banán", "grams": 118 },
     "allergens": [],
     "vegan": true,
@@ -9714,6 +10162,8 @@
       "water": 86.8
     },
     "sodiumMg": 0,
+    "sugars": 9.35,
+    "satFat": 0.015,
     "portion": { "label": "1 pomeranč", "grams": 131 },
     "allergens": [],
     "vegan": true,
@@ -9757,6 +10207,8 @@
       "water": 85.2
     },
     "sodiumMg": 2,
+    "sugars": 10.6,
+    "satFat": 0.039,
     "portion": { "label": "1 mandarinka", "grams": 88 },
     "allergens": [],
     "vegan": true,
@@ -9800,6 +10252,8 @@
       "water": 88.1
     },
     "sodiumMg": 0,
+    "sugars": 6.89,
+    "satFat": 0.021,
     "portion": { "label": "1/2 plodu", "grams": 154 },
     "allergens": [],
     "vegan": true,
@@ -9843,6 +10297,8 @@
       "water": 89
     },
     "sodiumMg": 2,
+    "sugars": 2.5,
+    "satFat": 0.039,
     "portion": { "label": "1 citron", "grams": 84 },
     "allergens": [],
     "vegan": true,
@@ -9885,6 +10341,8 @@
       "water": 92.3
     },
     "sodiumMg": 1,
+    "sugars": 2.52,
+    "satFat": 0.04,
     "portion": { "label": "2 lžíce (30 ml)", "grams": 30.5 },
     "allergens": [],
     "vegan": true,
@@ -9928,6 +10386,8 @@
       "water": 88.3
     },
     "sodiumMg": 2,
+    "sugars": 1.69,
+    "satFat": 0.022,
     "portion": { "label": "1 limetka", "grams": 67 },
     "allergens": [],
     "vegan": true,
@@ -9972,6 +10432,8 @@
       "water": 83.1
     },
     "sodiumMg": 3,
+    "sugars": 8.99,
+    "satFat": 0.029,
     "portion": { "label": "1 kiwi", "grams": 69 },
     "allergens": [],
     "vegan": true,
@@ -10016,6 +10478,8 @@
       "water": 80.5
     },
     "sodiumMg": 2,
+    "sugars": 15.5,
+    "satFat": 0.054,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10059,6 +10523,8 @@
       "water": 86
     },
     "sodiumMg": 1,
+    "sugars": 9.85,
+    "satFat": 0.009,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10103,6 +10569,8 @@
       "water": 83.5
     },
     "sodiumMg": 1,
+    "sugars": 13.7,
+    "satFat": 0.092,
     "portion": { "label": "1 mango", "grams": 336 },
     "allergens": [],
     "vegan": true,
@@ -10147,6 +10615,8 @@
       "water": 88.1
     },
     "sodiumMg": 8,
+    "sugars": 7.82,
+    "satFat": 0.081,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10191,6 +10661,8 @@
       "water": 90.2
     },
     "sodiumMg": 16,
+    "sugars": 7.86,
+    "satFat": 0.051,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -10234,6 +10706,8 @@
       "water": 91.4
     },
     "sodiumMg": 1,
+    "sugars": 6.2,
+    "satFat": 0.016,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -10278,6 +10752,8 @@
       "water": 88.9
     },
     "sodiumMg": 0,
+    "sugars": 8.39,
+    "satFat": 0.019,
     "portion": { "label": "1 broskev", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -10319,6 +10795,8 @@
       "water": 89
     },
     "sodiumMg": 13,
+    "sugars": 7.89,
+    "satFat": 0,
     "portion": { "label": "1 nektarinka", "grams": 142 },
     "allergens": [],
     "vegan": true,
@@ -10362,6 +10840,8 @@
       "water": 86.4
     },
     "sodiumMg": 1,
+    "sugars": 9.24,
+    "satFat": 0.027,
     "portion": { "label": "1 meruňka", "grams": 35 },
     "allergens": [],
     "vegan": true,
@@ -10405,6 +10885,8 @@
       "water": 87.2
     },
     "sodiumMg": 0,
+    "sugars": 9.92,
+    "satFat": 0.017,
     "portion": { "label": "1 švestka", "grams": 66 },
     "allergens": [],
     "vegan": true,
@@ -10449,6 +10931,8 @@
       "water": 82.2
     },
     "sodiumMg": 0,
+    "sugars": 12.8,
+    "satFat": 0.038,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10493,6 +10977,8 @@
       "water": 86.1
     },
     "sodiumMg": 3,
+    "sugars": 8.49,
+    "satFat": 0.068,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10534,6 +11020,8 @@
       "water": 77.9
     },
     "sodiumMg": 3,
+    "sugars": 13.7,
+    "satFat": 0.12,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10577,6 +11065,8 @@
       "water": 79.1
     },
     "sodiumMg": 1,
+    "sugars": 16.3,
+    "satFat": 0.06,
     "portion": { "label": "1 fík", "grams": 50 },
     "allergens": [],
     "vegan": true,
@@ -10621,6 +11111,8 @@
       "water": 80.3
     },
     "sodiumMg": 1,
+    "sugars": 12.5,
+    "satFat": 0.02,
     "portion": { "label": "1 kus", "grams": 168 },
     "allergens": [],
     "vegan": true,
@@ -10662,6 +11154,8 @@
       "water": 47
     },
     "sodiumMg": 20,
+    "sugars": 6.23,
+    "satFat": 29.7,
     "portion": { "label": "porce 30 g", "grams": 30 },
     "allergens": [],
     "vegan": true,
@@ -10705,6 +11199,8 @@
       "water": 93.6
     },
     "sodiumMg": 4,
+    "sugars": 1.1,
+    "satFat": 0.053,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10749,6 +11245,8 @@
       "water": 84.2
     },
     "sodiumMg": 1,
+    "sugars": 9.96,
+    "satFat": 0.028,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10793,6 +11291,8 @@
       "water": 86.6
     },
     "sodiumMg": 1,
+    "sugars": 8.45,
+    "satFat": 0.053,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10837,6 +11337,8 @@
       "water": 91
     },
     "sodiumMg": 1,
+    "sugars": 4.89,
+    "satFat": 0.015,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10881,6 +11383,8 @@
       "water": 90
     },
     "sodiumMg": 2,
+    "sugars": 4.56,
+    "satFat": 0.006,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10925,6 +11429,8 @@
       "water": 85.8
     },
     "sodiumMg": 1,
+    "sugars": 4.42,
+    "satFat": 0.019,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -10969,6 +11475,8 @@
       "water": 88.2
     },
     "sodiumMg": 1,
+    "sugars": 4.88,
+    "satFat": 0.014,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11009,6 +11517,8 @@
       "water": 82
     },
     "sodiumMg": 2,
+    "sugars": null,
+    "satFat": 0.034,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11053,6 +11563,8 @@
       "water": 84
     },
     "sodiumMg": 1,
+    "sugars": 7.37,
+    "satFat": 0.017,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11094,6 +11606,8 @@
       "water": 87.9
     },
     "sodiumMg": 1,
+    "sugars": null,
+    "satFat": 0.038,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11138,6 +11652,8 @@
       "water": 87.3
     },
     "sodiumMg": 2,
+    "sugars": 4.27,
+    "satFat": 0.008,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11178,6 +11694,8 @@
       "water": 79.8
     },
     "sodiumMg": 6,
+    "sugars": null,
+    "satFat": 0.023,
     "portion": { "label": "hrst 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -11218,6 +11736,8 @@
       "water": 91.4
     },
     "sodiumMg": 7,
+    "sugars": null,
+    "satFat": 0.068,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": [],
     "vegan": true,
@@ -11260,6 +11780,8 @@
       "water": 15.5
     },
     "sodiumMg": 26,
+    "sugars": 65.2,
+    "satFat": 0.094,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["sulphites"],
     "vegan": true,
@@ -11304,6 +11826,8 @@
       "water": 30.9
     },
     "sodiumMg": 2,
+    "sugars": 38.1,
+    "satFat": 0.088,
     "portion": { "label": "5 kusů", "grams": 47.5 },
     "allergens": [],
     "vegan": true,
@@ -11345,6 +11869,8 @@
       "water": 21.3
     },
     "sodiumMg": 1,
+    "sugars": 66.5,
+    "satFat": null,
     "portion": { "label": "1 datle", "grams": 24 },
     "allergens": [],
     "vegan": true,
@@ -11387,6 +11913,8 @@
       "water": 30.9
     },
     "sodiumMg": 10,
+    "sugars": 53.4,
+    "satFat": 0.017,
     "portion": { "label": "5 kusů", "grams": 35 },
     "allergens": ["sulphites"],
     "vegan": true,
@@ -11429,6 +11957,8 @@
       "water": 30
     },
     "sodiumMg": 10,
+    "sugars": 47.9,
+    "satFat": 0.144,
     "portion": { "label": "2 kusy", "grams": 16.8 },
     "allergens": [],
     "vegan": true,
@@ -11472,6 +12002,8 @@
       "water": 15.8
     },
     "sodiumMg": 5,
+    "sugars": 72.6,
+    "satFat": 0.088,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": [],
     "vegan": true,
@@ -11498,6 +12030,8 @@
     "fiber": 13,
     "micros": { "vitC": 48.4, "calcium": 190, "iron": 6.8, "water": 7.5 },
     "sodiumMg": 298,
+    "sugars": 45.6,
+    "satFat": 0,
     "portion": { "label": "hrst 28 g", "grams": 28 },
     "allergens": [],
     "vegan": true,
@@ -11539,6 +12073,8 @@
       "water": 31.8
     },
     "sodiumMg": 87,
+    "sugars": 57.2,
+    "satFat": 0.052,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["sulphites"],
     "vegan": true,
@@ -11583,6 +12119,8 @@
       "water": 3
     },
     "sodiumMg": 3,
+    "sugars": 47.3,
+    "satFat": 0.698,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": [],
     "vegan": true,
@@ -11624,6 +12162,8 @@
       "water": 4.41
     },
     "sodiumMg": 1,
+    "sugars": 4.35,
+    "satFat": 3.8,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11668,6 +12208,8 @@
       "water": 4.07
     },
     "sodiumMg": 2,
+    "sugars": 2.61,
+    "satFat": 6.13,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11712,6 +12254,8 @@
       "water": 5.31
     },
     "sodiumMg": 0,
+    "sugars": 4.34,
+    "satFat": 4.46,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11754,6 +12298,8 @@
       "water": 5.2
     },
     "sodiumMg": 12,
+    "sugars": 5.91,
+    "satFat": 7.78,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11796,6 +12342,8 @@
       "water": 4.37
     },
     "sodiumMg": 1,
+    "sugars": 7.66,
+    "satFat": 5.91,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11837,6 +12385,8 @@
       "water": 3.42
     },
     "sodiumMg": 3,
+    "sugars": 2.33,
+    "satFat": 16.1,
     "portion": { "label": "2 ořechy", "grams": 10 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11877,6 +12427,8 @@
       "water": 1.36
     },
     "sodiumMg": 5,
+    "sugars": 4.57,
+    "satFat": 12.1,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11921,6 +12473,8 @@
       "water": 3.52
     },
     "sodiumMg": 0,
+    "sugars": 3.97,
+    "satFat": 6.18,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -11965,6 +12519,8 @@
       "water": 2.28
     },
     "sodiumMg": 2,
+    "sugars": 3.59,
+    "satFat": 4.9,
     "portion": { "label": "1 lžíce", "grams": 10 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -12009,6 +12565,8 @@
       "water": 40.5
     },
     "sodiumMg": 2,
+    "sugars": 10.6,
+    "satFat": 0.414,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -12049,6 +12607,8 @@
       "water": 6.5
     },
     "sodiumMg": 18,
+    "sugars": 4.72,
+    "satFat": 6.28,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["peanuts"],
     "vegan": true,
@@ -12089,6 +12649,8 @@
       "water": 1.81
     },
     "sodiumMg": 410,
+    "sugars": 4.9,
+    "satFat": 7.72,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": ["peanuts"],
     "vegan": true,
@@ -12130,6 +12692,8 @@
       "water": 1.23
     },
     "sodiumMg": 17,
+    "sugars": 10.5,
+    "satFat": 10.3,
     "portion": { "label": "1 lžíce", "grams": 16 },
     "allergens": ["peanuts"],
     "vegan": true,
@@ -12171,6 +12735,8 @@
       "water": 1.64
     },
     "sodiumMg": 7,
+    "sugars": 4.43,
+    "satFat": 4.15,
     "portion": { "label": "1 lžíce", "grams": 16 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -12215,6 +12781,8 @@
       "water": 5.23
     },
     "sodiumMg": 7,
+    "sugars": 1.4,
+    "satFat": 8.66,
     "portion": { "label": "1 lžíce", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -12258,6 +12826,8 @@
       "water": 4.73
     },
     "sodiumMg": 9,
+    "sugars": 2.62,
+    "satFat": 4.46,
     "portion": { "label": "1 lžíce", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -12301,6 +12871,8 @@
       "water": 6.96
     },
     "sodiumMg": 30,
+    "sugars": 1.55,
+    "satFat": 3.66,
     "portion": { "label": "1 lžíce", "grams": 7 },
     "allergens": [],
     "vegan": true,
@@ -12340,6 +12912,8 @@
       "water": 5.8
     },
     "sodiumMg": 16,
+    "sugars": null,
+    "satFat": 3.33,
     "portion": { "label": "1 lžíce", "grams": 12 },
     "allergens": [],
     "vegan": true,
@@ -12380,6 +12954,8 @@
       "water": 4.69
     },
     "sodiumMg": 11,
+    "sugars": 0.3,
+    "satFat": 6.96,
     "portion": { "label": "1 lžíce", "grams": 9 },
     "allergens": ["sesame"],
     "vegan": true,
@@ -12421,6 +12997,8 @@
       "water": 3.05
     },
     "sodiumMg": 115,
+    "sugars": 0.49,
+    "satFat": 7.53,
     "portion": { "label": "1 lžíce", "grams": 15 },
     "allergens": ["sesame"],
     "vegan": true,
@@ -12462,6 +13040,8 @@
       "water": 4.96
     },
     "sodiumMg": 5,
+    "sugars": 1.5,
+    "satFat": 4.6,
     "portion": { "label": "1 lžíce", "grams": 10 },
     "allergens": [],
     "vegan": true,
@@ -12503,6 +13083,8 @@
       "water": 5.95
     },
     "sodiumMg": 26,
+    "sugars": 2.99,
+    "satFat": 4.52,
     "portion": { "label": "1 lžíce", "grams": 8.8 },
     "allergens": [],
     "vegan": true,
@@ -12545,6 +13127,8 @@
       "water": 69.6
     },
     "sodiumMg": 2,
+    "sugars": 1.8,
+    "satFat": 0.053,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -12588,6 +13172,8 @@
       "water": 8.26
     },
     "sodiumMg": 6,
+    "sugars": 2.03,
+    "satFat": 0.154,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -12628,6 +13214,8 @@
       "water": 7.82
     },
     "sodiumMg": 7,
+    "sugars": null,
+    "satFat": 0.379,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -12669,6 +13257,8 @@
       "water": 65.7
     },
     "sodiumMg": 1,
+    "sugars": 0.32,
+    "satFat": 0.139,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -12710,6 +13300,8 @@
       "water": 11
     },
     "sodiumMg": 5,
+    "sugars": 2.12,
+    "satFat": 0.366,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -12752,6 +13344,8 @@
       "water": 66.9
     },
     "sodiumMg": 2,
+    "sugars": 0.32,
+    "satFat": 0.072,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -12790,6 +13384,8 @@
       "water": 68.1
     },
     "sodiumMg": 231,
+    "sugars": 3.8,
+    "satFat": 0.181,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -12831,6 +13427,8 @@
       "water": 63.1
     },
     "sodiumMg": 6,
+    "sugars": 0.34,
+    "satFat": 0.091,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -12872,6 +13470,8 @@
       "water": 11.3
     },
     "sodiumMg": 16,
+    "sugars": 2.11,
+    "satFat": 0.219,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -12898,6 +13498,8 @@
     "fiber": 4.23,
     "micros": { "b6": 0.055, "choline": 24.8, "ala": 0.176, "water": 69.7 },
     "sodiumMg": null,
+    "sugars": 8.19,
+    "satFat": 0.12,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -12941,6 +13543,8 @@
       "water": 60.2
     },
     "sodiumMg": 7,
+    "sugars": 4.8,
+    "satFat": 0.269,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -12984,6 +13588,8 @@
       "water": 7.68
     },
     "sodiumMg": 24,
+    "sugars": 10.7,
+    "satFat": 0.603,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -13026,6 +13632,8 @@
       "water": 58.7
     },
     "sodiumMg": 438,
+    "sugars": 0.34,
+    "satFat": 2.22,
     "portion": { "label": "1 lžíce", "grams": 16.9 },
     "allergens": ["sesame"],
     "vegan": true,
@@ -13068,6 +13676,8 @@
       "water": 69.5
     },
     "sodiumMg": 2,
+    "sugars": 2.9,
+    "satFat": 0.054,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -13111,6 +13721,8 @@
       "water": 8.69
     },
     "sodiumMg": 5,
+    "sugars": 3.14,
+    "satFat": 0.408,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -13154,6 +13766,8 @@
       "water": 72.7
     },
     "sodiumMg": 2,
+    "sugars": 2,
+    "satFat": 0.116,
     "portion": { "label": "porce 200 g", "grams": 200 },
     "allergens": [],
     "vegan": true,
@@ -13199,6 +13813,8 @@
       "water": 72.8
     },
     "sodiumMg": 6,
+    "sugars": 2.18,
+    "satFat": 0.62,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["soy"],
     "vegan": true,
@@ -13241,6 +13857,8 @@
       "water": 62.6
     },
     "sodiumMg": 1,
+    "sugars": 3,
+    "satFat": 1.3,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["soy"],
     "vegan": true,
@@ -13280,6 +13898,8 @@
       "water": 69.8
     },
     "sodiumMg": 14,
+    "sugars": null,
+    "satFat": 1.26,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["soy"],
     "vegan": true,
@@ -13322,6 +13942,8 @@
       "water": 87.3
     },
     "sodiumMg": 8,
+    "sugars": 0.7,
+    "satFat": 0.533,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["soy"],
     "vegan": true,
@@ -13365,6 +13987,8 @@
       "water": 71.5
     },
     "sodiumMg": 5,
+    "sugars": 1.82,
+    "satFat": 0.066,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": [],
     "vegan": true,
@@ -13404,6 +14028,8 @@
       "water": 71.1
     },
     "sodiumMg": 4,
+    "sugars": null,
+    "satFat": 0.346,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["lupin"],
     "vegan": true,
@@ -13446,6 +14072,8 @@
       "water": 10.8
     },
     "sodiumMg": 6,
+    "sugars": 0.99,
+    "satFat": 1.11,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -13488,6 +14116,8 @@
       "water": 83.6
     },
     "sodiumMg": 4,
+    "sugars": 0.27,
+    "satFat": 0.31,
     "portion": { "label": "1 miska", "grams": 234 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -13530,6 +14160,8 @@
       "water": 6.55
     },
     "sodiumMg": 4,
+    "sugars": 1.45,
+    "satFat": 1.33,
     "portion": { "label": "1 lžíce", "grams": 8 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -13575,6 +14207,8 @@
       "water": 5.84
     },
     "sodiumMg": 26,
+    "sugars": 19.8,
+    "satFat": 3.96,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["gluten", "nuts"],
     "vegan": true,
@@ -13616,6 +14250,8 @@
       "water": 11.6
     },
     "sodiumMg": 5,
+    "sugars": 0.12,
+    "satFat": 0.18,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": [],
     "vegan": true,
@@ -13656,6 +14292,8 @@
       "water": 68.4
     },
     "sodiumMg": 1,
+    "sugars": 0.05,
+    "satFat": 0.077,
     "portion": { "label": "1 hrnek", "grams": 158 },
     "allergens": [],
     "vegan": true,
@@ -13697,6 +14335,8 @@
       "water": 11.8
     },
     "sodiumMg": 5,
+    "sugars": 0.66,
+    "satFat": 0.591,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": [],
     "vegan": true,
@@ -13738,6 +14378,8 @@
       "water": 70.3
     },
     "sodiumMg": 4,
+    "sugars": 0.24,
+    "satFat": 0.26,
     "portion": { "label": "1 hrnek", "grams": 202 },
     "allergens": [],
     "vegan": true,
@@ -13778,6 +14420,8 @@
       "water": 70.4
     },
     "sodiumMg": 2,
+    "sugars": 0.11,
+    "satFat": 0.074,
     "portion": { "label": "1 hrnek", "grams": 158 },
     "allergens": [],
     "vegan": true,
@@ -13820,6 +14464,8 @@
       "water": 73.9
     },
     "sodiumMg": 3,
+    "sugars": 0.73,
+    "satFat": 0.049,
     "portion": { "label": "1 hrnek", "grams": 164 },
     "allergens": [],
     "vegan": true,
@@ -13859,6 +14505,8 @@
       "water": 8.41
     },
     "sodiumMg": 11,
+    "sugars": null,
+    "satFat": 0.591,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": [],
     "vegan": true,
@@ -13901,6 +14549,8 @@
       "water": 75.6
     },
     "sodiumMg": 4,
+    "sugars": 0.9,
+    "satFat": 0.134,
     "portion": { "label": "1 hrnek", "grams": 168 },
     "allergens": [],
     "vegan": true,
@@ -13941,6 +14591,8 @@
       "water": 8.67
     },
     "sodiumMg": 5,
+    "sugars": null,
+    "satFat": 0.723,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": [],
     "vegan": true,
@@ -13983,6 +14635,8 @@
       "water": 71.4
     },
     "sodiumMg": 2,
+    "sugars": 0.13,
+    "satFat": 0.172,
     "portion": { "label": "1 hrnek", "grams": 174 },
     "allergens": [],
     "vegan": true,
@@ -14026,6 +14680,8 @@
       "water": 13.3
     },
     "sodiumMg": 5,
+    "sugars": null,
+    "satFat": 0.706,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": [],
     "vegan": true,
@@ -14068,6 +14724,8 @@
       "water": 71.6
     },
     "sodiumMg": 7,
+    "sugars": 0.87,
+    "satFat": 0.231,
     "portion": { "label": "1 hrnek", "grams": 185 },
     "allergens": [],
     "vegan": true,
@@ -14111,6 +14769,8 @@
       "water": 10.1
     },
     "sodiumMg": 9,
+    "sugars": 0.8,
+    "satFat": 0.244,
     "portion": { "label": "porce 70 g", "grams": 70 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14153,6 +14813,8 @@
       "water": 68.8
     },
     "sodiumMg": 3,
+    "sugars": 0.28,
+    "satFat": 0.093,
     "portion": { "label": "1 hrnek", "grams": 157 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14195,6 +14857,8 @@
       "water": 77.8
     },
     "sodiumMg": 5,
+    "sugars": 0.1,
+    "satFat": 0.042,
     "portion": { "label": "1 hrnek", "grams": 182 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14237,6 +14901,8 @@
       "water": 72.6
     },
     "sodiumMg": 5,
+    "sugars": 0.1,
+    "satFat": 0.029,
     "portion": { "label": "1 hrnek", "grams": 157 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14276,6 +14942,8 @@
       "water": 12.7
     },
     "sodiumMg": 1,
+    "sugars": null,
+    "satFat": 0.15,
     "portion": { "label": "1 lžíce", "grams": 10 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14319,6 +14987,8 @@
       "water": 10.3
     },
     "sodiumMg": 35,
+    "sugars": 0.64,
+    "satFat": 0.505,
     "portion": { "label": "porce 60 g", "grams": 60 },
     "allergens": [],
     "vegan": true,
@@ -14357,6 +15027,8 @@
       "water": 75.2
     },
     "sodiumMg": 6,
+    "sugars": null,
+    "satFat": null,
     "portion": { "label": "1 hrnek", "grams": 246 },
     "allergens": [],
     "vegan": true,
@@ -14395,6 +15067,8 @@
       "water": 66.6
     },
     "sodiumMg": 5,
+    "sugars": null,
+    "satFat": null,
     "portion": { "label": "1 hrnek", "grams": 194 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14433,6 +15107,8 @@
       "water": 8.63
     },
     "sodiumMg": 2.41,
+    "sugars": 10.5,
+    "satFat": 0.489,
     "portion": { "label": "porce 80 g", "grams": 80 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14474,6 +15150,8 @@
       "water": 62.1
     },
     "sodiumMg": 1,
+    "sugars": 0.56,
+    "satFat": 0.176,
     "portion": { "label": "1 hrnek", "grams": 116 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14516,6 +15194,8 @@
       "water": 61.8
     },
     "sodiumMg": 4,
+    "sugars": 0.75,
+    "satFat": 0.243,
     "portion": { "label": "1 hrnek", "grams": 107 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14559,6 +15239,8 @@
       "water": 67.7
     },
     "sodiumMg": 165,
+    "sugars": 0.4,
+    "satFat": 0.419,
     "portion": { "label": "1 hrnek", "grams": 160 },
     "allergens": ["gluten", "eggs"],
     "vegan": false,
@@ -14599,6 +15281,8 @@
       "water": 73.8
     },
     "sodiumMg": 19,
+    "sugars": 0.03,
+    "satFat": 0.023,
     "portion": { "label": "1 hrnek", "grams": 176 },
     "allergens": [],
     "vegan": true,
@@ -14641,6 +15325,8 @@
       "water": 11.9
     },
     "sodiumMg": 2,
+    "sugars": 0.27,
+    "satFat": 0.155,
     "portion": { "label": "1 lžíce", "grams": 8 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14677,6 +15363,8 @@
       "water": 9.44
     },
     "sodiumMg": 3,
+    "sugars": null,
+    "satFat": null,
     "portion": { "label": "1 lžíce", "grams": 8 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14720,6 +15408,8 @@
       "water": 10.8
     },
     "sodiumMg": 2,
+    "sugars": 2.31,
+    "satFat": 0.269,
     "portion": { "label": "1 lžíce", "grams": 8 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14758,6 +15448,8 @@
       "water": 11.1
     },
     "sodiumMg": 12,
+    "sugars": null,
+    "satFat": 1.66,
     "portion": { "label": "1 lžíce", "grams": 7 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14800,6 +15492,8 @@
       "water": 9.89
     },
     "sodiumMg": 2,
+    "sugars": 0.41,
+    "satFat": 0.63,
     "portion": { "label": "1 lžíce", "grams": 4 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14843,6 +15537,8 @@
       "water": 36.4
     },
     "sodiumMg": 490,
+    "sugars": 5.67,
+    "satFat": 0.698,
     "portion": { "label": "1 krajíc", "grams": 29 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14881,6 +15577,8 @@
       "water": 37
     },
     "sodiumMg": 408,
+    "sugars": 5.65,
+    "satFat": 0.804,
     "portion": { "label": "1 krajíc", "grams": 30 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14924,6 +15622,8 @@
       "water": 37.3
     },
     "sodiumMg": 603,
+    "sugars": 3.85,
+    "satFat": 0.626,
     "portion": { "label": "1 krajíc", "grams": 7 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -14966,6 +15666,8 @@
       "water": 37.9
     },
     "sodiumMg": 596,
+    "sugars": 0.53,
+    "satFat": 0.437,
     "portion": { "label": "1 krajíc", "grams": 7 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15009,6 +15711,8 @@
       "water": 36.9
     },
     "sodiumMg": 381,
+    "sugars": 6.39,
+    "satFat": 0.872,
     "portion": { "label": "1 krajíc", "grams": 41 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15054,6 +15758,8 @@
       "water": 34.3
     },
     "sodiumMg": 494,
+    "sugars": 7.28,
+    "satFat": 0.842,
     "portion": { "label": "1 kus", "grams": 44 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15096,6 +15802,8 @@
       "water": 33
     },
     "sodiumMg": 602,
+    "sugars": 4.62,
+    "satFat": 0.529,
     "portion": { "label": "1 krajíc", "grams": 139 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15139,6 +15847,8 @@
       "water": 5
     },
     "sodiumMg": 557,
+    "sugars": 1.01,
+    "satFat": 0.108,
     "portion": { "label": "1 plátek", "grams": 11 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15180,6 +15890,8 @@
       "water": 5.8
     },
     "sodiumMg": 26,
+    "sugars": 0.88,
+    "satFat": 0.57,
     "portion": { "label": "1 kus", "grams": 9 },
     "allergens": [],
     "vegan": true,
@@ -15221,6 +15933,8 @@
       "water": 32
     },
     "sodiumMg": 736,
+    "sugars": 3.71,
+    "satFat": 2.92,
     "portion": { "label": "1 tortilla", "grams": 45 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -15267,6 +15981,8 @@
       "water": 23.2
     },
     "sodiumMg": 384,
+    "sugars": 11.3,
+    "satFat": 11.7,
     "portion": { "label": "1 kus", "grams": 57 },
     "allergens": ["gluten", "milk", "eggs"],
     "vegan": false,
@@ -15309,6 +16025,8 @@
       "water": 52.9
     },
     "sodiumMg": 439,
+    "sugars": null,
+    "satFat": 2.12,
     "portion": { "label": "1 kus", "grams": 77 },
     "allergens": ["gluten", "milk", "eggs"],
     "vegan": false,
@@ -15352,6 +16070,8 @@
       "water": 3.32
     },
     "sodiumMg": 8,
+    "sugars": 0.87,
+    "satFat": 0.637,
     "portion": { "label": "hrnek", "grams": 8 },
     "allergens": [],
     "vegan": true,
@@ -15386,6 +16106,8 @@
       "ala": 0.761
     },
     "sodiumMg": 2,
+    "sugars": 0,
+    "satFat": 13.8,
     "portion": { "label": "1 lžíce", "grams": 13.5 },
     "allergens": [],
     "vegan": true,
@@ -15412,6 +16134,8 @@
     "fiber": 0,
     "micros": { "vitE": 17.5, "vitK": 71.3, "choline": 0.2, "ala": 9.14 },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 7.36,
     "portion": { "label": "1 lžíce", "grams": 14 },
     "allergens": [],
     "vegan": true,
@@ -15438,6 +16162,8 @@
     "fiber": 0,
     "micros": { "vitE": 41.1, "vitK": 5.4, "choline": 0.2 },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 10.3,
     "portion": { "label": "1 lžíce", "grams": 13.6 },
     "allergens": [],
     "vegan": true,
@@ -15473,6 +16199,8 @@
       "water": 0.12
     },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 8.98,
     "portion": { "label": "1 lžíce", "grams": 13.6 },
     "allergens": [],
     "vegan": true,
@@ -15508,6 +16236,8 @@
       "water": 0.03
     },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 82.5,
     "portion": { "label": "1 lžíce", "grams": 13.6 },
     "allergens": [],
     "vegan": true,
@@ -15534,6 +16264,8 @@
     "fiber": 0,
     "micros": { "vitE": 0.4, "vitK": 15, "choline": 0.4, "ala": 10.4 },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 9.1,
     "portion": { "label": "1 lžíce", "grams": 13.6 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -15560,6 +16292,8 @@
     "fiber": 0,
     "micros": { "vitE": 1.4, "vitK": 13.6, "choline": 0.2, "ala": 0.3 },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 14.2,
     "portion": { "label": "1 lžíce", "grams": 13.6 },
     "allergens": ["sesame"],
     "vegan": true,
@@ -15586,6 +16320,8 @@
     "fiber": 0,
     "micros": { "vitD": 2.5, "vitE": 0.6, "choline": 49.7, "zinc": 0.11, "ala": 1 },
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 39.2,
     "portion": { "label": "1 lžíce", "grams": 12.8 },
     "allergens": [],
     "vegan": false,
@@ -15629,6 +16365,8 @@
       "water": 37.6
     },
     "sodiumMg": 785,
+    "sugars": 0,
+    "satFat": 12.1,
     "portion": { "label": "1 lžička", "grams": 5 },
     "allergens": [],
     "vegan": true,
@@ -15675,6 +16413,8 @@
       "water": 21.6
     },
     "sodiumMg": 635,
+    "sugars": 0.57,
+    "satFat": 11.7,
     "portion": { "label": "1 lžíce", "grams": 13.8 },
     "allergens": ["eggs"],
     "vegan": false,
@@ -15701,6 +16441,8 @@
     "fiber": 0,
     "micros": { "omega3": 31200, "ala": 1.06 },
     "sodiumMg": 0,
+    "sugars": null,
+    "satFat": 19.9,
     "portion": { "label": "1 lžička", "grams": 4.5 },
     "allergens": ["fish"],
     "vegan": false,
@@ -15727,6 +16469,8 @@
     "fiber": 0,
     "micros": { "vitA": 30000, "vitD": 250, "omega3": 17900, "ala": 0.935 },
     "sodiumMg": 0,
+    "sugars": null,
+    "satFat": 22.6,
     "portion": { "label": "1 lžička", "grams": 4.5 },
     "allergens": ["fish"],
     "vegan": false,
@@ -15771,6 +16515,8 @@
       "water": 92.1
     },
     "sodiumMg": 4,
+    "sugars": 0.3,
+    "satFat": 0.041,
     "portion": { "label": "1 lžíce", "grams": 2 },
     "allergens": [],
     "vegan": true,
@@ -15811,6 +16557,8 @@
       "water": 86
     },
     "sodiumMg": 61,
+    "sugars": null,
+    "satFat": 0.06,
     "portion": { "label": "1 lžíce", "grams": 1 },
     "allergens": [],
     "vegan": true,
@@ -15855,6 +16603,8 @@
       "water": 90.6
     },
     "sodiumMg": 3,
+    "sugars": 1.85,
+    "satFat": 0.146,
     "portion": { "label": "1 lžíce", "grams": 3 },
     "allergens": [],
     "vegan": true,
@@ -15898,6 +16648,8 @@
       "water": 92.2
     },
     "sodiumMg": 46,
+    "sugars": 0.87,
+    "satFat": 0.014,
     "portion": { "label": "1 lžíce", "grams": 1 },
     "allergens": [],
     "vegan": true,
@@ -15938,6 +16690,8 @@
       "water": 85.6
     },
     "sodiumMg": 30,
+    "sugars": null,
+    "satFat": 0.191,
     "portion": { "label": "1 lžíce", "grams": 2 },
     "allergens": [],
     "vegan": true,
@@ -15978,6 +16732,8 @@
       "water": 67.8
     },
     "sodiumMg": 26,
+    "sugars": null,
+    "satFat": 2.84,
     "portion": { "label": "1 lžíce", "grams": 2 },
     "allergens": [],
     "vegan": true,
@@ -16018,6 +16774,8 @@
       "water": 65.1
     },
     "sodiumMg": 9,
+    "sugars": null,
+    "satFat": 0.467,
     "portion": { "label": "1 lžička", "grams": 1 },
     "allergens": [],
     "vegan": true,
@@ -16062,6 +16820,8 @@
       "water": 9.93
     },
     "sodiumMg": 25,
+    "sugars": 4.09,
+    "satFat": 1.55,
     "portion": { "label": "1 lžička", "grams": 1 },
     "allergens": [],
     "vegan": true,
@@ -16106,6 +16866,8 @@
       "water": 7.64
     },
     "sodiumMg": 77,
+    "sugars": 4.09,
+    "satFat": 0.529,
     "portion": { "label": "1 lžička", "grams": 0.6 },
     "allergens": [],
     "vegan": true,
@@ -16149,6 +16911,8 @@
       "water": 9.87
     },
     "sodiumMg": 17,
+    "sugars": 0.64,
+    "satFat": 0.62,
     "portion": { "label": "1 lžička", "grams": 2.1 },
     "allergens": [],
     "vegan": true,
@@ -16193,6 +16957,8 @@
       "water": 11.2
     },
     "sodiumMg": 68,
+    "sugars": 10.3,
+    "satFat": 2.14,
     "portion": { "label": "1 lžička", "grams": 2.3 },
     "allergens": [],
     "vegan": true,
@@ -16236,6 +17002,8 @@
       "water": 12.5
     },
     "sodiumMg": 20,
+    "sugars": 0.64,
+    "satFat": 1.39,
     "portion": { "label": "1 lžička", "grams": 2.3 },
     "allergens": [],
     "vegan": true,
@@ -16278,6 +17046,8 @@
       "water": 12.8
     },
     "sodiumMg": 27,
+    "sugars": 3.21,
+    "satFat": 1.84,
     "portion": { "label": "1 lžička", "grams": 3 },
     "allergens": [],
     "vegan": true,
@@ -16322,6 +17092,8 @@
       "water": 10.6
     },
     "sodiumMg": 10,
+    "sugars": 2.17,
+    "satFat": 0.345,
     "portion": { "label": "1 lžička", "grams": 2.6 },
     "allergens": [],
     "vegan": true,
@@ -16366,6 +17138,8 @@
       "water": 8.06
     },
     "sodiumMg": 168,
+    "sugars": 2.25,
+    "satFat": 1.54,
     "portion": { "label": "1 lžička", "grams": 2.1 },
     "allergens": [],
     "vegan": true,
@@ -16408,6 +17182,8 @@
       "water": 9.94
     },
     "sodiumMg": 27,
+    "sugars": 3.39,
+    "satFat": 2.6,
     "portion": { "label": "1 lžička", "grams": 1.8 },
     "allergens": [],
     "vegan": true,
@@ -16450,6 +17226,8 @@
       "water": 6.45
     },
     "sodiumMg": 60,
+    "sugars": 2.43,
+    "satFat": 0.249,
     "portion": { "label": "1 lžička", "grams": 3.1 },
     "allergens": [],
     "vegan": true,
@@ -16490,6 +17268,8 @@
       "water": 5.44
     },
     "sodiumMg": 23,
+    "sugars": null,
+    "satFat": 2.28,
     "portion": { "label": "1 list", "grams": 0.2 },
     "allergens": [],
     "vegan": true,
@@ -16530,6 +17310,8 @@
       "water": 8.46
     },
     "sodiumMg": 77,
+    "sugars": null,
+    "satFat": 2.55,
     "portion": { "label": "1 lžička", "grams": 1.9 },
     "allergens": [],
     "vegan": true,
@@ -16574,6 +17356,8 @@
       "water": 9.87
     },
     "sodiumMg": 277,
+    "sugars": 2.38,
+    "satFat": 3.95,
     "portion": { "label": "1 lžička", "grams": 2.1 },
     "allergens": [],
     "vegan": true,
@@ -16614,6 +17398,8 @@
       "water": 6.23
     },
     "sodiumMg": 16,
+    "sugars": 2.99,
+    "satFat": 25.9,
     "portion": { "label": "1 lžička", "grams": 2.2 },
     "allergens": [],
     "vegan": true,
@@ -16640,6 +17426,8 @@
     "fiber": 0,
     "micros": { "calcium": 24, "magnesium": 1, "potassium": 8, "iron": 0.33, "zinc": 0.1, "water": 0.2 },
     "sodiumMg": 38800,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "1 lžička", "grams": 6 },
     "allergens": [],
     "vegan": true,
@@ -16682,6 +17470,8 @@
       "water": 83.7
     },
     "sodiumMg": 1100,
+    "sugars": 1.42,
+    "satFat": 0.252,
     "portion": { "label": "1 lžička", "grams": 6 },
     "allergens": ["mustard"],
     "vegan": true,
@@ -16726,6 +17516,8 @@
       "water": 68.5
     },
     "sodiumMg": 907,
+    "sugars": 21.3,
+    "satFat": 0.014,
     "portion": { "label": "1 lžíce", "grams": 17 },
     "allergens": [],
     "vegan": true,
@@ -16765,6 +17557,8 @@
       "water": 71.2
     },
     "sodiumMg": 5490,
+    "sugars": 0.4,
+    "satFat": 0.073,
     "portion": { "label": "1 lžíce", "grams": 16 },
     "allergens": ["soy", "gluten"],
     "vegan": true,
@@ -16799,6 +17593,8 @@
       "water": 94.8
     },
     "sodiumMg": 2,
+    "sugars": 0.04,
+    "satFat": 0,
     "portion": { "label": "1 lžíce", "grams": 14.9 },
     "allergens": [],
     "vegan": true,
@@ -16833,6 +17629,8 @@
       "water": 93.8
     },
     "sodiumMg": 5,
+    "sugars": 0.4,
+    "satFat": 0,
     "portion": { "label": "1 lžíce", "grams": 14.9 },
     "allergens": [],
     "vegan": true,
@@ -16874,6 +17672,8 @@
       "water": 5.08
     },
     "sodiumMg": 51,
+    "sugars": 0,
+    "satFat": 1,
     "portion": { "label": "1 lžička", "grams": 4 },
     "allergens": [],
     "vegan": true,
@@ -16915,6 +17715,8 @@
       "water": 3
     },
     "sodiumMg": 21,
+    "sugars": 1.75,
+    "satFat": 8.07,
     "portion": { "label": "1 lžíce", "grams": 5.4 },
     "allergens": [],
     "vegan": true,
@@ -16941,6 +17743,8 @@
     "fiber": 0,
     "micros": { "calcium": 3, "magnesium": 1, "zinc": 0.01, "water": 99.9 },
     "sodiumMg": 4,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "1 sklenice (250 ml)", "grams": 250 },
     "allergens": [],
     "vegan": true,
@@ -16981,6 +17785,8 @@
       "water": 99.4
     },
     "sodiumMg": 2,
+    "sugars": 0,
+    "satFat": 0.002,
     "portion": { "label": "1 šálek", "grams": 237 },
     "allergens": [],
     "vegan": true,
@@ -17022,6 +17828,8 @@
       "water": 97.8
     },
     "sodiumMg": 14,
+    "sugars": 0,
+    "satFat": 0.092,
     "portion": { "label": "1 šálek (30 ml)", "grams": 30 },
     "allergens": [],
     "vegan": true,
@@ -17058,6 +17866,8 @@
       "water": 99.3
     },
     "sodiumMg": 2,
+    "sugars": 0,
+    "satFat": 0.002,
     "portion": { "label": "1 šálek", "grams": 237 },
     "allergens": [],
     "vegan": true,
@@ -17094,6 +17904,8 @@
       "water": 99.7
     },
     "sodiumMg": 3,
+    "sugars": 0,
+    "satFat": 0.002,
     "portion": { "label": "1 hrnek", "grams": 237 },
     "allergens": [],
     "vegan": true,
@@ -17128,6 +17940,8 @@
       "water": 99.9
     },
     "sodiumMg": 1,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "1 hrnek", "grams": 245 },
     "allergens": [],
     "vegan": true,
@@ -17165,6 +17979,8 @@
       "water": 99.7
     },
     "sodiumMg": 1,
+    "sugars": 0,
+    "satFat": 0.002,
     "portion": { "label": "1 hrnek", "grams": 237 },
     "allergens": [],
     "vegan": true,
@@ -17209,6 +18025,8 @@
       "water": 88.3
     },
     "sodiumMg": 1,
+    "sugars": 8.4,
+    "satFat": 0.024,
     "portion": { "label": "1 sklenice", "grams": 248 },
     "allergens": [],
     "vegan": true,
@@ -17250,6 +18068,8 @@
       "water": 88.2
     },
     "sodiumMg": 4,
+    "sugars": 9.62,
+    "satFat": 0.022,
     "portion": { "label": "1 sklenice", "grams": 248 },
     "allergens": [],
     "vegan": true,
@@ -17294,6 +18114,8 @@
       "water": 94.2
     },
     "sodiumMg": 10,
+    "sugars": 2.58,
+    "satFat": 0.019,
     "portion": { "label": "1 sklenice", "grams": 243 },
     "allergens": [],
     "vegan": true,
@@ -17328,6 +18150,8 @@
       "water": 89.4
     },
     "sodiumMg": 3,
+    "sugars": 9.94,
+    "satFat": 0,
     "portion": { "label": "plechovka 330 ml", "grams": 330 },
     "allergens": [],
     "vegan": true,
@@ -17365,6 +18189,8 @@
       "water": 89.2
     },
     "sodiumMg": 39,
+    "sugars": 10.2,
+    "satFat": 0,
     "portion": { "label": "plechovka 250 ml", "grams": 250 },
     "allergens": [],
     "vegan": true,
@@ -17409,6 +18235,8 @@
       "water": 90.4
     },
     "sodiumMg": 47,
+    "sugars": 3.65,
+    "satFat": 0.205,
     "portion": { "label": "1 sklenice", "grams": 243 },
     "allergens": ["soy"],
     "vegan": true,
@@ -17448,6 +18276,8 @@
       "water": 97.4
     },
     "sodiumMg": 59.6,
+    "sugars": 0,
+    "satFat": 0.104,
     "portion": { "label": "1 sklenice (250 ml)", "grams": 250 },
     "allergens": ["nuts"],
     "vegan": true,
@@ -17487,6 +18317,8 @@
       "water": 90.6
     },
     "sodiumMg": 42,
+    "sugars": 2.32,
+    "satFat": null,
     "portion": { "label": "1 sklenice (250 ml)", "grams": 250 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -17531,6 +18363,8 @@
       "water": 89.3
     },
     "sodiumMg": 39,
+    "sugars": 5.28,
+    "satFat": 0,
     "portion": { "label": "1 sklenice (250 ml)", "grams": 250 },
     "allergens": [],
     "vegan": true,
@@ -17567,6 +18401,8 @@
       "water": 95
     },
     "sodiumMg": 26,
+    "sugars": 3.92,
+    "satFat": 0,
     "portion": { "label": "1 sklenice", "grams": 245 },
     "allergens": [],
     "vegan": true,
@@ -17606,6 +18442,8 @@
       "water": 92
     },
     "sodiumMg": 4,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "0,5 l", "grams": 500 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -17645,6 +18483,8 @@
       "water": 94.9
     },
     "sodiumMg": 4,
+    "sugars": 0.09,
+    "satFat": 0,
     "portion": { "label": "0,5 l", "grams": 500 },
     "allergens": ["gluten"],
     "vegan": true,
@@ -17685,6 +18525,8 @@
       "water": 86.5
     },
     "sodiumMg": 4,
+    "sugars": 0.62,
+    "satFat": 0,
     "portion": { "label": "1 sklenka (150 ml)", "grams": 150 },
     "allergens": ["sulphites"],
     "vegan": true,
@@ -17724,6 +18566,8 @@
       "water": 86.9
     },
     "sodiumMg": 5,
+    "sugars": 0.96,
+    "satFat": 0,
     "portion": { "label": "1 sklenka (150 ml)", "grams": 150 },
     "allergens": ["sulphites"],
     "vegan": true,
@@ -17758,6 +18602,8 @@
       "water": 66.6
     },
     "sodiumMg": 1,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "1 panák (40 ml)", "grams": 40 },
     "allergens": [],
     "vegan": true,
@@ -17784,6 +18630,8 @@
     "fiber": 0,
     "micros": { "calcium": 1, "potassium": 2, "iron": 0.05, "zinc": 0.01, "water": 0.02 },
     "sodiumMg": 1,
+    "sugars": 99.8,
+    "satFat": 0,
     "portion": { "label": "1 lžička", "grams": 4.2 },
     "allergens": [],
     "vegan": true,
@@ -17821,6 +18669,8 @@
       "water": 1.34
     },
     "sodiumMg": 28,
+    "sugars": 97,
+    "satFat": 0,
     "portion": { "label": "1 lžička", "grams": 4.6 },
     "allergens": [],
     "vegan": true,
@@ -17859,6 +18709,8 @@
       "water": 17.1
     },
     "sodiumMg": 4,
+    "sugars": 82.1,
+    "satFat": 0,
     "portion": { "label": "1 lžíce", "grams": 21 },
     "allergens": [],
     "vegan": false,
@@ -17896,6 +18748,8 @@
       "water": 32.4
     },
     "sodiumMg": 12,
+    "sugars": 60.5,
+    "satFat": 0.007,
     "portion": { "label": "1 lžíce", "grams": 20 },
     "allergens": [],
     "vegan": true,
@@ -17938,6 +18792,8 @@
       "water": 22.9
     },
     "sodiumMg": 4,
+    "sugars": 68,
+    "satFat": 0,
     "portion": { "label": "1 lžička", "grams": 6.9 },
     "allergens": [],
     "vegan": true,
@@ -17964,6 +18820,8 @@
     "fiber": 0,
     "micros": {},
     "sodiumMg": 0,
+    "sugars": 0,
+    "satFat": 0,
     "portion": { "label": "1 balíček", "grams": 1 },
     "allergens": [],
     "vegan": true,
@@ -18004,6 +18862,8 @@
       "water": 30.5
     },
     "sodiumMg": 32,
+    "sugars": 48.5,
+    "satFat": 0.01,
     "portion": { "label": "1 lžíce", "grams": 20 },
     "allergens": [],
     "vegan": true,
@@ -18046,6 +18906,8 @@
       "water": 1.37
     },
     "sodiumMg": 20,
+    "sugars": 24,
+    "satFat": 24.5,
     "portion": { "label": "2 čtverečky", "grams": 20 },
     "allergens": ["milk"],
     "vegan": false,
@@ -18090,6 +18952,8 @@
       "water": 1.5
     },
     "sodiumMg": 79,
+    "sugars": 51.5,
+    "satFat": 18.5,
     "portion": { "label": "2 čtverečky", "grams": 20 },
     "allergens": ["milk"],
     "vegan": false,
@@ -18133,6 +18997,8 @@
       "water": 1.07
     },
     "sodiumMg": 41,
+    "sugars": 54,
+    "satFat": null,
     "portion": { "label": "1 lžíce", "grams": 37 },
     "allergens": ["nuts", "milk"],
     "vegan": false,
@@ -18179,6 +19045,8 @@
       "water": 4.6
     },
     "sodiumMg": 282,
+    "sugars": 20.2,
+    "satFat": 11.1,
     "portion": { "label": "1 sušenka", "grams": 5 },
     "allergens": ["gluten", "milk", "eggs"],
     "vegan": false,
@@ -18225,6 +19093,8 @@
       "water": 25.9
     },
     "sodiumMg": 377,
+    "sugars": 33.4,
+    "satFat": 4.81,
     "portion": { "label": "1 řez", "grams": 49 },
     "allergens": ["gluten", "milk", "eggs"],
     "vegan": false,
@@ -18260,6 +19130,8 @@
       "water": 1
     },
     "sodiumMg": 44,
+    "sugars": 59,
+    "satFat": 0,
     "portion": { "label": "hrst 30 g", "grams": 30 },
     "allergens": [],
     "vegan": false,
@@ -18304,6 +19176,8 @@
       "water": 92.5
     },
     "sodiumMg": 661,
+    "sugars": 1.78,
+    "satFat": 0.034,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -18347,6 +19221,8 @@
       "water": 94.3
     },
     "sodiumMg": 498,
+    "sugars": 1.06,
+    "satFat": 0.067,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": [],
     "vegan": true,
@@ -18390,6 +19266,8 @@
       "water": 43
     },
     "sodiumMg": 3730,
+    "sugars": 6.2,
+    "satFat": 1.02,
     "portion": { "label": "1 lžíce", "grams": 17 },
     "allergens": ["soy"],
     "vegan": true,
@@ -18429,6 +19307,8 @@
       "water": 59.6
     },
     "sodiumMg": 9,
+    "sugars": null,
+    "satFat": 2.54,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["soy"],
     "vegan": true,
@@ -18468,6 +19348,8 @@
       "water": 59.6
     },
     "sodiumMg": 14,
+    "sugars": null,
+    "satFat": 3.4,
     "portion": { "label": "porce 100 g", "grams": 100 },
     "allergens": ["soy"],
     "vegan": true,
@@ -18510,6 +19392,8 @@
       "water": 55
     },
     "sodiumMg": 7,
+    "sugars": 4.89,
+    "satFat": 1.59,
     "portion": { "label": "porce 50 g", "grams": 50 },
     "allergens": ["soy"],
     "vegan": true,
@@ -18555,6 +19439,8 @@
       "water": 83.6
     },
     "sodiumMg": 34,
+    "sugars": 3.56,
+    "satFat": 1.23,
     "portion": { "label": "porce 150 g", "grams": 150 },
     "allergens": ["milk"],
     "vegan": false,
@@ -18598,6 +19484,8 @@
       "water": 40.8
     },
     "sodiumMg": 398,
+    "sugars": 2.65,
+    "satFat": 0.912,
     "portion": { "label": "4 plátky", "grams": 120 },
     "allergens": ["gluten", "milk", "eggs"],
     "vegan": false,
@@ -18640,6 +19528,8 @@
       "water": 80.7
     },
     "sodiumMg": 36.7,
+    "sugars": 3.16,
+    "satFat": 5.93,
     "portion": { "label": "porce omáčky", "grams": 200 },
     "allergens": ["celery", "milk", "gluten", "mustard"],
     "vegan": false,
@@ -18679,6 +19569,8 @@
       "water": 63.5
     },
     "sodiumMg": 158,
+    "sugars": 2.19,
+    "satFat": 3.47,
     "portion": { "label": "1 talíř", "grams": 470 },
     "allergens": ["celery", "milk", "gluten", "mustard", "eggs"],
     "vegan": false,
@@ -18724,6 +19616,8 @@
       "water": 72.4
     },
     "sodiumMg": 265,
+    "sugars": 1.45,
+    "satFat": 2.26,
     "portion": { "label": "porce bez přílohy", "grams": 300 },
     "allergens": ["gluten"],
     "vegan": false,
@@ -18769,6 +19663,8 @@
       "water": 89.6
     },
     "sodiumMg": 233,
+    "sugars": 0.749,
+    "satFat": 0.744,
     "portion": { "label": "1 talíř", "grams": 300 },
     "allergens": ["celery", "milk", "gluten"],
     "vegan": false,

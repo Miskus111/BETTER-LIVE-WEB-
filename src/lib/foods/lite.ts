@@ -25,6 +25,9 @@ export interface LiteFood {
   fiber: number | null
   micros: Partial<Record<NutrientId, number>>
   sodiumMg: number | null
+  /** g per 100 g; null = no data */
+  sugars: number | null
+  satFat: number | null
   portion: { label: string; grams: number }
   allergens: string[]
   vegan: boolean
@@ -86,6 +89,8 @@ export function toLite(g: GeneratedFood): LiteFood {
     fiber: p.fiber,
     micros: microsFromPanel(p),
     sodiumMg: p.sodium,
+    sugars: p.sugars,
+    satFat: p.satFat,
     portion: { label: g.portions[0].label, grams: g.portions[0].grams },
     allergens: g.allergens,
     vegan: g.diet.vegan,

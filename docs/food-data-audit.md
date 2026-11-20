@@ -13,12 +13,12 @@
 Všech 32 potravin jsme dohledali v FDC. Až na níže uvedené rozdíly původní hodnoty odpovídaly FDC
 (rozdíly jen v zaokrouhlení).
 
-| Potravina | Co se změnilo | Proč |
-| --- | --- | --- |
-| Vepřové (`pork`) | 120 → 109 kcal, tuk 3,5 → 2,17 g | Ruční hodnota neodpovídala zvolenému záznamu (vepřová panenka, syrová, FDC 168249). |
-| Kefír (`kefir`) | 64 → 43 kcal, tuk 3,5 → 1,0 g | FDC má jen nízkotučný kefír (FDC 170904); ruční hodnota byla pro plnotučný bez zdroje. Název teď říká „nízkotučný“. |
-| Ovesné vločky (`oats`) | 389 → 379 kcal, bílkoviny 16,9 → 13,2 g | Ruční hodnota byla pro syrový oves; nyní ovesné vločky (FDC 173904). |
-| Všechny | sacharidy jsou nyní **využitelné** (bez vlákniny) | Evropské značení. Např. kapusta 4,4 → 0,3 g, mandle 21,6 → 9,1 g. Celkové sacharidy dle FDC zůstávají v plném panelu. |
+| Potravina              | Co se změnilo                                     | Proč                                                                                                                  |
+| ---------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Vepřové (`pork`)       | 120 → 109 kcal, tuk 3,5 → 2,17 g                  | Ruční hodnota neodpovídala zvolenému záznamu (vepřová panenka, syrová, FDC 168249).                                   |
+| Kefír (`kefir`)        | 64 → 43 kcal, tuk 3,5 → 1,0 g                     | FDC má jen nízkotučný kefír (FDC 170904); ruční hodnota byla pro plnotučný bez zdroje. Název teď říká „nízkotučný“.   |
+| Ovesné vločky (`oats`) | 389 → 379 kcal, bílkoviny 16,9 → 13,2 g           | Ruční hodnota byla pro syrový oves; nyní ovesné vločky (FDC 173904).                                                  |
+| Všechny                | sacharidy jsou nyní **využitelné** (bez vlákniny) | Evropské značení. Např. kapusta 4,4 → 0,3 g, mandle 21,6 → 9,1 g. Celkové sacharidy dle FDC zůstávají v plném panelu. |
 
 ## Současný stav
 
@@ -55,38 +55,38 @@ sacharidy, vláknina, vápník, železo, vitamin C a sodík; tolerance jen na za
 
 **Výsledek: 30 / 30 shoduje, 0 rozdílů.**
 
-| ID | FDC ID | Dataset | Výsledek |
-| --- | --- | --- | --- |
-| lemon | 167746 | SR Legacy | shoda |
-| white-beans-dry | 175202 | SR Legacy | shoda |
-| cranberries-dried | 171723 | SR Legacy | shoda |
-| spirulina | 170495 | SR Legacy | shoda |
-| savoy | 170388 | SR Legacy | shoda |
-| margarine | 171038 | SR Legacy | shoda |
-| gouda | 171241 | SR Legacy | shoda |
-| coconut-oil | 171412 | SR Legacy | shoda |
-| carp | 171952 | SR Legacy | shoda |
-| mushrooms-uv | 169376 | SR Legacy | shoda |
-| salmon-cooked | 175168 | SR Legacy | shoda |
-| portabella | 169255 | SR Legacy | shoda |
-| tuna-fresh | 175159 | SR Legacy | shoda |
-| tempeh-cooked | 172467 | SR Legacy | shoda |
-| cod-cooked | 171956 | SR Legacy | shoda |
-| celery | 169988 | SR Legacy | shoda |
-| parmesan | 170848 | SR Legacy | shoda |
-| apricot | 171697 | SR Legacy | shoda |
-| peas | 170419 | SR Legacy | shoda |
-| sauerkraut | 169279 | SR Legacy | shoda |
-| tomato-canned | 170051 | SR Legacy | shoda |
-| oysters | 171978 | SR Legacy | shoda |
-| white-beans | 175203 | SR Legacy | shoda |
-| spelt-cooked | 169746 | SR Legacy | shoda |
-| peanuts-roasted | 174262 | SR Legacy | shoda |
-| carrot-cooked | 170394 | SR Legacy | shoda |
-| chicken-liver | 171060 | SR Legacy | shoda |
-| frankfurter | 323121 | Foundation | shoda |
-| mackerel | 175119 | SR Legacy | shoda |
-| sesame-oil | 171016 | SR Legacy | shoda |
+| ID                | FDC ID | Dataset    | Výsledek |
+| ----------------- | ------ | ---------- | -------- |
+| lemon             | 167746 | SR Legacy  | shoda    |
+| white-beans-dry   | 175202 | SR Legacy  | shoda    |
+| cranberries-dried | 171723 | SR Legacy  | shoda    |
+| spirulina         | 170495 | SR Legacy  | shoda    |
+| savoy             | 170388 | SR Legacy  | shoda    |
+| margarine         | 171038 | SR Legacy  | shoda    |
+| gouda             | 171241 | SR Legacy  | shoda    |
+| coconut-oil       | 171412 | SR Legacy  | shoda    |
+| carp              | 171952 | SR Legacy  | shoda    |
+| mushrooms-uv      | 169376 | SR Legacy  | shoda    |
+| salmon-cooked     | 175168 | SR Legacy  | shoda    |
+| portabella        | 169255 | SR Legacy  | shoda    |
+| tuna-fresh        | 175159 | SR Legacy  | shoda    |
+| tempeh-cooked     | 172467 | SR Legacy  | shoda    |
+| cod-cooked        | 171956 | SR Legacy  | shoda    |
+| celery            | 169988 | SR Legacy  | shoda    |
+| parmesan          | 170848 | SR Legacy  | shoda    |
+| apricot           | 171697 | SR Legacy  | shoda    |
+| peas              | 170419 | SR Legacy  | shoda    |
+| sauerkraut        | 169279 | SR Legacy  | shoda    |
+| tomato-canned     | 170051 | SR Legacy  | shoda    |
+| oysters           | 171978 | SR Legacy  | shoda    |
+| white-beans       | 175203 | SR Legacy  | shoda    |
+| spelt-cooked      | 169746 | SR Legacy  | shoda    |
+| peanuts-roasted   | 174262 | SR Legacy  | shoda    |
+| carrot-cooked     | 170394 | SR Legacy  | shoda    |
+| chicken-liver     | 171060 | SR Legacy  | shoda    |
+| frankfurter       | 323121 | Foundation | shoda    |
+| mackerel          | 175119 | SR Legacy  | shoda    |
+| sesame-oil        | 171016 | SR Legacy  | shoda    |
 
 ## Oprava porcí (20. 11. 2026, večer)
 
@@ -94,21 +94,28 @@ Při doplňování varování o horních limitech se ukázalo, že párování p
 obsahoval klíčové slovo. Opraveno v `scripts/foods/build.ts` (přednost má přesná shoda, „dry … yields“ se
 nepoužívá, počet kusů v popisku se násobí) a pojistka ve validaci (porce z FDC nad 400 g = chyba):
 
-| Potravina | Bylo | Nyní | Příčina |
-| --- | --- | --- | --- |
-| Vejce, 1 vejce L | 243 g | 50 g | vzal se „cup (4.86 large eggs)“ |
-| Kuskus vařený, 1 hrnek | 528 g | 157 g | „cup, dry, yields“ místo „cup, cooked“ |
-| Tuňák v oleji, 1 konzerva | 321 g | 171 g | velká konzerva 12,5 oz místo běžné |
-| Lučina, 1 lžíce | 10 g | 14,5 g | lžíce šlehaného sýra |
-| Ústřice, 6 ks | 14 g | 84 g | váha jednoho kusu bez násobení |
-| Ančovičky 5 ks / chřest 5 výhonků / sušené švestky 5 ks / fíky 2 ks / shiitake 4 ks | 1 kus | × počet | dtto |
+| Potravina                                                                           | Bylo  | Nyní    | Příčina                                |
+| ----------------------------------------------------------------------------------- | ----- | ------- | -------------------------------------- |
+| Vejce, 1 vejce L                                                                    | 243 g | 50 g    | vzal se „cup (4.86 large eggs)“        |
+| Kuskus vařený, 1 hrnek                                                              | 528 g | 157 g   | „cup, dry, yields“ místo „cup, cooked“ |
+| Tuňák v oleji, 1 konzerva                                                           | 321 g | 171 g   | velká konzerva 12,5 oz místo běžné     |
+| Lučina, 1 lžíce                                                                     | 10 g  | 14,5 g  | lžíce šlehaného sýra                   |
+| Ústřice, 6 ks                                                                       | 14 g  | 84 g    | váha jednoho kusu bez násobení         |
+| Ančovičky 5 ks / chřest 5 výhonků / sušené švestky 5 ks / fíky 2 ks / shiitake 4 ks | 1 kus | × počet | dtto                                   |
 
 Nutriční hodnoty na 100 g se nezměnily — jen přepočty „na porci“.
 
 Panel nově obsahuje **retinol** (FDC 1105, 421 potravin), aby varování o horním limitu vitamínu A
 (EFSA 3 000 µg/den platí jen pro retinol) nevarovalo u mrkve nebo špenátu kvůli beta-karotenu.
 
-## Známé mezery
+## Chybné hodnoty ve zdroji
+
+`scripts/foods/rules.ts` → `SUSPECT_VALUES`: hodnoty, které jsou v záznamu FDC zjevně chybné, zobrazujeme jako
+„bez údajů“ (nic nedopočítáváme) a důvod je v provenienci potraviny. Validace hlídá stejný vzorec u nových potravin.
+
+| Potravina                            | Hodnoty                               | Proč                                                                                                                      |
+| ------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Lískooříšková pomazánka (FDC 168000) | nasycené, mono- a polynenasycené tuky | 28,4 g nasycených a 0 g nenasycených z 29,7 g tuku — u pomazánky z lískových ořechů nemožné (etiketa: ~10,6 g nasycených) |
 
 - **Jód** je v FDC téměř všude prázdný (data má jen 6 potravin) — zobrazuje se „bez údajů“, ne 0.
   Řešením by byla česká NutriDatabáze, ta je ale licenčně nedostupná (viz `data-sources.md`).

@@ -35563,9 +35563,9 @@
         "kj": 2250,
         "protein": 5.41,
         "fat": 29.7,
-        "satFat": 28.4,
-        "monoFat": 0,
-        "polyFat": 0,
+        "satFat": null,
+        "monoFat": null,
+        "polyFat": null,
         "transFat": null,
         "carbsAvailable": 57,
         "carbsTotal": 62.4,
@@ -35629,7 +35629,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Rozpad tuků v FDC 168000 je zjevně chybný (28,4 g nasycených, 0 g nenasycených u pomazánky z lískových ořechů) — uvádíme „bez údajů“."
+        ]
       }
     },
     {

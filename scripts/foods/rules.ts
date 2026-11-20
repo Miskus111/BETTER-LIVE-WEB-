@@ -1,3 +1,4 @@
+import type { PanelKey } from '../../src/lib/foods/panel'
 /**
  * Curation rules applied on top of the raw FDC values: categories, flags, allergens, diet tags.
  * These are classifications, never nutrient numbers — every number comes from the dataset.
@@ -139,4 +140,16 @@ export function dietFor(key: string, cat: Category, allergens: Allergen[]) {
     !allergens.includes('eggs') &&
     !NON_VEGAN_KEYS.has(key)
   return { vegan, vegetarian, glutenFree: !allergens.includes('gluten') }
+}
+
+/**
+ * Values in the source record that are clearly wrong, shown as "no data" instead (we never invent a
+ * replacement). Each entry says why; the reason goes into the food's provenance notes.
+ */
+export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }> = {
+  nutella: {
+    keys: ['satFat', 'monoFat', 'polyFat'],
+    reason:
+      'Rozpad tuků v FDC 168000 je zjevně chybný (28,4 g nasycených, 0 g nenasycených u pomazánky z lískových ořechů) — uvádíme „bez údajů“.',
+  },
 }

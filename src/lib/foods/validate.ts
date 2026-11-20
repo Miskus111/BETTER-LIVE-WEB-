@@ -98,6 +98,9 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
     if (/\b(bio|organic|organick)/i.test(`${f.nameCs} ${f.nameEn}`))
       err('organic claim without certification (store rules)')
     if (f.liveCultures && f.state !== 'fermented') err('live cultures on a non-fermented food')
+    // a fatty food can't be all saturated with no mono/poly at all (FDC 168000 shipped exactly that)
+    if ((n.fat ?? 0) >= 5 && n.satFat !== null && n.monoFat === 0 && n.polyFat === 0)
+      err('fatty-acid breakdown has 0 g mono and poly — suspect source values (see SUSPECT_VALUES)')
   }
   return issues
 }

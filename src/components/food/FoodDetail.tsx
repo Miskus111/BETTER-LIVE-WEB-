@@ -90,7 +90,7 @@ export function FoodDetail({
           </ul>
           <p className="text-subtle mt-2 text-[12px]">
             Vypočteno z hodnot na {food.liquid ? '100 ml' : '100 g'} podle prahů výživových tvrzení EU
-            (nařízení 1924/2006).
+            (nařízení 1924/2006); vysoký obsah cukrů, tuků a soli podle semaforu britské FSA.
           </p>
         </section>
       )}

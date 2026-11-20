@@ -16,6 +16,15 @@ describe('foodSummary (EU claim thresholds)', () => {
     expect(text('coffee')).not.toContain('bílkovin')
     expect(text('spinach')).not.toContain('bílkovin')
   })
+  it('also states the downsides (UK FSA "high" thresholds)', () => {
+    expect(text('nutella')).toContain('Vysoký obsah cukrů')
+    expect(text('parmesan')).toContain('nasycených tuků')
+    expect(text('nutella')).not.toContain('nasycených tuků') // source values are wrong → no data
+    expect(text('chips')).toContain('Vysoký obsah tuku')
+    expect(text('parmesan')).toContain('Vysoký obsah soli')
+    expect(text('dates')).toContain('přirozené cukry z ovoce')
+    expect(text('salmon')).not.toContain('cukrů')
+  })
   it('does not repeat parentheses in nutrient names', () => {
     expect(text('oats')).not.toMatch(/\) \(/)
   })

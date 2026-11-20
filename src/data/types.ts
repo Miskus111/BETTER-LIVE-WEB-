@@ -170,6 +170,9 @@ export interface Food {
   /** a drink: EU 'source of' thresholds are per 100 ml at half the solid level (7.5 % NRV) */
   liquid?: boolean
   sodiumMg?: number
+  /** g per 100 g (undefined = no data) */
+  sugars?: number
+  satFat?: number
   /** default household portion */
   portion: { label: string; grams: number }
   allergens: string[]

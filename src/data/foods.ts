@@ -31,6 +31,8 @@ function toFood(l: LiteFood): Food {
     liveCultures: l.liveCultures,
     liquid: l.liquid,
     sodiumMg: l.sodiumMg ?? undefined,
+    sugars: l.sugars ?? undefined,
+    satFat: l.satFat ?? undefined,
     portion: l.portion,
     allergens: l.allergens,
     diet: { vegan: l.vegan, vegetarian: l.vegetarian, glutenFree: l.glutenFree },

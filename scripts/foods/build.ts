@@ -27,6 +27,7 @@ import {
   isCompleteProtein,
   isLiquid,
   type Category,
+  SUSPECT_VALUES,
 } from './rules'
 
 const ROOT = process.cwd()
@@ -176,6 +177,12 @@ function build(): FoodsFile {
     const cat = r.category as Category
     const notes: string[] = []
     const allergens = allergensFor(r.key, cat, r.allergens)
+    const nutrients = panelFrom(food, notes)
+    const suspect = SUSPECT_VALUES[r.key]
+    if (suspect) {
+      for (const k of suspect.keys) nutrients[k] = null
+      notes.push(suspect.reason)
+    }
     foods.push({
       id: r.key,
       nameCs: r.name_cs,
@@ -184,7 +191,7 @@ function build(): FoodsFile {
       category: cat,
       subcategory: FDC_SUBCATEGORY[food.foodCategory?.description ?? ''] ?? null,
       state: r.state as FoodState,
-      nutrients: panelFrom(food, notes),
+      nutrients,
       portions: portionsFor(r.key, r.portion, food),
       allergens,
       diet: dietFor(r.key, cat, allergens),
