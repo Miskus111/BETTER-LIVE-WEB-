@@ -35,7 +35,7 @@ export default async function PricingPage() {
     [t('f_labs_manual'), true, true],
     [t('f_export'), true, true],
     [t('f_coach'), coachLive ? t('f_coach_free') : 'brzy', coachLive ? t('f_coach_pro') : 'brzy'],
-    [t('f_labs_ai'), false, true],
+    [t('f_labs_ai'), false, coachLive ? true : 'brzy'],
     [t('f_progress'), false, true],
     [t('f_photos'), false, true],
   ]
@@ -111,6 +111,10 @@ export default async function PricingPage() {
             {(['perk_coach', 'perk_labs', 'perk_progress', 'perk_photos'] as const).map((p) => (
               <li key={p} className="flex items-start gap-2">
                 <Check size={17} className="text-cyan mt-0.5 shrink-0" aria-hidden /> {t(p)}
+                {/* AI features need the API key; until then say so instead of promising them */}
+                {!coachLive && (p === 'perk_coach' || p === 'perk_labs') && (
+                  <span className="chip ml-1 !py-0 text-[11.5px]">brzy</span>
+                )}
               </li>
             ))}
           </ul>
