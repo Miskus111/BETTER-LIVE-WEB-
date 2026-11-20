@@ -524,6 +524,7 @@
     "stageRule": "Progress: pain during exercise ≤ 3/10 and not worse next day → next stage. 4–5/10 → stay. Above 5/10 or worse next day → step back a stage.",
     "save": "Save report",
     "saved": "Report saved",
+    "regionScore": "{region}, pain {score}/10",
     "regions": {
       "neck": "Neck",
       "shoulder": "Shoulder",

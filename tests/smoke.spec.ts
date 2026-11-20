@@ -390,9 +390,29 @@ test('barcode lookup rejects an invalid EAN without a request', async ({ page })
   await expect(page.getByTestId('barcode-lookup')).toContainText('8 nebo 13 číslic')
 })
 
-test('accessibility: no serious or critical axe violations on key pages', async ({ page }) => {
+test('accessibility: no serious or critical axe violations on key pages and app screens', async ({
+  page,
+}) => {
   test.setTimeout(120_000)
-  for (const path of ['/', '/organ/heart', '/food/almonds', '/doplnky', '/jak-funguje-telo', '/pricing']) {
+  const app = [
+    'train',
+    'library',
+    'eat',
+    'stack',
+    'pain-map',
+    'routine',
+    'labs',
+    'coach',
+    'looks',
+    'progress',
+    'weight',
+    'photos',
+    'paywall',
+  ]
+  for (const path of [
+    ...['/', '/organ/heart', '/food/almonds', '/doplnky', '/jak-funguje-telo', '/pricing'],
+    ...app.map((s) => `/preview/${s}`),
+  ]) {
     await page.goto(path)
     await page.addScriptTag({ path: 'node_modules/axe-core/axe.min.js' })
     const violations = await page.evaluate(async () => {

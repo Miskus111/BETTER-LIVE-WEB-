@@ -30,7 +30,11 @@ export function PainMap({ latest }: { latest: Partial<Record<Region, number>> })
             <Link
               key={p.region}
               href={`/mobility/pain/${p.region}`}
-              aria-label={t(`regions.${p.region}`)}
+              aria-label={
+                score === undefined
+                  ? t(`regions.${p.region}`)
+                  : t('regionScore', { region: t(`regions.${p.region}`), score })
+              }
               data-testid={`pain-${p.region}`}
             >
               <circle

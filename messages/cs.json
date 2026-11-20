@@ -524,6 +524,7 @@
     "stageRule": "Postup: bolest při cvičení do 3/10 a druhý den ne horší → další fáze. 4–5/10 → zůstaňte. Víc než 5/10 nebo druhý den hůř → vraťte se o fázi zpět.",
     "save": "Uložit záznam",
     "saved": "Záznam uložen",
+    "regionScore": "{region}, bolest {score}/10",
     "regions": {
       "neck": "Krk",
       "shoulder": "Rameno",
