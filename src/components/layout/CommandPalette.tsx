@@ -78,10 +78,11 @@ export function CommandPalette() {
 
   if (!open) return null
 
-  const go = (item: SearchItem) => {
+  const goTo = (href: string) => {
     setSearch(false)
-    router.push(item.href)
+    router.push(href)
   }
+  const go = (item: SearchItem) => goTo(item.href)
 
   return (
     <div
@@ -132,10 +133,13 @@ export function CommandPalette() {
         <p className="text-subtle px-4 pt-3 font-mono text-[12px] tracking-wider uppercase">
           {q.trim() ? `Výsledků: ${results.length}` : 'Doporučujeme'}
         </p>
+        {/* the empty message lives outside the listbox (a listbox may only contain options) */}
+        {results.length === 0 && q.trim() && (
+          <p role="status" className="text-muted px-4 pt-5 pb-1 text-center">
+            Pro „{q}“ jsme nic nenašli.
+          </p>
+        )}
         <ul id="search-results" ref={list} role="listbox" className="max-h-[50vh] overflow-y-auto p-2">
-          {results.length === 0 && (
-            <li className="text-muted px-3 py-6 text-center">Pro „{q}“ jsme nic nenašli.</li>
-          )}
           {results.map((r, i) => {
             const Icon = ICON[r.kind]
             return (
@@ -165,6 +169,35 @@ export function CommandPalette() {
             )
           })}
         </ul>
+        {results.length === 0 && q.trim() && (
+          <div className="border-line border-t px-4 py-3 text-[14px]" data-testid="search-empty-help">
+            <p className="text-subtle">Zkuste jiné slovo, nebo:</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {['Spánek', 'Bílkoviny', 'Hořčík', 'Únava'].map((t) => (
+                <button key={t} type="button" className="chip" onClick={() => setQ(t)}>
+                  {t}
+                </button>
+              ))}
+            </div>
+            <ul className="mt-3 grid gap-1.5">
+              <li>
+                <button type="button" className="link" onClick={() => goTo('/#barcode')}>
+                  Balený výrobek? Najděte ho podle čárového kódu
+                </button>
+              </li>
+              <li>
+                <button type="button" className="link" onClick={() => goTo('/#foods')}>
+                  Procházet všech {SEARCH_INDEX.filter((i) => i.kind === 'Potravina').length} potravin
+                </button>
+              </li>
+              <li>
+                <button type="button" className="link" onClick={() => goTo('/jak-funguje-telo')}>
+                  Všichni průvodci „Jak funguje tělo“
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   )

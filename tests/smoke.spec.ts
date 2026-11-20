@@ -435,3 +435,23 @@ test('accessibility: no serious or critical axe violations on key pages and app 
     expect(violations, path).toEqual([])
   }
 })
+
+test('search with no results offers next steps and stays accessible', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Hledat průvodce/ }).click()
+  await page.getByRole('dialog').getByRole('combobox').fill('kombucha')
+  await expect(page.getByRole('status')).toContainText('nic nenašli')
+  await expect(page.getByTestId('search-empty-help')).toBeVisible()
+  await page.addScriptTag({ path: 'node_modules/axe-core/axe.min.js' })
+  const violations = await page.evaluate(async () => {
+    const r = await (
+      window as unknown as {
+        axe: { run: (c: unknown) => Promise<{ violations: { id: string; impact: string }[] }> }
+      }
+    ).axe.run(document.querySelector('[role=dialog]'))
+    return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => v.id)
+  })
+  expect(violations).toEqual([])
+  await page.getByRole('button', { name: /čárového kódu/ }).click()
+  await expect(page.getByTestId('barcode-lookup')).toBeVisible()
+})
