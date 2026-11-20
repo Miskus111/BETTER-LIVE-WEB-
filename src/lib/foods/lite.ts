@@ -82,7 +82,7 @@ export function toLite(g: GeneratedFood): LiteFood {
     kcal: p.kcal,
     protein: p.protein,
     fat: p.fat,
-    carbs: p.carbsTotal,
+    carbs: p.carbsAvailable, // EU convention: without fibre (total stays in the full panel)
     fiber: p.fiber,
     micros: microsFromPanel(p),
     sodiumMg: p.sodium,

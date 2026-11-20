@@ -296,9 +296,13 @@ if (issues.length) {
 const prev = existsSync(OUT) ? (JSON.parse(readFileSync(OUT, 'utf8')) as FoodsFile) : null
 const changes = diff(prev, next)
 console.log(changes.length ? `Changes:\n  ${changes.join('\n  ')}` : 'No changes.')
-if (changes.length || !existsSync(OUT_LITE)) {
+const lite = next.foods.map(toLite)
+const liteChanged =
+  !existsSync(OUT_LITE) || JSON.stringify(JSON.parse(readFileSync(OUT_LITE, 'utf8'))) !== JSON.stringify(lite)
+if (liteChanged) console.log('Client index (foods.lite.generated.json) changed.')
+if (changes.length || liteChanged) {
   writeFileSync(OUT, JSON.stringify(next) + '\n')
-  writeFileSync(OUT_LITE, JSON.stringify(next.foods.map(toLite)) + '\n')
+  writeFileSync(OUT_LITE, JSON.stringify(lite) + '\n')
   // same formatting as the committed files, so git diffs show only real changes
   execFileSync(
     join(process.cwd(), 'node_modules/.bin/prettier'),

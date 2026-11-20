@@ -56,11 +56,14 @@ export function fmtAmount(v: number, unit: string) {
   return `${s}\u00a0${unit}`
 }
 
-/** Share of energy from protein / fat / carbs (Atwater 4/9/4, fibre at 2 kcal/g counted under carbs). */
+/**
+ * Share of energy from protein / fat / carbs. `carbs` are available carbohydrates (EU, without fibre);
+ * Atwater 4/9/4, fibre at 2 kcal/g counted under carbs.
+ */
 export function energySplit(m: { protein: number; fat: number; carbs: number; fiber: number }) {
   const p = m.protein * 4
   const f = m.fat * 9
-  const c = Math.max(0, m.carbs - m.fiber) * 4 + m.fiber * 2
+  const c = m.carbs * 4 + m.fiber * 2
   const total = p + f + c || 1
   return { protein: p / total, fat: f / total, carbs: c / total }
 }
