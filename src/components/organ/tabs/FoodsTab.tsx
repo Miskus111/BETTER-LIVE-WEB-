@@ -7,6 +7,7 @@ import type { Organ } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
 import { foodsForOrgan, type Basis } from '@/lib/nutrition'
 import { BasisToggle } from '@/components/food/BasisToggle'
+import { portionText } from '@/lib/foods/query'
 
 export function FoodsTab({ organ }: { organ: Organ }) {
   const [per, setPer] = useState<Basis>('100g')
@@ -30,9 +31,7 @@ export function FoodsTab({ organ }: { organ: Organ }) {
               <div className="p-3">
                 <p className="group-hover:text-cyan text-[14.5px] font-medium">{food.name}</p>
                 {per === 'portion' && (
-                  <p className="text-subtle font-mono text-[11.5px]">
-                    {food.portion.label} · {food.portion.grams} g
-                  </p>
+                  <p className="text-subtle font-mono text-[11.5px]">{portionText(food.portion)}</p>
                 )}
                 <p className="text-subtle mt-1 line-clamp-2 text-[12px]">
                   {via.map((id) => NUTRIENTS[id].name.replace(/ \(.+\)/, '')).join(' · ')}

@@ -22,6 +22,7 @@ import {
 import { BasisToggle } from '@/components/food/BasisToggle'
 import { cx } from '@/lib/format'
 import { supplementHref } from '@/data/supplements'
+import { portionText } from '@/lib/foods/query'
 
 const KINDS: (NutrientKind | 'Vše')[] = [
   'Vše',
@@ -182,7 +183,9 @@ export function NutrientIndex() {
                       <span className="text-[14.5px]">
                         {food.name}
                         {per === 'portion' && (
-                          <span className="text-subtle ml-1.5 text-[12px]">({food.portion.label})</span>
+                          <span className="text-subtle ml-1.5 text-[12px]">
+                            ({portionText(food.portion)})
+                          </span>
                         )}
                       </span>
                       {!n.qualitative && (

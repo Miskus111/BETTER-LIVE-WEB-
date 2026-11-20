@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Food } from '@/data/types'
-import { MEASURES, measureOf } from '@/lib/foods/query'
+import { MEASURES, measureOf, portionText } from '@/lib/foods/query'
 import { fmtAmount, pctRef } from '@/lib/nutrition'
 import type { NutrientId } from '@/data/types'
 
@@ -21,7 +21,7 @@ export function FoodCompare({ foods, per }: { foods: Food[]; per: '100g' | 'port
                   {f.name}
                 </Link>
                 <span className="text-subtle block font-mono text-[11.5px] font-normal">
-                  {per === 'portion' ? `${f.portion.label} (${f.portion.grams} g)` : f.basis}
+                  {per === 'portion' ? portionText(f.portion) : f.basis}
                 </span>
               </th>
             ))}

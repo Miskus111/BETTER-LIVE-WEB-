@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { FOODS, FOOD_BY_ID } from '@/data/foods'
-import { EMPTY_QUERY, matchesText, measureOf, queryFoods } from './query'
+import { EMPTY_QUERY, matchesText, measureOf, portionText, queryFoods } from './query'
 
 describe('food queries', () => {
   it('search ignores Czech diacritics and matches English names', () => {
@@ -29,5 +29,14 @@ describe('food queries', () => {
   it('"high in" uses the EU source-of threshold', () => {
     const iron = queryFoods(FOODS, { ...EMPTY_QUERY, highIn: 'iron' })
     expect(iron.every((f) => (f.micros.iron ?? 0) >= 14 * 0.15 * (f.liquid ? 0.5 : 1))).toBe(true)
+  })
+})
+
+describe('portionText', () => {
+  it('adds grams only when the label does not state a weight', () => {
+    expect(portionText({ label: 'porce 125 g', grams: 125 })).toBe('porce 125 g')
+    expect(portionText({ label: '1 sklenice (250 ml)', grams: 258 })).toBe('1 sklenice (250 ml)')
+    expect(portionText({ label: '1 lžíce', grams: 12 })).toBe('1 lžíce (12 g)')
+    expect(portionText({ label: '1 vejce L', grams: 60 })).toBe('1 vejce L (60 g)')
   })
 })

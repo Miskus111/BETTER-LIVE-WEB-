@@ -101,4 +101,4 @@ export function queryFoods(foods: Food[], q: FoodQuery): Food[] {
 
 /** "porce 125 g" already states the weight; "1 vejce L" needs it added. */
 export const portionText = (p: { label: string; grams: number }) =>
-  /\d\s*(g|ml|l)\b/.test(p.label) ? p.label : `${p.label} (${p.grams.toLocaleString('cs-CZ')} g)`
+  /\d\s*(g|ml|l)(?!\p{L})/u.test(p.label) ? p.label : `${p.label} (${p.grams.toLocaleString('cs-CZ')} g)`
