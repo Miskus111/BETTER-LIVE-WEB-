@@ -410,7 +410,7 @@ test('accessibility: no serious or critical axe violations on key pages and app 
     'paywall',
   ]
   for (const path of [
-    ...['/', '/organ/heart', '/food/almonds', '/doplnky', '/jak-funguje-telo', '/pricing'],
+    ...['/', '/?organ=heart', '/organ/heart', '/food/almonds', '/doplnky', '/jak-funguje-telo', '/pricing'],
     ...app.map((s) => `/preview/${s}`),
   ]) {
     await page.goto(path)
