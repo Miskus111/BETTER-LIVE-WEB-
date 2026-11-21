@@ -28,6 +28,7 @@ import {
   isLiquid,
   type Category,
   SUSPECT_VALUES,
+  APPROXIMATIONS,
 } from './rules'
 
 const ROOT = process.cwd()
@@ -178,6 +179,7 @@ function build(): FoodsFile {
     const notes: string[] = []
     const allergens = allergensFor(r.key, cat, r.allergens)
     const nutrients = panelFrom(food, notes)
+    if (APPROXIMATIONS[r.key]) notes.push(APPROXIMATIONS[r.key])
     const suspect = SUSPECT_VALUES[r.key]
     if (suspect) {
       for (const k of suspect.keys) nutrients[k] = null

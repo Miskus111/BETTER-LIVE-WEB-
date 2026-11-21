@@ -8686,7 +8686,7 @@
     },
     {
       "id": "quark",
-      "nameCs": "Tvaroh odtučněný (typ)",
+      "nameCs": "Tvaroh odtučněný (blízká obdoba)",
       "nameEn": "Quark, nonfat (dry curd cottage cheese)",
       "synonyms": [
         "Quark, nonfat (dry curd cottage cheese)",
@@ -8766,7 +8766,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "V USDA není český tvaroh; použit nejbližší záznam — americký odtučněný cottage (suchý, bez smetany). Český tvaroh se může mírně lišit."
+        ]
       }
     },
     {
@@ -29003,7 +29005,7 @@
     },
     {
       "id": "roll",
-      "nameCs": "Rohlík / bílá houska (typ)",
+      "nameCs": "Rohlík / bílá houska (blízká obdoba)",
       "nameEn": "White roll",
       "synonyms": ["White roll", "Rolls, hamburger or hotdog, plain"],
       "category": "Obiloviny a pečivo",
@@ -29081,6 +29083,7 @@
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
         "notes": [
+          "V USDA není český rohlík; použita americká bílá bulka (hamburger/hotdog). Český rohlík se může mírně lišit.",
           "Americký záznam z obohacené mouky (v USA povinné). Česká mouka se neobohacuje, proto folát, železo a vitamíny B1, B2 a B3 neuvádíme — u českého výrobku by byly výrazně nižší."
         ]
       }
@@ -35753,7 +35756,7 @@
     },
     {
       "id": "cake",
-      "nameCs": "Bábovka / biskupský chlebíček (typ)",
+      "nameCs": "Bábovka / biskupský chlebíček (blízká obdoba)",
       "nameEn": "Pound cake",
       "synonyms": ["Pound cake", "Cake, pound, commercially prepared, butter (includes fresh and frozen)"],
       "category": "Sladidla a sladkosti",
@@ -35831,6 +35834,7 @@
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
         "notes": [
+          "V USDA není bábovka; použit americký máslový „pound cake“. Česká bábovka se může mírně lišit.",
           "Americký záznam z obohacené mouky (v USA povinné). Česká mouka se neobohacuje, proto folát, železo a vitamíny B1, B2 a B3 neuvádíme — u českého výrobku by byly výrazně nižší."
         ]
       }

@@ -4743,7 +4743,7 @@
   },
   {
     "id": "quark",
-    "name": "Tvaroh odtučněný (typ)",
+    "name": "Tvaroh odtučněný (blízká obdoba)",
     "nameEn": "Quark, nonfat (dry curd cottage cheese)",
     "category": "Mléčné výrobky",
     "subcategory": "Mléko, sýry a vejce",
@@ -15710,7 +15710,7 @@
   },
   {
     "id": "roll",
-    "name": "Rohlík / bílá houska (typ)",
+    "name": "Rohlík / bílá houska (blízká obdoba)",
     "nameEn": "White roll",
     "category": "Obiloviny a pečivo",
     "subcategory": "Pečivo",
@@ -19023,7 +19023,7 @@
   },
   {
     "id": "cake",
-    "name": "Bábovka / biskupský chlebíček (typ)",
+    "name": "Bábovka / biskupský chlebíček (blízká obdoba)",
     "nameEn": "Pound cake",
     "category": "Sladidla a sladkosti",
     "subcategory": "Pečivo",

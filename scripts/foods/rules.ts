@@ -180,3 +180,14 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
       'Rozpad tuků v FDC 168000 je zjevně chybný (28,4 g nasycených, 0 g nenasycených u pomazánky z lískových ořechů) — uvádíme „bez údajů“.',
   },
 }
+
+/**
+ * Czech foods with no exact USDA record: the closest one is used and the page says which, so readers
+ * know a Czech product may differ.
+ */
+export const APPROXIMATIONS: Record<string, string> = {
+  quark:
+    'V USDA není český tvaroh; použit nejbližší záznam — americký odtučněný cottage (suchý, bez smetany). Český tvaroh se může mírně lišit.',
+  roll: 'V USDA není český rohlík; použita americká bílá bulka (hamburger/hotdog). Český rohlík se může mírně lišit.',
+  cake: 'V USDA není bábovka; použit americký máslový „pound cake“. Česká bábovka se může mírně lišit.',
+}
