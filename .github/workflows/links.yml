@@ -1,6 +1,6 @@
-name: Weekly link check
+name: Weekly checks
 
-# Shop pages and source URLs change without any commit here: check them once a week.
+# Shop pages, source URLs and known vulnerabilities change without any commit here: check weekly.
 on:
   schedule:
     - cron: '0 6 * * 1' # Mondays 06:00 UTC
@@ -21,3 +21,5 @@ jobs:
         run: npm run check:links
       - name: PubMed citations match their studies
         run: npm run check:sources
+      - name: Known vulnerabilities in production dependencies
+        run: npm audit --omit=dev --audit-level=high
