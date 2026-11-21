@@ -3,6 +3,27 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
+/**
+ * Where the site may load from and talk to: itself, Supabase (data, auth, photos) and Open Food Facts
+ * (barcode lookup). Inline scripts stay allowed — Next's streamed payload is inline and a nonce would
+ * turn every static page dynamic.
+ */
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://*.supabase.co",
+  "font-src 'self' data:",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://world.openfoodfacts.org",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "form-action 'self'",
+  "frame-src 'none'",
+  "frame-ancestors 'none'",
+  "object-src 'none'",
+  "base-uri 'self'",
+].join('; ')
+
 const nextConfig: NextConfig = {
   // the coach reads its system prompt from the repo root at runtime
   outputFileTracingIncludes: { '/api/coach': ['./system-prompt.md'] },
@@ -41,6 +62,8 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: "frame-ancestors 'none'; object-src 'none'; base-uri 'self'",
           },
+          // full policy in report-only first: violations show in the console, nothing is blocked
+          { key: 'Content-Security-Policy-Report-Only', value: CSP },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           // the site never uses these; file pickers for photos are not affected
           {
