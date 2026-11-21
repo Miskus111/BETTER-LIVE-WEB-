@@ -7,7 +7,15 @@ import { useState } from 'react'
 import { Loader2, MailCheck } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
-export function LoginForm({ next, initialMode }: { next: string; initialMode: 'signin' | 'signup' }) {
+export function LoginForm({
+  next,
+  initialMode,
+  linkExpired = false,
+}: {
+  next: string
+  initialMode: 'signin' | 'signup'
+  linkExpired?: boolean
+}) {
   const t = useTranslations('auth')
   const router = useRouter()
   const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>(initialMode)
@@ -77,6 +85,11 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
         {mode === 'signin' ? t('title') : mode === 'signup' ? t('signupTitle') : t('resetTitle')}
       </h1>
       <p className="text-muted mt-2 text-[15px]">{mode === 'reset' ? t('resetSubtitle') : t('subtitle')}</p>
+      {linkExpired && mode === 'signin' && (
+        <p className="border-line mt-5 rounded-lg border px-4 py-3 text-[14.5px]" data-testid="link-expired">
+          {t('callbackError')}
+        </p>
+      )}
 
       {process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && mode !== 'reset' && (
         <>

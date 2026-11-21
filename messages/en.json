@@ -72,7 +72,8 @@
     "passwordTooShort": "The password must have at least 8 characters.",
     "passwordSaved": "Your password is changed. Taking you to the app.",
     "resetExpired": "The reset link has expired or was already used. Please request a new one.",
-    "resetError": "The password couldn't be saved. Please try again."
+    "resetError": "The password couldn't be saved. Please try again.",
+    "callbackError": "The link from the email has expired or was already used. Sign in, or ask for a new one."
   },
   "onboarding": {
     "title": "Set up your profile",

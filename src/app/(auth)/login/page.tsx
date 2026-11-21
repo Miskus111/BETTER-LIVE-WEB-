@@ -13,9 +13,15 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ next?: string; mode?: string }>
+  searchParams: Promise<{ next?: string; mode?: string; error?: string }>
 }) {
   if (!isSupabaseConfigured()) return <SetupNotice />
-  const { next, mode } = await searchParams
-  return <LoginForm next={safeNext(next)} initialMode={mode === 'signup' ? 'signup' : 'signin'} />
+  const { next, mode, error } = await searchParams
+  return (
+    <LoginForm
+      next={safeNext(next)}
+      initialMode={mode === 'signup' ? 'signup' : 'signin'}
+      linkExpired={error === 'callback'}
+    />
+  )
 }

@@ -72,7 +72,8 @@
     "passwordTooShort": "Heslo musí mít alespoň 8 znaků.",
     "passwordSaved": "Heslo je změněné. Přesměrujeme vás do aplikace.",
     "resetExpired": "Odkaz pro obnovu hesla vypršel nebo už byl použitý. Pošlete si prosím nový.",
-    "resetError": "Heslo se nepodařilo uložit. Zkuste to prosím znovu."
+    "resetError": "Heslo se nepodařilo uložit. Zkuste to prosím znovu.",
+    "callbackError": "Odkaz z e-mailu vypršel nebo už byl použitý. Přihlaste se, případně si nechte poslat nový."
   },
   "onboarding": {
     "title": "Nastavení profilu",

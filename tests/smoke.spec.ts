@@ -534,6 +534,7 @@ test('password reset: the login form switches to an email-only reset form; a sta
   const forgot = page.getByTestId('forgot-password')
   // without Supabase keys (CI) the page is a setup notice instead of the form
   test.skip(!(await forgot.isVisible()), 'Supabase not configured')
+  await expect(page.getByTestId('link-expired')).toHaveCount(0)
   await forgot.click()
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
   await expect(page.locator('input[type="email"]')).toBeVisible()
@@ -541,6 +542,10 @@ test('password reset: the login form switches to an email-only reset form; a sta
   // nothing is submitted: the test must never send e-mails from the real project
   await page.getByRole('button', { name: /Zpět na přihlášení|Back to sign in/ }).click()
   await expect(page.locator('input[type="password"]')).toBeVisible()
+
+  // a failed confirmation link lands on the login page with an explanation
+  await page.goto('/login?error=callback')
+  await expect(page.getByTestId('link-expired')).toBeVisible()
 
   // no session (expired or reused link) → explanation and a way back, not a dead form
   await page.goto('/reset-password')
