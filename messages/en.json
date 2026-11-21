@@ -57,7 +57,22 @@
     "error": "Sign-in failed. Check your email and password.",
     "passwordHint": "At least 8 characters.",
     "adultsOnly": "This app is for adults only (18+).",
-    "legal": "By continuing you agree to the <terms>terms</terms> and <privacy>privacy policy</privacy>."
+    "legal": "By continuing you agree to the <terms>terms</terms> and <privacy>privacy policy</privacy>.",
+    "forgot": "Forgot your password?",
+    "resetTitle": "Reset password",
+    "resetSubtitle": "We'll email you a link to set a new password.",
+    "sendReset": "Send link",
+    "resetSent": "If an account exists for this email, we've sent it a link to set a new password. Check your spam folder too.",
+    "backToLogin": "Back to sign in",
+    "newPasswordTitle": "New password",
+    "newPassword": "New password",
+    "confirmPassword": "Repeat new password",
+    "savePassword": "Save password",
+    "passwordMismatch": "The passwords don't match.",
+    "passwordTooShort": "The password must have at least 8 characters.",
+    "passwordSaved": "Your password is changed. Taking you to the app.",
+    "resetExpired": "The reset link has expired or was already used. Please request a new one.",
+    "resetError": "The password couldn't be saved. Please try again."
   },
   "onboarding": {
     "title": "Set up your profile",

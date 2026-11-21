@@ -10,7 +10,7 @@ import { createClient } from '@/lib/supabase/client'
 export function LoginForm({ next, initialMode }: { next: string; initialMode: 'signin' | 'signup' }) {
   const t = useTranslations('auth')
   const router = useRouter()
-  const [mode, setMode] = useState(initialMode)
+  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>(initialMode)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
@@ -23,6 +23,12 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
     e.preventDefault()
     setStatus('loading')
     const supabase = createClient()
+    if (mode === 'reset') {
+      // same answer whether or not the account exists (no account enumeration)
+      await supabase.auth.resetPasswordForEmail(email, { redirectTo: callback('/reset-password') })
+      setStatus('sent')
+      return
+    }
     if (mode === 'signin') {
       const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) {
@@ -59,16 +65,20 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
     return (
       <div className="mx-auto max-w-md px-5 pt-16 text-center">
         <MailCheck size={36} className="text-cyan mx-auto" aria-hidden />
-        <p className="mt-4 text-[17px]">{t('checkEmail')}</p>
+        <p className="mt-4 text-[17px]" role="status">
+          {mode === 'reset' ? t('resetSent') : t('checkEmail')}
+        </p>
       </div>
     )
 
   return (
     <div className="mx-auto max-w-md px-5 pt-10 pb-16">
-      <h1 className="display text-[46px]">{mode === 'signin' ? t('title') : t('signupTitle')}</h1>
-      <p className="text-muted mt-2 text-[15px]">{t('subtitle')}</p>
+      <h1 className="display text-[46px]">
+        {mode === 'signin' ? t('title') : mode === 'signup' ? t('signupTitle') : t('resetTitle')}
+      </h1>
+      <p className="text-muted mt-2 text-[15px]">{mode === 'reset' ? t('resetSubtitle') : t('subtitle')}</p>
 
-      {process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && (
+      {process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && mode !== 'reset' && (
         <>
           <button
             type="button"
@@ -98,19 +108,21 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label className="grid gap-1.5">
-          <span className="text-muted text-[14px]">{t('password')}</span>
-          <input
-            className="field"
-            type="password"
-            autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
-            minLength={8}
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {mode === 'signup' && <span className="text-subtle text-[12.5px]">{t('passwordHint')}</span>}
-        </label>
+        {mode !== 'reset' && (
+          <label className="grid gap-1.5">
+            <span className="text-muted text-[14px]">{t('password')}</span>
+            <input
+              className="field"
+              type="password"
+              autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
+              minLength={8}
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {mode === 'signup' && <span className="text-subtle text-[12.5px]">{t('passwordHint')}</span>}
+          </label>
+        )}
         {status === 'error' && (
           <p role="alert" className="text-[14px] text-[#ff9b9b]">
             {message}
@@ -118,16 +130,33 @@ export function LoginForm({ next, initialMode }: { next: string; initialMode: 's
         )}
         <button type="submit" className="btn btn-primary mt-2" disabled={status === 'loading'}>
           {status === 'loading' && <Loader2 size={16} className="animate-spin" aria-hidden />}
-          {mode === 'signin' ? t('signIn') : t('signUp')}
+          {mode === 'signin' ? t('signIn') : mode === 'signup' ? t('signUp') : t('sendReset')}
         </button>
       </form>
 
+      {mode === 'signin' && (
+        <button
+          type="button"
+          onClick={() => {
+            setMode('reset')
+            setStatus('idle')
+          }}
+          className="link mt-4 block text-[14px]"
+          data-testid="forgot-password"
+        >
+          {t('forgot')}
+        </button>
+      )}
+
       <button
         type="button"
-        onClick={() => setMode(mode === 'signin' ? 'signup' : 'signin')}
+        onClick={() => {
+          setMode(mode === 'signin' ? 'signup' : 'signin')
+          setStatus('idle')
+        }}
         className="link mt-5 text-[14.5px]"
       >
-        {mode === 'signin' ? t('noAccount') : t('haveAccount')}
+        {mode === 'signin' ? t('noAccount') : mode === 'signup' ? t('haveAccount') : t('backToLogin')}
       </button>
 
       <p className="text-subtle mt-8 text-[13px]">{t('adultsOnly')}</p>

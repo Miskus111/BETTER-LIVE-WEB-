@@ -422,6 +422,8 @@ test('accessibility: no serious or critical axe violations on key pages and app 
       '/jak-funguje-telo',
       '/jak-funguje-telo/bilkoviny',
       '/pricing',
+      '/login',
+      '/reset-password',
     ],
     ...app.map((s) => `/preview/${s}`),
   ]) {
@@ -523,4 +525,28 @@ test('a clicked organ shows its glow, not a browser focus rectangle', async ({ p
   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2) // a real pointer click, not keyboard
   expect(await page.evaluate(() => document.activeElement?.getAttribute('data-organ'))).toBe('liver')
   expect(await liver.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('none')
+})
+
+test('password reset: the login form switches to an email-only reset form; a stale reset link explains itself', async ({
+  page,
+}) => {
+  await page.goto('/login')
+  const forgot = page.getByTestId('forgot-password')
+  // without Supabase keys (CI) the page is a setup notice instead of the form
+  test.skip(!(await forgot.isVisible()), 'Supabase not configured')
+  await forgot.click()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
+  await expect(page.locator('input[type="email"]')).toBeVisible()
+  await expect(page.locator('input[type="password"]')).toHaveCount(0)
+  // nothing is submitted: the test must never send e-mails from the real project
+  await page.getByRole('button', { name: /Zpět na přihlášení|Back to sign in/ }).click()
+  await expect(page.locator('input[type="password"]')).toBeVisible()
+
+  // no session (expired or reused link) → explanation and a way back, not a dead form
+  await page.goto('/reset-password')
+  await expect(page.getByText(/vypršel|expired/)).toBeVisible()
+  await expect(page.getByRole('link', { name: /Zpět na přihlášení|Back to sign in/ })).toHaveAttribute(
+    'href',
+    '/login',
+  )
 })

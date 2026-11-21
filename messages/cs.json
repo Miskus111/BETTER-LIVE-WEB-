@@ -57,7 +57,22 @@
     "error": "Přihlášení se nepovedlo. Zkontrolujte e-mail a heslo.",
     "passwordHint": "Alespoň 8 znaků.",
     "adultsOnly": "Aplikace je určena jen pro dospělé (18+).",
-    "legal": "Pokračováním souhlasíte s <terms>podmínkami</terms> a <privacy>zásadami ochrany osobních údajů</privacy>."
+    "legal": "Pokračováním souhlasíte s <terms>podmínkami</terms> a <privacy>zásadami ochrany osobních údajů</privacy>.",
+    "forgot": "Zapomenuté heslo?",
+    "resetTitle": "Obnova hesla",
+    "resetSubtitle": "Pošleme vám e-mail s odkazem, přes který si nastavíte nové heslo.",
+    "sendReset": "Poslat odkaz",
+    "resetSent": "Pokud k tomuto e-mailu existuje účet, poslali jsme na něj odkaz pro nastavení nového hesla. Zkontrolujte i spam.",
+    "backToLogin": "Zpět na přihlášení",
+    "newPasswordTitle": "Nové heslo",
+    "newPassword": "Nové heslo",
+    "confirmPassword": "Nové heslo znovu",
+    "savePassword": "Uložit heslo",
+    "passwordMismatch": "Hesla se neshodují.",
+    "passwordTooShort": "Heslo musí mít alespoň 8 znaků.",
+    "passwordSaved": "Heslo je změněné. Přesměrujeme vás do aplikace.",
+    "resetExpired": "Odkaz pro obnovu hesla vypršel nebo už byl použitý. Pošlete si prosím nový.",
+    "resetError": "Heslo se nepodařilo uložit. Zkuste to prosím znovu."
   },
   "onboarding": {
     "title": "Nastavení profilu",
