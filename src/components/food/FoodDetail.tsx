@@ -9,6 +9,7 @@ import { notRecommendedReason, organsForFood, pctRef } from '@/lib/nutrition'
 import { shortNutrient } from '@/lib/format'
 import { ALLERGEN_CS, portionText } from '@/lib/foods/query'
 import { foodSummary } from '@/lib/foods/summary'
+import { Rhp } from '@/components/ui/Rhp'
 import { MacroSplitBar } from './MacroSplitBar'
 
 /** Full food detail — used in the homepage explorer and on /food/[id]. */
@@ -134,8 +135,8 @@ export function FoodDetail({
             ))}
           </div>
           <p className="text-subtle mt-3 text-[12.5px]">
-            Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU (
-            {food.liquid ? '≥ 7,5 % RHP na 100 ml' : '≥ 15 % RHP na 100 g'}). Zdroj: {food.fdc}.
+            Zvýrazněné hodnoty dosahují úrovně „zdroj“ podle EU ( ≥ {food.liquid ? '7,5' : '15'} % <Rhp /> na{' '}
+            {food.liquid ? '100 ml' : '100 g'}). Zdroj: {food.fdc}.
           </p>
         </section>
       )}

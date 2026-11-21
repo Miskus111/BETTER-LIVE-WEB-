@@ -19,6 +19,7 @@ import {
 import { fmtAmount } from '@/lib/nutrition'
 import { Thumb } from '@/components/ui/Thumb'
 import { topNutrient } from '@/lib/foods/summary'
+import { Rhp } from '@/components/ui/Rhp'
 import { cx } from '@/lib/format'
 import { FoodDetail } from './FoodDetail'
 import { FoodCompare } from './FoodCompare'
@@ -194,7 +195,7 @@ export function FoodExplorer() {
                         const top = topNutrient(f)
                         return top ? (
                           <span className="text-cyan/90 block truncate text-[12px]">
-                            Vysoký obsah: {top.name} ({top.pct} % RHP)
+                            Vysoký obsah: {top.name} ({top.pct} % <Rhp />)
                           </span>
                         ) : null
                       })()}
