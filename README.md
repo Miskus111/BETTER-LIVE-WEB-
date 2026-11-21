@@ -14,6 +14,7 @@ npm run dev            # http://localhost:3000
 
 | Skript                     | Co dělá                                                                      |
 | -------------------------- | ---------------------------------------------------------------------------- |
+| `npm run check`            | Vše, co spouští CI: lint, typecheck, unit testy, kontroly dat a e2e          |
 | `npm run dev`              | Vývojový server                                                              |
 | `npm run build` / `start`  | Produkční build (vše staticky generované)                                    |
 | `npm run lint`             | ESLint                                                                       |
