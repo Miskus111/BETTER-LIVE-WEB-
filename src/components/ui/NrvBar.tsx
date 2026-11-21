@@ -1,6 +1,7 @@
 import { NUTRIENTS } from '@/data/nutrients'
 import type { NutrientId } from '@/data/types'
 import { fmtAmount, pctRef, thresholdOf } from '@/lib/nutrition'
+import { Rhp } from './Rhp'
 
 /** Amount per 100 g with a bar showing % of the daily reference (capped visually at 100 %). */
 export function NrvBar({ id, value }: { id: NutrientId; value: number }) {
@@ -16,7 +17,7 @@ export function NrvBar({ id, value }: { id: NutrientId; value: number }) {
           {fmtAmount(value, n.unit)}
           {pct !== undefined && (
             <span className={source ? 'text-cyan ml-2' : 'text-subtle ml-2'}>
-              {pct} % {n.ref?.kind}
+              {pct} % {n.ref?.kind === 'RHP' ? <Rhp /> : n.ref?.kind}
             </span>
           )}
         </span>

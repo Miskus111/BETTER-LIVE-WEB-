@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { EU_REFERENCE, NRV_KEYS, PANEL, PANEL_GROUPS, type PanelKey } from '@/lib/foods/panel'
 import type { GeneratedFood } from '@/lib/foods/types'
 import { cx } from '@/lib/format'
+import { Rhp } from '@/components/ui/Rhp'
 
 const fmt = (v: number) =>
   new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: v >= 100 ? 0 : v >= 10 ? 1 : 2 }).format(v)
@@ -148,8 +149,9 @@ export function FoodNutritionPanel({ food }: { food: GeneratedFood }) {
         })}
       </div>
       <p className="text-subtle mt-3 text-[12.5px]">
-        Zeleně: na 100 {liquid ? 'ml' : 'g'} dosahuje úrovně „zdroj“ podle EU (≥ {liquid ? '7,5' : '15'} %
-        RHP). Sacharidy uvádíme dvakrát: využitelné (evropská konvence na etiketách) a celkem včetně vlákniny
+        Zeleně: na 100 {liquid ? 'ml' : 'g'} dosahuje úrovně „zdroj“ podle EU (≥ {liquid ? '7,5' : '15'} %{' '}
+        <Rhp />
+        ). Sacharidy uvádíme dvakrát: využitelné (evropská konvence na etiketách) a celkem včetně vlákniny
         (USDA).
       </p>
     </section>
