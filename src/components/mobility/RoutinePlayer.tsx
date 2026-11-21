@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight, Pause, Play, PlayCircle } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import { MOBILITY_BY_SLUG, type Routine } from '@/data/mobility'
 
 export function RoutinePlayer({ routine }: { routine: Routine }) {
@@ -60,10 +60,7 @@ export function RoutinePlayer({ routine }: { routine: Routine }) {
         </div>
       ) : (
         <section className="card mt-6 p-5" aria-live="polite">
-          <div className="border-line text-subtle flex aspect-video items-center justify-center gap-2 rounded-xl border border-dashed text-[14px]">
-            <PlayCircle size={20} aria-hidden /> {t('videoSoon')}
-          </div>
-          <h2 className="mt-4 text-[22px] font-medium">{m.name[locale]}</h2>
+          <h2 className="text-[22px] font-medium">{m.name[locale]}</h2>
           <p className="text-muted mt-1 text-[15px]">{m.how[locale]}</p>
           {m.seconds ? (
             <div className="mt-4 flex items-center gap-4">

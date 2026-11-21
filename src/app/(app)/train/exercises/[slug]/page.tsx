@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { AlertTriangle, ArrowDownRight, ArrowUpRight, CheckCircle2, PlayCircle } from 'lucide-react'
+import { AlertTriangle, ArrowDownRight, ArrowUpRight, CheckCircle2 } from 'lucide-react'
 import { EXERCISE_BY_SLUG, GENERIC_STEPS } from '@/data/exercises'
 
 export default async function ExercisePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,10 +23,6 @@ export default async function ExercisePage({ params }: { params: Promise<{ slug:
         ← {t('library')}
       </Link>
       <h1 className="display mt-3 text-[40px] md:text-[52px]">{e.name[locale]}</h1>
-
-      <div className="border-line text-subtle mt-5 flex aspect-video items-center justify-center gap-2 rounded-2xl border border-dashed text-[14px]">
-        <PlayCircle size={20} aria-hidden /> {t('videoSoon')}
-      </div>
 
       <dl className="mt-6 grid gap-4 sm:grid-cols-3">
         <div>
