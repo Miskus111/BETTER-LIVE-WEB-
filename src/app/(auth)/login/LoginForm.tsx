@@ -43,6 +43,9 @@ export function LoginForm({
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    // a message from an earlier failed attempt must not show up on the next screen
+    setMessage('')
+    setResent(false)
     const supabase = createClient()
     if (mode === 'reset') {
       // same answer whether or not the account exists (no account enumeration)
