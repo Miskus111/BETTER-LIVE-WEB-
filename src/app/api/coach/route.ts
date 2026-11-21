@@ -157,8 +157,15 @@ export async function POST(req: Request) {
           .map((b) => b.text)
           .join('\n')
           .trim()
-        await save(reply, usedTools)
-        return NextResponse.json({ conversationId, reply, tools: usedTools })
+        // hit the length cap mid-answer: say so instead of passing a cut-off reply off as complete
+        const cut =
+          res.stop_reason === 'max_tokens'
+            ? locale === 'cs'
+              ? '\n\n*(Odpověď byla příliš dlouhá a skončila předčasně — zeptejte se prosím na konkrétnější část.)*'
+              : '\n\n*(The answer got too long and was cut off — please ask about a more specific part.)*'
+            : ''
+        await save(reply + cut, usedTools)
+        return NextResponse.json({ conversationId, reply: reply + cut, tools: usedTools })
       }
       messages.push({ role: 'assistant', content: res.content })
       const results = await Promise.all(
