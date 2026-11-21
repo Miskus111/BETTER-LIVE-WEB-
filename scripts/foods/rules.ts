@@ -164,6 +164,11 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
   'milk-skim': { keys: ['vitD', 'vitA', 'retinol'], reason: US_MILK },
   'processed-cheese': { keys: ['vitD'], reason: BRAND_FORTIFIED },
   margarine: { keys: ['vitD', 'vitA', 'retinol', 'b12'], reason: BRAND_FORTIFIED },
+  // US whey isolate with added vitamins (whey itself has almost no folate, vitamin C or A)
+  'whey-protein': {
+    keys: ['folate', 'vitC', 'vitE', 'vitA', 'retinol', 'b1', 'b2', 'b3', 'b6', 'b12', 'iron', 'zinc'],
+    reason: BRAND_FORTIFIED,
+  },
   'bread-white': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-rye': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-pumpernickel': { keys: ENRICHMENT, reason: US_FLOUR },
