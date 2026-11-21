@@ -71,6 +71,16 @@ interface SessionState {
   setPrevious: (p: SessionState['previous']) => void
 }
 
+/**
+ * Keep the queue small without losing data: workouts not yet written to Supabase are never dropped,
+ * only the oldest already-synced ones (so at most `max` entries unless more than that are unsynced).
+ */
+export function trimQueue(queue: QueuedWorkout[], max = 50): QueuedWorkout[] {
+  let extra = queue.length - max
+  if (extra <= 0) return queue
+  return queue.filter((w) => !(w.synced && extra-- > 0))
+}
+
 const mapEx = (w: ActiveWorkout, id: string, fn: (e: SessionExercise) => SessionExercise): ActiveWorkout => ({
   ...w,
   exercises: w.exercises.map((e) => (e.id === id ? fn(e) : e)),
@@ -200,7 +210,7 @@ export const useSession = create<SessionState>()(
           if (working.length)
             previous[e.slug] = working.map((x) => ({ weightKg: x.weightKg!, reps: x.reps! }))
         }
-        set({ active: null, restEndsAt: null, queue: [...get().queue.slice(-49), q], previous })
+        set({ active: null, restEndsAt: null, queue: trimQueue([...get().queue, q]), previous })
         return q
       },
       markSynced: (id, error) =>
