@@ -2142,7 +2142,7 @@ Web: /jak-funguje-telo/priprava-na-tehotenstvi
 - [ ] Mango — 144,5 µg (1 mango (336 g))
 - [ ] Špenát vařený — 131,4 µg (1/2 hrnku (90 g))
 - [ ] Quinoa (suchá) — 128,8 µg (porce 70 g)
-- [ ] Mražený špenát, uvařený — 121 µg (porce 100 g)
+- [ ] Brokolice vařená — 108 µg (porce 100 g)
 
 **Zdroje**
 
