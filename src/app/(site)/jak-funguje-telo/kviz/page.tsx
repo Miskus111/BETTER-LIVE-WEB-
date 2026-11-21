@@ -1,3 +1,4 @@
+import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
@@ -41,7 +42,11 @@ export default function QuizPage() {
         </p>
       </header>
       <div className="mt-8">
-        <MythQuiz />
+        <MythQuiz
+          guides={Object.fromEntries(
+            QUIZ.map((q) => [q.guide, { slug: q.guide, short: BODY_GUIDE_BY_SLUG[q.guide].short }]),
+          )}
+        />
       </div>
     </div>
   )

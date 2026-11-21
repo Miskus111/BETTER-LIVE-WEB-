@@ -181,12 +181,12 @@ export function CommandPalette() {
             </div>
             <ul className="mt-3 grid gap-1.5">
               <li>
-                <button type="button" className="link" onClick={() => goTo('/#barcode')}>
+                <button type="button" className="link" onClick={() => goTo('/potraviny#barcode')}>
                   Balený výrobek? Najděte ho podle čárového kódu
                 </button>
               </li>
               <li>
-                <button type="button" className="link" onClick={() => goTo('/#foods')}>
+                <button type="button" className="link" onClick={() => goTo('/potraviny')}>
                   Procházet všech {SEARCH_INDEX.filter((i) => i.kind === 'Potravina').length} potravin
                 </button>
               </li>

@@ -2,14 +2,15 @@ import Link from 'next/link'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { Organ } from '@/data/types'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
-import { fmtAmount, pctRef, topFoodsFor } from '@/lib/nutrition'
+import { fmtAmount, pctRef } from '@/lib/nutrition'
+import { nutrientFoods } from '@/data/food-picks'
 
 export function NutrientsTab({ organ }: { organ: Organ }) {
   return (
     <ul className="space-y-4" data-testid="organ-nutrients">
       {organ.nutrients.map((on) => {
         const n = NUTRIENTS[on.id]
-        const top = topFoodsFor(on.id, 3)
+        const top = nutrientFoods(on.id, '100g', 3)
         return (
           <li key={on.id} id={`${organ.id}-n-${on.id}`} className="card p-4">
             <div className="flex flex-wrap items-start justify-between gap-2">

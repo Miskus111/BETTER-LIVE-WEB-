@@ -12,7 +12,7 @@ const LINKS = [
   { href: '/#body', label: 'Tělo' },
   { href: '/jak-funguje-telo', label: 'Jak funguje tělo' },
   { href: '/#nutrients', label: 'Živiny' },
-  { href: '/#foods', label: 'Potraviny' },
+  { href: '/potraviny', label: 'Potraviny' },
   { href: '/doplnky', label: 'Doplňky' },
   { href: '/looksmaxing', label: 'Looksmaxing' },
   { href: '/pricing', label: 'Ceník' },
@@ -37,7 +37,9 @@ export function Nav() {
     setOpen(false)
   }
 
-  const isActive = (href: string) => !href.startsWith('/#') && pathname.startsWith(href)
+  const isActive = (href: string) =>
+    !href.startsWith('/#') &&
+    (pathname.startsWith(href) || (href === '/potraviny' && pathname.startsWith('/food/')))
 
   return (
     <header

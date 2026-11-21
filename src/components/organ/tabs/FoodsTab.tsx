@@ -5,13 +5,14 @@ import Link from 'next/link'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { Organ } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
-import { foodsForOrgan, type Basis } from '@/lib/nutrition'
+import type { Basis } from '@/lib/nutrition'
+import { organFoods } from '@/data/food-picks'
 import { BasisToggle } from '@/components/food/BasisToggle'
 import { portionText } from '@/lib/foods/query'
 
 export function FoodsTab({ organ }: { organ: Organ }) {
   const [per, setPer] = useState<Basis>('100g')
-  const foods = foodsForOrgan(organ, 12, per)
+  const foods = organFoods(organ.id, per)
   return (
     <div>
       <BasisToggle value={per} onChange={setPer} className="mb-3" />

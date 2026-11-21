@@ -7,7 +7,8 @@ import type { NutrientId } from '@/data/types'
 import { AbsorptionCard } from '@/components/ui/AbsorptionCard'
 import { ReferenceValues } from '@/components/ui/ReferenceValues'
 import { WhereToBuy } from '@/components/ui/WhereToBuy'
-import { organsForNutrient, topFoodsFor, fmtAmount } from '@/lib/nutrition'
+import { organsForNutrient, fmtAmount } from '@/lib/nutrition'
+import { topFoodsFor } from '@/lib/food-rankings'
 
 /**
  * One nutrient's supplement guide: reference values, absorption by form, best food sources and

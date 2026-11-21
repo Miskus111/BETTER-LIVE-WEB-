@@ -5,7 +5,7 @@ import { NutrientIndex } from '@/components/home/NutrientIndex'
 import { ScienceTeaser } from '@/components/home/ScienceTeaser'
 import { LooksmaxingTeaser } from '@/components/home/LooksmaxingTeaser'
 import { SupplementsTeaser } from '@/components/home/SupplementsTeaser'
-import { FoodExplorer } from '@/components/food/FoodExplorer'
+import { FoodsTeaser } from '@/components/home/FoodsTeaser'
 import { AppCta } from '@/components/home/AppCta'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { ToolCards } from '@/components/guides/ToolCards'
@@ -97,7 +97,7 @@ export default function Home() {
         title="Co doopravdy obsahuje 100 gramů."
         intro="Makroživiny, podíl energie a vitamíny a minerály v % referenční hodnoty EU — a pro které orgány je potravina relevantní."
       >
-        <FoodExplorer />
+        <FoodsTeaser />
       </Section>
 
       <Section
