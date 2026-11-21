@@ -512,7 +512,7 @@ Web: /jak-funguje-telo/imunita
 
 **Potraviny k tématu (vypočteno z dat, na běžnou porci)**
 
-- [ ] Nejvíc vitamínu D v běžné porci — v zimě ho z jídla obvykle nepokryjete, proto se doporučuje doplněk
+- [ ] Nejvíc vitamínu D v běžné porci — hlavně tučné ryby; kdo je nejí pravidelně, v zimě obvykle potřebuje doplněk
 - [ ] Kapr — 37,1 µg (porce 150 g)
 - [ ] Žampiony ozářené UV (vitamín D) — 26,2 µg (porce 100 g)
 - [ ] Makrela — 20,1 µg (porce 125 g)

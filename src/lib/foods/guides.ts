@@ -78,7 +78,8 @@ const PICKS: Record<
   'prevence-rakoviny': { title: 'Nejvíc vlákniny v běžné porci', unit: 'g', value: (f) => f.macros.fiber },
   menopauza: { title: 'Nejvíc vápníku v běžné porci', unit: 'mg', value: (f) => f.micros.calcium ?? 0 },
   imunita: {
-    title: 'Nejvíc vitamínu D v běžné porci — v zimě ho z jídla obvykle nepokryjete, proto se doporučuje doplněk',
+    title:
+      'Nejvíc vitamínu D v běžné porci — hlavně tučné ryby; kdo je nejí pravidelně, v zimě obvykle potřebuje doplněk',
     unit: 'µg',
     value: (f) => f.micros.vitD ?? 0,
   },
