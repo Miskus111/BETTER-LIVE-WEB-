@@ -12,26 +12,28 @@ npm install
 npm run dev            # http://localhost:3000
 ```
 
-| Skript                     | Co dělá                                                                      |
-| -------------------------- | ---------------------------------------------------------------------------- |
-| `npm run check`            | Vše, co spouští CI: lint, typecheck, unit testy, kontroly dat a e2e          |
-| `npm run dev`              | Vývojový server                                                              |
-| `npm run build` / `start`  | Produkční build (vše staticky generované)                                    |
-| `npm run lint`             | ESLint                                                                       |
-| `npm run typecheck`        | `tsc --noEmit` (strict)                                                      |
-| `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy) |
-| `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet) |
-| `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)              |
-| `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`     |
-| `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)  |
-| `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                          |
-| `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                    |
-| `npm test`                 | Vitest unit tests                                                            |
-| `npm run test:rls`         | RLS isolation test against the Supabase project                              |
-| `npm run seed:reference`   | Load exercise/food/supplement libraries into Supabase (service key)          |
-| `npm run seed:demo`        | Create/refresh the demo user                                                 |
-| `npm run gen:seed`         | Regenerate `supabase/seed.sql` from `src/data`                               |
-| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)   |
+| Skript                     | Co dělá                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------ |
+| `npm run check`            | Vše, co spouští CI: lint, typecheck, unit testy, kontroly dat a e2e                              |
+| `npm run dev`              | Vývojový server                                                                                  |
+| `npm run build` / `start`  | Produkční build (vše staticky generované)                                                        |
+| `npm run lint`             | ESLint                                                                                           |
+| `npm run typecheck`        | `tsc --noEmit` (strict)                                                                          |
+| `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy)                     |
+| `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet)                     |
+| `npm run review:doc`       | Podklad pro lékařskou kontrolu (`docs/lekarska-kontrola.md` + `.docx`); CI hlídá, že je aktuální |
+| `npm run check:db`         | Produkční databáze má funkce z migrací a celou knihovnu cviků (čte `.env.local`)                 |
+| `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)                                  |
+| `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`                         |
+| `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)                      |
+| `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                                              |
+| `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                                        |
+| `npm test`                 | Vitest unit tests                                                                                |
+| `npm run test:rls`         | RLS isolation test against the Supabase project                                                  |
+| `npm run seed:reference`   | Load exercise/food/supplement libraries into Supabase (service key)                              |
+| `npm run seed:demo`        | Create/refresh the demo user                                                                     |
+| `npm run gen:seed`         | Regenerate `supabase/seed.sql` from `src/data`                                                   |
+| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)                       |
 
 První běh Playwrightu: `npx playwright install chromium`.
 
