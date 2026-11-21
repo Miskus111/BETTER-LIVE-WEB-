@@ -23,7 +23,7 @@ import { portionText } from '@/lib/foods/query'
 import { fmtAmount } from '@/lib/nutrition'
 import { PUBLISHED, modifiedAfter } from '@/data/published'
 
-const UPDATED = '2026-11-18'
+const UPDATED = '2026-11-21' // food picks and related guides added
 
 /** ~200 words per minute for Czech non-fiction on a phone */
 function readingMinutes(g: BodyGuide) {

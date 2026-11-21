@@ -11,8 +11,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // when each group of pages last changed in substance — bump it with real content changes, so search
   // engines re-crawl what changed (one date for everything teaches them to ignore lastmod)
   const lastModified = new Date('2026-11-18')
-  const foodsUpdated = new Date('2026-11-20') // V kostce, portion fixes, upper-limit warnings, share images
-  const organsUpdated = new Date('2026-11-20') // rankings without spices, share images
+  const foodsUpdated = new Date('2026-11-21') // unenriched grains, raw vs cooked, downsides in V kostce, renames
+  const guidesUpdated = new Date('2026-11-21') // food picks, related guides, article dates
+  const organsUpdated = new Date('2026-11-21') // rankings: one entry per food, no junk, per-portion amounts
   return [
     { url: u('/'), priority: 1, lastModified: foodsUpdated },
     { url: u('/doplnky'), priority: 0.8 },
@@ -20,7 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: u('/jak-funguje-telo/kviz'), priority: 0.7 },
     { url: u('/jak-funguje-telo/slovnik'), priority: 0.7 },
     { url: u('/nastroje'), priority: 0.8 },
-    ...BODY_GUIDES.map((g) => ({ url: u(`/jak-funguje-telo/${g.slug}`), priority: 0.8 })),
+    ...BODY_GUIDES.map((g) => ({
+      url: u(`/jak-funguje-telo/${g.slug}`),
+      priority: 0.8,
+      lastModified: guidesUpdated,
+    })),
     { url: u('/jak-doporucujeme'), priority: 0.4 },
     { url: u('/looksmaxing'), priority: 0.7 },
     { url: u('/science'), priority: 0.6 },
