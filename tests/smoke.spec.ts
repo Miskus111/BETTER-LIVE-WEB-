@@ -499,3 +499,17 @@ test('nutrition guides list the best foods for the topic', async ({ page }) => {
   await expect(block.getByRole('heading', { name: 'Potraviny k tématu' })).toBeVisible()
   await expect(block.getByRole('link')).toHaveCount(6)
 })
+
+test('Content-Security-Policy is sent and blocks nothing the site needs', async ({ page }) => {
+  const blocked: string[] = []
+  page.on('console', (m) => {
+    if (/Content Security Policy/i.test(m.text())) blocked.push(m.text().slice(0, 200))
+  })
+  const res = await page.goto('/')
+  expect(res?.headers()['content-security-policy']).toContain("default-src 'self'")
+  for (const path of ['/food/almonds', '/jak-funguje-telo/bilkoviny', '/pricing', '/login', '/preview/eat']) {
+    await page.goto(path)
+    await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})
+  }
+  expect(blocked).toEqual([])
+})
