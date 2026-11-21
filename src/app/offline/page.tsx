@@ -4,7 +4,7 @@ import { WifiOff } from 'lucide-react'
 export const dynamic = 'force-static'
 
 export default async function OfflinePage() {
-  const t = await getTranslations('common')
+  const t = await getTranslations({ locale: 'cs', namespace: 'common' })
   return (
     <main className="mx-auto grid min-h-[70vh] max-w-md place-items-center px-6 text-center">
       <div>

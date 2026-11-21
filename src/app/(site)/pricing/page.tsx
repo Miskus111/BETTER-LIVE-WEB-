@@ -7,7 +7,7 @@ import { isAiConfigured } from '@/lib/ai/client'
 import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('billing')
+  const t = await getTranslations({ locale: 'cs', namespace: 'billing' })
   return {
     title: 'Ceník — tarify Zdarma a Pro',
     description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 type Cell = boolean | string
 
 export default async function PricingPage() {
-  const t = await getTranslations('billing')
+  const t = await getTranslations({ locale: 'cs', namespace: 'billing' })
   const beta = isFreeMode()
   const nf = new Intl.NumberFormat('cs-CZ')
   const nf1 = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 })

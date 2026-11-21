@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
-import { getLocale } from 'next-intl/server'
 import { Providers } from '@/components/providers/Providers'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '@/lib/site'
@@ -42,14 +40,12 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: '#07090c', colorScheme: 'dark' }
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const locale = await getLocale()
+// static: no cookies or headers here, so public pages are prerendered and served from the CDN
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={locale} className={`${geist.variable} ${geistMono.variable} ${serif.variable}`}>
+    <html lang="cs" className={`${geist.variable} ${geistMono.variable} ${serif.variable}`}>
       <body>
-        <NextIntlClientProvider>
-          <Providers>{children}</Providers>
-        </NextIntlClientProvider>
+        <Providers>{children}</Providers>
         {/* cookieless page-view counts (no personal data, no consent banner needed) */}
         <Analytics />
       </body>
