@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { authErrorKey } from '@/lib/supabase/auth-errors'
 
 export function NewPasswordForm() {
   const t = useTranslations('auth')
@@ -30,8 +31,7 @@ export function NewPasswordForm() {
     const { error } = await createClient().auth.updateUser({ password })
     if (error) {
       setStatus('error')
-      // Supabase explains weak or reused passwords better than a generic message
-      setMessage(error.message || t('resetError'))
+      setMessage(t(authErrorKey(error) ?? 'resetError'))
       return
     }
     setStatus('saved')

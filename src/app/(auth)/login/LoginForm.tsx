@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Loader2, MailCheck } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { authErrorKey } from '@/lib/supabase/auth-errors'
 
 export function LoginForm({
   next,
@@ -33,7 +34,16 @@ export function LoginForm({
     const supabase = createClient()
     if (mode === 'reset') {
       // same answer whether or not the account exists (no account enumeration)
-      await supabase.auth.resetPasswordForEmail(email, { redirectTo: callback('/reset-password') })
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: callback('/reset-password'),
+      })
+      // a rate limit or bad address says nothing about whether the account exists
+      const key = authErrorKey(error)
+      if (key === 'errRateLimit' || key === 'errEmailInvalid') {
+        setStatus('error')
+        setMessage(t(key))
+        return
+      }
       setStatus('sent')
       return
     }
@@ -41,7 +51,7 @@ export function LoginForm({
       const { error } = await supabase.auth.signInWithPassword({ email, password })
       if (error) {
         setStatus('error')
-        setMessage(t('error'))
+        setMessage(authErrorKey(error) === 'errRateLimit' ? t('errRateLimit') : t('error'))
         return
       }
       router.replace(next)
@@ -54,7 +64,7 @@ export function LoginForm({
       })
       if (error) {
         setStatus('error')
-        setMessage(error.message)
+        setMessage(t(authErrorKey(error) ?? 'errGeneric'))
         return
       }
       if (data.session) {

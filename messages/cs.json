@@ -73,7 +73,14 @@
     "passwordSaved": "Heslo je změněné. Přesměrujeme vás do aplikace.",
     "resetExpired": "Odkaz pro obnovu hesla vypršel nebo už byl použitý. Pošlete si prosím nový.",
     "resetError": "Heslo se nepodařilo uložit. Zkuste to prosím znovu.",
-    "callbackError": "Odkaz z e-mailu vypršel nebo už byl použitý. Přihlaste se, případně si nechte poslat nový."
+    "callbackError": "Odkaz z e-mailu vypršel nebo už byl použitý. Přihlaste se, případně si nechte poslat nový.",
+    "errUserExists": "Účet s tímto e-mailem už existuje. Přihlaste se, nebo si obnovte heslo.",
+    "errWeakPassword": "Heslo je příliš slabé nebo známé z úniků dat. Zvolte prosím jiné, delší heslo.",
+    "errSamePassword": "Nové heslo musí být jiné než současné.",
+    "errEmailInvalid": "Tahle e-mailová adresa nevypadá platně.",
+    "errRateLimit": "Příliš mnoho pokusů za krátkou dobu. Zkuste to prosím za pár minut.",
+    "errSignupDisabled": "Registrace je momentálně vypnutá.",
+    "errGeneric": "Něco se nepovedlo. Zkuste to prosím znovu."
   },
   "onboarding": {
     "title": "Nastavení profilu",
