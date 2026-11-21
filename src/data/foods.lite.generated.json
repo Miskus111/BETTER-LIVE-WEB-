@@ -3691,7 +3691,7 @@
     "source": "USDA FoodData Central, FDC 174223, SR Legacy 2018-04"
   },
   {
-    "id": "cod-liver-canned",
+    "id": "cod-canned",
     "name": "Treska v konzervě",
     "nameEn": "Cod, canned",
     "category": "Ryby a mořské plody",
@@ -5385,7 +5385,7 @@
     "source": "USDA FoodData Central, FDC 173418, SR Legacy 2018-04"
   },
   {
-    "id": "halloumi",
+    "id": "goat-cheese-hard",
     "name": "Kozí sýr tvrdý",
     "nameEn": "Goat cheese, hard",
     "category": "Mléčné výrobky",
@@ -7204,7 +7204,7 @@
     "source": "USDA FoodData Central, FDC 169988, SR Legacy 2018-04"
   },
   {
-    "id": "parsley-root",
+    "id": "parsley",
     "name": "Petržel (nať)",
     "nameEn": "Parsley",
     "category": "Bylinky a koření",
@@ -12071,7 +12071,7 @@
     "source": "USDA FoodData Central, FDC 171691, SR Legacy 2018-04"
   },
   {
-    "id": "banana-chips",
+    "id": "banana-dried",
     "name": "Sušený banán",
     "nameEn": "Dried banana",
     "category": "Ovoce",
@@ -14376,7 +14376,7 @@
     "source": "USDA FoodData Central, FDC 169704, SR Legacy 2018-04"
   },
   {
-    "id": "rice-basmati-cooked",
+    "id": "rice-parboiled-cooked",
     "name": "Rýže parboiled vařená",
     "nameEn": "Parboiled rice, cooked",
     "category": "Obiloviny a pečivo",
@@ -16326,7 +16326,7 @@
     "satFat": 12.1,
     "portion": { "label": "1 lžička", "grams": 5 },
     "allergens": [],
-    "vegan": true,
+    "vegan": false,
     "vegetarian": true,
     "glutenFree": true,
     "completeProtein": false,
@@ -17799,7 +17799,7 @@
     "source": "USDA FoodData Central, FDC 171891, SR Legacy 2018-04"
   },
   {
-    "id": "coffee-latte",
+    "id": "coffee-decaf",
     "name": "Káva bez kofeinu",
     "nameEn": "Decaf coffee",
     "category": "Nápoje",
@@ -18486,7 +18486,7 @@
     "satFat": 0,
     "portion": { "label": "1 sklenka (150 ml)", "grams": 150 },
     "allergens": ["sulphites"],
-    "vegan": true,
+    "vegan": false,
     "vegetarian": true,
     "glutenFree": true,
     "completeProtein": false,
@@ -18527,7 +18527,7 @@
     "satFat": 0,
     "portion": { "label": "1 sklenka (150 ml)", "grams": 150 },
     "allergens": ["sulphites"],
-    "vegan": true,
+    "vegan": false,
     "vegetarian": true,
     "glutenFree": true,
     "completeProtein": false,
@@ -19223,7 +19223,7 @@
     "allergens": ["soy"],
     "vegan": true,
     "vegetarian": true,
-    "glutenFree": true,
+    "glutenFree": false,
     "completeProtein": false,
     "liquid": false,
     "liveCultures": true,

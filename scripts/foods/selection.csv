@@ -81,7 +81,7 @@ mussels,174216,SR Legacy,"Mollusks, mussel, blue, raw",Slávky,Blue mussels,Ryby
 mussels-cooked,174217,SR Legacy,"Mollusks, mussel, blue, cooked, moist heat",Slávky vařené,"Blue mussels, cooked",Ryby a mořské plody,cooked,porce 85 g==85,molluscs
 oysters,171978,SR Legacy,"Mollusks, oyster, eastern, wild, raw",Ústřice,Oysters,Ryby a mořské plody,raw,6 ústřic=medium,molluscs
 squid,174223,SR Legacy,"Mollusks, squid, mixed species, raw",Kalamáry (oliheň),Squid,Ryby a mořské plody,raw,porce 100 g==100,molluscs
-cod-liver-canned,174189,SR Legacy,"Fish, cod, Atlantic, canned, solids and liquid",Treska v konzervě,"Cod, canned",Ryby a mořské plody,canned,porce 85 g==85,fish
+cod-canned,174189,SR Legacy,"Fish, cod, Atlantic, canned, solids and liquid",Treska v konzervě,"Cod, canned",Ryby a mořské plody,canned,porce 85 g==85,fish
 fish-roe,175132,SR Legacy,"Fish, roe, mixed species, raw",Rybí jikry,Fish roe,Ryby a mořské plody,raw,1 lžíce=tbsp,fish
 egg,171287,SR Legacy,"Egg, whole, raw, fresh",Vejce (celé),"Egg, whole",Vejce,raw,1 vejce L=large,eggs
 egg-boiled,173424,SR Legacy,"Egg, whole, cooked, hard-boiled",Vejce natvrdo,"Egg, hard-boiled",Vejce,cooked,1 vejce L=large,eggs
@@ -118,7 +118,7 @@ blue-cheese,172175,SR Legacy,"Cheese, blue",Niva (plísňový sýr),Blue cheese,
 limburger,171243,SR Legacy,"Cheese, limburger",Limburský sýr (zrající),Limburger cheese,Mléčné výrobky,fermented,porce 50 g==50,milk
 processed-cheese,325198,Foundation,"Cheese, pasteurized process, American, vitamin D fortified",Tavený sýr,Processed cheese,Mléčné výrobky,processed,1 plátek=slice,milk
 cream-cheese,173418,SR Legacy,"Cheese, cream",Lučina / krémový sýr,Cream cheese,Mléčné výrobky,fermented,1 lžíce=tbsp,milk
-halloumi,172197,SR Legacy,"Cheese, goat, hard type",Kozí sýr tvrdý,"Goat cheese, hard",Mléčné výrobky,fermented,porce 30 g==30,milk
+goat-cheese-hard,172197,SR Legacy,"Cheese, goat, hard type",Kozí sýr tvrdý,"Goat cheese, hard",Mléčné výrobky,fermented,porce 30 g==30,milk
 goat-cheese-soft,173435,SR Legacy,"Cheese, goat, soft type",Kozí sýr měkký,"Goat cheese, soft",Mléčné výrobky,fermented,porce 30 g==30,milk
 sour-cream,171257,SR Legacy,"Cream, sour, cultured",Zakysaná smetana,Sour cream,Mléčné výrobky,fermented,1 lžíce=tbsp,milk
 cream,170859,SR Legacy,"Cream, fluid, heavy whipping",Smetana ke šlehání 33 %,Heavy whipping cream,Mléčné výrobky,raw,1 lžíce=tbsp,milk
@@ -158,7 +158,7 @@ beetroot-cooked,169146,SR Legacy,"Beets, cooked, boiled, drained",Červená řep
 parsnip,170417,SR Legacy,"Parsnips, raw",Pastinák,Parsnip,Zelenina,raw,porce 100 g==100,
 celeriac,170400,SR Legacy,"Celeriac, raw",Celer bulvový,Celeriac,Zelenina,raw,porce 100 g==100,celery
 celery,169988,SR Legacy,"Celery, raw",Řapíkatý celer,Celery stalks,Zelenina,raw,1 řapík=stalk,celery
-parsley-root,170416,SR Legacy,"Parsley, fresh",Petržel (nať),Parsley,Bylinky a koření,raw,1 lžíce=tbsp,
+parsley,170416,SR Legacy,"Parsley, fresh",Petržel (nať),Parsley,Bylinky a koření,raw,1 lžíce=tbsp,
 radish,169276,SR Legacy,"Radishes, raw",Ředkvičky,Radish,Zelenina,raw,5 kusů==45,
 turnip,170465,SR Legacy,"Turnips, raw",Vodnice (tuřín),Turnip,Zelenina,raw,porce 100 g==100,
 onion,170000,SR Legacy,"Onions, raw",Cibule,Onion,Zelenina,raw,1 cibule=medium,
@@ -267,7 +267,7 @@ figs-dried,174665,SR Legacy,"Figs, dried, uncooked",Sušené fíky,Dried figs,Ov
 cranberries-dried,171723,SR Legacy,"Cranberries, dried, sweetened (Includes foods for USDA's Food Distribution Program)",Sušené brusinky (slazené),"Dried cranberries, sweetened",Ovoce,dried,hrst 30 g==30,
 goji,173032,SR Legacy,"Goji berries, dried",Goji (kustovnice) sušená,"Goji berries, dried",Ovoce,dried,hrst 28 g==28,
 apple-dried,171691,SR Legacy,"Apples, dried, sulfured, uncooked",Sušená jablka,Dried apples,Ovoce,dried,hrst 30 g==30,sulphites
-banana-chips,173945,SR Legacy,"Bananas, dehydrated, or banana powder",Sušený banán,Dried banana,Ovoce,dried,hrst 30 g==30,
+banana-dried,173945,SR Legacy,"Bananas, dehydrated, or banana powder",Sušený banán,Dried banana,Ovoce,dried,hrst 30 g==30,
 almonds,170567,SR Legacy,"Nuts, almonds",Mandle,Almonds,Ořechy a semínka,raw,hrst 30 g==30,nuts
 walnuts,170187,SR Legacy,"Nuts, walnuts, english",Vlašské ořechy,Walnuts,Ořechy a semínka,raw,hrst 30 g==30,nuts
 hazelnuts,170581,SR Legacy,"Nuts, hazelnuts or filberts",Lískové ořechy,Hazelnuts,Ořechy a semínka,raw,hrst 30 g==30,nuts
@@ -320,7 +320,7 @@ rice-white,169756,SR Legacy,"Rice, white, long-grain, regular, raw, unenriched",
 rice-white-cooked,169757,SR Legacy,"Rice, white, long-grain, regular, unenriched, cooked without salt",Rýže bílá vařená,"White rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 rice-brown,169703,SR Legacy,"Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",Rýže natural (suchá),"Brown rice, dry",Obiloviny a pečivo,dry,porce 70 g==70,
 rice-brown-cooked,169704,SR Legacy,"Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",Rýže natural vařená,"Brown rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
-rice-basmati-cooked,169759,SR Legacy,"Rice, white, long-grain, parboiled, unenriched, cooked",Rýže parboiled vařená,"Parboiled rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
+rice-parboiled-cooked,169759,SR Legacy,"Rice, white, long-grain, parboiled, unenriched, cooked",Rýže parboiled vařená,"Parboiled rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 rice-wild-cooked,168897,SR Legacy,"Wild rice, cooked",Divoká rýže vařená,"Wild rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 buckwheat,170685,SR Legacy,"Buckwheat groats, roasted, dry","Pohanka (lámanka/kroupy, suchá)","Buckwheat groats, dry",Obiloviny a pečivo,dry,porce 70 g==70,
 buckwheat-cooked,170686,SR Legacy,"Buckwheat groats, roasted, cooked",Pohanka vařená,"Buckwheat groats, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
@@ -403,7 +403,7 @@ cocoa,169593,SR Legacy,"Cocoa, dry powder, unsweetened",Kakao (neslazené),"Coco
 water,173647,SR Legacy,"Beverages, water, tap, drinking",Voda z kohoutku,Tap water,Nápoje,raw,1 sklenice (250 ml)==250,
 coffee,171890,SR Legacy,"Beverages, coffee, brewed, prepared with tap water",Káva překapávaná,Brewed coffee,Nápoje,brewed,1 šálek=cup,
 espresso,171891,SR Legacy,"Beverages, coffee, brewed, espresso, restaurant-prepared",Espresso,Espresso,Nápoje,brewed,1 šálek (30 ml)==30,
-coffee-latte,171889,SR Legacy,"Beverages, coffee, brewed, prepared with tap water, decaffeinated",Káva bez kofeinu,Decaf coffee,Nápoje,brewed,1 šálek=cup,
+coffee-decaf,171889,SR Legacy,"Beverages, coffee, brewed, prepared with tap water, decaffeinated",Káva bez kofeinu,Decaf coffee,Nápoje,brewed,1 šálek=cup,
 tea-black,173227,SR Legacy,"Beverages, tea, black, brewed, prepared with tap water",Čaj černý,Black tea,Nápoje,brewed,1 hrnek=cup,
 tea-green,171917,SR Legacy,"Beverages, tea, green, brewed, regular",Čaj zelený,Green tea,Nápoje,brewed,1 hrnek=cup,
 tea-herbal,174156,SR Legacy,"Beverages, tea, herb, brewed, chamomile",Heřmánkový čaj,Chamomile tea,Nápoje,brewed,1 hrnek=cup,

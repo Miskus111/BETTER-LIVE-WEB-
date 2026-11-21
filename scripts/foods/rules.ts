@@ -113,7 +113,19 @@ const ALLERGENS_BY_CATEGORY: Partial<Record<Category, Allergen>> = {
 }
 const ANIMAL: Category[] = ['Maso', 'Drůbež', 'Ryby a mořské plody']
 const NON_VEGETARIAN_KEYS = new Set(['lard', 'fish-oil', 'cod-liver-oil', 'gummy', 'liver-pate'])
-const NON_VEGAN_KEYS = new Set(['honey', 'whey-protein', 'butter', 'ghee'])
+// not reliably vegan: wine is often fined with gelatin, casein or egg white; many margarines contain
+// buttermilk or whey — the label decides, so the filter stays on the safe side
+const NON_VEGAN_KEYS = new Set([
+  'honey',
+  'whey-protein',
+  'butter',
+  'ghee',
+  'wine-red',
+  'wine-white',
+  'margarine',
+])
+// not reliably gluten-free without a label: miso is often made with barley (mugi miso)
+const NOT_SAFELY_GLUTEN_FREE = new Set(['miso'])
 
 export function allergensFor(key: string, cat: Category, listed: string): Allergen[] {
   const out = new Set<Allergen>()
@@ -139,13 +151,8 @@ export function dietFor(key: string, cat: Category, allergens: Allergen[]) {
     !allergens.includes('milk') &&
     !allergens.includes('eggs') &&
     !NON_VEGAN_KEYS.has(key)
-  return { vegan, vegetarian, glutenFree: !allergens.includes('gluten') }
+  return { vegan, vegetarian, glutenFree: !allergens.includes('gluten') && !NOT_SAFELY_GLUTEN_FREE.has(key) }
 }
-
-/**
- * Values in the source record that are clearly wrong, shown as "no data" instead (we never invent a
- * replacement). Each entry says why; the reason goes into the food's provenance notes.
- */
 
 /** Nutrients US law adds to "enriched" white flour; Czech flour isn't enriched. */
 const ENRICHMENT: PanelKey[] = ['folate', 'iron', 'b1', 'b2', 'b3']
@@ -157,6 +164,10 @@ const US_MILK =
 const BRAND_FORTIFIED =
   'Vitamíny přidané výrobcem — obsah se liší podle značky, proto je neuvádíme. Platí údaje na obalu.'
 
+/**
+ * Values in the source record that are clearly wrong, shown as "no data" instead (we never invent a
+ * replacement). Each entry says why; the reason goes into the food's provenance notes.
+ */
 export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }> = {
   milk: { keys: ['vitD'], reason: US_MILK },
   'milk-goat': { keys: ['vitD'], reason: US_MILK },

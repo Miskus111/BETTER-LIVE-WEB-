@@ -6787,7 +6787,7 @@
       }
     },
     {
-      "id": "cod-liver-canned",
+      "id": "cod-canned",
       "nameCs": "Treska v konzervě",
       "nameEn": "Cod, canned",
       "synonyms": ["Cod, canned", "Fish, cod, Atlantic, canned, solids and liquid"],
@@ -9843,7 +9843,7 @@
       }
     },
     {
-      "id": "halloumi",
+      "id": "goat-cheese-hard",
       "nameCs": "Kozí sýr tvrdý",
       "nameEn": "Goat cheese, hard",
       "synonyms": ["Goat cheese, hard", "Cheese, goat, hard type"],
@@ -13128,7 +13128,7 @@
       }
     },
     {
-      "id": "parsley-root",
+      "id": "parsley",
       "nameCs": "Petržel (nať)",
       "nameEn": "Parsley",
       "synonyms": ["Parsley", "Parsley, fresh"],
@@ -22090,7 +22090,7 @@
       }
     },
     {
-      "id": "banana-chips",
+      "id": "banana-dried",
       "nameCs": "Sušený banán",
       "nameEn": "Dried banana",
       "synonyms": ["Dried banana", "Bananas, dehydrated, or banana powder"],
@@ -26457,7 +26457,7 @@
       }
     },
     {
-      "id": "rice-basmati-cooked",
+      "id": "rice-parboiled-cooked",
       "nameCs": "Rýže parboiled vařená",
       "nameEn": "Parboiled rice, cooked",
       "synonyms": ["Parboiled rice, cooked", "Rice, white, long-grain, parboiled, unenriched, cooked"],
@@ -30400,7 +30400,7 @@
         { "label": "100 g", "grams": 100, "source": "household" }
       ],
       "allergens": [],
-      "diet": { "vegan": true, "vegetarian": true, "glutenFree": true },
+      "diet": { "vegan": false, "vegetarian": true, "glutenFree": true },
       "completeProtein": false,
       "liquid": false,
       "liveCultures": null,
@@ -33290,7 +33290,7 @@
       }
     },
     {
-      "id": "coffee-latte",
+      "id": "coffee-decaf",
       "nameCs": "Káva bez kofeinu",
       "nameEn": "Decaf coffee",
       "synonyms": ["Decaf coffee", "Beverages, coffee, brewed, prepared with tap water, decaffeinated"],
@@ -34674,7 +34674,7 @@
         { "label": "100 g", "grams": 100, "source": "household" }
       ],
       "allergens": ["sulphites"],
-      "diet": { "vegan": true, "vegetarian": true, "glutenFree": true },
+      "diet": { "vegan": false, "vegetarian": true, "glutenFree": true },
       "completeProtein": false,
       "liquid": true,
       "liveCultures": null,
@@ -34756,7 +34756,7 @@
         { "label": "100 g", "grams": 100, "source": "household" }
       ],
       "allergens": ["sulphites"],
-      "diet": { "vegan": true, "vegetarian": true, "glutenFree": true },
+      "diet": { "vegan": false, "vegetarian": true, "glutenFree": true },
       "completeProtein": false,
       "liquid": true,
       "liveCultures": null,
@@ -36157,7 +36157,7 @@
         { "label": "100 g", "grams": 100, "source": "household" }
       ],
       "allergens": ["soy"],
-      "diet": { "vegan": true, "vegetarian": true, "glutenFree": true },
+      "diet": { "vegan": true, "vegetarian": true, "glutenFree": false },
       "completeProtein": false,
       "liquid": false,
       "liveCultures": "Živé kultury jen v nepasterizovaném misu (bývá v chladicím boxu).",

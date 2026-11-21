@@ -43,6 +43,12 @@ const nextConfig: NextConfig = {
       { source: '/food/seaweed-nori', destination: '/food/spirulina', permanent: true },
       { source: '/food/yeast-nutritional', destination: '/food/yeast-dry', permanent: true },
       { source: '/food/olomouc-cheese', destination: '/food/limburger', permanent: true },
+      { source: '/food/halloumi', destination: '/food/goat-cheese-hard', permanent: true },
+      { source: '/food/cod-liver-canned', destination: '/food/cod-canned', permanent: true },
+      { source: '/food/parsley-root', destination: '/food/parsley', permanent: true },
+      { source: '/food/rice-basmati-cooked', destination: '/food/rice-parboiled-cooked', permanent: true },
+      { source: '/food/coffee-latte', destination: '/food/coffee-decaf', permanent: true },
+      { source: '/food/banana-chips', destination: '/food/banana-dried', permanent: true },
     ]
   },
   // metadata (title, description, og:image) always in <head> — every link-preview bot finds it

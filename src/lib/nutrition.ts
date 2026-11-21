@@ -147,7 +147,6 @@ const NOT_RECOMMENDED: Record<string, string> = {
   gummy: 'cukr',
   'ice-cream': 'cukr a nasycené tuky',
   chips: 'tuk a sůl',
-  'banana-chips': 'smažené, cukr a nasycené tuky',
 }
 
 /** Why a food isn't recommended as a nutrient source, or undefined if it is fine. */

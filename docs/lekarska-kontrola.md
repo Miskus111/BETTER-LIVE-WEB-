@@ -4,7 +4,7 @@ Vygenerováno 2026-11-21 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1166 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1165 položek ke kontrole.
 
 ---
 
@@ -3108,7 +3108,6 @@ Web: /food/…
 
 - [ ] Zmrzlina vanilková — cukr a nasycené tuky
 - [ ] Bramborové lupínky (chipsy) — tuk a sůl
-- [ ] Sušený banán — smažené, cukr a nasycené tuky
 - [ ] Cola (slazená) — přidaný cukr
 - [ ] Energetický nápoj — přidaný cukr a kofein; vitamíny jsou přidané uměle
 - [ ] Pivo (12°, ležák) — alkohol
