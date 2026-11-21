@@ -334,7 +334,7 @@ test('non-vitamin supplements: overview section and an honest compound page', as
 })
 
 test('food explorer: diacritics-insensitive search, filters and compare', async ({ page }) => {
-  await page.goto('/#foods')
+  await page.goto('/potraviny')
   const search = page.getByTestId('food-search')
   await search.fill('cocka')
   await expect(page.getByTestId('food-lentils')).toBeVisible()
@@ -371,7 +371,7 @@ test('food page: full panel recalculates per portion, shows provenance and "no d
 })
 
 test('barcode lookup rejects an invalid EAN without a request', async ({ page }) => {
-  await page.goto('/#foods')
+  await page.goto('/potraviny')
   await page.getByTestId('barcode-input').fill('123')
   await page.getByRole('button', { name: 'Vyhledat' }).click()
   await expect(page.getByTestId('barcode-lookup')).toContainText('8 nebo 13 číslic')

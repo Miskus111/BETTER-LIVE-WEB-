@@ -90,7 +90,7 @@ export default async function FoodPage({ params }: Params) {
           ],
         }}
       />
-      <Link href="/#foods" className="link inline-flex items-center gap-1 text-[14px]">
+      <Link href="/potraviny" className="link inline-flex items-center gap-1 text-[14px]">
         <ChevronLeft size={15} aria-hidden /> Průvodce potravinami
       </Link>
 
