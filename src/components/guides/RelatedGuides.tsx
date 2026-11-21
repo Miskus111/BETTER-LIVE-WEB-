@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight } from 'lucide-react'
 import { guidesLinkingTo, type BodyGuide } from '@/data/body-guides'
 import { GuideIcon } from './GuideIcon'

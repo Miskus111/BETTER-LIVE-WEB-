@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { notFound } from 'next/navigation'
 import { AlertTriangle, ArrowUpRight, ChevronLeft, Database } from 'lucide-react'
 import { FOOD_BY_ID, FOODS } from '@/data/foods'
@@ -90,7 +90,7 @@ export default async function FoodPage({ params }: Params) {
           ],
         }}
       />
-      <Link href="/#foods" className="link inline-flex items-center gap-1 text-[14px]">
+      <Link href="/potraviny" className="link inline-flex items-center gap-1 text-[14px]">
         <ChevronLeft size={15} aria-hidden /> Průvodce potravinami
       </Link>
 

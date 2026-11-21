@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { LegalHeader, LegalSection, OperatorCard } from '@/components/legal/Legal'
 import { AFFILIATE_DISCLOSURE } from '@/data/affiliate'
 import { SITE } from '@/lib/site'

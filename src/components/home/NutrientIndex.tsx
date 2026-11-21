@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { useEffect, useState } from 'react'
 import { BadgeCheck, CircleSlash } from 'lucide-react'
 import { NUTRIENT_LIST, NUTRIENTS } from '@/data/nutrients'
@@ -11,17 +11,11 @@ import { WHERE_TO_BUY } from '@/data/retailers'
 import { ABSORPTION } from '@/data/absorption'
 import { ReferenceValues } from '@/components/ui/ReferenceValues'
 import { RatingBadge } from '@/components/ui/AbsorptionCard'
-import {
-  fmtAmount,
-  organsForNutrient,
-  pctRef,
-  thresholdBasis,
-  topFoodsFor,
-  type Basis,
-} from '@/lib/nutrition'
+import { fmtAmount, organsForNutrient, pctRef, thresholdBasis, type Basis } from '@/lib/nutrition'
 import { BasisToggle } from '@/components/food/BasisToggle'
 import { cx } from '@/lib/format'
 import { supplementHref } from '@/data/supplements'
+import { nutrientFoods } from '@/data/food-picks'
 import { portionText } from '@/lib/foods/query'
 import { scrollBehavior } from '@/lib/motion'
 
@@ -57,7 +51,7 @@ export function NutrientIndex() {
   const n = NUTRIENTS[active]
   const organs = organsForNutrient(active)
   const [per, setPer] = useState<Basis>('100g')
-  const top = topFoodsFor(active, 6, per)
+  const top = nutrientFoods(active, per)
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">

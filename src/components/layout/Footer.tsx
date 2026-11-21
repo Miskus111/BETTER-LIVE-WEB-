@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ORGANS } from '@/data/organs'
 import { NUTRIENTS } from '@/data/nutrients'
 import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'
@@ -49,7 +49,7 @@ export function Footer() {
           <Link href="/looksmaxing" className="hover:text-fg">
             Looksmaxing
           </Link>
-          <Link href="/#foods" className="hover:text-fg">
+          <Link href="/potraviny" className="hover:text-fg">
             Průvodce potravinami
           </Link>
           <Link href="/#nutrients" className="hover:text-fg">

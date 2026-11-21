@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { notFound } from 'next/navigation'
 import { AlertTriangle, ChevronRight, Salad } from 'lucide-react'
 import { ABSORPTION } from '@/data/absorption'

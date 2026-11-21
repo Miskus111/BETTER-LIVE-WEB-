@@ -262,18 +262,12 @@ test('organ panel has a supplements tab; old store URLs redirect', async ({ page
   await expect(page).toHaveURL(/\/doplnky$/)
 })
 
-test('app routes require sign-in (or show setup when Supabase is not configured)', async ({ page }) => {
-  for (const path of ['/today', '/train', '/onboarding']) {
-    await page.goto(path)
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Supabase|Přihlášení|Sign in/)
-  }
-})
-
 test('home links to the app: nav button and sign-up block', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByTestId('nav-app')).toHaveAttribute('href', '/today')
+  // the app is its own site: links go to its address, not to a page on this domain
+  await expect(page.getByTestId('nav-app')).toHaveAttribute('href', /^https?:\/\/[^/]+\/today$/)
   const cta = page.getByTestId('cta-signup')
-  await expect(cta).toHaveAttribute('href', '/login?mode=signup')
+  await expect(cta).toHaveAttribute('href', /^https?:\/\/[^/]+\/login\?mode=signup$/)
   await expect(page.locator('#aplikace')).toContainText('Trénink')
 })
 
@@ -284,13 +278,6 @@ test('pricing: free and Pro plans, beta banner and comparison table', async ({ p
   await expect(page.getByTestId('plan-pro')).toContainText('199')
   await expect(page.getByTestId('plan-pro')).toContainText('1 690')
   await expect(page.locator('section[aria-labelledby=compare-plans] table')).toContainText('Fotky pokroku')
-})
-
-test('paywall explains Pro and links to pricing', async ({ page }) => {
-  await page.goto('/preview/paywall')
-  const p = page.getByTestId('paywall')
-  await expect(p).toContainText('Fotky pokroku jsou v Pro')
-  await expect(p.getByRole('link', { name: 'Zobrazit tarify' })).toHaveAttribute('href', '/pricing')
 })
 
 test('supplement guide pages: own URL, one h1, FAQ and structured data; listed in the sitemap', async ({
@@ -347,7 +334,7 @@ test('non-vitamin supplements: overview section and an honest compound page', as
 })
 
 test('food explorer: diacritics-insensitive search, filters and compare', async ({ page }) => {
-  await page.goto('/#foods')
+  await page.goto('/potraviny')
   const search = page.getByTestId('food-search')
   await search.fill('cocka')
   await expect(page.getByTestId('food-lentils')).toBeVisible()
@@ -384,7 +371,7 @@ test('food page: full panel recalculates per portion, shows provenance and "no d
 })
 
 test('barcode lookup rejects an invalid EAN without a request', async ({ page }) => {
-  await page.goto('/#foods')
+  await page.goto('/potraviny')
   await page.getByTestId('barcode-input').fill('123')
   await page.getByRole('button', { name: 'Vyhledat' }).click()
   await expect(page.getByTestId('barcode-lookup')).toContainText('8 nebo 13 číslic')
@@ -394,21 +381,6 @@ test('accessibility: no serious or critical axe violations on key pages and app 
   page,
 }) => {
   test.setTimeout(120_000)
-  const app = [
-    'train',
-    'library',
-    'eat',
-    'stack',
-    'pain-map',
-    'routine',
-    'labs',
-    'coach',
-    'looks',
-    'progress',
-    'weight',
-    'photos',
-    'paywall',
-  ]
   for (const path of [
     ...[
       '/',
@@ -422,10 +394,7 @@ test('accessibility: no serious or critical axe violations on key pages and app 
       '/jak-funguje-telo',
       '/jak-funguje-telo/bilkoviny',
       '/pricing',
-      '/login',
-      '/reset-password',
     ],
-    ...app.map((s) => `/preview/${s}`),
   ]) {
     await page.goto(path)
     await page.addScriptTag({ path: 'node_modules/axe-core/axe.min.js' })
@@ -509,7 +478,7 @@ test('Content-Security-Policy is sent and blocks nothing the site needs', async 
   })
   const res = await page.goto('/')
   expect(res?.headers()['content-security-policy']).toContain("default-src 'self'")
-  for (const path of ['/food/almonds', '/jak-funguje-telo/bilkoviny', '/pricing', '/login', '/preview/eat']) {
+  for (const path of ['/food/almonds', '/jak-funguje-telo/bilkoviny', '/pricing', '/doplnky']) {
     await page.goto(path)
     await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})
   }
@@ -527,48 +496,19 @@ test('a clicked organ shows its glow, not a browser focus rectangle', async ({ p
   expect(await liver.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('none')
 })
 
-test('password reset: the login form switches to an email-only reset form; a stale reset link explains itself', async ({
-  page,
-}) => {
-  await page.goto('/login')
-  const forgot = page.getByTestId('forgot-password')
-  // without Supabase keys (CI) the page is a setup notice instead of the form
-  test.skip(!(await forgot.isVisible()), 'Supabase not configured')
-  await expect(page.getByTestId('link-expired')).toHaveCount(0)
-  await forgot.click()
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
-  await expect(page.locator('input[type="email"]')).toBeVisible()
-  await expect(page.locator('input[type="password"]')).toHaveCount(0)
-  // the request is answered here, never by the real project (no e-mails are sent)
-  let calls = 0
-  await page.route('**/auth/v1/recover**', (route) => {
-    calls++
-    return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' })
-  })
-  await page.locator('input[type="email"]').fill('reset-test@example.test')
-  await page.getByRole('button', { name: /Poslat odkaz|Send link/ }).click()
-  await expect(page.getByRole('status')).toContainText(/odkaz|link/)
-  // resend waits out a cooldown so nobody hammers Supabase's e-mail limit
-  await expect(page.getByTestId('resend')).toBeDisabled()
-  expect(calls).toBe(1)
+test('old app addresses send visitors to the app; public pages are static', async ({ request }) => {
+  for (const path of ['/login', '/today', '/train', '/eat/explore', '/signup']) {
+    const res = await request.get(path, { maxRedirects: 0 })
+    expect([307, 308], path).toContain(res.status())
+    expect(res.headers()['location'], path).toMatch(/^https?:\/\//)
+  }
+  // a statically rendered page is cacheable (a dynamic one is sent with no-store)
+  const home = await request.get('/')
+  expect(home.headers()['cache-control']).not.toContain('no-store')
+})
 
-  await page.goto('/login')
-  await page.getByTestId('forgot-password').click()
-  await page.getByRole('button', { name: /Zpět na přihlášení|Back to sign in/ }).click()
-  await expect(page.locator('input[type="password"]')).toBeVisible()
-
-  // a failed confirmation link lands on the login page with an explanation
-  await page.goto('/login?error=callback')
-  await expect(page.getByTestId('link-expired')).toBeVisible()
-
-  // no session (expired or reused link) → explanation and a way back, not a dead form
-  await page.goto('/reset-password')
-  await expect(page.getByText(/vypršel|expired/)).toBeVisible()
-  await expect(page.getByRole('link', { name: /Zpět na přihlášení|Back to sign in/ })).toHaveAttribute(
-    'href',
-    '/login',
-  )
-  // "send a new link" opens the reset form directly
-  await page.getByRole('link', { name: /Poslat nový odkaz|Send a new link/ }).click()
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
+test('the retired service worker cleans up after itself', async ({ request }) => {
+  const sw = await (await request.get('/sw.js')).text()
+  expect(sw).toContain('unregister')
+  expect(sw).toContain('caches.delete')
 })

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ChevronRight } from 'lucide-react'
 import { ToolCards } from '@/components/guides/ToolCards'
 import { TOOLS } from '@/data/tools'

@@ -1,10 +1,9 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { useState } from 'react'
 import { ArrowRight, Check, RotateCcw, X } from 'lucide-react'
 import { QUIZ, QUIZ_LENGTH, type QuizItem } from '@/data/quiz'
-import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
 import { cx } from '@/lib/format'
 import { ShareButton } from './ShareButton'
 
@@ -35,7 +34,8 @@ function verdict(score: number, total: number) {
 
 type Answer = { item: QuizItem; said: boolean }
 
-export function MythQuiz() {
+/** `guides`: slug → short title of the guide that explains each statement (the full guides stay on the server). */
+export function MythQuiz({ guides }: { guides: Record<string, { slug: string; short: string }> }) {
   const [round, setRound] = useState<QuizItem[] | null>(null)
   const [answers, setAnswers] = useState<Answer[]>([])
   const [revealed, setRevealed] = useState(false)
@@ -114,7 +114,7 @@ export function MythQuiz() {
   const item = round[idx]
   const last = answers[answers.length - 1]
   const correct = revealed && last.said === item.fact
-  const guide = BODY_GUIDE_BY_SLUG[item.guide]
+  const guide = guides[item.guide]
 
   const answer = (said: boolean) => {
     if (revealed) return

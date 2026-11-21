@@ -1,20 +1,37 @@
 import type { NextConfig } from 'next'
-import createNextIntlPlugin from 'next-intl/plugin'
 
-const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
+/** The app is its own project; old links and bookmarks to app pages on this domain are sent there. */
+const APP_URL = (process.env.NEXT_PUBLIC_APP_URL ?? 'https://better-live-app.vercel.app').replace(/\/$/, '')
+const APP_PATHS = [
+  '/login',
+  '/reset-password',
+  '/auth/:path*',
+  '/today/:path*',
+  '/train/:path*',
+  '/eat/:path*',
+  '/body/:path*',
+  '/coach/:path*',
+  '/labs/:path*',
+  '/mobility/:path*',
+  '/looks/:path*',
+  '/supplements/:path*',
+  '/settings/:path*',
+  '/onboarding/:path*',
+  '/store/:path*',
+  '/offline',
+]
 
 /**
- * Where the site may load from and talk to: itself, Supabase (data, auth, photos) and Open Food Facts
- * (barcode lookup). Inline scripts stay allowed — Next's streamed payload is inline and a nonce would
- * turn every static page dynamic.
+ * Where the site may load from and talk to: itself and Open Food Facts (barcode lookup). Inline scripts stay
+ * allowed — Next's streamed payload is inline and a nonce would turn every static page dynamic.
  */
 const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.supabase.co",
+  "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://world.openfoodfacts.org",
+  "connect-src 'self' https://world.openfoodfacts.org",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
   "form-action 'self'",
@@ -25,8 +42,6 @@ const CSP = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
-  // the coach reads its system prompt from the repo root at runtime
-  outputFileTracingIncludes: { '/api/coach': ['./system-prompt.md'] },
   // separate build folder for Playwright so tests don't clobber a running `npm run dev`
   distDir: process.env.NEXT_DIST_DIR || '.next',
   // the store was removed (v0.3) — keep old links working
@@ -37,8 +52,9 @@ const nextConfig: NextConfig = {
       { source: '/cart', destination: '/', permanent: true },
       { source: '/checkout', destination: '/', permanent: true },
       { source: '/our-standard', destination: '/jak-doporucujeme', permanent: true },
-      { source: '/signup', destination: '/login?mode=signup', permanent: false },
-      { source: '/register', destination: '/login?mode=signup', permanent: false },
+      { source: '/signup', destination: `${APP_URL}/login?mode=signup`, permanent: false },
+      { source: '/register', destination: `${APP_URL}/login?mode=signup`, permanent: false },
+      ...APP_PATHS.map((source) => ({ source, destination: `${APP_URL}${source}`, permanent: false })),
       // renamed food ids (see FOOD_ID_ALIASES in src/data/foods.ts)
       { source: '/food/seaweed-nori', destination: '/food/spirulina', permanent: true },
       { source: '/food/yeast-nutritional', destination: '/food/yeast-dry', permanent: true },
@@ -55,7 +71,7 @@ const nextConfig: NextConfig = {
   htmlLimitedBots: /.*/,
   poweredByHeader: false,
   // Security headers that can't break the app. No script CSP on purpose: Next inline scripts,
-  // Supabase, Vercel and Open Food Facts would need a nonce setup first.
+  // Vercel and Open Food Facts would need a nonce setup first.
   async headers() {
     return [
       {
@@ -78,4 +94,4 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default withNextIntl(nextConfig)
+export default nextConfig

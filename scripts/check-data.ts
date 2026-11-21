@@ -12,7 +12,8 @@ import { ABSORPTION } from '../src/data/absorption'
 import { REFERENCE } from '../src/data/reference'
 import { WHERE_TO_BUY } from '../src/data/retailers'
 import { SUPPLEMENT_NUTRIENTS } from '../src/data/supplements'
-import { foodsForOrgan, thresholdOf } from '../src/lib/nutrition'
+import { thresholdOf } from '../src/lib/nutrition'
+import { foodsForOrgan } from '../src/lib/food-rankings'
 
 const errors: string[] = []
 const warn: string[] = []

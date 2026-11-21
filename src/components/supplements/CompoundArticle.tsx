@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { AlertTriangle, BadgeCheck, ChevronRight, Clock, Pill, Scale, Users } from 'lucide-react'
 import { COMPOUNDS, GOALS, type Compound } from '@/data/compounds'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
