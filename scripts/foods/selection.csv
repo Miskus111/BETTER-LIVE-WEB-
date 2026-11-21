@@ -115,7 +115,7 @@ mozzarella,170845,SR Legacy,"Cheese, mozzarella, whole milk",Mozzarella,"Mozzare
 feta,173420,SR Legacy,"Cheese, feta",Feta,Feta,Mléčné výrobky,fermented,porce 30 g==30,milk
 camembert,172178,SR Legacy,"Cheese, camembert",Hermelín / camembert,Camembert,Mléčné výrobky,fermented,1 kus 100 g==100,milk
 blue-cheese,172175,SR Legacy,"Cheese, blue",Niva (plísňový sýr),Blue cheese,Mléčné výrobky,fermented,porce 30 g==30,milk
-olomouc-cheese,171243,SR Legacy,"Cheese, limburger","Olomoucké tvarůžky (zrající sýr, srovnatelný typ)",Limburger-type ripened cheese,Mléčné výrobky,fermented,porce 50 g==50,milk
+limburger,171243,SR Legacy,"Cheese, limburger",Limburský sýr (zrající),Limburger cheese,Mléčné výrobky,fermented,porce 50 g==50,milk
 processed-cheese,325198,Foundation,"Cheese, pasteurized process, American, vitamin D fortified",Tavený sýr,Processed cheese,Mléčné výrobky,processed,1 plátek=slice,milk
 cream-cheese,173418,SR Legacy,"Cheese, cream",Lučina / krémový sýr,Cream cheese,Mléčné výrobky,fermented,1 lžíce=tbsp,milk
 halloumi,172197,SR Legacy,"Cheese, goat, hard type",Kozí sýr tvrdý,"Goat cheese, hard",Mléčné výrobky,fermented,porce 30 g==30,milk
@@ -418,7 +418,7 @@ oat-drink,2257046,Foundation,"Oat milk, unsweetened, plain, refrigerated",Ovesn�
 rice-drink,171942,SR Legacy,"Beverages, rice milk, unsweetened",Rýžový nápoj,Rice drink,Nápoje,processed,1 sklenice (250 ml)==250,
 coconut-water,174831,SR Legacy,"Beverages, Coconut water, ready-to-drink, unsweetened",Kokosová voda,Coconut water,Nápoje,raw,1 sklenice=cup,
 beer,168746,SR Legacy,"Alcoholic beverage, beer, regular, all","Pivo (12°, ležák)","Beer, regular",Nápoje,fermented,"0,5 l==500",gluten
-beer-light,168749,SR Legacy,"Alcoholic beverage, beer, light",Pivo světlé výčepní / lehké,Light beer,Nápoje,fermented,"0,5 l==500",gluten
+beer-light,168749,SR Legacy,"Alcoholic beverage, beer, light",Pivo lehké (light),Light beer,Nápoje,fermented,"0,5 l==500",gluten
 wine-red,173190,SR Legacy,"Alcoholic beverage, wine, table, red",Víno červené,Red wine,Nápoje,fermented,1 sklenka (150 ml)==150,sulphites
 wine-white,174837,SR Legacy,"Alcoholic beverage, wine, table, white",Víno bílé,White wine,Nápoje,fermented,1 sklenka (150 ml)==150,sulphites
 spirits,174815,SR Legacy,"Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 80 proof",Destilát 40 %,Spirits 40%,Nápoje,processed,1 panák (40 ml)==40,

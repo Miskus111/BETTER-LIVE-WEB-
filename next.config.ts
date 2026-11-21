@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
       // renamed food ids (see FOOD_ID_ALIASES in src/data/foods.ts)
       { source: '/food/seaweed-nori', destination: '/food/spirulina', permanent: true },
       { source: '/food/yeast-nutritional', destination: '/food/yeast-dry', permanent: true },
+      { source: '/food/olomouc-cheese', destination: '/food/limburger', permanent: true },
     ]
   },
   // metadata (title, description, og:image) always in <head> — every link-preview bot finds it

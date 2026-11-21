@@ -190,4 +190,11 @@ export const APPROXIMATIONS: Record<string, string> = {
     'V USDA není český tvaroh; použit nejbližší záznam — americký odtučněný cottage (suchý, bez smetany). Český tvaroh se může mírně lišit.',
   roll: 'V USDA není český rohlík; použita americká bílá bulka (hamburger/hotdog). Český rohlík se může mírně lišit.',
   cake: 'V USDA není bábovka; použit americký máslový „pound cake“. Česká bábovka se může mírně lišit.',
+  salami:
+    'Použit italský vepřový salám z USDA; české trvanlivé salámy (Herkules, Vysočina) se liší složením i solí.',
+  'blue-cheese': 'Použit americký plísňový sýr (blue cheese); Niva se může mírně lišit.',
+  'bread-rye':
+    'Americký žitný chléb z žitné a pšeničné mouky; český žitný chléb má jiný poměr mouk, hodnoty berte jako orientační.',
+  'beer-light':
+    'Americké lehké pivo („light“); české výčepní pivo (10°) má o něco víc energie (kolem 37 kcal na 100 ml).',
 }

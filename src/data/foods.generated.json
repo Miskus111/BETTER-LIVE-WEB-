@@ -2244,7 +2244,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Použit italský vepřový salám z USDA; české trvanlivé salámy (Herkules, Vysočina) se liší složením i solí."
+        ]
       }
     },
     {
@@ -9588,14 +9590,14 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": ["Použit americký plísňový sýr (blue cheese); Niva se může mírně lišit."]
       }
     },
     {
-      "id": "olomouc-cheese",
-      "nameCs": "Olomoucké tvarůžky (zrající sýr, srovnatelný typ)",
-      "nameEn": "Limburger-type ripened cheese",
-      "synonyms": ["Limburger-type ripened cheese", "Cheese, limburger"],
+      "id": "limburger",
+      "nameCs": "Limburský sýr (zrající)",
+      "nameEn": "Limburger cheese",
+      "synonyms": ["Limburger cheese", "Cheese, limburger"],
       "category": "Mléčné výrobky",
       "subcategory": "Mléko, sýry a vejce",
       "state": "fermented",
@@ -28833,6 +28835,7 @@
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
         "notes": [
+          "Americký žitný chléb z žitné a pšeničné mouky; český žitný chléb má jiný poměr mouk, hodnoty berte jako orientační.",
           "Americký záznam z obohacené mouky (v USA povinné). Česká mouka se neobohacuje, proto folát, železo a vitamíny B1, B2 a B3 neuvádíme — u českého výrobku by byly výrazně nižší."
         ]
       }
@@ -34522,7 +34525,7 @@
     },
     {
       "id": "beer-light",
-      "nameCs": "Pivo světlé výčepní / lehké",
+      "nameCs": "Pivo lehké (light)",
       "nameEn": "Light beer",
       "synonyms": ["Light beer", "Alcoholic beverage, beer, light"],
       "category": "Nápoje",
@@ -34599,7 +34602,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Americké lehké pivo („light“); české výčepní pivo (10°) má o něco víc energie (kolem 37 kcal na 100 ml)."
+        ]
       }
     },
     {

@@ -5246,9 +5246,9 @@
     "source": "USDA FoodData Central, FDC 172175, SR Legacy 2018-04"
   },
   {
-    "id": "olomouc-cheese",
-    "name": "Olomoucké tvarůžky (zrající sýr, srovnatelný typ)",
-    "nameEn": "Limburger-type ripened cheese",
+    "id": "limburger",
+    "name": "Limburský sýr (zrající)",
+    "nameEn": "Limburger cheese",
     "category": "Mléčné výrobky",
     "subcategory": "Mléko, sýry a vejce",
     "state": "fermented",
@@ -18423,7 +18423,7 @@
   },
   {
     "id": "beer-light",
-    "name": "Pivo světlé výčepní / lehké",
+    "name": "Pivo lehké (light)",
     "nameEn": "Light beer",
     "category": "Nápoje",
     "subcategory": "Nápoje",

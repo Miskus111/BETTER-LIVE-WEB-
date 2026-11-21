@@ -55,6 +55,7 @@ export const FOOD_BY_ID = Object.fromEntries(FOODS.map((x) => [x.id, x])) as Rec
 export const FOOD_ID_ALIASES: Record<string, string> = {
   'seaweed-nori': 'spirulina', // the record is spirulina, not nori
   'yeast-nutritional': 'yeast-dry', // the record is dry baker's yeast, not nutritional yeast
+  'olomouc-cheese': 'limburger', // the record is limburger; tvarůžky are nearly fat-free, nothing alike
 }
 
 export const foodById = (id: string): Food | undefined => FOOD_BY_ID[id] ?? FOOD_BY_ID[FOOD_ID_ALIASES[id]]
