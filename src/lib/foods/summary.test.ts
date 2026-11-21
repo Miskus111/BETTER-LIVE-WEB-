@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { FOOD_BY_ID } from '@/data/foods'
-import { foodSummary } from './summary'
+import { foodSummary, topNutrient } from './summary'
 
 const text = (id: string) => foodSummary(FOOD_BY_ID[id]).join(' ')
 
@@ -27,5 +27,13 @@ describe('foodSummary (EU claim thresholds)', () => {
   })
   it('does not repeat parentheses in nutrient names', () => {
     expect(text('oats')).not.toMatch(/\) \(/)
+  })
+})
+
+describe('topNutrient (explorer cards)', () => {
+  it('names the richest nutrient only at the EU "high in" level', () => {
+    expect(topNutrient(FOOD_BY_ID['almonds'])?.name).toBe('vitamín E')
+    expect(topNutrient(FOOD_BY_ID['salmon'])?.pct).toBeGreaterThan(100)
+    expect(topNutrient(FOOD_BY_ID['cucumber'])).toBeNull()
   })
 })

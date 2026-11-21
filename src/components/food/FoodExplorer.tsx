@@ -18,6 +18,7 @@ import {
 } from '@/lib/foods/query'
 import { fmtAmount } from '@/lib/nutrition'
 import { Thumb } from '@/components/ui/Thumb'
+import { topNutrient } from '@/lib/foods/summary'
 import { cx } from '@/lib/format'
 import { FoodDetail } from './FoodDetail'
 import { FoodCompare } from './FoodCompare'
@@ -189,6 +190,14 @@ export function FoodExplorer() {
                       <span className="text-subtle block truncate font-mono text-[12px]">
                         {summary(f, q, sortMeasure)}
                       </span>
+                      {(() => {
+                        const top = topNutrient(f)
+                        return top ? (
+                          <span className="text-cyan/90 block truncate text-[12px]">
+                            Vysoký obsah: {top.name} ({top.pct} % RHP)
+                          </span>
+                        ) : null
+                      })()}
                     </span>
                   </button>
                   <label

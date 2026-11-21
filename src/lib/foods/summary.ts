@@ -84,3 +84,17 @@ export function foodSummary(f: Food): string[] {
   }
   return out
 }
+
+/** The micronutrient this food is richest in, if it reaches the EU "high in" level (≥ 2× source of). */
+export function topNutrient(f: Food): { name: string; pct: number } | null {
+  let best: { name: string; pct: number } | null = null
+  for (const id of Object.keys(f.micros) as NutrientId[]) {
+    if (!NUTRIENTS[id]?.ref || ['protein', 'fiber'].includes(id)) continue
+    const v = amountOf(f, id) ?? 0
+    const t = thresholdOf(id, f.liquid)
+    if (t === undefined || v < 2 * t) continue
+    const pct = pctRef(id, v) ?? 0
+    if (!best || pct > best.pct) best = { name: nameOf(id), pct }
+  }
+  return best
+}
