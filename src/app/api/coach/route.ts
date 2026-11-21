@@ -9,7 +9,7 @@ import { AI_MODEL, fallbackParams, getAnthropic } from '@/lib/ai/client'
 import { coachDailyLimit, hasAccess } from '@/lib/billing'
 import { EATING_INSTRUCTION, FIXED_REPLY, screenMessage } from '@/lib/coach/safety'
 import { COACH_TOOLS, runCoachTool } from '@/lib/coach/tools'
-import { addTokens, reserveAiCall, usageDay } from '@/lib/ai/usage'
+import { addTokens, reserveAiCall, usageDayStart } from '@/lib/ai/usage'
 
 export const runtime = 'nodejs'
 export const maxDuration = 120
@@ -104,7 +104,7 @@ export async function POST(req: Request) {
       .from('coach_messages')
       .select('id', { count: 'exact', head: true })
       .eq('role', 'user')
-      .gte('created_at', `${usageDay()}T00:00:00+01:00`)
+      .gte('created_at', usageDayStart())
     if ((count ?? 0) >= limit) return NextResponse.json({ error: 'limit', limit }, { status: 429 })
   }
 

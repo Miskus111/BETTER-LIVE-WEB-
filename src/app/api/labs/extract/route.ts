@@ -95,6 +95,9 @@ export async function POST(req: Request) {
   // shares the daily AI allowance with the coach (counted server-side in ai_usage)
   const reserved = await reserveAiCall(s.user.id, coachDailyLimit(await getPlan(s.supabase, s.user.id)))
   if (reserved === false) return NextResponse.json({ error: 'rate_limited' }, { status: 429 })
+  // the allowance can't be counted without the service key; in production don't run unmetered calls
+  if (reserved === null && process.env.VERCEL)
+    return NextResponse.json({ error: 'ai_error' }, { status: 503 })
 
   const data = bytes.toString('base64')
   const doc: Anthropic.Beta.BetaContentBlockParam =

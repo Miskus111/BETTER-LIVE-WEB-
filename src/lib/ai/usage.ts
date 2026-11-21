@@ -10,6 +10,16 @@ type Db = {
 export const usageDay = (now = new Date()) =>
   new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Prague' }).format(now)
 
+/** Start of today's usage day as an ISO timestamp with Prague's current offset (+01:00 winter, +02:00 summer). */
+export function usageDayStart(now = new Date()): string {
+  const offset =
+    new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Prague', timeZoneName: 'longOffset' })
+      .formatToParts(now)
+      .find((p) => p.type === 'timeZoneName')
+      ?.value.replace('GMT', '') || '+00:00'
+  return `${usageDay(now)}T00:00:00${offset}`
+}
+
 function admin(): Db | null {
   try {
     return createServiceClient() as unknown as Db
