@@ -122,6 +122,13 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
     )
       if (n.folate !== null || n.iron !== null)
         err('US-enriched record with enrichment nutrients — not valid for Czech food')
+    // "with added vitamin D/A" (US milk) or "fortified": those vitamins don't apply to Czech products
+    if (
+      /with added vitamin|vitamin [AD] fortified/i.test(f.provenance.sourceDescription) &&
+      /\bmilk\b/i.test(f.provenance.sourceDescription) &&
+      n.vitD !== null
+    )
+      err('US vitamin-D-fortified milk record with vitamin D value')
     // a fatty food can't be all saturated with no mono/poly at all (FDC 168000 shipped exactly that)
     if ((n.fat ?? 0) >= 5 && n.satFat !== null && n.monoFat === 0 && n.polyFat === 0)
       err('fatty-acid breakdown has 0 g mono and poly — suspect source values (see SUSPECT_VALUES)')

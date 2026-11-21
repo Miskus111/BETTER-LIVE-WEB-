@@ -152,7 +152,18 @@ const ENRICHMENT: PanelKey[] = ['folate', 'iron', 'b1', 'b2', 'b3']
 const US_FLOUR =
   'Americký záznam z obohacené mouky (v USA povinné). Česká mouka se neobohacuje, proto folát, železo a vitamíny B1, B2 a B3 neuvádíme — u českého výrobku by byly výrazně nižší.'
 
+const US_MILK =
+  'Americké mléko má přidaný vitamín D (a polotučné či odstředěné i vitamín A). České mléko se neobohacuje, proto tyto hodnoty neuvádíme.'
+const BRAND_FORTIFIED =
+  'Vitamíny přidané výrobcem — obsah se liší podle značky, proto je neuvádíme. Platí údaje na obalu.'
+
 export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }> = {
+  milk: { keys: ['vitD'], reason: US_MILK },
+  'milk-goat': { keys: ['vitD'], reason: US_MILK },
+  'milk-semi': { keys: ['vitD', 'vitA', 'retinol'], reason: US_MILK },
+  'milk-skim': { keys: ['vitD', 'vitA', 'retinol'], reason: US_MILK },
+  'processed-cheese': { keys: ['vitD'], reason: BRAND_FORTIFIED },
+  margarine: { keys: ['vitD', 'vitA', 'retinol', 'b12'], reason: BRAND_FORTIFIED },
   'bread-white': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-rye': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-pumpernickel': { keys: ENRICHMENT, reason: US_FLOUR },

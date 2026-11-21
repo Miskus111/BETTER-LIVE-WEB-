@@ -7548,7 +7548,7 @@
         "water": 88.1,
         "vitA": 32,
         "retinol": 31,
-        "vitD": 0.96,
+        "vitD": null,
         "vitE": 0.05,
         "vitK": null,
         "vitC": null,
@@ -7601,7 +7601,10 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["Vláknina neuvedena — využitelné sacharidy = sacharidy celkem."]
+        "notes": [
+          "Vláknina neuvedena — využitelné sacharidy = sacharidy celkem.",
+          "Americké mléko má přidaný vitamín D (a polotučné či odstředěné i vitamín A). České mléko se neobohacuje, proto tyto hodnoty neuvádíme."
+        ]
       }
     },
     {
@@ -7631,9 +7634,9 @@
         "fiber": null,
         "alcohol": null,
         "water": 89.1,
-        "vitA": 83,
-        "retinol": 83,
-        "vitD": 1.13,
+        "vitA": null,
+        "retinol": null,
+        "vitD": null,
         "vitE": 0.03,
         "vitK": null,
         "vitC": null,
@@ -7686,7 +7689,10 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["Vláknina neuvedena — využitelné sacharidy = sacharidy celkem."]
+        "notes": [
+          "Vláknina neuvedena — využitelné sacharidy = sacharidy celkem.",
+          "Americké mléko má přidaný vitamín D (a polotučné či odstředěné i vitamín A). České mléko se neobohacuje, proto tyto hodnoty neuvádíme."
+        ]
       }
     },
     {
@@ -7713,9 +7719,9 @@
         "fiber": null,
         "alcohol": null,
         "water": 90.8,
-        "vitA": 64,
-        "retinol": 64,
-        "vitD": 1.1,
+        "vitA": null,
+        "retinol": null,
+        "vitD": null,
         "vitE": 0,
         "vitK": null,
         "vitC": null,
@@ -7768,7 +7774,10 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["Vláknina neuvedena — využitelné sacharidy = sacharidy celkem."]
+        "notes": [
+          "Vláknina neuvedena — využitelné sacharidy = sacharidy celkem.",
+          "Americké mléko má přidaný vitamín D (a polotučné či odstředěné i vitamín A). České mléko se neobohacuje, proto tyto hodnoty neuvádíme."
+        ]
       }
     },
     {
@@ -7879,7 +7888,7 @@
         "water": 87,
         "vitA": 57,
         "retinol": 56,
-        "vitD": 1.3,
+        "vitD": null,
         "vitE": 0.07,
         "vitK": 0.3,
         "vitC": 1.3,
@@ -7932,7 +7941,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Americké mléko má přidaný vitamín D (a polotučné či odstředěné i vitamín A). České mléko se neobohacuje, proto tyto hodnoty neuvádíme."
+        ]
       }
     },
     {
@@ -9686,7 +9697,7 @@
         "water": 39.6,
         "vitA": 300,
         "retinol": 297,
-        "vitD": 7.5,
+        "vitD": null,
         "vitE": 0.79,
         "vitK": 3.2,
         "vitC": null,
@@ -9739,7 +9750,10 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["Vláknina neuvedena — využitelné sacharidy = sacharidy celkem."]
+        "notes": [
+          "Vláknina neuvedena — využitelné sacharidy = sacharidy celkem.",
+          "Vitamíny přidané výrobcem — obsah se liší podle značky, proto je neuvádíme. Platí údaje na obalu."
+        ]
       }
     },
     {
@@ -30337,9 +30351,9 @@
         "fiber": 0,
         "alcohol": 0,
         "water": 37.6,
-        "vitA": 819,
-        "retinol": 768,
-        "vitD": 10.7,
+        "vitA": null,
+        "retinol": null,
+        "vitD": null,
         "vitE": 21.1,
         "vitK": 101,
         "vitC": 0.1,
@@ -30350,7 +30364,7 @@
         "b6": 3.75,
         "b7": null,
         "folate": 1,
-        "b12": 10.8,
+        "b12": null,
         "choline": 10.2,
         "calcium": 21,
         "phosphorus": 16,
@@ -30392,7 +30406,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Vitamíny přidané výrobcem — obsah se liší podle značky, proto je neuvádíme. Platí údaje na obalu."
+        ]
       }
     },
     {
@@ -36501,7 +36517,7 @@
         "water": 40.8,
         "vitA": 21.6,
         "retinol": 21.3,
-        "vitD": 0.382,
+        "vitD": null,
         "vitE": 0.136,
         "vitK": null,
         "vitC": null,
