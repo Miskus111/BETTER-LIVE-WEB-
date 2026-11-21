@@ -69,8 +69,10 @@ export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
         carbs_g: +(f.macros.carbs * k).toFixed(1),
         fiber_g: +(f.macros.fiber * k).toFixed(1),
       })
-      if (err) setError(err.message)
-      else {
+      if (err) {
+        console.error('[eat] insert failed', err.message)
+        setError(t('saveError'))
+      } else {
         setOpen(null)
         setQ('')
         router.refresh()

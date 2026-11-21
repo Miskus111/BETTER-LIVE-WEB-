@@ -83,7 +83,7 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
       const db = createClient() as unknown as Db
       const { data: sup } = await db.from('supplements').select('id').eq('slug', adding).maybeSingle()
       if (!sup) {
-        setError('Supplement library is not seeded yet (npm run seed:reference).')
+        setError(t('libraryMissing'))
         return
       }
       const s = SUPPLEMENT_BY_ID[adding]
@@ -95,8 +95,10 @@ export function StackTracker({ rows, medications }: { rows: StackRow[]; medicati
         timing: timing.trim() || null,
         reminder_time: reminder || null,
       })
-      if (err) setError(err.message)
-      else {
+      if (err) {
+        console.error('[supp] insert failed', err.message)
+        setError(t('saveError'))
+      } else {
         setAdding(null)
         router.refresh()
       }

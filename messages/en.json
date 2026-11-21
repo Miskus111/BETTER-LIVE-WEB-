@@ -360,7 +360,8 @@
     "savedOffline": "Workout saved on this device — it will upload automatically once you are back online.",
     "backToTrain": "Back to training",
     "templates": "Templates",
-    "progress": "Progress"
+    "progress": "Progress",
+    "formInvalid": "Please check the form: duration 1–1440 min (whole minutes), distance 0–1000 km, average heart rate 30–230."
   },
   "muscles": {
     "chest": "Chest",
@@ -451,7 +452,8 @@
     "supportText": "Based on your answers a diet could do harm. If your relationship with food feels difficult, you're not alone — support is available.",
     "supportLinks": "Crisis line (CZ) 116 123 · anabell.cz — eating-disorder support",
     "deleteEntry": "Delete",
-    "proteinShort": "protein"
+    "proteinShort": "protein",
+    "saveError": "The meal couldn't be saved. Check your connection and try again."
   },
   "supp": {
     "title": "Supplements",
@@ -483,7 +485,9 @@
     "cond_breastfeeding": "Breastfeeding",
     "cond_kidney": "Kidney disease",
     "cond_liver": "Liver disease",
-    "conditionsNote": "We flag supplements that need a doctor in that situation. Stored only on this device."
+    "conditionsNote": "We flag supplements that need a doctor in that situation. Stored only on this device.",
+    "saveError": "The supplement couldn't be saved. Check your connection and try again.",
+    "libraryMissing": "The supplement library isn't loaded yet. Please try again later."
   },
   "evidence": {
     "established": "Established",

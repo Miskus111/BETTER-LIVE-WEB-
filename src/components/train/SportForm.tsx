@@ -28,7 +28,7 @@ export function SportForm() {
     e.preventDefault()
     const r = sportSessionSchema.safeParse(v)
     if (!r.success) {
-      setError(r.error.issues.map((i) => i.path.join('.')).join(', '))
+      setError(t('formInvalid'))
       return
     }
     setBusy(true)

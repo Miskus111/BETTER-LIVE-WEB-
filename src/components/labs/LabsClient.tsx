@@ -175,8 +175,10 @@ export function LabsClient({
         })),
         inbody: draft.inbody,
       })
-      if (!res.ok) setError(res.error)
-      else {
+      if (!res.ok) {
+        console.error('[labs] save failed', res.error)
+        setError(t('err_generic'))
+      } else {
         setDraft(null)
         setText('')
         setSaved(true)

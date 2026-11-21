@@ -360,7 +360,8 @@
     "savedOffline": "Trénink je uložený v zařízení a odešle se automaticky, jakmile budete online.",
     "backToTrain": "Zpět na trénink",
     "templates": "Šablony",
-    "progress": "Progres"
+    "progress": "Progres",
+    "formInvalid": "Zkontrolujte prosím údaje: doba 1–1440 min (celé minuty), vzdálenost 0–1000 km, průměrný tep 30–230."
   },
   "muscles": {
     "chest": "Prsa",
@@ -451,7 +452,8 @@
     "supportText": "Podle vašich údajů by dieta mohla uškodit. Pokud máte složitý vztah k jídlu, nejste v tom sami — pomoc je dostupná.",
     "supportLinks": "Linka první psychické pomoci 116 123 (nonstop) · anabell.cz — pomoc při poruchách příjmu potravy",
     "deleteEntry": "Smazat",
-    "proteinShort": "bílk."
+    "proteinShort": "bílk.",
+    "saveError": "Jídlo se nepodařilo uložit. Zkontrolujte připojení a zkuste to znovu."
   },
   "supp": {
     "title": "Doplňky",
@@ -483,7 +485,9 @@
     "cond_breastfeeding": "Kojení",
     "cond_kidney": "Onemocnění ledvin",
     "cond_liver": "Onemocnění jater",
-    "conditionsNote": "Upozorníme na doplňky, které v té situaci patří k lékaři. Zůstává jen v tomto zařízení."
+    "conditionsNote": "Upozorníme na doplňky, které v té situaci patří k lékaři. Zůstává jen v tomto zařízení.",
+    "saveError": "Doplněk se nepodařilo uložit. Zkontrolujte připojení a zkuste to znovu.",
+    "libraryMissing": "Knihovna doplňků ještě není nahraná. Zkuste to prosím později."
   },
   "evidence": {
     "established": "Prokázané",
