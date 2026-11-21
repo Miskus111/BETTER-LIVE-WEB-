@@ -45,7 +45,10 @@ První běh Playwrightu: `npx playwright install chromium`.
 3. Apply the schema: SQL Editor → paste `supabase/migrations/*.sql` in order → Run. Then run `supabase/seed.sql`
    (regenerate with `npm run gen:seed`).
 4. Auth → URL Configuration: Site URL = your domain; add `http://localhost:3000/auth/callback` and
-   `https://<domain>/auth/callback` to Redirect URLs.
+   `https://<domain>/auth/callback` to Redirect URLs. Sign-up confirmation, password reset
+   (`/login?mode=reset` → e-mail → `/auth/callback` → `/reset-password`) and Google all return through it.
+   Auth → Email Templates: translate "Confirm signup" and "Reset Password" into Czech. Auth → Settings: turn on
+   leaked-password protection (the app shows a Czech message when Supabase rejects a weak password).
 5. Google sign-in (optional): create an OAuth client in Google Cloud Console, enable the Google provider in
    Supabase → Auth → Providers with its client id/secret.
 6. `npm run seed:reference` (exercises, foods, supplements, affiliate products — needs the service key).
