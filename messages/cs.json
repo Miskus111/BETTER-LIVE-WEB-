@@ -81,7 +81,9 @@
     "errRateLimit": "Příliš mnoho pokusů za krátkou dobu. Zkuste to prosím za pár minut.",
     "errSignupDisabled": "Registrace je momentálně vypnutá.",
     "errGeneric": "Něco se nepovedlo. Zkuste to prosím znovu.",
-    "requestNewLink": "Poslat nový odkaz"
+    "requestNewLink": "Poslat nový odkaz",
+    "showPassword": "Zobrazit heslo",
+    "hidePassword": "Skrýt heslo"
   },
   "onboarding": {
     "title": "Nastavení profilu",

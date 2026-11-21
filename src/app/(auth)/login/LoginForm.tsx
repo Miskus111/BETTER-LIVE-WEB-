@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Loader2, MailCheck } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { PasswordInput } from '@/components/ui/PasswordInput'
 import { authErrorKey } from '@/lib/supabase/auth-errors'
 
 export function LoginForm({
@@ -137,9 +138,7 @@ export function LoginForm({
         {mode !== 'reset' && (
           <label className="grid gap-1.5">
             <span className="text-muted text-[14px]">{t('password')}</span>
-            <input
-              className="field"
-              type="password"
+            <PasswordInput
               autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
               minLength={8}
               required

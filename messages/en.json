@@ -81,7 +81,9 @@
     "errRateLimit": "Too many attempts in a short time. Please try again in a few minutes.",
     "errSignupDisabled": "Sign-up is turned off at the moment.",
     "errGeneric": "Something went wrong. Please try again.",
-    "requestNewLink": "Send a new link"
+    "requestNewLink": "Send a new link",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "onboarding": {
     "title": "Set up your profile",

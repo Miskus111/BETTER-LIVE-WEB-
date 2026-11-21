@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { PasswordInput } from '@/components/ui/PasswordInput'
 import { authErrorKey } from '@/lib/supabase/auth-errors'
 
 export function NewPasswordForm() {
@@ -50,9 +51,7 @@ export function NewPasswordForm() {
         <form onSubmit={submit} className="mt-6 grid gap-4" noValidate>
           <label className="grid gap-1.5">
             <span className="text-muted text-[14px]">{t('newPassword')}</span>
-            <input
-              className="field"
-              type="password"
+            <PasswordInput
               autoComplete="new-password"
               minLength={8}
               required
@@ -63,9 +62,7 @@ export function NewPasswordForm() {
           </label>
           <label className="grid gap-1.5">
             <span className="text-muted text-[14px]">{t('confirmPassword')}</span>
-            <input
-              className="field"
-              type="password"
+            <PasswordInput
               autoComplete="new-password"
               minLength={8}
               required
