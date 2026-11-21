@@ -515,10 +515,12 @@ test('Content-Security-Policy is sent and blocks nothing the site needs', async 
 })
 
 test('a clicked organ shows its glow, not a browser focus rectangle', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/')
+  await page.goto('/?organ=liver') // zoomed in, so the liver is large and unobstructed
   const liver = page.locator('[data-organ="liver"]').first()
-  await liver.click({ force: true })
-  await expect(page).toHaveURL(/organ=liver/)
+  const box = (await liver.boundingBox())!
+  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2) // a real pointer click, not keyboard
+  expect(await page.evaluate(() => document.activeElement?.getAttribute('data-organ'))).toBe('liver')
   expect(await liver.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('none')
 })
