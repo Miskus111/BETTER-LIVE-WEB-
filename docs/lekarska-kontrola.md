@@ -1,10 +1,10 @@
 # Odborná kontrola zdravotního obsahu — BLWB
 
-Vygenerováno 2026-11-19 přímo z dat webu (`npm run review:doc`).
+Vygenerováno 2026-11-21 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, 20 doplňků, 1041 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1166 položek ke kontrole.
 
 ---
 
@@ -240,6 +240,16 @@ Web: /jak-funguje-telo/svaly-a-metabolismus
 - [ ] „Svaly se po vysazení změní v tuk.“ → Sval a tuk jsou různé tkáně. Sval může ubýt a tuk přibýt, ale jedno se nemění v druhé.
 - [ ] „Bílkoviny se musí sníst do 30 minut po tréninku.“ → Důležitější je celkové množství za den. „Anabolické okno“ je mnohem širší.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc bílkovin v běžné porci
+- [ ] Kuřecí prsa, pečená — 53,3 g (1/2 prsa (172 g))
+- [ ] Tuňák v oleji — 49,8 g (1 konzerva (171 g))
+- [ ] Hovězí plec, dušená — 40,1 g (porce 120 g)
+- [ ] Vepřová kotleta, grilovaná — 39,1 g (1 kotleta (146 g))
+- [ ] Krůtí prsa, pečená — 36,1 g (porce 120 g)
+- [ ] Tuňák čerstvý — 30,5 g (porce 125 g)
+
 **Zdroje**
 
 - Morton a kol. (2018) Bílkoviny a nárůst svalů při silovém tréninku — metaanalýza, Br J Sports Med — https://pubmed.ncbi.nlm.nih.gov/28698222/
@@ -339,6 +349,16 @@ Web: /jak-funguje-telo/streva-a-mikrobiom
 - [ ] „Detoxikační čaje čistí střeva.“ → Většinou jen projímají. Detox zvládají játra a ledviny.
 - [ ] „Probiotika pomůžou každému.“ → Účinek závisí na konkrétním kmeni a potížích. Pro zdravé lidi bez potíží je přínos nejistý.
 - [ ] „Test mikrobiomu ze stolice mi řekne, co přesně jíst.“ → Zatím ne. Nikdo neumí přesně říct, jak vypadá „zdravý mikrobiom“, a osobní doporučení z těchto testů nejsou ověřená.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Vláknina pro střevní bakterie — nejvíc v běžné porci
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
 
 **Zdroje**
 
@@ -644,6 +664,16 @@ Web: /jak-funguje-telo/srdce-a-tlak
 - [ ] „Vysoký tlak bych poznal.“ → Většinou ne — proto se mu říká tichý zabiják. Jediná jistota je měření.
 - [ ] „Mladých lidí se to netýká.“ → Riziko s věkem roste, ale vysoký tlak mívají i lidé pod 40.
 - [ ] „Když je tlak s léky v normě, můžu je vysadit.“ → Normální tlak je většinou zásluha léků — po vysazení se obvykle vrátí. Změnu léčby proberte s lékařem.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc draslíku v běžné porci
+- [ ] Bílé fazole vařené — 1 122 mg (porce 200 g)
+- [ ] Pečené brambory ve slupce — 925,6 mg (1 brambora (173 g))
+- [ ] Brambory — 905,3 mg (1 brambora (213 g))
+- [ ] Černé fazole (suché) — 888 mg (porce 60 g)
+- [ ] Husa (bez kůže) — 630 mg (porce 150 g)
+- [ ] Treska — 619,5 mg (porce 150 g)
 
 **Zdroje**
 
@@ -1092,6 +1122,16 @@ Web: /jak-funguje-telo/menstruacni-cyklus
 - [ ] „Trénink se musí řídit fází cyklu.“ → Rozdíly ve výkonu jsou v průměru malé. Víc záleží na tom, jak se cítíte vy.
 - [ ] „Silná bolest je normální.“ → Bolest, která vás vyřadí z běžného dne, normální není a patří k lékaři.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc železa v běžné porci
+- [ ] Vepřová játra — 23,3 mg (porce 100 g)
+- [ ] Smrže — 12,2 mg (porce 100 g)
+- [ ] Kuřecí játra, smažená na pánvi — 11 mg (porce 85 g)
+- [ ] Sójové boby vařené — 7,7 mg (porce 150 g)
+- [ ] Bílé fazole vařené — 7,4 mg (porce 200 g)
+- [ ] Kuřecí srdíčka — 6 mg (porce 100 g)
+
 **Zdroje**
 
 - McNulty a kol. (2020) Fáze menstruačního cyklu a sportovní výkon — metaanalýza, Sports Med — https://pubmed.ncbi.nlm.nih.gov/32661839/
@@ -1384,6 +1424,16 @@ Web: /jak-funguje-telo/unava
 - [ ] „Kdo je dlouho unavený, musí mít něco vážného.“ → Vážná tělesná nemoc se u únavy najde jen asi u 4 % lidí — a stejně často i u lidí, kteří unavení nejsou.
 - [ ] „Mám adrenální únavu.“ → Taková diagnóza vědecky neexistuje. Únava má skutečné příčiny — a ty stojí za vyšetření.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc železa v běžné porci (chudokrevnost z nedostatku železa je častá příčina únavy)
+- [ ] Vepřová játra — 23,3 mg (porce 100 g)
+- [ ] Smrže — 12,2 mg (porce 100 g)
+- [ ] Kuřecí játra, smažená na pánvi — 11 mg (porce 85 g)
+- [ ] Sójové boby vařené — 7,7 mg (porce 150 g)
+- [ ] Bílé fazole vařené — 7,4 mg (porce 200 g)
+- [ ] Kuřecí srdíčka — 6 mg (porce 100 g)
+
 **Zdroje**
 
 - Stadje a kol. (2016) Co stojí za únavou u praktického lékaře — systematický přehled, BMC Fam Pract — https://pubmed.ncbi.nlm.nih.gov/27765009/
@@ -1433,6 +1483,16 @@ Web: /jak-funguje-telo/tuky
 - [ ] „Tuk ve stravě dělá tlustým.“ → Na váze rozhoduje celková energie. Tuk je kaloricky hustý, ale nenasycené tuky v rozumném množství patří ke zdravé stravě.
 - [ ] „Máslo je zdravější než olej.“ → Máslo má hodně nasycených tuků, které zvyšují LDL cholesterol. Olivový a řepkový olej srdci prospívají víc.
 - [ ] „Nízkotučné výrobky jsou vždy lepší volba.“ → Často mají víc cukru. Lepší je vybírat druh tuku než tuk úplně vyřazovat.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc omega-3 EPA + DHA v běžné porci
+- [ ] Makrela — 2 872,5 mg (porce 125 g)
+- [ ] Losos pečený — 2 580 mg (porce 120 g)
+- [ ] Sleď — 1 963,8 mg (porce 125 g)
+- [ ] Losos divoký — 1 801,3 mg (porce 125 g)
+- [ ] Rybí olej (lososový) — 1 404 mg (1 lžička (4,5 g))
+- [ ] Olej z tresčích jater — 805,5 mg (1 lžička (4,5 g))
 
 **Zdroje**
 
@@ -1621,6 +1681,16 @@ Web: /jak-funguje-telo/rostlinna-strava
 - [ ] „B12 se dá získat z řas, spiruliny nebo kysaného zelí.“ → Většina z nich obsahuje neúčinné formy B12. Spolehlivý je jen doplněk nebo obohacené potraviny.
 - [ ] „Rostlinná strava nemá dost bílkovin.“ → S luštěninami, tofu, ořechy a obilovinami se dá potřeba pokrýt — jen je dobré je jíst každý den a kombinovat.
 - [ ] „Veganské = automaticky zdravé.“ → Hranolky a sladkosti jsou taky veganské. Přínos má strava plná luštěnin, zeleniny, ovoce, celozrnných potravin a ořechů.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Rostlinné potraviny s nejvíc bílkovinami v porci
+- [ ] Sójové boby vařené — 27,3 g (porce 150 g)
+- [ ] Lupina vařená — 23,4 g (porce 150 g)
+- [ ] Tempeh — 20,3 g (porce 100 g)
+- [ ] Bageta / kváskový bílý chléb — 15 g (1 krajíc (139 g))
+- [ ] Špalda vařená — 10,7 g (1 hrnek (194 g))
+- [ ] Natto — 9,7 g (porce 50 g)
 
 **Zdroje**
 
@@ -1912,6 +1982,16 @@ Web: /jak-funguje-telo/bilkoviny
 - [ ] „Hodně bílkovin ničí zdravé ledviny.“ → Metaanalýza u zdravých dospělých nenašla zhoršení funkce ledvin. Kdo má nemoc ledvin, má příjem řešit s lékařem.
 - [ ] „Bez proteinového prášku svaly neporostou.“ → Prášek je jen pohodlná forma bílkovin z jídla. Stejný efekt má běžná strava s dostatkem bílkovin.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc bílkovin v běžné porci
+- [ ] Kuřecí prsa, pečená — 53,3 g (1/2 prsa (172 g))
+- [ ] Tuňák v oleji — 49,8 g (1 konzerva (171 g))
+- [ ] Hovězí plec, dušená — 40,1 g (porce 120 g)
+- [ ] Vepřová kotleta, grilovaná — 39,1 g (1 kotleta (146 g))
+- [ ] Krůtí prsa, pečená — 36,1 g (porce 120 g)
+- [ ] Tuňák čerstvý — 30,5 g (porce 125 g)
+
 **Zdroje**
 
 - EFSA (2012) Referenční hodnoty příjmu bílkovin, EFSA Journal 10(2):2557 — https://doi.org/10.2903/j.efsa.2012.2557
@@ -2053,6 +2133,16 @@ Web: /jak-funguje-telo/priprava-na-tehotenstvi
 - [ ] „Kyselinu listovou stačí začít brát, až je test pozitivní.“ → Neurální trubice se uzavírá do 4. týdne po početí. Proto se doporučuje brát ji už při plánování.
 - [ ] „Sklenka vína v těhotenství nevadí.“ → Bezpečná dávka alkoholu v těhotenství není známa. Nejbezpečnější je nepít vůbec.
 - [ ] „Těhotná musí jíst za dva.“ → Potřeba energie roste až ve 2. a 3. trimestru a jen mírně. Víc než množství je důležitá kvalita stravy.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc folátu v běžné porci — kyselinu listovou před početím ale doporučují v doplňku (400 µg), jídlo ji nenahradí
+- [ ] Čočka vařená — 362 µg (porce 200 g)
+- [ ] Cizrna vařená — 344 µg (porce 200 g)
+- [ ] Mango — 144,5 µg (1 mango (336 g))
+- [ ] Špenát vařený — 131,4 µg (1/2 hrnku (90 g))
+- [ ] Quinoa (suchá) — 128,8 µg (porce 70 g)
+- [ ] Mražený špenát, uvařený — 121 µg (porce 100 g)
 
 **Zdroje**
 
@@ -2296,6 +2386,16 @@ Web: /jak-funguje-telo/kosti
 - [ ] „Pro kosti stačí pít mléko.“ → Vápník je potřeba, ale bez zátěže kost nezesílí. Vápník lze získat i z jiných potravin.
 - [ ] „Řídnutí kostí je jen problém babiček.“ → Základ se buduje v mládí a týká se i mužů.
 - [ ] „Vysoké dávky vitamínu D chrání každého před zlomeninami.“ → U zdravých lidí bez nedostatku 2 000 IU denně zlomeniny nesnížilo (studie VITAL, přes 25 000 lidí). Smysl má hlavně při prokázaném nedostatku.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vápníku v běžné porci
+- [ ] Tofu pevné (srážené vápníkem) — 683 mg (porce 100 g)
+- [ ] Mandlový nápoj neslazený — 432,5 mg (1 sklenice (250 ml))
+- [ ] Hermelín / camembert — 388 mg (1 kus 100 g)
+- [ ] Ovesný nápoj — 370 mg (1 sklenice (250 ml))
+- [ ] Sardinky v oleji (s kostmi) — 351,4 mg (1 konzerva (92 g))
+- [ ] Kozí mléko — 327 mg (1 hrnek (250 ml))
 
 **Zdroje**
 
@@ -2690,6 +2790,16 @@ Web: /jak-funguje-telo/cholesterol
 - [ ] „Cholesterol je jen problém starých a obézních.“ → Plát se v tepnách tvoří desítky let. Vysoký LDL mají i mladí a štíhlí — někdy vrozeně.
 - [ ] „Statiny jsou zbytečná chemie.“ → Ve studiích se 170 000 lidmi snížení LDL o 1 mmol/l ubralo zhruba pětinu infarktů a mrtvic.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vlákniny v běžné porci
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
+
 **Zdroje**
 
 - Mach a kol. (2020) Doporučení ESC/EAS pro léčbu dyslipidemií, Eur Heart J — https://pubmed.ncbi.nlm.nih.gov/31504418/
@@ -2740,6 +2850,16 @@ Web: /jak-funguje-telo/traveni-a-zacpa
 - [ ] „Na stolici se musí chodit každý den.“ → Normální rozsah je od třikrát denně po třikrát týdně. Rozhoduje, jestli je to pro vás obvyklé a bez potíží.
 - [ ] „Stačí pít víc vody.“ → Pomůže hlavně tomu, kdo pije málo. Samotná voda bez vlákniny zácpu většinou nevyřeší.
 - [ ] „Projímadla z lékárny jsou bezpečná na pořád.“ → Při dlouhodobých potížích patří léčba k lékaři — je potřeba vyloučit příčiny jako nemoci štítné žlázy nebo léky.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vlákniny v běžné porci
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
 
 **Zdroje**
 
@@ -2947,6 +3067,66 @@ Web: /jak-funguje-telo/marihuana-a-thc
 - Volkow a kol. (2014) Nepříznivé zdravotní účinky marihuany, N Engl J Med — https://pubmed.ncbi.nlm.nih.gov/24897085/
 - Di Forti a kol. (2019) Užívání konopí a výskyt psychóz v Evropě (EU-GEI), Lancet Psychiatry — https://pubmed.ncbi.nlm.nih.gov/30902669/
 - Bahji a kol. (2020) Jak často se objeví abstinenční příznaky po konopí — metaanalýza, JAMA Netw Open — https://pubmed.ncbi.nlm.nih.gov/32271390/
+
+Poznámky lékaře:
+
+&nbsp;
+
+---
+
+## 61. Stránky potravin: automatická shrnutí a varování
+
+Web: /food/…
+
+**„V kostce“ — prahy (kladné podle EU 1924/2006, záporné podle semaforu UK FSA)**
+
+- [ ] Nízký obsah energie ≤ 40 kcal/100 g (nápoje ≤ 20 kcal/100 ml).
+- [ ] Zdroj / vysoký obsah bílkovin: ≥ 12 / ≥ 20 % energie z bílkovin a zároveň ≥ 5 g/100 g (nápoje 2,5 g).
+- [ ] Zdroj / vysoký obsah vlákniny: ≥ 3 / ≥ 6 g na 100 g.
+- [ ] Zdroj / vysoký obsah vitamínu či minerálu: ≥ 15 / ≥ 30 % referenční hodnoty na 100 g (nápoje polovina).
+- [ ] Vysoký obsah cukrů > 22,5 g, tuku > 17,5 g, nasycených tuků > 5 g, soli > 1,5 g na 100 g (nápoje polovina); u ovoce poznámka „přirozené cukry“.
+
+**Varování o horním limitu (zobrazí se, když jedna porce dá ≥ 50 % limitu EFSA pro dospělé)**
+
+- [ ] Limit retinolu (hotového vitamínu A): 3 000 µg denně — V těhotenství se játra a výrobky z nich nedoporučují — poraďte se s lékařem.
+- [ ] Limit vitamínu D: 100 µg denně
+- [ ] Limit vitamínu B6: 12 mg denně
+- [ ] Limit zinku: 25 mg denně
+- [ ] Limit jódu: 600 µg denně
+- [ ] Limit selenu: 255 µg denně
+- [ ] Hovězí játra (porce 100 g): 4 950 µg retinolu (hotového vitamínu A) = 165 % limitu
+- [ ] Hovězí játra, smažená na pánvi (porce 85 g): 6 571 µg retinolu (hotového vitamínu A) = 219 % limitu
+- [ ] Hovězí ledviny (porce 100 g): 141 µg selenu = 55 % limitu
+- [ ] Vepřová játra (porce 100 g): 6 500 µg retinolu (hotového vitamínu A) = 217 % limitu
+- [ ] Kuřecí játra (porce 100 g): 3 290 µg retinolu (hotového vitamínu A) = 110 % limitu
+- [ ] Kuřecí játra, smažená na pánvi (porce 85 g): 3 647 µg retinolu (hotového vitamínu A) = 122 % limitu
+- [ ] Tuňák v oleji (1 konzerva): 130 µg selenu = 51 % limitu
+- [ ] Ústřice (6 ústřic): 33 mg zinku = 132 % limitu
+- [ ] Para ořechy (2 ořechy): 192 µg selenu = 75 % limitu
+
+**Nikdy nedoporučujeme jako zdroj živin (stránka vysvětlí proč)**
+
+- [ ] Zmrzlina vanilková — cukr a nasycené tuky
+- [ ] Bramborové lupínky (chipsy) — tuk a sůl
+- [ ] Sušený banán — smažené, cukr a nasycené tuky
+- [ ] Cola (slazená) — přidaný cukr
+- [ ] Energetický nápoj — přidaný cukr a kofein; vitamíny jsou přidané uměle
+- [ ] Pivo (12°, ležák) — alkohol
+- [ ] Pivo lehké (light) — alkohol
+- [ ] Víno červené — alkohol
+- [ ] Víno bílé — alkohol
+- [ ] Destilát 40 % — alkohol
+- [ ] Cukr bílý — cukr
+- [ ] Cukr třtinový (hnědý) — cukr
+- [ ] Med — cukr
+- [ ] Javorový sirup — cukr
+- [ ] Agávový sirup — cukr
+- [ ] Džem — cukr
+- [ ] Mléčná čokoláda — cukr a nasycené tuky
+- [ ] Lískooříšková pomazánka s kakaem — cukr a nasycené tuky
+- [ ] Máslové sušenky — cukr a nasycené tuky
+- [ ] Bábovka / biskupský chlebíček (blízká obdoba) — cukr a nasycené tuky
+- [ ] Želé bonbony — cukr
 
 Poznámky lékaře:
 

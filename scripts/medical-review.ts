@@ -8,7 +8,7 @@
  *
  * Regenerate after any content change so the reviewer always signs off on what is live.
  */
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import {
   AlignmentType,
   BorderStyle,
@@ -27,6 +27,12 @@ import {
 } from 'docx'
 import { BODY_GUIDES } from '../src/data/body-guides'
 import { SUPPLEMENTS } from '../src/data/supplement-library'
+import { FOODS } from '../src/data/foods'
+import { foodPicksForGuide } from '../src/lib/foods/guides'
+import { UPPER_LIMITS, upperLimitHits } from '../src/lib/foods/upper-limits'
+import { notRecommendedReason } from '../src/lib/nutrition'
+import { portionText } from '../src/lib/foods/query'
+import type { FoodsFile } from '../src/lib/foods/types'
 
 const LEVEL: Record<string, string> = {
   established: 'Prokázané',
@@ -59,9 +65,68 @@ const sections: Section[] = BODY_GUIDES.map((g) => ({
     { title: 'Jak to funguje', items: g.how.map((h) => ({ bold: h.title + ':', text: h.text })) },
     { title: 'Doporučení', items: g.helps.map((h) => ({ text: h.text, note: LEVEL[h.level] })) },
     { title: 'Mýty', items: g.myths.map((m) => ({ text: `„${m.myth}“ → ${m.fact}` })) },
+    {
+      title: 'Potraviny k tématu (vypočteno z dat, na běžnou porci)',
+      items: (() => {
+        const p = foodPicksForGuide(g.slug, FOODS)
+        return p
+          ? [
+              { text: p.title },
+              ...p.items.map((x) => ({
+                text: `${x.food.name} — ${num(Math.round(x.amount * 10) / 10)} ${p.unit} (${portionText(x.food.portion)})`,
+              })),
+            ]
+          : []
+      })(),
+    },
     { title: 'Zdroje', plain: true, items: g.sources.map((s) => ({ text: `${s.title} — ${s.url}` })) },
   ].filter((b) => b.items.length),
 }))
+
+// food pages: rules computed from the data (summary, upper-limit warnings, foods never recommended)
+const full = (JSON.parse(readFileSync('src/data/foods.generated.json', 'utf8')) as FoodsFile).foods
+const nameOf = Object.fromEntries(FOODS.map((f) => [f.id, f.name]))
+sections.push({
+  title: 'Stránky potravin: automatická shrnutí a varování',
+  url: '/food/…',
+  blocks: [
+    {
+      title: '„V kostce“ — prahy (kladné podle EU 1924/2006, záporné podle semaforu UK FSA)',
+      items: [
+        { text: 'Nízký obsah energie ≤ 40 kcal/100 g (nápoje ≤ 20 kcal/100 ml).' },
+        {
+          text: 'Zdroj / vysoký obsah bílkovin: ≥ 12 / ≥ 20 % energie z bílkovin a zároveň ≥ 5 g/100 g (nápoje 2,5 g).',
+        },
+        { text: 'Zdroj / vysoký obsah vlákniny: ≥ 3 / ≥ 6 g na 100 g.' },
+        {
+          text: 'Zdroj / vysoký obsah vitamínu či minerálu: ≥ 15 / ≥ 30 % referenční hodnoty na 100 g (nápoje polovina).',
+        },
+        {
+          text: 'Vysoký obsah cukrů > 22,5 g, tuku > 17,5 g, nasycených tuků > 5 g, soli > 1,5 g na 100 g (nápoje polovina); u ovoce poznámka „přirozené cukry“.',
+        },
+      ],
+    },
+    {
+      title: 'Varování o horním limitu (zobrazí se, když jedna porce dá ≥ 50 % limitu EFSA pro dospělé)',
+      items: [
+        ...UPPER_LIMITS.map((u) => ({
+          text: `Limit ${u.name}: ${num(u.ul)} ${u.unit} denně${u.note ? ` — ${u.note}` : ''}`,
+        })),
+        ...full.flatMap((f) =>
+          upperLimitHits(f.nutrients, f.portions[0].grams).map((h) => ({
+            text: `${nameOf[f.id] ?? f.id} (${f.portions[0].label}): ${num(Math.round(h.amount))} ${h.unit} ${h.name} = ${h.pct} % limitu`,
+          })),
+        ),
+      ],
+    },
+    {
+      title: 'Nikdy nedoporučujeme jako zdroj živin (stránka vysvětlí proč)',
+      items: FOODS.filter((f) => notRecommendedReason(f)).map((f) => ({
+        text: `${f.name} — ${notRecommendedReason(f)}`,
+      })),
+    },
+  ],
+})
 
 const suppRows = SUPPLEMENTS.map((s) => [
   s.name.cs,
@@ -80,7 +145,7 @@ const md: string[] = [
   '',
   `**Jak kontrolovat:** ${INTRO}`,
   '',
-  `Obsah: ${sections.length} průvodců, ${SUPPLEMENTS.length} doplňků, ${itemCount} položek ke kontrole.`,
+  `Obsah: ${BODY_GUIDES.length} průvodců, stránky potravin, ${SUPPLEMENTS.length} doplňků — ${itemCount} položek ke kontrole.`,
   '',
   '---',
   '',
@@ -155,7 +220,7 @@ const children: (Paragraph | Table)[] = [
   }),
   para([
     new TextRun(
-      `Obsah: ${sections.length} průvodců a ${SUPPLEMENTS.length} doplňků — celkem ${itemCount} položek. Zdroje u každého průvodce jsou odkazy na PubMed, EFSA nebo WHO.`,
+      `Obsah: ${BODY_GUIDES.length} průvodců, stránky potravin a ${SUPPLEMENTS.length} doplňků — celkem ${itemCount} položek. Zdroje u každého průvodce jsou odkazy na PubMed, EFSA nebo WHO.`,
     ),
   ]),
 ]
@@ -283,6 +348,6 @@ writeFileSync('docs/lekarska-kontrola.md', md.join('\n'))
 Packer.toBuffer(doc).then((buf) => {
   writeFileSync('docs/lekarska-kontrola.docx', buf)
   console.log(
-    `✓ docs/lekarska-kontrola.{md,docx} — ${sections.length} guides, ${SUPPLEMENTS.length} supplements, ${itemCount} items`,
+    `✓ docs/lekarska-kontrola.{md,docx} — ${BODY_GUIDES.length} guides + food pages, ${SUPPLEMENTS.length} supplements, ${itemCount} items`,
   )
 })
