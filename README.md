@@ -59,6 +59,9 @@ key the app still works: the coach shows a notice and Labs accepts pasted text o
 
 ## Tests
 
+GitHub Actions (`.github/workflows/ci.yml`) spouští při každém pushi na `main` a u pull requestů lint, typecheck,
+unit testy, `check:data`, `foods:validate` a celou e2e sadu. Při selhání se přiloží report Playwrightu.
+
 `npm test` runs unit tests. `npm run test:e2e` builds into `.next-test` and starts it with `ENABLE_PREVIEW=1`, which
 enables the test-only `/preview/<screen>` pages used to test signed-in screens without a login. Never set
 `ENABLE_PREVIEW` in production.
