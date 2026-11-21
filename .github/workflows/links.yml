@@ -1,0 +1,23 @@
+name: Weekly link check
+
+# Shop pages and source URLs change without any commit here: check them once a week.
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Shop links (affiliate)
+        run: npm run check:links
+      - name: PubMed citations match their studies
+        run: npm run check:sources
