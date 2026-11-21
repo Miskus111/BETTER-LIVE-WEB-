@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
-import { Providers } from '@/components/providers/Providers'
 import { Analytics } from '@vercel/analytics/next'
 import { SITE } from '@/lib/site'
 import './globals.css'
@@ -45,7 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="cs" className={`${geist.variable} ${geistMono.variable} ${serif.variable}`}>
       <body>
-        <Providers>{children}</Providers>
+        {children}
         {/* cookieless page-view counts (no personal data, no consent banner needed) */}
         <Analytics />
       </body>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { GLOSSARY, type GlossaryTerm } from '@/data/glossary'
 import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'

@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { getTranslations } from 'next-intl/server'
+import Link from '@/components/ui/Link'
+import { billingText as t, type BillingKey } from '@/lib/billing-text'
 import { Ban, Check, Lock, MapPin, Minus, Sparkles, Undo2 } from 'lucide-react'
 import { ProPreview } from '@/components/billing/ProPreview'
-import { isAiConfigured } from '@/lib/ai/client'
+import { isCoachLive } from '@/lib/features'
 import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations({ locale: 'cs', namespace: 'billing' })
   return {
     title: 'Ceník — tarify Zdarma a Pro',
     description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
@@ -18,11 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
 type Cell = boolean | string
 
 export default async function PricingPage() {
-  const t = await getTranslations({ locale: 'cs', namespace: 'billing' })
   const beta = isFreeMode()
   const nf = new Intl.NumberFormat('cs-CZ')
   const nf1 = new Intl.NumberFormat('cs-CZ', { maximumFractionDigits: 1 })
-  const coachLive = isAiConfigured()
+  const coachLive = isCoachLive()
   const perDay = PRICES.pro_year_czk / 365
 
   const rows: [string, Cell, Cell][] = [
@@ -191,8 +189,10 @@ export default async function PricingPage() {
         <div className="mt-4 grid gap-3">
           {(['1', '2', '3', '4', '5', '6', '7'] as const).map((n) => (
             <details key={n} className="card group p-4">
-              <summary className="cursor-pointer text-[15.5px] font-medium">{t(`q${n}`)}</summary>
-              <p className="text-muted mt-2 text-[14.5px]">{t(`a${n}`)}</p>
+              <summary className="cursor-pointer text-[15.5px] font-medium">
+                {t(`q${n}` as BillingKey)}
+              </summary>
+              <p className="text-muted mt-2 text-[14.5px]">{t(`a${n}` as BillingKey)}</p>
             </details>
           ))}
         </div>

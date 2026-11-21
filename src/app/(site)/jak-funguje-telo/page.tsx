@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight, BookA, Calculator, HelpCircle } from 'lucide-react'
 import { BODY_GUIDES } from '@/data/body-guides'
 import { Suspense } from 'react'

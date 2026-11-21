@@ -1,9 +1,14 @@
-# Better Live with Biohacking (BLWB)
+# Better Live with Biohacking — web
 
-All-in-one app for living healthier and performing better: nutrition, training for any sport, mobility and pain,
-recovery, healthy appearance and an AI coach — plus the public education pages (interaktivní anatomie, co jednotlivé orgány potřebují (s hodnocením důkazů), které
-potraviny to dodají (vypočteno z USDA), referenční hodnoty EFSA, vstřebatelnost forem doplňků a doporučené produkty
-přes partnerské (affiliate) odkazy. FLX nic neprodává.
+Veřejný vzdělávací web: interaktivní mapa těla, co jednotlivé orgány potřebují (s hodnocením důkazů), které potraviny
+to dodají (vypočteno z USDA), průvodci „Jak funguje tělo“, referenční hodnoty EFSA, vstřebatelnost forem doplňků a
+doporučené produkty přes partnerské (affiliate) odkazy. FLX nic neprodává.
+
+Web je **čistě statický** (žádné přihlášení ani databáze) a servíruje se z CDN. Aplikace — trénink, jídelníček, AI
+kouč, osobní data — je samostatný projekt
+[BETTER-LIVE-WITH-BIOHACKIN-APP-](https://github.com/Miskus111/BETTER-LIVE-WITH-BIOHACKIN-APP-) na vlastní adrese
+(`NEXT_PUBLIC_APP_URL`). Odkazy do aplikace (`/login`, `/today`…) vede komponenta `@/components/ui/Link` rovnou na
+její adresu a staré adresy aplikace na tomto webu přesměrovává `next.config.ts`.
 
 > Vzdělávací obsah, ne lékařská rada.
 
@@ -22,55 +27,15 @@ npm run dev            # http://localhost:3000
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy)                     |
 | `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet)                     |
 | `npm run review:doc`       | Podklad pro lékařskou kontrolu (`docs/lekarska-kontrola.md` + `.docx`); CI hlídá, že je aktuální |
-| `npm run check:db`         | Produkční databáze má funkce z migrací a celou knihovnu cviků (čte `.env.local`)                 |
 | `npm run check:links`      | Ověří, že všechny odkazy na obchody fungují (vyžaduje internet)                                  |
 | `npm run foods:build`      | Postaví databázi potravin z USDA FDC podle `scripts/foods/selection.csv`                         |
 | `npm run foods:validate`   | Validace databáze potravin (provenience, Atwater, kJ, sůl, nemožné hodnoty)                      |
 | `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                                              |
 | `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                                        |
 | `npm test`                 | Vitest unit tests                                                                                |
-| `npm run test:rls`         | RLS isolation test against the Supabase project                                                  |
-| `npm run seed:reference`   | Load exercise/food/supplement libraries into Supabase (service key)                              |
-| `npm run seed:demo`        | Create/refresh the demo user                                                                     |
-| `npm run gen:seed`         | Regenerate `supabase/seed.sql` from `src/data`                                                   |
 | `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)                       |
 
 První běh Playwrightu: `npx playwright install chromium`.
-
-## Supabase setup (EU)
-
-1. Create a project at supabase.com in an **EU region** (this project uses North EU / Stockholm).
-2. Copy `.env.example` to `.env.local` and fill `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` and
-   `SUPABASE_SERVICE_ROLE_KEY` (Project Settings → API).
-3. Apply the schema: SQL Editor → paste `supabase/migrations/*.sql` in order → Run. Then run `supabase/seed.sql`
-   (regenerate with `npm run gen:seed`).
-4. Auth → URL Configuration: Site URL = your domain; add `http://localhost:3000/auth/callback` and
-   `https://<domain>/auth/callback` to Redirect URLs. Sign-up confirmation, password reset
-   (`/login?mode=reset` → e-mail → `/auth/callback` → `/reset-password`) and Google all return through it.
-   Auth → Email Templates: translate "Confirm signup" and "Reset Password" into Czech. Auth → Settings: turn on
-   leaked-password protection (the app shows a Czech message when Supabase rejects a weak password).
-5. Google sign-in (optional): create an OAuth client in Google Cloud Console, enable the Google provider in
-   Supabase → Auth → Providers with its client id/secret.
-6. `npm run seed:reference` (exercises, foods, supplements, affiliate products — needs the service key).
-7. `npm run seed:demo` (demo user from `DEMO_USER_EMAIL`/`DEMO_USER_PASSWORD`) and `npm run test:rls`
-   (verifies one user can never read or change another user's data).
-
-Without these variables the public pages work and app routes show a setup screen.
-
-## AI (coach + lab reading)
-
-Set `ANTHROPIC_API_KEY` (server-only) and optionally `ANTHROPIC_MODEL` (default `claude-opus-5-5`). The coach's
-rules live in [`system-prompt.md`](system-prompt.md); safety pre-screening is in `src/lib/coach/safety.ts`. Without a
-key the app still works: the coach shows a notice and Labs accepts pasted text only.
-
-## Tests
-
-GitHub Actions (`.github/workflows/ci.yml`) spouští při každém pushi na `main` a u pull requestů lint, typecheck,
-unit testy, `check:data`, `foods:validate` a celou e2e sadu. Při selhání se přiloží report Playwrightu.
-
-`npm test` runs unit tests. `npm run test:e2e` builds into `.next-test` and starts it with `ENABLE_PREVIEW=1`, which
-enables the test-only `/preview/<screen>` pages used to test signed-in screens without a login. Never set
-`ENABLE_PREVIEW` in production.
 
 ## Affiliate (partnerské odkazy)
 
@@ -143,20 +108,24 @@ skupiny v `src/app/sitemap.ts`.
 ≥ 15 % RHP na 100 g, vysoký obsah ≥ 30 % (u nápojů polovina). Shrnutí „V kostce“ (`src/lib/foods/summary.ts`) i
 varování o horních limitech EFSA (`src/lib/foods/upper-limits.ts`) se počítají z dat, ne ručně.
 
+## Sdílená data s aplikací
+
+`src/data` (potraviny, doplňky, orgány, živiny, průvodci) vzniká tady — pipeline USDA, `check:data` a podklad pro
+lékařskou kontrolu. Aplikace si data převezme `npm run sync:data -- <cesta k tomuto repozitáři>`. Cviky a mobilita
+(`exercises`, `mobility.ts`) patří jen aplikaci.
+
 ## Bezpečnost
 
 - Hlavičky v `next.config.ts`: nosniff, zákaz vkládání do rámců, referrer a permissions policy a CSP —
-  web smí načítat a posílat data jen na vlastní doménu, `*.supabase.co` a Open Food Facts. Nová externí služba
+  web smí načítat a posílat data jen na vlastní doménu a Open Food Facts. Nová externí služba
   (platební brána, analytika, mapy) se musí do CSP přidat, jinak ji prohlížeč zablokuje. Inline skripty jsou
   povolené (Next je potřebuje; nonce by vypnul statické stránky).
-- Supabase: po změně schématu spusťte poradce (Dashboard → Advisors). Migrace jsou v `supabase/migrations/`
-  a spouštějí se ručně (SQL editor nebo `supabase db push`).
-- E2E test spouští axe (přístupnost) na hlavních stránkách, obrazovkách aplikace a v prázdném vyhledávání.
+- E2E test spouští axe (přístupnost) na hlavních stránkách a v prázdném vyhledávání.
 
 ## Před spuštěním
 
 - Registrace v affiliate programech a nastavení env proměnných.
 - Ilustrace potravin nahradit licencovanými fotografiemi (`IMAGES_TODO.md`).
-- Spustit migrace `20261119000000_ai_usage_atomic.sql` a `20261121000000_advisor_hardening.sql`; v Supabase zapnout ochranu proti uniklým heslům.
+- Vercel: `NEXT_PUBLIC_APP_URL` = adresa aplikace, `NEXT_PUBLIC_SITE_URL` = adresa webu.
 - Odborná revize textů (nutriční terapeut) a právní stránky (GDPR, cookies, obchodní podmínky).
 - `NEXT_PUBLIC_SITE_URL` při vlastní doméně.

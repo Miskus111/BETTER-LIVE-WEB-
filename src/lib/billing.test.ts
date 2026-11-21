@@ -40,16 +40,11 @@ describe('billing', () => {
 
 describe('pricing copy matches the real limits', () => {
   // the pricing table and paywall must never promise more than the code allows
-  it('coach messages per day in cs and en', async () => {
-    for (const lang of ['cs', 'en']) {
-      const m = (await import(`../../messages/${lang}.json`)).default as Record<
-        string,
-        Record<string, string>
-      >
-      const all = JSON.stringify(m)
-      expect(all).toContain(`"f_coach_free":"${coachDailyLimit('free', false)} `)
-      expect(all).toContain(`"f_coach_pro":"${coachDailyLimit('pro', false)} `)
-      expect(all).not.toMatch(/bez denního limitu|no daily limit|without a daily limit/)
-    }
+  it('coach messages per day on the pricing page', async () => {
+    const { billingText } = await import('./billing-text')
+    expect(billingText('f_coach_free')).toMatch(new RegExp(`^${coachDailyLimit('free', false)} `))
+    expect(billingText('f_coach_pro')).toMatch(new RegExp(`^${coachDailyLimit('pro', false)} `))
+    for (const k of ['f_coach_free', 'f_coach_pro'] as const)
+      expect(billingText(k)).not.toMatch(/bez denního limitu/)
   })
 })

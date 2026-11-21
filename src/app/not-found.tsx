@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { NotFoundSuggestions } from '@/components/layout/NotFoundSuggestions'
 
 export default function NotFound() {

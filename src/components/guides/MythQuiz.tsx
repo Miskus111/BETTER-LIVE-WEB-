@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { useState } from 'react'
 import { ArrowRight, Check, RotateCcw, X } from 'lucide-react'
 import { QUIZ, QUIZ_LENGTH, type QuizItem } from '@/data/quiz'

@@ -9,7 +9,7 @@ import { FoodExplorer } from '@/components/food/FoodExplorer'
 import { AppCta } from '@/components/home/AppCta'
 import { GuidesTeaser } from '@/components/home/GuidesTeaser'
 import { ToolCards } from '@/components/guides/ToolCards'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
