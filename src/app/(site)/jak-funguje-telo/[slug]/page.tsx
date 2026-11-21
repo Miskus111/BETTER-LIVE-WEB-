@@ -76,6 +76,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   // one concrete, best-supported step to take this week
   const Tool = GUIDE_TOOLS[g.slug]
   const picks = foodPicksForGuide(g.slug, FOODS)
+  // sections in page order; optional ones only when the guide has them
+  const toc = [
+    ...(Tool ? [{ id: 'try', label: 'Vyzkoušejte si' }] : []),
+    ...TOC.flatMap((t) =>
+      t.id === 'helps' && picks?.items.length ? [t, { id: 'foods', label: 'Potraviny' }] : [t],
+    ),
+  ]
   const firstStep = g.helps.find((h) => h.level === 'established') ?? g.helps[0]
   const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
@@ -162,7 +169,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         className="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 md:mx-0 md:px-0"
         data-testid="toc"
       >
-        {(Tool ? [{ id: 'try', label: 'Vyzkoušejte si' }, ...TOC] : TOC).map((t) => (
+        {toc.map((t) => (
           <a key={t.id} href={`#${t.id}`} className="chip shrink-0">
             {t.label}
           </a>
