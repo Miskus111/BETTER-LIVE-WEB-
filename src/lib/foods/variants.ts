@@ -1,16 +1,20 @@
 import type { Food } from '@/data/types'
 
-/** Name without the preparation part: "Kuřecí prsa, pečená" → "kuřecí prsa", "Brokolice vařená" → "brokolice". */
+/** Name without the preparation part: "Kuřecí prsa, pečená" → "kuřecí prsa", "Mražený špenát, uvařený" → "špenát". */
 export function baseName(name: string) {
-  return name
-    .toLowerCase()
-    .replace(/\s*\([^)]*\)/g, '')
-    .replace(
-      /,?\s+(vařen\p{L}*|pečen\p{L}*|dušen\p{L}*|smažen\p{L}*|grilovan\p{L}*|uvařen\p{L}*|natvrdo|na pánvi.*|mražen\p{L}*|v konzervě|z konzervy|suš\p{L}*)(\s.*)?$/u,
-      '',
-    )
-    .replace(/,.*$/, '')
-    .trim()
+  return (
+    name
+      .toLowerCase()
+      .replace(/\s*\([^)]*\)/g, '')
+      // a leading preparation word ("Mražený špenát, uvařený"), but not "sušené" — dried fruit is another food
+      .replace(/^(mražen|vařen|pečen)\p{L}*\s+/u, '')
+      .replace(
+        /,?\s+(vařen\p{L}*|pečen\p{L}*|dušen\p{L}*|smažen\p{L}*|grilovan\p{L}*|uvařen\p{L}*|natvrdo|na pánvi.*|mražen\p{L}*|v konzervě|z konzervy|suš\p{L}*)(\s.*)?$/u,
+        '',
+      )
+      .replace(/,.*$/, '')
+      .trim()
+  )
 }
 
 /** Other preparations of the same food (raw / cooked / canned …) in the same category. */
