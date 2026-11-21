@@ -1,6 +1,7 @@
 import { FOODS, FOOD_BY_ID } from '@/data/foods'
 import { foodSummary } from '@/lib/foods/summary'
 import { OG_SIZE, ogCard } from '@/lib/og'
+import { notRecommendedReason } from '@/lib/nutrition'
 
 export const size = OG_SIZE
 export const contentType = 'image/png'
@@ -16,7 +17,10 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   if (!f) return ogCard({ eyebrow: 'Potraviny', title: 'Nutriční hodnoty na 100 g' })
   const unit = f.liquid ? '100 ml' : '100 g'
   const fmt = (v: number) => v.toLocaleString('cs-CZ', { maximumFractionDigits: 1 })
-  const highlight = foodSummary(f).find((l) => l.startsWith('Vysoký obsah:')) ?? foodSummary(f)[0]
+  const reason = notRecommendedReason(f)
+  const highlight = reason
+    ? `Jako zdroj živin nedoporučujeme (${reason})`
+    : (foodSummary(f).find((l) => l.startsWith('Vysoký obsah:')) ?? foodSummary(f)[0])
   return ogCard({
     eyebrow: `Potraviny · ${f.category}`,
     title: f.name,

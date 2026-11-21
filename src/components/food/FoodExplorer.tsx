@@ -16,7 +16,7 @@ import {
   type FoodQuery,
   type Measure,
 } from '@/lib/foods/query'
-import { fmtAmount } from '@/lib/nutrition'
+import { fmtAmount, notRecommendedReason } from '@/lib/nutrition'
 import { Thumb } from '@/components/ui/Thumb'
 import { topNutrient } from '@/lib/foods/summary'
 import { Rhp } from '@/components/ui/Rhp'
@@ -192,7 +192,8 @@ export function FoodExplorer() {
                         {summary(f, q, sortMeasure)}
                       </span>
                       {(() => {
-                        const top = topNutrient(f)
+                        // no praise on the card for foods whose page says they aren't a good source
+                        const top = notRecommendedReason(f) ? null : topNutrient(f)
                         return top ? (
                           <span className="text-cyan/90 block truncate text-[12px]">
                             Vysoký obsah: {top.name} ({top.pct} % <Rhp />)
