@@ -121,6 +121,29 @@ Panel nově obsahuje **retinol** (FDC 1105, 421 potravin), aby varování o horn
 | Tavený sýr, margarín                                                                            | přidané vitamíny D (u margarínu i A, B12)    | Obohacení se liší podle značky — platí etiketa                                                                            |
 | Lískooříšková pomazánka (FDC 168000)                                                            | nasycené, mono- a polynenasycené tuky        | 28,4 g nasycených a 0 g nenasycených z 29,7 g tuku — u pomazánky z lískových ořechů nemožné (etiketa: ~10,6 g nasycených) |
 
+## Obohacené americké přílohy (21. 11. 2026)
+
+Bílá rýže, parboiled rýže, krupice, těstoviny, vaječné nudle a hladká mouka byly americké záznamy „enriched“
+(folát, železo a B1 přidané podle zákona USA). Přepnuto na neobohacené záznamy FDC — např. bílá rýže syrová:
+folát 387 → 8 µg, železo 4,3 → 0,8 mg na 100 g. Pečivo neobohacený záznam nemá, proto má tyto živiny „bez údajů“
+(tabulka výše). Validace odmítne záznam „enriched“ s hodnotami obohacení a americké mléko s přidaným vitamínem D.
+
+## Blízké obdoby, přejmenování a dietní štítky (21. 11. 2026)
+
+- České potraviny bez přesného záznamu v USDA mají v názvu „(blízká obdoba)“ nebo poznámku, jaký výrobek data
+  popisují (`APPROXIMATIONS` v `scripts/foods/rules.ts`): tvaroh, rohlík, bábovka, salám, Niva, žitný chléb, lehké pivo.
+- „Olomoucké tvarůžky“ byly limburský sýr (27 g tuku na 100 g; tvarůžky jsou téměř bez tuku) → Limburský sýr.
+  „Pivo světlé výčepní“ bylo americké lehké pivo → „Pivo lehké (light)“.
+- Identifikátory, které neodpovídaly datům (staré adresy přesměrují, staré záznamy v deníku fungují —
+  `FOOD_ID_ALIASES`): `seaweed-nori` → `spirulina`, `yeast-nutritional` → `yeast-dry`, `olomouc-cheese` →
+  `limburger`, `halloumi` → `goat-cheese-hard`, `cod-liver-canned` → `cod-canned`, `parsley-root` → `parsley`,
+  `rice-basmati-cooked` → `rice-parboiled-cooked`, `coffee-latte` → `coffee-decaf`, `banana-chips` → `banana-dried`
+  (sušený banán už není mezi nedoporučenými jako „smažený“).
+- Dietní štítky jsou opatrné: víno a margarín nejsou „veganské“ (čiření živočišnými látkami, mléčné složky),
+  miso není „bez lepku“ (často z ječmene). Rozhoduje etiketa.
+
+## Známé mezery
+
 - **Jód** je v FDC téměř všude prázdný (data má jen 6 potravin) — zobrazuje se „bez údajů“, ne 0.
   Řešením by byla česká NutriDatabáze, ta je ale licenčně nedostupná (viz `data-sources.md`).
 - **Přidané cukry** a **biotin (B7)** FDC v těchto datasetech neuvádí.
