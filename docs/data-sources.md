@@ -47,6 +47,9 @@ USDA popisuje americké výrobky. Kde se liší od českých, data upravujeme je
   neobohacený záznam FDC, používáme ho (rýže, těstoviny, krupice, mouka, nudle); u pečiva tyto živiny skryjeme.
 - **Mléko s přidaným vitamínem D (a A)** — české mléko se neobohacuje; přidané vitamíny skryjeme.
 - **Výrobky obohacené výrobcem** (tavený sýr, margarín, syrovátkový protein) — obsah závisí na značce; skryjeme.
+- **Rostlinné nápoje** (sójový, mandlový, ovesný, rýžový) — americké záznamy jsou obohacené vápníkem a vitamíny D
+  a B12 stejně jako většina běžných českých značek, proto hodnoty ponecháváme; název říká „(obohacený)" a poznámka
+  upozorňuje, že bio nápoje bývají neobohacené.
 - **Zjevně chybné hodnoty ve zdroji** (např. rozpad tuků u FDC 168000) — skryjeme.
 - **Bez přesného ekvivalentu** (tvaroh, rohlík, bábovka…) — použijeme nejbližší záznam, v názvu „(blízká obdoba)“
   a poznámka u potraviny říká, jaký výrobek data popisují (`APPROXIMATIONS`).

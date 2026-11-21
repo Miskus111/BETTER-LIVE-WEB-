@@ -201,6 +201,9 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
  * Czech foods with no exact USDA record: the closest one is used and the page says which, so readers
  * know a Czech product may differ.
  */
+const PLANT_DRINK =
+  'Hodnoty platí pro nápoj obohacený vápníkem a vitamíny D a B12, jaký prodává většina běžných značek. Bio nápoje bývají neobohacené a vápníku i vitamínů mají jen zlomek — rozhoduje etiketa.'
+
 export const APPROXIMATIONS: Record<string, string> = {
   quark:
     'V USDA není český tvaroh; použit nejbližší záznam — americký odtučněný cottage (suchý, bez smetany). Český tvaroh se může mírně lišit.',
@@ -211,6 +214,11 @@ export const APPROXIMATIONS: Record<string, string> = {
   'blue-cheese': 'Použit americký plísňový sýr (blue cheese); Niva se může mírně lišit.',
   'bread-rye':
     'Americký žitný chléb z žitné a pšeničné mouky; český žitný chléb má jiný poměr mouk, hodnoty berte jako orientační.',
+  // US plant drinks are fortified like the common Czech brands; organic ones usually are not
+  'almond-drink': PLANT_DRINK,
+  'oat-drink': PLANT_DRINK,
+  'rice-drink': PLANT_DRINK,
+  'soy-drink': PLANT_DRINK,
   'beer-light':
     'Americké lehké pivo („light“); české výčepní pivo (10°) má o něco víc energie (kolem 37 kcal na 100 ml).',
 }

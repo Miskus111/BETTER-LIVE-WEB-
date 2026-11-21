@@ -413,9 +413,9 @@ tomato-juice,170545,SR Legacy,"Tomato juice, canned, without salt added",Rajčat
 cola,174852,SR Legacy,"Beverages, carbonated, cola, regular",Cola (slazená),Cola,Nápoje,processed,plechovka 330 ml==330,
 energy-drink,173210,SR Legacy,"Beverages, Energy drink, RED BULL",Energetický nápoj,Energy drink,Nápoje,processed,plechovka 250 ml==250,
 soy-drink,172456,SR Legacy,"Soymilk, original and vanilla, with added calcium, vitamins A and D",Sójový nápoj obohacený vápníkem,"Soy drink, fortified",Nápoje,processed,1 sklenice=cup,soy
-almond-drink,1999631,Foundation,"Almond milk, unsweetened, plain, shelf stable",Mandlový nápoj neslazený,"Almond drink, unsweetened",Nápoje,processed,1 sklenice (250 ml)==250,nuts
-oat-drink,2257046,Foundation,"Oat milk, unsweetened, plain, refrigerated",Ovesný nápoj,Oat drink,Nápoje,processed,1 sklenice (250 ml)==250,gluten
-rice-drink,171942,SR Legacy,"Beverages, rice milk, unsweetened",Rýžový nápoj,Rice drink,Nápoje,processed,1 sklenice (250 ml)==250,
+almond-drink,1999631,Foundation,"Almond milk, unsweetened, plain, shelf stable",Mandlový nápoj neslazený (obohacený),"Almond drink, unsweetened (fortified)",Nápoje,processed,1 sklenice (250 ml)==250,nuts
+oat-drink,2257046,Foundation,"Oat milk, unsweetened, plain, refrigerated",Ovesný nápoj (obohacený),Oat drink (fortified),Nápoje,processed,1 sklenice (250 ml)==250,gluten
+rice-drink,171942,SR Legacy,"Beverages, rice milk, unsweetened",Rýžový nápoj (obohacený),Rice drink (fortified),Nápoje,processed,1 sklenice (250 ml)==250,
 coconut-water,174831,SR Legacy,"Beverages, Coconut water, ready-to-drink, unsweetened",Kokosová voda,Coconut water,Nápoje,raw,1 sklenice=cup,
 beer,168746,SR Legacy,"Alcoholic beverage, beer, regular, all","Pivo (12°, ležák)","Beer, regular",Nápoje,fermented,"0,5 l==500",gluten
 beer-light,168749,SR Legacy,"Alcoholic beverage, beer, light",Pivo lehké (light),Light beer,Nápoje,fermented,"0,5 l==500",gluten

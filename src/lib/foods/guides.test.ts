@@ -29,4 +29,17 @@ describe('foodPicksForGuide', () => {
     expect(new Set(fibre).size).toBeGreaterThan(2)
     expect(foodPicksForGuide('spanek', FOODS)).toBeNull()
   })
+
+  it('every guide with food picks exists, and fortified plant drinks say so in their name', async () => {
+    const { foodPicksForGuide } = await import('./guides')
+    const { FOODS } = await import('@/data/foods')
+    const { BODY_GUIDE_BY_SLUG } = await import('@/data/body-guides')
+    for (const slug of ['menopauza', 'imunita', 'cukr-a-inzulin', 'hubnuti-a-energie', 'prevence-rakoviny']) {
+      expect(BODY_GUIDE_BY_SLUG[slug], slug).toBeTruthy()
+      expect(foodPicksForGuide(slug, FOODS)!.items.length, slug).toBeGreaterThan(2)
+    }
+    const calcium = foodPicksForGuide('menopauza', FOODS)!.items.map((x) => x.food)
+    for (const f of calcium.filter((f) => /drink|nápoj/i.test(`${f.id} ${f.name}`)))
+      expect(f.name, f.id).toMatch(/obohacen/)
+  })
 })

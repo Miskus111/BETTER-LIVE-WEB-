@@ -65,6 +65,23 @@ const PICKS: Record<
     value: (f) => f.micros.potassium ?? 0,
   },
   cholesterol: { title: 'Nejvíc vlákniny v běžné porci', unit: 'g', value: (f) => f.macros.fiber },
+  'cukr-a-inzulin': {
+    title: 'Nejvíc vlákniny v běžné porci (zpomalí vzestup cukru po jídle)',
+    unit: 'g',
+    value: (f) => f.macros.fiber,
+  },
+  'hubnuti-a-energie': {
+    title: 'Nejvíc vlákniny v běžné porci (déle zasytí)',
+    unit: 'g',
+    value: (f) => f.macros.fiber,
+  },
+  'prevence-rakoviny': { title: 'Nejvíc vlákniny v běžné porci', unit: 'g', value: (f) => f.macros.fiber },
+  menopauza: { title: 'Nejvíc vápníku v běžné porci', unit: 'mg', value: (f) => f.micros.calcium ?? 0 },
+  imunita: {
+    title: 'Nejvíc vitamínu D v běžné porci — v zimě ho z jídla obvykle nepokryjete, proto se doporučuje doplněk',
+    unit: 'µg',
+    value: (f) => f.micros.vitD ?? 0,
+  },
   'priprava-na-tehotenstvi': {
     title:
       'Nejvíc folátu v běžné porci — kyselinu listovou před početím ale doporučují v doplňku (400 µg), jídlo ji nenahradí',

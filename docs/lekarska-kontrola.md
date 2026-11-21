@@ -4,7 +4,7 @@ Vygenerováno 2026-11-21 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1165 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1200 položek ke kontrole.
 
 ---
 
@@ -510,6 +510,16 @@ Web: /jak-funguje-telo/imunita
 - [ ] „Na chřipku pomůžou antibiotika.“ → Antibiotika na viry nefungují — zbytečné užívání zvyšuje odolnost bakterií.
 - [ ] „Studená sprcha mě ochrání před nemocí.“ → V randomizované studii se 3 000 lidmi počet dní nemoci neklesl. Lidé ale méně často zůstávali doma z práce — cítili se líp.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vitamínu D v běžné porci — v zimě ho z jídla obvykle nepokryjete, proto se doporučuje doplněk
+- [ ] Kapr — 37,1 µg (porce 150 g)
+- [ ] Žampiony ozářené UV (vitamín D) — 26,2 µg (porce 100 g)
+- [ ] Makrela — 20,1 µg (porce 125 g)
+- [ ] Pstruh duhový — 19,9 µg (porce 125 g)
+- [ ] Losos pečený — 15,7 µg (porce 120 g)
+- [ ] Olej z tresčích jater — 11,3 µg (1 lžička (4,5 g))
+
 **Zdroje**
 
 - Prather a kol. (2015) Délka spánku a náchylnost k nachlazení, Sleep — https://pubmed.ncbi.nlm.nih.gov/26118561/
@@ -777,6 +787,16 @@ Web: /jak-funguje-telo/hubnuti-a-energie
 - [ ] „Spalovače tuků fungují.“ → Žádný doplněk neudělá měřitelný rozdíl bez změny jídla a pohybu.
 - [ ] „Injekce na hubnutí jsou jednorázová kúra.“ → Léky jako semaglutid při obezitě pomáhají (v průměru −15 % váhy), ale působí jen po dobu užívání. Do roka po vysazení se vrátily asi dvě třetiny shozených kil. Patří k lékaři.
 
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vlákniny v běžné porci (déle zasytí)
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
+
 **Zdroje**
 
 - Hall a kol. (2011) Jak energetická nerovnováha mění tělesnou hmotnost, Lancet — https://pubmed.ncbi.nlm.nih.gov/21872751/
@@ -828,6 +848,16 @@ Web: /jak-funguje-telo/cukr-a-inzulin
 - [ ] „Každá glukózová špička je škodlivá.“ → Vzestup po jídle je normální. Důležité je, jak rychle se hladina vrátí a jaký je dlouhodobý průměr.
 - [ ] „Ovoce je kvůli cukru špatné.“ → Celé ovoce obsahuje vlákninu a souvisí s lepším zdravím. Jiné je to u džusů a sladkých nápojů.
 - [ ] „Med a třtinový cukr jsou zdravější než bílý cukr.“ → Pro tělo jde pořád o volné cukry, stejně jako u sirupů a džusů. WHO je počítá do stejného limitu.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vlákniny v běžné porci (zpomalí vzestup cukru po jídle)
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
 
 **Zdroje**
 
@@ -1179,6 +1209,16 @@ Web: /jak-funguje-telo/menopauza
 - [ ] „Hormonální terapie je nebezpečná pro každou ženu.“ → Rizika závisí na věku, době od menopauzy, typu léčby a zdravotním stavu. U zdravých žen do 60 let obvykle převažují přínosy — rozhoduje se s lékařem individuálně.
 - [ ] „Byliny a sójové fytoestrogeny spolehlivě zastaví návaly.“ → Odborná společnost pro menopauzu je kvůli slabým a nejednotným důkazům nedoporučuje. Ověřené jsou hormonální a nehormonální léky a terapie.
 - [ ] „Návaly přejdou za pár měsíců.“ → Ve velké studii trvaly v průměru 7,4 roku. U žen, kterým začaly ještě před poslední menstruací, často přes 10 let.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vápníku v běžné porci
+- [ ] Tofu pevné (srážené vápníkem) — 683 mg (porce 100 g)
+- [ ] Mandlový nápoj neslazený (obohacený) — 432,5 mg (1 sklenice (250 ml))
+- [ ] Hermelín / camembert — 388 mg (1 kus 100 g)
+- [ ] Ovesný nápoj (obohacený) — 370 mg (1 sklenice (250 ml))
+- [ ] Sardinky v oleji (s kostmi) — 351,4 mg (1 konzerva (92 g))
+- [ ] Kozí mléko — 327 mg (1 hrnek (250 ml))
 
 **Zdroje**
 
@@ -1741,6 +1781,16 @@ Web: /jak-funguje-telo/prevence-rakoviny
 - [ ] „Rakovina je jen otázka genů a smůly.“ → Dědičnost hraje roli u menší části nádorů. Podle WHO jde zhruba 38 % případů předejít životním stylem a prevencí.
 - [ ] „Když mě nic nebolí, screening nepotřebuji.“ → Právě proto existuje — zachytí nádor dřív, než způsobí potíže a kdy je léčba nejúčinnější.
 - [ ] „Superpotraviny a detoxy chrání před rakovinou.“ → Žádná jednotlivá potravina rakovině spolehlivě nezabrání. Pomáhá celková strava s dostatkem vlákniny a málo uzenin a červeného masa.
+
+**Potraviny k tématu (vypočteno z dat, na běžnou porci)**
+
+- [ ] Nejvíc vlákniny v běžné porci
+- [ ] Černé fazole vařené — 17,4 g (porce 200 g)
+- [ ] Hrách loupaný vařený — 16,6 g (porce 200 g)
+- [ ] Kroupy ječné (suché) — 10,9 g (porce 70 g)
+- [ ] Bulgur vařený — 8,2 g (1 hrnek (182 g))
+- [ ] Bezinky (černý bez) — 7 g (hrst 100 g)
+- [ ] Artyčok — 6,9 g (1 artyčok (128 g))
 
 **Zdroje**
 
@@ -2391,9 +2441,9 @@ Web: /jak-funguje-telo/kosti
 
 - [ ] Nejvíc vápníku v běžné porci
 - [ ] Tofu pevné (srážené vápníkem) — 683 mg (porce 100 g)
-- [ ] Mandlový nápoj neslazený — 432,5 mg (1 sklenice (250 ml))
+- [ ] Mandlový nápoj neslazený (obohacený) — 432,5 mg (1 sklenice (250 ml))
 - [ ] Hermelín / camembert — 388 mg (1 kus 100 g)
-- [ ] Ovesný nápoj — 370 mg (1 sklenice (250 ml))
+- [ ] Ovesný nápoj (obohacený) — 370 mg (1 sklenice (250 ml))
 - [ ] Sardinky v oleji (s kostmi) — 351,4 mg (1 konzerva (92 g))
 - [ ] Kozí mléko — 327 mg (1 hrnek (250 ml))
 

@@ -18207,8 +18207,8 @@
   },
   {
     "id": "almond-drink",
-    "name": "Mandlový nápoj neslazený",
-    "nameEn": "Almond drink, unsweetened",
+    "name": "Mandlový nápoj neslazený (obohacený)",
+    "nameEn": "Almond drink, unsweetened (fortified)",
     "category": "Nápoje",
     "subcategory": "Nápoje",
     "state": "processed",
@@ -18248,8 +18248,8 @@
   },
   {
     "id": "oat-drink",
-    "name": "Ovesný nápoj",
-    "nameEn": "Oat drink",
+    "name": "Ovesný nápoj (obohacený)",
+    "nameEn": "Oat drink (fortified)",
     "category": "Nápoje",
     "subcategory": "Nápoje",
     "state": "processed",
@@ -18289,8 +18289,8 @@
   },
   {
     "id": "rice-drink",
-    "name": "Rýžový nápoj",
-    "nameEn": "Rice drink",
+    "name": "Rýžový nápoj (obohacený)",
+    "nameEn": "Rice drink (fortified)",
     "category": "Nápoje",
     "subcategory": "Nápoje",
     "state": "processed",

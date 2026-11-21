@@ -34112,14 +34112,16 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Hodnoty platí pro nápoj obohacený vápníkem a vitamíny D a B12, jaký prodává většina běžných značek. Bio nápoje bývají neobohacené a vápníku i vitamínů mají jen zlomek — rozhoduje etiketa."
+        ]
       }
     },
     {
       "id": "almond-drink",
-      "nameCs": "Mandlový nápoj neslazený",
-      "nameEn": "Almond drink, unsweetened",
-      "synonyms": ["Almond drink, unsweetened", "Almond milk, unsweetened, plain, shelf stable"],
+      "nameCs": "Mandlový nápoj neslazený (obohacený)",
+      "nameEn": "Almond drink, unsweetened (fortified)",
+      "synonyms": ["Almond drink, unsweetened (fortified)", "Almond milk, unsweetened, plain, shelf stable"],
       "category": "Nápoje",
       "subcategory": "Nápoje",
       "state": "processed",
@@ -34194,14 +34196,17 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["kJ dopočteny z kcal (× 4,184)."]
+        "notes": [
+          "kJ dopočteny z kcal (× 4,184).",
+          "Hodnoty platí pro nápoj obohacený vápníkem a vitamíny D a B12, jaký prodává většina běžných značek. Bio nápoje bývají neobohacené a vápníku i vitamínů mají jen zlomek — rozhoduje etiketa."
+        ]
       }
     },
     {
       "id": "oat-drink",
-      "nameCs": "Ovesný nápoj",
-      "nameEn": "Oat drink",
-      "synonyms": ["Oat drink", "Oat milk, unsweetened, plain, refrigerated"],
+      "nameCs": "Ovesný nápoj (obohacený)",
+      "nameEn": "Oat drink (fortified)",
+      "synonyms": ["Oat drink (fortified)", "Oat milk, unsweetened, plain, refrigerated"],
       "category": "Nápoje",
       "subcategory": "Nápoje",
       "state": "processed",
@@ -34276,14 +34281,17 @@
         "retrievedAt": "2026-10-23",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": ["kJ dopočteny z kcal (× 4,184)."]
+        "notes": [
+          "kJ dopočteny z kcal (× 4,184).",
+          "Hodnoty platí pro nápoj obohacený vápníkem a vitamíny D a B12, jaký prodává většina běžných značek. Bio nápoje bývají neobohacené a vápníku i vitamínů mají jen zlomek — rozhoduje etiketa."
+        ]
       }
     },
     {
       "id": "rice-drink",
-      "nameCs": "Rýžový nápoj",
-      "nameEn": "Rice drink",
-      "synonyms": ["Rice drink", "Beverages, rice milk, unsweetened"],
+      "nameCs": "Rýžový nápoj (obohacený)",
+      "nameEn": "Rice drink (fortified)",
+      "synonyms": ["Rice drink (fortified)", "Beverages, rice milk, unsweetened"],
       "category": "Nápoje",
       "subcategory": "Nápoje",
       "state": "processed",
@@ -34358,7 +34366,9 @@
         "retrievedAt": "2025-04-24",
         "licence": "USDA FoodData Central — public domain (CC0 1.0)",
         "verified": true,
-        "notes": []
+        "notes": [
+          "Hodnoty platí pro nápoj obohacený vápníkem a vitamíny D a B12, jaký prodává většina běžných značek. Bio nápoje bývají neobohacené a vápníku i vitamínů mají jen zlomek — rozhoduje etiketa."
+        ]
       }
     },
     {
