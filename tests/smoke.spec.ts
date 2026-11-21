@@ -480,3 +480,10 @@ test('404 suggests pages from the words in the URL', async ({ page }) => {
   const s = page.getByTestId('not-found-suggestions')
   await expect(s.getByRole('link').first()).toContainText('Losos')
 })
+
+test('nutrition guides list the best foods for the topic', async ({ page }) => {
+  await page.goto('/jak-funguje-telo/bilkoviny')
+  const block = page.getByTestId('guide-foods')
+  await expect(block.getByRole('heading', { name: 'Potraviny k tématu' })).toBeVisible()
+  await expect(block.getByRole('link')).toHaveCount(6)
+})

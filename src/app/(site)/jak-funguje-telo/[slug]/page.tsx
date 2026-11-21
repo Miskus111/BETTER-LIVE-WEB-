@@ -17,6 +17,10 @@ import { EvidenceBadge } from '@/components/ui/EvidenceBadge'
 import { AppCta } from '@/components/home/AppCta'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
+import { FOODS } from '@/data/foods'
+import { foodPicksForGuide } from '@/lib/foods/guides'
+import { portionText } from '@/lib/foods/query'
+import { fmtAmount } from '@/lib/nutrition'
 import { PUBLISHED, modifiedAfter } from '@/data/published'
 
 const UPDATED = '2026-11-18'
@@ -71,6 +75,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const seen = new Set<string>()
   // one concrete, best-supported step to take this week
   const Tool = GUIDE_TOOLS[g.slug]
+  const picks = foodPicksForGuide(g.slug, FOODS)
   const firstStep = g.helps.find((h) => h.level === 'established') ?? g.helps[0]
   const category = GUIDE_CATEGORIES.find((c) => c.id === GUIDE_CATEGORY[g.slug])
 
@@ -270,6 +275,35 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ))}
         </ul>
       </section>
+
+      {picks && picks.items.length > 0 && (
+        <section className="mt-12" aria-labelledby="foods" data-testid="guide-foods">
+          <h2 id="foods" className="display text-[28px] md:text-[34px]">
+            Potraviny k tématu
+          </h2>
+          <p className="text-muted mt-2 text-[15px]">
+            {picks.title}. Vypočteno z dat USDA, bez sladkostí, alkoholu a koření.
+          </p>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {picks.items.map(({ food, amount }) => (
+              <li key={food.id}>
+                <Link
+                  href={`/food/${food.id}`}
+                  className="card hover:border-cyan/40 flex items-baseline justify-between gap-3 p-4"
+                >
+                  <span>
+                    <span className="font-medium">{food.name}</span>
+                    <span className="text-subtle block text-[12.5px]">{portionText(food.portion)}</span>
+                  </span>
+                  <span className="text-cyan shrink-0 font-mono text-[14px]">
+                    {fmtAmount(amount, picks.unit)}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="mt-12" aria-labelledby="myths">
         <h2 id="myths" className="display text-[32px] md:text-[40px]">

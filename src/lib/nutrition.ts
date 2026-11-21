@@ -160,7 +160,7 @@ export const rankable = (food: Food, per: Basis) =>
   !NOT_RECOMMENDED[food.id] && (per === 'portion' || !pinchSized(food))
 
 /** Keep only the best-ranked preparation of each food (raw / cooked / canned salmon → one entry). */
-function onePerFood<T extends { food: Food }>(ranked: T[]): T[] {
+export function onePerFood<T extends { food: Food }>(ranked: T[]): T[] {
   const seen = new Set<string>()
   return ranked.filter(({ food }) => {
     const key = `${food.category}|${baseName(food.name)}`

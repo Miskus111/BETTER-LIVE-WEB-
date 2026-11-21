@@ -15,3 +15,18 @@ describe('guidesForFood', () => {
     expect(slugs('spinach')).not.toContain('bilkoviny')
   })
 })
+
+describe('foodPicksForGuide', () => {
+  it('lists real, varied sources per portion and no junk or recipes', async () => {
+    const { foodPicksForGuide } = await import('./guides')
+    const { FOODS } = await import('@/data/foods')
+    const fat = foodPicksForGuide('tuky', FOODS)!
+    expect(fat.items[0].amount).toBeGreaterThan(1000)
+    expect(fat.items.every((x) => x.amount >= fat.items[0].amount * 0.25)).toBe(true)
+    const protein = foodPicksForGuide('bilkoviny', FOODS)!.items.map((x) => x.food)
+    expect(protein.some((f) => f.recipe)).toBe(false)
+    const fibre = foodPicksForGuide('traveni-a-zacpa', FOODS)!.items.map((x) => x.food.category)
+    expect(new Set(fibre).size).toBeGreaterThan(2)
+    expect(foodPicksForGuide('spanek', FOODS)).toBeNull()
+  })
+})
