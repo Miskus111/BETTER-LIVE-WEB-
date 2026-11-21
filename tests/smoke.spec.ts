@@ -554,4 +554,7 @@ test('password reset: the login form switches to an email-only reset form; a sta
     'href',
     '/login',
   )
+  // "send a new link" opens the reset form directly
+  await page.getByRole('link', { name: /Poslat nový odkaz|Send a new link/ }).click()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
 })

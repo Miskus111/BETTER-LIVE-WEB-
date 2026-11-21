@@ -80,7 +80,8 @@
     "errEmailInvalid": "Tahle e-mailová adresa nevypadá platně.",
     "errRateLimit": "Příliš mnoho pokusů za krátkou dobu. Zkuste to prosím za pár minut.",
     "errSignupDisabled": "Registrace je momentálně vypnutá.",
-    "errGeneric": "Něco se nepovedlo. Zkuste to prosím znovu."
+    "errGeneric": "Něco se nepovedlo. Zkuste to prosím znovu.",
+    "requestNewLink": "Poslat nový odkaz"
   },
   "onboarding": {
     "title": "Nastavení profilu",

@@ -14,7 +14,7 @@ export function LoginForm({
   linkExpired = false,
 }: {
   next: string
-  initialMode: 'signin' | 'signup'
+  initialMode: 'signin' | 'signup' | 'reset'
   linkExpired?: boolean
 }) {
   const t = useTranslations('auth')
@@ -24,6 +24,8 @@ export function LoginForm({
   const [password, setPassword] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
   const [message, setMessage] = useState('')
+
+  const showGoogle = process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && mode !== 'reset'
 
   const callback = (target: string) =>
     `${window.location.origin}/auth/callback?next=${encodeURIComponent(target)}`
@@ -101,7 +103,7 @@ export function LoginForm({
         </p>
       )}
 
-      {process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && mode !== 'reset' && (
+      {showGoogle && (
         <>
           <button
             type="button"
@@ -119,7 +121,8 @@ export function LoginForm({
         </>
       )}
 
-      <form onSubmit={submit} className="grid gap-4" noValidate>
+      {/* the Google block above brings its own spacing */}
+      <form onSubmit={submit} className={`grid gap-4 ${showGoogle ? '' : 'mt-8'}`} noValidate>
         <label className="grid gap-1.5">
           <span className="text-muted text-[14px]">{t('email')}</span>
           <input

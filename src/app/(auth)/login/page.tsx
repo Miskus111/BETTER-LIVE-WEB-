@@ -20,7 +20,7 @@ export default async function LoginPage({
   return (
     <LoginForm
       next={safeNext(next)}
-      initialMode={mode === 'signup' ? 'signup' : 'signin'}
+      initialMode={mode === 'signup' || mode === 'reset' ? mode : 'signin'}
       linkExpired={error === 'callback'}
     />
   )

@@ -24,9 +24,14 @@ export default async function ResetPasswordPage() {
       <div className="mx-auto max-w-md px-5 pt-16 pb-16">
         <h1 className="display text-[40px]">{t('resetTitle')}</h1>
         <p className="mt-4 text-[16px]">{t('resetExpired')}</p>
-        <Link href="/login" className="btn btn-primary mt-6">
-          {t('backToLogin')}
-        </Link>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <Link href="/login?mode=reset" className="btn btn-primary">
+            {t('requestNewLink')}
+          </Link>
+          <Link href="/login" className="link text-[14.5px]">
+            {t('backToLogin')}
+          </Link>
+        </div>
       </div>
     )
   return <NewPasswordForm />
