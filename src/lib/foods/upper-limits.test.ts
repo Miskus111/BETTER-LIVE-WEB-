@@ -25,3 +25,25 @@ describe('portions from FDC', () => {
     expect(byId['oysters'].portions[0].grams).toBe(84) // "6 ústřic" = 6 × 14 g
   })
 })
+
+describe('upper limits agree across the site', () => {
+  it('food warnings use the same EFSA limits as the supplement pages and reference values', async () => {
+    const { SUPPLEMENTS } = await import('@/data/supplement-library')
+    const { REFERENCE } = await import('@/data/reference')
+    const { UPPER_LIMITS } = await import('./upper-limits')
+    const supplementId: Record<string, string> = {
+      vitD: 'vitamin-d3',
+      b6: 'vitamin-b6',
+      zinc: 'zinc',
+      iodine: 'iodine',
+      selenium: 'selenium',
+    }
+    for (const u of UPPER_LIMITS) {
+      if (u.key === 'retinol') {
+        expect(REFERENCE.vitA?.ul?.text.replace(/\s/g, '')).toContain(String(u.ul))
+        continue
+      }
+      expect(SUPPLEMENTS.find((s) => s.id === supplementId[u.key])?.ul?.value, u.key).toBe(u.ul)
+    }
+  })
+})
