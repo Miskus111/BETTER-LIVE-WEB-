@@ -539,7 +539,21 @@ test('password reset: the login form switches to an email-only reset form; a sta
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(/Obnova hesla|Reset password/)
   await expect(page.locator('input[type="email"]')).toBeVisible()
   await expect(page.locator('input[type="password"]')).toHaveCount(0)
-  // nothing is submitted: the test must never send e-mails from the real project
+  // the request is answered here, never by the real project (no e-mails are sent)
+  let calls = 0
+  await page.route('**/auth/v1/recover**', (route) => {
+    calls++
+    return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' })
+  })
+  await page.locator('input[type="email"]').fill('reset-test@example.test')
+  await page.getByRole('button', { name: /Poslat odkaz|Send link/ }).click()
+  await expect(page.getByRole('status')).toContainText(/odkaz|link/)
+  // resend waits out a cooldown so nobody hammers Supabase's e-mail limit
+  await expect(page.getByTestId('resend')).toBeDisabled()
+  expect(calls).toBe(1)
+
+  await page.goto('/login')
+  await page.getByTestId('forgot-password').click()
   await page.getByRole('button', { name: /Zpět na přihlášení|Back to sign in/ }).click()
   await expect(page.locator('input[type="password"]')).toBeVisible()
 

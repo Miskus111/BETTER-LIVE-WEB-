@@ -83,7 +83,11 @@
     "errGeneric": "Something went wrong. Please try again.",
     "requestNewLink": "Send a new link",
     "showPassword": "Show password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+    "resend": "Send the email again",
+    "resendWait": "Send again in {s} s",
+    "resent": "We've sent the email again.",
+    "noEmail": "No email? Check your spam folder and the address for typos."
   },
   "onboarding": {
     "title": "Set up your profile",

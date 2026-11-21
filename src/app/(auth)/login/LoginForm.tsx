@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Loader2, MailCheck } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { PasswordInput } from '@/components/ui/PasswordInput'
@@ -25,6 +25,15 @@ export function LoginForm({
   const [password, setPassword] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  // seconds until the confirmation / reset e-mail may be sent again (Supabase limits e-mails per hour)
+  const [cooldown, setCooldown] = useState(0)
+  const [resent, setResent] = useState(false)
+
+  useEffect(() => {
+    if (cooldown <= 0) return
+    const id = setTimeout(() => setCooldown((c) => c - 1), 1000)
+    return () => clearTimeout(id)
+  }, [cooldown])
 
   const showGoogle = process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1' && mode !== 'reset'
 
@@ -48,6 +57,7 @@ export function LoginForm({
         return
       }
       setStatus('sent')
+      setCooldown(60)
       return
     }
     if (mode === 'signin') {
@@ -73,8 +83,26 @@ export function LoginForm({
       if (data.session) {
         router.replace('/onboarding')
         router.refresh()
-      } else setStatus('sent')
+      } else {
+        setStatus('sent')
+        setCooldown(60)
+      }
     }
+  }
+
+  const resend = async () => {
+    const supabase = createClient()
+    const { error } =
+      mode === 'reset'
+        ? await supabase.auth.resetPasswordForEmail(email, { redirectTo: callback('/reset-password') })
+        : await supabase.auth.resend({
+            type: 'signup',
+            email,
+            options: { emailRedirectTo: callback('/onboarding') },
+          })
+    setCooldown(60)
+    setResent(!error || authErrorKey(error) !== 'errRateLimit')
+    if (authErrorKey(error) === 'errRateLimit') setMessage(t('errRateLimit'))
   }
 
   const google = async () => {
@@ -88,6 +116,19 @@ export function LoginForm({
         <MailCheck size={36} className="text-cyan mx-auto" aria-hidden />
         <p className="mt-4 text-[17px]" role="status">
           {mode === 'reset' ? t('resetSent') : t('checkEmail')}
+        </p>
+        <p className="text-muted mt-6 text-[14px]">{t('noEmail')}</p>
+        <button
+          type="button"
+          onClick={resend}
+          disabled={cooldown > 0}
+          className="btn btn-ghost mt-3 !py-2"
+          data-testid="resend"
+        >
+          {cooldown > 0 ? t('resendWait', { s: cooldown }) : t('resend')}
+        </button>
+        <p className="mt-2 min-h-5 text-[13px]" aria-live="polite">
+          {resent ? t('resent') : message}
         </p>
       </div>
     )

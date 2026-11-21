@@ -83,7 +83,11 @@
     "errGeneric": "Něco se nepovedlo. Zkuste to prosím znovu.",
     "requestNewLink": "Poslat nový odkaz",
     "showPassword": "Zobrazit heslo",
-    "hidePassword": "Skrýt heslo"
+    "hidePassword": "Skrýt heslo",
+    "resend": "Poslat e-mail znovu",
+    "resendWait": "Znovu poslat za {s} s",
+    "resent": "E-mail jsme poslali znovu.",
+    "noEmail": "Nepřišel e-mail? Zkontrolujte spam a překlepy v adrese."
   },
   "onboarding": {
     "title": "Nastavení profilu",
