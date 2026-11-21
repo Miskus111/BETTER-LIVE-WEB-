@@ -16,10 +16,13 @@ export function FoodDetail({
   food,
   headingLevel = 'h3',
   showPageLink,
+  afterSummary,
 }: {
   food: Food
   headingLevel?: 'h1' | 'h3'
   showPageLink?: boolean
+  /** shown right under "V kostce" — the food page puts safety warnings (upper limits) here */
+  afterSummary?: React.ReactNode
 }) {
   const H = headingLevel
   const micros = (Object.entries(food.micros) as [NutrientId, number][])
@@ -94,6 +97,8 @@ export function FoodDetail({
           </p>
         </section>
       )}
+
+      {afterSummary}
 
       {food.allergens.length > 0 && (
         <p className="text-[13.5px]" data-testid="food-allergens">

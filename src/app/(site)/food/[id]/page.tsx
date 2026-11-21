@@ -53,6 +53,30 @@ export default async function FoodPage({ params }: Params) {
   const shop = shopLinksForFood(food)
   const p = details.provenance
   const limits = upperLimitHits(details.nutrients, food.portion.grams)
+  const limitsBlock = limits.length > 0 && (
+    <section
+      className="border-warn/40 bg-warn/5 rounded-xl border p-4 text-[14.5px]"
+      aria-labelledby="upper-limits"
+      data-testid="upper-limits"
+    >
+      <h2 id="upper-limits" className="text-warn flex items-center gap-2 font-medium">
+        <AlertTriangle size={16} aria-hidden /> Pozor na horní bezpečný limit
+      </h2>
+      <ul className="mt-2 grid gap-1.5">
+        {limits.map((l) => (
+          <li key={l.name}>
+            Jedna porce ({portionText(food.portion)}) obsahuje {fmtAmount(l.amount, l.unit)} {l.name} —{' '}
+            <strong>{l.pct} %</strong> horního limitu EFSA pro dospělé ({fmtAmount(l.ul, l.unit)} denně ze
+            všech zdrojů). {l.note}
+          </li>
+        ))}
+      </ul>
+      <p className="text-muted mt-2 text-[13px]">
+        Občas nevadí — limit platí pro dlouhodobý denní příjem. Jezte spíš příležitostně a nekombinujte s
+        doplňky se stejnou látkou.
+      </p>
+    </section>
+  )
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-8 md:px-8">
@@ -86,33 +110,8 @@ export default async function FoodPage({ params }: Params) {
       )}
 
       <div className="card mt-4 p-5 md:p-8">
-        <FoodDetail food={food} headingLevel="h1" />
+        <FoodDetail food={food} headingLevel="h1" afterSummary={limitsBlock} />
       </div>
-
-      {limits.length > 0 && (
-        <section
-          className="border-warn/40 bg-warn/5 mt-6 rounded-xl border p-4 text-[14.5px]"
-          aria-labelledby="upper-limits"
-          data-testid="upper-limits"
-        >
-          <h2 id="upper-limits" className="text-warn flex items-center gap-2 font-medium">
-            <AlertTriangle size={16} aria-hidden /> Pozor na horní bezpečný limit
-          </h2>
-          <ul className="mt-2 grid gap-1.5">
-            {limits.map((l) => (
-              <li key={l.name}>
-                Jedna porce ({portionText(food.portion)}) obsahuje {fmtAmount(l.amount, l.unit)} {l.name} —{' '}
-                <strong>{l.pct} %</strong> horního limitu EFSA pro dospělé ({fmtAmount(l.ul, l.unit)} denně ze
-                všech zdrojů). {l.note}
-              </li>
-            ))}
-          </ul>
-          <p className="text-muted mt-2 text-[13px]">
-            Občas nevadí — limit platí pro dlouhodobý denní příjem. Jezte spíš příležitostně a nekombinujte s
-            doplňky se stejnou látkou.
-          </p>
-        </section>
-      )}
 
       <div className="mt-6">
         <FoodNutritionPanel food={details} />
