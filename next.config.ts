@@ -58,12 +58,8 @@ const nextConfig: NextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           // no framing by other sites (clickjacking on login and health forms)
           { key: 'X-Frame-Options', value: 'DENY' },
-          {
-            key: 'Content-Security-Policy',
-            value: "frame-ancestors 'none'; object-src 'none'; base-uri 'self'",
-          },
-          // full policy in report-only first: violations show in the console, nothing is blocked
-          { key: 'Content-Security-Policy-Report-Only', value: CSP },
+          // enforced after a clean report-only run on all page types (local and production)
+          { key: 'Content-Security-Policy', value: CSP },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           // the site never uses these; file pickers for photos are not affected
           {
