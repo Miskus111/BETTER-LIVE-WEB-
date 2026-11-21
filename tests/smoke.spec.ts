@@ -513,3 +513,12 @@ test('Content-Security-Policy is sent and blocks nothing the site needs', async 
   }
   expect(blocked).toEqual([])
 })
+
+test('a clicked organ shows its glow, not a browser focus rectangle', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/')
+  const liver = page.locator('[data-organ="liver"]').first()
+  await liver.click({ force: true })
+  await expect(page).toHaveURL(/organ=liver/)
+  expect(await liver.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('none')
+})
