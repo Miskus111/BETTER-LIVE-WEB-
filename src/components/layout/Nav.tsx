@@ -43,7 +43,7 @@ export function Nav() {
     <header
       className={cx(
         'sticky top-0 z-40 transition-colors duration-300',
-        scrolled || open ? 'border-line bg-ink/80 border-b backdrop-blur-xl' : 'border-b border-transparent',
+        scrolled || open ? 'border-line bg-ink/95 border-b backdrop-blur-xl' : 'border-b border-transparent',
       )}
     >
       <nav
