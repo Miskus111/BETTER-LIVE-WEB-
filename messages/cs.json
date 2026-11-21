@@ -279,7 +279,8 @@
     "confirmMismatch": "Potvrzovací slovo nesouhlasí.",
     "deleteError": "Účet se nepodařilo smazat. Zkuste to prosím znovu.",
     "withdrawConsent": "Odvolat souhlas se zpracováním údajů o zdraví",
-    "seePricing": "Porovnat tarify Zdarma a Pro"
+    "seePricing": "Porovnat tarify Zdarma a Pro",
+    "changePassword": "Změnit heslo"
   },
   "train": {
     "title": "Trénink",

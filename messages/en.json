@@ -279,7 +279,8 @@
     "confirmMismatch": "The confirmation word does not match.",
     "deleteError": "The account could not be deleted. Please try again.",
     "withdrawConsent": "Withdraw consent to processing health data",
-    "seePricing": "Compare Free and Pro plans"
+    "seePricing": "Compare Free and Pro plans",
+    "changePassword": "Change password"
   },
   "train": {
     "title": "Train",

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
-import { Download, PencilLine, ShieldOff, Sparkles, Trash2 } from 'lucide-react'
+import { Download, KeyRound, PencilLine, ShieldOff, Sparkles, Trash2 } from 'lucide-react'
 import { isFreeMode, PRICES } from '@/lib/billing'
 import { getPlan } from '@/lib/plan'
 import { requireAppUser } from '@/lib/auth'
@@ -27,6 +27,9 @@ export default async function SettingsPage({ searchParams }: { searchParams: Pro
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <Link href="/onboarding" className="btn btn-ghost !py-2">
             <PencilLine size={15} aria-hidden /> {t('editOnboarding')}
+          </Link>
+          <Link href="/reset-password" className="btn btn-ghost !py-2" data-testid="change-password">
+            <KeyRound size={15} aria-hidden /> {t('changePassword')}
           </Link>
           <LanguageSwitch />
           <form action={signOut}>
