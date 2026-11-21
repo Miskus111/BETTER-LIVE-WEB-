@@ -48,6 +48,31 @@ const PICKS: Record<
     only: (f) => f.diet.vegan,
   },
   kosti: { title: 'Nejvíc vápníku v běžné porci', unit: 'mg', value: (f) => f.micros.calcium ?? 0 },
+  // only where the guide itself names the nutrient
+  unava: {
+    title: 'Nejvíc železa v běžné porci (chudokrevnost z nedostatku železa je častá příčina únavy)',
+    unit: 'mg',
+    value: (f) => f.micros.iron ?? 0,
+  },
+  'menstruacni-cyklus': {
+    title: 'Nejvíc železa v běžné porci',
+    unit: 'mg',
+    value: (f) => f.micros.iron ?? 0,
+  },
+  'srdce-a-tlak': {
+    title: 'Nejvíc draslíku v běžné porci',
+    unit: 'mg',
+    value: (f) => f.micros.potassium ?? 0,
+  },
+  cholesterol: { title: 'Nejvíc vlákniny v běžné porci', unit: 'g', value: (f) => f.macros.fiber },
+  'priprava-na-tehotenstvi': {
+    title:
+      'Nejvíc folátu v běžné porci — kyselinu listovou před početím ale doporučují v doplňku (400 µg), jídlo ji nenahradí',
+    unit: 'µg',
+    value: (f) => f.micros.folate ?? 0,
+    // liver: too much vitamin A (retinol) in pregnancy
+    only: (f) => !/liver|játr/i.test(`${f.id} ${f.name}`),
+  },
 }
 
 export interface GuideFoodPicks {

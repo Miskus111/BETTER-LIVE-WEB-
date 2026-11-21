@@ -146,7 +146,23 @@ export function dietFor(key: string, cat: Category, allergens: Allergen[]) {
  * Values in the source record that are clearly wrong, shown as "no data" instead (we never invent a
  * replacement). Each entry says why; the reason goes into the food's provenance notes.
  */
+
+/** Nutrients US law adds to "enriched" white flour; Czech flour isn't enriched. */
+const ENRICHMENT: PanelKey[] = ['folate', 'iron', 'b1', 'b2', 'b3']
+const US_FLOUR =
+  'Americký záznam z obohacené mouky (v USA povinné). Česká mouka se neobohacuje, proto folát, železo a vitamíny B1, B2 a B3 neuvádíme — u českého výrobku by byly výrazně nižší.'
+
 export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }> = {
+  'bread-white': { keys: ENRICHMENT, reason: US_FLOUR },
+  'bread-rye': { keys: ENRICHMENT, reason: US_FLOUR },
+  'bread-pumpernickel': { keys: ENRICHMENT, reason: US_FLOUR },
+  roll: { keys: ENRICHMENT, reason: US_FLOUR },
+  baguette: { keys: ENRICHMENT, reason: US_FLOUR },
+  tortilla: { keys: ENRICHMENT, reason: US_FLOUR },
+  croissant: { keys: ENRICHMENT, reason: US_FLOUR },
+  cookies: { keys: ENRICHMENT, reason: US_FLOUR },
+  cake: { keys: ENRICHMENT, reason: US_FLOUR },
+  pancakes: { keys: ENRICHMENT, reason: US_FLOUR },
   nutella: {
     keys: ['satFat', 'monoFat', 'polyFat'],
     reason:

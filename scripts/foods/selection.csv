@@ -316,11 +316,11 @@ oats,173904,SR Legacy,"Cereals, oats, regular and quick, not fortified, dry",Ove
 oats-cooked,173905,SR Legacy,"Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",Ovesná kaše (na vodě),"Oatmeal, cooked with water",Obiloviny a pečivo,cooked,1 miska=cup,gluten
 oat-bran,168872,SR Legacy,"Oat bran, raw",Ovesné otruby,Oat bran,Obiloviny a pečivo,dry,1 lžíce==8,gluten
 muesli,171646,SR Legacy,"Cereals ready-to-eat, granola, homemade",Granola / pečené müsli,Granola,Obiloviny a pečivo,processed,porce 50 g==50,"gluten, nuts"
-rice-white,168877,SR Legacy,"Rice, white, long-grain, regular, raw, enriched",Rýže bílá dlouhozrnná (suchá),"White rice, dry",Obiloviny a pečivo,dry,porce 70 g==70,
-rice-white-cooked,168878,SR Legacy,"Rice, white, long-grain, regular, enriched, cooked",Rýže bílá vařená,"White rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
+rice-white,169756,SR Legacy,"Rice, white, long-grain, regular, raw, unenriched",Rýže bílá dlouhozrnná (suchá),"White rice, dry",Obiloviny a pečivo,dry,porce 70 g==70,
+rice-white-cooked,169757,SR Legacy,"Rice, white, long-grain, regular, unenriched, cooked without salt",Rýže bílá vařená,"White rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 rice-brown,169703,SR Legacy,"Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",Rýže natural (suchá),"Brown rice, dry",Obiloviny a pečivo,dry,porce 70 g==70,
 rice-brown-cooked,169704,SR Legacy,"Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",Rýže natural vařená,"Brown rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
-rice-basmati-cooked,169708,SR Legacy,"Rice, white, long-grain, parboiled, enriched, cooked",Rýže parboiled vařená,"Parboiled rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
+rice-basmati-cooked,169759,SR Legacy,"Rice, white, long-grain, parboiled, unenriched, cooked",Rýže parboiled vařená,"Parboiled rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 rice-wild-cooked,168897,SR Legacy,"Wild rice, cooked",Divoká rýže vařená,"Wild rice, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 buckwheat,170685,SR Legacy,"Buckwheat groats, roasted, dry","Pohanka (lámanka/kroupy, suchá)","Buckwheat groats, dry",Obiloviny a pečivo,dry,porce 70 g==70,
 buckwheat-cooked,170686,SR Legacy,"Buckwheat groats, roasted, cooked",Pohanka vařená,"Buckwheat groats, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
@@ -332,16 +332,16 @@ barley,170284,SR Legacy,"Barley, pearled, raw",Kroupy ječné (suché),"Pearl ba
 barley-cooked,170285,SR Legacy,"Barley, pearled, cooked",Kroupy vařené,"Pearl barley, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
 bulgur-cooked,170287,SR Legacy,"Bulgur, cooked",Bulgur vařený,"Bulgur, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
 couscous-cooked,169700,SR Legacy,"Couscous, cooked",Kuskus vařený,"Couscous, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
-semolina,169715,SR Legacy,"Semolina, enriched",Krupice,Semolina,Obiloviny a pečivo,dry,1 lžíce==10,gluten
+semolina,168933,SR Legacy,"Semolina, unenriched",Krupice,Semolina,Obiloviny a pečivo,dry,1 lžíce==10,gluten
 polenta,169697,SR Legacy,"Cornmeal, whole-grain, yellow",Kukuřičná mouka / polenta (suchá),"Cornmeal, whole-grain",Obiloviny a pečivo,dry,porce 60 g==60,
 amaranth,170683,SR Legacy,"Amaranth grain, cooked",Amarant vařený,"Amaranth, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
 spelt-cooked,169746,SR Legacy,"Spelt, cooked",Špalda vařená,"Spelt, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
-pasta,2758998,Foundation,"Pasta, dry, enriched, spaghetti",Těstoviny (suché),"Pasta, dry",Obiloviny a pečivo,dry,porce 80 g==80,gluten
-pasta-cooked,169737,SR Legacy,"Pasta, cooked, enriched, without added salt",Těstoviny vařené,"Pasta, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
+pasta,168927,SR Legacy,"Pasta, dry, unenriched",Těstoviny (suché),"Pasta, dry",Obiloviny a pečivo,dry,porce 80 g==80,gluten
+pasta-cooked,168928,SR Legacy,"Pasta, cooked, unenriched, without added salt",Těstoviny vařené,"Pasta, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
 pasta-wholewheat-cooked,168910,SR Legacy,"Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",Celozrnné těstoviny vařené,"Whole-wheat pasta, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,gluten
-egg-noodles-cooked,168919,SR Legacy,"Noodles, egg, cooked, enriched, with added salt",Vaječné nudle vařené,"Egg noodles, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,"gluten, eggs"
+egg-noodles-cooked,169762,SR Legacy,"Noodles, egg, cooked, unenriched, with added salt",Vaječné nudle vařené,"Egg noodles, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,"gluten, eggs"
 rice-noodles-cooked,168914,SR Legacy,"Rice noodles, cooked",Rýžové nudle vařené,"Rice noodles, cooked",Obiloviny a pečivo,cooked,1 hrnek=cup,
-flour-wheat,168894,SR Legacy,"Wheat flour, white, all-purpose, enriched, bleached",Pšeničná mouka hladká,"Wheat flour, white",Obiloviny a pečivo,dry,1 lžíce==8,gluten
+flour-wheat,169761,SR Legacy,"Wheat flour, white, all-purpose, unenriched",Pšeničná mouka hladká,"Wheat flour, white",Obiloviny a pečivo,dry,1 lžíce==8,gluten
 flour-wholewheat,790085,Foundation,"Flour, whole wheat, unenriched",Celozrnná pšeničná mouka,Whole-wheat flour,Obiloviny a pečivo,dry,1 lžíce==8,gluten
 flour-rye,168885,SR Legacy,"Rye flour, dark",Žitná mouka tmavá,Dark rye flour,Obiloviny a pečivo,dry,1 lžíce==8,gluten
 wheat-germ,168892,SR Legacy,"Wheat germ, crude",Pšeničné klíčky,Wheat germ,Obiloviny a pečivo,dry,1 lžíce==7,gluten

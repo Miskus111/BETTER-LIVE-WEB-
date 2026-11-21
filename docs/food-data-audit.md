@@ -113,9 +113,10 @@ Panel nově obsahuje **retinol** (FDC 1105, 421 potravin), aby varování o horn
 `scripts/foods/rules.ts` → `SUSPECT_VALUES`: hodnoty, které jsou v záznamu FDC zjevně chybné, zobrazujeme jako
 „bez údajů“ (nic nedopočítáváme) a důvod je v provenienci potraviny. Validace hlídá stejný vzorec u nových potravin.
 
-| Potravina                            | Hodnoty                               | Proč                                                                                                                      |
-| ------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Lískooříšková pomazánka (FDC 168000) | nasycené, mono- a polynenasycené tuky | 28,4 g nasycených a 0 g nenasycených z 29,7 g tuku — u pomazánky z lískových ořechů nemožné (etiketa: ~10,6 g nasycených) |
+| Potravina                                                                                       | Hodnoty                               | Proč                                                                                                                      |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Chléb bílý, žitný, pumpernikl, rohlík, bageta, tortilla, croissant, sušenky, bábovka, palačinky | folát, železo, B1, B2, B3             | Americké záznamy z obohacené mouky (v USA povinné); česká mouka se neobohacuje                                            |
+| Lískooříšková pomazánka (FDC 168000)                                                            | nasycené, mono- a polynenasycené tuky | 28,4 g nasycených a 0 g nenasycených z 29,7 g tuku — u pomazánky z lískových ořechů nemožné (etiketa: ~10,6 g nasycených) |
 
 - **Jód** je v FDC téměř všude prázdný (data má jen 6 potravin) — zobrazuje se „bez údajů“, ne 0.
   Řešením by byla česká NutriDatabáze, ta je ale licenčně nedostupná (viz `data-sources.md`).

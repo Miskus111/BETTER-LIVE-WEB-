@@ -114,6 +114,14 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
       const mass = n.water + n.protein + n.fat + n.carbsTotal
       if (mass > 105) err(`water + protein + fat + carbohydrate = ${mass.toFixed(0)} g per 100 g`)
     }
+    // US "enriched" flour products carry added folate/iron/B vitamins Czech products don't have:
+    // use an unenriched record or list the food in SUSPECT_VALUES (scripts/foods/rules.ts)
+    if (
+      /\benriched\b/i.test(f.provenance.sourceDescription) &&
+      !/unenriched/i.test(f.provenance.sourceDescription)
+    )
+      if (n.folate !== null || n.iron !== null)
+        err('US-enriched record with enrichment nutrients — not valid for Czech food')
     // a fatty food can't be all saturated with no mono/poly at all (FDC 168000 shipped exactly that)
     if ((n.fat ?? 0) >= 5 && n.satFat !== null && n.monoFat === 0 && n.polyFat === 0)
       err('fatty-acid breakdown has 0 g mono and poly — suspect source values (see SUSPECT_VALUES)')
