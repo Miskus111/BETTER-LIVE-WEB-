@@ -57,7 +57,7 @@ function frame(art: Art, id: string) {
 ${inner}
 <rect width="800" height="720" fill="url(#vig-${id})"/>
 <rect width="800" height="720" filter="url(#grain-${id})" opacity="0.6"/>
-<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="3" fill="#5f7183">ILUSTRACE · NAHRADIT FOTOGRAFIÍ</text>
+<text x="400" y="648" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="15" letter-spacing="3" fill="#5f7183">ILUSTRACE</text>
 </svg>`
 }
 
