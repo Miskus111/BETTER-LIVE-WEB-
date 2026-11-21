@@ -136,8 +136,10 @@ varování o horních limitech EFSA (`src/lib/foods/upper-limits.ts`) se počít
 
 ## Bezpečnost
 
-- Hlavičky v `next.config.ts`: nosniff, zákaz vkládání do rámců (`frame-ancestors 'none'`), referrer a permissions
-  policy. Plná CSP pro skripty zatím není — vyžadovala by nonce pro Next, Supabase, Vercel a Open Food Facts.
+- Hlavičky v `next.config.ts`: nosniff, zákaz vkládání do rámců, referrer a permissions policy a CSP —
+  web smí načítat a posílat data jen na vlastní doménu, `*.supabase.co` a Open Food Facts. Nová externí služba
+  (platební brána, analytika, mapy) se musí do CSP přidat, jinak ji prohlížeč zablokuje. Inline skripty jsou
+  povolené (Next je potřebuje; nonce by vypnul statické stránky).
 - Supabase: po změně schématu spusťte poradce (Dashboard → Advisors). Migrace jsou v `supabase/migrations/`
   a spouštějí se ručně (SQL editor nebo `supabase db push`).
 - E2E test spouští axe (přístupnost) na hlavních stránkách, obrazovkách aplikace a v prázdném vyhledávání.
