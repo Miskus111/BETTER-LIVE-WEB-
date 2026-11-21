@@ -3,13 +3,13 @@
 Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu záznamu ve zdroji. Neznámá hodnota je
 `null` a v UI se zobrazí jako „bez údajů“, nikdy jako 0 ani odhad.
 
-| Zdroj | Verze | Co z něj bereme | Licence | Stav |
-| --- | --- | --- | --- | --- |
-| USDA FoodData Central — **Foundation Foods** | 2026-10-29 | 20 potravin (přednostně) | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation) | používáme |
-| USDA FoodData Central — **SR Legacy** | 2018-04 | 423 potravin | Public domain, CC0 1.0 | používáme |
-| Vypočtené recepty (BLWB) | — | 5 českých jídel ze surovin výše | vlastní výpočet | používáme, `verified: false` |
-| Open Food Facts | živé API v2 | balené výrobky podle čárového kódu | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) (databáze), obsah DbCL | jen dotaz z prohlížeče, nic neukládáme |
-| NutriDatabáze.cz (ÚZEI) | — | — | vlastní licenční podmínky | **nepoužíváme** (viz níže) |
+| Zdroj                                        | Verze       | Co z něj bereme                    | Licence                                                                           | Stav                                   |
+| -------------------------------------------- | ----------- | ---------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------- |
+| USDA FoodData Central — **Foundation Foods** | 2026-10-29  | 20 potravin (přednostně)           | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation)             | používáme                              |
+| USDA FoodData Central — **SR Legacy**        | 2018-04     | 423 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
+| Vypočtené recepty (BLWB)                     | —           | 5 českých jídel ze surovin výše    | vlastní výpočet                                                                   | používáme, `verified: false`           |
+| Open Food Facts                              | živé API v2 | balené výrobky podle čárového kódu | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) (databáze), obsah DbCL | jen dotaz z prohlížeče, nic neukládáme |
+| NutriDatabáze.cz (ÚZEI)                      | —           | —                                  | vlastní licenční podmínky                                                         | **nepoužíváme** (viz níže)             |
 
 ## USDA FoodData Central
 
@@ -37,6 +37,22 @@ Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu zázn
 - Sacharidy: FDC uvádí „carbohydrate by difference“ (včetně vlákniny, americký způsob). Pro evropské
   značení počítáme **využitelné sacharidy = sacharidy − vláknina**; obě hodnoty jsou v datech.
 - Referenční hodnoty příjmu (% RHP): nařízení EU 1169/2011, příloha XIII, část A.
+
+### Americká data vs. české potraviny
+
+USDA popisuje americké výrobky. Kde se liší od českých, data upravujeme jen jedním směrem — hodnotu skryjeme
+(„bez údajů“) a důvod uvedeme u potraviny, nikdy ji nedopočítáváme (`SUSPECT_VALUES` v `scripts/foods/rules.ts`):
+
+- **Obohacená mouka a rýže („enriched“)** — v USA povinně obohacené folátem, železem a vitamíny B. Kde existuje
+  neobohacený záznam FDC, používáme ho (rýže, těstoviny, krupice, mouka, nudle); u pečiva tyto živiny skryjeme.
+- **Mléko s přidaným vitamínem D (a A)** — české mléko se neobohacuje; přidané vitamíny skryjeme.
+- **Výrobky obohacené výrobcem** (tavený sýr, margarín, syrovátkový protein) — obsah závisí na značce; skryjeme.
+- **Zjevně chybné hodnoty ve zdroji** (např. rozpad tuků u FDC 168000) — skryjeme.
+- **Bez přesného ekvivalentu** (tvaroh, rohlík, bábovka…) — použijeme nejbližší záznam, v názvu „(blízká obdoba)“
+  a poznámka u potraviny říká, jaký výrobek data popisují (`APPROXIMATIONS`).
+
+Validace (`npm run foods:validate`) odmítne záznam „enriched“ nebo mléko s přidaným vitamínem D, které by tyto
+hodnoty ukazovaly.
 
 ## Vypočtené recepty
 
