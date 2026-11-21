@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { FOODS, FOOD_BY_ID } from '@/data/foods'
 import { EMPTY_QUERY, matchesText, measureOf, portionText, queryFoods } from './query'
 import { rawCookedPair } from './variants'
+import { notRecommendedReason } from '@/lib/nutrition'
 
 describe('food queries', () => {
   it('search ignores Czech diacritics and matches English names', () => {
@@ -18,11 +19,9 @@ describe('food queries', () => {
   })
   it('sorts by a nutrient per 100 g and per portion, "no data" last', () => {
     const per100 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'vitC' })
-    // sorted within each group: real foods first, then foods eaten by the pinch
-    for (const group of [
-      per100.filter((f) => f.portion.grams >= 10),
-      per100.filter((f) => f.portion.grams < 10),
-    ]) {
+    // sorted within each group: real foods first, then spices and foods we never recommend
+    const isLast = (f: (typeof per100)[number]) => f.portion.grams < 10 || !!notRecommendedReason(f)
+    for (const group of [per100.filter((f) => !isLast(f)), per100.filter(isLast)]) {
       const vals = group.map((f) => measureOf(f, 'vitC') ?? -1)
       expect(vals).toEqual([...vals].sort((a, b) => b - a))
     }
@@ -65,5 +64,13 @@ describe('rawCookedPair', () => {
     expect([s?.before.id, s?.after.id]).toEqual(['spinach', 'spinach-cooked'])
     expect(rawCookedPair(FOOD_BY_ID['spinach-cooked'], FOODS)?.before.id).toBe('spinach')
     expect(rawCookedPair(FOOD_BY_ID['lentils-dry'], FOODS)?.after.id).toBe('lentils')
+  })
+})
+
+describe('sorting by a nutrient', () => {
+  it('puts foods we never recommend after real foods (still listed)', () => {
+    const b6 = queryFoods(FOODS, { ...EMPTY_QUERY, sort: 'b6', per: 'portion' }).map((f) => f.id)
+    expect(b6.slice(0, 10)).not.toContain('energy-drink')
+    expect(b6).toContain('energy-drink')
   })
 })

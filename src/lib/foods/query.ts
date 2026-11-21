@@ -1,7 +1,7 @@
 import { NUTRIENTS } from '@/data/nutrients'
 import type { Food, NutrientId } from '@/data/types'
 import { norm } from '@/lib/guide-search'
-import { amountOf, isSource, pinchSized } from '@/lib/nutrition'
+import { amountOf, isSource, notRecommendedReason, pinchSized } from '@/lib/nutrition'
 
 /** Sortable measures: energy, macros and every nutrient with an amount per 100 g. */
 export type Measure = 'kcal' | 'protein' | 'fat' | 'carbs' | 'fiber' | NutrientId
@@ -96,8 +96,9 @@ export function queryFoods(foods: Food[], q: FoodQuery): Food[] {
     if (v === undefined) return -1 // "no data" sorts last
     return q.per === 'portion' ? perPortion(f, v) : v
   }
-  // per 100 g, foods eaten by the pinch (spices, dried herbs) go after real foods, still visible
-  const last = (f: Food) => Number(q.per !== 'portion' && pinchSized(f))
+  // still listed, but after real foods: spices per 100 g (eaten by the pinch) and foods we never
+  // recommend as a source (an energy drink shouldn't top a vitamin B6 sort)
+  const last = (f: Food) => Number((q.per !== 'portion' && pinchSized(f)) || !!notRecommendedReason(f))
   return [...out].sort((a, b) => last(a) - last(b) || val(b) - val(a))
 }
 
