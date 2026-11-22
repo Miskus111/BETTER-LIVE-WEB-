@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 export default function ToolsPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-4 pt-8 pb-16 md:px-8 md:pt-12">
+      <BreadcrumbLd items={[['Kalkulačky', '/nastroje']]} />
       <nav
         aria-label="Drobečková navigace"
         className="text-subtle flex flex-wrap items-center gap-1 text-[13.5px]"

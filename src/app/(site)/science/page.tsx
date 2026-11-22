@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { NUTRIENT_LIST } from '@/data/nutrients'
@@ -21,6 +22,7 @@ export default function SciencePage() {
   }, {})
   return (
     <div className="mx-auto max-w-5xl px-4 pt-12 md:px-8">
+      <BreadcrumbLd items={[['Věda a metodika', '/science']]} />
       <p className="eyebrow">Věda a metodika</p>
       <h1 className="display mt-3 text-[48px] md:text-[68px]">Jak víme, co tvrdíme.</h1>
       <p className="text-muted mt-4 max-w-3xl text-[16px]">

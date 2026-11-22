@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import { AlertTriangle, CheckCircle2, HeartHandshake, XCircle } from 'lucide-react'
 import { NUTRIENTS } from '@/data/nutrients'
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function LooksmaxingPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-4 pt-12 md:px-8">
+      <BreadcrumbLd items={[['Looksmaxing', '/looksmaxing']]} />
       <header className="border-line relative overflow-hidden rounded-[2rem] border p-8 md:p-14">
         <div
           aria-hidden

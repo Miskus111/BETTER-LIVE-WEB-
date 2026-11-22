@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -15,6 +16,12 @@ export const metadata: Metadata = {
 export default function QuizPage() {
   return (
     <div className="mx-auto max-w-[760px] px-4 pt-8 pb-16 md:px-8 md:pt-12">
+      <BreadcrumbLd
+        items={[
+          ['Jak funguje tělo', '/jak-funguje-telo'],
+          ['Kvíz', '/jak-funguje-telo/kviz'],
+        ]}
+      />
       <nav
         aria-label="Drobečková navigace"
         className="text-subtle flex flex-wrap items-center gap-1 text-[13.5px]"

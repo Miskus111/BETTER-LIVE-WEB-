@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -33,6 +34,12 @@ export default async function OrganPage({ params }: Params) {
   if (!organ) notFound()
   return (
     <>
+      <BreadcrumbLd
+        items={[
+          ['Tělo', '/#body'],
+          [organ.shortName, `/organ/${organ.id}`],
+        ]}
+      />
       <nav aria-label="Drobečková navigace" className="mx-auto max-w-[1440px] px-4 pt-4 md:px-8">
         <ol className="text-subtle flex items-center gap-1 font-mono text-[12px]">
           <li>
