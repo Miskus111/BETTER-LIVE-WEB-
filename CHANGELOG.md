@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.6.0 — Rychlost a samostatná aplikace (22. 11. 2026)
+
+- **Rychlost:** veřejné stránky jsou statické a jdou z CDN (dřív se každá renderovala zvlášť v USA). Doba do první
+  odpovědi 0,25–0,65 s → 0,08–0,11 s; na pomalém telefonu se hlavní obsah ukáže do 1,5–1,7 s.
+  - kořenový layout nečte jazykovou cookie, proxy se Supabase běží jen v aplikaci, funkce ve Stockholmu (`arn1`);
+  - průzkumník potravin má vlastní stránku `/potraviny`, domovská stránka už nenese všech 448 potravin
+    (JavaScript 297 → 247 KB), panel orgánů čte předpočítané žebříčky (`gen:picks`);
+  - hlavní obrázek stránky potraviny se načítá hned (LCP 2,07 → 1,53 s).
+- **Přihlášení:** obnova zapomenutého hesla, změna hesla v nastavení, zobrazení hesla, opětovné poslání e-mailu,
+  srozumitelné chyby v češtině.
+- **Aplikace samostatně:** přesouvá se do [BETTER-LIVE-WITH-BIOHACKIN-APP-](https://github.com/Miskus111/BETTER-LIVE-WITH-BIOHACKIN-APP-);
+  web bez aplikace je připravený v PR #1 a sloučí se, až aplikace poběží na vlastní adrese.
+- **Data:** rostlinné nápoje označené jako obohacené, žebříčky potravin u dalších pěti průvodců.
+
 ## 0.5.0 — Phases 2–8 (branch `blwb-app`)
 
 - **Train:** 179-exercise library with filters, 7 templates, offline-first workout logger (kg/lb, set types, RPE,
