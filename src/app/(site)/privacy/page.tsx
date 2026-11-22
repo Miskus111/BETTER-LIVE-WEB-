@@ -117,7 +117,13 @@ export default function PrivacyPage() {
           Údaje neprodáváme ani nepředáváme inzerentům. Využíváme tyto zpracovatele, kteří s nimi smí nakládat
           jen podle našich pokynů:
         </p>
-        <div className="border-line relative overflow-x-auto rounded-2xl border">
+        {/* scrolls sideways on phones: focusable so keyboard users can scroll it too */}
+        <div
+          className="border-line relative overflow-x-auto rounded-2xl border"
+          tabIndex={0}
+          role="region"
+          aria-label="Zpracovatelé osobních údajů"
+        >
           <table className="w-full min-w-[560px] text-left text-[14px]">
             <thead className="text-subtle bg-white/[0.03] font-mono text-[12px]">
               <tr>
