@@ -374,6 +374,23 @@ test('every page type except the homepage has a breadcrumb for search engines', 
   }
 })
 
+test('accessibility on a phone: scrollable tables can be reached with the keyboard', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  for (const path of ['/privacy', '/pricing', '/science']) {
+    await page.goto(path)
+    await page.addScriptTag({ path: 'node_modules/axe-core/axe.min.js' })
+    const violations = await page.evaluate(async () => {
+      const r = await (
+        window as unknown as {
+          axe: { run: (c: unknown) => Promise<{ violations: { id: string; impact: string }[] }> }
+        }
+      ).axe.run(document)
+      return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => v.id)
+    })
+    expect(violations, path).toEqual([])
+  }
+})
+
 test('shared links show the page, not the homepage (og:title and og:image per page)', async ({ page }) => {
   for (const path of [
     '/potraviny',
