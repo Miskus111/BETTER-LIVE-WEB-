@@ -333,7 +333,7 @@ test('non-vitamin supplements: overview section and an honest compound page', as
   await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
 })
 
-test('food pages carry breadcrumbs for search engines: Home → Foods → food', async ({ page }) => {
+test('pages carry breadcrumbs for search engines (foods, organs, quiz, calculators)', async ({ page }) => {
   const ld = async () =>
     (await page.locator('script[type="application/ld+json"]').allTextContents())
       .map((t) => JSON.parse(t))
@@ -345,6 +345,18 @@ test('food pages carry breadcrumbs for search engines: Home → Foods → food',
   await page.goto('/food/almonds')
   const crumbs = (await ld()).find((x) => x['@type'] === 'BreadcrumbList')
   expect(crumbs.itemListElement.map((i: { name: string }) => i.name)).toEqual(['Domů', 'Potraviny', 'Mandle'])
+  for (const [path, names] of [
+    ['/organ/heart', ['Domů', 'Tělo', 'Srdce']],
+    ['/jak-funguje-telo/kviz', ['Domů', 'Jak funguje tělo', 'Kvíz']],
+    ['/nastroje', ['Domů', 'Kalkulačky']],
+  ] as const) {
+    await page.goto(path)
+    const c = (await ld()).find((x) => x['@type'] === 'BreadcrumbList')
+    expect(
+      c?.itemListElement.map((i: { name: string }) => i.name),
+      path,
+    ).toEqual(names)
+  }
 })
 
 test('food explorer filters live in the URL, so a search can be shared', async ({ page }) => {
