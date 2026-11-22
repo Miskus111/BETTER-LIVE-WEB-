@@ -333,6 +333,20 @@ test('non-vitamin supplements: overview section and an honest compound page', as
   await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
 })
 
+test('food pages carry breadcrumbs for search engines: Home → Foods → food', async ({ page }) => {
+  const ld = async () =>
+    (await page.locator('script[type="application/ld+json"]').allTextContents())
+      .map((t) => JSON.parse(t))
+      .flat()
+  await page.goto('/potraviny')
+  expect((await ld()).some((x) => x['@type'] === 'CollectionPage' && x.mainEntity.numberOfItems > 400)).toBe(
+    true,
+  )
+  await page.goto('/food/almonds')
+  const crumbs = (await ld()).find((x) => x['@type'] === 'BreadcrumbList')
+  expect(crumbs.itemListElement.map((i: { name: string }) => i.name)).toEqual(['Domů', 'Potraviny', 'Mandle'])
+})
+
 test('food explorer filters live in the URL, so a search can be shared', async ({ page }) => {
   await page.goto('/potraviny?q=cocka&diet=vegan')
   await expect(page.getByTestId('food-search')).toHaveValue('cocka')
