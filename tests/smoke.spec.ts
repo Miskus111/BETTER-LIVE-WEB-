@@ -414,6 +414,7 @@ test('accessibility: no serious or critical axe violations on key pages and app 
       '/',
       '/?organ=heart',
       '/organ/heart',
+      '/potraviny',
       '/food/almonds',
       '/food/spinach',
       '/food/beef-liver',
