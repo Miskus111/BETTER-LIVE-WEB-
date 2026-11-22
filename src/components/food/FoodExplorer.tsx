@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Scale, Search, X } from 'lucide-react'
 import { FOOD_CATEGORIES, FOODS } from '@/data/foods'
 import { NUTRIENTS } from '@/data/nutrients'
@@ -15,6 +15,8 @@ import {
   queryFoods,
   type FoodQuery,
   type Measure,
+  queryFromParams,
+  queryToParams,
 } from '@/lib/foods/query'
 import { fmtAmount, notRecommendedReason } from '@/lib/nutrition'
 import { Thumb } from '@/components/ui/Thumb'
@@ -38,6 +40,24 @@ export function FoodExplorer() {
   const [selectedId, setSelectedId] = useState('salmon')
   const [compare, setCompare] = useState<string[]>([])
   const detail = useRef<HTMLDivElement>(null)
+
+  // filters live in the URL (?q=…&diet=vegan…) so a search can be shared or bookmarked; read after hydration
+  // (the page is static), then write back without adding history entries
+  const urlRead = useRef(false)
+  useEffect(() => {
+    const fromUrl = queryFromParams(new URLSearchParams(window.location.search))
+    // syncing from an external source (the URL) once after hydration
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (queryToParams(fromUrl).toString()) setQ(fromUrl)
+    urlRead.current = true
+  }, [])
+  useEffect(() => {
+    if (!urlRead.current) return
+    const url = new URL(window.location.href)
+    for (const k of [...url.searchParams.keys()]) url.searchParams.delete(k)
+    queryToParams(q).forEach((v, k) => url.searchParams.set(k, v))
+    if (url.href !== window.location.href) window.history.replaceState(window.history.state, '', url)
+  }, [q])
 
   const foods = useMemo(() => queryFoods(FOODS, q), [q])
   const counts = useMemo(() => {
