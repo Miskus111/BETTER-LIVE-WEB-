@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from '@/components/ui/Link'
 import { billingText as t, type BillingKey } from '@/lib/billing-text'
@@ -7,11 +8,14 @@ import { isCoachLive } from '@/lib/features'
 import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: 'Ceník — tarify Zdarma a Pro',
-    description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
-    alternates: { canonical: '/pricing' },
-  }
+  return withShare(
+    {
+      title: 'Ceník — tarify Zdarma a Pro',
+      description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
+      alternates: { canonical: '/pricing' },
+    },
+    '/pricing',
+  )
 }
 
 type Cell = boolean | string

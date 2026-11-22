@@ -333,6 +333,29 @@ test('non-vitamin supplements: overview section and an honest compound page', as
   await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
 })
 
+test('shared links show the page, not the homepage (og:title and og:image per page)', async ({ page }) => {
+  for (const path of [
+    '/potraviny',
+    '/nastroje',
+    '/jak-funguje-telo/kviz',
+    '/doplnky',
+    '/pricing',
+    '/looksmaxing',
+  ]) {
+    await page.goto(path)
+    const title = await page.title()
+    const og = await page.locator('meta[property="og:title"]').getAttribute('content')
+    expect(og, path).not.toMatch(/^Better Live with Biohacking — /)
+    expect(title.startsWith(og!), path).toBe(true)
+    expect(await page.locator('meta[property="og:image"]').count(), path).toBeGreaterThan(0)
+  }
+  // a page with its own preview image keeps it
+  await page.goto('/jak-funguje-telo/kviz')
+  expect(await page.locator('meta[property="og:image"]').first().getAttribute('content')).toContain(
+    '/jak-funguje-telo/kviz/opengraph-image',
+  )
+})
+
 test('pages carry breadcrumbs for search engines (foods, organs, quiz, calculators)', async ({ page }) => {
   const ld = async () =>
     (await page.locator('script[type="application/ld+json"]').allTextContents())
