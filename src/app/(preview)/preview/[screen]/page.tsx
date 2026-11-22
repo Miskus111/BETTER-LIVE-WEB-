@@ -9,6 +9,7 @@ import { EVIDENCE } from '@/data/sources'
 import { CoachChat } from '@/components/coach/CoachChat'
 import { LabsClient } from '@/components/labs/LabsClient'
 import { notFound } from 'next/navigation'
+import { foodById } from '@/data/foods'
 import { TrainHome } from '@/components/train/TrainHome'
 import { WorkoutLogger } from '@/components/train/WorkoutLogger'
 import { ExerciseLibrary } from '@/components/train/ExerciseLibrary'
@@ -25,9 +26,17 @@ import { dayDaysAgo } from '@/lib/dates'
 
 export const dynamic = 'force-dynamic'
 
-export default async function Preview({ params }: { params: Promise<{ screen: string }> }) {
+export default async function Preview({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ screen: string }>
+  searchParams: Promise<{ add?: string }>
+}) {
   if (process.env.ENABLE_PREVIEW !== '1') notFound()
   const { screen } = await params
+  // same ?add=<food id> deep link as /eat, so the prefilled diary can be tested without a login
+  const addFood = foodById((await searchParams).add ?? '')
   switch (screen) {
     case 'train':
       return <TrainHome finished={false} base="/preview" />
@@ -244,6 +253,7 @@ export default async function Preview({ params }: { params: Promise<{ screen: st
           />
           <FoodDiary
             day="2026-11-16"
+            prefill={addFood ? { name: addFood.name, meal: 'lunch' } : undefined}
             rows={[
               {
                 id: '1',

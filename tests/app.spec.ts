@@ -161,3 +161,10 @@ test('a deep link keeps its query through the login redirect (food page → diar
   test.skip(res.status() !== 307, 'Supabase not configured')
   expect(res.headers()['location']).toContain(`next=${encodeURIComponent('/eat?add=almonds')}`)
 })
+
+test('the diary opens with a food from a deep link already searched', async ({ page }) => {
+  await page.goto('/preview/eat?add=almonds')
+  const lunch = page.getByTestId('meal-lunch')
+  await expect(lunch.getByRole('textbox').first()).toHaveValue('Mandle')
+  await expect(lunch.getByRole('button', { name: /Mandle/ }).first()).toBeVisible()
+})
