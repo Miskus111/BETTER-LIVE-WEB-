@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from '@/components/ui/Link'
@@ -38,6 +39,12 @@ const sortCs = (a: GlossaryTerm, b: GlossaryTerm) => a.term.localeCompare(b.term
 export default function GlossaryPage() {
   return (
     <div className="mx-auto max-w-[900px] px-4 pt-8 pb-16 md:px-8 md:pt-12">
+      <BreadcrumbLd
+        items={[
+          ['Jak funguje tělo', '/jak-funguje-telo'],
+          ['Slovník', '/jak-funguje-telo/slovnik'],
+        ]}
+      />
       <JsonLd
         data={{
           '@context': 'https://schema.org',

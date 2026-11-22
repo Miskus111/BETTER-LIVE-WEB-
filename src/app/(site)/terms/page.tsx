@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from '@/components/ui/Link'
@@ -17,6 +18,7 @@ export const metadata: Metadata = withShare(
 export default function TermsPage() {
   return (
     <article className="mx-auto max-w-3xl px-4 pt-12 pb-16 md:px-8">
+      <BreadcrumbLd items={[['Podmínky užívání', '/terms']]} />
       <LegalHeader eyebrow="Právní informace" title="Podmínky užívání" />
 
       <LegalSection title="Provozovatel">

@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import { SupplementsGuide } from '@/components/supplements/SupplementsGuide'
@@ -13,5 +14,10 @@ export const metadata: Metadata = withShare(
 )
 
 export default function SupplementsPage() {
-  return <SupplementsGuide />
+  return (
+    <>
+      <BreadcrumbLd items={[['Doplňky stravy', '/doplnky']]} />
+      <SupplementsGuide />
+    </>
+  )
 }

@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from '@/components/ui/Link'
@@ -52,6 +53,7 @@ export default async function PricingPage() {
 
   return (
     <div className="mx-auto max-w-[1100px] px-4 pt-10 pb-20 md:px-8 md:pt-16">
+      <BreadcrumbLd items={[['Ceník', '/pricing']]} />
       <header className="max-w-2xl">
         <p className="eyebrow">BLWB</p>
         <h1 className="display mt-3 text-[44px] md:text-[64px]">{t('pricingTitle')}</h1>
