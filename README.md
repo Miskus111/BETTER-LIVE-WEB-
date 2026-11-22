@@ -38,6 +38,13 @@ npm run dev            # http://localhost:3000
 
 První běh Playwrightu: `npx playwright install chromium`.
 
+## Testy
+
+GitHub Actions (`.github/workflows/ci.yml`) spouští při každém pushi na `main` a u pull requestů lint, typecheck,
+unit testy, `check:data`, `foods:validate`, kontrolu aktuálnosti podkladu pro lékaře a celou e2e sadu (Playwright:
+smoke testy, axe, CSP, strukturovaná data, náhledy odkazů, screenshoty 390/768/1440). Týdně (`links.yml`) běží
+`check:links`, `check:sources` a `npm audit`.
+
 ## Affiliate (partnerské odkazy)
 
 1. Zaregistrujte se v partnerském programu BrainMarket a Vilgain.
