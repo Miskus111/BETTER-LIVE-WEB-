@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowUpRight, Info, Microscope, Waves } from 'lucide-react'
+import { ArrowUpRight, Info, Microscope, Waves, Plus } from 'lucide-react'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { Food, NutrientId } from '@/data/types'
 import { Thumb } from '@/components/ui/Thumb'
@@ -48,6 +48,17 @@ export function FoodDetail({
             kcal
           </p>
           {food.recipe && <p className="chip mt-2 inline-flex text-[12px]">Vypočtený recept ze surovin</p>}
+          {!showPageLink && (
+            // into the app's food diary: opens the current meal with this food searched (after login if needed)
+            <Link
+              href={`/eat?add=${food.id}`}
+              prefetch={false}
+              className="btn btn-ghost mt-3 !py-1.5 text-[14px]"
+              data-testid="log-food"
+            >
+              <Plus size={15} aria-hidden /> Zapsat do jídelníčku
+            </Link>
+          )}
           {showPageLink && (
             <Link
               href={`/food/${food.id}`}
