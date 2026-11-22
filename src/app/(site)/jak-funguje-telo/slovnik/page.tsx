@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight } from 'lucide-react'
@@ -6,12 +7,15 @@ import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Slovník pojmů — tělo, výživa a věda srozumitelně',
-  description:
-    'Adenosin, kortizol, inzulinová rezistence, metaanalýza… Krátká a přesná vysvětlení odborných slov, se kterými se setkáte v průvodcích o těle.',
-  alternates: { canonical: '/jak-funguje-telo/slovnik' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Slovník pojmů — tělo, výživa a věda srozumitelně',
+    description:
+      'Adenosin, kortizol, inzulinová rezistence, metaanalýza… Krátká a přesná vysvětlení odborných slov, se kterými se setkáte v průvodcích o těle.',
+    alternates: { canonical: '/jak-funguje-telo/slovnik' },
+  },
+  '/jak-funguje-telo/slovnik',
+)
 
 const GROUPS: { id: GlossaryTerm['group']; label: string; intro: string }[] = [
   { id: 'telo', label: 'Tělo a mozek', intro: 'Co se děje uvnitř: hormony, orgány, imunita, učení.' },

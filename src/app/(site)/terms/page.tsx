@@ -1,14 +1,18 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LegalHeader, LegalSection, OperatorCard } from '@/components/legal/Legal'
 import { AFFILIATE_DISCLOSURE } from '@/data/affiliate'
 import { SITE } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Podmínky užívání',
-  description: 'Pravidla pro používání webu a aplikace Better Live with Biohacking.',
-  alternates: { canonical: '/terms' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Podmínky užívání',
+    description: 'Pravidla pro používání webu a aplikace Better Live with Biohacking.',
+    alternates: { canonical: '/terms' },
+  },
+  '/terms',
+)
 
 export default function TermsPage() {
   return (

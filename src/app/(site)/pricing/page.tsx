@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
@@ -8,11 +9,14 @@ import { isFreeMode, PRICES, yearlySaving } from '@/lib/billing'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations({ locale: 'cs', namespace: 'billing' })
-  return {
-    title: 'Ceník — tarify Zdarma a Pro',
-    description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
-    alternates: { canonical: '/pricing' },
-  }
+  return withShare(
+    {
+      title: 'Ceník — tarify Zdarma a Pro',
+      description: `${t('pricingIntro')} Pro za 199 Kč měsíčně: AI kouč, čtení laboratorních výsledků, grafy progresu a fotky pokroku.`,
+      alternates: { canonical: '/pricing' },
+    },
+    '/pricing',
+  )
 }
 
 type Cell = boolean | string

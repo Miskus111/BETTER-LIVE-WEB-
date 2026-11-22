@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import { AlertTriangle, CheckCircle2, HeartHandshake, XCircle } from 'lucide-react'
@@ -8,12 +9,15 @@ import { OrganLink } from '@/components/ui/OrganLink'
 import { WhereToBuy } from '@/components/ui/WhereToBuy'
 import { cx } from '@/lib/format'
 
-export const metadata: Metadata = {
-  title: 'Looksmaxing bez mýtů',
-  description:
-    'Co na vzhled opravdu funguje — spánek, ochrana před sluncem, trénink, bílkoviny a živiny pro pleť a vlasy — a které trendy jsou mýtus nebo nebezpečí.',
-  alternates: { canonical: '/looksmaxing' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Looksmaxing bez mýtů',
+    description:
+      'Co na vzhled opravdu funguje — spánek, ochrana před sluncem, trénink, bílkoviny a živiny pro pleť a vlasy — a které trendy jsou mýtus nebo nebezpečí.',
+    alternates: { canonical: '/looksmaxing' },
+  },
+  '/looksmaxing',
+)
 
 export default function LooksmaxingPage() {
   return (

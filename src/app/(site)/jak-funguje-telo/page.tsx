@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, BookA, Calculator, HelpCircle } from 'lucide-react'
@@ -9,12 +10,15 @@ import { EvidenceLegend } from '@/components/ui/EvidenceBadge'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Jak funguje tělo — spánek, stres, dopamin, svaly a střeva srozumitelně',
-  description:
-    'Krátcí průvodci o tom, jak tělo funguje v dnešním světě obrazovek, kofeinu a sezení. Co se děje uvnitř, co reálně pomáhá a které mýty pustit z hlavy.',
-  alternates: { canonical: '/jak-funguje-telo' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Jak funguje tělo — spánek, stres, dopamin, svaly a střeva srozumitelně',
+    description:
+      'Krátcí průvodci o tom, jak tělo funguje v dnešním světě obrazovek, kofeinu a sezení. Co se děje uvnitř, co reálně pomáhá a které mýty pustit z hlavy.',
+    alternates: { canonical: '/jak-funguje-telo' },
+  },
+  '/jak-funguje-telo',
+)
 
 export default function BodyGuidesHub() {
   return (

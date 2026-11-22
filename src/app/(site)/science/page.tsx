@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -8,12 +9,15 @@ import { EvidenceBadge, EvidenceLegend } from '@/components/ui/EvidenceBadge'
 import { FermentationExplainer } from '@/components/organ/FermentationExplainer'
 import { thresholdBasis, thresholdOf } from '@/lib/nutrition'
 
-export const metadata: Metadata = {
-  title: 'Věda a metodika',
-  description:
-    'Jak BLWB hodnotí důkazy, jak počítá propojení potravin s orgány z dat USDA a proč používá znění zdravotních tvrzení schválených EU.',
-  alternates: { canonical: '/science' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Věda a metodika',
+    description:
+      'Jak BLWB hodnotí důkazy, jak počítá propojení potravin s orgány z dat USDA a proč používá znění zdravotních tvrzení schválených EU.',
+    alternates: { canonical: '/science' },
+  },
+  '/science',
+)
 
 export default function SciencePage() {
   const counts = ORGANS.flatMap((o) => o.nutrients).reduce<Record<string, number>>((acc, n) => {

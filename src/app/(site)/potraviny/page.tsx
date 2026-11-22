@@ -1,14 +1,18 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import { FoodExplorer } from '@/components/food/FoodExplorer'
 import { FOODS } from '@/data/foods'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { SITE } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Potraviny — co obsahuje 100 gramů',
-  description: `Makroživiny, podíl energie, vitamíny a minerály v % referenční hodnoty EU u ${FOODS.length} potravin z dat USDA. Hledání bez diakritiky, filtry a porovnání.`,
-  alternates: { canonical: '/potraviny' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Potraviny — co obsahuje 100 gramů',
+    description: `Makroživiny, podíl energie, vitamíny a minerály v % referenční hodnoty EU u ${FOODS.length} potravin z dat USDA. Hledání bez diakritiky, filtry a porovnání.`,
+    alternates: { canonical: '/potraviny' },
+  },
+  '/potraviny',
+)
 
 /** The full food explorer on its own page, so the homepage doesn't carry all foods in its HTML and JavaScript. */
 export default function FoodsPage() {

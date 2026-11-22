@@ -1,15 +1,19 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BadgeCheck, FlaskConical, Gauge, HandCoins, ScanSearch, ShieldAlert } from 'lucide-react'
 import { AFFILIATE_DISCLOSURE } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'
 
-export const metadata: Metadata = {
-  title: 'Jak doporučujeme produkty',
-  description:
-    'Podle čeho vybíráme doplňky stravy, které doporučujeme, a jak fungují partnerské (affiliate) odkazy.',
-  alternates: { canonical: '/jak-doporucujeme' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Jak doporučujeme produkty',
+    description:
+      'Podle čeho vybíráme doplňky stravy, které doporučujeme, a jak fungují partnerské (affiliate) odkazy.',
+    alternates: { canonical: '/jak-doporucujeme' },
+  },
+  '/jak-doporucujeme',
+)
 
 const CRITERIA = [
   {

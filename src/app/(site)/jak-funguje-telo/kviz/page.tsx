@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { BODY_GUIDE_BY_SLUG } from '@/data/body-guides'
 import type { Metadata } from 'next'
@@ -6,12 +7,16 @@ import { ChevronRight } from 'lucide-react'
 import { MythQuiz } from '@/components/guides/MythQuiz'
 import { QUIZ } from '@/data/quiz'
 
-export const metadata: Metadata = {
-  title: 'Mýtus, nebo fakt? Kvíz o tom, jak funguje tělo',
-  description:
-    'Dehydratuje káva? Mění se svaly v tuk? Používáme jen 10 % mozku? Otestujte se v krátkém kvízu — u každé odpovědi vysvětlení a zdroje.',
-  alternates: { canonical: '/jak-funguje-telo/kviz' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Mýtus, nebo fakt? Kvíz o tom, jak funguje tělo',
+    description:
+      'Dehydratuje káva? Mění se svaly v tuk? Používáme jen 10 % mozku? Otestujte se v krátkém kvízu — u každé odpovědi vysvětlení a zdroje.',
+    alternates: { canonical: '/jak-funguje-telo/kviz' },
+  },
+  '/jak-funguje-telo/kviz',
+  { ownImage: true },
+)
 
 export default function QuizPage() {
   return (

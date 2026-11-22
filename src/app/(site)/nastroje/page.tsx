@@ -1,3 +1,4 @@
+import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -5,12 +6,15 @@ import { ChevronRight } from 'lucide-react'
 import { ToolCards } from '@/components/guides/ToolCards'
 import { TOOLS } from '@/data/tools'
 
-export const metadata: Metadata = {
-  title: 'Kalkulačky zdraví — kofein, tlak, bílkoviny, voda, hlasitost',
-  description:
-    'Interaktivní kalkulačky podle WHO, EFSA a lékařských doporučení: kolik kofeinu zbude do spánku, co znamená váš tlak, kolik bílkovin a vody potřebujete a jak dlouho je hlasitost bezpečná.',
-  alternates: { canonical: '/nastroje' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Kalkulačky zdraví — kofein, tlak, bílkoviny, voda, hlasitost',
+    description:
+      'Interaktivní kalkulačky podle WHO, EFSA a lékařských doporučení: kolik kofeinu zbude do spánku, co znamená váš tlak, kolik bílkovin a vody potřebujete a jak dlouho je hlasitost bezpečná.',
+    alternates: { canonical: '/nastroje' },
+  },
+  '/nastroje',
+)
 
 export default function ToolsPage() {
   return (

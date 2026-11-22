@@ -1,13 +1,17 @@
+import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LegalHeader, LegalSection, OperatorCard } from '@/components/legal/Legal'
 import { OPERATOR } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Zásady ochrany osobních údajů',
-  description: 'Jaké údaje BLWB zpracovává, proč, jak dlouho a jaká máte práva.',
-  alternates: { canonical: '/privacy' },
-}
+export const metadata: Metadata = withShare(
+  {
+    title: 'Zásady ochrany osobních údajů',
+    description: 'Jaké údaje BLWB zpracovává, proč, jak dlouho a jaká máte práva.',
+    alternates: { canonical: '/privacy' },
+  },
+  '/privacy',
+)
 
 const PROCESSORS = [
   {
