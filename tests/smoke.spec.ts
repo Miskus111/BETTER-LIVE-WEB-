@@ -447,6 +447,11 @@ test('the food page image (largest element on screen) is not lazy-loaded', async
   await expect(img).toHaveAttribute('fetchpriority', 'high')
 })
 
+test('food page offers logging it in the app diary', async ({ page }) => {
+  await page.goto('/food/almonds')
+  await expect(page.getByTestId('log-food')).toHaveAttribute('href', /\/eat\?add=almonds$/)
+})
+
 test('food page compares raw and cooked forms per 100 g', async ({ page }) => {
   await page.goto('/food/spinach')
   const block = page.getByTestId('raw-cooked')
