@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { gzipSync } from 'node:zlib'
 import { BODY_GUIDES } from '../src/data/body-guides'
 
 test.describe('anatomy', () => {
@@ -628,4 +629,22 @@ test('the retired service worker cleans up after itself', async ({ request }) =>
   const sw = await (await request.get('/sw.js')).text()
   expect(sw).toContain('unregister')
   expect(sw).toContain('caches.delete')
+})
+
+test('JavaScript budget: pages stay light (gzip of the scripts each page loads)', async ({ request }) => {
+  // about 10 % above the sizes measured on 22 Nov 2026; a jump usually means a big data file reached the browser
+  const budget: Record<string, number> = {
+    '/': 285,
+    '/jak-funguje-telo/bilkoviny': 235,
+    '/food/almonds': 230,
+    '/potraviny': 295,
+    '/organ/heart': 280,
+  }
+  for (const [path, maxKb] of Object.entries(budget)) {
+    const html = await (await request.get(path)).text()
+    const srcs = [...new Set([...html.matchAll(/src="(\/_next\/static\/[^"]+\.js)"/g)].map((m) => m[1]))]
+    let bytes = 0
+    for (const src of srcs) bytes += gzipSync(await (await request.get(src)).body()).length
+    expect(Math.round(bytes / 1024), `${path} JS (KB gzip)`).toBeLessThanOrEqual(maxKb)
+  }
 })
