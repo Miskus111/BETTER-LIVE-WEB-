@@ -86,7 +86,8 @@ export default async function FoodPage({ params }: Params) {
           '@type': 'BreadcrumbList',
           itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Domů', item: SITE.url },
-            { '@type': 'ListItem', position: 2, name: food.name, item: `${SITE.url}/food/${food.id}` },
+            { '@type': 'ListItem', position: 2, name: 'Potraviny', item: `${SITE.url}/potraviny` },
+            { '@type': 'ListItem', position: 3, name: food.name, item: `${SITE.url}/food/${food.id}` },
           ],
         }}
       />
