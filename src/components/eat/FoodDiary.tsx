@@ -2,13 +2,14 @@
 
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { useMemo, useState, useTransition } from 'react'
+import { useMemo, useState } from 'react'
 import { Plus, Trash2 } from 'lucide-react'
 import { FOODS, foodById } from '@/data/foods'
 import { matchesText } from '@/lib/foods/query'
 import { NUTRIENTS } from '@/data/nutrients'
 import type { NutrientId } from '@/data/types'
 import { createClient } from '@/lib/supabase/client'
+import { useSafeTransition } from '@/lib/useSafeTransition'
 import { cx } from '@/lib/format'
 
 /** daily targets that differ from the label NRV (EFSA adequate intake for adults) */
@@ -57,8 +58,8 @@ export function FoodDiary({
   const [q, setQ] = useState(prefill?.name ?? '')
   // empty = the food's default household portion
   const [grams, setGrams] = useState('')
-  const [pending, start] = useTransition()
   const [error, setError] = useState<string | null>(null)
+  const [pending, start] = useSafeTransition(() => setError(t('saveError')))
 
   const results = useMemo(
     () =>
