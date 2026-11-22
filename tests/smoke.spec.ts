@@ -346,6 +346,34 @@ test('non-vitamin supplements: overview section and an honest compound page', as
   await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
 })
 
+test('every page type except the homepage has a breadcrumb for search engines', async ({ page }) => {
+  for (const path of [
+    '/potraviny',
+    '/food/almonds',
+    '/organ/heart',
+    '/doplnky',
+    '/doplnky/horcik',
+    '/jak-funguje-telo',
+    '/jak-funguje-telo/bilkoviny',
+    '/jak-funguje-telo/slovnik',
+    '/jak-funguje-telo/kviz',
+    '/nastroje',
+    '/looksmaxing',
+    '/science',
+    '/pricing',
+    '/jak-doporucujeme',
+    '/privacy',
+    '/terms',
+  ]) {
+    await page.goto(path)
+    const types = (await page.locator('script[type="application/ld+json"]').allTextContents())
+      .map((t) => JSON.parse(t))
+      .flat()
+      .map((x) => x['@type'])
+    expect(types, path).toContain('BreadcrumbList')
+  }
+})
+
 test('shared links show the page, not the homepage (og:title and og:image per page)', async ({ page }) => {
   for (const path of [
     '/potraviny',

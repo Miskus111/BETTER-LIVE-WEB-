@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -23,6 +24,7 @@ export const metadata: Metadata = withShare(
 export default function BodyGuidesHub() {
   return (
     <div className="mx-auto max-w-[1200px] px-4 pt-10 pb-16 md:px-8 md:pt-14">
+      <BreadcrumbLd items={[['Jak funguje tělo', '/jak-funguje-telo']]} />
       <JsonLd
         data={{
           '@context': 'https://schema.org',

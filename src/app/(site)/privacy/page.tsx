@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -41,6 +42,7 @@ export default function PrivacyPage() {
   )
   return (
     <article className="mx-auto max-w-3xl px-4 pt-12 pb-16 md:px-8">
+      <BreadcrumbLd items={[['Ochrana osobních údajů', '/privacy']]} />
       <LegalHeader eyebrow="Právní informace" title="Zásady ochrany osobních údajů" />
 
       <p className="text-muted mt-6 text-[16px]">

@@ -1,3 +1,4 @@
+import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -41,6 +42,7 @@ const CRITERIA = [
 export default function HowWeRecommendPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 pt-12 md:px-8">
+      <BreadcrumbLd items={[['Jak doporučujeme', '/jak-doporucujeme']]} />
       <p className="eyebrow">Transparentnost</p>
       <h1 className="display mt-3 text-[48px] md:text-[64px]">Jak doporučujeme produkty.</h1>
       <p className="text-muted mt-4 text-[16px]">
