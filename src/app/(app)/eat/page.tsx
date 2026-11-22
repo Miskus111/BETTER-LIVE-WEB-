@@ -2,12 +2,15 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { requireAppUser } from '@/lib/auth'
 import { profileTargets } from '@/lib/eat/profile-targets'
-import { FoodDiary, type LogRow } from '@/components/eat/FoodDiary'
+import { FoodDiary, mealNow, type LogRow } from '@/components/eat/FoodDiary'
+import { foodById } from '@/data/foods'
 import { TargetsCard } from '@/components/eat/TargetsCard'
 
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 
-export default async function EatPage() {
+export default async function EatPage({ searchParams }: { searchParams: Promise<{ add?: string }> }) {
+  // ?add=<food id>: arrived from a food page — open the diary with that food searched
+  const prefill = foodById((await searchParams).add ?? '')
   const { supabase, profile, user } = await requireAppUser()
   const db = supabase as unknown as Db
   const t = await getTranslations('eat')
@@ -52,7 +55,11 @@ export default async function EatPage() {
         </Link>
       </div>
       <TargetsCard result={result} totals={totals} />
-      <FoodDiary rows={rows} day={day} />
+      <FoodDiary
+        rows={rows}
+        day={day}
+        prefill={prefill ? { name: prefill.name, meal: mealNow(new Date()) } : undefined}
+      />
     </div>
   )
 }

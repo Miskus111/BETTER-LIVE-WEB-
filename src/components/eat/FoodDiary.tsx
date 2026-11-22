@@ -28,14 +28,33 @@ export interface LogRow {
   food_slug?: string | null
 }
 const MEALS: Meal[] = ['breakfast', 'lunch', 'dinner', 'snack']
+
+/** The meal a food logged right now most likely belongs to, by the hour in Prague (servers run on UTC). */
+export function mealNow(d: Date): Meal {
+  const h = Number(
+    new Intl.DateTimeFormat('en-GB', { hour: 'numeric', hourCycle: 'h23', timeZone: 'Europe/Prague' }).format(
+      d,
+    ),
+  )
+  return h < 10 ? 'breakfast' : h < 15 ? 'lunch' : h >= 17 && h < 21 ? 'dinner' : 'snack'
+}
 type Db = { from: (t: string) => any } // eslint-disable-line @typescript-eslint/no-explicit-any
 
-export function FoodDiary({ rows, day }: { rows: LogRow[]; day: string }) {
+export function FoodDiary({
+  rows,
+  day,
+  prefill,
+}: {
+  rows: LogRow[]
+  day: string
+  /** open this meal with the search already filled in (link from a food page) */
+  prefill?: { name: string; meal: Meal }
+}) {
   const t = useTranslations('eat')
   const locale = useLocale()
   const router = useRouter()
-  const [open, setOpen] = useState<Meal | null>(null)
-  const [q, setQ] = useState('')
+  const [open, setOpen] = useState<Meal | null>(prefill?.meal ?? null)
+  const [q, setQ] = useState(prefill?.name ?? '')
   // empty = the food's default household portion
   const [grams, setGrams] = useState('')
   const [pending, start] = useTransition()

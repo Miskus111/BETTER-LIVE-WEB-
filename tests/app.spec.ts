@@ -154,3 +154,10 @@ test('photos: filter by pose and compare two photos side by side or with a slide
   await cmp.getByRole('button', { name: 'Posuvník' }).click()
   await expect(cmp.getByRole('slider')).toBeVisible()
 })
+
+test('a deep link keeps its query through the login redirect (food page → diary)', async ({ request }) => {
+  const res = await request.get('/eat?add=almonds', { maxRedirects: 0 })
+  // without Supabase keys (CI) the app shows a setup screen instead of redirecting
+  test.skip(res.status() !== 307, 'Supabase not configured')
+  expect(res.headers()['location']).toContain(`next=${encodeURIComponent('/eat?add=almonds')}`)
+})
