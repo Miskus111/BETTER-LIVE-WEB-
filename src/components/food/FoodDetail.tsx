@@ -38,7 +38,7 @@ export function FoodDetail({
   return (
     <article className="grid grid-cols-1 gap-6" data-testid="food-detail">
       <div className="grid gap-5 sm:grid-cols-[200px_1fr] sm:items-start">
-        <Thumb src={food.image} alt={`${food.name} (ilustrační obrázek)`} className="rounded-2xl" />
+        <Thumb src={food.image} alt={`${food.name} (ilustrační obrázek)`} className="rounded-2xl" priority />
         <div>
           <p className="eyebrow">{food.category}</p>
           <H className="display mt-2 text-[36px] md:text-[42px]">{food.name}</H>

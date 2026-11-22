@@ -440,6 +440,13 @@ test('search with no results offers next steps and stays accessible', async ({ p
   await expect(page.getByTestId('barcode-lookup')).toBeVisible()
 })
 
+test('the food page image (largest element on screen) is not lazy-loaded', async ({ page }) => {
+  await page.goto('/food/almonds')
+  const img = page.getByRole('img', { name: /Mandle/ }).first()
+  await expect(img).toHaveAttribute('loading', 'eager')
+  await expect(img).toHaveAttribute('fetchpriority', 'high')
+})
+
 test('food page compares raw and cooked forms per 100 g', async ({ page }) => {
   await page.goto('/food/spinach')
   const block = page.getByTestId('raw-cooked')
