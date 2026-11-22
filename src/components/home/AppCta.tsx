@@ -6,10 +6,18 @@ const FEATURES = [
   {
     icon: Dumbbell,
     title: 'Trénink',
-    text: 'Zapisujte série, váhy a osobní rekordy. Funguje i offline v posilovně.',
+    text: 'Šablony podle vašeho sportu a vybavení, zápis sérií a rekordů. Funguje i offline.',
   },
-  { icon: Utensils, title: 'Jídelníček', text: 'Kalorie, bílkoviny a vitamíny oproti vašim osobním cílům.' },
-  { icon: Pill, title: 'Doplňky', text: 'Váš stack s hlídáním horních limitů a interakcí s léky.' },
+  {
+    icon: Utensils,
+    title: 'Jídelníček',
+    text: 'Kalorie a bílkoviny podle vašich cílů. Upozorní na alergie a potraviny mimo vaši stravu.',
+  },
+  {
+    icon: Pill,
+    title: 'Doplňky',
+    text: 'Hlídá horní limity a interakce s léky; řekne, co chybí vaší stravě (třeba B12 u veganů).',
+  },
   {
     icon: FlaskConical,
     title: 'Krevní testy',
@@ -18,7 +26,7 @@ const FEATURES = [
   {
     icon: Activity,
     title: 'Bolest a mobilita',
-    text: 'Mapa bolesti, varovné příznaky a krátké rutiny na míru.',
+    text: 'Mapa bolesti, varovné příznaky a sestavy podle vaší práce a sportu.',
   },
   {
     icon: MessageCircle,
