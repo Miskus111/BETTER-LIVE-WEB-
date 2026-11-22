@@ -346,6 +346,16 @@ test('non-vitamin supplements: overview section and an honest compound page', as
   await expect(page.getByText(/Schválené tvrzení EU/)).toBeVisible()
 })
 
+test('food explorer filters live in the URL, so a search can be shared', async ({ page }) => {
+  await page.goto('/potraviny?q=cocka&diet=vegan')
+  await expect(page.getByTestId('food-search')).toHaveValue('cocka')
+  await expect(page.getByRole('combobox', { name: 'Strava' })).toHaveValue('vegan')
+  await expect(page.getByTestId('food-lentils')).toBeVisible()
+  await page.getByTestId('food-search').fill('mandle')
+  await expect(page).toHaveURL(/[?&]q=mandle/)
+  await expect(page).toHaveURL(/[?&]diet=vegan/)
+})
+
 test('food explorer: diacritics-insensitive search, filters and compare', async ({ page }) => {
   await page.goto('/potraviny')
   const search = page.getByTestId('food-search')

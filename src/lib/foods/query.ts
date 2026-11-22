@@ -105,3 +105,31 @@ export function queryFoods(foods: Food[], q: FoodQuery): Food[] {
 /** "porce 125 g" already states the weight; "1 vejce L" needs it added. */
 export const portionText = (p: { label: string; grams: number }) =>
   /\d\s*(g|ml|l)(?!\p{L})/u.test(p.label) ? p.label : `${p.label} (${p.grams.toLocaleString('cs-CZ')} g)`
+
+const QUERY_KEYS: (keyof FoodQuery)[] = ['q', 'category', 'state', 'diet', 'without', 'highIn', 'sort', 'per']
+
+/** Filters as URL parameters (only what differs from the defaults), so a search can be shared. */
+export function queryToParams(q: FoodQuery): URLSearchParams {
+  const sp = new URLSearchParams()
+  for (const k of QUERY_KEYS) if (q[k] && q[k] !== EMPTY_QUERY[k]) sp.set(k, String(q[k]))
+  return sp
+}
+
+/** Filters from URL parameters; anything unknown or malformed falls back to the default. */
+export function queryFromParams(sp: URLSearchParams): FoodQuery {
+  const pick = <T extends string>(k: string, ok: (v: string) => boolean, fallback: T) => {
+    const v = sp.get(k)
+    return (v !== null && ok(v) ? v : fallback) as T
+  }
+  const word = (v: string) => /^[a-zA-Z_-]{1,24}$/.test(v)
+  return {
+    q: (sp.get('q') ?? '').slice(0, 60),
+    category: pick('category', (v) => v.length <= 40, ''),
+    state: pick('state', word, ''),
+    diet: pick('diet', (v) => ['vegan', 'vegetarian', 'glutenFree'].includes(v), ''),
+    without: pick('without', word, ''),
+    highIn: pick('highIn', (v) => v in NUTRIENTS, ''),
+    sort: pick('sort', (v) => MEASURES.some((m) => m.id === v), ''),
+    per: pick('per', (v) => v === 'portion', '100g'),
+  }
+}
