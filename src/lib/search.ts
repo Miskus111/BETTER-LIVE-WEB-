@@ -2,6 +2,7 @@ import { TOOLS } from '@/data/tools'
 import { GLOSSARY } from '@/data/glossary'
 import { norm, stemSet, stems } from '@/lib/guide-search'
 import { FOODS } from '@/data/foods'
+import { foodAliases } from '@/lib/foods/aliases'
 import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
 import { BODY_GUIDES } from '@/data/body-guides'
@@ -208,7 +209,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     subtitle: `${f.category} · ${f.kcal} kcal / 100 g`,
     href: `/food/${f.id}`,
     text: `${f.name} ${f.category} ${f.basis}`,
-    aliases: f.nameEn,
+    aliases: `${f.nameEn} ${foodAliases(f)}`,
   })),
 ]
 
