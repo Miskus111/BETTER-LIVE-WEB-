@@ -226,6 +226,8 @@ export const APPROXIMATIONS: Record<string, string> = {
   'oat-drink': PLANT_DRINK,
   'rice-drink': PLANT_DRINK,
   'soy-drink': PLANT_DRINK,
+  headcheese:
+    'Americká vepřová „headcheese“ — obdoba tlačenky z vepřového masa a želatiny; česká tlačenka se liší kořením, podílem masa a solí.',
   'pork-neck-cooked':
     'V USDA není česká krkovice; použita americká „Boston butt“ — horní část plece, stejná partie. Grilovaná, libové i tučné části.',
   'potato-pancakes':
