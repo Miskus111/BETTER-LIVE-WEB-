@@ -3461,12 +3461,12 @@
         },
         {
           "food": {
-            "id": "duck",
-            "name": "Kachna (bez kůže)",
-            "image": "/images/foods/cat-drubez.svg",
-            "portion": { "label": "porce 150 g", "grams": 150 }
+            "id": "segedinsky-gulas",
+            "name": "Segedínský guláš",
+            "image": "/images/foods/cat-ceska-jidla.svg",
+            "portion": { "label": "porce bez přílohy", "grams": 300 }
           },
-          "v": 0.54
+          "v": 0.555
         }
       ]
     },
