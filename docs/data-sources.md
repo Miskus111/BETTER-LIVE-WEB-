@@ -56,7 +56,8 @@ USDA popisuje americké výrobky. Kde se liší od českých, data upravujeme je
   a poznámka u potraviny říká, jaký výrobek data popisují (`APPROXIMATIONS`).
 
 Validace (`npm run foods:validate`) odmítne záznam „enriched“ nebo mléko s přidaným vitamínem D, které by tyto
-hodnoty ukazovaly.
+hodnoty ukazovaly. Odmítne i potravinu bez základních minerálů (sodík, draslík, železo, vápník), pokud chybějící
+hodnotu nic nevysvětluje — tak se zachytí neúplný záznam zdroje.
 
 ## Vypočtené recepty
 

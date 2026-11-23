@@ -25,3 +25,20 @@ describe('validateFoods', () => {
     )
   })
 })
+
+describe('basic minerals', () => {
+  it('flags a food whose source has no minerals, unless the gap is explained', async () => {
+    const { validateFoods } = await import('./validate')
+    const data = (await import('@/data/foods.generated.json')).default as unknown as {
+      foods: Parameters<typeof validateFoods>[0]
+    }
+    const beans = structuredClone(data.foods.find((f) => f.id === 'lentils')!)
+    beans.id = 'test-beans'
+    const n = beans.nutrients as Record<string, number | null>
+    n.sodium = n.potassium = n.iron = n.calcium = null
+    const issues = validateFoods([beans])
+    expect(issues.some((i) => /missing sodium, potassium, iron, calcium/.test(i.problem))).toBe(true)
+    beans.provenance.notes = [...beans.provenance.notes, 'Hodnoty minerálů neuvádíme, protože…']
+    expect(validateFoods([beans]).some((i) => /missing/.test(i.problem))).toBe(false)
+  })
+})

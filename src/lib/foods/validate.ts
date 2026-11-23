@@ -23,6 +23,14 @@ export const ENERGY_EXCEPTIONS: Record<string, string> = {
   lime: 'Organické kyseliny (citronová) mají jiný energetický faktor než sacharidy.',
 }
 
+/** Basic minerals every generic food should carry (the source had them for all but these). */
+const BASIC_MINERALS = ['sodium', 'potassium', 'iron', 'calcium'] as const
+
+/** Foods whose source record lacks a basic mineral, with the reason. */
+export const MINERAL_GAPS: Record<string, string> = {
+  goji: 'Záznam FDC pro sušená goji neuvádí draslík.',
+}
+
 export interface ValidationIssue {
   id: string
   problem: string
@@ -37,6 +45,19 @@ export function validateFoods(foods: GeneratedFood[]): ValidationIssue[] {
     seen.add(f.id)
 
     const p = f.provenance
+    // a missing basic mineral must be explained: hidden on purpose (note on the food), a recipe, or a listed gap.
+    // Catches incomplete source records, e.g. a Foundation record without any minerals.
+    const missingMinerals = BASIC_MINERALS.filter(
+      (k) => (f.nutrients as Record<string, number | null>)[k] == null,
+    )
+    const explained =
+      !!f.recipe ||
+      !!MINERAL_GAPS[f.id] ||
+      (p?.notes ?? []).some((n) => /neuvádíme|bez údajů|skryjeme/i.test(n))
+    if (missingMinerals.length && !explained)
+      err(
+        `missing ${missingMinerals.join(', ')} without explanation (use an SR Legacy record or document the gap)`,
+      )
     if (!p || !p.source || !p.sourceId || !p.sourceVersion || !p.retrievedAt || !p.licence)
       err('missing provenance')
     if (!f.nameCs || !f.nameEn) err('missing name')
