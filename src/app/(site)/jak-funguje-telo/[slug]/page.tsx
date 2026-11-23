@@ -23,7 +23,9 @@ import { portionText } from '@/lib/foods/query'
 import { fmtAmount } from '@/lib/nutrition'
 import { PUBLISHED, modifiedAfter } from '@/data/published'
 
-const UPDATED = '2026-11-21' // food picks and related guides added
+const UPDATED = '2026-11-21' // related guides, article dates
+/** guides with a food list: recalculated from the corrected food data (folate in broccoli, new foods) */
+const PICKS_UPDATED = '2026-11-23'
 
 /** ~200 words per minute for Czech non-fiction on a phone */
 function readingMinutes(g: BodyGuide) {
@@ -76,6 +78,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   // one concrete, best-supported step to take this week
   const Tool = GUIDE_TOOLS[g.slug]
   const picks = foodPicksForGuide(g.slug, FOODS)
+  const updated = picks ? PICKS_UPDATED : UPDATED
   // sections in page order; optional ones only when the guide has them
   const toc = [
     ...(Tool ? [{ id: 'try', label: 'Vyzkoušejte si' }] : []),
@@ -97,7 +100,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             description: g.hook,
             inLanguage: 'cs',
             datePublished: PUBLISHED[`/jak-funguje-telo/${g.slug}`],
-            dateModified: modifiedAfter(PUBLISHED[`/jak-funguje-telo/${g.slug}`], UPDATED),
+            dateModified: modifiedAfter(PUBLISHED[`/jak-funguje-telo/${g.slug}`], updated),
             author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
             timeRequired: `PT${minutes}M`,
             mainEntityOfPage: url,
@@ -357,7 +360,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ))}
         </ul>
         <p className="text-subtle mt-3 text-[13px]">
-          Vzdělávací obsah, ne lékařská rada. Aktualizováno {new Date(UPDATED).toLocaleDateString('cs-CZ')}.
+          Vzdělávací obsah, ne lékařská rada. Aktualizováno {new Date(updated).toLocaleDateString('cs-CZ')}.
         </p>
       </section>
 

@@ -1,3 +1,4 @@
+import { foodPicksForGuide } from '@/lib/foods/guides'
 import type { MetadataRoute } from 'next'
 import { FOODS } from '@/data/foods'
 import { ORGANS } from '@/data/organs'
@@ -11,9 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // when each group of pages last changed in substance — bump it with real content changes, so search
   // engines re-crawl what changed (one date for everything teaches them to ignore lastmod)
   const lastModified = new Date('2026-11-18')
-  const foodsUpdated = new Date('2026-11-21') // unenriched grains, raw vs cooked, downsides in V kostce, renames
+  const foodsUpdated = new Date('2026-11-23') // new foods and Czech dishes, complete records, unknown fibre
   const guidesUpdated = new Date('2026-11-21') // food picks, related guides, article dates
-  const organsUpdated = new Date('2026-11-21') // rankings: one entry per food, no junk, per-portion amounts
+  const organsUpdated = new Date('2026-11-23') // rankings recalculated from the corrected food data
   return [
     { url: u('/'), priority: 1, lastModified: foodsUpdated },
     { url: u('/doplnky'), priority: 0.8 },
@@ -25,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...BODY_GUIDES.map((g) => ({
       url: u(`/jak-funguje-telo/${g.slug}`),
       priority: 0.8,
-      lastModified: guidesUpdated,
+      lastModified: foodPicksForGuide(g.slug, FOODS) ? new Date('2026-11-23') : guidesUpdated,
     })),
     { url: u('/jak-doporucujeme'), priority: 0.4 },
     { url: u('/looksmaxing'), priority: 0.7 },
