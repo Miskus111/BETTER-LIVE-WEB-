@@ -9,7 +9,7 @@
 - **Oprava dat:** neznámá vláknina se už neukazuje jako 0 g („bez údajů“); fazole v tomatě, brokolice, hummus a
   celozrnný chléb mají úplné hodnoty (SR Legacy místo neúplného Foundation). Validace odmítne potravinu bez
   základních minerálů, pokud chybění nic nevysvětluje.
-- **Vyhledávání (⌘K)** najde stránky Potraviny, Kalkulačky, Ceník a Jak doporučujeme; vyhledávání potravin je v adrese
+- **Vyhledávání (⌘K)** snese české koncovky („palačinka“, „knedlíky“, „řízky“), je asi 10× rychlejší a najde stránky Potraviny, Kalkulačky, Ceník a Jak doporučujeme; vyhledávání potravin je v adrese
   a dá se sdílet.
 - **SEO a sdílení:** drobečková navigace pro vyhledávače na všech typech stránek, náhledy odkazů s vlastním titulkem.
 - **Chyby:** přívětivé chybové obrazovky (stránka i celý web), ukládání nikdy neshodí obrazovku.
