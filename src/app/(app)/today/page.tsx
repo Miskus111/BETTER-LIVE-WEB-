@@ -1,3 +1,4 @@
+import { dayBefore, pragueDay } from '@/lib/dates'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { Activity, Apple, Bed, Bot, Dumbbell, FlaskConical, Gauge, Pill, Scale } from 'lucide-react'
@@ -18,8 +19,9 @@ export default async function TodayPage() {
   const mob = await getTranslations('mob')
 
   const now = new Date()
-  const today = iso(now)
-  const yesterday = iso(new Date(now.getTime() - 864e5))
+  // calendar days in Prague (the server runs on UTC)
+  const today = pragueDay(now)
+  const yesterday = dayBefore(today, 1)
   const weekStart = new Date(now)
   weekStart.setDate(now.getDate() - ((now.getDay() + 6) % 7))
   weekStart.setHours(0, 0, 0, 0)
