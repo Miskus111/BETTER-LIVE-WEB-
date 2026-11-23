@@ -35,3 +35,23 @@ describe('search finds the main pages', () => {
     expect(top('affiliate')).toContain('/jak-doporucujeme')
   })
 })
+
+describe('search tolerates Czech word endings', () => {
+  const top = (q: string) =>
+    search(q)
+      .slice(0, 3)
+      .map((r) => r.title)
+  it('finds a food by another form of its name', () => {
+    expect(top('palačinka').some((t) => t.startsWith('Palačinky'))).toBe(true)
+    expect(top('knedlíky')).toContain('Houskový knedlík')
+    expect(top('řízky').some((t) => t.includes('řízek'))).toBe(true)
+    expect(top('jablka')[0]).toBe('Jablko')
+    expect(top('mléka').some((t) => t.startsWith('Mléko'))).toBe(true)
+  })
+  it('keeps exact matches first and short words exact', async () => {
+    const { stems } = await import('./search')
+    expect(top('jablko')[0]).toBe('Jablko')
+    expect(stems('rizek')).toEqual(['rizek', 'rizk'])
+    expect(stems('caj')).toEqual([])
+  })
+})

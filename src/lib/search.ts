@@ -212,28 +212,74 @@ export const SEARCH_INDEX: SearchItem[] = [
   })),
 ]
 
-/** Simple ranked search: title prefix > title contains > body contains; every token must match. */
+/**
+ * Rough Czech stems (text already without diacritics): the word without its ending vowels, and also without a
+ * mobile "e" before the last consonant — "palacinka", "palacinky" → "palacink"; "rizek", "rizky" → "rizk";
+ * "mleko", "mleka" → "mlek". Stems shorter than 4 letters are dropped (too vague to match on).
+ */
+export function stems(word: string): string[] {
+  const w = word.replace(/[aeiouy]+$/, '')
+  const out = /e[kc]$/.test(w) ? [w, w.slice(0, -2) + w.slice(-1)] : [w]
+  return out.filter((x) => x.length >= 4)
+}
+
+/** Inflected words ("knedliky" → Houskový knedlík): shares a stem with a word in the text. */
+function stemHit(token: string, textStems: Set<string>): boolean {
+  return stems(token).some((x) => textStems.has(x))
+}
+
+const stemSet = (s: string) => new Set(s.split(/[^a-z0-9]+/).flatMap(stems))
+
+interface Fields {
+  title: string
+  aliases: string
+  all: string
+  aliasWords: string[]
+  titleStems: () => Set<string>
+  allStems: () => Set<string>
+}
+/** normalised text of each item, computed once (search runs on every keystroke) */
+const fieldCache = new WeakMap<SearchItem, Fields>()
+function fieldsOf(item: SearchItem): Fields {
+  let f = fieldCache.get(item)
+  if (!f) {
+    const title = norm(item.title)
+    const aliases = norm(item.aliases ?? '')
+    const all = `${title} ${aliases} ${norm(item.text)}`
+    let ts: Set<string> | undefined
+    let as: Set<string> | undefined
+    f = {
+      title,
+      aliases,
+      all,
+      // a whole-word alias hit ("protein" → Bílkoviny) counts like a title prefix
+      aliasWords: aliases.split(/\s+/),
+      titleStems: () => (ts ??= stemSet(title)),
+      allStems: () => (as ??= stemSet(all)),
+    }
+    fieldCache.set(item, f)
+  }
+  return f
+}
+
+/** Simple ranked search: title prefix > title contains > body contains; every token must match
+ * (exactly, or failing that by its stem — Czech word endings). */
 export function search(query: string, limit = 24): SearchItem[] {
   const tokens = norm(query).split(/\s+/).filter(Boolean)
   if (!tokens.length) return []
   return SEARCH_INDEX.map((item) => {
-    const title = norm(item.title)
-    const aliases = norm(item.aliases ?? '')
-    const all = `${title} ${aliases} ${norm(item.text)}`
-    if (!tokens.every((t) => all.includes(t))) return null
-    // a whole-word alias hit ("protein" → Bílkoviny) counts like a title prefix
-    const aliasWords = aliases.split(/\s+/)
-    const score = tokens.reduce(
-      (s, t) =>
-        s +
-        (title.startsWith(t) || aliasWords.includes(t)
-          ? 6
-          : title.includes(t) || aliases.includes(t)
-            ? 3
-            : 1) +
-        (item.kind === 'Orgán' ? 0.5 : 0),
-      0,
-    )
+    const f = fieldsOf(item)
+    const { title, aliases, all, aliasWords } = f
+    let score = 0
+    for (const t of tokens) {
+      if (all.includes(t)) {
+        score +=
+          title.startsWith(t) || aliasWords.includes(t) ? 6 : title.includes(t) || aliases.includes(t) ? 3 : 1
+      } else if (stemHit(t, f.titleStems())) score += 4
+      else if (stemHit(t, f.allStems())) score += 1
+      else return null
+      if (item.kind === 'Orgán') score += 0.5
+    }
     return { item, score }
   })
     .filter((x): x is { item: SearchItem; score: number } => !!x)
