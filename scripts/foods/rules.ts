@@ -190,6 +190,13 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
   cookies: { keys: ENRICHMENT, reason: US_FLOUR },
   cake: { keys: ENRICHMENT, reason: US_FLOUR },
   pancakes: { keys: ENRICHMENT, reason: US_FLOUR },
+  pizza: { keys: ENRICHMENT, reason: US_FLOUR },
+  // the US recipe uses enriched flour (6 µg added folic acid per 100 g)
+  'potato-pancakes': { keys: ENRICHMENT, reason: US_FLOUR },
+  cornflakes: {
+    keys: ['folate', 'iron', 'b1', 'b2', 'b3', 'b6', 'b12', 'vitA', 'retinol', 'vitD', 'vitC', 'zinc'],
+    reason: BRAND_FORTIFIED,
+  },
   nutella: {
     keys: ['satFat', 'monoFat', 'polyFat'],
     reason:
@@ -219,6 +226,12 @@ export const APPROXIMATIONS: Record<string, string> = {
   'oat-drink': PLANT_DRINK,
   'rice-drink': PLANT_DRINK,
   'soy-drink': PLANT_DRINK,
+  'pork-neck-cooked':
+    'V USDA není česká krkovice; použita americká „Boston butt“ — horní část plece, stejná partie. Grilovaná, libové i tučné části.',
+  'potato-pancakes':
+    'Americké bramboráky („potato pancakes“ / latkes) z brambor, vajec a mouky; český bramborák bývá s česnekem a majoránkou a smažený na víc tuku — energie a tuk mohou být vyšší.',
+  'fruit-pastry':
+    'Americké dánské pečivo s ovocem z neobohacené mouky; český ovocný koláč či buchta se může lišit poměrem těsta a náplně.',
   'beer-light':
     'Americké lehké pivo („light“); české výčepní pivo (10°) má o něco víc energie (kolem 37 kcal na 100 ml).',
 }

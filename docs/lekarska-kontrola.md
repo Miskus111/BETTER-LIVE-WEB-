@@ -1,10 +1,10 @@
 # Odborná kontrola zdravotního obsahu — BLWB
 
-Vygenerováno 2026-11-21 přímo z dat webu (`npm run review:doc`).
+Vygenerováno 2026-11-23 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1200 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1203 položek ke kontrole.
 
 ---
 
@@ -3176,6 +3176,9 @@ Web: /food/…
 - [ ] Máslové sušenky — cukr a nasycené tuky
 - [ ] Bábovka / biskupský chlebíček (blízká obdoba) — cukr a nasycené tuky
 - [ ] Želé bonbony — cukr
+- [ ] Ovocný koláč (blízká obdoba) — cukr a tuk
+- [ ] Pizza se sýrem (mražená) — sůl a nasycené tuky
+- [ ] Limonáda (citronová) — přidaný cukr
 
 Poznámky lékaře:
 
