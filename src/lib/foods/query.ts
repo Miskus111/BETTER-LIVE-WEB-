@@ -75,7 +75,7 @@ let foodWords: Map<string, string> | undefined
 
 /** A typo fix for a food search with no results ("jogrt" → jogurt); undefined when nothing could be fixed. */
 export function foodTypoFix(foods: Food[], q: string): string | undefined {
-  foodWords ??= wordVocabulary(foods.map((f) => `${f.name} ${f.category} ${foodAliases(f)}`))
+  foodWords ??= wordVocabulary(foods.map((f) => `${f.name} ${f.nameEn} ${f.category} ${foodAliases(f)}`))
   return fixTypos(q, foodWords, (w) => foods.some((f) => matchesText(f, w)))
 }
 
