@@ -1,6 +1,6 @@
 import { TOOLS } from '@/data/tools'
 import { GLOSSARY } from '@/data/glossary'
-import { norm } from '@/lib/guide-search'
+import { norm, stemSet, stems } from '@/lib/guide-search'
 import { FOODS } from '@/data/foods'
 import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
@@ -212,23 +212,10 @@ export const SEARCH_INDEX: SearchItem[] = [
   })),
 ]
 
-/**
- * Rough Czech stems (text already without diacritics): the word without its ending vowels, and also without a
- * mobile "e" before the last consonant — "palacinka", "palacinky" → "palacink"; "rizek", "rizky" → "rizk";
- * "mleko", "mleka" → "mlek". Stems shorter than 4 letters are dropped (too vague to match on).
- */
-export function stems(word: string): string[] {
-  const w = word.replace(/[aeiouy]+$/, '')
-  const out = /e[kc]$/.test(w) ? [w, w.slice(0, -2) + w.slice(-1)] : [w]
-  return out.filter((x) => x.length >= 4)
-}
-
 /** Inflected words ("knedliky" → Houskový knedlík): shares a stem with a word in the text. */
 function stemHit(token: string, textStems: Set<string>): boolean {
   return stems(token).some((x) => textStems.has(x))
 }
-
-const stemSet = (s: string) => new Set(s.split(/[^a-z0-9]+/).flatMap(stems))
 
 interface Fields {
   title: string

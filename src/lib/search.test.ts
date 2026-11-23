@@ -49,7 +49,7 @@ describe('search tolerates Czech word endings', () => {
     expect(top('mléka').some((t) => t.startsWith('Mléko'))).toBe(true)
   })
   it('keeps exact matches first and short words exact', async () => {
-    const { stems } = await import('./search')
+    const { stems } = await import('./guide-search')
     expect(top('jablko')[0]).toBe('Jablko')
     expect(stems('rizek')).toEqual(['rizek', 'rizk'])
     expect(stems('caj')).toEqual([])
