@@ -556,6 +556,14 @@ test('accessibility: no serious or critical axe violations on key pages and app 
   }
 })
 
+test('search fixes a typo and says so', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: /Hledat průvodce/ }).click()
+  await page.getByRole('dialog').getByRole('combobox').fill('brokolce')
+  await expect(page.getByRole('dialog')).toContainText('Výsledky pro „brokolice“')
+  await expect(page.getByRole('option').first()).toContainText('Brokolice')
+})
+
 test('search with no results offers next steps and stays accessible', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Hledat průvodce/ }).click()
