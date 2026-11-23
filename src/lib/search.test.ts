@@ -21,3 +21,17 @@ describe('EU "source of" thresholds', () => {
     expect(thresholdOf('calcium', true)).toBeCloseTo(solid / 2)
   })
 })
+
+describe('search finds the main pages', () => {
+  it('foods, calculators, pricing and how we recommend', async () => {
+    const { search } = await import('./search')
+    const top = (q: string) =>
+      search(q)
+        .slice(0, 3)
+        .map((r) => r.href)
+    expect(top('potraviny')).toContain('/potraviny')
+    expect(top('kalkulacka')).toContain('/nastroje')
+    expect(top('cenik')).toContain('/pricing')
+    expect(top('affiliate')).toContain('/jak-doporucujeme')
+  })
+})
