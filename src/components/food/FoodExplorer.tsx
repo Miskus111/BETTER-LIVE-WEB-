@@ -13,6 +13,7 @@ import {
   measureOf,
   portionText,
   queryFoods,
+  foodTypoFix,
   type FoodQuery,
   type Measure,
   queryFromParams,
@@ -60,6 +61,11 @@ export function FoodExplorer() {
   }, [q])
 
   const foods = useMemo(() => queryFoods(FOODS, q), [q])
+  // a search with no results gets a typo fix to try ("jogrt" → jogurt)
+  const typoFix = useMemo(
+    () => (foods.length || !q.q.trim() ? undefined : foodTypoFix(FOODS, q.q)),
+    [foods, q.q],
+  )
   const counts = useMemo(() => {
     const base = queryFoods(FOODS, { ...q, category: '' })
     return Object.fromEntries(FOOD_CATEGORIES.map((c) => [c, base.filter((f) => f.category === c).length]))
@@ -182,6 +188,16 @@ export function FoodExplorer() {
       {foods.length === 0 ? (
         <div className="card mt-4 p-6 text-center">
           <p className="text-muted">Žádná potravina neodpovídá filtrům.</p>
+          {typoFix && (
+            <button
+              type="button"
+              className="link mt-2 block w-full text-[14px]"
+              data-testid="food-typo-fix"
+              onClick={() => update({ ...q, q: typoFix })}
+            >
+              Mysleli jste „{typoFix}“?
+            </button>
+          )}
           <button type="button" className="link mt-2 text-[14px]" onClick={() => update(EMPTY_QUERY)}>
             Zrušit filtry
           </button>

@@ -58,7 +58,8 @@ describe('search tolerates Czech word endings', () => {
 
 describe('typo fix for queries with no results', () => {
   it('replaces an unknown word by the closest title word', async () => {
-    const { correctQuery, editDistance } = await import('./search')
+    const { correctQuery } = await import('./search')
+    const { editDistance } = await import('./guide-search')
     expect(correctQuery('brokolce')).toBe('brokolice')
     expect(correctQuery('kofien')).toBe('kofein')
     expect(correctQuery('vitamn d')).toBe('vitamín d')

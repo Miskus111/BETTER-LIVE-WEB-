@@ -666,3 +666,11 @@ test('JavaScript budget: pages stay light (gzip of the scripts each page loads)'
     expect(Math.round(bytes / 1024), `${path} JS (KB gzip)`).toBeLessThanOrEqual(maxKb)
   }
 })
+
+test('food list offers a typo fix when nothing matches', async ({ page }) => {
+  await page.goto('/potraviny?q=jogrt')
+  await page.getByTestId('food-typo-fix').click()
+  await expect(page.getByTestId('food-search')).toHaveValue('jogurt')
+  await expect(page).toHaveURL(/[?&]q=jogurt/)
+  await expect(page.getByTestId('food-count')).not.toHaveText(/^0 z/)
+})
