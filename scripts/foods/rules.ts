@@ -191,6 +191,10 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
   cake: { keys: ENRICHMENT, reason: US_FLOUR },
   pancakes: { keys: ENRICHMENT, reason: US_FLOUR },
   pizza: { keys: ENRICHMENT, reason: US_FLOUR },
+  wafers: { keys: ENRICHMENT, reason: US_FLOUR },
+  // enrichment-level B1/B2/B3 and iron; the record lists the added folic acid under food folate
+  pretzels: { keys: ENRICHMENT, reason: US_FLOUR },
+  hamburger: { keys: ENRICHMENT, reason: US_FLOUR },
   breadcrumbs: { keys: ENRICHMENT, reason: US_FLOUR },
   // the US recipe uses enriched flour (6 µg added folic acid per 100 g)
   'potato-pancakes': { keys: ENRICHMENT, reason: US_FLOUR },
