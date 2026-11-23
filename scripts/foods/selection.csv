@@ -140,7 +140,7 @@ chard,169991,SR Legacy,"Chard, swiss, raw",Mangold,Swiss chard,Zelenina,raw,1 hr
 watercress,170068,SR Legacy,"Watercress, raw",Řeřicha potoční,Watercress,Zelenina,raw,1 hrnek=cup,
 beet-greens,170375,SR Legacy,"Beet greens, raw",Listy červené řepy,Beet greens,Zelenina,raw,1 hrnek=cup,
 dandelion,169226,SR Legacy,"Dandelion greens, raw",Pampeliškové listy,Dandelion greens,Zelenina,raw,1 hrnek=cup,
-broccoli,747447,Foundation,"Broccoli, raw",Brokolice,Broccoli,Zelenina,raw,porce 100 g==100,
+broccoli,170379,SR Legacy,"Broccoli, raw",Brokolice,Broccoli,Zelenina,raw,porce 100 g==100,
 broccoli-cooked,169967,SR Legacy,"Broccoli, cooked, boiled, drained, without salt",Brokolice vařená,"Broccoli, boiled",Zelenina,cooked,porce 100 g==100,
 cauliflower,169986,SR Legacy,"Cauliflower, raw",Květák,Cauliflower,Zelenina,raw,porce 100 g==100,
 cauliflower-cooked,170397,SR Legacy,"Cauliflower, cooked, boiled, drained, without salt",Květák vařený,"Cauliflower, boiled",Zelenina,cooked,porce 100 g==100,
@@ -299,10 +299,10 @@ kidney-beans,175194,SR Legacy,"Beans, kidney, red, mature seeds, cooked, boiled,
 kidney-beans-canned,174285,SR Legacy,"Beans, kidney, red, mature seeds, canned, drained solids",Červené fazole z konzervy,"Kidney beans, canned",Luštěniny,canned,porce 150 g==150,
 white-beans,175203,SR Legacy,"Beans, white, mature seeds, cooked, boiled, without salt",Bílé fazole vařené,"White beans, cooked",Luštěniny,cooked,porce 200 g==200,
 white-beans-dry,175202,SR Legacy,"Beans, white, mature seeds, raw",Bílé fazole (suché),"White beans, dry",Luštěniny,dry,porce 60 g==60,
-baked-beans,2758983,Foundation,"Beans, baked, canned, vegetarian",Fazole v tomatě,Baked beans,Luštěniny,canned,porce 150 g==150,
+baked-beans,175182,SR Legacy,"Beans, baked, canned, plain or vegetarian",Fazole v tomatě,Baked beans,Luštěniny,canned,porce 150 g==150,
 chickpeas,173757,SR Legacy,"Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",Cizrna vařená,"Chickpeas, cooked",Luštěniny,cooked,porce 200 g==200,
 chickpeas-dry,173756,SR Legacy,"Chickpeas (garbanzo beans, bengal gram), mature seeds, raw",Cizrna (suchá),"Chickpeas, dry",Luštěniny,dry,porce 60 g==60,
-hummus,321358,Foundation,"Hummus, commercial",Hummus,Hummus,Luštěniny,processed,1 lžíce=tablespoon,sesame
+hummus,174289,SR Legacy,"Hummus, commercial",Hummus,Hummus,Luštěniny,processed,1 lžíce 15 g==15,sesame
 peas-split,172429,SR Legacy,"Peas, split, mature seeds, cooked, boiled, without salt",Hrách loupaný vařený,"Split peas, cooked",Luštěniny,cooked,porce 200 g==200,
 peas-split-dry,172428,SR Legacy,"Peas, green, split, mature seeds, raw",Hrách loupaný (suchý),"Split peas, dry",Luštěniny,dry,porce 60 g==60,
 mung-beans,174257,SR Legacy,"Mung beans, mature seeds, cooked, boiled, without salt",Mungo vařené,"Mung beans, cooked",Luštěniny,cooked,porce 200 g==200,
@@ -347,7 +347,7 @@ flour-rye,168885,SR Legacy,"Rye flour, dark",Žitná mouka tmavá,Dark rye flour
 wheat-germ,168892,SR Legacy,"Wheat germ, crude",Pšeničné klíčky,Wheat germ,Obiloviny a pečivo,dry,1 lžíce==7,gluten
 wheat-bran,169722,SR Legacy,"Wheat bran, crude",Pšeničné otruby,Wheat bran,Obiloviny a pečivo,dry,1 lžíce==4,gluten
 bread-white,174924,SR Legacy,"Bread, white, commercially prepared (includes soft bread crumbs)",Bílý toastový chléb,White bread,Obiloviny a pečivo,baked,1 krajíc=slice,gluten
-bread-wholewheat,2758994,Foundation,"Bread, 100% whole wheat, commercial",Celozrnný chléb,Whole-wheat bread,Obiloviny a pečivo,baked,1 krajíc==30,gluten
+bread-wholewheat,172688,SR Legacy,"Bread, whole-wheat, commercially prepared",Celozrnný chléb,Whole-wheat bread,Obiloviny a pečivo,baked,1 krajíc==30,gluten
 bread-rye,172684,SR Legacy,"Bread, rye",Žitný chléb,Rye bread,Obiloviny a pečivo,baked,1 krajíc=slice,gluten
 bread-pumpernickel,174918,SR Legacy,"Bread, pumpernickel",Celozrnný žitný chléb (pumpernikl),Pumpernickel,Obiloviny a pečivo,baked,1 krajíc=slice,gluten
 bread-multigrain,168013,SR Legacy,"Bread, multi-grain (includes whole-grain)",Vícezrnný chléb,Multigrain bread,Obiloviny a pečivo,baked,1 krajíc=slice,gluten
