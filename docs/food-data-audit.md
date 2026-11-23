@@ -155,5 +155,8 @@ folát 387 → 8 µg, železo 4,3 → 0,8 mg na 100 g. Pečivo neobohacený záz
 - Některé české potraviny (tvaroh, pražská šunka…) nemají přesný ekvivalent v FDC; použili jsme
   nejbližší záznam a jeho anglický popis je vždy vidět u potraviny.
 - Recepty nekorigují odpar ani ztráty vařením (viz `data-sources.md`).
+- **Foundation Foods bez důležitých živin:** fazole v tomatě (bez minerálů), brokolice, hummus a celozrnný chléb
+  (bez folátu) proto používají záznam SR Legacy s úplným panelem. Mléko a sýry z Foundation folát nemají; u nich
+  na něm nezáleží, zobrazí se „bez údajů“.
 - **Vitamín D v rybách** se liší podle chovu a krmiva. Údaj u kapra (24,7 µg / 100 g, FDC 171952) je z amerického
   vzorku; u rybničního kapra z českých chovů může být jiný. Bez licencovaného českého zdroje ho necháváme tak, jak je.

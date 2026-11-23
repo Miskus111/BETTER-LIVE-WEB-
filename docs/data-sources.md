@@ -5,9 +5,9 @@ Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu zázn
 
 | Zdroj                                        | Verze       | Co z něj bereme                    | Licence                                                                           | Stav                                   |
 | -------------------------------------------- | ----------- | ---------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------- |
-| USDA FoodData Central — **Foundation Foods** | 2026-10-29  | 20 potravin (přednostně)           | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation)             | používáme                              |
-| USDA FoodData Central — **SR Legacy**        | 2018-04     | 433 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
-| Vypočtené recepty (BLWB)                     | —           | 9 českých jídel ze surovin výše    | vlastní výpočet                                                                   | používáme, `verified: false`           |
+| USDA FoodData Central — **Foundation Foods** | 2026-10-29  | 15 potravin (přednostně)           | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation)             | používáme                              |
+| USDA FoodData Central — **SR Legacy**        | 2018-04     | 438 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
+| Vypočtené recepty (BLWB)                     | —           | 13 českých jídel ze surovin výše   | vlastní výpočet                                                                   | používáme, `verified: false`           |
 | Open Food Facts                              | živé API v2 | balené výrobky podle čárového kódu | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) (databáze), obsah DbCL | jen dotaz z prohlížeče, nic neukládáme |
 | NutriDatabáze.cz (ÚZEI)                      | —           | —                                  | vlastní licenční podmínky                                                         | **nepoužíváme** (viz níže)             |
 
@@ -22,7 +22,8 @@ Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu zázn
   odkaz na `https://fdc.nal.usda.gov/food-details/<FDC ID>/nutrients`.
 - **Výběr datasetu:** Foundation Foods má modernější analýzy, ale menší nutriční panel. Foundation
   použijeme, jen když existuje záznam se stejným popisem a jeho panel pokrývá ≥ 80 % živin záznamu
-  SR Legacy (plus 6 ručně spárovaných případů v `selection.csv`). Jinak SR Legacy.
+  SR Legacy (plus 6 ručně spárovaných případů v `selection.csv`). Jinak SR Legacy. Výjimka: když Foundation
+  chybí živina, kvůli které se potravina jí (folát u brokolice, minerály u fazolí v tomatě), použijeme SR Legacy.
 - Značkové výrobky (Branded Foods) záměrně nepoužíváme — jde o etikety výrobců, ne o analýzy.
 - Výběr potravin je v `scripts/foods/selection.csv` (FDC ID, dataset, přesný popis v FDC, český název,
   kategorie, stav — syrové/vařené…, porce, alergeny). Syrová a tepelně upravená podoba jsou vždy dvě
