@@ -148,6 +148,7 @@ folát 387 → 8 µg, železo 4,3 → 0,8 mg na 100 g. Pečivo neobohacený záz
   Řešením by byla česká NutriDatabáze, ta je ale licenčně nedostupná (viz `data-sources.md`).
 - **Přidané cukry** a **biotin (B7)** FDC v těchto datasetech neuvádí.
 - **Trans tuky** chybí u 159 potravin, **cholin** u 73, **vitamin K** u 61, **vitamin D** u 46.
+- **Skyr a acidofilní mléko** v FDC nejsou (jen značkové výrobky).
 - **Řízek a Tatranka** v FDC nejsou (USDA nemá obalovaný vepřový řízek; oplatky jen jako značkové výrobky), proto nejsou v databázi.
 - **Kombucha** v FDC není (jen značkové výrobky), proto není v databázi; balené výrobky lze dohledat
   čárovým kódem přes Open Food Facts.
