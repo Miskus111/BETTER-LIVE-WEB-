@@ -191,6 +191,7 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
   cake: { keys: ENRICHMENT, reason: US_FLOUR },
   pancakes: { keys: ENRICHMENT, reason: US_FLOUR },
   pizza: { keys: ENRICHMENT, reason: US_FLOUR },
+  breadcrumbs: { keys: ENRICHMENT, reason: US_FLOUR },
   // the US recipe uses enriched flour (6 µg added folic acid per 100 g)
   'potato-pancakes': { keys: ENRICHMENT, reason: US_FLOUR },
   cornflakes: {
