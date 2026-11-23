@@ -583,6 +583,16 @@ test('the food page image (largest element on screen) is not lazy-loaded', async
   await expect(img).toHaveAttribute('fetchpriority', 'high')
 })
 
+test('unknown fibre shows as "bez údajů", not 0', async ({ page }) => {
+  await page.goto('/food/milk')
+  const tile = page.getByTestId('food-detail').locator('dl > div').filter({ hasText: 'Vláknina' })
+  await expect(tile).toContainText('bez údajů')
+  await page.goto('/food/lentils')
+  await expect(
+    page.getByTestId('food-detail').locator('dl > div').filter({ hasText: 'Vláknina' }),
+  ).toContainText(' g')
+})
+
 test('food page offers logging it in the app diary', async ({ page }) => {
   await page.goto('/food/almonds')
   await expect(page.getByTestId('log-food')).toHaveAttribute('href', /\/eat\?add=almonds$/)
