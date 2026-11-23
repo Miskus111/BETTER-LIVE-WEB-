@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.6.1 — Data, vyhledávání, chyby (23. 11. 2026)
+
+- **Potraviny (466):** krkovice, bramborák, ovocný koláč, pizza, cornflakes, limonáda, tlačenka, polníček,
+  kokosové mléko, strouhanka; vypočtená jídla vepřový a kuřecí řízek, smažený sýr, bramborová kaše, vepřo knedlo
+  zelo, kuře na paprice, čočka na kyselo. Americké obohacení skryté, obdoby označené, nezdravé jako zdroj
+  nedoporučené.
+- **Oprava dat:** neznámá vláknina se už neukazuje jako 0 g („bez údajů“); fazole v tomatě, brokolice, hummus a
+  celozrnný chléb mají úplné hodnoty (SR Legacy místo neúplného Foundation). Validace odmítne potravinu bez
+  základních minerálů, pokud chybění nic nevysvětluje.
+- **Vyhledávání (⌘K)** najde stránky Potraviny, Kalkulačky, Ceník a Jak doporučujeme; vyhledávání potravin je v adrese
+  a dá se sdílet.
+- **SEO a sdílení:** drobečková navigace pro vyhledávače na všech typech stránek, náhledy odkazů s vlastním titulkem.
+- **Chyby:** přívětivé chybové obrazovky (stránka i celý web), ukládání nikdy neshodí obrazovku.
+- **Přístupnost:** tabulka zpracovatelů na stránce soukromí jde na telefonu posouvat klávesnicí.
+- **Rychlost:** přihlášení o čtvrtinu lehčí, test hlídá velikost JavaScriptu na klíčových stránkách.
+
 ## 0.6.0 — Rychlost a samostatná aplikace (22. 11. 2026)
 
 - **Rychlost:** veřejné stránky jsou statické a jdou z CDN (dřív se každá renderovala zvlášť v USA). Doba do první
