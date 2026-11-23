@@ -1,6 +1,6 @@
 import { TOOLS } from '@/data/tools'
 import { GLOSSARY } from '@/data/glossary'
-import { norm, stemSet, stems } from '@/lib/guide-search'
+import { fixTypos, norm, stemSet, stems, wordVocabulary } from '@/lib/guide-search'
 import { FOODS } from '@/data/foods'
 import { foodAliases } from '@/lib/foods/aliases'
 import { NUTRIENT_LIST } from '@/data/nutrients'
@@ -276,62 +276,10 @@ export function search(query: string, limit = 24): SearchItem[] {
     .map((x) => x.item)
 }
 
-/** Edit distance with adjacent swaps ("kofien" → "kofein" is 1), giving up above `max`. */
-export function editDistance(a: string, b: string, max: number): number {
-  if (Math.abs(a.length - b.length) > max) return max + 1
-  let prev2: number[] = []
-  let prev = Array.from({ length: b.length + 1 }, (_, j) => j)
-  for (let i = 1; i <= a.length; i++) {
-    const cur = [i]
-    let best = i
-    for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1
-      let v = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost)
-      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, prev2[j - 2] + 1)
-      cur.push(v)
-      best = Math.min(best, v)
-    }
-    if (best > max) return max + 1
-    prev2 = prev
-    prev = cur
-  }
-  return prev[b.length]
-}
-
-/** Title words (4+ letters): normalised form → how it is written, built on the first typo. */
+/** Title words (4+ letters), built on the first typo. */
 let vocabulary: Map<string, string> | undefined
-function vocab() {
-  if (!vocabulary) {
-    vocabulary = new Map()
-    for (const item of SEARCH_INDEX)
-      for (const w of `${item.title} ${item.aliases ?? ''}`.toLowerCase().split(/[^\p{L}\p{N}]+/u))
-        if (w.length >= 4) {
-          const n = norm(w)
-          if (!vocabulary.has(n)) vocabulary.set(n, w)
-        }
-  }
-  return vocabulary
-}
+const vocab = () =>
+  (vocabulary ??= wordVocabulary(SEARCH_INDEX.map((item) => `${item.title} ${item.aliases ?? ''}`)))
 
-/**
- * A typo fix for a query with no results: every unknown word of 4+ letters is replaced by the closest title
- * word (1 edit, 2 for words of 7+ letters). Undefined when nothing needed or could be fixed.
- */
-export function correctQuery(query: string): string | undefined {
-  const words = query.trim().split(/\s+/).filter(Boolean)
-  let changed = false
-  const fixed = words.map((word) => {
-    const t = norm(word)
-    if (t.length < 4 || search(t, 1).length) return word
-    const max = t.length >= 7 ? 2 : 1
-    let best: { d: number; w: string } | undefined
-    for (const [n, written] of vocab()) {
-      const d = editDistance(t, n, max)
-      if (d <= max && (!best || d < best.d)) best = { d, w: written }
-    }
-    if (!best) return word
-    changed = true
-    return best.w
-  })
-  return changed ? fixed.join(' ') : undefined
-}
+/** A typo fix for a query with no results ("brokolce" → brokolice); undefined when nothing could be fixed. */
+export const correctQuery = (query: string) => fixTypos(query, vocab(), (t) => search(t, 1).length > 0)
