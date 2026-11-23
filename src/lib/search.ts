@@ -72,6 +72,38 @@ const NUTRIENT_ALIASES: Partial<Record<string, string>> = {
 export const SEARCH_INDEX: SearchItem[] = [
   {
     kind: 'Stránka',
+    id: 'potraviny',
+    title: 'Potraviny — co obsahuje 100 gramů',
+    subtitle: 'Hledání, filtry podle stravy a živin, porovnání',
+    href: '/potraviny',
+    text: 'potraviny jídlo nutriční hodnoty kalorie bílkoviny vitamíny minerály porovnat čárový kód USDA',
+  },
+  {
+    kind: 'Stránka',
+    id: 'nastroje',
+    title: 'Kalkulačky zdraví',
+    subtitle: 'Kofein, krevní tlak, bílkoviny, voda, hlasitost',
+    href: '/nastroje',
+    text: 'kalkulačka kalkulačky nástroje spočítat kofein tlak bílkoviny voda pitný režim hlasitost sluchátka',
+  },
+  {
+    kind: 'Stránka',
+    id: 'pricing',
+    title: 'Ceník aplikace',
+    subtitle: 'Zdarma a Pro',
+    href: '/pricing',
+    text: 'ceník cena tarif předplatné pro zdarma aplikace',
+  },
+  {
+    kind: 'Stránka',
+    id: 'jak-doporucujeme',
+    title: 'Jak doporučujeme produkty',
+    subtitle: 'Kritéria výběru a partnerské odkazy',
+    href: '/jak-doporucujeme',
+    text: 'jak doporučujeme produkty kritéria affiliate partnerské odkazy nezávislost',
+  },
+  {
+    kind: 'Stránka',
     id: 'looksmaxing',
     title: 'Looksmaxing bez mýtů',
     subtitle: 'Spánek, slunce, trénink, pleť, vlasy · mýty',
