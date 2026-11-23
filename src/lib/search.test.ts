@@ -55,3 +55,19 @@ describe('search tolerates Czech word endings', () => {
     expect(stems('caj')).toEqual([])
   })
 })
+
+describe('typo fix for queries with no results', () => {
+  it('replaces an unknown word by the closest title word', async () => {
+    const { correctQuery, editDistance } = await import('./search')
+    expect(correctQuery('brokolce')).toBe('brokolice')
+    expect(correctQuery('kofien')).toBe('kofein')
+    expect(correctQuery('vitamn d')).toBe('vitamín d')
+    expect(editDistance('kofien', 'kofein', 2)).toBe(1)
+  })
+  it('leaves known words, short words and nonsense alone', async () => {
+    const { correctQuery } = await import('./search')
+    expect(correctQuery('spánek')).toBeUndefined()
+    expect(correctQuery('xyzqw')).toBeUndefined()
+    expect(correctQuery('čj')).toBeUndefined()
+  })
+})

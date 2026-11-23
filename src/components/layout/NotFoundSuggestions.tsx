@@ -20,11 +20,16 @@ export function NotFoundSuggestions() {
       .trim()
     if (words.length < 3) return
     let alive = true
-    import('@/lib/search').then(({ search }) => {
-      // all words first; if nothing matches, the longest single word
+    import('@/lib/search').then(({ search, correctQuery }) => {
+      // all words first; then the longest single word; then a typo fix ("/food/brokolce" → Brokolice)
       const longest = words.split(' ').sort((a, b) => b.length - a.length)[0]
-      const hits = search(words, 4)
-      if (alive) setItems(hits.length ? hits : search(longest, 4))
+      let hits = search(words, 4)
+      if (!hits.length) hits = search(longest, 4)
+      if (!hits.length) {
+        const fix = correctQuery(words) ?? correctQuery(longest)
+        if (fix) hits = search(fix, 4)
+      }
+      if (alive) setItems(hits)
     })
     return () => {
       alive = false

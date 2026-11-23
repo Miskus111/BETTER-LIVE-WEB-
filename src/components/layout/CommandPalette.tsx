@@ -15,7 +15,7 @@ import {
   Search,
   X,
 } from 'lucide-react'
-import { search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
+import { correctQuery, search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
 
@@ -64,13 +64,19 @@ export function CommandPalette() {
     }
   }, [open])
 
-  const results: SearchItem[] = useMemo(
-    () =>
-      q.trim()
-        ? search(q)
-        : SUGGESTED.map((id) => SEARCH_INDEX.find((i) => i.id === id)).filter((x): x is SearchItem => !!x),
-    [q],
-  )
+  // a query with no results falls back to its typo fix ("brokolce" → brokolice), which the list then names
+  const { results, corrected } = useMemo((): { results: SearchItem[]; corrected?: string } => {
+    if (!q.trim())
+      return {
+        results: SUGGESTED.map((id) => SEARCH_INDEX.find((i) => i.id === id)).filter(
+          (x): x is SearchItem => !!x,
+        ),
+      }
+    const hits = search(q)
+    if (hits.length) return { results: hits }
+    const fix = correctQuery(q)
+    return fix ? { results: search(fix), corrected: fix } : { results: [] }
+  }, [q])
 
   useEffect(() => {
     list.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' })
@@ -131,7 +137,11 @@ export function CommandPalette() {
           </button>
         </div>
         <p className="text-subtle px-4 pt-3 font-mono text-[12px] tracking-wider uppercase">
-          {q.trim() ? `Výsledků: ${results.length}` : 'Doporučujeme'}
+          {q.trim()
+            ? corrected
+              ? `Výsledky pro „${corrected}“: ${results.length}`
+              : `Výsledků: ${results.length}`
+            : 'Doporučujeme'}
         </p>
         {/* the empty message lives outside the listbox (a listbox may only contain options) */}
         {results.length === 0 && q.trim() && (
