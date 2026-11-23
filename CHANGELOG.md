@@ -4,7 +4,7 @@
 
 - **Potraviny (466):** krkovice, bramborák, ovocný koláč, pizza, cornflakes, limonáda, tlačenka, polníček,
   kokosové mléko, strouhanka; vypočtená jídla vepřový a kuřecí řízek, smažený sýr, bramborová kaše, vepřo knedlo
-  zelo, kuře na paprice, čočka na kyselo. Americké obohacení skryté, obdoby označené, nezdravé jako zdroj
+  zelo, kuře na paprice, čočka na kyselo, segedínský guláš, rajská omáčka, palačinky. Americké obohacení skryté, obdoby označené, nezdravé jako zdroj
   nedoporučené.
 - **Oprava dat:** neznámá vláknina se už neukazuje jako 0 g („bez údajů“); fazole v tomatě, brokolice, hummus a
   celozrnný chléb mají úplné hodnoty (SR Legacy místo neúplného Foundation). Validace odmítne potravinu bez
