@@ -452,3 +452,9 @@ headcheese,171630,SR Legacy,"Headcheese, pork",Tlačenka (blízká obdoba),Head 
 cornsalad,169219,SR Legacy,"Cornsalad, raw",Polníček (kozlíček),Corn salad (lamb's lettuce),Zelenina,raw,porce 30 g==30,
 coconut-milk,170173,SR Legacy,"Nuts, coconut milk, canned (liquid expressed from grated meat and water)",Kokosové mléko (v konzervě),"Coconut milk, canned",Ořechy a semínka,canned,100 ml==100,
 breadcrumbs,174928,SR Legacy,"Bread, crumbs, dry, grated, plain",Strouhanka,Breadcrumbs,Obiloviny a pečivo,dried,1 lžíce 7 g==7,gluten
+pretzels,167555,SR Legacy,"Snacks, pretzels, hard, plain, salted",Slané tyčinky (preclíky),"Pretzels, salted",Obiloviny a pečivo,baked,porce 30 g==30,gluten
+granola-bar,167542,SR Legacy,"Snacks, granola bars, hard, plain",Müsli tyčinka,Granola bar,Obiloviny a pečivo,processed,1 tyčinka 25 g==25,gluten
+crackers-wholewheat,172749,SR Legacy,"Crackers, whole-wheat",Celozrnné krekry,Whole-wheat crackers,Obiloviny a pečivo,baked,porce 30 g==30,gluten
+wafers,174974,SR Legacy,"Cookies, vanilla wafers, higher fat",Oplatky (vanilkové),Vanilla wafers,Sladidla a sladkosti,baked,porce 30 g==30,"gluten, eggs, milk"
+pudding,169608,SR Legacy,"Puddings, vanilla, ready-to-eat",Pudink vanilkový (hotový),"Vanilla pudding, ready-to-eat",Sladidla a sladkosti,processed,kelímek 125 g==125,milk
+hamburger,170693,SR Legacy,"Fast foods, hamburger; single, regular patty; plain",Hamburger (fast food),"Hamburger, fast food",Obiloviny a pečivo,processed,1 kus==110,gluten

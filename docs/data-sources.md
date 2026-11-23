@@ -6,7 +6,7 @@ Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu zázn
 | Zdroj                                        | Verze       | Co z něj bereme                    | Licence                                                                           | Stav                                   |
 | -------------------------------------------- | ----------- | ---------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------- |
 | USDA FoodData Central — **Foundation Foods** | 2026-10-29  | 15 potravin (přednostně)           | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation)             | používáme                              |
-| USDA FoodData Central — **SR Legacy**        | 2018-04     | 438 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
+| USDA FoodData Central — **SR Legacy**        | 2018-04     | 444 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
 | Vypočtené recepty (BLWB)                     | —           | 13 českých jídel ze surovin výše   | vlastní výpočet                                                                   | používáme, `verified: false`           |
 | Open Food Facts                              | živé API v2 | balené výrobky podle čárového kódu | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) (databáze), obsah DbCL | jen dotaz z prohlížeče, nic neukládáme |
 | NutriDatabáze.cz (ÚZEI)                      | —           | —                                  | vlastní licenční podmínky                                                         | **nepoužíváme** (viz níže)             |
@@ -46,6 +46,10 @@ USDA popisuje americké výrobky. Kde se liší od českých, data upravujeme je
 
 - **Obohacená mouka a rýže („enriched“)** — v USA povinně obohacené folátem, železem a vitamíny B. Kde existuje
   neobohacený záznam FDC, používáme ho (rýže, těstoviny, krupice, mouka, nudle); u pečiva tyto živiny skryjeme.
+  Pozor u starších záznamů bez slova „enriched“: některé uvádějí přidanou kyselinu listovou jako „folate, food“
+  (např. preclíky). U pečiva a cereálií proto kontrolujeme i hladinu B1, B2 a B3 — hodnoty na úrovni obohacení
+  (B1 > 0,35 mg a B3 > 4 mg na 100 g u bílé mouky) znamenají obohacený výrobek. Celozrnné výrobky mají tyto hodnoty
+  přirozeně.
 - **Mléko s přidaným vitamínem D (a A)** — české mléko se neobohacuje; přidané vitamíny skryjeme.
 - **Výrobky obohacené výrobcem** (tavený sýr, margarín, syrovátkový protein) — obsah závisí na značce; skryjeme.
 - **Rostlinné nápoje** (sójový, mandlový, ovesný, rýžový) — americké záznamy jsou obohacené vápníkem a vitamíny D
