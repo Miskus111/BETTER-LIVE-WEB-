@@ -1,15 +1,29 @@
 # Changelog
 
+## 0.6.2 — Hledání, česká jídla, nejmenší telefony (25. 11. 2026)
+
+- **Potraviny (481):** preclíky, cereální tyčinka, celozrnné krekry, oplatky, pudink, hamburger, vepřová žebra,
+  jablečný štrúdl; vypočtená jídla segedínský guláš, rajská omáčka, palačinky, bramborové noky, vánočka, buchty
+  s povidly a brynzové halušky (brynza počítaná jako feta). Sladké, slané a tučné jako zdroj živin nedoporučené.
+- **Vyhledávání** (⌘K, seznam potravin, stránka 404) snese české koncovky („jablka“, „knedlíky“), běžná slova
+  („vajíčko“, „špagety“, „tvarůžky“) i překlepy („brokolce“ → brokolice, „Mysleli jste…?“); ⌘K je asi 10× rychlejší.
+- **Datum podle českého času:** dny a týdny (doplňky, tréninky, jídelníček) začínají o půlnoci v Praze.
+- **Nejmenší telefony (320 px):** horní lišta, dlouhé tlačítko na domovské stránce a kalkulačka kofeinu se vejdou;
+  test šířky obrazovky hlídá i 320 px a při chybě jmenuje prvek, který přečnívá.
+- **Přístupnost:** v seznamu potravin nepřeskakují úrovně nadpisů; automatická kontrola všech 585 stránek je čistá.
+- **Testy:** nikdy nevolají ostrou databázi ani placené API; jednotkové testy běží i v časovém pásmu UTC+14.
+- **Závislosti** aktualizované v rámci verzí, 0 známých zranitelností.
+
 ## 0.6.1 — Data, vyhledávání, chyby (23. 11. 2026)
 
 - **Potraviny (466):** krkovice, bramborák, ovocný koláč, pizza, cornflakes, limonáda, tlačenka, polníček,
   kokosové mléko, strouhanka; vypočtená jídla vepřový a kuřecí řízek, smažený sýr, bramborová kaše, vepřo knedlo
-  zelo, kuře na paprice, čočka na kyselo, segedínský guláš, rajská omáčka, palačinky, bramborové noky, vánočka, buchty s povidly, brynzové halušky; vepřová žebra a jablečný štrúdl (oba nedoporučené jako zdroj živin). Americké obohacení skryté, obdoby označené, nezdravé jako zdroj
+  zelo, kuře na paprice, čočka na kyselo. Americké obohacení skryté, obdoby označené, nezdravé jako zdroj
   nedoporučené.
 - **Oprava dat:** neznámá vláknina se už neukazuje jako 0 g („bez údajů“); fazole v tomatě, brokolice, hummus a
   celozrnný chléb mají úplné hodnoty (SR Legacy místo neúplného Foundation). Validace odmítne potravinu bez
   základních minerálů, pokud chybění nic nevysvětluje.
-- **Vyhledávání (⌘K)** snese české koncovky („palačinka“, „knedlíky“, „řízky“), běžná slova („vajíčko“, „špagety“) i překlepy („brokolce“ → brokolice, i na stránce 404), je asi 10× rychlejší a najde stránky Potraviny, Kalkulačky, Ceník a Jak doporučujeme; vyhledávání potravin je v adrese
+- **Vyhledávání (⌘K)** najde stránky Potraviny, Kalkulačky, Ceník a Jak doporučujeme; vyhledávání potravin je v adrese
   a dá se sdílet.
 - **SEO a sdílení:** drobečková navigace pro vyhledávače na všech typech stránek, náhledy odkazů s vlastním titulkem.
 - **Chyby:** přívětivé chybové obrazovky (stránka i celý web), ukládání nikdy neshodí obrazovku.
