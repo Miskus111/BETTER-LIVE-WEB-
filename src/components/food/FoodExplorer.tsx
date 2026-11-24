@@ -273,7 +273,7 @@ export function FoodExplorer() {
                 key={selected.id}
               >
                 <div className="fade-up">
-                  <FoodDetail food={selected} showPageLink />
+                  <FoodDetail food={selected} showPageLink headingLevel="h2" />
                 </div>
               </div>
             </div>

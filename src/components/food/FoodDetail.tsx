@@ -20,7 +20,7 @@ export function FoodDetail({
   afterSummary,
 }: {
   food: Food
-  headingLevel?: 'h1' | 'h3'
+  headingLevel?: 'h1' | 'h2' | 'h3'
   showPageLink?: boolean
   /** shown right under "V kostce" — the food page puts safety warnings (upper limits) here */
   afterSummary?: React.ReactNode
