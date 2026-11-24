@@ -12,6 +12,9 @@ describe('everyday food words', () => {
     ['krocan', 'Krůtí prsa'],
     ['energeťák', 'Energetický nápoj'],
     ['syrovátka', 'Syrovátkový protein (izolát)'],
+    ['tvarůžky', 'Limburský sýr (zrající)'],
+    ['broskve', 'Broskev'],
+    ['šlehačka', 'Smetana ke šlehání 33 %'],
   ])('"%s" finds %s in the food list and in ⌘K', (q, name) => {
     expect(names(q)).toContain(name)
     expect(search(q).map((r) => r.title)).toContain(name)
