@@ -45,8 +45,26 @@ for (const width of WIDTHS) {
       // app screens prefetch protected routes; logged out, those streams never close, so cap the wait
       await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})
       await page.waitForTimeout(900)
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
-      expect(overflow, `${path} overflows horizontally at ${width}px`).toBeLessThanOrEqual(0)
+      const { overflow, culprits } = await page.evaluate(() => {
+        const W = window.innerWidth
+        // the outermost elements that stick out (their parent fits), so a failure names its cause
+        const out = [...document.querySelectorAll('body *')].filter(
+          (e) => e.getBoundingClientRect().right > W + 0.5,
+        )
+        const roots = out.filter((e) => !out.includes(e.parentElement as Element)).slice(0, 4)
+        return {
+          overflow: document.documentElement.scrollWidth - W,
+          culprits: roots.map(
+            (e) =>
+              `<${e.tagName.toLowerCase()} class="${String(e.getAttribute('class') ?? '').slice(0, 60)}"> ` +
+              `right=${Math.round(e.getBoundingClientRect().right)} "${(e.textContent ?? '').trim().slice(0, 30)}"`,
+          ),
+        }
+      })
+      expect(
+        overflow,
+        `${path} overflows horizontally at ${width}px: ${culprits.join(' | ')}`,
+      ).toBeLessThanOrEqual(0)
       await page.screenshot({
         path: `test-results/screens/${width}-${name}.png`,
         fullPage: name !== 'home' && name !== 'home-heart',
