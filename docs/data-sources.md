@@ -7,7 +7,7 @@ Všechny nutriční hodnoty v aplikaci jsou dohledatelné ke konkrétnímu zázn
 | -------------------------------------------- | ----------- | ---------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------- |
 | USDA FoodData Central — **Foundation Foods** | 2026-10-29  | 15 potravin (přednostně)           | Public domain, [CC0 1.0](https://fdc.nal.usda.gov/data-documentation)             | používáme                              |
 | USDA FoodData Central — **SR Legacy**        | 2018-04     | 444 potravin                       | Public domain, CC0 1.0                                                            | používáme                              |
-| Vypočtené recepty (BLWB)                     | —           | 19 českých jídel ze surovin výše   | vlastní výpočet                                                                   | používáme, `verified: false`           |
+| Vypočtené recepty (BLWB)                     | —           | 20 českých jídel ze surovin výše   | vlastní výpočet                                                                   | používáme, `verified: false`           |
 | Open Food Facts                              | živé API v2 | balené výrobky podle čárového kódu | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) (databáze), obsah DbCL | jen dotaz z prohlížeče, nic neukládáme |
 | NutriDatabáze.cz (ÚZEI)                      | —           | —                                  | vlastní licenční podmínky                                                         | **nepoužíváme** (viz níže)             |
 
@@ -66,7 +66,7 @@ hodnotu nic nevysvětluje — tak se zachytí neúplný záznam zdroje.
 ## Vypočtené recepty
 
 `scripts/foods/recipes.ts` — svíčková, svíčková omáčka, houskový knedlík, hovězí guláš, bramboračka, vepřový
-a kuřecí řízek, smažený sýr, bramborová kaše, segedínský guláš, rajská omáčka, palačinky, bramborové noky, vánočka a buchty s povidly. U smažených jídel je množství vsáklého oleje odhad (asi 10 %
+a kuřecí řízek, smažený sýr, bramborová kaše, segedínský guláš, rajská omáčka, palačinky, bramborové noky, vánočka, buchty s povidly a brynzové halušky (brynza počítaná jako feta). U smažených jídel je množství vsáklého oleje odhad (asi 10 %
 hotového jídla) a stránka to uvádí.
 Hodnoty jsou vážený součet surovin z FDC na 100 g hotového jídla bez korekce na odpar a ztráty vařením.
 Chybějící hodnota suroviny = chybějící hodnota jídla (výjimka: voda a sůl jako přísada se počítají jako 0).

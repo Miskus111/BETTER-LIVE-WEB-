@@ -319,4 +319,19 @@ export const RECIPES: RecipeDef[] = [
     ],
     note: 'Kynuté těsto plněné povidly (počítáno jako džem), pečené. Bez korekce na ztrátu vody pečením.',
   },
+  {
+    key: 'halusky',
+    nameCs: 'Brynzové halušky se slaninou',
+    nameEn: 'Potato dumplings with sheep cheese and bacon',
+    portion: { label: '1 talíř', grams: 350 },
+    ingredients: [
+      { key: 'potato-raw', grams: 600 },
+      { key: 'flour-wheat', grams: 250 },
+      { key: 'egg', grams: 50 },
+      { key: 'salt', grams: 6 },
+      { key: 'feta', grams: 250 },
+      { key: 'bacon-cooked', grams: 80 },
+    ],
+    note: 'Halušky z nastrouhaných syrových brambor, mouky a vejce, uvařené ve vodě, s brynzou a opečenou slaninou. Brynza je počítaná jako feta (blízká obdoba ovčího sýra); bez korekce na vodu přijatou vařením.',
+  },
 ]
