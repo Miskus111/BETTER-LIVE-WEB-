@@ -181,6 +181,7 @@ export const SUSPECT_VALUES: Record<string, { keys: PanelKey[]; reason: string }
     reason: BRAND_FORTIFIED,
   },
   'bread-white': { keys: ENRICHMENT, reason: US_FLOUR },
+  'apple-strudel': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-rye': { keys: ENRICHMENT, reason: US_FLOUR },
   'bread-pumpernickel': { keys: ENRICHMENT, reason: US_FLOUR },
   roll: { keys: ENRICHMENT, reason: US_FLOUR },

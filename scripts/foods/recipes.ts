@@ -271,4 +271,17 @@ export const RECIPES: RecipeDef[] = [
     ],
     note: 'Těstíčko z mouky, mléka a vajec smažené na tenké vrstvě oleje; náplň (džem, tvaroh) se počítá zvlášť.',
   },
+  {
+    key: 'gnocchi',
+    nameCs: 'Bramborové noky (gnocchi)',
+    nameEn: 'Potato gnocchi',
+    portion: { label: 'porce', grams: 200 },
+    ingredients: [
+      { key: 'potato-boiled', grams: 700 },
+      { key: 'flour-wheat', grams: 200 },
+      { key: 'egg', grams: 50 },
+      { key: 'salt', grams: 5 },
+    ],
+    note: 'Těsto z vařených brambor, hladké mouky a vejce, uvařené ve vodě; bez omáčky.',
+  },
 ]
