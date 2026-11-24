@@ -48,8 +48,14 @@ for (const width of WIDTHS) {
       const { overflow, culprits } = await page.evaluate(() => {
         const W = window.innerWidth
         // the outermost elements that stick out (their parent fits), so a failure names its cause
+        // skip what sits inside a scrolling or clipping box: it can't widen the page
+        const clipped = (e: Element) => {
+          for (let x = e.parentElement; x && x !== document.body; x = x.parentElement)
+            if (getComputedStyle(x).overflowX !== 'visible') return true
+          return false
+        }
         const out = [...document.querySelectorAll('body *')].filter(
-          (e) => e.getBoundingClientRect().right > W + 0.5,
+          (e) => e.getBoundingClientRect().right > W + 0.5 && !clipped(e),
         )
         const roots = out.filter((e) => !out.includes(e.parentElement as Element)).slice(0, 4)
         return {
