@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // when each group of pages last changed in substance — bump it with real content changes, so search
   // engines re-crawl what changed (one date for everything teaches them to ignore lastmod)
   const lastModified = new Date('2026-11-18')
-  const foodsUpdated = new Date('2026-11-23') // new foods and Czech dishes, complete records, unknown fibre
+  const foodsUpdated = new Date('2026-11-25') // new foods and Czech dishes (ribs, strudel, gnocchi, vánočka, buchty, halušky), not-recommended sources
   const guidesUpdated = new Date('2026-11-21') // food picks, related guides, article dates
   const organsUpdated = new Date('2026-11-23') // rankings recalculated from the corrected food data
   return [
