@@ -98,12 +98,13 @@ export function Nav() {
           <Link
             href="/today"
             prefetch={false}
-            className="btn btn-primary !h-10 !px-4 !py-0 text-[14px]"
+            className="btn btn-primary !h-10 !px-4 !py-0 text-[14px] max-[359px]:!px-3"
             data-testid="nav-app"
           >
             <LayoutDashboard size={16} aria-hidden />
             <span className="hidden sm:inline">Moje aplikace</span>
-            <span className="sm:hidden">Aplikace</span>
+            {/* the smallest phones (< 360 px) get the icon only; the name stays for screen readers */}
+            <span className="max-[359px]:sr-only sm:hidden">Aplikace</span>
           </Link>
           <button
             type="button"
