@@ -284,9 +284,9 @@ export function FoodExplorer() {
       {compare.length > 0 && (
         <div className="mt-6">
           <div className="flex items-center justify-between gap-3">
-            <h3 className="text-[17px] font-medium">
+            <h2 className="text-[17px] font-medium">
               Porovnání ({q.per === 'portion' ? 'na porci' : 'na 100 g'})
-            </h3>
+            </h2>
             <button
               type="button"
               className="link inline-flex items-center gap-1 text-[13.5px]"

@@ -64,9 +64,9 @@ export function BarcodeLookup() {
 
   return (
     <section className="card mt-6 p-5" aria-labelledby="barcode" data-testid="barcode-lookup">
-      <h3 id="barcode" className="flex items-center gap-2 text-[17px] font-medium">
+      <h2 id="barcode" className="flex items-center gap-2 text-[17px] font-medium">
         <Barcode size={18} className="text-cyan" aria-hidden /> Balený výrobek podle čárového kódu
-      </h3>
+      </h2>
       <p className="text-muted mt-1 text-[14px]">
         Údaje z etiket sdílí komunita Open Food Facts. Jsou užitečné pro konkrétní značku, ale nejsou ověřené.
       </p>
