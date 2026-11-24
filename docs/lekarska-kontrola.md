@@ -4,7 +4,7 @@ Vygenerováno 2026-11-24 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1212 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1213 položek ke kontrole.
 
 ---
 
@@ -3188,6 +3188,7 @@ Web: /food/…
 - [ ] Jablečný štrúdl — cukr a tuk
 - [ ] Vánočka — cukr
 - [ ] Buchty s povidly — cukr
+- [ ] Brynzové halušky se slaninou — sůl a nasycené tuky
 
 Poznámky lékaře:
 

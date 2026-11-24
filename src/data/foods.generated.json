@@ -39828,6 +39828,100 @@
           "Vypočteno ze surovin podle receptu, bez korekce na ztráty při vaření. Hodnota živiny chybí, pokud ji nemá některá surovina (u vody a soli se chybějící hodnota počítá jako 0)."
         ]
       }
+    },
+    {
+      "id": "halusky",
+      "nameCs": "Brynzové halušky se slaninou",
+      "nameEn": "Potato dumplings with sheep cheese and bacon",
+      "synonyms": ["Potato dumplings with sheep cheese and bacon"],
+      "category": "Česká jídla",
+      "subcategory": "Vypočtený recept",
+      "state": "recipe",
+      "nutrients": {
+        "kcal": 206,
+        "kj": 861,
+        "protein": 8.77,
+        "fat": 7.78,
+        "satFat": 3.78,
+        "monoFat": 2.34,
+        "polyFat": 0.615,
+        "transFat": null,
+        "carbsAvailable": 23.3,
+        "carbsTotal": 24.8,
+        "sugars": 0.468,
+        "addedSugars": null,
+        "fiber": 1.57,
+        "alcohol": 0,
+        "water": 55.9,
+        "vitA": 32.5,
+        "retinol": 32.5,
+        "vitD": null,
+        "vitE": 0.117,
+        "vitK": 1.41,
+        "vitC": 9.56,
+        "b1": 0.119,
+        "b2": 0.229,
+        "b3": 1.66,
+        "b5": 0.556,
+        "b6": 0.266,
+        "b7": null,
+        "folate": 21,
+        "b12": 0.453,
+        "choline": 30.7,
+        "calcium": 112,
+        "phosphorus": 158,
+        "magnesium": 21.9,
+        "potassium": 281,
+        "sodium": 570,
+        "salt": 1.42,
+        "iron": 0.93,
+        "zinc": 1.14,
+        "copper": 0.104,
+        "manganese": 0.221,
+        "selenium": 15.1,
+        "iodine": null,
+        "epa": 0,
+        "dha": 0.002,
+        "ala": 0.078,
+        "omega6": 0.487,
+        "cholesterol": 40,
+        "lutein": 28.4,
+        "betaCarotene": 1.09,
+        "caffeine": 0
+      },
+      "portions": [
+        { "label": "1 talíř", "grams": 350, "source": "recipe" },
+        { "label": "100 g", "grams": 100, "source": "household" }
+      ],
+      "allergens": ["gluten", "eggs", "milk"],
+      "diet": { "vegan": false, "vegetarian": false, "glutenFree": false },
+      "completeProtein": false,
+      "liquid": false,
+      "liveCultures": null,
+      "energyFactors": null,
+      "recipe": {
+        "ingredients": [
+          { "id": "potato-raw", "grams": 600 },
+          { "id": "flour-wheat", "grams": 250 },
+          { "id": "egg", "grams": 50 },
+          { "id": "salt", "grams": 6 },
+          { "id": "feta", "grams": 250 },
+          { "id": "bacon-cooked", "grams": 80 }
+        ],
+        "note": "Halušky z nastrouhaných syrových brambor, mouky a vejce, uvařené ve vodě, s brynzou a opečenou slaninou. Brynza je počítaná jako feta (blízká obdoba ovčího sýra); bez korekce na vodu přijatou vařením."
+      },
+      "provenance": {
+        "source": "Calculated recipe",
+        "sourceId": "halusky",
+        "sourceVersion": "BLWB recipe calculation from USDA FoodData Central ingredients",
+        "sourceDescription": "potato-raw 600 g, flour-wheat 250 g, egg 50 g, salt 6 g, feta 250 g, bacon-cooked 80 g",
+        "retrievedAt": "2026-10-23",
+        "licence": "USDA FoodData Central — public domain (CC0 1.0)",
+        "verified": false,
+        "notes": [
+          "Vypočteno ze surovin podle receptu, bez korekce na ztráty při vaření. Hodnota živiny chybí, pokud ji nemá některá surovina (u vody a soli se chybějící hodnota počítá jako 0)."
+        ]
+      }
     }
   ]
 }
