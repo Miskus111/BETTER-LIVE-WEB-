@@ -80,7 +80,7 @@ export function CaffeineCalculator() {
 
       <ul className="mt-4 grid gap-2">
         {items.map((it) => (
-          <li key={it.key} className="flex flex-wrap items-center gap-2">
+          <li key={it.key} className="flex min-w-0 flex-wrap items-center gap-2">
             <select
               value={it.drink}
               onChange={(e) =>
@@ -88,7 +88,7 @@ export function CaffeineCalculator() {
                   a.map((x) => (x.key === it.key ? { ...x, drink: e.target.value as DrinkId } : x)),
                 )
               }
-              className="field !w-auto flex-1 !py-2 text-[14.5px]"
+              className="field !w-auto max-w-full min-w-0 flex-1 basis-full !py-2 text-[14.5px] sm:basis-0"
               aria-label="Nápoj"
             >
               {DRINKS.map((d) => (

@@ -68,7 +68,7 @@ export function SupplementsTeaser() {
         ))}
       </p>
       <div className="mt-6 flex justify-center">
-        <Link href="/doplnky" className="btn btn-primary">
+        <Link href="/doplnky" className="btn btn-primary text-center whitespace-normal">
           Všechny doplňky a referenční hodnoty <ArrowRight size={15} aria-hidden />
         </Link>
       </div>
