@@ -4,7 +4,7 @@ Vygenerováno 2026-11-24 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
-Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1210 položek ke kontrole.
+Obsah: 60 průvodců, stránky potravin, 20 doplňků — 1212 položek ke kontrole.
 
 ---
 
@@ -3186,6 +3186,8 @@ Web: /food/…
 - [ ] Hamburger (fast food) — sůl a nasycené tuky
 - [ ] Vepřová žebra, dušená — nasycené tuky
 - [ ] Jablečný štrúdl — cukr a tuk
+- [ ] Vánočka — cukr
+- [ ] Buchty s povidly — cukr
 
 Poznámky lékaře:
 
