@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:data": "tsx --tsconfig scripts/tsconfig.json scripts/check-data.ts",
+    "check:unused": "tsx --tsconfig scripts/tsconfig.json scripts/check-unused.ts",
     "gen:placeholders": "tsx --tsconfig scripts/tsconfig.json scripts/gen-placeholders.tsx",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
