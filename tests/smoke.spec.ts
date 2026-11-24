@@ -674,3 +674,14 @@ test('food list offers a typo fix when nothing matches', async ({ page }) => {
   await expect(page).toHaveURL(/[?&]q=jogurt/)
   await expect(page.getByTestId('food-count')).not.toHaveText(/^0 z/)
 })
+
+test('home-screen icon for iPhone and the organisation logo are public PNGs', async ({ page, request }) => {
+  await page.goto('/')
+  const apple = page.locator('link[rel="apple-touch-icon"]')
+  await expect(apple).toHaveAttribute('sizes', '180x180')
+  for (const href of [await apple.getAttribute('href'), '/pwa-icon/512']) {
+    const res = await request.get(href!, { maxRedirects: 0 })
+    expect(res.status(), href!).toBe(200)
+    expect(res.headers()['content-type'], href!).toBe('image/png')
+  }
+})
