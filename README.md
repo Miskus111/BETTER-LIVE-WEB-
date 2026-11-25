@@ -24,6 +24,7 @@ npm run dev            # http://localhost:3000
 | `npm run build` / `start`  | Produkční build (vše staticky generované)                                                             |
 | `npm run lint`             | ESLint                                                                                                |
 | `npm run typecheck`        | `tsc --noEmit` (strict)                                                                               |
+| `npm run check:unused`     | Selže, když nějaký soubor v `src/` nepoužívá žádná stránka ani skript (testy se nepočítají)           |
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy)                          |
 | `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet)                          |
 | `npm run review:doc`       | Podklad pro lékařskou kontrolu (`docs/lekarska-kontrola.md` + `.docx`); CI hlídá, že je aktuální      |
@@ -34,14 +35,14 @@ npm run dev            # http://localhost:3000
 | `npm run gen:placeholders` | Znovu vygeneruje ilustrace potravin                                                                   |
 | `npm run images:todo`      | Vygeneruje IMAGES_TODO.md                                                                             |
 | `npm test`                 | Vitest unit tests                                                                                     |
-| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)                            |
+| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 320/390/768/1440 (build do `.next-test`)                        |
 
 První běh Playwrightu: `npx playwright install chromium`.
 
 ## Testy
 
 GitHub Actions (`.github/workflows/ci.yml`) spouští při každém pushi na `main` a u pull requestů lint, typecheck,
-unit testy, `check:data`, `foods:validate`, kontrolu aktuálnosti podkladu pro lékaře a celou e2e sadu (Playwright:
+kontrolu nepoužitého kódu, unit testy (i v časovém pásmu UTC+14), `check:data`, `foods:validate`, kontrolu aktuálnosti podkladu pro lékaře a celou e2e sadu (Playwright:
 smoke testy, axe, CSP, strukturovaná data, náhledy odkazů, screenshoty 390/768/1440). Týdně (`links.yml`) běží
 `check:links`, `check:sources` a `npm audit`.
 
