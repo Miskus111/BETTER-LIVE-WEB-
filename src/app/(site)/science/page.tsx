@@ -1,7 +1,7 @@
 import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { NUTRIENT_LIST } from '@/data/nutrients'
 import { ORGANS } from '@/data/organs'
 import { ALL_SOURCES } from '@/data/sources'

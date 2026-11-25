@@ -1,6 +1,6 @@
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { notFound } from 'next/navigation'
 import { ChevronRight } from 'lucide-react'
 import { ORGAN_BY_ID, ORGANS } from '@/data/organs'

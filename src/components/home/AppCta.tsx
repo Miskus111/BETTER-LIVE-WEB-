@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { isAiConfigured } from '@/lib/ai/client'
+import Link from '@/components/ui/Link'
+import { isCoachLive } from '@/lib/features'
 import { Activity, ArrowRight, Dumbbell, FlaskConical, MessageCircle, Pill, Utensils } from 'lucide-react'
 
 const FEATURES = [
@@ -85,7 +85,7 @@ export function AppCta({ compact = false }: { compact?: boolean }) {
                   <Icon size={18} className="text-cyan" aria-hidden />
                   <p className="mt-2 flex items-center gap-2 text-[15px] font-medium">
                     {title}
-                    {title === 'AI kouč' && !isAiConfigured() && (
+                    {title === 'AI kouč' && !isCoachLive() && (
                       <span className="border-line text-subtle rounded-full border px-2 py-0.5 font-mono text-[11px]">
                         brzy
                       </span>

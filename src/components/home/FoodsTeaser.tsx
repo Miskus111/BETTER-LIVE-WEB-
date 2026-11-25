@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight, Search } from 'lucide-react'
 import { FOODS } from '@/data/foods'
 import { CATEGORIES } from '@/lib/foods/categories'

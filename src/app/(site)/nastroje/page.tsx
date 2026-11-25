@@ -1,7 +1,7 @@
 import { withShare } from '@/lib/share-meta'
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ChevronRight } from 'lucide-react'
 import { ToolCards } from '@/components/guides/ToolCards'
 import { TOOLS } from '@/data/tools'

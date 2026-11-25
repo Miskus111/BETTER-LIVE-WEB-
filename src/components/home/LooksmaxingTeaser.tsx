@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { AlertTriangle, ArrowRight } from 'lucide-react'
 import { MYTHS, PILLARS } from '@/data/looksmaxing'
 import { EvidenceBadge } from '@/components/ui/EvidenceBadge'

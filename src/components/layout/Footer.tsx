@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ORGANS } from '@/data/organs'
 import { NUTRIENTS } from '@/data/nutrients'
 import { SUPPLEMENT_NUTRIENTS, supplementHref } from '@/data/supplements'

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import type { Food } from '@/data/types'
 import { FOOD_DETAILS } from '@/data/food-details'
 import { PANEL_BY_KEY, type PanelKey } from '@/lib/foods/panel'

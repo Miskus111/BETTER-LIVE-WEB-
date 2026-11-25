@@ -1,7 +1,7 @@
 import { BreadcrumbLd } from '@/components/seo/BreadcrumbLd'
 import { withShare } from '@/lib/share-meta'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { BadgeCheck, FlaskConical, Gauge, HandCoins, ScanSearch, ShieldAlert } from 'lucide-react'
 import { AFFILIATE_DISCLOSURE } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'

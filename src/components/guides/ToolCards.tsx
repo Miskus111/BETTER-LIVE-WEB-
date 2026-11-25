@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/ui/Link'
 import { ArrowRight, Beef, Coffee, Droplet, Headphones, HeartPulse } from 'lucide-react'
 import { TOOLS } from '@/data/tools'
 
