@@ -11,6 +11,7 @@ import { affiliateUrl } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'
 import { FoodDetail } from '@/components/food/FoodDetail'
 import { foodTitle } from '@/lib/foods/title'
+import { fdcUrl } from '@/lib/foods/source'
 import { FoodNutritionPanel } from '@/components/food/FoodNutritionPanel'
 import { RawCookedCompare } from '@/components/food/RawCookedCompare'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -174,12 +175,7 @@ export default async function FoodPage({ params }: Params) {
             {p.source === 'USDA FoodData Central' ? (
               <>
                 Zdroj:{' '}
-                <a
-                  className="link"
-                  href={`https://fdc.nal.usda.gov/food-details/${p.sourceId}/nutrients`}
-                  target="_blank"
-                  rel="noopener"
-                >
+                <a className="link" href={fdcUrl(p.sourceId, p.sourceVersion)} target="_blank" rel="noopener">
                   USDA FoodData Central, FDC {p.sourceId}
                 </a>
                 , {p.sourceVersion} — „{p.sourceDescription}“ ({STATE_CS[details.state] ?? details.state}).
