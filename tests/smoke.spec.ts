@@ -745,3 +745,31 @@ test('home-screen icon for iPhone and the organisation logo are public PNGs', as
     expect(res.headers()['content-type'], href!).toBe('image/png')
   }
 })
+
+test('keyboard: the search dialog keeps Tab inside, closes on Escape and returns focus to its button', async ({
+  page,
+}) => {
+  await page.goto('/')
+  const button = page.getByRole('button', { name: /Hledat průvodce/ })
+  await button.focus()
+  await page.keyboard.press('Enter')
+  const dialog = page.getByRole('dialog')
+  await expect(dialog.getByRole('combobox')).toBeFocused()
+  for (const key of [
+    'Tab',
+    'Tab',
+    'Tab',
+    'Tab',
+    'Shift+Tab',
+    'Shift+Tab',
+    'Shift+Tab',
+    'Shift+Tab',
+    'Shift+Tab',
+  ]) {
+    await page.keyboard.press(key)
+    expect(await page.evaluate(() => !!document.activeElement?.closest('[role="dialog"]')), key).toBe(true)
+  }
+  await page.keyboard.press('Escape')
+  await expect(dialog).toHaveCount(0)
+  await expect(button).toBeFocused()
+})
