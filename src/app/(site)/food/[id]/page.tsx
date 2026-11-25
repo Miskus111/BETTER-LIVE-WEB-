@@ -10,6 +10,7 @@ import { shopLinksForFood } from '@/lib/foods/shop'
 import { affiliateUrl } from '@/data/affiliate'
 import { RETAILERS } from '@/data/retailers'
 import { FoodDetail } from '@/components/food/FoodDetail'
+import { foodTitle } from '@/lib/foods/title'
 import { FoodNutritionPanel } from '@/components/food/FoodNutritionPanel'
 import { RawCookedCompare } from '@/components/food/RawCookedCompare'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -30,10 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params
   const f = FOOD_BY_ID[id]
   if (!f) return {}
-  // search results cut titles at about 60 characters (" · BLWB" is added): the approximation note stays on the
-  // page, and long names get the shorter "na 100 g"
-  const name = f.name.replace(/\s*\(blízká obdoba\)/, '')
-  const title = name.length > 32 ? `${name} — na 100 g` : `${name} — nutriční hodnoty na 100 g`
+  const title = foodTitle(f)
   const description = `${f.name} (${f.basis}): ${f.kcal} kcal, ${String(f.macros.protein).replace('.', ',')} g bílkovin na 100 g. Vitamíny, minerály, porce a orgány, které podporují. ${f.recipe ? 'Vypočteno z receptu (suroviny z USDA FoodData Central).' : 'Zdroj: USDA FoodData Central.'}`
   return {
     title,
