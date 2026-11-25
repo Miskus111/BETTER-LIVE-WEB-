@@ -1,6 +1,6 @@
 # Odborná kontrola zdravotního obsahu — BLWB
 
-Vygenerováno 2026-11-24 přímo z dat webu (`npm run review:doc`).
+Vygenerováno 2026-11-25 přímo z dat webu (`npm run review:doc`).
 
 **Jak kontrolovat:** U každé položky zaškrtněte, že je věcně správná a bezpečná pro laického čtenáře. Když ne, napište k ní krátkou poznámku. U doporučení je uvedená úroveň důkazů, kterou web čtenáři ukazuje (Prokázané / Pravděpodobné / Předběžné) — posuďte prosím i ji.
 
