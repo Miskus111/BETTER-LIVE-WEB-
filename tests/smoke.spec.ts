@@ -773,3 +773,16 @@ test('keyboard: the search dialog keeps Tab inside, closes on Escape and returns
   await expect(dialog).toHaveCount(0)
   await expect(button).toBeFocused()
 })
+
+test('keyboard: Escape closes the mobile menu and returns focus to its button', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+  const toggle = page.getByRole('button', { name: 'Otevřít menu' })
+  await toggle.focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('#mobile-menu')).toBeVisible()
+  await page.keyboard.press('Tab')
+  await page.keyboard.press('Escape')
+  await expect(page.locator('#mobile-menu')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Otevřít menu' })).toBeFocused()
+})
