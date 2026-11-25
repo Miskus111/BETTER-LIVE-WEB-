@@ -18,6 +18,7 @@ import {
 import { correctQuery, search, SEARCH_INDEX, type SearchItem, type SearchKind } from '@/lib/search'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
+import { useEscape, useFocusTrap } from '@/lib/dialog'
 
 const ICON: Record<SearchKind, typeof Apple> = {
   Orgán: HeartPulse,
@@ -45,6 +46,7 @@ export function CommandPalette() {
   const [active, setActive] = useState(0)
   const input = useRef<HTMLInputElement>(null)
   const list = useRef<HTMLUListElement>(null)
+  const navigating = useRef(false)
 
   const [wasOpen, setWasOpen] = useState(open)
   if (wasOpen !== open) {
@@ -55,14 +57,28 @@ export function CommandPalette() {
     }
   }
   useEffect(() => {
-    if (open) {
-      requestAnimationFrame(() => input.current?.focus())
-      document.body.style.overflow = 'hidden'
-    } else document.body.style.overflow = ''
+    if (!open) return
+    // whatever opened the search gets the keyboard focus back when it closes — unless a result was chosen: then
+    // the page changes (and the Enter that chose it would press the refocused search button and reopen it)
+    const opener = document.activeElement
+    navigating.current = false
+    requestAnimationFrame(() => input.current?.focus())
+    document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
+      if (
+        !navigating.current &&
+        opener instanceof HTMLElement &&
+        opener !== document.body &&
+        opener.isConnected
+      )
+        opener.focus()
     }
   }, [open])
+  // Escape closes from anywhere in the dialog; Tab and Shift+Tab stay inside it
+  useEscape(() => setSearch(false), open)
+  const box = useRef<HTMLDivElement>(null)
+  useFocusTrap(box, open)
 
   // a query with no results falls back to its typo fix ("brokolce" → brokolice), which the list then names
   const { results, corrected } = useMemo((): { results: SearchItem[]; corrected?: string } => {
@@ -85,6 +101,7 @@ export function CommandPalette() {
   if (!open) return null
 
   const goTo = (href: string) => {
+    navigating.current = true
     setSearch(false)
     router.push(href)
   }
@@ -96,6 +113,7 @@ export function CommandPalette() {
       onMouseDown={(e) => e.target === e.currentTarget && setSearch(false)}
     >
       <div
+        ref={box}
         role="dialog"
         aria-modal="true"
         aria-label="Hledání"
@@ -118,7 +136,6 @@ export function CommandPalette() {
                 e.preventDefault()
                 setActive((a) => Math.max(0, a - 1))
               } else if (e.key === 'Enter' && results[active]) go(results[active])
-              else if (e.key === 'Escape') setSearch(false)
             }}
             placeholder="Hledat průvodce, doplňky, orgány…"
             className="placeholder:text-subtle h-14 flex-1 bg-transparent text-[16px] outline-none"
