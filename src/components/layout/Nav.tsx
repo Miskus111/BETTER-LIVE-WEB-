@@ -2,7 +2,8 @@
 
 import Link from '@/components/ui/Link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useEscape } from '@/lib/dialog'
 import { LayoutDashboard, Menu, Search, X } from 'lucide-react'
 import { useUi } from '@/lib/store/ui'
 import { cx } from '@/lib/format'
@@ -22,6 +23,12 @@ export function Nav() {
   const pathname = usePathname()
   const setSearch = useUi((s) => s.setSearch)
   const [open, setOpen] = useState(false)
+  // Escape closes the mobile menu and puts the keyboard back on its button
+  const menuButton = useRef<HTMLButtonElement>(null)
+  useEscape(() => {
+    setOpen(false)
+    menuButton.current?.focus()
+  }, open)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -111,6 +118,7 @@ export function Nav() {
             className="border-line grid h-10 w-10 place-items-center rounded-full border lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
+            ref={menuButton}
             aria-label={open ? 'Zavřít menu' : 'Otevřít menu'}
             onClick={() => setOpen((o) => !o)}
           >
