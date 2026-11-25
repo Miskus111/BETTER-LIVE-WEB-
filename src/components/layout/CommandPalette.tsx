@@ -101,7 +101,7 @@ export function CommandPalette() {
         aria-label="Hledání"
         className="glass fade-up bg-ink-3/95 w-full max-w-xl overflow-hidden rounded-2xl shadow-2xl shadow-black/60"
       >
-        <div className="border-line flex items-center gap-3 border-b px-4">
+        <div className="border-line focus-within:border-cyan flex items-center gap-3 border-b px-4 transition-colors">
           <Search size={18} className="text-subtle" aria-hidden />
           <input
             ref={input}
