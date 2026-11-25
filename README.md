@@ -19,6 +19,7 @@ npm run dev            # http://localhost:3000
 | `npm run build` / `start`  | Produkční build (vše staticky generované)                                                             |
 | `npm run lint`             | ESLint                                                                                                |
 | `npm run typecheck`        | `tsc --noEmit` (strict)                                                                               |
+| `npm run check:unused`     | Selže, když nějaký soubor v `src/` nepoužívá žádná stránka ani skript (testy se nepočítají)           |
 | `npm run check:data`       | Validace dat a vědeckých pravidel (zakázaná tvrzení CZ/EN, reference, formy)                          |
 | `npm run check:sources`    | Každá citace z PubMed vede na studii, kterou jmenuje (autor a rok; internet)                          |
 | `npm run review:doc`       | Podklad pro lékařskou kontrolu (`docs/lekarska-kontrola.md` + `.docx`); CI hlídá, že je aktuální      |
@@ -34,7 +35,7 @@ npm run dev            # http://localhost:3000
 | `npm run seed:reference`   | Load exercise/food/supplement libraries into Supabase (service key)                                   |
 | `npm run seed:demo`        | Create/refresh the demo user                                                                          |
 | `npm run gen:seed`         | Regenerate `supabase/seed.sql` from `src/data`                                                        |
-| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 390/768/1440 (build do `.next-test`)                            |
+| `npm run test:e2e`         | Playwright: smoke testy + screenshoty 320/390/768/1440 (build do `.next-test`)                        |
 
 První běh Playwrightu: `npx playwright install chromium`.
 
@@ -67,7 +68,8 @@ key the app still works: the coach shows a notice and Labs accepts pasted text o
 ## Tests
 
 GitHub Actions (`.github/workflows/ci.yml`) spouští při každém pushi na `main` a u pull requestů lint, typecheck,
-unit testy, `check:data`, `foods:validate` a celou e2e sadu. Při selhání se přiloží report Playwrightu.
+kontrolu nepoužitého kódu, unit testy (i v časovém pásmu UTC+14), `check:data`, `foods:validate`, shodu lékařského
+podkladu s obsahem a celou e2e sadu (bez ostré databáze a placeného API). Při selhání se přiloží report Playwrightu.
 
 `npm test` runs unit tests. `npm run test:e2e` builds into `.next-test` and starts it with `ENABLE_PREVIEW=1`, which
 enables the test-only `/preview/<screen>` pages used to test signed-in screens without a login. Never set
